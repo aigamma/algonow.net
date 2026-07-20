@@ -28,11 +28,27 @@ export const PUZZLES = {
     vite: 'astar-manhattan',
     html: 'astar-manhattan/index.html',
   },
+  '/annealing-cooling/': {
+    slug: 'annealing-cooling',
+    number: 2,
+    algorithm: 'Simulated annealing',
+    heuristic: 'Geometric cooling schedule',
+    domain: 'Traveling-salesman tours',
+    oneLiner:
+      'A random walk through tour space that accepts bad trades while hot, refuses them when cold, and anneals into a near-optimal loop.',
+    description:
+      'Simulated annealing paired with a geometric cooling schedule on the traveling-salesman problem: watch a live tour untangle at three cooling rates, with a tested Python solution and a spoken lesson.',
+    listenMinutes: 7,
+    time: 'O(k · n)',
+    space: 'O(n)',
+    baseline: 'Held-Karp / greedy',
+    vite: 'annealing-cooling',
+    html: 'annealing-cooling/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 export const ROADMAP = [
-  { algorithm: 'Simulated annealing', heuristic: 'Geometric cooling schedule', domain: 'Traveling-salesman tours' },
   { algorithm: 'Minimax', heuristic: 'Alpha-beta pruning order', domain: 'Adversarial game trees' },
   { algorithm: 'Backtracking search', heuristic: 'Minimum remaining values', domain: 'Sudoku and constraint grids' },
   { algorithm: 'Branch and bound', heuristic: 'Fractional relaxation bound', domain: 'The 0/1 knapsack' },

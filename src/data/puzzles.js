@@ -96,11 +96,27 @@ export const PUZZLES = {
     vite: 'branchbound-fractional',
     html: 'branchbound-fractional/index.html',
   },
+  '/mcts-ucb1/': {
+    slug: 'mcts-ucb1',
+    number: 6,
+    algorithm: 'Monte Carlo tree search',
+    heuristic: 'UCB1 exploration bonus',
+    domain: 'Games too big to solve',
+    oneLiner:
+      'Learn the tree by playing it: random playouts grade the moves, and a bandit formula decides which branch has earned the next simulation.',
+    description:
+      'Monte Carlo tree search paired with the UCB1 exploration bonus: watch a search tree grow asymmetrically under three exploration constants, with a tested Python solution and a spoken lesson.',
+    listenMinutes: 8,
+    time: 'O(k · d)',
+    space: 'O(k)',
+    baseline: 'Uniform sampling',
+    vite: 'mcts-ucb1',
+    html: 'mcts-ucb1/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 export const ROADMAP = [
-  { algorithm: 'Monte Carlo tree search', heuristic: 'UCB1 exploration bonus', domain: 'Games too big to solve' },
   { algorithm: 'Greedy best-first search', heuristic: 'Straight-line distance', domain: 'Fast, non-optimal routing' },
   { algorithm: 'Beam search', heuristic: 'Top-k frontier pruning', domain: 'Sequence decoding' },
   { algorithm: 'First-fit decreasing', heuristic: 'Descending size order', domain: 'Bin packing' },

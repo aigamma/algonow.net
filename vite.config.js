@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { PUZZLES, VITE_ENTRIES, SITE_HOST, SITE_NAME } from './src/data/puzzles.js';
+import { PUZZLES, VITE_ENTRIES, EXTRA_PAGES, SITE_HOST, SITE_NAME } from './src/data/puzzles.js';
 
 // Emit dist/sitemap.xml at build time from the canonical registry, so a pair
 // added to puzzles.js becomes search-discoverable on the next deploy without
@@ -11,7 +11,7 @@ function sitemapPlugin() {
     name: 'sitemap-generator',
     apply: 'build',
     generateBundle() {
-      const urls = ['/', ...Object.keys(PUZZLES)].map((p) => `${SITE_HOST}${p}`);
+      const urls = ['/', ...EXTRA_PAGES, ...Object.keys(PUZZLES)].map((p) => `${SITE_HOST}${p}`);
       const xml = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',

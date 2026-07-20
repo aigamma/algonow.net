@@ -685,6 +685,120 @@ code, kbd, pre { font-family: var(--font-mono); }
 }
 .next-pair a.np-link { font-family: var(--font-mono); font-weight: 600; }
 
+/* ---------- atlas teaser (homepage) ---------- */
+
+.atlas-teaser {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+  background:
+    radial-gradient(40rem 20rem at 90% -40%, rgba(var(--algo-rgb), 0.08), transparent 70%),
+    var(--panel);
+  border: 1px solid var(--line-soft);
+  border-left: 3px solid var(--algo);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.7rem;
+  margin: 0 0 3rem;
+  color: var(--ink);
+}
+.atlas-teaser:hover { border-color: rgba(var(--algo-rgb), 0.45); text-decoration: none; }
+.atlas-teaser .at-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.atlas-teaser .at-headline {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  margin: 0.5rem 0 0.4rem;
+}
+.atlas-teaser .at-headline b { color: var(--algo); }
+.atlas-teaser .at-sub { color: var(--ink-dim); margin: 0; max-width: 42rem; font-size: 0.96rem; }
+.atlas-teaser .at-cta {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--algo);
+  white-space: nowrap;
+}
+
+/* ---------- atlas page ---------- */
+
+.atlas-controls {
+  position: sticky;
+  top: 3.4rem;
+  z-index: 30;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  padding: 0.9rem 0;
+  margin-bottom: 1rem;
+  background: rgba(10, 13, 19, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line-soft);
+}
+.atlas-search {
+  flex: 1;
+  min-width: 14rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  padding: 0.6em 0.9em;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.atlas-search::placeholder { color: var(--ink-faint); }
+.atlas-tiers { display: flex; gap: 0.4rem; }
+.atlas-tiers .btn { font-size: 0.78rem; padding: 0.5em 0.8em; }
+.atlas-count {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  margin-left: auto;
+}
+
+.atlas-family { margin: 0 0 2rem; }
+.atlas-family .eyebrow { position: sticky; top: 6.8rem; }
+
+.atlas-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; }
+.atlas-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) 5.5rem auto;
+  gap: 0.5rem 1rem;
+  align-items: baseline;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+}
+.atlas-entry:nth-child(odd) { background: rgba(255, 255, 255, 0.015); }
+.atlas-entry.atlas-live { background: rgba(var(--path-rgb), 0.07); outline: 1px solid rgba(var(--path-rgb), 0.2); }
+.atlas-entry .ae-pair { font-family: var(--font-mono); font-size: 0.88rem; line-height: 1.4; }
+.atlas-entry .ae-pair .t-x { color: var(--ink-faint); }
+.atlas-entry .ae-domain { color: var(--ink-dim); font-size: 0.9rem; }
+.atlas-entry .ae-tier {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: right;
+}
+.atlas-entry .ae-tier-1 { color: var(--path); }
+.atlas-entry .ae-tier-2 { color: var(--ink-dim); }
+.atlas-entry .ae-tier-3 { color: var(--ink-faint); }
+.atlas-entry .ae-live-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--path);
+}
+
 /* ---------- responsive + motion ---------- */
 
 @media (max-width: 760px) {
@@ -692,6 +806,13 @@ code, kbd, pre { font-family: var(--font-mono); }
   .pair-split, .tradeoffs { grid-template-columns: 1fr; }
   .puzzle-card .pz-row { grid-template-columns: 1fr; gap: 0.15rem; }
   .listen-player { right: 0.6rem; bottom: 0.6rem; }
+  .atlas-entry {
+    grid-template-columns: 1fr auto;
+    gap: 0.15rem 0.8rem;
+  }
+  .atlas-entry .ae-domain { grid-column: 1; color: var(--ink-faint); font-size: 0.84rem; }
+  .atlas-entry .ae-tier { grid-column: 2; grid-row: 1; }
+  .atlas-family .eyebrow { top: 6.4rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

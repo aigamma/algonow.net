@@ -5,6 +5,27 @@ every entry is either a standalone algorithm or an algorithm × heuristic
 pair. It is the strategy document Eric asked for, kept as data so the check
 script can hold it to account.
 
+**Current size: 2,047 unique entries across 34 families** (run `npm run check`
+for the live count; it prints per-file totals and the grand total). The map is
+deliberately wide, spanning far past interview and exam canon into exotic and
+creative problem-solving: unconventional computing (DNA, membrane, slime mold,
+reservoir, memristor, optical, chemical), quantum, the full nature-inspired
+metaheuristic zoo, and recreational puzzle solvers, alongside the classical
+core. The 34 families:
+
+sorting · search-structures · graphs-paths · graphs-structure · metaheuristics
+· game-search · backtracking-cp · strings · computational-geometry · numerical
+· machine-learning · probabilistic-streaming · dynamic-programming ·
+cryptography-number-theory · compression-coding · distributed-concurrent ·
+quantum · unconventional-computing · online-competitive · scheduling-operations
+· computational-biology · signal-image · graphics-rendering · databases-query ·
+automata-languages · networking · robotics-planning · combinatorial-enumeration
+· game-theory-social-choice · stochastic-simulation · information-retrieval-nlp
+· approximation · fault-tolerance-storage · puzzles-recreational.
+
+Growing it further is a matter of adding entries to existing files or new
+family files; the check enforces the invariants on every commit.
+
 ## Entry schema
 
 One JSON object per line inside a per-family array:

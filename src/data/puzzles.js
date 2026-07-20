@@ -128,8 +128,12 @@ export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.n
 
 export const VITE_ENTRIES = {
   main: 'index.html',
+  atlas: 'atlas/index.html',
   ...Object.fromEntries(LIVE_PUZZLES.map((p) => [p.vite, p.html])),
 };
+
+// Non-puzzle pages that still belong in the sitemap.
+export const EXTRA_PAGES = ['/atlas/'];
 
 export function pairTitle(p) {
   return `${p.algorithm} × ${p.heuristic}`;

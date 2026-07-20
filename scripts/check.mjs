@@ -79,6 +79,10 @@ if (!existsSync('dist/assets')) {
     const size = gz(`dist/assets/${a}`);
     if (a.startsWith('vendor-')) budget(`vendor ${a}`, size, 70 * 1024);
     else if (a.endsWith('.css')) budget(`css ${a}`, size, 14 * 1024);
+    // The atlas page embeds the whole 2,000+ entry catalog; it is a single
+    // data-heavy browse page (not on the PageSpeed-critical path the homepage
+    // and puzzle pages share), so it carries its own budget.
+    else if (a.startsWith('atlas-')) budget(`atlas chunk ${a}`, size, 60 * 1024);
     else if (a.endsWith('.js')) budget(`chunk ${a}`, size, 20 * 1024);
   }
   budget('html index.html', gz('dist/index.html'), 2 * 1024);
@@ -140,6 +144,23 @@ if (existsSync(atlasDir)) {
     if (!seen.has(key)) fail(`live pair missing from atlas: ${p.algorithm} × ${p.heuristic}`);
   }
   ok(`atlas total: ${total} unique entries (live pairs covered)`);
+
+  // The homepage teaser reads a tiny committed summary (importing the full
+  // atlas would bloat the homepage bundle past its budget). Keep it honest.
+  const summaryPath = 'src/data/atlas-summary.json';
+  if (existsSync(summaryPath)) {
+    const summary = JSON.parse(readFileSync(summaryPath, 'utf8'));
+    const familyCount = readdirSync(atlasDir).filter((f) => f.endsWith('.json')).length;
+    if (summary.total !== total) {
+      fail(`atlas-summary.json total ${summary.total} != actual ${total}; update it`);
+    } else if (summary.families !== familyCount) {
+      fail(`atlas-summary.json families ${summary.families} != actual ${familyCount}; update it`);
+    } else {
+      ok(`atlas-summary.json in sync (${total} / ${familyCount})`);
+    }
+  } else {
+    fail(`${summaryPath} missing`);
+  }
 }
 
 console.log(failures ? `\n${failures} FAILURE(S)` : '\nALL CHECKS PASS');

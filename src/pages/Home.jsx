@@ -1,6 +1,7 @@
 import SiteShell from '../components/SiteShell.jsx';
 import HeroDemo from '../viz/HeroDemo.jsx';
 import { LIVE_PUZZLES, ROADMAP, pairTitle, puzzlePath } from '../data/puzzles.js';
+import atlasSummary from '../data/atlas-summary.json';
 
 function PairTitle({ algorithm, heuristic }) {
   return (
@@ -74,6 +75,21 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <a href="/atlas/" className="atlas-teaser">
+          <div>
+            <span className="at-eyebrow">the atlas</span>
+            <p className="at-headline">
+              <b>{atlasSummary.total.toLocaleString()}</b> algorithms and pairs mapped,
+              across {atlasSummary.families} families.
+            </p>
+            <p className="at-sub">
+              The classical core beside the exotic: quantum, DNA and slime-mold computing,
+              nature-inspired swarms, puzzle solvers. This is the map for the whole site.
+            </p>
+          </div>
+          <span className="at-cta">browse the atlas →</span>
+        </a>
 
         <section id="listen" className="doctrine">
           <h2 className="eyebrow">written twice</h2>

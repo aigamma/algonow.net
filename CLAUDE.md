@@ -19,12 +19,14 @@ interpreting any build prompt; recent commits are the canonical disambiguator.
    Google, Amazon) without the owner's explicit go-ahead in the moment; see
    `docs/TTS-TELEMETRY.md` for the costed upgrade paths.
 5. **Telemetry is truthful or absent.** Usage events carry characters spoken
-   and the engine name; dollars are derived desk-side. Never invent a price,
-   never log synthetic events to production, never add user identifiers.
-   The Supabase store is isolated from mathlimit's production telemetry;
-   integration into the mathlimit fleet view is the OWNER's one-line
-   `sources.json` change, made when they choose (the mathlimit repo is a
-   conference exhibit; do not touch it from here).
+   and the engine name; dollars are derived desk-side from token counts
+   (zero for browser speech). Never invent a price, never log synthetic
+   events to production, never add user identifiers. Storage is this site's
+   own Netlify Blobs (`tts-events`); `/api/desk` re-serves the bins in the
+   mathlimit `supabase`-source dialect. Joining the mathlimit fleet view is
+   the OWNER's one-line `sources.json` change, made when they choose. The
+   mathlimit repo and its Supabase project (aigamma-dev) are a conference
+   exhibit: never write to either from here.
 6. **No em dashes in prose, code comments, or commit messages.** Use commas,
    colons, parentheses, periods. Never the word "h*artbeat" in any output:
    say keepalive, liveness check, or scheduled check.
@@ -66,5 +68,6 @@ vendor chunk < 70 KB · per-page chunk < 20 KB · theme.css < 14 KB · HTML
 Netlify site `algonow` publishes `dist` on push to `main` (or via
 `netlify deploy --prod`). Domains: algonow.net primary, algohome.net 301
 alias (redirects in netlify.toml take effect once DNS points both at the
-site). `/api/tel` is the only function; its env vars are set in Netlify
-(`SUPABASE_URL`, `SUPABASE_INSERT_KEY`).
+site). Functions: `/api/tel` (ingest, no env needed) and `/api/desk`
+(reads; requires `ALGONOW_DESK_KEY` in Netlify env, shared with the
+mathlimit sources.json entry).

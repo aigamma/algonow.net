@@ -35,10 +35,12 @@ in `solutions/`.
 
 `/api/tel` (Netlify function) receives anonymous TTS usage beacons: play,
 progress (characters spoken), complete, stop. No cookies, no user ids, DNT and
-GPC respected. Events land in an isolated Supabase store that exposes
-`mathlimit_cost_bins`, the exact RPC shape the mathlimit desk polls, so this
-domain can join the fleet view with one `sources.json` entry. Browser speech
-costs $0.00 and is recorded as zero, truthfully; see `docs/TTS-TELEMETRY.md`.
+GPC respected. Batches append to the site's own Netlify Blobs store, and
+`/api/desk` re-serves them in the exact dialect the mathlimit desk's
+`supabase` source kind polls (`POST …/rest/v1/rpc/algonow_cost_bins` with
+`{"p_days": N}`), so this domain can join the fleet view with one
+`sources.json` entry and zero mathlimit changes. Browser speech costs $0.00
+and is recorded as zero tokens, truthfully; see `docs/TTS-TELEMETRY.md`.
 
 ## Domains
 

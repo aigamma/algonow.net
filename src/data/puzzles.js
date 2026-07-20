@@ -79,11 +79,27 @@ export const PUZZLES = {
     vite: 'backtracking-mrv',
     html: 'backtracking-mrv/index.html',
   },
+  '/branchbound-fractional/': {
+    slug: 'branchbound-fractional',
+    number: 5,
+    algorithm: 'Branch and bound',
+    heuristic: 'Fractional relaxation bound',
+    domain: 'The 0/1 knapsack',
+    oneLiner:
+      'Exhaustive search that carries a receipt: any branch whose optimistic ceiling cannot beat the best bag in hand is discarded unopened.',
+    description:
+      'Branch and bound paired with the fractional-relaxation bound on the 0/1 knapsack: watch subtrees die the moment their ceiling touches the best bag, with a tested Python solution and a spoken lesson.',
+    listenMinutes: 7,
+    time: 'O(2^n)',
+    space: 'O(n)',
+    baseline: 'Full enumeration',
+    vite: 'branchbound-fractional',
+    html: 'branchbound-fractional/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 export const ROADMAP = [
-  { algorithm: 'Branch and bound', heuristic: 'Fractional relaxation bound', domain: 'The 0/1 knapsack' },
   { algorithm: 'Monte Carlo tree search', heuristic: 'UCB1 exploration bonus', domain: 'Games too big to solve' },
   { algorithm: 'Greedy best-first search', heuristic: 'Straight-line distance', domain: 'Fast, non-optimal routing' },
   { algorithm: 'Beam search', heuristic: 'Top-k frontier pruning', domain: 'Sequence decoding' },

@@ -94,5 +94,53 @@ if (!existsSync('dist/assets')) {
   }
 }
 
+// 4. The atlas: the site's build map. Schema per entry ({a, h|null, d, t}),
+// global uniqueness on the normalized (algorithm, heuristic) pair across all
+// family files, and every live puzzle present in the map.
+const atlasDir = 'src/data/atlas';
+if (existsSync(atlasDir)) {
+  const norm = (s) =>
+    String(s ?? '')
+      .toLowerCase()
+      .replace(/['’]s\b/g, '')
+      .replace(/[^a-z0-9+*]+/g, ' ')
+      .trim();
+  const seen = new Map();
+  let total = 0;
+  const perFile = [];
+  for (const file of readdirSync(atlasDir).filter((f) => f.endsWith('.json')).sort()) {
+    let arr;
+    try {
+      arr = JSON.parse(readFileSync(`${atlasDir}/${file}`, 'utf8'));
+    } catch (e) {
+      fail(`atlas ${file}: invalid JSON (${e.message})`);
+      continue;
+    }
+    if (!Array.isArray(arr)) {
+      fail(`atlas ${file}: not an array`);
+      continue;
+    }
+    arr.forEach((e, i) => {
+      if (!e || typeof e.a !== 'string' || !e.a.trim()) return fail(`atlas ${file}[${i}]: bad a`);
+      if (e.h !== null && (typeof e.h !== 'string' || !e.h.trim()))
+        return fail(`atlas ${file}[${i}]: h must be a non-empty string or null`);
+      if (typeof e.d !== 'string' || !e.d.trim()) return fail(`atlas ${file}[${i}]: bad d`);
+      if (![1, 2, 3].includes(e.t)) return fail(`atlas ${file}[${i}]: t must be 1, 2, or 3`);
+      const key = `${norm(e.a)}|${norm(e.h)}`;
+      if (seen.has(key)) return fail(`atlas duplicate "${e.a}" × "${e.h ?? ''}" in ${file} and ${seen.get(key)}`);
+      seen.set(key, file);
+      total += 1;
+      return undefined;
+    });
+    perFile.push(`${file.replace('.json', '')} ${arr.length}`);
+  }
+  ok(`atlas files: ${perFile.join(' · ')}`);
+  for (const p of Object.values(PUZZLES)) {
+    const key = `${norm(p.algorithm)}|${norm(p.heuristic)}`;
+    if (!seen.has(key)) fail(`live pair missing from atlas: ${p.algorithm} × ${p.heuristic}`);
+  }
+  ok(`atlas total: ${total} unique entries (live pairs covered)`);
+}
+
 console.log(failures ? `\n${failures} FAILURE(S)` : '\nALL CHECKS PASS');
 process.exit(failures ? 1 : 0);

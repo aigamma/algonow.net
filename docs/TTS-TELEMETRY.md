@@ -58,7 +58,33 @@ fragile window. If a paid TTS model ever ships, mathlimit's `sb_price` needs
 one match arm for that model id; until then no mathlimit change of any kind
 is required.
 
-## If paid, higher-quality audio is ever wanted
+## Decision 2026-07-20: premium audio is the plan
+
+The owner wants paid, best-in-class narration as the demonstration; browser
+speech stays only as the built-in fallback. **Chosen provider: ElevenLabs,
+Creator plan ($22/month, 100k credits ≈ 2 audio-hours/month; Pro $99 if the
+catalog outgrows it).** Owner action: create the account, pick a narration
+voice, set `ELEVENLABS_API_KEY` (Netlify env or .env.local). Then this repo
+gains `scripts/generate-audio.mjs` (narrations → per-section MP3s in
+`public/audio/<slug>/`, regenerated only on content change), the player
+prefers MP3s over Web Speech, and each generation run logs telemetry with
+model id `eleven-<model>` carrying the provider's real billed characters in
+`ot` (units are characters for `eleven-*` ids; mathlimit's future `sb_price`
+arm prices them desk-side). The subscription's fixed $22/month is a
+recurring line the desk absorbs separately from per-regeneration usage.
+First paid generation run requires the owner's explicit go-ahead in-session.
+
+**Portability requirement (owner, 2026-07-20):** if the feature proves out
+here it rolls to the other content-heavy properties (worldthought.com,
+ai-firehose.com, aigamma.com). Build the generator as a standalone script
+with a per-site content adapter and config (voice, model, output dir,
+service_name), so each property ships its own audio and its own desk line in
+the mathlimit fleet view. Fleet cost picture at list prices: algonow ~33k
+chars static (trivial); worldthought ~1M chars one-time backfill (~$200,
+then near-zero); ai-firehose fresh-daily (~100-150k chars/month recurring).
+Creator covers algonow alone; the fleet rollout is Pro-tier ($99/month).
+
+## Provider comparison (for the record)
 
 List prices as of early 2026 (verify at signup; all per plain characters of
 narration unless noted):

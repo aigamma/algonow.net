@@ -34,7 +34,7 @@ export const narration = [
   {
     section: 'tradeoffs',
     text:
-      'The strength is a free lunch, rare in this field. Alpha beta returns exactly the minimax value, exactly the minimax move, while reading a vanishing fraction of the tree, and memory stays linear in the depth because the walk is depth first. The weakness is everything the exhaustive frame inherits. The tree still explodes with depth, so real engines stop early and lean on an evaluation function whose blind spots become the engine's blind spots. The gains hinge on ordering quality. And the method assumes a deterministic, fully visible, zero sum world: dice, hidden cards, or cooperative payoffs each break a load bearing assumption.',
+      'The strength is a free lunch, rare in this field. Alpha beta returns exactly the minimax value, exactly the minimax move, while reading a vanishing fraction of the tree, and memory stays linear in the depth because the walk is depth first. The weakness is everything the exhaustive frame inherits. The tree still explodes with depth, so real engines stop early and lean on an evaluation function whose blind spots become the blind spots of the engine. The gains hinge on ordering quality. And the method assumes a deterministic, fully visible, zero sum world: dice, hidden cards, or cooperative payoffs each break a load bearing assumption.',
   },
   {
     section: 'code',

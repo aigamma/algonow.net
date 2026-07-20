@@ -51,7 +51,11 @@ export default async function handler(request) {
   const end = nowSec - (nowSec % 300);
   const start = (Math.floor(end / 86400) - (days - 1)) * 86400;
 
-  const store = getStore('tts-events');
+  // Strong consistency: this endpoint is polled at desk cadence (minutes),
+  // and the default eventual mode was observed serving a stale empty list
+  // for prefixes written seconds earlier. Strong reads cost a little latency
+  // and remove the trap entirely.
+  const store = getStore({ name: 'tts-events', consistency: 'strong' });
   const batches = [];
   for (let d = 0; d <= days; d += 1) {
     const day = new Date((start + d * 86400) * 1000).toISOString().slice(0, 10);

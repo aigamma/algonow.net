@@ -62,11 +62,27 @@ export const PUZZLES = {
     vite: 'minimax-alphabeta',
     html: 'minimax-alphabeta/index.html',
   },
+  '/backtracking-mrv/': {
+    slug: 'backtracking-mrv',
+    number: 4,
+    algorithm: 'Backtracking search',
+    heuristic: 'Minimum remaining values',
+    domain: 'Sudoku and constraint grids',
+    oneLiner:
+      'Depth-first trial and error that always works the tightest cell first, so mistakes surface in one move, not twenty.',
+    description:
+      'Backtracking search paired with the minimum-remaining-values heuristic on Sudoku: watch the same grid solved in reading order versus tightest-cell-first, with a tested Python solution and a spoken lesson.',
+    listenMinutes: 7,
+    time: 'O(9^m)',
+    space: 'O(m)',
+    baseline: 'Reading-order backtracking',
+    vite: 'backtracking-mrv',
+    html: 'backtracking-mrv/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 export const ROADMAP = [
-  { algorithm: 'Backtracking search', heuristic: 'Minimum remaining values', domain: 'Sudoku and constraint grids' },
   { algorithm: 'Branch and bound', heuristic: 'Fractional relaxation bound', domain: 'The 0/1 knapsack' },
   { algorithm: 'Monte Carlo tree search', heuristic: 'UCB1 exploration bonus', domain: 'Games too big to solve' },
   { algorithm: 'Greedy best-first search', heuristic: 'Straight-line distance', domain: 'Fast, non-optimal routing' },

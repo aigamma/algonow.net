@@ -45,11 +45,27 @@ export const PUZZLES = {
     vite: 'annealing-cooling',
     html: 'annealing-cooling/index.html',
   },
+  '/minimax-alphabeta/': {
+    slug: 'minimax-alphabeta',
+    number: 3,
+    algorithm: 'Minimax',
+    heuristic: 'Alpha-beta pruning order',
+    domain: 'Adversarial game trees',
+    oneLiner:
+      'Perfect play by exhaustive lookahead, made affordable by refusing to read branches a rational opponent already ruled out.',
+    description:
+      'Minimax paired with alpha-beta pruning and the move-ordering heuristic: watch the same game tree searched under best-first, random, and worst-first orderings, with a tested Python solution and a spoken lesson.',
+    listenMinutes: 7,
+    time: 'O(b^(d/2))',
+    space: 'O(d)',
+    baseline: 'Plain minimax',
+    vite: 'minimax-alphabeta',
+    html: 'minimax-alphabeta/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 export const ROADMAP = [
-  { algorithm: 'Minimax', heuristic: 'Alpha-beta pruning order', domain: 'Adversarial game trees' },
   { algorithm: 'Backtracking search', heuristic: 'Minimum remaining values', domain: 'Sudoku and constraint grids' },
   { algorithm: 'Branch and bound', heuristic: 'Fractional relaxation bound', domain: 'The 0/1 knapsack' },
   { algorithm: 'Monte Carlo tree search', heuristic: 'UCB1 exploration bonus', domain: 'Games too big to solve' },

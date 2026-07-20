@@ -233,9 +233,9 @@ export default function KnapsackViz() {
 
         ctx.textAlign = 'left';
         ctx.fillStyle = '#f0b94b';
-        ctx.fillText('— ceiling (bound)', 540, my + 8);
+        ctx.fillText('– ceiling (bound)', 540, my + 8);
         ctx.fillStyle = '#62d98a';
-        ctx.fillText('— best bag', 540, my + 26);
+        ctx.fillText('– best bag', 540, my + 26);
         if (st.flash > 0) {
           ctx.fillStyle = '#e06767';
           ctx.fillText('discarded', 540, my + 48);

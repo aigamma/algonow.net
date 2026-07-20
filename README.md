@@ -26,10 +26,10 @@ in `solutions/`.
 
 ## Commands
 
-- `npm run dev` — Vite dev server
-- `npm run build` — production build (emits sitemap.xml)
-- `npm run check` — registry/entry lockstep + style bans + gzip budgets
-- `npm run verify:solutions` — run every Python solution's self-test
+- `npm run dev` : Vite dev server
+- `npm run build` : production build (emits sitemap.xml)
+- `npm run check` : registry/entry lockstep + style bans + gzip budgets
+- `npm run verify:solutions` : run every Python solution's self-test
 
 ## Telemetry
 
@@ -44,5 +44,5 @@ and is recorded as zero tokens, truthfully; see `docs/TTS-TELEMETRY.md`.
 
 ## Domains
 
-- `algonow.net` — primary (DNS pending)
-- `algohome.net` — soft 301 alias (redirects configured in `netlify.toml`)
+- `algonow.net` : primary (DNS pending)
+- `algohome.net` : soft 301 alias (redirects configured in `netlify.toml`)

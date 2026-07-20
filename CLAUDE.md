@@ -39,16 +39,16 @@ interpreting any build prompt; recent commits are the canonical disambiguator.
 Every pair page renders through `src/components/PuzzlePage.jsx`. A new pair
 touches exactly these files (scripts/check.mjs enforces lockstep):
 
-1. `src/data/puzzles.js` — registry entry (moves off ROADMAP if present)
-2. `<slug>/index.html` + `<slug>/main.jsx` — the Vite entry
-3. `src/content/<slug>.jsx` — the tight form (given/task/constraint, origins,
+1. `src/data/puzzles.js` : registry entry (moves off ROADMAP if present)
+2. `<slug>/index.html` + `<slug>/main.jsx` : the Vite entry
+3. `src/content/<slug>.jsx` : the tight form (given/task/constraint, origins,
    roles, picture, steps, signals, baseline, strength, weakness)
-4. `src/content/<slug>.narration.js` — the spoken form, sections keyed to
+4. `src/content/<slug>.narration.js` : the spoken form, sections keyed to
    page section ids (puzzle, origins, pair, picture, run, signals,
    tradeoffs, code)
-5. `src/viz/<Name>Viz.jsx` — the live canvas (deterministic seed, pauses
+5. `src/viz/<Name>Viz.jsx` : the live canvas (deterministic seed, pauses
    offscreen, static final frame under prefers-reduced-motion)
-6. `solutions/<slug>.py` — the solution with a self-test `__main__` that
+6. `solutions/<slug>.py` : the solution with a self-test `__main__` that
    asserts correctness against an independent oracle and prints OK
 
 ## Color is semantic

@@ -1,0 +1,23 @@
+{
+  "name": "algonow",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "algonow.net: classical algorithms, paired with the heuristics that steer them. Read the unit, watch it run, or listen.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "node scripts/check.mjs",
+    "verify:solutions": "python scripts/verify_solutions.py"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.4.8"
+  }
+}

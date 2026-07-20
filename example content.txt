@@ -1,0 +1,80 @@
+Puzzle 1: A-star search algorithm, Manhattan-distance heuristic, shortest pathfinding on grid maps.
+
+Welcome to the first session, where we map out classical and exotic computing procedures entirely by ear. Today we examine a fundamental pillar of pathfinding and state space exploration that was originally developed in nineteen sixty-eight by Peter Hart, Nils Nilsson, and Bertram Raphael at the Stanford Research Institute. Designed to improve the navigation capabilities of an early mobile robot named Shakey, this technique combines the rigorous guarantees of shortest path graph traversals with the focused intuition of informed search strategies. The core problem this approach addresses is finding the most efficient route from a known starting point to a designated destination across a structured graph or grid. While uniform cost methods explore blindly in every direction like water spreading over a flat surface, this method introduces a guiding mechanism that biases the exploration toward the target, drastically reducing the number of states that must be evaluated before an optimal path is secured.
+
+To understand this system completely, we must explicitly separate the roles of the control structure and the guiding estimation rule. The control structure is the A-star search algorithm, which manages the structural mechanics of the exploration by maintaining an open set of discovered nodes prioritized by total expected cost, along with a closed set of fully evaluated nodes to prevent redundant cycles. The guiding estimation rule is the Manhattan-distance heuristic, which computes the absolute differences between the current horizontal and vertical coordinates and those of the destination. The A-star search algorithm provides the foundational framework of node expansion, path relaxation, and parent tracking, while the Manhattan-distance heuristic serves as the mathematical oracle that guides the queue prioritization. This specific heuristic is highly effective on grid layouts where movement is restricted to four orthogonal directions, as it remains mathematically admissible and consistent, meaning it never overestimates the actual distance to the goal and changes monotonically across adjacent steps, thereby guaranteeing that the first path discovered to the destination is mathematically optimal.
+
+Let us visualize these concepts using a concrete physical metaphor on the streets of a major city mapped as a perfect rectangular grid. Imagine you are trying to walk to a highly visible skyscraper in the distance while navigating around randomly placed construction barriers and closed alleys. The A-star search algorithm is like keeping a pocket journal where you record every single intersection you have stood at, alongside the exact number of blocks you have already walked from your starting hotel to reach that specific intersection. The Manhattan-distance heuristic is like looking up at the skyscraper from your current corner and calculating the exact number of blocks north and east you would need to walk to reach it if all streets were perfectly clear and free of barriers. To decide your next move, you look at your journal, add the blocks already walked to the estimated blocks remaining for each neighboring intersection, and consistently choose to step toward the intersection that yields the smallest combined sum, effectively steering yourself toward the target without wasting energy walking in the opposite direction.
+
+The underlying mechanics of this approach rely on a mathematical cost function where the total score of a node is defined as the sum of its accumulated path cost and its heuristic estimate. The algorithm utilizes a priority queue, which we implement by importing the heapq module from the standard Python library, because it delivers efficient logarithmic time insertions and minimum element extractions that keep the lowest cost node accessible at the top of the deck. The primary strength of this design is its optimal efficiency, as it is mathematically proven to expand fewer nodes than any other admissible search algorithm given the same heuristic information. However, the principal weakness lies in its substantial memory footprint, because it must retain every visited and scheduled node within the open and closed sets to ensure path optimality and eliminate loops. In massive or high-dimensional search spaces, this memory accumulation can exhaust available system resources, which is why sound architectural designs deliberately apply this technique to bounded environments or swap it for iterative deepening variations when memory is strictly constrained.
+
+When evaluating efficiency, the naive approach to this problem is a standard breadth first search or Dijkstra's algorithm, both of which suffer from the bottleneck of blind, omnidirectional expansion that wastes computational energy checking paths moving away from the destination. The recognizable signal in a problem statement that indicates this specific technique applies is the requirement to find the shortest or lowest cost path across a coordinate grid or graph where the coordinates of both the source and the destination are explicitly provided, allowing for a direct distance estimation. In terms of computational complexity, the worst case time complexity is exponential, represented as big O of the branching factor raised to the power of the solution depth, which occurs when the graph contains highly deceptive obstacles that render the heuristic ineffective. The space complexity shares this identical exponential bound because all explored positions must reside in memory, though in practical applications containing a highly accurate heuristic, the execution time and memory footprint compress significantly toward linear scale relative to the optimal path length.
+
+Python
+# Puzzle 1: A-star search algorithm, Manhattan-distance heuristic, shortest pathfinding on grid maps.
+import heapq
+
+def a_star_grid_search(grid, start, goal):
+    """
+    Finds the shortest path on a 2D binary grid using the A* search algorithm
+    and the Manhattan-distance heuristic.
+    
+    grid: 2D list where 0 is walkable and 1 is an obstacle.
+    start: tuple of (row, col)
+    goal: tuple of (row, col)
+    
+    Returns a list of tuples representing the path from start to goal, 
+    or an empty list if no path exists.
+    """
+    rows = len(grid)
+    cols = len(grid[0])
+    
+    # Priority queue stores tuples of (total_estimated_cost, current_cost, current_node)
+    open_set = []
+    initial_h = abs(start[0] - goal[0]) + abs(start[1] - goal[1])
+    heapq.heappush(open_set, (initial_h, 0, start))
+    
+    # Maps a node to its parent node to reconstruct the path later
+    parent_map = {}
+    
+    # Tracks the lowest cost to reach each node found so far
+    g_score = {start: 0}
+    
+    # Set to keep track of nodes that have been fully evaluated
+    closed_set = set()
+    
+    while open_set:
+        estimated_cost, current_cost, current = heapq.heappop(open_set)
+        
+        if current == goal:
+            path = []
+            while current in parent_map:
+                path.append(current)
+                current = parent_map[current]
+            path.append(start)
+            return path[::-1]
+            
+        if current in closed_set:
+            continue
+            
+        closed_set.add(current)
+        
+        row, col = current
+        # Check all four orthogonal directions
+        for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            neighbor = (row + dr, col + dc)
+            
+            if 0 <= neighbor[0] < rows and 0 <= neighbor[1] < cols:
+                if grid[neighbor[0]][neighbor[1]] == 1:
+                    continue
+                    
+                tentative_g_score = current_cost + 1
+                
+                if neighbor not in g_score or tentative_g_score < g_score[neighbor]:
+                    g_score[neighbor] = tentative_g_score
+                    parent_map[neighbor] = current
+                    h_score = abs(neighbor[0] - goal[0]) + abs(neighbor[1] - goal[1])
+                    f_score = tentative_g_score + h_score
+                    heapq.heappush(open_set, (f_score, tentative_g_score, neighbor))
+                    
+    return []

@@ -52,5 +52,7 @@
 {"a": "Mastermind solving", "h": "Knuth minimax guessing", "d": "Code-breaking puzzle", "t": 2},
 {"a": "Mastermind solving", "h": "Max-entropy guessing", "d": "Code-breaking puzzle", "t": 3},
 {"a": "Hashiwokakero solving", "h": "Bridge-count constraint propagation", "d": "Logic puzzle", "t": 3},
-{"a": "Slitherlink solving", "h": "Loop-constraint propagation", "d": "Logic puzzle", "t": 3}
+{"a": "Slitherlink solving", "h": "Loop-constraint propagation", "d": "Logic puzzle", "t": 3},
+{"a": "Tetris placement", "h": "Dellacherie feature weighting", "d": "Falling-block heuristic", "t": 3},
+{"a": "Light chasing", "h": "Lights Out chase-and-fix table", "d": "Lights Out puzzle", "t": 3}
 ]

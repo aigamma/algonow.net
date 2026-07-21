@@ -86,5 +86,8 @@
 {"a": "Maximum cardinality search", "h": null, "d": "Chordality recognition", "t": 3},
 {"a": "Topological minor search", "h": null, "d": "Graph minor testing", "t": 3},
 {"a": "Erdős-Gallai check", "h": null, "d": "Degree-sequence realizability", "t": 3},
-{"a": "Havel-Hakimi", "h": "Largest-degree-first reduction", "d": "Degree-sequence realization", "t": 2}
+{"a": "Havel-Hakimi", "h": "Largest-degree-first reduction", "d": "Degree-sequence realization", "t": 2},
+{"a": "Gusfield's cut tree", "h": "Non-crossing cut construction", "d": "All-pairs minimum cuts", "t": 3},
+{"a": "Zykov contraction coloring", "h": "Contract-or-merge recursion", "d": "Exact chromatic number", "t": 3},
+{"a": "Transitive closure", "h": "Warshall bit rows", "d": "Minimal equivalent DAG", "t": 2}
 ]

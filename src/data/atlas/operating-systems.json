@@ -32,5 +32,7 @@
 {"a": "Wait-free consensus", "h": "Compare-and-swap objects", "d": "Concurrent objects", "t": 3},
 {"a": "Two-level scheduling", "h": null, "d": "Process scheduling", "t": 3},
 {"a": "Gang scheduling", "h": null, "d": "Parallel-job scheduling", "t": 3},
-{"a": "I/O completion ports", "h": null, "d": "Asynchronous I/O", "t": 3}
+{"a": "I/O completion ports", "h": null, "d": "Asynchronous I/O", "t": 3},
+{"a": "Epoll event loop", "h": "Readiness notification", "d": "Asynchronous I/O", "t": 2},
+{"a": "Io_uring", "h": "Shared submission-completion rings", "d": "Asynchronous I/O", "t": 3}
 ]

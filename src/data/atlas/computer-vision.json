@@ -33,5 +33,6 @@
 {"a": "Human pose estimation", "h": "Part affinity fields", "d": "Keypoint detection", "t": 2},
 {"a": "Structured light scanning", "h": "Coded pattern decoding", "d": "3D scanning", "t": 3},
 {"a": "Photometric stereo", "h": null, "d": "Surface normal recovery", "t": 3},
-{"a": "Bundle-free SLAM", "h": "Direct photometric alignment", "d": "Dense visual SLAM", "t": 3}
+{"a": "Bundle-free SLAM", "h": "Direct photometric alignment", "d": "Dense visual SLAM", "t": 3},
+{"a": "Stacked hourglass network", "h": "Repeated bottom-up top-down inference", "d": "Keypoint detection", "t": 3}
 ]

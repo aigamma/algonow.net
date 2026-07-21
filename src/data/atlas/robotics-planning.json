@@ -53,5 +53,6 @@
 {"a": "Velocity obstacles", "h": null, "d": "Multi-agent avoidance", "t": 3},
 {"a": "Reciprocal velocity obstacles", "h": "ORCA constraints", "d": "Multi-agent navigation", "t": 3},
 {"a": "Social force model", "h": null, "d": "Crowd simulation", "t": 3},
-{"a": "Coverage path planning", "h": "Boustrophedon decomposition", "d": "Area coverage", "t": 3}
+{"a": "Coverage path planning", "h": "Boustrophedon decomposition", "d": "Area coverage", "t": 3},
+{"a": "Spanning tree coverage", "h": "Spiral cell traversal", "d": "Area coverage", "t": 3}
 ]

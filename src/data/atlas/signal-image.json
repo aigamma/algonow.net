@@ -69,5 +69,6 @@
 {"a": "MUSIC algorithm", "h": "Signal-subspace projection", "d": "Direction of arrival", "t": 3},
 {"a": "Matching pursuit", "h": "Greedy atom selection", "d": "Sparse signal coding", "t": 2},
 {"a": "Orthogonal matching pursuit", "h": null, "d": "Sparse recovery", "t": 2},
-{"a": "Compressed sensing", "h": "L1 basis pursuit", "d": "Sub-Nyquist reconstruction", "t": 2}
+{"a": "Compressed sensing", "h": "L1 basis pursuit", "d": "Sub-Nyquist reconstruction", "t": 2},
+{"a": "Medial axis transform", "h": "Skeleton extraction", "d": "Shape analysis", "t": 3}
 ]

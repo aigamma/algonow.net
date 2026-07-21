@@ -34,7 +34,6 @@
 {"a": "Polya enumeration", "h": "Cycle index", "d": "Symmetry counting", "t": 3},
 {"a": "Inclusion-exclusion counting", "h": null, "d": "Combinatorial counting", "t": 1},
 {"a": "Mobius inversion", "h": null, "d": "Counting over posets", "t": 3},
-{"a": "Gosper's algorithm", "h": null, "d": "Hypergeometric summation", "t": 3},
 {"a": "Zeilberger's algorithm", "h": "Creative telescoping", "d": "Combinatorial identity proof", "t": 3},
 {"a": "Fenwick permanent DP", "h": "Bitmask over columns", "d": "Small permanent computation", "t": 3},
 {"a": "Ranked tree traversal", "h": null, "d": "Combinatorial ranking", "t": 3},

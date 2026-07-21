@@ -8,7 +8,7 @@
 
   "comparison-sorting": {
     "label": "Comparison sorting",
-    "phrases": ["In-place comparison sorting", "Stable comparison sorting", "In-place stable sorting", "Iterative stable sorting", "Adaptive sorting", "Adaptive in-place sorting", "Adaptive stable sorting", "Real-world stable sorting", "Standard-library sorting", "JDK array sorting", "Small-array sorting", "Minimal-swap sorting", "Pedagogical exchange sorting", "Single-pointer exchange sorting", "Turtle-killing exchange sorting", "Bidirectional bubble sorting", "Gapped insertion sorting", "Comparison-count-optimal small sorting", "Comparison-optimal-leaning sorting", "Comparison-lean heapsort", "Worst-case-safe sorting", "Sorting with many duplicates", "Sorting via BST insertion", "Sorting via solitaire piles", "Write-minimal sorting", "Cache-oblivious sorting", "Top-k sorted output"]
+    "phrases": ["In-place comparison sorting", "Stable comparison sorting", "In-place stable sorting", "Iterative stable sorting", "Adaptive sorting", "Adaptive in-place sorting", "Adaptive stable sorting", "Real-world stable sorting", "Standard-library sorting", "JDK array sorting", "Small-array sorting", "Minimal-swap sorting", "Pedagogical exchange sorting", "Single-pointer exchange sorting", "Turtle-killing exchange sorting", "Bidirectional bubble sorting", "Gapped insertion sorting", "Comparison-count-optimal small sorting", "Comparison-optimal-leaning sorting", "Comparison-lean heapsort", "Worst-case-safe sorting", "Sorting with many duplicates", "Sorting via BST insertion", "Sorting via solitaire piles", "Write-minimal sorting", "Cache-oblivious sorting", "Top-k sorted output", "In-place merging", "Comparison-lean insertion", "Insertion with breathing room"]
   },
   "integer-sorting": {
     "label": "Integer and distribution sorting",
@@ -28,7 +28,7 @@
   },
   "sorting-networks": {
     "label": "Sorting networks",
-    "phrases": ["Sorting network construction", "Sorting network for parallel hardware"]
+    "phrases": ["Sorting network construction", "Sorting network for parallel hardware", "Theoretical O(log n) depth network"]
   },
   "sorted-array-search": {
     "label": "Search in a sorted array",
@@ -188,7 +188,7 @@
   },
   "polynomial-factorization": {
     "label": "Polynomial factorization",
-    "phrases": ["Polynomial factorization", "Integer polynomial factorization"]
+    "phrases": ["Polynomial factorization", "Integer polynomial factorization", "Factor recombination"]
   },
   "cryptographic-hashing": {
     "label": "Cryptographic hashing",
@@ -217,7 +217,7 @@
   },
   "linear-systems": {
     "label": "Solving linear systems",
-    "phrases": ["Linear systems", "Sparse linear systems", "Elliptic PDE solving", "Parallel PDE solving", "Symmetric positive-definite systems", "Symmetric indefinite systems", "Tridiagonal systems", "SPD sparse systems", "Nonsymmetric sparse systems", "Sparse system solving", "Orthogonalization", "Quantum linear systems"]
+    "phrases": ["Linear systems", "Sparse linear systems", "Elliptic PDE solving", "Parallel PDE solving", "Symmetric positive-definite systems", "Symmetric indefinite systems", "Tridiagonal systems", "SPD sparse systems", "Nonsymmetric sparse systems", "Sparse system solving", "Orthogonalization", "Quantum linear systems", "Exact linear algebra"]
   },
   "eigenvalues": {
     "label": "Eigenvalues and eigenvectors",
@@ -509,10 +509,6 @@
     "label": "Distributed id generation",
     "phrases": ["Unique id assignment"]
   },
-  "cluster-membership": {
-    "label": "Cluster membership",
-    "phrases": ["Cluster membership"]
-  },
   "option-pricing": {
     "label": "Option pricing",
     "phrases": ["Option pricing", "Path-dependent pricing", "American option pricing", "American option approximation", "PDE option pricing", "Characteristic-function pricing", "Volatility-surface pricing"]
@@ -730,7 +726,7 @@
   },
   "array-range-queries": {
     "label": "Array range queries",
-    "phrases": ["Range queries", "Range updates", "Prefix-sum queries", "Static idempotent range queries", "Blocked range queries", "Versioned range queries", "Offline range queries", "Sequence-to-tree bridge"]
+    "phrases": ["Range queries", "Range updates", "Prefix-sum queries", "Static idempotent range queries", "Blocked range queries", "Versioned range queries", "Offline range queries", "Sequence-to-tree bridge", "Streaming extrema"]
   },
   "rank-select-queries": {
     "label": "Rank and select queries",
@@ -779,7 +775,7 @@
   },
   "group-membership": {
     "label": "Membership and failure detection",
-    "phrases": ["Membership and failure detection", "Failure detection", "Overlay membership", "Distributed failure detection"]
+    "phrases": ["Membership and failure detection", "Failure detection", "Overlay membership", "Distributed failure detection", "Cluster membership"]
   },
   "distributed-key-placement": {
     "label": "Distributed key placement",
@@ -888,11 +884,11 @@
   },
   "puzzle-state-search": {
     "label": "Puzzle-state search",
-    "phrases": ["Puzzle-state search", "Sliding-puzzle search", "Fifteen-puzzle search", "Memory-bound puzzle search", "Pancake-sorting search", "Sliding puzzle", "Sliding-block puzzle", "Board puzzle", "Box-pushing puzzle"]
+    "phrases": ["Puzzle-state search", "Sliding-puzzle search", "Fifteen-puzzle search", "Memory-bound puzzle search", "Pancake-sorting search", "Sliding puzzle", "Sliding-block puzzle", "Board puzzle", "Box-pushing puzzle", "Prefix-reversal sorting"]
   },
   "budgeted-informed-search": {
     "label": "Informed search under budgets",
-    "phrases": ["Bounded-suboptimal search", "Anytime pathfinding", "Linear-memory informed search", "Bounded-memory informed search", "Bounded-width search", "Fast non-optimal routing", "Bounded-width stochastic search"]
+    "phrases": ["Bounded-suboptimal search", "Anytime pathfinding", "Linear-memory informed search", "Bounded-memory informed search", "Bounded-width search", "Fast non-optimal routing", "Bounded-width stochastic search", "Optimal bounded-width search"]
   },
   "incremental-replanning": {
     "label": "Incremental replanning",
@@ -1249,7 +1245,7 @@
   },
   "lattice-crypto": {
     "label": "Lattice cryptography and reduction",
-    "phrases": ["Lattice cryptography", "Lattice encryption", "Lattice basis shortening", "Cryptanalysis"]
+    "phrases": ["Lattice cryptography", "Lattice encryption", "Lattice basis shortening", "Cryptanalysis", "Lattice basis reduction"]
   },
   "secret-sharing": {
     "label": "Secret sharing",
@@ -1687,7 +1683,7 @@
   },
   "density-estimation": {
     "label": "Density estimation",
-    "phrases": ["Density estimation"]
+    "phrases": ["Density estimation", "Distribution estimation"]
   },
   "graph-learning": {
     "label": "Graph representation learning",
@@ -1719,8 +1715,8 @@
   },
 
   "svd": {
-    "label": "Singular value decomposition",
-    "phrases": ["Singular value decomposition", "High-accuracy SVD", "Low-rank approximation"]
+    "label": "Singular value decomposition and low-rank approximation",
+    "phrases": ["Singular value decomposition", "High-accuracy SVD", "Low-rank approximation", "Streaming matrix sketching"]
   },
   "gradient-optimization": {
     "label": "Gradient-based optimization",
@@ -1757,10 +1753,6 @@
   "algorithmic-complexity": {
     "label": "Algorithmic information and complexity",
     "phrases": ["Sequence complexity", "Algorithmic complexity", "Universal similarity"]
-  },
-  "maxent-modeling": {
-    "label": "Maximum entropy modeling",
-    "phrases": ["Distribution estimation"]
   },
   "structure-learning": {
     "label": "Graphical model structure learning",
@@ -1849,6 +1841,34 @@
   "domain-adaptation": {
     "label": "Domain adaptation",
     "phrases": ["Domain adaptation", "Covariate shift"]
+  },
+  "polynomial-system-solving": {
+    "label": "Polynomial system solving and elimination",
+    "phrases": ["Polynomial elimination", "System solving", "Real quantifier elimination", "Geometric theorem proving"]
+  },
+  "matrix-canonical-forms": {
+    "label": "Integer matrix canonical forms",
+    "phrases": ["Integer matrix canonical form", "Lattice basis canonical form"]
+  },
+  "persistent-homology": {
+    "label": "Persistent homology",
+    "phrases": ["Topological data analysis", "Scalable TDA", "Time-varying topology", "Connected-component persistence"]
+  },
+  "scalar-field-topology": {
+    "label": "Scalar field topology",
+    "phrases": ["Topological visualization", "Scalar-field topology", "Scalar-field analysis", "Complex simplification"]
+  },
+  "homology-computation": {
+    "label": "Homology computation",
+    "phrases": ["Topological invariants", "Topological summary", "Homology ranks"]
+  },
+  "joke-algorithms": {
+    "label": "Deliberately terrible algorithms",
+    "phrases": ["Recreational worst-case study", "Recreational recursion study", "Pessimal algorithm study"]
+  },
+  "maximum-subarray": {
+    "label": "Maximum subarray",
+    "phrases": ["Maximum subarray", "Maximum submatrix"]
   },
   "linear-programming": {
     "label": "Linear programming",
@@ -2048,8 +2068,8 @@
     "phrases": ["Regex to NFA", "NFA to DFA", "Automaton to regex"]
   },
   "automaton-minimization": {
-    "label": "Automaton minimization",
-    "phrases": ["DFA minimization"]
+    "label": "Automaton determinization and minimization",
+    "phrases": ["DFA minimization", "Speech and NLP transducers"]
   },
   "language-theory": {
     "label": "Formal language theory",
@@ -2061,19 +2081,11 @@
   },
   "compiler-backend": {
     "label": "Compiler backend code generation",
-    "phrases": ["Compiler backend", "JIT compiler backend", "Compiler IR", "Expression code generation", "Code generation"]
+    "phrases": ["Compiler backend", "JIT compiler backend", "Compiler IR", "Expression code generation", "Code generation", "Tree pattern matching"]
   },
   "lexing": {
     "label": "Lexical analysis",
     "phrases": ["Tokenization", "Expression to postfix"]
-  },
-  "tree-pattern-matching": {
-    "label": "Tree pattern matching",
-    "phrases": ["Tree pattern matching"]
-  },
-  "transducers": {
-    "label": "Weighted transducers",
-    "phrases": ["Speech and NLP transducers"]
   },
 
   "prefix-codes": {
@@ -2150,10 +2162,6 @@
     "label": "Shuffling and permutation",
     "phrases": ["Uniform permutation", "Streaming shuffle", "Uniform subset sampling"]
   },
-  "matrix-sketching": {
-    "label": "Streaming matrix sketching",
-    "phrases": ["Streaming matrix sketching"]
-  },
 
   "bin-packing": {
     "label": "Bin packing and partitioning",
@@ -2225,8 +2233,8 @@
     "phrases": ["Symmetry counting"]
   },
   "symbolic-summation": {
-    "label": "Symbolic summation and identity proof",
-    "phrases": ["Hypergeometric summation", "Combinatorial identity proof"]
+    "label": "Symbolic summation and integration",
+    "phrases": ["Symbolic summation", "Symbolic integration", "Combinatorial identity proof"]
   },
 
   "monte-carlo-tree-search": {

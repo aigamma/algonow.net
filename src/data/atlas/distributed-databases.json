@@ -22,5 +22,6 @@
 {"a": "Gossip-based membership", "h": null, "d": "Cluster membership", "t": 2},
 {"a": "Anti-entropy repair", "h": "Merkle-tree sync", "d": "Replica convergence", "t": 2},
 {"a": "Distributed sequence generation", "h": "Snowflake ids", "d": "Unique id assignment", "t": 2},
-{"a": "Adaptive replication", "h": "Access-driven placement", "d": "Data placement", "t": 3}
+{"a": "Adaptive replication", "h": "Access-driven placement", "d": "Data placement", "t": 3},
+{"a": "UUIDv7 generation", "h": "Time-ordered random identifiers", "d": "Unique id assignment", "t": 3}
 ]

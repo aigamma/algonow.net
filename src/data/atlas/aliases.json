@@ -317,5 +317,16 @@
   "Extended Kalman filter": { "aka": ["EKF"] },
   "Unscented Kalman filter": { "aka": ["UKF"] },
   "SLIC superpixels": { "aka": ["Simple linear iterative clustering"] },
-  "Lucas-Kanade": { "aka": ["LK optical flow"] }
+  "Lucas-Kanade": { "aka": ["LK optical flow"] },
+
+  "Write-ahead logging": { "aka": ["WAL"] },
+  "Copy-on-write": { "aka": ["COW"] },
+  "Log-structured filesystem": { "aka": ["LFS"] },
+  "Content-addressable storage": { "aka": ["CAS"], "note": "CAS also abbreviates compare-and-swap in concurrency; this entry is the storage sense." },
+  "State machine replication": { "aka": ["SMR"] },
+  "Local reconstruction codes": { "aka": ["LRC"] },
+  "Rateless set reconciliation": { "aka": ["IBLT reconciliation"] },
+  "Garbage-first collection": { "aka": ["G1 GC"] },
+  "Reference counting": { "aka": ["Refcounting"] },
+  "Cheney's algorithm": { "aka": ["Semispace copying collector"] }
 }

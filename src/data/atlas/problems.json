@@ -459,7 +459,7 @@
   },
   "group-membership": {
     "label": "Membership and failure detection",
-    "phrases": ["Membership and failure detection", "Failure detection", "Overlay membership"]
+    "phrases": ["Membership and failure detection", "Failure detection", "Overlay membership", "Distributed failure detection"]
   },
   "distributed-key-placement": {
     "label": "Distributed key placement",
@@ -897,7 +897,7 @@
   },
   "data-integrity": {
     "label": "Verifiable data integrity",
-    "phrases": ["Verifiable data integrity"]
+    "phrases": ["Verifiable data integrity", "Data integrity", "Integrity auditing", "Silent-corruption defense", "Data durability"]
   },
   "recurrence-recovery": {
     "label": "Linear recurrence recovery",
@@ -1229,5 +1229,42 @@
   "object-tracking": {
     "label": "Object tracking",
     "phrases": ["Object tracking", "Feature tracking", "Multi-object tracking"]
+  },
+
+  "storage-redundancy": {
+    "label": "Storage redundancy and erasure codes",
+    "phrases": ["Disk parallelism", "Disk redundancy", "Single-disk fault tolerance", "Two-disk fault tolerance", "Distributed storage durability", "Efficient repair storage", "Storage repair", "Rateless durability"]
+  },
+  "deduplication": {
+    "label": "Storage deduplication",
+    "phrases": ["Deduplicated storage", "Data deduplication"]
+  },
+  "crash-consistency": {
+    "label": "Crash consistency and write paths",
+    "phrases": ["Crash-consistent writes", "Snapshot storage", "Filesystem consistency", "Write-optimized storage"]
+  },
+  "checkpoint-recovery": {
+    "label": "Checkpointing and recovery",
+    "phrases": ["Fault recovery", "Distributed recovery"]
+  },
+  "replication-schemes": {
+    "label": "Replication schemes",
+    "phrases": ["Fault tolerance", "Strongly-consistent storage", "Fault-tolerant services", "Consistent replication", "Eventual consistency"]
+  },
+  "distributed-coordination": {
+    "label": "Distributed locking and coordination",
+    "phrases": ["Distributed locking", "Split-brain prevention"]
+  },
+  "set-reconciliation": {
+    "label": "Set reconciliation",
+    "phrases": ["Set reconciliation", "Set difference recovery"]
+  },
+  "garbage-collection": {
+    "label": "Garbage collection",
+    "phrases": ["Automatic memory management", "Memory management", "Concurrent collection", "Low-pause memory management"]
+  },
+  "memory-allocation": {
+    "label": "Memory allocation",
+    "phrases": ["Memory allocation", "Kernel object allocation", "Heap allocation"]
   }
 }

@@ -258,7 +258,7 @@
   },
   "image-classification": {
     "label": "Image classification",
-    "phrases": ["Image classification", "Deep image classification", "Efficient image classification", "Image recognition", "Digit recognition", "On-device vision"]
+    "phrases": ["Image classification", "Deep image classification", "Efficient image classification", "Image recognition", "Digit recognition", "On-device vision", "Image retrieval"]
   },
   "dimensionality-reduction": {
     "label": "Dimensionality reduction",
@@ -282,7 +282,7 @@
   },
   "image-segmentation": {
     "label": "Image segmentation",
-    "phrases": ["Image segmentation", "Interactive segmentation", "Superpixel segmentation", "Boundary extraction", "Instance segmentation"]
+    "phrases": ["Image segmentation", "Interactive segmentation", "Superpixel segmentation", "Boundary extraction", "Instance segmentation", "Scene parsing", "Motion segmentation"]
   },
   "optical-flow": {
     "label": "Optical flow",
@@ -1256,7 +1256,7 @@
   },
   "image-editing": {
     "label": "Gradient-domain and content-aware editing",
-    "phrases": ["Seamless compositing", "Content-aware resizing"]
+    "phrases": ["Seamless compositing", "Content-aware resizing", "Region completion", "Image stylization", "Panorama construction"]
   },
   "color-quantization": {
     "label": "Color quantization and dithering",
@@ -1351,7 +1351,7 @@
 
   "object-detection": {
     "label": "Object detection",
-    "phrases": ["Object detection"]
+    "phrases": ["Object detection", "Face detection", "Pedestrian detection", "Pattern localization", "Shape matching"]
   },
   "sequence-modeling": {
     "label": "Sequence modeling",
@@ -1552,7 +1552,7 @@
   },
   "structure-from-motion": {
     "label": "Structure from motion and reconstruction",
-    "phrases": ["Structure from motion", "3D reconstruction"]
+    "phrases": ["Structure from motion", "3D reconstruction", "3D scanning", "Surface normal recovery"]
   },
   "point-registration": {
     "label": "Registration and scan matching",
@@ -1805,5 +1805,26 @@
   "instance-reduction": {
     "label": "Instance and prototype reduction",
     "phrases": ["Prototype reduction"]
+  },
+
+  "camera-geometry": {
+    "label": "Camera geometry estimation",
+    "phrases": ["Intrinsic estimation", "Homography estimation", "Fundamental matrix", "Essential matrix", "Pose estimation"]
+  },
+  "depth-estimation": {
+    "label": "Depth estimation",
+    "phrases": ["Stereo depth", "Depth prediction"]
+  },
+  "image-upsampling": {
+    "label": "Image super-resolution",
+    "phrases": ["Image enhancement"]
+  },
+  "text-recognition": {
+    "label": "Text recognition in images",
+    "phrases": ["Text extraction"]
+  },
+  "keypoint-detection": {
+    "label": "Human keypoint detection",
+    "phrases": ["Keypoint detection"]
   }
 }

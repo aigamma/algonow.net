@@ -541,5 +541,20 @@
   "Temporal difference learning": { "aka": ["TD learning", "TD-lambda"] },
   "Local outlier factor": { "aka": ["LOF"] },
   "Isolation forest": { "aka": ["iForest"] },
-  "Backpropagation": { "aka": ["Backprop", "Reverse-mode training"] }
+  "Backpropagation": { "aka": ["Backprop", "Reverse-mode training"] },
+
+  "Histogram of oriented gradients": { "aka": ["HOG features"] },
+  "Deformable parts model": { "aka": ["DPM"] },
+  "Direct linear transform": { "aka": ["DLT"] },
+  "Perspective-n-point": { "aka": ["PnP"] },
+  "Semi-global matching": { "aka": ["SGM stereo"] },
+  "Structure from motion": { "aka": ["SfM"] },
+  "Visual odometry": { "aka": ["VO"] },
+  "Optical character recognition": { "aka": ["OCR"] },
+  "Bag of visual words": { "aka": ["BoVW", "Visual bag of words"] },
+  "VLAD encoding": { "aka": ["Vector of locally aggregated descriptors"] },
+  "Template matching": { "aka": ["Normalized cross-correlation matching"] },
+  "Viola-Jones": { "aka": ["Haar cascade detector"] },
+  "SRCNN": { "aka": ["Super-resolution CNN"] },
+  "Scene text detection": { "aka": ["Stroke width transform"] }
 }

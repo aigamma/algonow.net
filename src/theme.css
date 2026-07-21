@@ -765,8 +765,53 @@ code, kbd, pre { font-family: var(--font-mono); }
   margin-left: auto;
 }
 
-.atlas-family { margin: 0 0 2rem; }
+.cat-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 2.2rem;
+}
+.cat-chip {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--ink-dim);
+  background: var(--panel);
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+  padding: 0.35em 0.7em;
+}
+.cat-chip:hover { border-color: rgba(var(--algo-rgb), 0.45); color: var(--ink); text-decoration: none; }
+.cat-chip span { color: var(--ink-faint); }
+
+.atlas-category { margin: 0 0 2.8rem; }
+.cat-header {
+  border-top: 1px solid var(--line);
+  padding-top: 1.1rem;
+  margin: 0 0 1.2rem;
+}
+.cat-header h2 {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.2rem;
+  color: var(--ink);
+}
+.cat-header p { margin: 0; color: var(--ink-dim); font-size: 0.95rem; }
+
+.atlas-family { margin: 0 0 1.6rem; }
 .atlas-family .eyebrow { position: sticky; top: 6.8rem; }
+
+.ae-aka {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--ink-faint);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.05em 0.35em;
+  margin-left: 0.5em;
+  cursor: help;
+  white-space: nowrap;
+}
 
 .atlas-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; }
 .atlas-entry {

@@ -3,6 +3,7 @@
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { gzipSync } from 'node:zlib';
 import { PUZZLES } from '../src/data/puzzles.js';
+import { CATEGORIES, CATEGORY_OF_FAMILY } from '../src/data/atlas-categories.js';
 
 let failures = 0;
 const ok = (msg) => console.log(`PASS ${msg}`);
@@ -112,7 +113,7 @@ if (existsSync(atlasDir)) {
   const seen = new Map();
   let total = 0;
   const perFile = [];
-  for (const file of readdirSync(atlasDir).filter((f) => f.endsWith('.json')).sort()) {
+  for (const file of readdirSync(atlasDir).filter((f) => f.endsWith('.json') && f !== 'aliases.json').sort()) {
     let arr;
     try {
       arr = JSON.parse(readFileSync(`${atlasDir}/${file}`, 'utf8'));
@@ -139,6 +140,24 @@ if (existsSync(atlasDir)) {
     perFile.push(`${file.replace('.json', '')} ${arr.length}`);
   }
   ok(`atlas files: ${perFile.join(' · ')}`);
+
+  // Category coverage: every family file maps to exactly one major category,
+  // and every category references only real families.
+  const familyKeys = readdirSync(atlasDir)
+    .filter((f) => f.endsWith('.json') && f !== 'aliases.json')
+    .map((f) => f.replace('.json', ''));
+  const catFamilies = new Set();
+  for (const cat of CATEGORIES) {
+    for (const fam of cat.families) {
+      if (catFamilies.has(fam)) fail(`category families: "${fam}" listed in more than one category`);
+      catFamilies.add(fam);
+      if (!familyKeys.includes(fam)) fail(`category "${cat.key}" references missing family "${fam}"`);
+    }
+  }
+  const orphans = familyKeys.filter((f) => !CATEGORY_OF_FAMILY[f]);
+  if (orphans.length) fail(`families not placed in any category: ${orphans.join(', ')}`);
+  else ok(`categories: ${CATEGORIES.length} major, all ${familyKeys.length} families placed`);
+
   for (const p of Object.values(PUZZLES)) {
     const key = `${norm(p.algorithm)}|${norm(p.heuristic)}`;
     if (!seen.has(key)) fail(`live pair missing from atlas: ${p.algorithm} × ${p.heuristic}`);
@@ -151,12 +170,16 @@ if (existsSync(atlasDir)) {
   if (existsSync(summaryPath)) {
     const summary = JSON.parse(readFileSync(summaryPath, 'utf8'));
     const familyCount = readdirSync(atlasDir).filter((f) => f.endsWith('.json')).length;
+    const aliasFile = existsSync(`${atlasDir}/aliases.json`) ? 1 : 0;
+    const realFamilyCount = familyCount - aliasFile;
     if (summary.total !== total) {
       fail(`atlas-summary.json total ${summary.total} != actual ${total}; update it`);
-    } else if (summary.families !== familyCount) {
-      fail(`atlas-summary.json families ${summary.families} != actual ${familyCount}; update it`);
+    } else if (summary.families !== realFamilyCount) {
+      fail(`atlas-summary.json families ${summary.families} != actual ${realFamilyCount}; update it`);
+    } else if (summary.categories !== CATEGORIES.length) {
+      fail(`atlas-summary.json categories ${summary.categories} != actual ${CATEGORIES.length}; update it`);
     } else {
-      ok(`atlas-summary.json in sync (${total} / ${familyCount})`);
+      ok(`atlas-summary.json in sync (${total} / ${realFamilyCount} / ${CATEGORIES.length})`);
     }
   } else {
     fail(`${summaryPath} missing`);

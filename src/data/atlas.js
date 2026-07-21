@@ -3,6 +3,8 @@
 // This module is used only by the atlas page entry, so the homepage and puzzle
 // pages never pay for it.
 
+import { CATEGORIES, CATEGORY_OF_FAMILY, CATEGORY_BY_KEY } from './atlas-categories.js';
+
 const modules = import.meta.glob('./atlas/*.json', { eager: true });
 
 const FAMILY_LABELS = {
@@ -46,16 +48,28 @@ function familyKey(path) {
   return path.replace('./atlas/', '').replace('.json', '');
 }
 
+// aliases.json is metadata (canonical -> synonyms), not a family of entries.
 export const FAMILIES = Object.entries(modules)
+  .filter(([path]) => familyKey(path) !== 'aliases')
   .map(([path, mod]) => {
     const key = familyKey(path);
     const entries = (mod.default || []).slice().sort((a, b) => {
       if (a.t !== b.t) return a.t - b.t;
       return a.a.localeCompare(b.a);
     });
-    return { key, label: FAMILY_LABELS[key] || key, entries };
+    return { key, label: FAMILY_LABELS[key] || key, category: CATEGORY_OF_FAMILY[key], entries };
   })
   .sort((a, b) => b.entries.length - a.entries.length);
 
+// Families grouped under their major category, in the canonical category order.
+export const CATEGORY_GROUPS = CATEGORIES.map((cat) => {
+  const families = FAMILIES.filter((f) => f.category === cat.key);
+  const count = families.reduce((n, f) => n + f.entries.length, 0);
+  return { ...cat, familyList: families, count };
+}).filter((g) => g.familyList.length);
+
+export const ALIASES = modules['./atlas/aliases.json']?.default || {};
 export const TOTAL = FAMILIES.reduce((n, f) => n + f.entries.length, 0);
+export const CATEGORY_COUNT = CATEGORY_GROUPS.length;
 export const TIER_LABEL = { 1: 'canon', 2: 'standard', 3: 'specialist' };
+export { CATEGORY_BY_KEY };

@@ -98,11 +98,11 @@
 
   "convex-hull": {
     "label": "Convex hull",
-    "phrases": ["Convex hull", "Output-sensitive convex hull"]
+    "phrases": ["Convex hull", "Output-sensitive convex hull", "Three-dimensional hulls", "Diameter and width queries"]
   },
   "delaunay-triangulation": {
-    "label": "Delaunay triangulation",
-    "phrases": ["Delaunay triangulation"]
+    "label": "Delaunay and Voronoi construction",
+    "phrases": ["Delaunay triangulation", "Voronoi diagrams"]
   },
   "polygon-triangulation": {
     "label": "Polygon triangulation",
@@ -238,7 +238,7 @@
   },
   "nearest-neighbor-search": {
     "label": "Nearest neighbor search",
-    "phrases": ["Approximate nearest neighbors", "Metric nearest neighbors", "Compressed vector search"]
+    "phrases": ["Approximate nearest neighbors", "Metric nearest neighbors", "Compressed vector search", "Nearest-neighbor search", "Vector similarity search", "Billion-scale vector search"]
   },
   "image-segmentation": {
     "label": "Image segmentation",
@@ -641,7 +641,7 @@
   },
   "dp-optimization": {
     "label": "DP transition optimization",
-    "phrases": ["Range partition optimization", "DP transition speedup", "Quadrangle-inequality DP", "Interval DP speedup", "Constrained-count DP", "Piecewise-linear DP", "Windowed transition DP", "Dynamic line-minimum queries"]
+    "phrases": ["Range partition optimization", "DP transition speedup", "Quadrangle-inequality DP", "Interval DP speedup", "Constrained-count DP", "Piecewise-linear DP", "Windowed transition DP", "Dynamic line-minimum queries", "DP optimization"]
   },
   "combinatorial-games": {
     "label": "Combinatorial game solving",
@@ -735,7 +735,7 @@
   },
   "ray-acceleration": {
     "label": "Ray-intersection acceleration",
-    "phrases": ["Ray acceleration"]
+    "phrases": ["Ray acceleration", "Ray tracing acceleration", "Ray-scene intersection"]
   },
   "volume-implicit-rendering": {
     "label": "Implicit and volume ray marching",
@@ -747,7 +747,7 @@
   },
   "isosurface-extraction": {
     "label": "Isosurface extraction",
-    "phrases": ["Isosurface polygonization", "Isosurface extraction", "Sharp-feature meshing"]
+    "phrases": ["Isosurface extraction", "Sharp-feature meshing", "Contour extraction"]
   },
   "subdivision-surfaces": {
     "label": "Subdivision surfaces",
@@ -759,7 +759,7 @@
   },
   "mesh-generation": {
     "label": "Mesh generation",
-    "phrases": ["Mesh generation"]
+    "phrases": ["Mesh generation", "Quality mesh generation"]
   },
   "surface-reconstruction": {
     "label": "Surface reconstruction from points",
@@ -775,7 +775,7 @@
   },
   "point-sampling-patterns": {
     "label": "Sampling point patterns",
-    "phrases": ["Blue-noise point sets"]
+    "phrases": ["Blue-noise point sets", "Point-set uniformization"]
   },
   "surface-shading": {
     "label": "Surface shading models",
@@ -1000,5 +1000,42 @@
   "heavy-hitters": {
     "label": "Heavy hitters and frequent items",
     "phrases": ["Frequent-item estimation", "Top-k heavy hitters", "Frequent-item mining", "Network telemetry"]
+  },
+
+  "segment-intersection": {
+    "label": "Segment intersection",
+    "phrases": ["Segment intersection", "Segment intersection detection"]
+  },
+  "spatial-indexing": {
+    "label": "Spatial indexing",
+    "phrases": ["Spatial indexing", "Static spatial index", "Disk metric indexing", "Planar spatial subdivision", "Volumetric subdivision", "Point-region indexing", "Stabbing queries", "Multidimensional range search"]
+  },
+  "clipping": {
+    "label": "Clipping",
+    "phrases": ["Polygon clipping", "Concave polygon clipping", "Line clipping"]
+  },
+  "area-computation": {
+    "label": "Area computation",
+    "phrases": ["Polygon area", "Rectangle union area"]
+  },
+  "bounding-spheres": {
+    "label": "Bounding circles and spheres",
+    "phrases": ["Smallest enclosing circle", "Approximate bounding sphere"]
+  },
+  "collision-detection": {
+    "label": "Convex collision detection",
+    "phrases": ["Convex collision detection", "Collision depth"]
+  },
+  "raster-drawing": {
+    "label": "Raster primitive drawing",
+    "phrases": ["Raster line drawing", "Smooth line drawing", "Raster circle drawing"]
+  },
+  "curve-evaluation": {
+    "label": "Curve evaluation and smoothing",
+    "phrases": ["Bézier curve evaluation", "Curve smoothing"]
+  },
+  "point-in-polygon": {
+    "label": "Point in polygon",
+    "phrases": ["Geometric containment"]
   }
 }

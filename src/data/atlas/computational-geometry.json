@@ -36,7 +36,7 @@
 {"a": "Quadtree", "h": null, "d": "Planar spatial subdivision", "t": 1},
 {"a": "Octree", "h": null, "d": "Volumetric subdivision", "t": 1},
 {"a": "PR quadtree", "h": null, "d": "Point-region indexing", "t": 3},
-{"a": "Bounding volume hierarchy", "h": "Surface-area heuristic", "d": "Ray-scene intersection", "t": 2},
+{"a": "Bounding volume hierarchy", "h": "Surface-area heuristic", "d": "Ray-scene intersection", "t": 1},
 {"a": "Locality-sensitive hashing", "h": "Random hyperplane hashes", "d": "Approximate nearest neighbors", "t": 1},
 {"a": "HNSW", "h": "Navigable small-world layers", "d": "Vector similarity search", "t": 1},
 {"a": "IVF-PQ", "h": "Coarse quantization plus product codes", "d": "Billion-scale vector search", "t": 2},

@@ -241,5 +241,21 @@
   "Go-back-N ARQ": { "aka": ["GBN"] },
   "Selective repeat ARQ": { "aka": ["SR ARQ"] },
   "TCP CUBIC": { "aka": ["CUBIC"] },
-  "Misra-Gries": { "aka": ["Frequent algorithm"] }
+  "Misra-Gries": { "aka": ["Frequent algorithm"] },
+
+  "Ruppert's algorithm": { "aka": ["Delaunay refinement meshing", "Ruppert refinement"], "note": "The graphics-rendering entry 'Delaunay refinement meshing' was this same algorithm and was merged here 2026-07-21." },
+  "Bounding volume hierarchy": { "aka": ["BVH traversal", "BVH"], "note": "The graphics-rendering entry 'BVH traversal' duplicated this structure and was merged here 2026-07-21; the geometry pair is canonical." },
+  "GJK algorithm": { "aka": ["Gilbert-Johnson-Keerthi"] },
+  "EPA": { "aka": ["Expanding polytope algorithm"] },
+  "Separating axis theorem": { "aka": ["SAT collision test"] },
+  "Douglas-Peucker": { "aka": ["Ramer-Douglas-Peucker", "RDP"] },
+  "Welzl's algorithm": { "aka": ["Minidisk algorithm"] },
+  "K-d tree": { "aka": ["kd-tree", "k-dimensional tree"] },
+  "HNSW": { "aka": ["Hierarchical navigable small world"] },
+  "IVF-PQ": { "aka": ["Inverted file with product quantization"] },
+  "Lloyd's relaxation": { "aka": ["CVT iteration"], "note": "The same Lloyd iteration as k-means (see the K-means note); this entry is the geometric point-set use." },
+  "Bresenham's line algorithm": { "aka": ["Bresenham algorithm"] },
+  "Xiaolin Wu's line algorithm": { "aka": ["Wu's algorithm"] },
+  "Shoelace formula": { "aka": ["Surveyor's formula", "Gauss area formula"] },
+  "Annoy": { "aka": ["Approximate nearest neighbors oh yeah"] }
 }

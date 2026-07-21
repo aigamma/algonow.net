@@ -156,5 +156,22 @@
   "Ranked pairs": { "aka": ["Tideman method"] },
   "Random serial dictatorship": { "aka": ["Random priority"] },
   "Counterfactual regret minimization": { "aka": ["CFR"] },
-  "Kelly criterion": { "aka": ["Kelly formula", "Kelly bet"] }
+  "Kelly criterion": { "aka": ["Kelly formula", "Kelly bet"] },
+
+  "Binary space partitioning": { "aka": ["BSP tree"] },
+  "Screen space ambient occlusion": { "aka": ["SSAO"] },
+  "Temporal antialiasing": { "aka": ["TAA"] },
+  "Quadric error simplification": { "aka": ["QEM simplification", "Quadric error metrics"] },
+  "Multiple importance sampling": { "aka": ["MIS"] },
+  "Metropolis light transport": { "aka": ["MLT"] },
+  "Wave function collapse": { "aka": ["WFC"] },
+  "Marching cubes": { "aka": ["Lorensen-Cline algorithm"] },
+  "Poisson disk sampling": { "aka": ["Bridson sampling"] },
+  "Signed distance field text": { "aka": ["SDF text rendering"] },
+  "Ball-pivoting algorithm": { "aka": ["BPA"] },
+  "Cook-Torrance BRDF": { "aka": ["Microfacet BRDF"] },
+  "Next event estimation": { "aka": ["NEE", "Direct light sampling"] },
+  "Percentage closer filtering": { "aka": ["PCF"] },
+  "Cascaded shadow maps": { "aka": ["CSM", "Parallel-split shadow maps"] },
+  "Screen-space reflections": { "aka": ["SSR"] }
 }

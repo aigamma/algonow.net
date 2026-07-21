@@ -57,5 +57,10 @@
 {"a": "MSAA", "h": "Multi-sample coverage", "d": "Antialiasing", "t": 2},
 {"a": "FXAA", "h": "Edge-directed blur", "d": "Post-process antialiasing", "t": 3},
 {"a": "Signed distance field text", "h": null, "d": "Scalable glyph rendering", "t": 3},
-{"a": "Light probe interpolation", "h": "Spherical harmonics", "d": "Indirect lighting", "t": 3}
+{"a": "Light probe interpolation", "h": "Spherical harmonics", "d": "Indirect lighting", "t": 3},
+{"a": "Vertex clustering", "h": "Grid-cell collapse", "d": "Mesh decimation", "t": 3},
+{"a": "Advancing front meshing", "h": "Boundary-inward element placement", "d": "Mesh generation", "t": 3},
+{"a": "Ball-pivoting algorithm", "h": "Rolling-ball surface tracing", "d": "Point-cloud meshing", "t": 3},
+{"a": "Jittered grid sampling", "h": "Stratified cell perturbation", "d": "Blue-noise point sets", "t": 3},
+{"a": "Loop-Blinn curve rendering", "h": "Quadratic-curve sign test", "d": "Scalable glyph rendering", "t": 3}
 ]

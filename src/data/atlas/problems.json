@@ -707,5 +707,86 @@
   "bet-sizing": {
     "label": "Bet and position sizing",
     "phrases": ["Bet sizing", "Position sizing"]
+  },
+
+  "hidden-surface-removal": {
+    "label": "Hidden surface removal",
+    "phrases": ["Hidden surface removal", "Visibility ordering"]
+  },
+  "rasterization": {
+    "label": "Rasterization",
+    "phrases": ["Polygon rasterization", "Triangle rasterization", "Attribute interpolation", "Texture mapping"]
+  },
+  "texture-filtering": {
+    "label": "Texture filtering",
+    "phrases": ["Texture minification", "Oblique texture sampling"]
+  },
+  "global-illumination": {
+    "label": "Global illumination",
+    "phrases": ["Global illumination", "Photorealistic rendering", "Primary-ray rendering", "Caustics and global illumination", "Diffuse global illumination"]
+  },
+  "variance-reduction": {
+    "label": "Monte Carlo variance reduction",
+    "phrases": ["Variance reduction", "Monte Carlo rendering", "Path tracing variance reduction", "Path length control", "Rare-event estimation"]
+  },
+  "ray-acceleration": {
+    "label": "Ray-intersection acceleration",
+    "phrases": ["Ray acceleration"]
+  },
+  "volume-implicit-rendering": {
+    "label": "Implicit and volume ray marching",
+    "phrases": ["Implicit surface rendering", "Volume rendering"]
+  },
+  "real-time-shadows": {
+    "label": "Real-time shadows",
+    "phrases": ["Real-time shadows", "Soft shadow edges", "Large-scene shadows", "Contact shadowing"]
+  },
+  "isosurface-extraction": {
+    "label": "Isosurface extraction",
+    "phrases": ["Isosurface polygonization", "Isosurface extraction", "Sharp-feature meshing"]
+  },
+  "subdivision-surfaces": {
+    "label": "Subdivision surfaces",
+    "phrases": ["Surface subdivision", "Triangle mesh subdivision"]
+  },
+  "mesh-decimation": {
+    "label": "Mesh decimation",
+    "phrases": ["Mesh decimation"]
+  },
+  "mesh-generation": {
+    "label": "Mesh generation",
+    "phrases": ["Mesh generation"]
+  },
+  "surface-reconstruction": {
+    "label": "Surface reconstruction from points",
+    "phrases": ["Point-cloud meshing"]
+  },
+  "procedural-texturing": {
+    "label": "Procedural texturing",
+    "phrases": ["Procedural texturing", "Procedural patterns"]
+  },
+  "procedural-generation": {
+    "label": "Procedural content generation",
+    "phrases": ["Procedural generation", "Terrain generation", "Procedural plant generation"]
+  },
+  "point-sampling-patterns": {
+    "label": "Sampling point patterns",
+    "phrases": ["Blue-noise point sets"]
+  },
+  "surface-shading": {
+    "label": "Surface shading models",
+    "phrases": ["Per-vertex lighting", "Per-pixel lighting", "Physically-based shading"]
+  },
+  "antialiasing": {
+    "label": "Antialiasing",
+    "phrases": ["Antialiasing", "Post-process antialiasing"]
+  },
+  "realtime-gi": {
+    "label": "Real-time indirect lighting",
+    "phrases": ["Real-time reflections", "Indirect lighting"]
+  },
+  "glyph-rendering": {
+    "label": "Scalable glyph rendering",
+    "phrases": ["Scalable glyph rendering"]
   }
 }

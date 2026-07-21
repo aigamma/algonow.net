@@ -3,7 +3,7 @@
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { gzipSync } from 'node:zlib';
 import { PUZZLES } from '../src/data/puzzles.js';
-import { CATEGORIES, CATEGORY_OF_FAMILY } from '../src/data/atlas-categories.js';
+import { CATEGORIES, CATEGORY_OF_TOPIC } from '../src/data/atlas-categories.js';
 
 let failures = 0;
 let warnings = 0;
@@ -155,22 +155,22 @@ if (existsSync(atlasDir)) {
   }
   ok(`atlas files: ${perFile.join(' · ')}`);
 
-  // Category coverage: every family file maps to exactly one major category,
-  // and every category references only real families.
-  const familyKeys = readdirSync(atlasDir)
+  // Category coverage: every topic file maps to exactly one category, and
+  // every category references only real topic files.
+  const topicKeys = readdirSync(atlasDir)
     .filter((f) => f.endsWith('.json') && f !== 'aliases.json')
     .map((f) => f.replace('.json', ''));
-  const catFamilies = new Set();
+  const catTopics = new Set();
   for (const cat of CATEGORIES) {
-    for (const fam of cat.families) {
-      if (catFamilies.has(fam)) fail(`category families: "${fam}" listed in more than one category`);
-      catFamilies.add(fam);
-      if (!familyKeys.includes(fam)) fail(`category "${cat.key}" references missing family "${fam}"`);
+    for (const topic of cat.topics) {
+      if (catTopics.has(topic)) fail(`category topics: "${topic}" listed in more than one category`);
+      catTopics.add(topic);
+      if (!topicKeys.includes(topic)) fail(`category "${cat.key}" references missing topic "${topic}"`);
     }
   }
-  const orphans = familyKeys.filter((f) => !CATEGORY_OF_FAMILY[f]);
-  if (orphans.length) fail(`families not placed in any category: ${orphans.join(', ')}`);
-  else ok(`categories: ${CATEGORIES.length} major, all ${familyKeys.length} families placed`);
+  const orphans = topicKeys.filter((t) => !CATEGORY_OF_TOPIC[t]);
+  if (orphans.length) fail(`topics not placed in any category: ${orphans.join(', ')}`);
+  else ok(`hierarchy: ${CATEGORIES.length} categories, ${topicKeys.length} topics, all placed`);
 
   for (const p of Object.values(PUZZLES)) {
     const key = `${norm(p.algorithm)}|${norm(p.heuristic)}`;
@@ -185,15 +185,15 @@ if (existsSync(atlasDir)) {
     const summary = JSON.parse(readFileSync(summaryPath, 'utf8'));
     const familyCount = readdirSync(atlasDir).filter((f) => f.endsWith('.json')).length;
     const aliasFile = existsSync(`${atlasDir}/aliases.json`) ? 1 : 0;
-    const realFamilyCount = familyCount - aliasFile;
+    const realTopicCount = familyCount - aliasFile;
     if (summary.total !== total) {
       fail(`atlas-summary.json total ${summary.total} != actual ${total}; update it`);
-    } else if (summary.families !== realFamilyCount) {
-      fail(`atlas-summary.json families ${summary.families} != actual ${realFamilyCount}; update it`);
+    } else if (summary.topics !== realTopicCount) {
+      fail(`atlas-summary.json topics ${summary.topics} != actual ${realTopicCount}; update it`);
     } else if (summary.categories !== CATEGORIES.length) {
       fail(`atlas-summary.json categories ${summary.categories} != actual ${CATEGORIES.length}; update it`);
     } else {
-      ok(`atlas-summary.json in sync (${total} / ${realFamilyCount} / ${CATEGORIES.length})`);
+      ok(`atlas-summary.json in sync (${total} entries / ${realTopicCount} topics / ${CATEGORIES.length} categories)`);
     }
   } else {
     fail(`${summaryPath} missing`);

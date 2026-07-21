@@ -33,16 +33,20 @@ interpreting any build prompt; recent commits are the canonical disambiguator.
 7. **Narration is written for the ear.** Spelled-out numbers ("nineteen
    sixty eight"), symbols read as words ("big O of b to the d"), one idea per
    sentence. Visible page text stays tight and may use symbols freely.
-8. **The atlas is the build map.** `src/data/atlas/*.json` (2,000+ entries),
-   `atlas-categories.js` (20 major categories), and `atlas/aliases.json` (the
-   canonical-name to synonyms redirect table). Every entry is a REAL named
-   method (never invent one); every family maps to exactly one category; the
-   normalized (algorithm, heuristic) pair is globally unique; live pairs must
-   appear in the atlas; atlas-summary.json stays in sync. `npm run check`
-   enforces all of this and prints a non-failing duplicate-scan planning list.
-   See docs/ATLAS.md (map + redirect doctrine) and docs/RETRIEVAL.md (Voyage 4
-   + Qdrant plan). When a name odd-symbols (+, *, non-ASCII), watch the
-   uniqueness normalizer.
+8. **The atlas is the build map, three tiers deep.** CATEGORY (~20, broad, in
+   `atlas-categories.js`) -> TOPIC (one JSON file in `src/data/atlas/`, a
+   specific subtopic, target ~100) -> ENTRY (`{a,h,d,t}`, thousands). Keep the
+   tiers ~5x apart; grow entries freely, split a topic file past ~60 entries
+   into finer topics, add a category only for a genuinely new top-level field.
+   `atlas/aliases.json` is the canonical-name to synonyms redirect table. Every
+   entry is a REAL named method (never invent one); every topic file maps to
+   exactly one category; the normalized (algorithm, heuristic) pair is globally
+   unique; live pairs appear in the atlas; atlas-summary.json {total, topics,
+   categories} stays in sync. `npm run check` enforces all of this and prints
+   non-failing duplicate-scan planning warnings. See docs/ATLAS.md (three-tier
+   map + redirect doctrine) and docs/RETRIEVAL.md (Voyage 4 + Qdrant). When a
+   name odd-symbols (+, *, non-ASCII), watch the uniqueness normalizer. Never
+   say "family"; the middle tier is a TOPIC.
 9. **Token doctrine: subscription first.** Authoring the atlas, dedup,
    categorization, unit content, narration, and code are subscription work
    (reasoning/agents), never a metered API. Metered/overflow spend is for the

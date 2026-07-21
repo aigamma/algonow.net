@@ -81,7 +81,7 @@ export default function Home() {
             <span className="at-eyebrow">the atlas</span>
             <p className="at-headline">
               <b>{atlasSummary.total.toLocaleString()}</b> algorithms and pairs mapped,
-              sorted into {atlasSummary.categories} major categories.
+              across {atlasSummary.topics} topics in {atlasSummary.categories} categories.
             </p>
             <p className="at-sub">
               The classical core beside the exotic: quantum, DNA and slime-mold computing,

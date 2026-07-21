@@ -1,29 +1,43 @@
-// Build-time aggregation of the atlas family files into one catalog the /atlas
-// page renders. Import globbed JSON so adding a family file needs no edit here.
-// This module is used only by the atlas page entry, so the homepage and puzzle
-// pages never pay for it.
+// Build-time aggregation of the atlas topic files into the three-tier catalog
+// the /atlas page renders: Category -> Topic -> Entry. Topic files are globbed,
+// so adding one needs no edit here. Used only by the atlas page entry, so the
+// homepage and puzzle pages never pay for this module.
 
-import { CATEGORIES, CATEGORY_OF_FAMILY, CATEGORY_BY_KEY } from './atlas-categories.js';
+import { CATEGORIES, CATEGORY_OF_TOPIC, CATEGORY_BY_KEY } from './atlas-categories.js';
 
 const modules = import.meta.glob('./atlas/*.json', { eager: true });
 
-const FAMILY_LABELS = {
+// Human-readable topic labels. A topic file with no entry here falls back to a
+// title-cased version of its key, so a new topic still renders sanely.
+const TOPIC_LABELS = {
   'sorting': 'Sorting & selection',
   'search-structures': 'Search & data structures',
   'graphs-paths': 'Graphs: paths & search',
   'graphs-structure': 'Graphs: structure & flow',
+  'network-science': 'Network science',
   'metaheuristics': 'Metaheuristics',
   'game-search': 'Adversarial & game search',
   'backtracking-cp': 'Backtracking & constraints',
   'strings': 'Strings & text',
   'computational-geometry': 'Computational geometry',
   'numerical': 'Numerical & linear algebra',
+  'numerical-pde': 'PDE & scientific computing',
   'machine-learning': 'Machine learning',
+  'deep-learning': 'Deep learning',
+  'reinforcement-learning': 'Reinforcement learning',
+  'time-series': 'Time series & forecasting',
+  'recommender-causal': 'Recommenders & causal inference',
   'probabilistic-streaming': 'Probabilistic & streaming',
+  'stochastic-simulation': 'Stochastic & simulation',
   'dynamic-programming': 'Dynamic programming',
+  'combinatorial-enumeration': 'Combinatorial enumeration',
   'cryptography-number-theory': 'Cryptography & number theory',
+  'privacy-security': 'Privacy & security',
   'compression-coding': 'Compression & coding',
   'distributed-concurrent': 'Distributed & concurrent',
+  'fault-tolerance-storage': 'Fault tolerance & storage',
+  'operating-systems': 'Operating systems',
+  'networking': 'Networking',
   'quantum': 'Quantum',
   'unconventional-computing': 'Unconventional computing',
   'online-competitive': 'Online & competitive',
@@ -31,45 +45,55 @@ const FAMILY_LABELS = {
   'computational-biology': 'Computational biology',
   'signal-image': 'Signal & image processing',
   'graphics-rendering': 'Graphics & rendering',
+  'audio-speech': 'Audio & speech',
   'databases-query': 'Databases & query processing',
   'automata-languages': 'Automata & languages',
-  'networking': 'Networking',
+  'program-analysis': 'Program analysis',
   'robotics-planning': 'Robotics & motion planning',
-  'combinatorial-enumeration': 'Combinatorial enumeration',
   'game-theory-social-choice': 'Game theory & social choice',
-  'stochastic-simulation': 'Stochastic & simulation',
   'information-retrieval-nlp': 'Information retrieval & NLP',
   'approximation': 'Approximation algorithms',
-  'fault-tolerance-storage': 'Fault tolerance & storage',
+  'quantitative-finance': 'Quantitative finance',
   'puzzles-recreational': 'Puzzles & recreational',
 };
 
-function familyKey(path) {
+function topicKey(path) {
   return path.replace('./atlas/', '').replace('.json', '');
 }
 
-// aliases.json is metadata (canonical -> synonyms), not a family of entries.
-export const FAMILIES = Object.entries(modules)
-  .filter(([path]) => familyKey(path) !== 'aliases')
+function titleCase(key) {
+  return key.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+// aliases.json is metadata (canonical -> synonyms), not a topic of entries.
+export const TOPICS = Object.entries(modules)
+  .filter(([path]) => topicKey(path) !== 'aliases')
   .map(([path, mod]) => {
-    const key = familyKey(path);
+    const key = topicKey(path);
     const entries = (mod.default || []).slice().sort((a, b) => {
       if (a.t !== b.t) return a.t - b.t;
       return a.a.localeCompare(b.a);
     });
-    return { key, label: FAMILY_LABELS[key] || key, category: CATEGORY_OF_FAMILY[key], entries };
+    return { key, label: TOPIC_LABELS[key] || titleCase(key), category: CATEGORY_OF_TOPIC[key], entries };
   })
   .sort((a, b) => b.entries.length - a.entries.length);
 
-// Families grouped under their major category, in the canonical category order.
+// Topics grouped under their category, in the canonical category order.
 export const CATEGORY_GROUPS = CATEGORIES.map((cat) => {
-  const families = FAMILIES.filter((f) => f.category === cat.key);
-  const count = families.reduce((n, f) => n + f.entries.length, 0);
-  return { ...cat, familyList: families, count };
-}).filter((g) => g.familyList.length);
+  const topicList = TOPICS.filter((t) => t.category === cat.key).sort((a, b) => a.label.localeCompare(b.label));
+  const count = topicList.reduce((n, t) => n + t.entries.length, 0);
+  return { ...cat, topicList, count };
+}).filter((g) => g.topicList.length);
+
+// Flat list of every entry with its category and topic attached, for the
+// random button and the search filter.
+export const ALL_ENTRIES = TOPICS.flatMap((t) =>
+  t.entries.map((e) => ({ ...e, topicKey: t.key, topicLabel: t.label, categoryKey: t.category }))
+);
 
 export const ALIASES = modules['./atlas/aliases.json']?.default || {};
-export const TOTAL = FAMILIES.reduce((n, f) => n + f.entries.length, 0);
+export const TOTAL = ALL_ENTRIES.length;
 export const CATEGORY_COUNT = CATEGORY_GROUPS.length;
+export const TOPIC_COUNT = TOPICS.length;
 export const TIER_LABEL = { 1: 'canon', 2: 'standard', 3: 'specialist' };
 export { CATEGORY_BY_KEY };

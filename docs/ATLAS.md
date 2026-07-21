@@ -58,16 +58,37 @@ live pair in `src/data/puzzles.js` appears in the atlas.
    and punctuation; synonym discipline (no "Dijkstra" vs "Dijkstra's
    algorithm" twins) is editorial.
 
-## Categories (the 20 major buckets)
+## The three tiers
 
-Above the 34 families sit 20 legible, textbook-recognizable categories in
-`src/data/atlas-categories.js` (Sorting & Selection, Graph Algorithms,
-Optimization & Operations Research, Machine Learning & AI, Cryptography &
-Number Theory, Quantum & Unconventional Computing, and so on). Every family
-maps to exactly one category; `npm run check` fails if a family is orphaned or
-double-placed. The /atlas page and the homepage teaser present the catalog by
-category. This is the navigation spine; keep it objective and recognizable,
-never an artificial split.
+The hierarchy is three tiers, each a distinct scale, kept ~5x apart so no tier
+reads as a near-duplicate of the one above:
+
+```
+CATEGORY  (~20)   broad, legible field of algorithms       <- the nav spine
+  TOPIC   (~100)  a specific subtopic (one JSON file)       <- the fine filter
+    ENTRY (thousands) one algorithm or algorithm x heuristic pair
+```
+
+- **Category** (`src/data/atlas-categories.js`): the 20 legible top-level
+  fields (Sorting & Selection, Graph Algorithms, Machine Learning & AI, Quantum
+  & Unconventional Computing, ...). Grows slowly and deliberately; only a
+  genuinely new top-level field earns one. The nav spine: objective and
+  recognizable, never an artificial split.
+- **Topic**: one JSON file in `src/data/atlas/` (e.g. `deep-learning.json`).
+  A specific subtopic. Topics proliferate as the catalog scales: when a topic
+  file grows past ~60 entries, split it into finer topics (e.g. `machine-
+  learning` -> supervised / clustering / dimensionality reduction) so the middle
+  tier stays populous and each topic is a useful narrow filter. Target ~100
+  topics at 4,000-5,000 entries.
+- **Entry**: one `{a, h, d, t}` record. Where the bulk of growth lives.
+
+`atlas-categories.js` is the single source of the taxonomy: each category lists
+the topic files it owns. `npm run check` fails if a topic file is orphaned,
+double-placed, or references a missing file. The /atlas page presents all three
+tiers with category and tier filters, a random button, and alias-aware search.
+Earlier drafts called topics "families"; the term was retired because 20
+categories and ~45 same-scale families read as two competing hierarchies
+rather than a pyramid.
 
 ## Collisions: canonical names, aliases, and redirects
 

@@ -49,5 +49,8 @@
 {"a": "Named entity recognition", "h": "BIO tagging", "d": "Information extraction", "t": 2},
 {"a": "Shingling near-duplicate", "h": "MinHash-LSH", "d": "Document deduplication", "t": 2},
 {"a": "Semantic hashing", "h": null, "d": "Approximate document search", "t": 3},
-{"a": "Maximal marginal relevance", "h": "Relevance-diversity tradeoff", "d": "Result diversification", "t": 2}
+{"a": "Maximal marginal relevance", "h": "Relevance-diversity tradeoff", "d": "Result diversification", "t": 2},
+{"a": "Determinantal point process ranking", "h": "Volume-based diversity", "d": "Result diversification", "t": 3},
+{"a": "Averaged perceptron tagger", "h": "Collins weight averaging", "d": "Part-of-speech tagging", "t": 3},
+{"a": "Fusion-in-decoder", "h": "Per-passage encoding", "d": "Grounded generation", "t": 3}
 ]

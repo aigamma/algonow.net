@@ -97,7 +97,7 @@
   },
   "link-analysis": {
     "label": "Node importance and link analysis",
-    "phrases": ["Web ranking", "Link-based ranking", "Local graph ranking", "Proximity ranking", "Node importance", "Flow-based ranking", "Graph centrality"]
+    "phrases": ["Web ranking", "Link-based ranking", "Local graph ranking", "Proximity ranking", "Node importance", "Flow-based ranking", "Graph centrality", "Large-graph centrality"]
   },
 
   "convex-hull": {
@@ -250,7 +250,7 @@
   },
   "classification": {
     "label": "Classification",
-    "phrases": ["Classification", "Binary classification", "Linear classification", "Nonlinear classification", "Max-margin classification", "Large-scale classification", "Instance-based classification", "Correlation-aware classification", "Interpretable classification", "Regression and classification trees", "Ensemble classification", "Boosted classification", "Probabilistic classification", "Nonparametric classification", "Kernel classification", "Online classification", "Online kernel classification", "Text classification", "Imbalanced classification", "Decision tree induction", "Boosted prediction", "Tabular prediction", "Large tabular prediction", "Categorical prediction", "Ensemble blending"]
+    "phrases": ["Classification", "Binary classification", "Linear classification", "Nonlinear classification", "Max-margin classification", "Large-scale classification", "Instance-based classification", "Correlation-aware classification", "Interpretable classification", "Regression and classification trees", "Ensemble classification", "Boosted classification", "Probabilistic classification", "Nonparametric classification", "Kernel classification", "Online classification", "Online kernel classification", "Text classification", "Imbalanced classification", "Decision tree induction", "Boosted prediction", "Tabular prediction", "Large tabular prediction", "Categorical prediction", "Ensemble blending", "Nonlinear discrimination", "Post-hoc ensembling"]
   },
   "regression": {
     "label": "Regression",
@@ -262,19 +262,19 @@
   },
   "dimensionality-reduction": {
     "label": "Dimensionality reduction",
-    "phrases": ["Dimensionality reduction", "Linear dimensionality reduction", "Nonlinear dimensionality reduction", "Topological dimensionality reduction", "Quantum dimensionality reduction", "High-dimensional features", "Visualization embedding", "Manifold embedding", "Manifold learning"]
+    "phrases": ["Dimensionality reduction", "Linear dimensionality reduction", "Nonlinear dimensionality reduction", "Topological dimensionality reduction", "Quantum dimensionality reduction", "High-dimensional features", "Visualization embedding", "Manifold embedding", "Manifold learning", "Multiview learning"]
   },
   "feature-selection": {
     "label": "Feature selection",
-    "phrases": ["Feature selection"]
+    "phrases": ["Feature selection", "Feature relevance"]
   },
   "hyperparameter-tuning": {
     "label": "Hyperparameter tuning",
-    "phrases": ["Hyperparameter tuning", "Bayesian optimization", "High-dimensional BO"]
+    "phrases": ["Hyperparameter tuning", "Bayesian optimization", "High-dimensional BO", "Cheap-expensive tradeoff", "Constrained BO"]
   },
   "anomaly-detection": {
     "label": "Anomaly detection",
-    "phrases": ["Anomaly detection", "Series anomaly detection", "Motif and anomaly discovery"]
+    "phrases": ["Anomaly detection", "Series anomaly detection", "Motif and anomaly discovery", "Novelty detection"]
   },
   "nearest-neighbor-search": {
     "label": "Nearest neighbor search",
@@ -589,7 +589,7 @@
   },
   "document-ranking": {
     "label": "Document ranking",
-    "phrases": ["Document ranking", "Structured-document ranking", "Retrieval reranking", "Ranking optimization"]
+    "phrases": ["Document ranking", "Structured-document ranking", "Retrieval reranking", "Ranking optimization", "Long-query retrieval"]
   },
   "game-tree-search": {
     "label": "Game-tree search",
@@ -617,11 +617,11 @@
   },
   "causal-inference": {
     "label": "Causal inference",
-    "phrases": ["Causal inference"]
+    "phrases": ["Causal inference", "Causal effect identification"]
   },
   "recommendation": {
     "label": "Recommendation",
-    "phrases": ["Recommendation", "Recommendation ranking"]
+    "phrases": ["Recommendation", "Recommendation ranking", "Implicit recommendation", "Sparse prediction", "Candidate retrieval"]
   },
   "semi-supervised-learning": {
     "label": "Semi-supervised learning",
@@ -629,7 +629,7 @@
   },
   "active-learning": {
     "label": "Active learning",
-    "phrases": ["Active learning"]
+    "phrases": ["Active learning", "Deep active learning"]
   },
   "compiler-optimization": {
     "label": "Compiler optimization",
@@ -997,15 +997,15 @@
   },
   "hypothesis-testing": {
     "label": "Hypothesis testing",
-    "phrases": ["Mean comparison", "Multi-group comparison", "Independence testing", "Small-sample independence", "Distribution testing", "Nonparametric comparison", "Paired nonparametric test", "Nonparametric ANOVA", "Normality testing", "Sequential testing"]
+    "phrases": ["Mean comparison", "Multi-group comparison", "Independence testing", "Small-sample independence", "Distribution testing", "Nonparametric comparison", "Paired nonparametric test", "Nonparametric ANOVA", "Normality testing", "Sequential testing", "Two-sample testing"]
   },
   "multiple-testing": {
     "label": "Multiple testing correction",
     "phrases": ["Multiple testing"]
   },
   "interval-estimation": {
-    "label": "Interval estimation",
-    "phrases": ["Interval estimation"]
+    "label": "Interval estimation and uncertainty",
+    "phrases": ["Interval estimation", "Uncertainty quantification"]
   },
   "bayesian-computation": {
     "label": "Bayesian computation",
@@ -1707,11 +1707,11 @@
   },
   "training-regularization": {
     "label": "Training stabilization and regularization",
-    "phrases": ["Training stabilization", "Regularization", "Classifier calibration", "Data augmentation", "Training schedules", "Neural regularization"]
+    "phrases": ["Training stabilization", "Regularization", "Classifier calibration", "Data augmentation", "Training schedules", "Neural regularization", "Overfitting control"]
   },
   "text-decoding": {
     "label": "Text decoding strategies",
-    "phrases": ["Sequence generation", "Text generation"]
+    "phrases": ["Sequence generation", "Text generation", "Fast text generation"]
   },
   "representation-learning": {
     "label": "Representation learning",
@@ -1764,7 +1764,91 @@
   },
   "structure-learning": {
     "label": "Graphical model structure learning",
-    "phrases": ["Graphical model structure"]
+    "phrases": ["Graphical model structure", "Causal structure discovery"]
+  },
+  "random-graph-models": {
+    "label": "Random graph models",
+    "phrases": ["Random graph generation", "Scale-free graph generation", "Community-structured graphs"]
+  },
+  "subgraph-counting": {
+    "label": "Subgraph and motif counting",
+    "phrases": ["Clustering coefficient", "Approximate triangle counting", "Subgraph statistics", "Dynamic-network analysis"]
+  },
+  "dense-subgraphs": {
+    "label": "Dense subgraph discovery",
+    "phrases": ["Dense-region extraction", "Cohesive subgraphs", "Dense subgraph discovery"]
+  },
+  "node-similarity": {
+    "label": "Node similarity and structural roles",
+    "phrases": ["Node similarity", "Structural roles"]
+  },
+  "graph-layout": {
+    "label": "Graph layout",
+    "phrases": ["Graph layout", "Large-graph layout", "Hierarchical layout", "Diagram layout", "Linear graph layout", "Flow visualization", "Schematic layout", "Graph embedding layout"]
+  },
+  "kernel-design": {
+    "label": "Kernel design and selection",
+    "phrases": ["Sequence classification", "Biological sequence kernels", "Hybrid kernels", "Kernel selection", "Implicit feature maps"]
+  },
+  "kernel-embeddings": {
+    "label": "Kernel embeddings of distributions",
+    "phrases": ["Distribution representation", "Kernel Bayes rule"]
+  },
+  "gp-scalability": {
+    "label": "Scalable Gaussian processes",
+    "phrases": ["Big-data GP", "Time-series GP"]
+  },
+  "gp-extensions": {
+    "label": "Gaussian process extensions",
+    "phrases": ["Hierarchical GP", "Non-Gaussian outputs"]
+  },
+  "gp-kernel-learning": {
+    "label": "Gaussian process kernel learning",
+    "phrases": ["Kernel learning", "Kernel discovery"]
+  },
+  "cross-validation": {
+    "label": "Cross-validation schemes",
+    "phrases": ["Imbalanced evaluation", "Unbiased model selection", "Temporal evaluation"]
+  },
+  "model-diagnostics": {
+    "label": "Model diagnostics",
+    "phrases": ["Data-need diagnosis", "Error analysis"]
+  },
+  "semantic-retrieval": {
+    "label": "Semantic document retrieval",
+    "phrases": ["Semantic retrieval", "Approximate document search"]
+  },
+  "tokenization": {
+    "label": "Subword tokenization",
+    "phrases": ["Subword tokenization", "Language-agnostic tokenization"]
+  },
+  "spelling-correction": {
+    "label": "Spelling correction",
+    "phrases": ["Spelling correction", "Fast spelling correction"]
+  },
+  "result-diversification": {
+    "label": "Result diversification",
+    "phrases": ["Result diversification"]
+  },
+  "pos-tagging": {
+    "label": "Part-of-speech tagging",
+    "phrases": ["Part-of-speech tagging"]
+  },
+  "treatment-effects": {
+    "label": "Heterogeneous treatment effects",
+    "phrases": ["Heterogeneous treatment effects", "Treatment targeting"]
+  },
+  "association-rules": {
+    "label": "Association rule mining",
+    "phrases": ["Market-basket analysis"]
+  },
+  "continual-learning": {
+    "label": "Continual learning",
+    "phrases": ["Catastrophic-forgetting defense", "Lifelong learning"]
+  },
+  "domain-adaptation": {
+    "label": "Domain adaptation",
+    "phrases": ["Domain adaptation", "Covariate shift"]
   },
   "linear-programming": {
     "label": "Linear programming",
@@ -1949,7 +2033,7 @@
   },
   "similarity-sketching": {
     "label": "Similarity sketching and near-duplicates",
-    "phrases": ["Set-similarity estimation", "Near-duplicate detection", "Record linkage", "Jaccard similarity estimation", "Fast similarity estimation", "Approximate similarity join"]
+    "phrases": ["Set-similarity estimation", "Near-duplicate detection", "Record linkage", "Jaccard similarity estimation", "Fast similarity estimation", "Approximate similarity join", "Document deduplication"]
   },
   "string-periodicity": {
     "label": "String periodicity and factorization",
@@ -2165,10 +2249,6 @@
     "label": "Endgame databases",
     "phrases": ["Endgame tablebase construction"]
   },
-  "pure-exploration": {
-    "label": "Pure-exploration bandits",
-    "phrases": ["Pure-exploration bandits"]
-  },
 
   "reinforcement-learning": {
     "label": "Reinforcement learning",
@@ -2204,7 +2284,7 @@
   },
   "bandits": {
     "label": "Multi-armed bandits",
-    "phrases": ["Multi-armed bandits", "Adversarial bandits", "Contextual bandits"]
+    "phrases": ["Multi-armed bandits", "Adversarial bandits", "Contextual bandits", "Exploration in recommendation", "Pure-exploration bandits"]
   },
   "topic-modeling": {
     "label": "Topic modeling",

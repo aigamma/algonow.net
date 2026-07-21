@@ -3,6 +3,7 @@
 {"a": "K-nearest neighbors", "h": "Mahalanobis distance", "d": "Correlation-aware classification", "t": 2},
 {"a": "K-nearest neighbors", "h": "Distance-weighted voting", "d": "Instance-based classification", "t": 2},
 {"a": "Condensed nearest neighbor", "h": null, "d": "Prototype reduction", "t": 3},
+{"a": "Edited nearest neighbor", "h": "Misclassified-instance removal", "d": "Prototype reduction", "t": 3},
 {"a": "Linear regression", "h": "Ordinary least squares", "d": "Continuous prediction", "t": 1},
 {"a": "Ridge regression", "h": "L2 penalty", "d": "Regularized regression", "t": 1},
 {"a": "Lasso regression", "h": "L1 penalty via coordinate descent", "d": "Sparse regression", "t": 1},

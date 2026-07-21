@@ -38,5 +38,7 @@
 {"a": "Counterfactual explanation", "h": "Nearest flipped instance", "d": "Model explanation", "t": 3},
 {"a": "Conformal prediction", "h": "Nonconformity quantile", "d": "Uncertainty quantification", "t": 2},
 {"a": "Platt scaling", "h": "Sigmoid calibration", "d": "Probability calibration", "t": 2},
-{"a": "Isotonic calibration", "h": "Monotone regression", "d": "Probability calibration", "t": 3}
+{"a": "Isotonic calibration", "h": "Monotone regression", "d": "Probability calibration", "t": 3},
+{"a": "FP-growth", "h": "Prefix-tree pattern mining", "d": "Market-basket analysis", "t": 2},
+{"a": "GES algorithm", "h": "Greedy equivalence search", "d": "Causal structure discovery", "t": 3}
 ]

@@ -175,7 +175,7 @@
   },
   "regex-matching": {
     "label": "Regular expression matching",
-    "phrases": ["Regex matching", "Fast regex matching", "Linear-time regex matching"]
+    "phrases": ["Regex matching", "Fast regex matching", "Linear-time regex matching", "Submatch regex"]
   },
 
   "integer-factorization": {
@@ -1742,6 +1742,30 @@
     "label": "Optimal transport",
     "phrases": ["Optimal transport"]
   },
+  "entropy-estimation": {
+    "label": "Entropy and information estimation",
+    "phrases": ["Entropy estimation", "Mutual information estimation", "Divergence estimation", "Distribution comparison", "Directed information flow"]
+  },
+  "channel-capacity": {
+    "label": "Channel capacity and rate-distortion",
+    "phrases": ["Channel capacity", "Rate-distortion computation", "Channel decoding theory", "Coding efficiency", "Lossy compression control"]
+  },
+  "distributed-source-coding": {
+    "label": "Distributed source coding",
+    "phrases": ["Distributed source coding", "Lossy distributed coding"]
+  },
+  "algorithmic-complexity": {
+    "label": "Algorithmic information and complexity",
+    "phrases": ["Sequence complexity", "Algorithmic complexity", "Universal similarity"]
+  },
+  "maxent-modeling": {
+    "label": "Maximum entropy modeling",
+    "phrases": ["Distribution estimation"]
+  },
+  "structure-learning": {
+    "label": "Graphical model structure learning",
+    "phrases": ["Graphical model structure"]
+  },
   "linear-programming": {
     "label": "Linear programming",
     "phrases": ["Linear programming", "Polynomial linear programming", "Interior-point linear programming", "Linear and convex programs"]
@@ -1937,7 +1961,35 @@
   },
   "regex-construction": {
     "label": "Regex to automaton construction",
-    "phrases": ["Regex to NFA"]
+    "phrases": ["Regex to NFA", "NFA to DFA", "Automaton to regex"]
+  },
+  "automaton-minimization": {
+    "label": "Automaton minimization",
+    "phrases": ["DFA minimization"]
+  },
+  "language-theory": {
+    "label": "Formal language theory",
+    "phrases": ["Non-regularity proofs", "Regular language theory"]
+  },
+  "automaton-learning": {
+    "label": "Automaton and grammar learning",
+    "phrases": ["Automaton learning", "Grammar induction"]
+  },
+  "compiler-backend": {
+    "label": "Compiler backend code generation",
+    "phrases": ["Compiler backend", "JIT compiler backend", "Compiler IR", "Expression code generation", "Code generation"]
+  },
+  "lexing": {
+    "label": "Lexical analysis",
+    "phrases": ["Tokenization", "Expression to postfix"]
+  },
+  "tree-pattern-matching": {
+    "label": "Tree pattern matching",
+    "phrases": ["Tree pattern matching"]
+  },
+  "transducers": {
+    "label": "Weighted transducers",
+    "phrases": ["Speech and NLP transducers"]
   },
 
   "prefix-codes": {

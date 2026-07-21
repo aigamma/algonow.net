@@ -692,5 +692,26 @@
   "Stochastic average gradient": { "aka": ["SAG"] },
   "Sinkhorn algorithm": { "aka": ["Sinkhorn-Knopp", "Entropic optimal transport"] },
   "Chambolle-Pock": { "aka": ["Primal-dual hybrid gradient", "PDHG"] },
-  "Douglas-Rachford splitting": { "aka": ["Douglas-Rachford"] }
+  "Douglas-Rachford splitting": { "aka": ["Douglas-Rachford"] },
+
+  "Thompson's construction": { "aka": ["McNaughton-Yamada-Thompson"] },
+  "Subset construction": { "aka": ["Powerset construction", "Rabin-Scott construction"] },
+  "Hopcroft's minimization": { "aka": ["Hopcroft algorithm"] },
+  "Myhill-Nerode": { "aka": ["Myhill-Nerode theorem"] },
+  "Angluin's L-star": { "aka": ["L* algorithm", "Active automata learning"] },
+  "Packrat parsing": { "aka": ["PEG parsing"] },
+  "Earley parser": { "aka": ["Earley algorithm"] },
+  "CYK parser": { "aka": ["CKY algorithm", "Cocke-Younger-Kasami"] },
+  "GLR parsing": { "aka": ["Generalized LR parsing"] },
+  "Pratt parsing": { "aka": ["Top-down operator precedence"] },
+  "Shunting yard": { "aka": ["Dijkstra shunting-yard algorithm"] },
+  "SSA construction": { "aka": ["Static single assignment", "Cytron algorithm"] },
+  "Chu-Liu-Edmonds": { "aka": ["Edmonds arborescence algorithm"] },
+  "Kleene's algorithm": { "aka": ["Kleene construction"] },
+  "KSG mutual information": { "aka": ["Kraskov-Stogbauer-Grassberger estimator"] },
+  "Normalized compression distance": { "aka": ["NCD"] },
+  "Information bottleneck": { "aka": ["IB method"] },
+  "Chow-Liu tree": { "aka": ["Chow-Liu algorithm"] },
+  "Jensen-Shannon divergence": { "aka": ["JS divergence"] },
+  "Kullback-Leibler estimation": { "aka": ["KL divergence estimation"] }
 }

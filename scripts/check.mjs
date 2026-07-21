@@ -85,10 +85,13 @@ if (!existsSync('dist/assets')) {
     const size = gz(`dist/assets/${a}`);
     if (a.startsWith('vendor-')) budget(`vendor ${a}`, size, 70 * 1024);
     else if (a.endsWith('.css')) budget(`css ${a}`, size, 14 * 1024);
-    // The atlas page embeds the whole 2,000+ entry catalog; it is a single
-    // data-heavy browse page (not on the PageSpeed-critical path the homepage
-    // and puzzle pages share), so it carries its own budget.
-    else if (a.startsWith('atlas-')) budget(`atlas chunk ${a}`, size, 60 * 1024);
+    // The atlas page embeds the whole catalog; it is a single data-heavy
+    // browse page (not on the PageSpeed-critical path the homepage and puzzle
+    // pages share) served with an immutable cache, so it carries its own
+    // generous budget. If the catalog outgrows this, switch the atlas data
+    // from a bundled JS chunk to a runtime-fetched JSON asset rather than
+    // just raising the ceiling again.
+    else if (a.startsWith('atlas-')) budget(`atlas chunk ${a}`, size, 120 * 1024);
     else if (a.endsWith('.js')) budget(`chunk ${a}`, size, 20 * 1024);
   }
   budget('html index.html', gz('dist/index.html'), 2 * 1024);

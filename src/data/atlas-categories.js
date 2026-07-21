@@ -61,14 +61,14 @@ export const CATEGORIES = [
   {
     key: 'numerical',
     label: 'Numerical & Scientific Computing',
-    blurb: 'Root finding, linear algebra, optimization, integration, transforms.',
-    families: ['numerical'],
+    blurb: 'Root finding, linear algebra, optimization, integration, transforms, PDE solvers.',
+    families: ['numerical', 'numerical-pde'],
   },
   {
     key: 'signal-graphics',
     label: 'Signal, Image & Graphics',
-    blurb: 'Filtering, feature extraction, rendering, and the geometry of pictures.',
-    families: ['signal-image', 'graphics-rendering'],
+    blurb: 'Filtering, feature extraction, audio and speech, rendering, the geometry of pictures.',
+    families: ['signal-image', 'graphics-rendering', 'audio-speech'],
   },
   {
     key: 'ml-ai',
@@ -85,8 +85,8 @@ export const CATEGORIES = [
   {
     key: 'crypto-number-theory',
     label: 'Cryptography & Number Theory',
-    blurb: 'Modular arithmetic, primality, factorization, ciphers, protocols.',
-    families: ['cryptography-number-theory'],
+    blurb: 'Modular arithmetic, primality, factorization, ciphers, protocols, privacy and security.',
+    families: ['cryptography-number-theory', 'privacy-security'],
   },
   {
     key: 'compression-coding',
@@ -109,8 +109,8 @@ export const CATEGORIES = [
   {
     key: 'languages-compilers',
     label: 'Formal Languages & Compilers',
-    blurb: 'Automata, parsing, and compiler-backend algorithms.',
-    families: ['automata-languages'],
+    blurb: 'Automata, parsing, compiler-backend algorithms, and program analysis.',
+    families: ['automata-languages', 'program-analysis'],
   },
   {
     key: 'quantum-unconventional',

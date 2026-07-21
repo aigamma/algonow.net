@@ -13,7 +13,9 @@ interpreting any build prompt; recent commits are the canonical disambiguator.
    over the catalog.
 3. **Evidence over assurance.** A unit is done when `npm run build` exits 0,
    `npm run check` passes, and `python solutions/<slug>.py` prints OK. Say
-   what was verified and how.
+   what was verified and how. `npm run check` runs `npm test` last, which
+   SSR-loads the real page data modules: a green build does NOT prove a page
+   renders, since Vite never executes client code at build time.
 4. **Zero-cost audio by default.** The Listen feature uses the browser's Web
    Speech API only. Never wire a paid TTS provider (OpenAI, ElevenLabs,
    Google, Amazon) without the owner's explicit go-ahead in the moment; see
@@ -55,6 +57,21 @@ interpreting any build prompt; recent commits are the canonical disambiguator.
    go-ahead before a paid run. Always start with the best models (Voyage 4,
    latest Claude); cost is not the constraint, but do not spend metered credits
    during interactive building.
+
+10. **Fable authors the catalog itself, in the main thread, attributed.**
+   Every atlas entry (algorithm, heuristic, problem phrase, tier) and every
+   unit's content, narration, and solution is authored by Claude Fable 5
+   reasoning directly in the main thread. Never delegate entry authoring to a
+   subagent, a Workflow, or another model, and never generate entries from
+   project code that calls an API. Correctness is only half the reason: the
+   site's claim is that a frontier model taught these techniques, so the
+   provenance has to be real. If the running model is NOT Fable, stop
+   authoring entries and say so plainly; metadata, tooling, docs, dedup, and
+   verification are still fine to continue. Any commit that adds or changes
+   entries names the authoring model in its trailer, which makes `git log`
+   and `git blame` the provenance record. Owner-run fact-checking passes by
+   other engines are expected and welcome: they audit, they do not author.
+   Take as long as this needs. Slow and correct beats fast and padded.
 
 ## The unit template
 

@@ -4,6 +4,7 @@
 // homepage and puzzle pages never pay for this module.
 
 import { CATEGORIES, CATEGORY_OF_TOPIC, CATEGORY_BY_KEY } from './atlas-categories.js';
+import { isRegistryKey } from './atlas-registry.js';
 
 const modules = import.meta.glob('./atlas/*.json', { eager: true });
 
@@ -65,9 +66,10 @@ function titleCase(key) {
   return key.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-// aliases.json is metadata (canonical -> synonyms), not a topic of entries.
+// aliases.json and problems.json are registries (name and problem metadata),
+// not topics of entries; see atlas-registry.js.
 export const TOPICS = Object.entries(modules)
-  .filter(([path]) => topicKey(path) !== 'aliases')
+  .filter(([path]) => !isRegistryKey(topicKey(path)))
   .map(([path, mod]) => {
     const key = topicKey(path);
     const entries = (mod.default || []).slice().sort((a, b) => {
@@ -92,6 +94,30 @@ export const ALL_ENTRIES = TOPICS.flatMap((t) =>
 );
 
 export const ALIASES = modules['./atlas/aliases.json']?.default || {};
+
+// The rivals table: problem slug -> { label, phrases }. Inverted here into the
+// lookup the UI needs, a normalized `d` phrase -> problem, so any entry can
+// find the other methods that attack the same problem.
+export const PROBLEMS = modules['./atlas/problems.json']?.default || {};
+const normPhrase = (s) => String(s ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
+export const PROBLEM_OF_PHRASE = (() => {
+  const map = {};
+  for (const [slug, meta] of Object.entries(PROBLEMS)) {
+    if (slug.startsWith('_') || !meta?.phrases) continue;
+    for (const phrase of meta.phrases) map[normPhrase(phrase)] = slug;
+  }
+  return map;
+})();
+
+// Every entry that attacks the same problem as `entry`, itself excluded. Falls
+// back to an exact phrase match when the phrase is not registered yet.
+export function rivalsOf(entry) {
+  const slug = PROBLEM_OF_PHRASE[normPhrase(entry.d)];
+  return ALL_ENTRIES.filter((e) => {
+    if (e === entry || (e.a === entry.a && e.h === entry.h)) return false;
+    return slug ? PROBLEM_OF_PHRASE[normPhrase(e.d)] === slug : normPhrase(e.d) === normPhrase(entry.d);
+  });
+}
 export const TOTAL = ALL_ENTRIES.length;
 export const CATEGORY_COUNT = CATEGORY_GROUPS.length;
 export const TOPIC_COUNT = TOPICS.length;

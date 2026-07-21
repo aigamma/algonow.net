@@ -4,6 +4,7 @@ import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { gzipSync } from 'node:zlib';
 import { PUZZLES } from '../src/data/puzzles.js';
 import { CATEGORIES, CATEGORY_OF_TOPIC } from '../src/data/atlas-categories.js';
+import { REGISTRY_KEYS } from '../src/data/atlas-registry.js';
 
 let failures = 0;
 let warnings = 0;
@@ -124,9 +125,12 @@ if (existsSync(atlasDir)) {
   const byAlgo = new Map();
   let total = 0;
   const perFile = [];
-  // Registry files are metadata about the catalog, not topic shards.
-  const REGISTRY_FILES = new Set(['aliases.json', 'problems.json']);
-  const isTopicFile = (f) => f.endsWith('.json') && !REGISTRY_FILES.has(f);
+  // Registry files are metadata about the catalog, not topic shards. The list
+  // is shared with the page bundle (src/data/atlas-registry.js) so the two can
+  // never disagree about what counts as a topic.
+  const isTopicFile = (f) => f.endsWith('.json') && !REGISTRY_KEYS.includes(f.replace('.json', ''));
+  const strayRegistry = REGISTRY_KEYS.filter((k) => !existsSync(`${atlasDir}/${k}.json`));
+  if (strayRegistry.length) fail(`atlas-registry.js lists missing file(s): ${strayRegistry.join(', ')}`);
   // normalized domain phrase -> Set of "algorithm x heuristic" display strings,
   // for the rivals pass below.
   const byPhrase = new Map();

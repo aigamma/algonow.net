@@ -1066,5 +1066,58 @@
   "derivative-free-optimization": {
     "label": "Derivative-free optimization",
     "phrases": ["Derivative-free optimization", "Derivative-free continuous optimization"]
+  },
+
+  "differential-privacy": {
+    "label": "Differential privacy",
+    "phrases": ["Private data release", "Private selection", "Private threshold queries", "Local differential privacy", "Local privacy telemetry", "Private model training", "Privacy budgeting"]
+  },
+  "secure-computation": {
+    "label": "Secure multiparty computation",
+    "phrases": ["Joint private computation", "Two-party computation", "Multiparty computation", "Cryptographic primitive", "Efficient oblivious transfer", "Private matching"]
+  },
+  "homomorphic-encryption": {
+    "label": "Homomorphic encryption",
+    "phrases": ["Computation on ciphertext", "Encrypted arithmetic", "Fully homomorphic encryption"]
+  },
+  "access-privacy": {
+    "label": "Access-pattern privacy",
+    "phrases": ["Access-pattern hiding", "Query privacy"]
+  },
+  "federated-learning": {
+    "label": "Federated learning",
+    "phrases": ["Decentralized training", "Private federated learning"]
+  },
+  "zero-knowledge-proofs": {
+    "label": "Zero-knowledge proofs",
+    "phrases": ["Succinct proofs", "Transparent proofs", "Range proofs", "Hiding commitments"]
+  },
+  "verifiable-randomness": {
+    "label": "Verifiable randomness and delay",
+    "phrases": ["Provable randomness", "Proof of elapsed time"]
+  },
+  "side-channels": {
+    "label": "Side-channel attacks and defenses",
+    "phrases": ["Side-channel attack", "Side-channel defense"]
+  },
+  "exploit-mitigation": {
+    "label": "Exploit mitigation",
+    "phrases": ["Exploit mitigation"]
+  },
+  "data-anonymization": {
+    "label": "Data anonymization",
+    "phrases": ["Data anonymization"]
+  },
+  "anonymous-communication": {
+    "label": "Anonymous communication",
+    "phrases": ["Anonymous communication"]
+  },
+  "verifiable-voting": {
+    "label": "Verifiable voting",
+    "phrases": ["Verifiable voting"]
+  },
+  "fuzzing": {
+    "label": "Fuzzing and security testing",
+    "phrases": ["Security testing", "Bug finding"]
   }
 }

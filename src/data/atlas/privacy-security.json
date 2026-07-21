@@ -26,7 +26,7 @@
 {"a": "Pedersen commitment", "h": null, "d": "Hiding commitments", "t": 2},
 {"a": "Verifiable random function", "h": null, "d": "Provable randomness", "t": 3},
 {"a": "Verifiable delay function", "h": "Sequential squaring", "d": "Proof of elapsed time", "t": 3},
-{"a": "Timing side-channel analysis", "h": null, "d": "Cryptanalysis", "t": 3},
+{"a": "Timing side-channel analysis", "h": null, "d": "Side-channel attack", "t": 3},
 {"a": "Differential power analysis", "h": "Trace correlation", "d": "Side-channel attack", "t": 3},
 {"a": "Constant-time implementation", "h": "Branch-free code", "d": "Side-channel defense", "t": 2},
 {"a": "Address space layout randomization", "h": null, "d": "Exploit mitigation", "t": 2},
@@ -37,5 +37,6 @@
 {"a": "T-closeness", "h": null, "d": "Data anonymization", "t": 3},
 {"a": "Homomorphic tallying", "h": null, "d": "Verifiable voting", "t": 3},
 {"a": "Mix network", "h": "Onion re-encryption", "d": "Anonymous communication", "t": 3},
-{"a": "Onion routing", "h": "Layered encryption", "d": "Anonymous communication", "t": 2}
+{"a": "Onion routing", "h": "Layered encryption", "d": "Anonymous communication", "t": 2},
+{"a": "Verifiable shuffle", "h": "Neff shuffle proof", "d": "Verifiable voting", "t": 3}
 ]

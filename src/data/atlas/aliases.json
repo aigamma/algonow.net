@@ -276,5 +276,23 @@
   "Univariate marginal distribution algorithm": { "aka": ["UMDA"] },
   "Bayesian optimization algorithm": { "aka": ["BOA"] },
   "Tabu search": { "aka": ["Taboo search"] },
-  "CMA-ES": { "aka": ["Covariance matrix adaptation evolution strategy"] }
+  "CMA-ES": { "aka": ["Covariance matrix adaptation evolution strategy"] },
+
+  "Differential privacy": { "aka": ["DP"] },
+  "DP-SGD": { "aka": ["Differentially private SGD"] },
+  "Secure multiparty computation": { "aka": ["MPC", "SMPC"] },
+  "Yao garbled circuits": { "aka": ["Garbled circuits"] },
+  "Oblivious transfer": { "aka": ["OT protocol"] },
+  "Private set intersection": { "aka": ["PSI"] },
+  "Oblivious RAM": { "aka": ["ORAM"] },
+  "Private information retrieval": { "aka": ["PIR"] },
+  "Zero-knowledge SNARK": { "aka": ["zk-SNARK"] },
+  "Zero-knowledge STARK": { "aka": ["zk-STARK"] },
+  "Verifiable random function": { "aka": ["VRF"] },
+  "Verifiable delay function": { "aka": ["VDF"] },
+  "Address space layout randomization": { "aka": ["ASLR"] },
+  "Control flow integrity": { "aka": ["CFI"] },
+  "Differential power analysis": { "aka": ["DPA"] },
+  "Federated averaging": { "aka": ["FedAvg"] },
+  "Homomorphic encryption": { "aka": ["FHE"] }
 }

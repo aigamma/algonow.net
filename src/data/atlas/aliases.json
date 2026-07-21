@@ -360,5 +360,18 @@
   "Masked autoencoder": { "aka": ["MAE"] },
   "Neural architecture search": { "aka": ["NAS"] },
   "Diffusion model": { "aka": ["Score-based generative model"] },
-  "Nucleus sampling": { "aka": ["Beam-free sampling", "Top-p sampling"], "note": "The deep-learning entry 'Beam-free sampling' was this same method under a coined name and was merged here 2026-07-21." }
+  "Nucleus sampling": { "aka": ["Beam-free sampling", "Top-p sampling"], "note": "The deep-learning entry 'Beam-free sampling' was this same method under a coined name and was merged here 2026-07-21." },
+
+  "Successive over-relaxation": { "aka": ["SOR"] },
+  "Conjugate gradient": { "aka": ["CG method"] },
+  "Levenberg-Marquardt": { "aka": ["LM algorithm", "Damped least squares"] },
+  "Schönhage-Strassen": { "aka": ["Schonhage-Strassen"] },
+  "Number-theoretic transform": { "aka": ["NTT"] },
+  "Golub-Reinsch SVD": { "aka": ["Golub-Kahan-Reinsch"] },
+  "Backward differentiation formula": { "aka": ["BDF"] },
+  "Runge-Kutta 4": { "aka": ["RK4", "Classical Runge-Kutta"] },
+  "Dormand-Prince": { "aka": ["DOPRI5", "RK45"] },
+  "Nesterov accelerated gradient": { "aka": ["NAG", "Nesterov momentum"] },
+  "Gaussian elimination": { "aka": ["Row reduction"] },
+  "Strassen's algorithm": { "aka": ["Strassen matrix multiplication"] }
 }

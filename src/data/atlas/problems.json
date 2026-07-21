@@ -173,11 +173,11 @@
   },
   "polynomial-root-finding": {
     "label": "Polynomial roots",
-    "phrases": ["Polynomial root finding", "Polynomial roots"]
+    "phrases": ["Polynomial root finding", "Polynomial roots", "Simultaneous polynomial roots", "Real quadratic factors"]
   },
   "linear-systems": {
     "label": "Solving linear systems",
-    "phrases": ["Linear systems", "Sparse linear systems", "Elliptic PDE solving", "Parallel PDE solving"]
+    "phrases": ["Linear systems", "Sparse linear systems", "Elliptic PDE solving", "Parallel PDE solving", "Symmetric positive-definite systems", "Symmetric indefinite systems", "Tridiagonal systems", "SPD sparse systems", "Nonsymmetric sparse systems", "Sparse system solving", "Orthogonalization"]
   },
   "eigenvalues": {
     "label": "Eigenvalues and eigenvectors",
@@ -193,11 +193,11 @@
   },
   "numerical-integration": {
     "label": "Numerical integration",
-    "phrases": ["Numerical integration", "Endpoint-singular integration", "Probabilistic integration"]
+    "phrases": ["Numerical integration", "Endpoint-singular integration", "Probabilistic integration", "Numerical quadrature"]
   },
   "ode-integration": {
     "label": "ODE integration",
-    "phrases": ["ODE integration", "Adaptive ODE integration", "Multistep ODE integration", "Stiff ODE integration", "Symplectic integration"]
+    "phrases": ["ODE integration", "Adaptive ODE integration", "Multistep ODE integration", "Stiff ODE integration", "Symplectic integration", "Molecular and physics simulation"]
   },
   "continuous-optimization": {
     "label": "Continuous optimization",
@@ -1168,7 +1168,7 @@
 
   "signal-transforms": {
     "label": "Signal transforms",
-    "phrases": ["Spectral analysis", "Time-frequency analysis", "Energy compaction", "Multiresolution analysis", "Single-frequency detection", "Analytic signal envelope", "Arbitrary-length transforms"]
+    "phrases": ["Spectral analysis", "Time-frequency analysis", "Energy compaction", "Multiresolution analysis", "Single-frequency detection", "Analytic signal envelope", "Arbitrary-length transforms", "Prime-length transforms", "Coprime-length transforms", "Exact integer convolution"]
   },
   "streaming-convolution": {
     "label": "Streaming convolution",
@@ -1356,5 +1356,34 @@
   "representation-learning": {
     "label": "Representation learning",
     "phrases": ["Representation learning"]
+  },
+
+  "svd": {
+    "label": "Singular value decomposition",
+    "phrases": ["Singular value decomposition", "High-accuracy SVD", "Low-rank approximation"]
+  },
+  "gradient-optimization": {
+    "label": "Gradient-based optimization",
+    "phrases": ["Smooth convex optimization", "Nonlinear optimization", "Quasi-Newton optimization", "Large-scale optimization", "Separable optimization", "Sparse optimization", "Constrained convex optimization", "Constrained optimization", "Sparse regularized optimization", "Distributed convex optimization"]
+  },
+  "linear-programming": {
+    "label": "Linear programming",
+    "phrases": ["Linear programming", "Polynomial linear programming", "Interior-point linear programming", "Linear and convex programs"]
+  },
+  "integer-multiplication": {
+    "label": "Big-integer multiplication",
+    "phrases": ["Big-integer multiplication", "Huge-integer multiplication"]
+  },
+  "matrix-multiplication": {
+    "label": "Fast matrix multiplication",
+    "phrases": ["Fast matrix multiplication"]
+  },
+  "polynomial-interpolation": {
+    "label": "Polynomial interpolation and approximation",
+    "phrases": ["Polynomial interpolation", "Minimax approximation"]
+  },
+  "accurate-summation": {
+    "label": "Accurate floating-point summation",
+    "phrases": ["Accurate floating-point sums"]
   }
 }

@@ -94,5 +94,7 @@
 {"a": "Coppersmith-Winograd", "h": null, "d": "Fast matrix multiplication", "t": 3},
 {"a": "Neville's algorithm", "h": null, "d": "Polynomial interpolation", "t": 3},
 {"a": "Remez algorithm", "h": "Equioscillation exchange", "d": "Minimax approximation", "t": 3},
-{"a": "Kahan summation", "h": "Running compensation", "d": "Accurate floating-point sums", "t": 2}
+{"a": "Kahan summation", "h": "Running compensation", "d": "Accurate floating-point sums", "t": 2},
+{"a": "Pairwise summation", "h": "Balanced-tree splitting", "d": "Accurate floating-point sums", "t": 2},
+{"a": "Barycentric Lagrange interpolation", "h": "Precomputed barycentric weights", "d": "Polynomial interpolation", "t": 2}
 ]

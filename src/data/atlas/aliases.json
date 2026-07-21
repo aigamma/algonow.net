@@ -672,5 +672,25 @@
   "Sequential probability ratio test": { "aka": ["SPRT", "Wald sequential test"] },
   "Bootstrap confidence interval": { "aka": ["BCa bootstrap"] },
   "Holm-Bonferroni": { "aka": ["Holm correction"] },
-  "Robust regression": { "aka": ["M-estimation", "Huber regression"] }
+  "Robust regression": { "aka": ["M-estimation", "Huber regression"] },
+
+  "DPLL": { "aka": ["Davis-Putnam-Logemann-Loveland"] },
+  "CDCL": { "aka": ["Conflict-driven clause learning"] },
+  "DPLL(T)": { "aka": ["SMT solving", "Lazy SMT"] },
+  "Maintaining arc consistency": { "aka": ["MAC", "AC-3 search"] },
+  "Knuth's Algorithm X": { "aka": ["Algorithm X", "Exact cover backtracking"] },
+  "Conflict-directed backjumping": { "aka": ["CBJ"] },
+  "Limited discrepancy search": { "aka": ["LDS"] },
+  "Min-conflicts": { "aka": ["Min-conflicts heuristic"] },
+  "Regin's algorithm": { "aka": ["Alldifferent filtering"] },
+  "Accelerated proximal gradient": { "aka": ["FISTA"] },
+  "Augmented Lagrangian": { "aka": ["Method of multipliers"] },
+  "Sequential quadratic programming": { "aka": ["SQP"] },
+  "Semidefinite programming": { "aka": ["SDP"] },
+  "Second-order cone programming": { "aka": ["SOCP"] },
+  "Block coordinate descent": { "aka": ["BCD"] },
+  "Stochastic average gradient": { "aka": ["SAG"] },
+  "Sinkhorn algorithm": { "aka": ["Sinkhorn-Knopp", "Entropic optimal transport"] },
+  "Chambolle-Pock": { "aka": ["Primal-dual hybrid gradient", "PDHG"] },
+  "Douglas-Rachford splitting": { "aka": ["Douglas-Rachford"] }
 }

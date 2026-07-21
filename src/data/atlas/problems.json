@@ -596,8 +596,20 @@
     "phrases": ["Game-tree search", "Game-tree pruning", "Adversarial game trees", "Symmetric game-tree search", "Tactical stabilization", "Tactical goal search", "Hybrid game search"]
   },
   "constraint-satisfaction": {
-    "label": "Constraint satisfaction",
-    "phrases": ["Constraint satisfaction"]
+    "label": "Constraint satisfaction search",
+    "phrases": ["Constraint satisfaction", "Sudoku and constraint grids", "Local-search CSP", "Heavy-tail constraint search", "Backtracking search", "Heuristic-trusting backtracking", "Constraint and inference", "Graphical-model reasoning"]
+  },
+  "constraint-propagation": {
+    "label": "Constraint propagation",
+    "phrases": ["Constraint propagation", "Constraint tightening", "Global-constraint propagation", "Interval constraint propagation", "Alldifferent propagation", "Mixed-integer presolve"]
+  },
+  "sat-solving": {
+    "label": "SAT solving",
+    "phrases": ["Modern SAT solving", "SAT solving", "SAT solver engineering", "Hard random SAT", "Local-search SAT", "SMT solving"]
+  },
+  "branch-and-bound": {
+    "label": "Branch and bound",
+    "phrases": ["Combinatorial optimization", "Memory-lean optimization", "Large integer programs"]
   },
   "community-detection": {
     "label": "Community detection",
@@ -1184,7 +1196,7 @@
   },
   "combinatorial-metaheuristics": {
     "label": "Combinatorial metaheuristic optimization",
-    "phrases": ["Combinatorial optimization", "Path optimization", "Biological path finding"]
+    "phrases": ["Path optimization", "Biological path finding"]
   },
   "multimodal-optimization": {
     "label": "Multimodal optimization",
@@ -1491,7 +1503,7 @@
   },
   "exact-cover": {
     "label": "Exact cover",
-    "phrases": ["Exact-cover backtracking support", "Tiling puzzle"]
+    "phrases": ["Exact-cover backtracking support", "Tiling puzzle", "Exact cover"]
   },
   "maze-generation": {
     "label": "Maze generation",
@@ -1712,7 +1724,23 @@
   },
   "gradient-optimization": {
     "label": "Gradient-based optimization",
-    "phrases": ["Smooth convex optimization", "Nonlinear optimization", "Quasi-Newton optimization", "Large-scale optimization", "Separable optimization", "Sparse optimization", "Constrained convex optimization", "Constrained optimization", "Sparse regularized optimization", "Distributed convex optimization"]
+    "phrases": ["Smooth convex optimization", "Nonlinear optimization", "Quasi-Newton optimization", "Large-scale optimization", "Separable optimization", "Sparse optimization", "Constrained convex optimization", "Constrained optimization", "Sparse regularized optimization", "Distributed convex optimization", "Convex optimization", "Composite optimization", "Biconvex optimization", "Constrained projection"]
+  },
+  "nonsmooth-optimization": {
+    "label": "Nonsmooth convex optimization",
+    "phrases": ["Nonsmooth convex optimization", "Nonsmooth optimization", "Nonsmooth acceleration", "Monotone operator splitting", "Saddle-point optimization"]
+  },
+  "interior-point-methods": {
+    "label": "Interior-point and conic optimization",
+    "phrases": ["Interior-point optimization", "Conic optimization", "Convex matrix optimization", "Convex feasibility"]
+  },
+  "finite-sum-optimization": {
+    "label": "Finite-sum optimization",
+    "phrases": ["Finite-sum optimization"]
+  },
+  "optimal-transport": {
+    "label": "Optimal transport",
+    "phrases": ["Optimal transport"]
   },
   "linear-programming": {
     "label": "Linear programming",
@@ -2029,7 +2057,7 @@
   },
   "integer-programming": {
     "label": "Integer and decomposed programming",
-    "phrases": ["Integer programming", "Stochastic programming", "Block-structured LP", "Combinatorial bounds"]
+    "phrases": ["Integer programming", "Stochastic programming", "Block-structured LP", "Combinatorial bounds", "Quadratic programming", "Nonlinear programming", "Bound-constrained optimization"]
   },
 
   "permutation-generation": {

@@ -362,7 +362,7 @@
   },
   "disk-ordered-index": {
     "label": "Disk-friendly ordered indexing",
-    "phrases": ["Disk-friendly ordered index", "Database range index", "High-occupancy disk index"]
+    "phrases": ["Disk-friendly ordered index", "Database range index", "High-occupancy disk index", "Write-optimized indexing"]
   },
   "priority-queue": {
     "label": "Priority queues",
@@ -442,8 +442,8 @@
     "phrases": ["Distributed snapshots"]
   },
   "deadlock-detection": {
-    "label": "Deadlock detection",
-    "phrases": ["Distributed deadlock detection"]
+    "label": "Deadlock handling",
+    "phrases": ["Distributed deadlock detection", "Deadlock prevention"]
   },
   "distributed-mutex": {
     "label": "Distributed mutual exclusion",
@@ -1241,7 +1241,7 @@
   },
   "crash-consistency": {
     "label": "Crash consistency and write paths",
-    "phrases": ["Crash-consistent writes", "Snapshot storage", "Filesystem consistency", "Write-optimized storage"]
+    "phrases": ["Crash-consistent writes", "Snapshot storage", "Filesystem consistency", "Write-optimized storage", "Crash recovery"]
   },
   "checkpoint-recovery": {
     "label": "Checkpointing and recovery",
@@ -1418,5 +1418,38 @@
   "sde-integration": {
     "label": "SDE integration",
     "phrases": ["Stochastic differential equations"]
+  },
+
+  "relational-joins": {
+    "label": "Relational joins",
+    "phrases": ["Relational join", "Equi-join", "Selective join", "Larger-than-memory join", "In-memory join", "Multiway join", "Distributed join pruning", "Distributed join"]
+  },
+  "query-optimization": {
+    "label": "Query optimization",
+    "phrases": ["Join order optimization", "Query optimization", "Extensible query optimization", "Large-join planning", "Distributed query optimization", "Runtime reoptimization", "Cost modeling"]
+  },
+  "query-execution": {
+    "label": "Query execution",
+    "phrases": ["Query execution", "Analytical query execution", "Parallel query execution", "Column-store execution", "Query aggregation", "Analytical windowing"]
+  },
+  "concurrency-control": {
+    "label": "Transaction concurrency control",
+    "phrases": ["Transaction concurrency", "Transaction isolation"]
+  },
+  "analytical-storage": {
+    "label": "Analytical storage and scan pruning",
+    "phrases": ["Low-cardinality filtering", "Analytical filtering", "Analytical scan pruning", "Analytical storage"]
+  },
+  "extensible-indexing": {
+    "label": "Extensible database indexing",
+    "phrases": ["Generalized search trees", "Composite-value indexing"]
+  },
+  "incremental-computation": {
+    "label": "Incremental view maintenance",
+    "phrases": ["Materialized views", "Incremental computation"]
+  },
+  "top-k-queries": {
+    "label": "Top-k query processing",
+    "phrases": ["Ranked retrieval", "Ranked aggregation"]
   }
 }

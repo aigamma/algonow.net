@@ -386,5 +386,16 @@
   "Discrete event simulation": { "aka": ["DES"] },
   "Gillespie algorithm": { "aka": ["Stochastic simulation algorithm", "SSA"] },
   "Real-time dynamic programming": { "aka": ["RTDP"] },
-  "Mean value analysis": { "aka": ["MVA"] }
+  "Mean value analysis": { "aka": ["MVA"] },
+
+  "Multiversion concurrency control": { "aka": ["MVCC"] },
+  "Two-phase locking": { "aka": ["2PL"] },
+  "Optimistic concurrency control": { "aka": ["OCC"] },
+  "Serializable snapshot isolation": { "aka": ["SSI"] },
+  "Log-structured merge tree": { "aka": ["LSM tree"] },
+  "Worst-case optimal join": { "aka": ["WCOJ", "Leapfrog triejoin"] },
+  "Incremental view maintenance": { "aka": ["IVM"] },
+  "Sideways information passing": { "aka": ["SIP"] },
+  "Volcano iterator model": { "aka": ["Iterator model", "Pull-based execution"] },
+  "Selinger optimizer": { "aka": ["System R optimizer"] }
 }

@@ -5,9 +5,9 @@ every entry is either a standalone algorithm or an algorithm × heuristic
 pair. It is the strategy document Eric asked for, kept as data so the check
 script can hold it to account.
 
-**Live size: whatever `src/data/atlas-summary.json` says** (2,865 entries /
-59 topics / 20 categories as of 2026-07-21; `npm run check` prints per-topic
-totals and the grand total, and fails if the summary drifts). The target
+**Live size: whatever `src/data/atlas-summary.json` says** (2,892 entries /
+59 topics / 20 categories as of 2026-07-21 evening; `npm run check` prints
+per-topic totals and the grand total, and fails if the summary drifts). The target
 shape is roughly 5,000 entries across ~100 topics. The map is deliberately
 wide, spanning far past interview and exam canon into exotic and creative
 problem-solving: unconventional computing (DNA, membrane, slime mold,
@@ -190,23 +190,26 @@ phrases as a queue.
 
 ## Where the atlas stands, and what is queued
 
-At 2,861 entries / 59 topics / 20 categories against a target of roughly
-5,000 entries across ~100 topics. Rival coverage is 51.9 percent of entries.
-Run `npm run check` for all live numbers; the three standing queues it prints
-are the to-do list, in rough priority order:
+At 2,892 entries / 59 topics / 20 categories against a target of roughly
+5,000 entries across ~100 topics. Rival coverage is 76.7 percent (was 51.9
+at the program's start on 2026-07-21; sweeps 1-21 covered the 21 worst
+topics, registering 354 problems, authoring ~40 real missing rivals, and
+merging 9 true duplicates). Run `npm run check` for all live numbers; the
+standing queues, in rough priority order:
 
-1. **Rivals backfill.** Coverage 51.9 percent at last count; the four-move
-   sweep program in the Rivals section above is the standing priority. The
-   check prints the unregistered-phrase queue and the worst-coverage topics.
-2. **Topic splits.** Eleven topic files now exceed the ~60-entry split
-   threshold: machine-learning (95), numerical (95), search-structures (94),
-   graphs-structure (90), cryptography-number-theory (76),
-   distributed-concurrent (74), sorting (72), graphs-paths (71), signal-image
-   (71), metaheuristics (70), computational-geometry (66). Splitting them is
-   most of the distance to the ~100-topic target.
+1. **Rivals backfill, mid-flight.** The four-move sweep program in the
+   Rivals section above continues topic by topic; the check prints the
+   unregistered-phrase queue and the worst-coverage topics (next up:
+   quantum, robotics-planning, strings, compression-coding,
+   computer-vision, time-series, computational-biology, and on down).
+2. **Topic splits.** A dozen topic files exceed the ~60-entry split
+   threshold (search-structures is fattest at ~100 after the backfill's
+   authored rivals). Splitting them is most of the distance to the
+   ~100-topic target.
 3. **Duplicate scan.** Three clusters remain and all three are intentional
    (Viterbi across DP/coding/NLP, Beam search vs Beam search decoding,
-   Kernighan-Lin vs Lin-Kernighan). Anything new that appears is real.
+   Kernighan-Lin vs Lin-Kernighan). Anything new that appears is real; the
+   backfill sweeps caught and merged nine others on sight.
 
 Candidate NEW topics, each to be checked for overlap before authoring rather
 than assumed missing: SAT/SMT and formal verification (CDCL, DPLL(T), IC3,

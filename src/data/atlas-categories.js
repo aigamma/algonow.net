@@ -43,7 +43,7 @@ export const CATEGORIES = [
     key: 'optimization-or',
     label: 'Optimization & Operations Research',
     blurb: 'Metaheuristics, approximation, scheduling, online decisions, mechanism design, quantitative finance.',
-    topics: ['metaheuristics', 'approximation', 'scheduling-operations', 'online-competitive', 'game-theory-social-choice', 'quantitative-finance'],
+    topics: ['metaheuristics', 'approximation', 'convex-optimization', 'scheduling-operations', 'online-competitive', 'game-theory-social-choice', 'quantitative-finance'],
   },
   {
     key: 'search-constraints-games',
@@ -72,8 +72,8 @@ export const CATEGORIES = [
   {
     key: 'signal-graphics',
     label: 'Signal, Image & Graphics',
-    blurb: 'Filtering, feature extraction, audio and speech, rendering, the geometry of pictures.',
-    topics: ['signal-image', 'graphics-rendering', 'audio-speech'],
+    blurb: 'Filtering, feature extraction, computer vision, audio and speech, rendering, the geometry of pictures.',
+    topics: ['signal-image', 'graphics-rendering', 'computer-vision', 'audio-speech'],
   },
   {
     key: 'ml-ai',
@@ -103,13 +103,13 @@ export const CATEGORIES = [
     key: 'distributed-systems',
     label: 'Systems & Networking',
     blurb: 'Consensus, replication, concurrency, fault tolerance, operating systems, routing, transport.',
-    topics: ['distributed-concurrent', 'fault-tolerance-storage', 'operating-systems', 'networking'],
+    topics: ['distributed-concurrent', 'fault-tolerance-storage', 'operating-systems', 'stream-processing', 'networking'],
   },
   {
     key: 'data-retrieval',
     label: 'Databases & Information Retrieval',
     blurb: 'Joins, query optimization, transactions, ranking, indexing, NLP retrieval.',
-    topics: ['databases-query', 'information-retrieval-nlp'],
+    topics: ['databases-query', 'distributed-databases', 'information-retrieval-nlp', 'nlp-tasks'],
   },
   {
     key: 'languages-compilers',

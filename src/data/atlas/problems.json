@@ -234,7 +234,7 @@
   },
   "anomaly-detection": {
     "label": "Anomaly detection",
-    "phrases": ["Anomaly detection", "Series anomaly detection"]
+    "phrases": ["Anomaly detection", "Series anomaly detection", "Motif and anomaly discovery"]
   },
   "nearest-neighbor-search": {
     "label": "Nearest neighbor search",
@@ -1180,7 +1180,7 @@
   },
   "state-estimation": {
     "label": "State estimation and filtering",
-    "phrases": ["Linear state estimation", "Nonlinear state estimation", "State-space inference", "State estimation"]
+    "phrases": ["Linear state estimation", "Nonlinear state estimation", "State-space inference", "State estimation", "Retrospective estimation"]
   },
   "denoising": {
     "label": "Denoising and smoothing",
@@ -1591,5 +1591,30 @@
   "error-detection": {
     "label": "Error detection",
     "phrases": ["Error detection"]
+  },
+
+  "time-series-forecasting": {
+    "label": "Time series forecasting",
+    "phrases": ["Trend smoothing", "Short-term forecasting", "Trending forecasts", "Seasonal forecasting", "Univariate forecasting", "Forecasting with covariates", "Automated forecasting", "Business forecasting", "Sparse-demand forecasting", "Multivariate forecasting", "Probabilistic forecasting", "Multi-horizon forecasting", "Sequence forecasting", "Forecasting baseline", "Long-seasonality forecasting", "Streaming trend estimation"]
+  },
+  "series-decomposition": {
+    "label": "Series decomposition and structural models",
+    "phrases": ["Series decomposition", "Trend-seasonal decomposition", "Structural time series"]
+  },
+  "series-similarity": {
+    "label": "Time series similarity",
+    "phrases": ["Series similarity", "Fast series similarity"]
+  },
+  "series-representation": {
+    "label": "Series symbolic representation",
+    "phrases": ["Series discretization", "Series dimensionality reduction"]
+  },
+  "changepoint-detection": {
+    "label": "Changepoint detection",
+    "phrases": ["Changepoint detection", "Change detection"]
+  },
+  "volatility-modeling": {
+    "label": "Volatility modeling",
+    "phrases": ["Volatility forecasting", "Risk forecasting", "Volatility estimation"]
   }
 }

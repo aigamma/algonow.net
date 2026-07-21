@@ -443,5 +443,18 @@
   "CRC": { "aka": ["Cyclic redundancy check"] },
   "Reed-Muller codes": { "aka": ["RM codes"] },
   "Vector quantization": { "aka": ["VQ"] },
-  "Dynamic Markov compression": { "aka": ["DMC"] }
+  "Dynamic Markov compression": { "aka": ["DMC"] },
+
+  "Dynamic time warping": { "aka": ["DTW"] },
+  "Holt-Winters": { "aka": ["Triple exponential smoothing"] },
+  "Exponential smoothing": { "aka": ["Simple exponential smoothing", "SES"] },
+  "Exponential weighted moving average": { "aka": ["EWMA"] },
+  "ARIMA": { "aka": ["Box-Jenkins model", "Autoregressive integrated moving average"] },
+  "Vector autoregression": { "aka": ["VAR model"] },
+  "Bocpd": { "aka": ["Bayesian online changepoint detection"] },
+  "Piecewise aggregate approximation": { "aka": ["PAA"] },
+  "Singular spectrum analysis": { "aka": ["Caterpillar method"] },
+  "Temporal fusion transformer": { "aka": ["TFT"] },
+  "Temporal convolutional network": { "aka": ["TCN"] },
+  "State space model": { "aka": ["SSM"] }
 }

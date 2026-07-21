@@ -309,7 +309,7 @@
   },
   "congestion-control": {
     "label": "Congestion control",
-    "phrases": ["Congestion control"]
+    "phrases": ["Congestion control", "Congestion avoidance", "Congestion signaling", "Queue management", "Bufferbloat management"]
   },
   "cardinality-estimation": {
     "label": "Cardinality estimation",
@@ -455,7 +455,7 @@
   },
   "broadcast-dissemination": {
     "label": "Broadcast and epidemic dissemination",
-    "phrases": ["Epidemic dissemination", "Efficient broadcast"]
+    "phrases": ["Epidemic dissemination", "Efficient broadcast", "Membership dissemination"]
   },
   "group-membership": {
     "label": "Membership and failure detection",
@@ -963,5 +963,42 @@
   "degree-sequences": {
     "label": "Degree sequence realization",
     "phrases": ["Degree-sequence realizability", "Degree-sequence realization"]
+  },
+
+  "network-routing": {
+    "label": "Network routing",
+    "phrases": ["Network routing", "Routing loop avoidance", "Inter-domain routing", "Interior gateway routing", "Loop-free switching", "Source routing", "Datacenter routing", "Wireless scheduling"]
+  },
+  "packet-forwarding": {
+    "label": "Packet forwarding and classification",
+    "phrases": ["IP forwarding", "Switch forwarding", "Switch lookup", "Firewall matching", "Multicast forwarding"]
+  },
+  "traffic-shaping": {
+    "label": "Traffic policing and shaping",
+    "phrases": ["Traffic policing", "Traffic shaping", "Global rate control"]
+  },
+  "packet-scheduling": {
+    "label": "Packet scheduling and link sharing",
+    "phrases": ["Packet scheduling", "Link sharing"]
+  },
+  "rtt-estimation": {
+    "label": "RTT estimation and timeouts",
+    "phrases": ["RTT estimation", "Timeout computation"]
+  },
+  "reliable-transport": {
+    "label": "Reliable transport",
+    "phrases": ["Reliable transport", "Transport reliability", "Transport control", "Small-packet coalescing", "Connection setup"]
+  },
+  "medium-access": {
+    "label": "Medium access control",
+    "phrases": ["Medium access", "Wireless medium access"]
+  },
+  "load-balancing": {
+    "label": "Load balancing",
+    "phrases": ["Load balancing", "Request distribution", "Datacenter load balancing", "Traffic distribution"]
+  },
+  "heavy-hitters": {
+    "label": "Heavy hitters and frequent items",
+    "phrases": ["Frequent-item estimation", "Top-k heavy hitters", "Frequent-item mining", "Network telemetry"]
   }
 }

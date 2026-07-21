@@ -229,5 +229,17 @@
   "Fiduccia-Mattheyses": { "aka": ["FM partitioning"] },
   "Multilevel partitioning": { "aka": ["Multilevel k-way partitioning"] },
   "2-SAT via implication SCC": { "aka": ["Aspvall-Plass-Tarjan"] },
-  "Holm-de Lichtenberg-Thorup": { "aka": ["HDT connectivity"] }
+  "Holm-de Lichtenberg-Thorup": { "aka": ["HDT connectivity"] },
+
+  "Random early detection": { "aka": ["RED"] },
+  "Explicit congestion notification": { "aka": ["ECN"] },
+  "Equal-cost multipath": { "aka": ["ECMP"] },
+  "Spanning tree protocol": { "aka": ["STP"] },
+  "Deficit round robin": { "aka": ["DRR"] },
+  "Hierarchical fair service curve": { "aka": ["HFSC"] },
+  "Longest prefix match": { "aka": ["LPM"] },
+  "Go-back-N ARQ": { "aka": ["GBN"] },
+  "Selective repeat ARQ": { "aka": ["SR ARQ"] },
+  "TCP CUBIC": { "aka": ["CUBIC"] },
+  "Misra-Gries": { "aka": ["Frequent algorithm"] }
 }

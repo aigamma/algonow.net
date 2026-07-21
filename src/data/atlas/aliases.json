@@ -397,5 +397,16 @@
   "Incremental view maintenance": { "aka": ["IVM"] },
   "Sideways information passing": { "aka": ["SIP"] },
   "Volcano iterator model": { "aka": ["Iterator model", "Pull-based execution"] },
-  "Selinger optimizer": { "aka": ["System R optimizer"] }
+  "Selinger optimizer": { "aka": ["System R optimizer"] },
+
+  "HHL algorithm": { "aka": ["Harrow-Hassidim-Lloyd", "HHL"], "note": "The standalone 'Harrow-Hassidim-Lloyd' entry duplicated this one under the spelled-out name and was merged here 2026-07-21." },
+  "Grover's search": { "aka": ["Grover's algorithm"] },
+  "QAOA": { "aka": ["Quantum approximate optimization algorithm"] },
+  "Variational quantum eigensolver": { "aka": ["VQE"] },
+  "Quantum phase estimation": { "aka": ["QPE"] },
+  "Quantum Fourier transform": { "aka": ["QFT"] },
+  "BB84": { "aka": ["Bennett-Brassard 1984"] },
+  "Quantum amplitude estimation": { "aka": ["QAE"] },
+  "Matrix product state simulation": { "aka": ["MPS simulation"] },
+  "Grover-optimized minimum finding": { "aka": ["Durr-Hoyer algorithm"] }
 }

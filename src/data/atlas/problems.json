@@ -177,7 +177,7 @@
   },
   "linear-systems": {
     "label": "Solving linear systems",
-    "phrases": ["Linear systems", "Sparse linear systems", "Elliptic PDE solving", "Parallel PDE solving", "Symmetric positive-definite systems", "Symmetric indefinite systems", "Tridiagonal systems", "SPD sparse systems", "Nonsymmetric sparse systems", "Sparse system solving", "Orthogonalization"]
+    "phrases": ["Linear systems", "Sparse linear systems", "Elliptic PDE solving", "Parallel PDE solving", "Symmetric positive-definite systems", "Symmetric indefinite systems", "Tridiagonal systems", "SPD sparse systems", "Nonsymmetric sparse systems", "Sparse system solving", "Orthogonalization", "Quantum linear systems"]
   },
   "eigenvalues": {
     "label": "Eigenvalues and eigenvectors",
@@ -1451,5 +1451,38 @@
   "top-k-queries": {
     "label": "Top-k query processing",
     "phrases": ["Ranked retrieval", "Ranked aggregation"]
+  },
+
+  "quantum-oracle-problems": {
+    "label": "Quantum oracle problems",
+    "phrases": ["Constant-vs-balanced oracle", "Hidden-string recovery", "Hidden-period discovery"]
+  },
+  "quantum-search": {
+    "label": "Quantum search",
+    "phrases": ["Unstructured search", "Quadratic search speedup", "Graph search speedup", "Quantum minimum", "Collision finding"]
+  },
+  "quantum-estimation": {
+    "label": "Quantum counting and estimation",
+    "phrases": ["Solution counting", "Approximate enumeration", "Monte Carlo speedup"]
+  },
+  "quantum-primitives": {
+    "label": "Quantum algorithmic primitives",
+    "phrases": ["Eigenvalue extraction", "Quantum spectral primitive", "Oracle construction primitive", "Gate approximation"]
+  },
+  "variational-quantum": {
+    "label": "Variational and adiabatic quantum optimization",
+    "phrases": ["Ground-state energy", "Ground-state optimization"]
+  },
+  "quantum-communication": {
+    "label": "Quantum communication protocols",
+    "phrases": ["State transfer protocol", "Entanglement communication", "Quantum key distribution"]
+  },
+  "quantum-error-correction": {
+    "label": "Quantum error correction",
+    "phrases": ["Quantum error correction", "Fault-tolerant computing"]
+  },
+  "quantum-simulation": {
+    "label": "Classical simulation of quantum systems",
+    "phrases": ["Classical Clifford simulation", "Quantum circuit simulation", "Many-body simulation"]
   }
 }

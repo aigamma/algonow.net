@@ -1,0 +1,354 @@
+{
+  "_doc": {
+    "purpose": "The RIVALS table. aliases.json solves one axis of collision (one algorithm, many names); this file solves the other (one problem, many phrasings). Each entry's `d` is a specific problem phrase chosen to carry the trade-off ('Negative-edge shortest paths' is exactly why you reach for Bellman-Ford). That specificity is worth keeping, but it fragments the problem axis: Dijkstra and Bellman-Ford stopped looking like rivals because their phrases differ. This registry maps many phrases onto one canonical problem, so rival lookup is mechanical without flattening the phrasing.",
+    "schema": "Every key except those starting with underscore is a slug (lowercase, hyphens) that will become a stable /problem/<slug> URL. Value: { label: display name, phrases: [exact `d` values from atlas entries] }. A phrase must match at least one live entry (check fails on dead phrases) and may be claimed by exactly one problem.",
+    "rivalsRule": "Two entries are RIVALS when they resolve to the same problem, either through this registry or by sharing an identical `d`. Unit pages name two or three rivals with a when-to-prefer line; see the rivals doctrine in CLAUDE.md and docs/ATLAS.md.",
+    "growthNote": "Partial coverage is fine and expected. An unregistered phrase simply stands alone (or clusters with exact matches of itself). `npm run check` prints the largest unregistered phrases as a planning queue, so this file grows from evidence rather than guesswork."
+  },
+
+  "comparison-sorting": {
+    "label": "Comparison sorting",
+    "phrases": ["In-place comparison sorting", "Stable comparison sorting", "In-place stable sorting", "Iterative stable sorting", "Adaptive sorting", "Adaptive in-place sorting", "Adaptive stable sorting", "Real-world stable sorting", "Standard-library sorting", "JDK array sorting", "Small-array sorting", "Minimal-swap sorting", "Pedagogical exchange sorting", "Single-pointer exchange sorting", "Turtle-killing exchange sorting", "Bidirectional bubble sorting", "Gapped insertion sorting", "Comparison-count-optimal small sorting", "Comparison-optimal-leaning sorting", "Comparison-lean heapsort", "Worst-case-safe sorting", "Sorting with many duplicates", "Sorting via BST insertion", "Sorting via solitaire piles", "Write-minimal sorting", "Cache-oblivious sorting", "Top-k sorted output"]
+  },
+  "integer-sorting": {
+    "label": "Integer and distribution sorting",
+    "phrases": ["Small-universe integer sorting", "Direct-slot integer sorting", "Fixed-width key sorting", "Variable-length key sorting", "Cache-friendly radix sorting", "Average-linear sorting", "Near-uniform numeric sorting", "Numeric key sorting", "Gravity-model natural sorting"]
+  },
+  "string-sorting": {
+    "label": "String sorting",
+    "phrases": ["String key sorting", "Large string-set sorting"]
+  },
+  "external-sorting": {
+    "label": "External sorting",
+    "phrases": ["Bigger-than-memory sorting", "Large-relation sorting", "Tape-era external sorting"]
+  },
+  "parallel-sorting": {
+    "label": "Parallel sorting",
+    "phrases": ["Parallel distribution sorting", "Parallel exchange sorting"]
+  },
+  "sorting-networks": {
+    "label": "Sorting networks",
+    "phrases": ["Sorting network construction", "Sorting network for parallel hardware"]
+  },
+  "sorted-array-search": {
+    "label": "Search in a sorted array",
+    "phrases": ["Sorted-array lookup", "Uniform-key sorted lookup", "Unbounded sorted lookup", "Branch-lean sorted lookup", "Addition-only sorted lookup"]
+  },
+  "selection": {
+    "label": "Selection and order statistics",
+    "phrases": ["Worst-case linear selection", "Comparison-lean selection", "Practical selection", "Top-k selection", "Selection by knockout tree"]
+  },
+
+  "single-source-shortest-paths": {
+    "label": "Single-source shortest paths",
+    "phrases": ["Nonnegative shortest paths", "Negative-edge shortest paths", "Binary-weight shortest paths", "Small-weight shortest paths", "Parallel shortest paths", "Point-to-point shortest paths"]
+  },
+  "all-pairs-shortest-paths": {
+    "label": "All-pairs shortest paths",
+    "phrases": ["All-pairs shortest paths", "Sparse all-pairs paths"]
+  },
+  "k-shortest-paths": {
+    "label": "K shortest paths",
+    "phrases": ["K shortest paths", "K shortest loopless paths"]
+  },
+  "maximum-flow": {
+    "label": "Maximum flow",
+    "phrases": ["Maximum flow", "Maximum flow speedup", "Blocking flows by throughput"]
+  },
+  "minimum-cost-flow": {
+    "label": "Minimum-cost flow",
+    "phrases": ["Minimum-cost flow", "Min-cost flow"]
+  },
+  "minimum-spanning-tree": {
+    "label": "Minimum spanning tree",
+    "phrases": ["Minimum spanning trees", "Parallel-friendly spanning trees", "Spanning trees by removal", "Expected-linear spanning trees"]
+  },
+  "bipartite-matching": {
+    "label": "Bipartite matching",
+    "phrases": ["Bipartite matching", "Bipartite maximum matching"]
+  },
+  "general-graph-matching": {
+    "label": "General graph matching",
+    "phrases": ["General graph matching", "Fast general matching"]
+  },
+  "minimum-cut": {
+    "label": "Minimum cut",
+    "phrases": ["Minimum cut", "Global minimum cut"]
+  },
+  "vertex-coloring": {
+    "label": "Vertex coloring",
+    "phrases": ["Vertex coloring", "Exact vertex coloring", "Graph coloring approximation"]
+  },
+  "traveling-salesman": {
+    "label": "Traveling salesman",
+    "phrases": ["Exact traveling salesman", "Traveling salesman exact", "Traveling-salesman problem", "Exact TSP", "Asymmetric TSP", "TSP bounding", "Traveling salesman heuristic", "TSP construction", "Traveling-salesman tours", "Metric TSP approximation"]
+  },
+  "knapsack": {
+    "label": "Knapsack",
+    "phrases": ["Bounded selection", "Repeatable selection", "The 0/1 knapsack", "Knapsack approximation", "Knapsack FPTAS"]
+  },
+  "boolean-satisfiability": {
+    "label": "Boolean satisfiability",
+    "phrases": ["Boolean satisfiability", "Molecular satisfiability"]
+  },
+  "link-analysis": {
+    "label": "Node importance and link analysis",
+    "phrases": ["Web ranking", "Link-based ranking", "Local graph ranking", "Proximity ranking", "Node importance", "Flow-based ranking"]
+  },
+
+  "convex-hull": {
+    "label": "Convex hull",
+    "phrases": ["Convex hull", "Output-sensitive convex hull"]
+  },
+  "delaunay-triangulation": {
+    "label": "Delaunay triangulation",
+    "phrases": ["Delaunay triangulation"]
+  },
+  "polygon-triangulation": {
+    "label": "Polygon triangulation",
+    "phrases": ["Polygon triangulation"]
+  },
+
+  "substring-search": {
+    "label": "Substring search",
+    "phrases": ["Substring search", "Constant-space substring search", "Substring and plagiarism search"]
+  },
+  "approximate-string-matching": {
+    "label": "Approximate string matching",
+    "phrases": ["Approximate string matching", "Approximate matching"]
+  },
+  "edit-distance": {
+    "label": "Edit distance",
+    "phrases": ["Edit distance", "Bounded edit distance", "Speedup for edit distance"]
+  },
+  "pairwise-sequence-alignment": {
+    "label": "Pairwise sequence alignment",
+    "phrases": ["Global sequence alignment", "Local sequence alignment", "Sequence alignment", "Similar-sequence alignment"]
+  },
+  "multiple-sequence-alignment": {
+    "label": "Multiple sequence alignment",
+    "phrases": ["Multiple sequence alignment"]
+  },
+  "phonetic-matching": {
+    "label": "Phonetic matching",
+    "phrases": ["Phonetic matching", "Phonetic name matching"]
+  },
+  "regex-matching": {
+    "label": "Regular expression matching",
+    "phrases": ["Regex matching", "Fast regex matching", "Linear-time regex matching"]
+  },
+
+  "integer-factorization": {
+    "label": "Integer factorization",
+    "phrases": ["Integer factorization", "Small-factor factorization", "Medium-factor factorization", "Close-factor factorization", "Large integer factorization", "Record integer factorization"]
+  },
+  "primality-testing": {
+    "label": "Primality testing",
+    "phrases": ["Primality testing", "Probabilistic primality", "64-bit primality", "Polynomial-time primality", "Mersenne primality"]
+  },
+  "polynomial-factorization": {
+    "label": "Polynomial factorization",
+    "phrases": ["Polynomial factorization", "Integer polynomial factorization"]
+  },
+  "cryptographic-hashing": {
+    "label": "Cryptographic hashing",
+    "phrases": ["Cryptographic hashing", "Fast cryptographic hashing", "Password hashing"]
+  },
+  "hash-collision-resolution": {
+    "label": "Hash collision resolution",
+    "phrases": ["Cache-friendly hashing", "Cluster-breaking hashing", "Independent-stride hashing", "Concurrent-friendly hashing", "Load-balanced hashing"]
+  },
+  "dynamic-hashing": {
+    "label": "Dynamic hashing",
+    "phrases": ["Dynamic disk hashing", "Incremental dynamic hashing"]
+  },
+
+  "root-finding": {
+    "label": "Root finding",
+    "phrases": ["Root finding", "Bracketed root finding", "Robust root finding", "Derivative-free root finding", "Cubic-convergence root finding", "High-order root finding", "Complex root finding"]
+  },
+  "polynomial-root-finding": {
+    "label": "Polynomial roots",
+    "phrases": ["Polynomial root finding", "Polynomial roots"]
+  },
+  "linear-systems": {
+    "label": "Solving linear systems",
+    "phrases": ["Linear systems", "Sparse linear systems"]
+  },
+  "eigenvalues": {
+    "label": "Eigenvalues and eigenvectors",
+    "phrases": ["Symmetric eigenvalues", "Full eigenvalue spectrum", "Sparse symmetric eigenvalues", "Sparse nonsymmetric eigenvalues", "Symmetric tridiagonal eigenvalues", "Dominant eigenvector", "Targeted eigenvectors", "Cubic eigenvalue convergence"]
+  },
+  "least-squares": {
+    "label": "Least squares",
+    "phrases": ["Least squares", "Sparse least squares"]
+  },
+  "nonlinear-least-squares": {
+    "label": "Nonlinear least squares",
+    "phrases": ["Nonlinear least squares"]
+  },
+  "numerical-integration": {
+    "label": "Numerical integration",
+    "phrases": ["Numerical integration", "Endpoint-singular integration", "Probabilistic integration"]
+  },
+  "ode-integration": {
+    "label": "ODE integration",
+    "phrases": ["ODE integration", "Adaptive ODE integration", "Multistep ODE integration", "Stiff ODE integration", "Symplectic integration"]
+  },
+  "continuous-optimization": {
+    "label": "Continuous optimization",
+    "phrases": ["Continuous optimization", "Continuous minimization", "Continuous swarm search", "Evolutionary optimization"]
+  },
+
+  "clustering": {
+    "label": "Clustering",
+    "phrases": ["Vector clustering", "Fast clustering", "Streaming clustering", "Robust clustering", "Nonlinear clustering", "Soft clustering", "Overlapping clustering", "Mode-seeking clustering", "Exemplar clustering", "Manifold clustering", "Large-data clustering", "Arbitrary-shape clustering", "Variable-density clustering", "Hierarchical density clustering", "Hierarchical clustering"]
+  },
+  "classification": {
+    "label": "Classification",
+    "phrases": ["Classification", "Binary classification", "Linear classification", "Nonlinear classification", "Max-margin classification", "Large-scale classification", "Instance-based classification", "Correlation-aware classification", "Interpretable classification", "Regression and classification trees", "Ensemble classification", "Boosted classification", "Probabilistic classification", "Nonparametric classification", "Kernel classification", "Online classification", "Online kernel classification", "Text classification", "Imbalanced classification"]
+  },
+  "regression": {
+    "label": "Regression",
+    "phrases": ["Linear regression", "Regularized regression", "Sparse regression", "Outlier-resistant regression", "Conditional-quantile regression", "Correlated-error regression", "Kernel regression", "Probabilistic regression", "Probabilistic kernel regression", "Heavy-tailed regression", "Vector-valued regression"]
+  },
+  "image-classification": {
+    "label": "Image classification",
+    "phrases": ["Image classification", "Deep image classification", "Efficient image classification"]
+  },
+  "dimensionality-reduction": {
+    "label": "Dimensionality reduction",
+    "phrases": ["Dimensionality reduction", "Linear dimensionality reduction", "Nonlinear dimensionality reduction", "Topological dimensionality reduction", "Quantum dimensionality reduction"]
+  },
+  "feature-selection": {
+    "label": "Feature selection",
+    "phrases": ["Feature selection"]
+  },
+  "hyperparameter-tuning": {
+    "label": "Hyperparameter tuning",
+    "phrases": ["Hyperparameter tuning", "Bayesian optimization", "High-dimensional BO"]
+  },
+  "anomaly-detection": {
+    "label": "Anomaly detection",
+    "phrases": ["Anomaly detection", "Series anomaly detection"]
+  },
+  "nearest-neighbor-search": {
+    "label": "Nearest neighbor search",
+    "phrases": ["Approximate nearest neighbors", "Metric nearest neighbors", "Compressed vector search"]
+  },
+  "image-segmentation": {
+    "label": "Image segmentation",
+    "phrases": ["Image segmentation", "Interactive segmentation", "Superpixel segmentation"]
+  },
+  "optical-flow": {
+    "label": "Optical flow",
+    "phrases": ["Optical flow", "Dense optical flow"]
+  },
+  "posterior-sampling": {
+    "label": "Posterior sampling",
+    "phrases": ["Posterior sampling", "MCMC sampling", "Multimodal sampling", "Exact sampling"]
+  },
+  "approximate-inference": {
+    "label": "Approximate Bayesian inference",
+    "phrases": ["Approximate inference", "Approximate Bayesian inference", "Bayesian inference"]
+  },
+  "stream-sampling": {
+    "label": "Stream sampling",
+    "phrases": ["Fast stream sampling", "Uniform stream sampling", "Streaming sampling", "Weighted stream sampling", "Distinct sampling"]
+  },
+  "random-variate-generation": {
+    "label": "Random variate generation",
+    "phrases": ["Discrete random sampling", "Weighted sampling", "Gaussian random sampling"]
+  },
+
+  "parser-construction": {
+    "label": "Parser construction",
+    "phrases": ["Bottom-up parsing", "Predictive parsing", "Top-down parsing", "Linear-time parsing", "Composable parsing", "Expression parsing"]
+  },
+  "context-free-parsing": {
+    "label": "General context-free parsing",
+    "phrases": ["Context-free parsing", "General context-free parsing", "Fast context-free parsing", "Ambiguous-grammar parsing", "General top-down parsing", "Natural-language parsing"]
+  },
+  "dependency-parsing": {
+    "label": "Dependency parsing",
+    "phrases": ["Projective dependency parsing", "Non-projective dependency parsing", "Syntactic parsing"]
+  },
+
+  "dictionary-compression": {
+    "label": "General-purpose compression",
+    "phrases": ["Dictionary compression", "General-purpose compression", "Fast general compression", "High-ratio compression", "Very-fast compression", "Throughput-first compression", "Web compression"]
+  },
+  "entropy-coding": {
+    "label": "Entropy coding",
+    "phrases": ["Entropy compression", "Fast entropy compression", "Near-entropy compression", "Statistical compression", "Single-pass compression", "Maximal-ratio compression", "Benchmark compression"]
+  },
+  "lossy-image-compression": {
+    "label": "Lossy image compression",
+    "phrases": ["Lossy image compression"]
+  },
+  "model-compression": {
+    "label": "Model compression",
+    "phrases": ["Model compression"]
+  },
+
+  "distributed-consensus": {
+    "label": "Distributed consensus",
+    "phrases": ["Distributed consensus", "Byzantine consensus", "Permissionless consensus", "ZooKeeper consensus"]
+  },
+  "page-replacement": {
+    "label": "Page replacement",
+    "phrases": ["Page replacement"]
+  },
+  "disk-scheduling": {
+    "label": "Disk arm scheduling",
+    "phrases": ["Disk arm scheduling"]
+  },
+  "congestion-control": {
+    "label": "Congestion control",
+    "phrases": ["Congestion control"]
+  },
+  "cardinality-estimation": {
+    "label": "Cardinality estimation",
+    "phrases": ["Cardinality estimation"]
+  },
+  "document-ranking": {
+    "label": "Document ranking",
+    "phrases": ["Document ranking", "Structured-document ranking", "Retrieval reranking", "Ranking optimization"]
+  },
+  "game-tree-search": {
+    "label": "Game-tree search",
+    "phrases": ["Game-tree search", "Game-tree pruning"]
+  },
+  "constraint-satisfaction": {
+    "label": "Constraint satisfaction",
+    "phrases": ["Constraint satisfaction"]
+  },
+  "community-detection": {
+    "label": "Community detection",
+    "phrases": ["Community detection"]
+  },
+  "causal-inference": {
+    "label": "Causal inference",
+    "phrases": ["Causal inference"]
+  },
+  "recommendation": {
+    "label": "Recommendation",
+    "phrases": ["Recommendation", "Recommendation ranking"]
+  },
+  "semi-supervised-learning": {
+    "label": "Semi-supervised learning",
+    "phrases": ["Semi-supervised learning", "Semi-supervised deep learning"]
+  },
+  "active-learning": {
+    "label": "Active learning",
+    "phrases": ["Active learning"]
+  },
+  "compiler-optimization": {
+    "label": "Compiler optimization",
+    "phrases": ["Compiler optimization"]
+  },
+  "neural-network-training": {
+    "label": "Neural network training",
+    "phrases": ["Neural network training"]
+  }
+}

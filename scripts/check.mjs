@@ -124,7 +124,14 @@ if (existsSync(atlasDir)) {
   const byAlgo = new Map();
   let total = 0;
   const perFile = [];
-  for (const file of readdirSync(atlasDir).filter((f) => f.endsWith('.json') && f !== 'aliases.json').sort()) {
+  // Registry files are metadata about the catalog, not topic shards.
+  const REGISTRY_FILES = new Set(['aliases.json', 'problems.json']);
+  const isTopicFile = (f) => f.endsWith('.json') && !REGISTRY_FILES.has(f);
+  // normalized domain phrase -> Set of "algorithm x heuristic" display strings,
+  // for the rivals pass below.
+  const byPhrase = new Map();
+  const normPhrase = (s) => String(s ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
+  for (const file of readdirSync(atlasDir).filter(isTopicFile).sort()) {
     let arr;
     try {
       arr = JSON.parse(readFileSync(`${atlasDir}/${file}`, 'utf8'));
@@ -148,6 +155,9 @@ if (existsSync(atlasDir)) {
       const na = norm(e.a);
       if (!byAlgo.has(na)) byAlgo.set(na, { display: e.a, files: new Set() });
       byAlgo.get(na).files.add(file.replace('.json', ''));
+      const np = normPhrase(e.d);
+      if (!byPhrase.has(np)) byPhrase.set(np, { display: e.d, entries: [] });
+      byPhrase.get(np).entries.push(`${e.a}${e.h ? ` × ${e.h}` : ''}`);
       total += 1;
       return undefined;
     });
@@ -157,9 +167,7 @@ if (existsSync(atlasDir)) {
 
   // Category coverage: every topic file maps to exactly one category, and
   // every category references only real topic files.
-  const topicKeys = readdirSync(atlasDir)
-    .filter((f) => f.endsWith('.json') && f !== 'aliases.json')
-    .map((f) => f.replace('.json', ''));
+  const topicKeys = readdirSync(atlasDir).filter(isTopicFile).map((f) => f.replace('.json', ''));
   const catTopics = new Set();
   for (const cat of CATEGORIES) {
     for (const topic of cat.topics) {
@@ -183,9 +191,7 @@ if (existsSync(atlasDir)) {
   const summaryPath = 'src/data/atlas-summary.json';
   if (existsSync(summaryPath)) {
     const summary = JSON.parse(readFileSync(summaryPath, 'utf8'));
-    const familyCount = readdirSync(atlasDir).filter((f) => f.endsWith('.json')).length;
-    const aliasFile = existsSync(`${atlasDir}/aliases.json`) ? 1 : 0;
-    const realTopicCount = familyCount - aliasFile;
+    const realTopicCount = topicKeys.length;
     if (summary.total !== total) {
       fail(`atlas-summary.json total ${summary.total} != actual ${total}; update it`);
     } else if (summary.topics !== realTopicCount) {
@@ -237,6 +243,71 @@ if (existsSync(atlasDir)) {
       }
     }
     ok(`aliases: ${Object.keys(aliases).filter((k) => !k.startsWith('_')).length} canonical names, ${aliasCount} synonyms`);
+  }
+
+  // The rivals registry: one problem, many phrasings. Validates the registry
+  // against live entries and reports how much of the catalog can actually
+  // answer "what else could solve this?", which is the site's core lesson.
+  const problemsPath = `${atlasDir}/problems.json`;
+  if (existsSync(problemsPath)) {
+    let problems;
+    try {
+      problems = JSON.parse(readFileSync(problemsPath, 'utf8'));
+    } catch (e) {
+      fail(`problems.json: invalid JSON (${e.message})`);
+      problems = {};
+    }
+    const phraseOwner = new Map(); // normalized phrase -> problem slug
+    let problemCount = 0;
+    for (const [slug, meta] of Object.entries(problems)) {
+      if (slug.startsWith('_')) continue; // doc keys
+      problemCount += 1;
+      if (!/^[a-z0-9-]+$/.test(slug)) fail(`problems "${slug}": key must be a lowercase slug`);
+      if (!meta || typeof meta.label !== 'string' || !meta.label.trim())
+        fail(`problems "${slug}": missing label`);
+      if (!meta || !Array.isArray(meta.phrases) || !meta.phrases.length) {
+        fail(`problems "${slug}": missing non-empty phrases array`);
+        continue;
+      }
+      for (const phrase of meta.phrases) {
+        const np = normPhrase(phrase);
+        if (!byPhrase.has(np)) {
+          fail(`problems "${slug}": phrase "${phrase}" matches no atlas entry (dead phrase)`);
+          continue;
+        }
+        if (phraseOwner.has(np) && phraseOwner.get(np) !== slug) {
+          fail(`problems: phrase "${phrase}" claimed by both "${phraseOwner.get(np)}" and "${slug}"`);
+        }
+        phraseOwner.set(np, slug);
+      }
+    }
+
+    // Rival clusters: entries resolve to a registry problem, else to their own
+    // phrase. An entry has rivals when its cluster holds two or more entries.
+    const clusters = new Map();
+    for (const [np, info] of byPhrase) {
+      const key = phraseOwner.get(np) ?? `phrase:${np}`;
+      if (!clusters.has(key)) clusters.set(key, 0);
+      clusters.set(key, clusters.get(key) + info.entries.length);
+    }
+    let withRivals = 0;
+    for (const size of clusters.values()) if (size >= 2) withRivals += size;
+    const pct = ((withRivals / total) * 100).toFixed(1);
+    ok(`rivals: ${problemCount} registered problems, ${clusters.size} clusters, ${withRivals}/${total} entries (${pct}%) have at least one rival`);
+
+    // Planning queue: the biggest phrases still outside the registry. Each is a
+    // candidate to fold into an existing problem (or to name as a new one).
+    const unregistered = [...byPhrase.entries()]
+      .filter(([np]) => !phraseOwner.has(np))
+      .map(([, info]) => ({ d: info.display, n: info.entries.length }))
+      .filter((x) => x.n >= 3)
+      .sort((a, b) => b.n - a.n);
+    if (unregistered.length) {
+      warn(`rivals queue: ${unregistered.length} unregistered phrases with 3+ entries (fold into problems.json):`);
+      console.log(`     ${unregistered.slice(0, 20).map((x) => `${x.d} (${x.n})`).join(' · ')}`);
+    }
+  } else {
+    fail(`${problemsPath} missing`);
   }
 
   // Automatic duplicate scan (planning aid, non-failing): entries whose

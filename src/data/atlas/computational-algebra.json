@@ -22,5 +22,6 @@
 {"a": "Modular GCD", "h": "CRT reconstruction", "d": "Polynomial GCD", "t": 3},
 {"a": "Fraction-free Gaussian elimination", "h": "Bareiss algorithm", "d": "Exact linear algebra", "t": 3},
 {"a": "Faugere-Gianni-Lazard-Mora", "h": "Groebner basis change of order", "d": "System solving", "t": 3},
-{"a": "Newton polygon method", "h": null, "d": "Puiseux series", "t": 3}
+{"a": "Newton polygon method", "h": null, "d": "Puiseux series", "t": 3},
+{"a": "Symbolic differentiation", "h": null, "d": "Exact derivatives", "t": 2}
 ]

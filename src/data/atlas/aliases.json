@@ -328,5 +328,18 @@
   "Rateless set reconciliation": { "aka": ["IBLT reconciliation"] },
   "Garbage-first collection": { "aka": ["G1 GC"] },
   "Reference counting": { "aka": ["Refcounting"] },
-  "Cheney's algorithm": { "aka": ["Semispace copying collector"] }
+  "Cheney's algorithm": { "aka": ["Semispace copying collector"] },
+
+  "Finite element method": { "aka": ["FEM"] },
+  "Finite difference method": { "aka": ["FDM"] },
+  "Finite volume method": { "aka": ["FVM"] },
+  "Fast multipole method": { "aka": ["FMM"] },
+  "Smoothed particle hydrodynamics": { "aka": ["SPH"] },
+  "Lattice Boltzmann method": { "aka": ["LBM"] },
+  "Physics-informed neural network": { "aka": ["PINN"] },
+  "Alternating direction implicit": { "aka": ["ADI"] },
+  "Automatic differentiation": { "aka": ["Autodiff", "AD"] },
+  "Boundary element method": { "aka": ["BEM"] },
+  "Tensor train decomposition": { "aka": ["TT decomposition", "Matrix product states"] },
+  "Particle-in-cell": { "aka": ["PIC"] }
 }

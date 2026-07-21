@@ -177,7 +177,7 @@
   },
   "linear-systems": {
     "label": "Solving linear systems",
-    "phrases": ["Linear systems", "Sparse linear systems"]
+    "phrases": ["Linear systems", "Sparse linear systems", "Elliptic PDE solving", "Parallel PDE solving"]
   },
   "eigenvalues": {
     "label": "Eigenvalues and eigenvectors",
@@ -1266,5 +1266,42 @@
   "memory-allocation": {
     "label": "Memory allocation",
     "phrases": ["Memory allocation", "Kernel object allocation", "Heap allocation"]
+  },
+
+  "pde-discretization": {
+    "label": "PDE discretization",
+    "phrases": ["PDE discretization", "High-accuracy PDEs", "Conservation laws", "Periodic PDEs", "Non-periodic spectral PDEs", "Exterior-domain PDEs", "Neural PDE solving", "PDE-to-ODE reduction", "Convection-dominated PDEs"]
+  },
+  "parabolic-time-stepping": {
+    "label": "Parabolic PDE time stepping",
+    "phrases": ["Parabolic PDEs", "Multidimensional PDEs"]
+  },
+  "hyperbolic-schemes": {
+    "label": "Hyperbolic PDEs and shock capturing",
+    "phrases": ["Advection PDEs", "Hyperbolic conservation laws", "Shock capturing", "Hyperbolic PDEs"]
+  },
+  "n-body": {
+    "label": "N-body summation",
+    "phrases": ["N-body and integral equations", "N-body simulation"]
+  },
+  "fluid-simulation": {
+    "label": "Fluid simulation",
+    "phrases": ["Plasma and fluid simulation", "Fluid simulation", "Fluid-structure interaction"]
+  },
+  "interface-tracking": {
+    "label": "Interface tracking and front propagation",
+    "phrases": ["Interface tracking", "Front propagation"]
+  },
+  "automatic-differentiation": {
+    "label": "Automatic differentiation",
+    "phrases": ["Exact derivatives", "Gradient computation", "Forward differentiation", "Memory-lean reverse AD"]
+  },
+  "tensor-decomposition": {
+    "label": "Tensor decomposition",
+    "phrases": ["Multiway data factorization", "Tensor compression", "High-dimensional compression"]
+  },
+  "scattered-interpolation": {
+    "label": "Scattered-data interpolation",
+    "phrases": ["Scattered-data interpolation", "Spatial interpolation"]
   }
 }

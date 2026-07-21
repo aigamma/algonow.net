@@ -81,6 +81,7 @@
 {"a": "Adaptive Simpson", "h": "Recursive error bisection", "d": "Numerical integration", "t": 2},
 {"a": "Clenshaw-Curtis quadrature", "h": null, "d": "Numerical integration", "t": 3},
 {"a": "Tanh-sinh quadrature", "h": null, "d": "Endpoint-singular integration", "t": 3},
+{"a": "Numerical differentiation", "h": "Central difference quotients", "d": "Gradient computation", "t": 1},
 {"a": "Fast Fourier transform", "h": "Cooley-Tukey radix-2", "d": "Spectral analysis", "t": 1},
 {"a": "Fast Fourier transform", "h": "Mixed-radix decomposition", "d": "Arbitrary-length transforms", "t": 2},
 {"a": "Bluestein's algorithm", "h": "Chirp-z convolution", "d": "Prime-length transforms", "t": 3},

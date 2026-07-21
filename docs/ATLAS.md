@@ -5,7 +5,7 @@ every entry is either a standalone algorithm or an algorithm × heuristic
 pair. It is the strategy document Eric asked for, kept as data so the check
 script can hold it to account.
 
-**Live size: whatever `src/data/atlas-summary.json` says** (2,892 entries /
+**Live size: whatever `src/data/atlas-summary.json` says** (2,914 entries /
 59 topics / 20 categories as of 2026-07-21 evening; `npm run check` prints
 per-topic totals and the grand total, and fails if the summary drifts). The target
 shape is roughly 5,000 entries across ~100 topics. The map is deliberately
@@ -158,12 +158,13 @@ give the reason (the cost blowup, the structure it cannot exploit). "You
 would never use this one here, because" teaches the same instinct as a
 when-to-prefer line, from the other side.
 
-**The rivals backfill (the standing priority; owner directive 2026-07-21).**
-Roughly the first 1,600 entries were authored before this doctrine existed,
-so their `d` phrases were coined one-off and cluster with nothing: rival
-coverage is the number to move. The backfill sweeps one topic file at a
-time (worst coverage first; `npm run check` prints the worst topics) and
-makes four moves per topic:
+**The rivals backfill (owner directive 2026-07-21; COMPLETE, 51.9 -> 99.4
+percent in fifty sweeps).** Roughly the first 1,600 entries were authored
+before this doctrine existed, so their `d` phrases were coined one-off and
+clustered with nothing. Every topic file has now been swept. The method,
+kept here because it is how any future topic gets folded in: sweep one
+topic file at a time (worst coverage first; `npm run check` prints the
+worst topics) and make four moves per topic:
 
 1. Register the topic's multi-entry phrases in `problems.json`.
 2. Join singleton phrases to existing problems by ADDING the phrase to the
@@ -176,7 +177,18 @@ makes four moves per topic:
 4. Densify `aliases.json` for the topic's entries while there; the RAG and
    redirect layers both need "five names, one algorithm" to resolve.
 
-One topic per commit, check green, push before the next.
+One topic per commit, check green, push before the next. A new topic file
+is not finished until its phrases are registered the same way; the check's
+worst-topics line will name it immediately.
+
+**The seventeen honest holds.** Seventeen entries have no rival and are
+left that way on purpose, because inventing a competitor would break the
+real-names rule: digit DP, probability DP, egg drop DP, Instant Insanity,
+tangram solving, chain codes, Puiseux series, skip scan,
+self-stabilization, retrograde analysis, kernel pre-image reconstruction,
+hyper-heuristic search, network tomography, fractional cascading, text
+chunking, complex event processing, power analysis. Each is a candidate
+for a future authored rival, not a defect.
 
 `src/data/atlas/problems.json` is the rivals registry: a problem slug maps to
 a label plus the exact `d` phrases that mean that problem, so Dijkstra
@@ -190,26 +202,34 @@ phrases as a queue.
 
 ## Where the atlas stands, and what is queued
 
-At 2,892 entries / 59 topics / 20 categories against a target of roughly
-5,000 entries across ~100 topics. Rival coverage is 76.7 percent (was 51.9
-at the program's start on 2026-07-21; sweeps 1-21 covered the 21 worst
-topics, registering 354 problems, authoring ~40 real missing rivals, and
-merging 9 true duplicates). Run `npm run check` for all live numbers; the
-standing queues, in rough priority order:
+At 2,914 entries / 59 topics / 20 categories against a target of roughly
+5,000 entries across ~100 topics. **Rival coverage is 99.4 percent** (2,897
+of 2,914), up from 51.9 percent when the backfill started on 2026-07-21:
+fifty sweeps registered 570 problems, densified the alias registry to 718
+canonical names and 900 synonyms, authored about 90 real missing rival
+entries, and merged 20 true duplicates the sweeps exposed. Run `npm run
+check` for all live numbers; the standing queues, in rough priority order:
 
-1. **Rivals backfill, mid-flight.** The four-move sweep program in the
-   Rivals section above continues topic by topic; the check prints the
-   unregistered-phrase queue and the worst-coverage topics (next up:
-   quantum, robotics-planning, strings, compression-coding,
-   computer-vision, time-series, computational-biology, and on down).
+1. **Grow the catalog toward 5,000.** With the rivals layer complete, new
+   entries are the work again. Every new entry needs a `d` phrase that
+   either reuses a registered problem or names a new one (see the four-move
+   method above); the check's worst-topics line polices this automatically.
 2. **Topic splits.** A dozen topic files exceed the ~60-entry split
    threshold (search-structures is fattest at ~100 after the backfill's
    authored rivals). Splitting them is most of the distance to the
    ~100-topic target.
-3. **Duplicate scan.** Three clusters remain and all three are intentional
+3. **Retrieval staging is ready.** aliases.json and problems.json are now
+   dense enough for the Qdrant record in docs/RETRIEVAL.md to be built
+   whenever the owner green-lights the one-time embedding run.
+4. **Duplicate scan.** Three clusters remain and all three are intentional
    (Viterbi across DP/coding/NLP, Beam search vs Beam search decoding,
    Kernighan-Lin vs Lin-Kernighan). Anything new that appears is real; the
-   backfill sweeps caught and merged nine others on sight.
+   backfill sweeps caught and merged twenty others on sight.
+5. **Unregistered-phrase queue.** Nineteen phrases with three or more
+   entries each still stand as their own exact-match clusters (word
+   embeddings, node embeddings, link prediction, metric learning, AutoML,
+   and friends). They are covered, so this is polish: folding them into
+   named problems would give them stable /problem/ slugs.
 
 Candidate NEW topics, each to be checked for overlap before authoring rather
 than assumed missing: SAT/SMT and formal verification (CDCL, DPLL(T), IC3,

@@ -509,5 +509,17 @@
   "Inclusion-exclusion counting": { "aka": ["Sieve principle"] },
   "Zeilberger's algorithm": { "aka": ["Creative telescoping", "WZ method"] },
   "de Bruijn sequence": { "aka": ["De Bruijn cycle"] },
-  "Nested parentheses generation": { "aka": ["Balanced parentheses enumeration"] }
+  "Nested parentheses generation": { "aka": ["Balanced parentheses enumeration"] },
+
+  "Principal variation search": { "aka": ["PVS"] },
+  "NegaScout": { "aka": ["Reinefeld scout"] },
+  "Late move reductions": { "aka": ["LMR"] },
+  "Null-move pruning": { "aka": ["Null move heuristic"] },
+  "Monte Carlo CFR": { "aka": ["MCCFR"] },
+  "Information set MCTS": { "aka": ["ISMCTS"] },
+  "Nested rollout policy adaptation": { "aka": ["NRPA"] },
+  "Nested Monte Carlo search": { "aka": ["NMCS"] },
+  "Retrograde analysis": { "aka": ["Endgame tablebase generation"] },
+  "Quiescence search": { "aka": ["Quiescent search"] },
+  "Expectiminimax": { "aka": ["Expectimax"], "note": "Expectimax is the chance-node-only variant; the same search family, and the atlas keeps one canonical entry." }
 }

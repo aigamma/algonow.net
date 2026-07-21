@@ -361,7 +361,7 @@
   },
   "game-tree-search": {
     "label": "Game-tree search",
-    "phrases": ["Game-tree search", "Game-tree pruning"]
+    "phrases": ["Game-tree search", "Game-tree pruning", "Adversarial game trees", "Symmetric game-tree search", "Tactical stabilization", "Tactical goal search", "Hybrid game search"]
   },
   "constraint-satisfaction": {
     "label": "Constraint satisfaction",
@@ -710,7 +710,7 @@
   },
   "equilibrium-learning": {
     "label": "Learning dynamics for equilibria",
-    "phrases": ["Equilibrium learning", "Correlated equilibrium", "Evolutionary game theory", "Imperfect-information equilibria", "Poker-scale equilibria"]
+    "phrases": ["Equilibrium learning", "Correlated equilibrium", "Evolutionary game theory", "Imperfect-information equilibria", "Poker-scale equilibria", "Large-game equilibria", "Very-large-game equilibria", "Game equilibrium learning", "Large matrix games"]
   },
   "extensive-form-solving": {
     "label": "Extensive-form game solving",
@@ -1755,5 +1755,30 @@
   "symbolic-summation": {
     "label": "Symbolic summation and identity proof",
     "phrases": ["Hypergeometric summation", "Combinatorial identity proof"]
+  },
+
+  "monte-carlo-tree-search": {
+    "label": "Monte Carlo tree search",
+    "phrases": ["Games too big to solve", "Large-branching search", "Knowledge-guided search", "Sample-efficient search", "Neural-guided game search", "Parallel game search", "Baseline move evaluation", "Single-player optimization", "Puzzle optimization"]
+  },
+  "imperfect-information-search": {
+    "label": "Search under hidden information",
+    "phrases": ["Imperfect-information games", "Hidden-information games", "Simultaneous-move games"]
+  },
+  "stochastic-game-search": {
+    "label": "Search with chance nodes",
+    "phrases": ["Chance-node game trees", "Stochastic game search", "Sliding-tile game"]
+  },
+  "multiplayer-search": {
+    "label": "Multiplayer game search",
+    "phrases": ["Multiplayer game search"]
+  },
+  "endgame-databases": {
+    "label": "Endgame databases",
+    "phrases": ["Endgame tablebase construction"]
+  },
+  "pure-exploration": {
+    "label": "Pure-exploration bandits",
+    "phrases": ["Pure-exploration bandits"]
   }
 }

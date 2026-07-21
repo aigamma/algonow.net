@@ -63,6 +63,10 @@
     "label": "Minimum spanning tree",
     "phrases": ["Minimum spanning trees", "Parallel-friendly spanning trees", "Spanning trees by removal", "Expected-linear spanning trees"]
   },
+  "spanning-tree-enumeration": {
+    "label": "Spanning tree counting and sampling",
+    "phrases": ["Tree counting", "Spanning-tree listing", "Uniform tree sampling"]
+  },
   "bipartite-matching": {
     "label": "Bipartite matching",
     "phrases": ["Bipartite matching", "Bipartite maximum matching"]
@@ -669,11 +673,11 @@
   },
   "poset-transforms": {
     "label": "Subset and poset transforms",
-    "phrases": ["Subset aggregation", "Counting over posets"]
+    "phrases": ["Subset aggregation", "Counting over posets", "Combinatorial counting"]
   },
   "tiling-counting": {
     "label": "Tiling and matching counts",
-    "phrases": ["Grid tiling counts", "Domino tiling counts", "Planar matching counting"]
+    "phrases": ["Grid tiling counts", "Domino tiling counts", "Planar matching counting", "Matrix permanent", "Small permanent computation"]
   },
   "dp-optimization": {
     "label": "DP transition optimization",
@@ -1672,7 +1676,7 @@
   },
   "shuffling": {
     "label": "Shuffling and permutation",
-    "phrases": ["Uniform permutation", "Streaming shuffle"]
+    "phrases": ["Uniform permutation", "Streaming shuffle", "Uniform subset sampling"]
   },
   "matrix-sketching": {
     "label": "Streaming matrix sketching",
@@ -1718,5 +1722,38 @@
   "integer-programming": {
     "label": "Integer and decomposed programming",
     "phrases": ["Integer programming", "Stochastic programming", "Block-structured LP", "Combinatorial bounds"]
+  },
+
+  "permutation-generation": {
+    "label": "Permutation generation",
+    "phrases": ["Permutation generation", "Loopless enumeration", "Combinatorial generation"]
+  },
+  "combinatorial-ranking": {
+    "label": "Ranking and unranking",
+    "phrases": ["Permutation ranking", "Combinatorial ranking"]
+  },
+  "subset-enumeration": {
+    "label": "Subset and combination enumeration",
+    "phrases": ["Subset enumeration", "Subset listing", "Subset-of-size-k listing", "Combination generation", "Gray-code combinations"]
+  },
+  "partition-enumeration": {
+    "label": "Partition enumeration",
+    "phrases": ["Partition enumeration", "Composition enumeration", "Set-partition counting"]
+  },
+  "structure-counting": {
+    "label": "Counting combinatorial structures",
+    "phrases": ["Structure counting", "Lattice-path counting", "Balanced-string listing", "Tree generation", "Tableau enumeration", "Labeled tree enumeration", "Labeled-tree encoding"]
+  },
+  "cyclic-sequences": {
+    "label": "Necklaces and de Bruijn sequences",
+    "phrases": ["Cyclic-string listing", "Overlap-cover sequences"]
+  },
+  "symmetry-counting": {
+    "label": "Counting up to symmetry",
+    "phrases": ["Symmetry counting"]
+  },
+  "symbolic-summation": {
+    "label": "Symbolic summation and identity proof",
+    "phrases": ["Hypergeometric summation", "Combinatorial identity proof"]
   }
 }

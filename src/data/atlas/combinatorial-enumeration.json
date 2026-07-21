@@ -2,7 +2,6 @@
 {"a": "Lexicographic permutations", "h": "Next-permutation algorithm", "d": "Permutation generation", "t": 1},
 {"a": "Heap's algorithm", "h": null, "d": "Permutation generation", "t": 1},
 {"a": "Steinhaus-Johnson-Trotter", "h": "Adjacent-transposition order", "d": "Permutation generation", "t": 2},
-{"a": "Fisher-Yates permutation", "h": null, "d": "Random permutation", "t": 1},
 {"a": "Factorial number system", "h": "Lehmer code ranking", "d": "Permutation ranking", "t": 2},
 {"a": "Myrvold-Ruskey ranking", "h": null, "d": "Permutation ranking", "t": 3},
 {"a": "Gray code generation", "h": "Reflected binary", "d": "Subset enumeration", "t": 1},

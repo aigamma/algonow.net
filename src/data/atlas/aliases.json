@@ -26,7 +26,7 @@
   "Breadth-first search": { "aka": ["BFS"] },
   "Depth-first search": { "aka": ["DFS"] },
   "Longest increasing subsequence": { "aka": ["LIS"] },
-  "Fisher-Yates shuffle": { "aka": ["Knuth shuffle", "Fisher-Yates-Knuth shuffle"] },
+  "Fisher-Yates shuffle": { "aka": ["Knuth shuffle", "Fisher-Yates-Knuth shuffle", "Fisher-Yates permutation"], "note": "The combinatorial-enumeration entry 'Fisher-Yates permutation' was the same algorithm and was merged here 2026-07-21." },
   "Bloom filter": { "aka": ["Bloom filters"] },
   "Locality-sensitive hashing": { "aka": ["LSH"] },
   "Hidden Markov filtering": { "aka": ["forward filtering"] },
@@ -497,5 +497,17 @@
   "Cutting plane method": { "aka": ["Gomory cutting planes"] },
   "Graham list scheduling": { "aka": ["LPT scheduling", "List scheduling"] },
   "Shortest processing time": { "aka": ["SPT rule"] },
-  "Karmarkar-Karp": { "aka": ["Largest differencing method", "KK heuristic"] }
+  "Karmarkar-Karp": { "aka": ["Largest differencing method", "KK heuristic"] },
+
+  "Steinhaus-Johnson-Trotter": { "aka": ["Johnson-Trotter", "Plain changes"] },
+  "Factorial number system": { "aka": ["Lehmer code", "Factoradic"] },
+  "Gray code generation": { "aka": ["Reflected binary code"] },
+  "Burnside enumeration": { "aka": ["Burnside's lemma", "Cauchy-Frobenius lemma"] },
+  "Polya enumeration": { "aka": ["Polya counting theorem", "Redfield-Polya theorem"] },
+  "Permanent computation": { "aka": ["Ryser's algorithm"] },
+  "Perfect matching counting": { "aka": ["Pfaffian orientation method"] },
+  "Inclusion-exclusion counting": { "aka": ["Sieve principle"] },
+  "Zeilberger's algorithm": { "aka": ["Creative telescoping", "WZ method"] },
+  "de Bruijn sequence": { "aka": ["De Bruijn cycle"] },
+  "Nested parentheses generation": { "aka": ["Balanced parentheses enumeration"] }
 }

@@ -254,7 +254,7 @@
   },
   "regression": {
     "label": "Regression",
-    "phrases": ["Linear regression", "Regularized regression", "Sparse regression", "Outlier-resistant regression", "Conditional-quantile regression", "Correlated-error regression", "Kernel regression", "Probabilistic regression", "Probabilistic kernel regression", "Heavy-tailed regression", "Vector-valued regression", "Continuous prediction", "Regularization path"]
+    "phrases": ["Linear regression", "Regularized regression", "Sparse regression", "Outlier-resistant regression", "Conditional-quantile regression", "Correlated-error regression", "Kernel regression", "Probabilistic regression", "Probabilistic kernel regression", "Heavy-tailed regression", "Vector-valued regression", "Continuous prediction", "Regularization path", "Generalized linear models"]
   },
   "image-classification": {
     "label": "Image classification",
@@ -751,7 +751,7 @@
   },
   "deadlock-detection": {
     "label": "Deadlock handling",
-    "phrases": ["Distributed deadlock detection", "Deadlock prevention"]
+    "phrases": ["Distributed deadlock detection", "Deadlock prevention", "Deadlock avoidance", "Deadlock detection", "Deadlock handling"]
   },
   "distributed-mutex": {
     "label": "Distributed mutual exclusion",
@@ -795,7 +795,23 @@
   },
   "shared-memory-mutex": {
     "label": "Shared-memory mutual exclusion",
-    "phrases": ["Two-thread mutual exclusion", "Mutual exclusion", "N-thread mutual exclusion"]
+    "phrases": ["Two-thread mutual exclusion", "Mutual exclusion", "N-thread mutual exclusion", "Concurrency primitive", "Hardware synchronization", "Lock-free synchronization"]
+  },
+  "classic-synchronization": {
+    "label": "Classic synchronization problems",
+    "phrases": ["Process synchronization", "Deadlock-free synchronization"]
+  },
+  "virtual-memory": {
+    "label": "Virtual memory management",
+    "phrases": ["Virtual memory", "Page-fault control", "Thrashing control", "Process creation"]
+  },
+  "address-translation": {
+    "label": "Address translation",
+    "phrases": ["Address translation", "Address-translation caching"]
+  },
+  "async-io": {
+    "label": "Asynchronous I/O",
+    "phrases": ["Asynchronous I/O"]
   },
   "spinlocks": {
     "label": "Spinlock design",
@@ -815,7 +831,7 @@
   },
   "concurrent-structure-strategy": {
     "label": "Building concurrent data structures",
-    "phrases": ["Concurrent data structures", "Composable concurrency"]
+    "phrases": ["Concurrent data structures", "Composable concurrency", "Concurrent objects"]
   },
   "reader-writer-sync": {
     "label": "Reader-writer synchronization",
@@ -965,7 +981,31 @@
   },
   "parameter-estimation": {
     "label": "Parameter estimation",
-    "phrases": ["Parameter estimation", "Latent-variable estimation", "HMM training"]
+    "phrases": ["Parameter estimation", "Latent-variable estimation", "HMM training", "Bayesian point estimation"]
+  },
+  "hypothesis-testing": {
+    "label": "Hypothesis testing",
+    "phrases": ["Mean comparison", "Multi-group comparison", "Independence testing", "Small-sample independence", "Distribution testing", "Nonparametric comparison", "Paired nonparametric test", "Nonparametric ANOVA", "Normality testing", "Sequential testing"]
+  },
+  "multiple-testing": {
+    "label": "Multiple testing correction",
+    "phrases": ["Multiple testing"]
+  },
+  "interval-estimation": {
+    "label": "Interval estimation",
+    "phrases": ["Interval estimation"]
+  },
+  "bayesian-computation": {
+    "label": "Bayesian computation",
+    "phrases": ["Closed-form posteriors", "Likelihood-free inference", "Hierarchical inference"]
+  },
+  "survival-analysis": {
+    "label": "Survival analysis",
+    "phrases": ["Survival analysis", "Survival regression"]
+  },
+  "experiment-design": {
+    "label": "Experiment design",
+    "phrases": ["Experiment design"]
   },
   "steiner-tree": {
     "label": "Steiner trees and network design",
@@ -1573,7 +1613,7 @@
   },
   "memory-allocation": {
     "label": "Memory allocation",
-    "phrases": ["Memory allocation", "Kernel object allocation", "Heap allocation"]
+    "phrases": ["Memory allocation", "Heap allocation", "Kernel memory"]
   },
 
   "pde-discretization": {
@@ -1965,11 +2005,11 @@
   },
   "realtime-scheduling": {
     "label": "Real-time scheduling",
-    "phrases": ["Real-time scheduling", "Real-time task scheduling"]
+    "phrases": ["Real-time scheduling", "Real-time task scheduling", "Priority-inversion fix", "Real-time synchronization"]
   },
   "cpu-scheduling": {
     "label": "CPU and resource scheduling",
-    "phrases": ["CPU scheduling", "OS process scheduling", "Resource scheduling"]
+    "phrases": ["CPU scheduling", "OS process scheduling", "Resource scheduling", "Process scheduling", "Parallel-job scheduling", "Lock scheduling"]
   },
   "vehicle-routing": {
     "label": "Vehicle routing",

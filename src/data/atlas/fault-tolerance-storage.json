@@ -44,7 +44,6 @@
 {"a": "Mark-compact collection", "h": "Lisp2 sliding", "d": "Memory management", "t": 3},
 {"a": "Garbage-first collection", "h": "Region-based pause targets", "d": "Low-pause memory management", "t": 3},
 {"a": "Buddy allocation", "h": "Power-of-two splitting", "d": "Memory allocation", "t": 2},
-{"a": "Slab allocation", "h": null, "d": "Kernel object allocation", "t": 2},
 {"a": "Segregated free lists", "h": "Size-class binning", "d": "Memory allocation", "t": 2},
 {"a": "Wilderness preservation", "h": null, "d": "Heap allocation", "t": 3}
 ]

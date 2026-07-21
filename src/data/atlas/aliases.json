@@ -652,5 +652,25 @@
   "Intrinsic curiosity module": { "aka": ["ICM"] },
   "Behavior cloning": { "aka": ["BC"] },
   "Dueling DQN": { "aka": ["Dueling network architecture"] },
-  "Prioritized experience replay": { "aka": ["PER"] }
+  "Prioritized experience replay": { "aka": ["PER"] },
+
+  "Banker's algorithm": { "aka": ["Dijkstra banker's algorithm"] },
+  "Compare-and-swap loop": { "aka": ["CAS loop"], "note": "Compare-and-swap; distinct from content-addressable storage, which also abbreviates CAS." },
+  "Copy-on-write forking": { "aka": ["COW fork"] },
+  "Buddy memory allocation": { "aka": ["Buddy allocator"] },
+  "Slab allocator": { "aka": ["Slab allocation", "Bonwick allocator"], "note": "The fault-tolerance-storage entry 'Slab allocation' was the same allocator and was merged here 2026-07-21; operating-systems is the home topic." },
+  "Priority inheritance": { "aka": ["Priority inheritance protocol", "PIP"] },
+  "Priority ceiling protocol": { "aka": ["PCP"] },
+  "I/O completion ports": { "aka": ["IOCP"] },
+  "Working set model": { "aka": ["Denning working set"] },
+  "Maximum a posteriori estimation": { "aka": ["MAP estimation"] },
+  "Method of moments": { "aka": ["Moment matching estimation"] },
+  "Iteratively reweighted least squares": { "aka": ["IRLS"] },
+  "Mann-Whitney U test": { "aka": ["Wilcoxon rank-sum test"] },
+  "Approximate Bayesian computation": { "aka": ["ABC"] },
+  "Cox proportional hazards": { "aka": ["Cox regression"] },
+  "Sequential probability ratio test": { "aka": ["SPRT", "Wald sequential test"] },
+  "Bootstrap confidence interval": { "aka": ["BCa bootstrap"] },
+  "Holm-Bonferroni": { "aka": ["Holm correction"] },
+  "Robust regression": { "aka": ["M-estimation", "Huber regression"] }
 }

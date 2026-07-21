@@ -37,6 +37,8 @@
 {"a": "Ukkonen approximate matching", "h": null, "d": "Read error tolerance", "t": 3},
 {"a": "Wavefront alignment", "h": "Diagonal wavefront expansion", "d": "Fast exact alignment", "t": 3},
 {"a": "Variant calling", "h": "Haplotype reassembly", "d": "Genetic variant detection", "t": 3},
+{"a": "Pileup variant calling", "h": "Bayesian genotype likelihoods", "d": "Genetic variant detection", "t": 3},
+{"a": "AlphaFold-style folding", "h": "Evoformer attention on MSAs", "d": "Structure prediction", "t": 2},
 {"a": "Suffix-array read overlap", "h": null, "d": "Assembly overlap detection", "t": 3},
 {"a": "Colored de Bruijn graph", "h": null, "d": "Multi-sample assembly", "t": 3},
 {"a": "Pan-genome graph alignment", "h": null, "d": "Graph genome mapping", "t": 3}

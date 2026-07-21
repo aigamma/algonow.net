@@ -456,5 +456,17 @@
   "Singular spectrum analysis": { "aka": ["Caterpillar method"] },
   "Temporal fusion transformer": { "aka": ["TFT"] },
   "Temporal convolutional network": { "aka": ["TCN"] },
-  "State space model": { "aka": ["SSM"] }
+  "State space model": { "aka": ["SSM"] },
+
+  "BLAST": { "aka": ["Basic local alignment search tool"] },
+  "UPGMA": { "aka": ["Unweighted pair group method with arithmetic mean"] },
+  "de Bruijn graph assembly": { "aka": ["De Bruijn assembly", "Velvet-style assembly"] },
+  "Overlap-layout-consensus": { "aka": ["OLC assembly"] },
+  "Burrows-Wheeler read alignment": { "aka": ["BWT read alignment"] },
+  "MinHash genome distance": { "aka": ["Mash distance"] },
+  "Profile HMM alignment": { "aka": ["Profile hidden Markov model"] },
+  "Molecular dynamics": { "aka": ["MD simulation"] },
+  "Sequence logo scoring": { "aka": ["Position weight matrix scanning", "PWM scanning"] },
+  "Wavefront alignment": { "aka": ["WFA"] },
+  "AlphaFold-style folding": { "aka": ["Deep-learning structure prediction"], "note": "Named generically because the atlas catalogs methods, not products; the Evoformer-on-MSA architecture is the method." }
 }

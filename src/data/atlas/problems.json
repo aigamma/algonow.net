@@ -129,6 +129,42 @@
     "label": "Multiple sequence alignment",
     "phrases": ["Multiple sequence alignment"]
   },
+  "sequence-database-search": {
+    "label": "Sequence database search",
+    "phrases": ["Sequence database search", "Profile search", "Protein family modeling"]
+  },
+  "phylogenetics": {
+    "label": "Phylogenetic inference",
+    "phrases": ["Phylogenetic inference", "Phylogenetic tree building", "Ultrametric phylogeny", "Ancestral reconstruction"]
+  },
+  "genome-assembly": {
+    "label": "Genome assembly",
+    "phrases": ["Genome assembly", "Multi-sample assembly", "Assembly overlap detection"]
+  },
+  "read-mapping": {
+    "label": "Read mapping",
+    "phrases": ["Short-read mapping", "Long-read mapping", "Graph genome mapping", "Read error tolerance", "Fast exact alignment"]
+  },
+  "sequence-sketching": {
+    "label": "Sequence sketching and indexing",
+    "phrases": ["Sequence indexing", "Genome similarity"]
+  },
+  "rna-structure": {
+    "label": "RNA secondary structure prediction",
+    "phrases": ["RNA secondary structure", "RNA folding", "RNA structure"]
+  },
+  "motif-discovery": {
+    "label": "Sequence motif discovery",
+    "phrases": ["Motif discovery", "Binding-site scanning", "Genome annotation"]
+  },
+  "protein-structure": {
+    "label": "Protein structure prediction",
+    "phrases": ["Structure modeling", "Structure prediction"]
+  },
+  "molecular-simulation": {
+    "label": "Molecular simulation and docking",
+    "phrases": ["Biomolecular simulation", "Drug-target binding"]
+  },
   "phonetic-matching": {
     "label": "Phonetic matching",
     "phrases": ["Phonetic matching", "Phonetic name matching"]

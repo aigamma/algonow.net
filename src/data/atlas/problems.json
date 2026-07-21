@@ -401,6 +401,66 @@
     "label": "Graph diameter",
     "phrases": ["Graph diameter", "Tree diameter"]
   },
+  "optimal-stopping": {
+    "label": "Optimal stopping",
+    "phrases": ["Optimal stopping", "Rent-or-buy decisions"]
+  },
+  "online-matching": {
+    "label": "Online matching and ad allocation",
+    "phrases": ["Ad allocation", "Online ad auctions"]
+  },
+  "k-server": {
+    "label": "The k-server problem",
+    "phrases": ["K-server problem", "Line k-server", "General online framework", "Online geometry"]
+  },
+  "online-learning": {
+    "label": "Online learning and regret minimization",
+    "phrases": ["Online decision making", "Expert prediction", "Online learning", "Online convex optimization", "Resource-constrained bandits", "Learning-augmented online"]
+  },
+  "online-covering": {
+    "label": "Online covering and placement",
+    "phrases": ["Incremental covering", "Incremental placement"]
+  },
+  "online-search": {
+    "label": "Online searching",
+    "phrases": ["Online searching", "Line searching"]
+  },
+  "list-update": {
+    "label": "List update",
+    "phrases": ["Online list access", "Access-adaptive lists"]
+  },
+  "stream-windowing": {
+    "label": "Stream windowing and aggregation",
+    "phrases": ["Stream aggregation", "Windowed streaming", "Overlapping windows", "Unified batch-stream"]
+  },
+  "event-time-processing": {
+    "label": "Event-time processing",
+    "phrases": ["Event-time processing", "Stream progress tracking"]
+  },
+  "streaming-fault-tolerance": {
+    "label": "Streaming fault tolerance",
+    "phrases": ["Fault-tolerant streaming", "Exactly-once output", "Streaming state"]
+  },
+  "stream-joins": {
+    "label": "Stream joins",
+    "phrases": ["Stream joins"]
+  },
+  "stream-flow-control": {
+    "label": "Stream flow control and overload",
+    "phrases": ["Stream flow control", "Overload handling", "Elastic streaming", "Stream pipeline fusion"]
+  },
+  "streaming-architecture": {
+    "label": "Streaming architecture",
+    "phrases": ["Near-real-time streaming", "Stream-only processing", "Hybrid processing", "Streaming SQL"]
+  },
+  "stream-storage": {
+    "label": "Stream storage and capture",
+    "phrases": ["Stream storage", "Database streaming"]
+  },
+  "event-pattern-detection": {
+    "label": "Event pattern detection",
+    "phrases": ["Event pattern detection"]
+  },
   "dependency-parsing": {
     "label": "Dependency parsing",
     "phrases": ["Projective dependency parsing", "Non-projective dependency parsing", "Syntactic parsing"]
@@ -428,8 +488,8 @@
     "phrases": ["Distributed consensus", "Byzantine consensus", "Permissionless consensus", "ZooKeeper consensus", "Byzantine fault tolerance", "Replicated state machines"]
   },
   "page-replacement": {
-    "label": "Page replacement",
-    "phrases": ["Page replacement"]
+    "label": "Page replacement and caching policy",
+    "phrases": ["Page replacement", "Cache admission", "Optimal offline paging", "Competitive paging", "Access-model paging"]
   },
   "disk-scheduling": {
     "label": "Disk arm scheduling",
@@ -579,10 +639,6 @@
   "rank-select-queries": {
     "label": "Rank and select queries",
     "phrases": ["Rank and select queries", "Rank-select over sequences", "Range rank queries"]
-  },
-  "self-organizing-lists": {
-    "label": "Self-organizing lists",
-    "phrases": ["Access-adaptive lists"]
   },
   "disjoint-sets": {
     "label": "Disjoint sets and connectivity",
@@ -1163,7 +1219,7 @@
   },
   "load-balancing": {
     "label": "Load balancing",
-    "phrases": ["Load balancing", "Request distribution", "Datacenter load balancing", "Traffic distribution"]
+    "phrases": ["Load balancing", "Request distribution", "Datacenter load balancing", "Traffic distribution", "Machine scheduling"]
   },
   "heavy-hitters": {
     "label": "Heavy hitters and frequent items",

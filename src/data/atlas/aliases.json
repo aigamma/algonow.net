@@ -596,5 +596,22 @@
   "PTAS for Euclidean TSP": { "aka": ["Arora PTAS"] },
   "Lazy greedy submodular": { "aka": ["CELF algorithm", "Minoux lazy evaluation"] },
   "Unrelated machines rounding": { "aka": ["Lenstra-Shmoys-Tardos rounding"] },
-  "Approximate diameter": { "aka": ["Double sweep diameter"], "note": "Kept distinct from graphs-structure's 'Double-BFS diameter': the same double-sweep idea is exact on trees and only approximate on general graphs, so the two are rivals under the graph-diameter problem rather than one entry." }
+  "Approximate diameter": { "aka": ["Double sweep diameter"], "note": "Kept distinct from graphs-structure's 'Double-BFS diameter': the same double-sweep idea is exact on trees and only approximate on general graphs, so the two are rivals under the graph-diameter problem rather than one entry." },
+
+  "LRU caching": { "aka": ["Least recently used"] },
+  "LFU caching": { "aka": ["Least frequently used"] },
+  "ARC caching": { "aka": ["Adaptive replacement cache"] },
+  "Belady's algorithm": { "aka": ["OPT paging", "Clairvoyant replacement", "MIN algorithm"] },
+  "Multiplicative weights update": { "aka": ["MWU", "Weighted majority"] },
+  "Follow the regularized leader": { "aka": ["FTRL"] },
+  "Follow the perturbed leader": { "aka": ["FTPL"] },
+  "Online gradient descent": { "aka": ["OGD"] },
+  "Secretary problem": { "aka": ["Marriage problem", "Best choice problem"] },
+  "Ski rental": { "aka": ["Rent-or-buy problem"] },
+  "Move-to-front list": { "aka": ["MTF list update"] },
+  "Change data capture": { "aka": ["CDC"] },
+  "Complex event processing": { "aka": ["CEP"] },
+  "Watermark generation": { "aka": ["Stream watermarks"] },
+  "Micro-batch processing": { "aka": ["Discretized streams", "DStream model"] },
+  "Dataflow windowing model": { "aka": ["Beam model", "Google Dataflow model"] }
 }

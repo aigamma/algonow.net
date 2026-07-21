@@ -141,5 +141,20 @@
   "Kitamasa's algorithm": { "aka": ["Kitamasa method"] },
   "Robinson-Schensted correspondence": { "aka": ["Robinson-Schensted-Knuth", "RSK"] },
   "Garsia-Wachs": { "aka": ["Garsia-Wachs algorithm"] },
-  "Hu-Tucker": { "aka": ["Hu-Tucker algorithm"] }
+  "Hu-Tucker": { "aka": ["Hu-Tucker algorithm"] },
+
+  "Gale-Shapley": { "aka": ["Deferred acceptance algorithm", "Stable marriage algorithm"] },
+  "VCG mechanism": { "aka": ["Vickrey-Clarke-Groves"] },
+  "GSP auction": { "aka": ["Generalized second-price auction"] },
+  "Top trading cycles": { "aka": ["TTC"] },
+  "Instant runoff voting": { "aka": ["IRV", "Ranked-choice voting"] },
+  "Single transferable vote": { "aka": ["STV"] },
+  "Kemeny-Young": { "aka": ["Kemeny rule"] },
+  "Sainte-Lague apportionment": { "aka": ["Webster method"] },
+  "D'Hondt method": { "aka": ["Jefferson method"] },
+  "Huntington-Hill": { "aka": ["Equal proportions method"] },
+  "Ranked pairs": { "aka": ["Tideman method"] },
+  "Random serial dictatorship": { "aka": ["Random priority"] },
+  "Counterfactual regret minimization": { "aka": ["CFR"] },
+  "Kelly criterion": { "aka": ["Kelly formula", "Kelly bet"] }
 }

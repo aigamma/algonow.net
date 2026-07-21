@@ -658,5 +658,54 @@
   "steiner-tree": {
     "label": "Steiner trees and network design",
     "phrases": ["Steiner tree", "Exact Steiner trees", "Steiner tree approximation", "Network design", "Incremental network design"]
+  },
+
+  "nash-equilibrium": {
+    "label": "Nash equilibrium computation",
+    "phrases": ["Zero-sum equilibrium", "Bimatrix Nash equilibrium", "Nash equilibrium"]
+  },
+  "equilibrium-learning": {
+    "label": "Learning dynamics for equilibria",
+    "phrases": ["Equilibrium learning", "Correlated equilibrium", "Evolutionary game theory", "Imperfect-information equilibria", "Poker-scale equilibria"]
+  },
+  "extensive-form-solving": {
+    "label": "Extensive-form game solving",
+    "phrases": ["Extensive-form solving", "Sequential equilibrium", "Game reduction"]
+  },
+  "cooperative-payoff": {
+    "label": "Cooperative payoff division",
+    "phrases": ["Cooperative payoff division", "Cooperative payoff", "Cooperative stability", "Voting power"]
+  },
+  "stable-matching": {
+    "label": "Stable matching and allocation",
+    "phrases": ["Stable matching", "Many-to-one matching", "Stable roommates", "Matching under indifference", "House allocation", "Fair assignment"]
+  },
+  "auction-design": {
+    "label": "Auction design",
+    "phrases": ["Truthful single-item auction", "Efficient combinatorial auctions", "Revenue-optimal auction", "Multi-unit auctions", "Spectrum auctions", "Ad-slot auctions", "Combinatorial markets"]
+  },
+  "voting-rules": {
+    "label": "Voting rules",
+    "phrases": ["Social choice", "Condorcet voting", "Rank aggregation", "Optimal rank aggregation"]
+  },
+  "apportionment": {
+    "label": "Apportionment and proportional representation",
+    "phrases": ["Seat allocation", "Apportionment", "Proportional representation"]
+  },
+  "fair-division": {
+    "label": "Fair division",
+    "phrases": ["Fair division", "Two-party fair division", "Proportional cake cutting", "Envy-free cake cutting", "Fair division queries", "Discrete fair division", "Fair allocation"]
+  },
+  "market-equilibrium": {
+    "label": "Market equilibrium computation",
+    "phrases": ["Market equilibrium", "Resource allocation"]
+  },
+  "feature-attribution": {
+    "label": "Feature attribution and model explanation",
+    "phrases": ["Feature attribution", "Model explanation"]
+  },
+  "bet-sizing": {
+    "label": "Bet and position sizing",
+    "phrases": ["Bet sizing", "Position sizing"]
   }
 }

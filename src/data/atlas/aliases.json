@@ -373,5 +373,18 @@
   "Dormand-Prince": { "aka": ["DOPRI5", "RK45"] },
   "Nesterov accelerated gradient": { "aka": ["NAG", "Nesterov momentum"] },
   "Gaussian elimination": { "aka": ["Row reduction"] },
-  "Strassen's algorithm": { "aka": ["Strassen matrix multiplication"] }
+  "Strassen's algorithm": { "aka": ["Strassen matrix multiplication"] },
+
+  "Hamiltonian Monte Carlo": { "aka": ["HMC", "Hybrid Monte Carlo"] },
+  "Markov chain Monte Carlo": { "aka": ["MCMC"] },
+  "Sequential Monte Carlo": { "aka": ["SMC"] },
+  "Quasi-Monte Carlo": { "aka": ["QMC"] },
+  "Latin hypercube sampling": { "aka": ["LHS"] },
+  "Coupling from the past": { "aka": ["Propp-Wilson algorithm"] },
+  "Metropolis-adjusted Langevin": { "aka": ["MALA"] },
+  "Multilevel Monte Carlo": { "aka": ["MLMC"] },
+  "Discrete event simulation": { "aka": ["DES"] },
+  "Gillespie algorithm": { "aka": ["Stochastic simulation algorithm", "SSA"] },
+  "Real-time dynamic programming": { "aka": ["RTDP"] },
+  "Mean value analysis": { "aka": ["MVA"] }
 }

@@ -93,7 +93,7 @@
   },
   "link-analysis": {
     "label": "Node importance and link analysis",
-    "phrases": ["Web ranking", "Link-based ranking", "Local graph ranking", "Proximity ranking", "Node importance", "Flow-based ranking"]
+    "phrases": ["Web ranking", "Link-based ranking", "Local graph ranking", "Proximity ranking", "Node importance", "Flow-based ranking", "Graph centrality"]
   },
 
   "convex-hull": {
@@ -775,7 +775,7 @@
   },
   "point-sampling-patterns": {
     "label": "Sampling point patterns",
-    "phrases": ["Blue-noise point sets", "Point-set uniformization"]
+    "phrases": ["Blue-noise point sets", "Point-set uniformization", "Design of experiments"]
   },
   "surface-shading": {
     "label": "Surface shading models",
@@ -1180,7 +1180,7 @@
   },
   "state-estimation": {
     "label": "State estimation and filtering",
-    "phrases": ["Linear state estimation", "Nonlinear state estimation"]
+    "phrases": ["Linear state estimation", "Nonlinear state estimation", "State-space inference", "State estimation"]
   },
   "denoising": {
     "label": "Denoising and smoothing",
@@ -1385,5 +1385,38 @@
   "accurate-summation": {
     "label": "Accurate floating-point summation",
     "phrases": ["Accurate floating-point sums"]
+  },
+
+  "markov-chain-analysis": {
+    "label": "Markov chain analysis",
+    "phrases": ["Stochastic process modeling", "Long-run behavior", "Expected hitting times"]
+  },
+  "stochastic-kinetics": {
+    "label": "Stochastic chemical kinetics",
+    "phrases": ["Stochastic chemical kinetics", "Stochastic simulation", "Accelerated stochastic simulation"]
+  },
+  "queueing-performance": {
+    "label": "Queueing and performance analysis",
+    "phrases": ["Performance modeling", "Queueing networks", "Closed queueing networks", "Long-run averages", "Systems modeling"]
+  },
+  "resampling-inference": {
+    "label": "Resampling inference",
+    "phrases": ["Uncertainty estimation", "Bias estimation", "Hypothesis testing"]
+  },
+  "normalizing-constants": {
+    "label": "Normalizing constants and evidence",
+    "phrases": ["Free-energy estimation", "Bayesian evidence"]
+  },
+  "spin-models": {
+    "label": "Spin-model simulation",
+    "phrases": ["Statistical mechanics", "Critical-point simulation", "Spin-model simulation", "Lattice dynamics"]
+  },
+  "mdp-solving": {
+    "label": "Markov decision process solving",
+    "phrases": ["Markov decision processes", "Efficient planning", "Online MDP solving"]
+  },
+  "sde-integration": {
+    "label": "SDE integration",
+    "phrases": ["Stochastic differential equations"]
   }
 }

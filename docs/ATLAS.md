@@ -58,6 +58,66 @@ live pair in `src/data/puzzles.js` appears in the atlas.
    and punctuation; synonym discipline (no "Dijkstra" vs "Dijkstra's
    algorithm" twins) is editorial.
 
+## Categories (the 20 major buckets)
+
+Above the 34 families sit 20 legible, textbook-recognizable categories in
+`src/data/atlas-categories.js` (Sorting & Selection, Graph Algorithms,
+Optimization & Operations Research, Machine Learning & AI, Cryptography &
+Number Theory, Quantum & Unconventional Computing, and so on). Every family
+maps to exactly one category; `npm run check` fails if a family is orphaned or
+double-placed. The /atlas page and the homepage teaser present the catalog by
+category. This is the navigation spine; keep it objective and recognizable,
+never an artificial split.
+
+## Collisions: canonical names, aliases, and redirects
+
+The hard problem at this scale is that one algorithm travels under several
+names (Union-Find / DSU / Disjoint Set Union; Dijkstra / uniform-cost search).
+Two mechanisms manage it, both enforced by `npm run check`:
+
+1. **`src/data/atlas/aliases.json`** is the canonical-name to synonyms map, and
+   it is the **redirect table**. Each key is a canonical name that must match a
+   real entry's `a` (or carry `redirectOnly: true` for a pure redirect target
+   that is not itself a catalog entry). Each value is `{ aka: [...], note?,
+   redirectOnly? }`. The atlas search resolves aliases live.
+
+2. **The automatic duplicate scan** (in `check.mjs`) clusters entries whose
+   high-precision *core name* coincides (generic suffixes like `algorithm`,
+   `DP`, `decoding` stripped) and prints the cross-entry clusters as a
+   non-failing **planning warning**. It proposes; a human disposes. A cluster
+   is either a true duplicate to merge into one canonical entry (+ an alias),
+   or two genuinely distinct lessons that happen to share a stem (Kernighan-Lin
+   the graph-partitioner vs Lin-Kernighan the TSP heuristic).
+
+**The redirect doctrine for the eventual per-algorithm pages.** Each live unit
+will own a stable slug derived deterministically from its canonical name
+(lowercase, non-alphanumerics to hyphens: `Union-Find` -> `/algo/union-find/`).
+Every alias in the registry becomes a **301 redirect** to that canonical slug,
+and the canonical page carries a **top-of-page provenance note** naming the
+alternate names it answers to ("Also known as DSU, Disjoint Set Union. This is
+the canonical page; those names redirect here."). Netlify `_redirects` or
+`netlify.toml` [[redirects]] are generated from `aliases.json` at build, so the
+redirect table has one source of truth. A merged duplicate (two former entries
+collapsed to one canonical) leaves its retired name behind as an alias, so old
+links and both names keep resolving.
+
+**Resolution workflow (deliberate, not automatic).** Run `npm run check`, read
+the duplicate-scan clusters, and for each: either (a) merge, deleting the
+redundant entry and adding its name to the survivor's `aka`, or (b) confirm
+distinct and leave it (the scan re-flags it each run, which is acceptable, or
+add both to a small allowlist later). Never let a merge silently drop a name;
+the retired name always becomes an alias so nothing 404s.
+
+## Token doctrine (subscription first, overflow only when unavoidable)
+
+Building the atlas, deduping it, categorizing it, writing unit content and
+narration, and authoring code are all done on the **Claude Max subscription**
+(the reasoning and agent work), never a metered API. Metered / overflow spend
+is reserved for the **deployed runtime** only: the open-ended learner chatbot
+and any scheduled cron agent that summarizes recent activity. Embedding the
+catalog for semantic search is a one-time near-trivial metered cost (see
+`docs/RETRIEVAL.md`) and still requires an explicit go-ahead before any run.
+
 ## How the site gets filled in
 
 A pair graduates from the atlas to a live page through the 6-file unit

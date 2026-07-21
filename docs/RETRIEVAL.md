@@ -1,0 +1,74 @@
+# Retrieval: browsing and searching 2,000+ algorithms
+
+Two different problems, two different answers. Do not conflate them.
+
+## 1. Browsing the catalog: no backend, already built
+
+The atlas entries are short strings. The `/atlas` page filters all 2,047 of
+them client-side, instantly, grouped by the 20 categories, with alias
+resolution (typing `DSU` finds Union-Find) and tier filtering. This costs
+nothing, needs no service, and keeps a perfect PageSpeed score. **No vector
+database is needed for browse/lookup, and none should be added for it.**
+
+## 2. Semantic search: "what algorithm solves my problem?"
+
+This is the valuable feature and the only one that wants a vector database:
+a natural-language query ("I need to find near-duplicate documents at scale",
+"shortest path with negative edges") returning the right units by meaning, not
+keyword. This is also what feeds the eventual learner chatbot's retrieval.
+
+### Best-of-everything stack (owner directive: always start with the best)
+
+- **Embeddings: Voyage `voyage-context-4`** (released 2026-06-29), the current
+  best-performing Voyage model: contextualized chunk embeddings on a
+  mixture-of-experts backbone, with built-in auto-chunking and transparent
+  handling of documents past 32K tokens, so chunking stops being a design
+  concern. For plain dense embeddings where a fixed model is simpler, **`voyage-4-large`**
+  (the MoE flagship, 2026-01-15) is the alternative; all Voyage 4 models share
+  a compatible embedding space, so query and document models can be mixed.
+  Supersede the older `voyage-3`/`voyage-3.5` everywhere this stack touches.
+  Dimensions: 2048 / 1024 / 512 / 256 with quantization options; start at 1024
+  (the quality/cost knee) and only go to 2048 if evaluation shows it pays.
+- **Reranker: Voyage `rerank-2.5`** (or the latest `rerank` at build time) over
+  the top ~50 vector candidates. This is where most of the ranking quality is
+  won; never skip it.
+- **Vector store: Qdrant on Fly.io.** Rationale below.
+
+### Vector store choice (all three are subscribed; pick Qdrant)
+
+| Option | For | Against |
+|---|---|---|
+| **Qdrant on Fly** (recommended) | Matches the Fly-first infra preference; `learnrust.ai` already runs Qdrant (proven in-stack); rich payload filtering (by category / tier / family straight from the atlas schema); self-hosted, no per-query vendor metering | One service to run (trivial at this scale) |
+| **Pinecone** | Zero-ops serverless; `worldthought.com` already pairs it with Voyage, so the exact ingest+query pattern exists to copy | Another metered vendor; less flexible payload filtering than Qdrant |
+| **Supabase pgvector** | One fewer vendor if a Postgres is already in play | Entangles algonow with the Supabase project that doubles as the mathlimit conference exhibit; keep them separate |
+
+Qdrant wins on infra fit and on keeping algonow's data clear of the mathlimit
+exhibit. The atlas schema (`category`, `family`, `t` tier, `d` domain, plus the
+alias list) maps directly to Qdrant payload fields, so filtered semantic search
+("only tier-1 graph algorithms about X") is a one-query feature.
+
+### Cost and the token doctrine
+
+Embedding all 2,047 short entries once is a **one-time near-trivial metered
+cost** (roughly 2,000 x ~25 tokens = ~50K tokens on Voyage, cents). Re-embedding
+on catalog growth is incremental. Query embedding + rerank is per-search and
+tiny. Per the standing doctrine (see ATLAS.md), this metered spend is
+legitimate because it is deployed-runtime retrieval, not interactive building;
+the catalog authoring itself stays on the subscription. Even so, **no embedding
+run happens without an explicit in-session go-ahead** (the API-spend rule).
+
+### What to build when green-lit
+
+1. `scripts/embed-atlas.mjs`: read every family file, compose a rich embedding
+   text per entry (canonical name + aliases + heuristic + domain + category),
+   embed with `voyage-context-4`, upsert to Qdrant with the atlas payload.
+   Idempotent on a content hash so re-runs only touch changed entries.
+2. A Netlify function `/api/search`: embed the query, Qdrant top-K with optional
+   category/tier filter, Voyage rerank, return canonical units. Fail-open.
+3. Wire the atlas page's search box to fall back from client-side filter to
+   `/api/search` when the query looks like a natural-language question.
+
+This is the same shape as `worldthought.com`'s retrieval, upgraded to Voyage 4.
+
+Sources for the model facts: Voyage AI blog (voyage-4 family, 2026-01-15;
+voyage-context-4, 2026-06-29).

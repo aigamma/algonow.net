@@ -25,8 +25,8 @@ export const CATEGORIES = [
   {
     key: 'graphs',
     label: 'Graph Algorithms',
-    blurb: 'Traversal, shortest paths, flows, matchings, connectivity, coloring.',
-    families: ['graphs-paths', 'graphs-structure'],
+    blurb: 'Traversal, shortest paths, flows, matchings, connectivity, coloring, network science.',
+    families: ['graphs-paths', 'graphs-structure', 'network-science'],
   },
   {
     key: 'dp-combinatorics',
@@ -73,8 +73,8 @@ export const CATEGORIES = [
   {
     key: 'ml-ai',
     label: 'Machine Learning & AI',
-    blurb: 'Classical learning, deep networks, sequence forecasting, recommendation, causal inference.',
-    families: ['machine-learning', 'deep-learning', 'time-series', 'recommender-causal'],
+    blurb: 'Classical learning, deep networks, reinforcement learning, forecasting, recommendation, causal inference.',
+    families: ['machine-learning', 'deep-learning', 'reinforcement-learning', 'time-series', 'recommender-causal'],
   },
   {
     key: 'probabilistic',
@@ -96,9 +96,9 @@ export const CATEGORIES = [
   },
   {
     key: 'distributed-systems',
-    label: 'Distributed Systems & Networking',
-    blurb: 'Consensus, replication, concurrency, fault tolerance, routing, transport.',
-    families: ['distributed-concurrent', 'fault-tolerance-storage', 'networking'],
+    label: 'Systems & Networking',
+    blurb: 'Consensus, replication, concurrency, fault tolerance, operating systems, routing, transport.',
+    families: ['distributed-concurrent', 'fault-tolerance-storage', 'operating-systems', 'networking'],
   },
   {
     key: 'data-retrieval',

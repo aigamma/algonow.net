@@ -152,6 +152,32 @@ costs). The shared-`d` convention above is what makes rivals mechanically
 findable; the tradeoffs section and its narration are where the comparison
 is taught.
 
+Extreme negative examples are part of the doctrine (owner, 2026-07-21): when
+a plausible-looking method is a disaster for the problem, say so by name and
+give the reason (the cost blowup, the structure it cannot exploit). "You
+would never use this one here, because" teaches the same instinct as a
+when-to-prefer line, from the other side.
+
+**The rivals backfill (the standing priority; owner directive 2026-07-21).**
+Roughly the first 1,600 entries were authored before this doctrine existed,
+so their `d` phrases were coined one-off and cluster with nothing: rival
+coverage is the number to move. The backfill sweeps one topic file at a
+time (worst coverage first; `npm run check` prints the worst topics) and
+makes four moves per topic:
+
+1. Register the topic's multi-entry phrases in `problems.json`.
+2. Join singleton phrases to existing problems by ADDING the phrase to the
+   problem's list (the phrase keeps its specific wording; never flatten).
+   Rewrite a `d` only when it was genuinely miscoined.
+3. Where the atlas holds no alternative for an entry's problem, AUTHOR the
+   missing real rivals as new entries. Alternatives must exist, not merely
+   be linked; this is atlas growth toward 5,000, Fable-authored per the
+   provenance rule.
+4. Densify `aliases.json` for the topic's entries while there; the RAG and
+   redirect layers both need "five names, one algorithm" to resolve.
+
+One topic per commit, check green, push before the next.
+
 `src/data/atlas/problems.json` is the rivals registry: a problem slug maps to
 a label plus the exact `d` phrases that mean that problem, so Dijkstra
 ("Nonnegative shortest paths") and Bellman-Ford ("Negative-edge shortest
@@ -169,8 +195,9 @@ At 2,861 entries / 59 topics / 20 categories against a target of roughly
 Run `npm run check` for all live numbers; the three standing queues it prints
 are the to-do list, in rough priority order:
 
-1. **Rivals queue.** 126 unregistered `d` phrases with 3 or more entries,
-   each either folding into an existing problem or naming a new one.
+1. **Rivals backfill.** Coverage 51.9 percent at last count; the four-move
+   sweep program in the Rivals section above is the standing priority. The
+   check prints the unregistered-phrase queue and the worst-coverage topics.
 2. **Topic splits.** Eleven topic files now exceed the ~60-entry split
    threshold: machine-learning (95), numerical (95), search-structures (94),
    graphs-structure (90), cryptography-number-theory (76),

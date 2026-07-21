@@ -98,7 +98,11 @@ comparison in full sentences for the ear. The site's purpose is daily
 reading-and-listening exposure and the strategic fluency to string
 algorithms and heuristics together under pressure (a coding interview, a
 long autonomous steering session), not memorization; the rivals discussion
-is where that strength gets built. In the atlas, entries sharing a `d`
+is where that strength gets built. When the mismatch is extreme, include a
+negative example: name the method a learner might plausibly reach for and
+state plainly why it would be a disaster here (the cost blowup, the
+structure it cannot exploit). "Never this method for this job, because" is
+a trade-off instinct too. In the atlas, entries sharing a `d`
 phrase are each other's rivals; see docs/ATLAS.md.
 
 ## Color is semantic

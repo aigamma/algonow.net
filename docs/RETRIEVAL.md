@@ -4,9 +4,10 @@ Two different problems, two different answers. Do not conflate them.
 
 ## 1. Browsing the catalog: no backend, already built
 
-The atlas entries are short strings. The `/atlas` page filters all 2,047 of
-them client-side, instantly, grouped by the 20 categories, with alias
-resolution (typing `DSU` finds Union-Find) and tier filtering. This costs
+The atlas entries are short strings. The `/atlas` page filters the whole
+catalog client-side (atlas-summary.json has the live count), instantly,
+grouped by the 20 categories, with alias resolution (typing `DSU` finds
+Union-Find) and tier filtering. This costs
 nothing, needs no service, and keeps a perfect PageSpeed score. **No vector
 database is needed for browse/lookup, and none should be added for it.**
 
@@ -38,19 +39,37 @@ keyword. This is also what feeds the eventual learner chatbot's retrieval.
 
 | Option | For | Against |
 |---|---|---|
-| **Qdrant on Fly** (recommended) | Matches the Fly-first infra preference; `learnrust.ai` already runs Qdrant (proven in-stack); rich payload filtering (by category / tier / family straight from the atlas schema); self-hosted, no per-query vendor metering | One service to run (trivial at this scale) |
+| **Qdrant on Fly** (recommended) | Matches the Fly-first infra preference; `learnrust.ai` already runs Qdrant (proven in-stack); rich payload filtering (by category / topic / tier / problem straight from the atlas schema); self-hosted, no per-query vendor metering | One service to run (trivial at this scale) |
 | **Pinecone** | Zero-ops serverless; `worldthought.com` already pairs it with Voyage, so the exact ingest+query pattern exists to copy | Another metered vendor; less flexible payload filtering than Qdrant |
 | **Supabase pgvector** | One fewer vendor if a Postgres is already in play | Entangles algonow with the Supabase project that doubles as the mathlimit conference exhibit; keep them separate |
 
 Qdrant wins on infra fit and on keeping algonow's data clear of the mathlimit
-exhibit. The atlas schema (`category`, `family`, `t` tier, `d` domain, plus the
-alias list) maps directly to Qdrant payload fields, so filtered semantic search
-("only tier-1 graph algorithms about X") is a one-query feature.
+exhibit. The atlas schema (`category`, `topic`, `t` tier, `d` phrase, problem
+slug, plus the alias list) maps directly to Qdrant payload fields, so filtered
+semantic search ("only tier-1 graph algorithms about X") is a one-query
+feature.
+
+### The staged record (one entry, ready to embed)
+
+Everything below is committed data already; the embed script only joins it.
+Keeping these joins healthy IS the staging work, done now so no forensic
+reconstruction is needed later: alias density is what makes five names
+resolve to one vector, and problem registration (`problems.json`) is what
+lets "what else solves this?" come back as structured rivals instead of
+fuzzy neighbors.
+
+- `id`: deterministic slug of the canonical `a` (plus heuristic slug when
+  paired), per the redirect doctrine in ATLAS.md
+- `text` (what gets embedded): canonical name, aliases, heuristic, `d`
+  phrase, problem label, topic, category
+- payload (filterable): `category`, `topic`, `tier`, `problem` slug,
+  `aliases[]`, `rivals[]` (canonical names sharing the problem)
 
 ### Cost and the token doctrine
 
-Embedding all 2,047 short entries once is a **one-time near-trivial metered
-cost** (roughly 2,000 x ~25 tokens = ~50K tokens on Voyage, cents). Re-embedding
+Embedding the full catalog once is a **one-time near-trivial metered cost**
+(a few thousand entries x ~40 tokens of joined record each is on the order
+of 200K tokens on Voyage, cents). Re-embedding
 on catalog growth is incremental. Query embedding + rerank is per-search and
 tiny. Per the standing doctrine (see ATLAS.md), this metered spend is
 legitimate because it is deployed-runtime retrieval, not interactive building;
@@ -59,10 +78,10 @@ run happens without an explicit in-session go-ahead** (the API-spend rule).
 
 ### What to build when green-lit
 
-1. `scripts/embed-atlas.mjs`: read every family file, compose a rich embedding
-   text per entry (canonical name + aliases + heuristic + domain + category),
-   embed with `voyage-context-4`, upsert to Qdrant with the atlas payload.
-   Idempotent on a content hash so re-runs only touch changed entries.
+1. `scripts/embed-atlas.mjs`: read every topic file, compose the staged
+   record above per entry, embed the `text` with `voyage-context-4`, upsert
+   to Qdrant with the payload. Idempotent on a content hash so re-runs only
+   touch changed entries.
 2. A Netlify function `/api/search`: embed the query, Qdrant top-K with optional
    category/tier filter, Voyage rerank, return canonical units. Fail-open.
 3. Wire the atlas page's search box to fall back from client-side filter to

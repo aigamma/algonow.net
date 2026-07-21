@@ -132,8 +132,10 @@ if (existsSync(atlasDir)) {
   const strayRegistry = REGISTRY_KEYS.filter((k) => !existsSync(`${atlasDir}/${k}.json`));
   if (strayRegistry.length) fail(`atlas-registry.js lists missing file(s): ${strayRegistry.join(', ')}`);
   // normalized domain phrase -> Set of "algorithm x heuristic" display strings,
-  // for the rivals pass below.
+  // for the rivals pass below. entryPhrases keeps (topic, phrase) per entry so
+  // the rivals pass can rank topics by uncovered entries (the backfill order).
   const byPhrase = new Map();
+  const entryPhrases = [];
   const normPhrase = (s) => String(s ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
   for (const file of readdirSync(atlasDir).filter(isTopicFile).sort()) {
     let arr;
@@ -162,6 +164,7 @@ if (existsSync(atlasDir)) {
       const np = normPhrase(e.d);
       if (!byPhrase.has(np)) byPhrase.set(np, { display: e.d, entries: [] });
       byPhrase.get(np).entries.push(`${e.a}${e.h ? ` × ${e.h}` : ''}`);
+      entryPhrases.push({ topic: file.replace('.json', ''), np });
       total += 1;
       return undefined;
     });
@@ -298,6 +301,17 @@ if (existsSync(atlasDir)) {
     for (const size of clusters.values()) if (size >= 2) withRivals += size;
     const pct = ((withRivals / total) * 100).toFixed(1);
     ok(`rivals: ${problemCount} registered problems, ${clusters.size} clusters, ${withRivals}/${total} entries (${pct}%) have at least one rival`);
+
+    // Backfill steering: which topics hold the most entries with no rival.
+    const uncByTopic = new Map();
+    for (const { topic, np } of entryPhrases) {
+      const size = clusters.get(phraseOwner.get(np) ?? `phrase:${np}`) ?? 0;
+      if (size < 2) uncByTopic.set(topic, (uncByTopic.get(topic) ?? 0) + 1);
+    }
+    const worstTopics = [...uncByTopic.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10);
+    if (worstTopics.length) {
+      console.log(`     worst topics by uncovered entries: ${worstTopics.map(([t, n]) => `${t} ${n}`).join(' · ')}`);
+    }
 
     // Planning queue: the biggest phrases still outside the registry. Each is a
     // candidate to fold into an existing problem (or to name as a new one).

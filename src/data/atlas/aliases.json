@@ -585,5 +585,16 @@
   "Open information extraction": { "aka": ["OpenIE"] },
   "Constituency parsing": { "aka": ["Phrase structure parsing"] },
   "Discourse parsing": { "aka": ["RST parsing"] },
-  "BERTScore": { "aka": ["Embedding-based generation metric"] }
+  "BERTScore": { "aka": ["Embedding-based generation metric"] },
+
+  "Goemans-Williamson": { "aka": ["GW max-cut", "SDP max-cut rounding"] },
+  "Greedy k-center": { "aka": ["Gonzalez algorithm", "Farthest-first traversal"] },
+  "Multiplicative weights LP": { "aka": ["Plotkin-Shmoys-Tardos", "MWU for packing-covering"] },
+  "Tree metric approximation": { "aka": ["FRT embedding", "Fakcharoenphol-Rao-Talwar"] },
+  "Coreset construction": { "aka": ["Coresets"] },
+  "PTAS for knapsack": { "aka": ["Knapsack FPTAS", "Ibarra-Kim scaling"] },
+  "PTAS for Euclidean TSP": { "aka": ["Arora PTAS"] },
+  "Lazy greedy submodular": { "aka": ["CELF algorithm", "Minoux lazy evaluation"] },
+  "Unrelated machines rounding": { "aka": ["Lenstra-Shmoys-Tardos rounding"] },
+  "Approximate diameter": { "aka": ["Double sweep diameter"], "note": "Kept distinct from graphs-structure's 'Double-BFS diameter': the same double-sweep idea is exact on trees and only approximate on general graphs, so the two are rivals under the graph-diameter problem rather than one entry." }
 }

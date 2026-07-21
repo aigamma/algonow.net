@@ -361,6 +361,46 @@
     "label": "Shallow parsing",
     "phrases": ["Phrase identification"]
   },
+  "set-cover": {
+    "label": "Set cover",
+    "phrases": ["Set cover approximation"]
+  },
+  "vertex-cover": {
+    "label": "Vertex cover",
+    "phrases": ["Vertex cover 2-approximation", "Vertex cover approximation", "Weighted vertex cover"]
+  },
+  "submodular-maximization": {
+    "label": "Submodular maximization",
+    "phrases": ["Coverage maximization", "Submodular maximization", "Submodular rounding", "Streaming maximization"]
+  },
+  "clustering-approximation": {
+    "label": "Clustering with approximation guarantees",
+    "phrases": ["K-center approximation", "K-median approximation", "Facility location"]
+  },
+  "max-cut": {
+    "label": "Maximum cut",
+    "phrases": ["Max-cut approximation"]
+  },
+  "max-sat": {
+    "label": "Maximum satisfiability",
+    "phrases": ["Max-SAT", "Max-SAT approximation"]
+  },
+  "lp-rounding": {
+    "label": "LP and SDP rounding techniques",
+    "phrases": ["Approximation via LP", "Integer program approximation", "Assignment approximation", "Fractional packing-covering"]
+  },
+  "metric-embedding": {
+    "label": "Metric embedding",
+    "phrases": ["Approximation via embedding", "Metric approximation"]
+  },
+  "sublinear-approximation": {
+    "label": "Sublinear and coreset approximation",
+    "phrases": ["Big-data approximation", "Geometric approximation"]
+  },
+  "graph-diameter": {
+    "label": "Graph diameter",
+    "phrases": ["Graph diameter", "Tree diameter"]
+  },
   "dependency-parsing": {
     "label": "Dependency parsing",
     "phrases": ["Projective dependency parsing", "Non-projective dependency parsing", "Syntactic parsing"]
@@ -1082,7 +1122,7 @@
   },
   "graph-partitioning": {
     "label": "Graph partitioning",
-    "phrases": ["Graph bisection", "Hypergraph partitioning", "Large-graph partitioning"]
+    "phrases": ["Graph bisection", "Hypergraph partitioning", "Large-graph partitioning", "Graph partitioning"]
   },
   "dominators": {
     "label": "Dominator computation",
@@ -1773,7 +1813,7 @@
 
   "bin-packing": {
     "label": "Bin packing and partitioning",
-    "phrases": ["Bin packing", "Streaming bin packing", "Bin covering", "Number partitioning", "Balanced partitioning", "Cutting stock"]
+    "phrases": ["Bin packing", "Streaming bin packing", "Bin covering", "Number partitioning", "Balanced partitioning", "Cutting stock", "Bin packing approximation"]
   },
   "single-machine-scheduling": {
     "label": "Single-machine scheduling",
@@ -1781,7 +1821,7 @@
   },
   "shop-scheduling": {
     "label": "Shop and parallel-machine scheduling",
-    "phrases": ["Two-machine flow shop", "Parallel-machine makespan", "Job-shop scheduling", "Tree-precedence scheduling", "Precedence-constrained scheduling"]
+    "phrases": ["Two-machine flow shop", "Parallel-machine makespan", "Job-shop scheduling", "Tree-precedence scheduling", "Precedence-constrained scheduling", "Makespan approximation", "Scheduling approximation"]
   },
   "realtime-scheduling": {
     "label": "Real-time scheduling",

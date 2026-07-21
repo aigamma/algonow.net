@@ -47,14 +47,15 @@
 {"a": "Cultural algorithm", "h": "Belief-space guidance", "d": "Evolutionary optimization", "t": 3},
 {"a": "Imperialist competitive algorithm", "h": "Empire assimilation", "d": "Continuous optimization", "t": 3},
 {"a": "Biogeography-based optimization", "h": "Habitat migration rates", "d": "Continuous optimization", "t": 3},
-{"a": "Artificial immune system", "h": "Clonal selection", "d": "Anomaly and optimization", "t": 3},
+{"a": "Artificial immune system", "h": "Clonal selection", "d": "Multimodal optimization", "t": 3},
 {"a": "Artificial immune system", "h": "Negative selection", "d": "Anomaly detection", "t": 3},
 {"a": "Dendritic cell algorithm", "h": "Danger-signal fusion", "d": "Anomaly detection", "t": 3},
-{"a": "Membrane evolutionary algorithm", "h": null, "d": "Hybrid optimization", "t": 3},
+{"a": "Membrane evolutionary algorithm", "h": null, "d": "Evolutionary optimization", "t": 3},
 {"a": "Quantum-inspired genetic algorithm", "h": "Qubit-probability chromosomes", "d": "Combinatorial optimization", "t": 3},
 {"a": "Quantum-inspired PSO", "h": "Delta-potential well sampling", "d": "Continuous optimization", "t": 3},
 {"a": "Fireworks algorithm", "h": "Explosion-spark spread", "d": "Continuous optimization", "t": 3},
 {"a": "Symbiotic organisms search", "h": "Mutualism-commensalism-parasitism", "d": "Continuous optimization", "t": 3},
 {"a": "Teaching-learning-based optimization", "h": "Teacher-learner phases", "d": "Parameter-free optimization", "t": 3},
-{"a": "Sine cosine algorithm", "h": "Trigonometric position update", "d": "Continuous optimization", "t": 3}
+{"a": "Sine cosine algorithm", "h": "Trigonometric position update", "d": "Continuous optimization", "t": 3},
+{"a": "Logarithmic number system", "h": "Add-as-multiply tables", "d": "Low-cost approximate arithmetic", "t": 3}
 ]

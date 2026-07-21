@@ -197,12 +197,12 @@
   },
   "continuous-optimization": {
     "label": "Continuous optimization",
-    "phrases": ["Continuous optimization", "Continuous minimization", "Continuous swarm search", "Evolutionary optimization"]
+    "phrases": ["Continuous optimization", "Continuous minimization", "Continuous swarm search", "Evolutionary optimization", "Parameter-free optimization"]
   },
 
   "clustering": {
     "label": "Clustering",
-    "phrases": ["Vector clustering", "Fast clustering", "Streaming clustering", "Robust clustering", "Nonlinear clustering", "Soft clustering", "Overlapping clustering", "Mode-seeking clustering", "Exemplar clustering", "Manifold clustering", "Large-data clustering", "Arbitrary-shape clustering", "Variable-density clustering", "Hierarchical density clustering", "Hierarchical clustering"]
+    "phrases": ["Vector clustering", "Fast clustering", "Streaming clustering", "Robust clustering", "Nonlinear clustering", "Soft clustering", "Overlapping clustering", "Mode-seeking clustering", "Exemplar clustering", "Manifold clustering", "Large-data clustering", "Arbitrary-shape clustering", "Variable-density clustering", "Hierarchical density clustering", "Hierarchical clustering", "Swarm data organization"]
   },
   "classification": {
     "label": "Classification",
@@ -788,5 +788,54 @@
   "glyph-rendering": {
     "label": "Scalable glyph rendering",
     "phrases": ["Scalable glyph rendering"]
+  },
+
+  "molecular-computation": {
+    "label": "Molecular computation",
+    "phrases": ["DNA Hamiltonian path", "Molecular memory computation", "Molecular logic circuits", "Molecular programming", "Chemical logic"]
+  },
+  "self-assembly": {
+    "label": "Self-assembly and pattern formation",
+    "phrases": ["Molecular pattern formation", "Programmable matter", "Undecidable tiling", "Spatial self-organization"]
+  },
+  "emergent-computation": {
+    "label": "Emergent and cellular computation",
+    "phrases": ["Cell-inspired parallelism", "Emergent computation", "Continuous artificial life"]
+  },
+  "reservoir-computing": {
+    "label": "Reservoir computing",
+    "phrases": ["Temporal pattern processing", "Spiking temporal processing", "In-materia computation"]
+  },
+  "continuous-depth-models": {
+    "label": "Continuous-time neural models",
+    "phrases": ["Continuous-time learning", "Continuous-depth modeling"]
+  },
+  "ising-machines": {
+    "label": "Ising machines",
+    "phrases": ["Ising optimization", "Invertible logic"]
+  },
+  "unconventional-hardware": {
+    "label": "Unconventional hardware computation",
+    "phrases": ["Brain-inspired computing", "Low-power computation", "In-memory computation", "Spintronic logic", "Nanoscale computation", "Analog signal computation"]
+  },
+  "reversible-computation": {
+    "label": "Reversible computation",
+    "phrases": ["Reversible computation", "Thermodynamic-limit computation"]
+  },
+  "vector-symbolic": {
+    "label": "Vector symbolic computation",
+    "phrases": ["Symbolic vector computation", "Cognitive computation"]
+  },
+  "approximate-arithmetic": {
+    "label": "Approximate arithmetic",
+    "phrases": ["Low-cost approximate arithmetic"]
+  },
+  "combinatorial-metaheuristics": {
+    "label": "Combinatorial metaheuristic optimization",
+    "phrases": ["Combinatorial optimization", "Path optimization", "Biological path finding"]
+  },
+  "multimodal-optimization": {
+    "label": "Multimodal optimization",
+    "phrases": ["Multimodal optimization"]
   }
 }

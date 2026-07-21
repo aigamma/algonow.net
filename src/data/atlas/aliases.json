@@ -173,5 +173,21 @@
   "Next event estimation": { "aka": ["NEE", "Direct light sampling"] },
   "Percentage closer filtering": { "aka": ["PCF"] },
   "Cascaded shadow maps": { "aka": ["CSM", "Parallel-split shadow maps"] },
-  "Screen-space reflections": { "aka": ["SSR"] }
+  "Screen-space reflections": { "aka": ["SSR"] },
+
+  "Hyperdimensional computing": { "aka": ["HDC", "Hypervector computing"] },
+  "Vector symbolic architecture": { "aka": ["VSA"] },
+  "Coherent Ising machine": { "aka": ["CIM"] },
+  "Quantum dot cellular automata": { "aka": ["QCA"] },
+  "Belousov-Zhabotinsky computing": { "aka": ["BZ computing", "Reaction-diffusion computing"] },
+  "Chemical reaction network computing": { "aka": ["CRN computing"] },
+  "Teaching-learning-based optimization": { "aka": ["TLBO"] },
+  "Biogeography-based optimization": { "aka": ["BBO"] },
+  "Gravitational search algorithm": { "aka": ["GSA"] },
+  "Artificial immune system": { "aka": ["AIS"] },
+  "Membrane computing": { "aka": ["P systems"] },
+  "Slime mold optimization": { "aka": ["Physarum optimization"] },
+  "Probabilistic bit computing": { "aka": ["P-bit computing"] },
+  "Stochastic computing": { "aka": ["Bitstream computing"] },
+  "Logarithmic number system": { "aka": ["LNS arithmetic"] }
 }

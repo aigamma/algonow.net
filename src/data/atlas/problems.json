@@ -242,7 +242,7 @@
   },
   "image-segmentation": {
     "label": "Image segmentation",
-    "phrases": ["Image segmentation", "Interactive segmentation", "Superpixel segmentation"]
+    "phrases": ["Image segmentation", "Interactive segmentation", "Superpixel segmentation", "Boundary extraction"]
   },
   "optical-flow": {
     "label": "Optical flow",
@@ -1164,5 +1164,70 @@
   "code-breaking": {
     "label": "Code-breaking puzzles",
     "phrases": ["Code-breaking puzzle"]
+  },
+
+  "signal-transforms": {
+    "label": "Signal transforms",
+    "phrases": ["Spectral analysis", "Time-frequency analysis", "Energy compaction", "Multiresolution analysis", "Single-frequency detection", "Analytic signal envelope", "Arbitrary-length transforms"]
+  },
+  "streaming-convolution": {
+    "label": "Streaming convolution",
+    "phrases": ["Long-signal filtering"]
+  },
+  "filter-design": {
+    "label": "Digital filter design",
+    "phrases": ["Linear-phase filtering", "Optimal filter design", "Recursive filtering", "Maximally-flat filtering"]
+  },
+  "state-estimation": {
+    "label": "State estimation and filtering",
+    "phrases": ["Linear state estimation", "Nonlinear state estimation"]
+  },
+  "denoising": {
+    "label": "Denoising and smoothing",
+    "phrases": ["Image denoising", "Edge-preserving smoothing", "Optimal linear denoising", "Signal smoothing", "Impulse-noise removal", "Noise removal"]
+  },
+  "edge-detection": {
+    "label": "Edge detection",
+    "phrases": ["Edge detection", "Gradient edge detection"]
+  },
+  "feature-detection": {
+    "label": "Feature detection and description",
+    "phrases": ["Feature detection", "Feature description"]
+  },
+  "shape-detection": {
+    "label": "Parametric shape detection",
+    "phrases": ["Line detection", "Circle detection", "Shape detection"]
+  },
+  "robust-fitting": {
+    "label": "Robust model fitting",
+    "phrases": ["Robust model fitting"]
+  },
+  "contrast-enhancement": {
+    "label": "Contrast enhancement",
+    "phrases": ["Contrast enhancement"]
+  },
+  "image-resampling": {
+    "label": "Image resampling",
+    "phrases": ["Image resampling"]
+  },
+  "image-editing": {
+    "label": "Gradient-domain and content-aware editing",
+    "phrases": ["Seamless compositing", "Content-aware resizing"]
+  },
+  "color-quantization": {
+    "label": "Color quantization and dithering",
+    "phrases": ["Color quantization", "Palette generation"]
+  },
+  "array-processing": {
+    "label": "Array signal processing",
+    "phrases": ["Array signal processing", "Direction of arrival"]
+  },
+  "sparse-recovery": {
+    "label": "Sparse coding and recovery",
+    "phrases": ["Sparse signal coding", "Sparse recovery", "Sub-Nyquist reconstruction"]
+  },
+  "object-tracking": {
+    "label": "Object tracking",
+    "phrases": ["Object tracking", "Feature tracking", "Multi-object tracking"]
   }
 }

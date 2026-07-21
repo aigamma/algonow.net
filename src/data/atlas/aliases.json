@@ -300,5 +300,22 @@
   "Tower of Hanoi": { "aka": ["Towers of Hanoi"] },
   "Mastermind solving": { "aka": ["Knuth five-guess algorithm"] },
   "Conway's Game of Life": { "aka": ["Game of Life"] },
-  "Polyomino tiling": { "aka": ["Pentomino tiling"] }
+  "Polyomino tiling": { "aka": ["Pentomino tiling"] },
+
+  "SIFT": { "aka": ["Scale-invariant feature transform"] },
+  "SURF": { "aka": ["Speeded-up robust features"] },
+  "ORB": { "aka": ["Oriented FAST and rotated BRIEF"] },
+  "RANSAC": { "aka": ["Random sample consensus"] },
+  "BM3D": { "aka": ["Block-matching 3D filtering"] },
+  "CLAHE": { "aka": ["Contrast-limited adaptive histogram equalization"] },
+  "Non-local means": { "aka": ["NL-means"] },
+  "Total variation denoising": { "aka": ["ROF model", "TV denoising"] },
+  "MUSIC algorithm": { "aka": ["Multiple signal classification"] },
+  "Orthogonal matching pursuit": { "aka": ["OMP"] },
+  "Short-time Fourier transform": { "aka": ["STFT"] },
+  "Discrete wavelet transform": { "aka": ["DWT"] },
+  "Extended Kalman filter": { "aka": ["EKF"] },
+  "Unscented Kalman filter": { "aka": ["UKF"] },
+  "SLIC superpixels": { "aka": ["Simple linear iterative clustering"] },
+  "Lucas-Kanade": { "aka": ["LK optical flow"] }
 }

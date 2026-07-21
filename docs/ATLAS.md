@@ -152,6 +152,45 @@ costs). The shared-`d` convention above is what makes rivals mechanically
 findable; the tradeoffs section and its narration are where the comparison
 is taught.
 
+`src/data/atlas/problems.json` is the rivals registry: a problem slug maps to
+a label plus the exact `d` phrases that mean that problem, so Dijkstra
+("Nonnegative shortest paths") and Bellman-Ford ("Negative-edge shortest
+paths") resolve to one problem without either losing the phrase that explains
+when you would reach for it. `rivalsOf(entry)` in `src/data/atlas.js` is the
+lookup; it falls back to an exact phrase match for unregistered phrases.
+`npm run check` fails on a phrase that matches no live entry (so the registry
+cannot rot), reports rival coverage, and prints the largest unregistered
+phrases as a queue.
+
+## Where the atlas stands, and what is queued
+
+At 2,861 entries / 59 topics / 20 categories against a target of roughly
+5,000 entries across ~100 topics. Rival coverage is 51.9 percent of entries.
+Run `npm run check` for all live numbers; the three standing queues it prints
+are the to-do list, in rough priority order:
+
+1. **Rivals queue.** 126 unregistered `d` phrases with 3 or more entries,
+   each either folding into an existing problem or naming a new one.
+2. **Topic splits.** Eleven topic files now exceed the ~60-entry split
+   threshold: machine-learning (95), numerical (95), search-structures (94),
+   graphs-structure (90), cryptography-number-theory (76),
+   distributed-concurrent (74), sorting (72), graphs-paths (71), signal-image
+   (71), metaheuristics (70), computational-geometry (66). Splitting them is
+   most of the distance to the ~100-topic target.
+3. **Duplicate scan.** Three clusters remain and all three are intentional
+   (Viterbi across DP/coding/NLP, Beam search vs Beam search decoding,
+   Kernighan-Lin vs Lin-Kernighan). Anything new that appears is real.
+
+Candidate NEW topics, each to be checked for overlap before authoring rather
+than assumed missing: SAT/SMT and formal verification (CDCL, DPLL(T), IC3,
+CEGAR, model checking), LLM systems (attention variants, KV cache,
+speculative decoding, quantization, preference optimization), vector search
+(HNSW, IVF-PQ, DiskANN), compiler backends (register allocation, instruction
+scheduling, polyhedral loop transforms), VLSI and EDA (placement, routing,
+logic synthesis, ATPG), queueing and performance modeling, post-quantum
+cryptography, zero-knowledge proofs and secure multiparty computation, and
+fuzzing and test generation.
+
 ## How the site gets filled in
 
 A pair graduates from the atlas to a live page through the 6-file unit

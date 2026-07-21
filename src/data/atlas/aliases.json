@@ -125,5 +125,21 @@
   "Learning real-time A*": { "aka": ["LRTA*"] },
   "Real-time adaptive A*": { "aka": ["RTAA*"] },
   "Transit node routing": { "aka": ["TNR"] },
-  "PERT": { "aka": ["Program evaluation and review technique"] }
+  "PERT": { "aka": ["Program evaluation and review technique"] },
+
+  "Dreyfus-Wagner algorithm": { "aka": ["Steiner tree DP", "Dreyfus-Wagner"], "note": "The dynamic-programming entry 'Steiner tree DP' (subset-of-terminals state) was the same algorithm and was merged here 2026-07-21; the retired name stays as a redirect." },
+  "Subset-sum enumeration": { "aka": ["Horowitz-Sahni", "Meet-in-the-middle subset sum"] },
+  "Convex hull trick": { "aka": ["CHT"] },
+  "Aliens trick": { "aka": ["WQS binary search"] },
+  "Knuth-Yao speedup": { "aka": ["Knuth's optimization"] },
+  "Divide and conquer DP": { "aka": ["Divide and conquer optimization"] },
+  "Sprague-Grundy": { "aka": ["Sprague-Grundy theorem"] },
+  "SOS DP": { "aka": ["Sum over subsets DP", "Subset zeta transform"] },
+  "Optimal binary search tree": { "aka": ["OBST"] },
+  "Matrix chain multiplication": { "aka": ["Matrix chain ordering problem"] },
+  "Matrix exponentiation": { "aka": ["Matrix power", "Fast matrix power"] },
+  "Kitamasa's algorithm": { "aka": ["Kitamasa method"] },
+  "Robinson-Schensted correspondence": { "aka": ["Robinson-Schensted-Knuth", "RSK"] },
+  "Garsia-Wachs": { "aka": ["Garsia-Wachs algorithm"] },
+  "Hu-Tucker": { "aka": ["Hu-Tucker algorithm"] }
 }

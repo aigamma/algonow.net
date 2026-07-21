@@ -96,5 +96,7 @@
 {"a": "Min-max heap", "h": "Alternating min and max levels", "d": "Min-max queries", "t": 3},
 {"a": "Persistent red-black tree", "h": "Path copying", "d": "Persistent map", "t": 2},
 {"a": "CHAMP", "h": "Canonical bitmap-node compression", "d": "Persistent map", "t": 3},
-{"a": "RRB tree", "h": "Relaxed radix balancing", "d": "Persistent sequence with ends access", "t": 3}
+{"a": "RRB tree", "h": "Relaxed radix balancing", "d": "Persistent sequence with ends access", "t": 3},
+{"a": "Hu-Tucker", "h": "Order-preserving Huffman merging", "d": "Weighted lookup trees", "t": 3},
+{"a": "Garsia-Wachs", "h": "Adjacent-pair weight combining", "d": "Weighted lookup trees", "t": 3}
 ]

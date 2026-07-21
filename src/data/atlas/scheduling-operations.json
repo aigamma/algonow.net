@@ -53,5 +53,6 @@
 {"a": "Assignment via auction", "h": null, "d": "Personnel assignment", "t": 3},
 {"a": "Critical chain scheduling", "h": "Buffer management", "d": "Project management", "t": 3},
 {"a": "Resource-constrained project scheduling", "h": "Serial schedule generation", "d": "Project scheduling", "t": 3},
-{"a": "PERT", "h": "Three-point beta estimates", "d": "Project scheduling", "t": 2}
+{"a": "PERT", "h": "Three-point beta estimates", "d": "Project scheduling", "t": 2},
+{"a": "Activity selection", "h": "Earliest-finish-first greedy", "d": "Non-overlapping selection", "t": 1}
 ]

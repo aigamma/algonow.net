@@ -4,7 +4,7 @@
 {"a": "Borůvka's algorithm", "h": null, "d": "Parallel-friendly spanning trees", "t": 2},
 {"a": "Reverse-delete algorithm", "h": null, "d": "Spanning trees by removal", "t": 3},
 {"a": "Karger-Klein-Tarjan MST", "h": "Random sampling verification", "d": "Expected-linear spanning trees", "t": 3},
-{"a": "Dreyfus-Wagner algorithm", "h": null, "d": "Exact Steiner trees", "t": 3},
+{"a": "Dreyfus-Wagner algorithm", "h": "Subset-of-terminals state", "d": "Exact Steiner trees", "t": 3},
 {"a": "Mehlhorn's algorithm", "h": "Terminal Voronoi regions", "d": "Steiner tree approximation", "t": 3},
 {"a": "Tarjan's SCC algorithm", "h": null, "d": "Strongly connected components", "t": 1},
 {"a": "Kosaraju's algorithm", "h": null, "d": "Strongly connected components", "t": 1},

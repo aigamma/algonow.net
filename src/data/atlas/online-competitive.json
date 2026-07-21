@@ -40,5 +40,8 @@
 {"a": "Online facility location", "h": null, "d": "Incremental placement", "t": 3},
 {"a": "Paging with locality", "h": "Working-set model", "d": "Access-model paging", "t": 3},
 {"a": "Metrical task systems", "h": null, "d": "General online framework", "t": 3},
-{"a": "Online convex body chasing", "h": null, "d": "Online geometry", "t": 3}
+{"a": "Online convex body chasing", "h": null, "d": "Online geometry", "t": 3},
+{"a": "Matrix exponentiation", "h": "Binary exponentiation", "d": "Linear recurrence evaluation", "t": 1},
+{"a": "Kitamasa's algorithm", "h": "Polynomial modular reduction", "d": "Linear recurrence evaluation", "t": 3},
+{"a": "Greedy coin change", "h": "Largest-denomination first", "d": "Minimum-coin counting", "t": 1}
 ]

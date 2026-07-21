@@ -85,7 +85,7 @@
   },
   "knapsack": {
     "label": "Knapsack",
-    "phrases": ["Bounded selection", "Repeatable selection", "The 0/1 knapsack", "Knapsack approximation", "Knapsack FPTAS"]
+    "phrases": ["Bounded selection", "Repeatable selection", "The 0/1 knapsack", "Knapsack approximation", "Knapsack FPTAS", "Revenue maximization"]
   },
   "boolean-satisfiability": {
     "label": "Boolean satisfiability",
@@ -118,8 +118,8 @@
     "phrases": ["Approximate string matching", "Approximate matching"]
   },
   "edit-distance": {
-    "label": "Edit distance",
-    "phrases": ["Edit distance", "Bounded edit distance", "Speedup for edit distance"]
+    "label": "Edit distance and sequence comparison",
+    "phrases": ["Edit distance", "Bounded edit distance", "Speedup for edit distance", "Sequence similarity", "String transformation cost", "Sequence symmetry"]
   },
   "pairwise-sequence-alignment": {
     "label": "Pairwise sequence alignment",
@@ -593,5 +593,70 @@
   "game-solving": {
     "label": "Game solving and proof search",
     "phrases": ["Game solving", "Memory-lean game solving", "Proof-oriented game search", "AND-OR graph solving"]
+  },
+
+  "linear-recurrences": {
+    "label": "Linear recurrence evaluation",
+    "phrases": ["Overlapping subproblems intro", "Linear recurrence evaluation"]
+  },
+  "subset-sum": {
+    "label": "Subset sum and partition",
+    "phrases": ["Partition feasibility", "Subset problems"]
+  },
+  "coin-change": {
+    "label": "Coin change",
+    "phrases": ["Minimum-coin counting"]
+  },
+  "longest-increasing-subsequence": {
+    "label": "Longest increasing subsequence",
+    "phrases": ["Longest increasing subsequence"]
+  },
+  "matrix-chain": {
+    "label": "Matrix chain parenthesization",
+    "phrases": ["Optimal parenthesization", "Polygon triangulation cost"]
+  },
+  "optimal-search-trees": {
+    "label": "Optimal weighted search trees",
+    "phrases": ["Weighted lookup trees"]
+  },
+  "interval-scheduling": {
+    "label": "Interval scheduling",
+    "phrases": ["Non-overlapping selection"]
+  },
+  "tree-dp": {
+    "label": "Dynamic programming on trees",
+    "phrases": ["Rooted subtree optimization", "All-root answers"]
+  },
+  "poset-transforms": {
+    "label": "Subset and poset transforms",
+    "phrases": ["Subset aggregation", "Counting over posets"]
+  },
+  "tiling-counting": {
+    "label": "Tiling and matching counts",
+    "phrases": ["Grid tiling counts", "Domino tiling counts", "Planar matching counting"]
+  },
+  "dp-optimization": {
+    "label": "DP transition optimization",
+    "phrases": ["Range partition optimization", "DP transition speedup", "Quadrangle-inequality DP", "Interval DP speedup", "Constrained-count DP", "Piecewise-linear DP", "Windowed transition DP", "Dynamic line-minimum queries"]
+  },
+  "combinatorial-games": {
+    "label": "Combinatorial game solving",
+    "phrases": ["Combinatorial game values", "Impartial game solving"]
+  },
+  "string-segmentation": {
+    "label": "String segmentation",
+    "phrases": ["Minimum-cut partitioning", "Dictionary segmentation"]
+  },
+  "hmm-inference": {
+    "label": "Hidden Markov model inference",
+    "phrases": ["Most-likely state path", "Sequence likelihood", "HMM inference"]
+  },
+  "parameter-estimation": {
+    "label": "Parameter estimation",
+    "phrases": ["Parameter estimation", "Latent-variable estimation", "HMM training"]
+  },
+  "steiner-tree": {
+    "label": "Steiner trees and network design",
+    "phrases": ["Steiner tree", "Exact Steiner trees", "Steiner tree approximation", "Network design", "Incremental network design"]
   }
 }

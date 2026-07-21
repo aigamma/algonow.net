@@ -43,5 +43,7 @@
 {"a": "Young tableau generation", "h": "RSK correspondence", "d": "Tableau enumeration", "t": 3},
 {"a": "Motzkin path enumeration", "h": null, "d": "Lattice-path counting", "t": 3},
 {"a": "Dyck path enumeration", "h": null, "d": "Lattice-path counting", "t": 2},
-{"a": "Random combination", "h": "Reservoir selection", "d": "Uniform subset sampling", "t": 2}
+{"a": "Random combination", "h": "Reservoir selection", "d": "Uniform subset sampling", "t": 2},
+{"a": "Robinson-Schensted correspondence", "h": "Row insertion bumping", "d": "Longest increasing subsequence", "t": 3},
+{"a": "Transfer matrix method", "h": null, "d": "Grid tiling counts", "t": 3}
 ]

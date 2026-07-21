@@ -5,7 +5,7 @@
 {"a": "Subset sum DP", "h": "Bitset acceleration", "d": "Partition feasibility", "t": 2},
 {"a": "Coin change DP", "h": null, "d": "Minimum-coin counting", "t": 1},
 {"a": "Longest common subsequence", "h": null, "d": "Sequence similarity", "t": 1},
-{"a": "Longest increasing subsequence", "h": "Patience piles with binary search", "d": "Sequence analysis", "t": 1},
+{"a": "Longest increasing subsequence", "h": "Patience piles with binary search", "d": "Longest increasing subsequence", "t": 1},
 {"a": "Edit distance DP", "h": null, "d": "String transformation cost", "t": 1},
 {"a": "Matrix chain multiplication", "h": null, "d": "Optimal parenthesization", "t": 1},
 {"a": "Optimal binary search tree", "h": "Knuth optimization", "d": "Weighted lookup trees", "t": 2},
@@ -42,7 +42,6 @@
 {"a": "Longest palindromic subsequence", "h": null, "d": "Sequence symmetry", "t": 2},
 {"a": "Catalan DP", "h": null, "d": "Structure counting", "t": 2},
 {"a": "Broken profile tiling", "h": null, "d": "Domino tiling counts", "t": 3},
-{"a": "Steiner tree DP", "h": "Subset-of-terminals state", "d": "Small-terminal Steiner trees", "t": 3},
 {"a": "Connection profile DP", "h": "Plug DP", "d": "Hamiltonian-path counting", "t": 3},
 {"a": "Expectation-maximization", "h": null, "d": "Latent-variable estimation", "t": 1},
 {"a": "Forward algorithm DP", "h": null, "d": "Sequence likelihood", "t": 2}

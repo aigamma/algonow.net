@@ -64,7 +64,7 @@ touches exactly these files (scripts/check.mjs enforces lockstep):
 1. `src/data/puzzles.js` : registry entry (moves off ROADMAP if present)
 2. `<slug>/index.html` + `<slug>/main.jsx` : the Vite entry
 3. `src/content/<slug>.jsx` : the tight form (given/task/constraint, origins,
-   roles, picture, steps, signals, baseline, strength, weakness)
+   roles, picture, steps, signals, baseline, strength, weakness, rivals)
 4. `src/content/<slug>.narration.js` : the spoken form, sections keyed to
    page section ids (puzzle, origins, pair, picture, run, signals,
    tradeoffs, code)
@@ -72,6 +72,17 @@ touches exactly these files (scripts/check.mjs enforces lockstep):
    offscreen, static final frame under prefers-reduced-motion)
 6. `solutions/<slug>.py` : the solution with a self-test `__main__` that
    asserts correctness against an independent oracle and prints OK
+
+**Rivals are mandatory.** Every unit's tradeoffs section names two or three
+other real methods (atlas entries where possible) that could viably attack
+the same problem, each with a when-to-prefer line: what it wins, what it
+costs, when you would reach for it instead. The narration speaks that
+comparison in full sentences for the ear. The site's purpose is daily
+reading-and-listening exposure and the strategic fluency to string
+algorithms and heuristics together under pressure (a coding interview, a
+long autonomous steering session), not memorization; the rivals discussion
+is where that strength gets built. In the atlas, entries sharing a `d`
+phrase are each other's rivals; see docs/ATLAS.md.
 
 ## Color is semantic
 

@@ -5,30 +5,23 @@ every entry is either a standalone algorithm or an algorithm × heuristic
 pair. It is the strategy document Eric asked for, kept as data so the check
 script can hold it to account.
 
-**Current size: 2,047 unique entries across 34 families** (run `npm run check`
-for the live count; it prints per-file totals and the grand total). The map is
-deliberately wide, spanning far past interview and exam canon into exotic and
-creative problem-solving: unconventional computing (DNA, membrane, slime mold,
+**Live size: whatever `src/data/atlas-summary.json` says** (2,865 entries /
+59 topics / 20 categories as of 2026-07-21; `npm run check` prints per-topic
+totals and the grand total, and fails if the summary drifts). The target
+shape is roughly 5,000 entries across ~100 topics. The map is deliberately
+wide, spanning far past interview and exam canon into exotic and creative
+problem-solving: unconventional computing (DNA, membrane, slime mold,
 reservoir, memristor, optical, chemical), quantum, the full nature-inspired
 metaheuristic zoo, and recreational puzzle solvers, alongside the classical
-core. The 34 families:
+core. The topic list lives in one place, `src/data/atlas-categories.js`;
+this doc does not duplicate it.
 
-sorting · search-structures · graphs-paths · graphs-structure · metaheuristics
-· game-search · backtracking-cp · strings · computational-geometry · numerical
-· machine-learning · probabilistic-streaming · dynamic-programming ·
-cryptography-number-theory · compression-coding · distributed-concurrent ·
-quantum · unconventional-computing · online-competitive · scheduling-operations
-· computational-biology · signal-image · graphics-rendering · databases-query ·
-automata-languages · networking · robotics-planning · combinatorial-enumeration
-· game-theory-social-choice · stochastic-simulation · information-retrieval-nlp
-· approximation · fault-tolerance-storage · puzzles-recreational.
-
-Growing it further is a matter of adding entries to existing files or new
-family files; the check enforces the invariants on every commit.
+Growing the atlas is a matter of adding entries to existing topic files or
+new topic files; the check enforces the invariants on every commit.
 
 ## Entry schema
 
-One JSON object per line inside a per-family array:
+One JSON object per line inside a per-topic array:
 
 ```json
 {"a": "A* search", "h": "Manhattan distance", "d": "Grid pathfinding", "t": 1}
@@ -38,11 +31,18 @@ One JSON object per line inside a per-family array:
 - `a` : the algorithm (the control structure; blue on every site surface)
 - `h` : the heuristic (the guiding rule; amber), or `null` for standalone
   algorithms with no canonical pairing
-- `d` : terse domain phrase (what problem this attacks), 2–6 words
+- `d` : terse domain phrase (what problem this attacks), 2-6 words
 - `t` : build tier. 1 = canon, teach early. 2 = solid standard. 3 =
   specialist or recreational.
 
-The family is the filename. `npm run check` enforces schema, global
+The `d` phrase is load-bearing metadata, not decoration: entries that share
+a `d` phrase are each other's **rivals**, the alternative methods that
+attack the same problem, and unit pages plus future navigation surface them
+as such. When a new entry attacks a problem the atlas already names, reuse
+the existing `d` phrase verbatim ("Graph layout", "Multiple testing", "MCMC
+sampling"); coin a new phrase only for a genuinely new problem.
+
+The topic is the filename. `npm run check` enforces schema, global
 uniqueness of the normalized (a, h) pair across all files, and that every
 live pair in `src/data/puzzles.js` appears in the atlas.
 
@@ -139,13 +139,26 @@ and any scheduled cron agent that summarizes recent activity. Embedding the
 catalog for semantic search is a one-time near-trivial metered cost (see
 `docs/RETRIEVAL.md`) and still requires an explicit go-ahead before any run.
 
+## Rivals: trade-off fluency is the product
+
+The learner's goal (stated 2026-07-21) is not to memorize thousands of
+methods. It is strong daily exposure by reading and listening, and the
+strategic strength to pick and combine methods under pressure: stringing
+the right algorithms and heuristics together in a coding interview, or
+steering a long autonomous session. So every unit page places its method
+among its rivals: two or three other atlas methods that could viably attack
+the same problem, each with a when-to-prefer line (what it wins, what it
+costs). The shared-`d` convention above is what makes rivals mechanically
+findable; the tradeoffs section and its narration are where the comparison
+is taught.
+
 ## How the site gets filled in
 
 A pair graduates from the atlas to a live page through the 6-file unit
 pipeline in CLAUDE.md (registry entry, Vite entry, tight content, narration,
 canvas viz, tested Python solution), one pair per unit of work, committed and
-pushed each. Build order: rotate across families taking tier 1 first, so
-breadth arrives before depth; within a family, prefer the pair whose measured
+pushed each. Build order: rotate across categories taking tier 1 first, so
+breadth arrives before depth; within a topic, prefer the pair whose measured
 contrast makes the best evidence (the 482-vs-2,000,000 style numbers).
 The homepage bench stays a curated hand-picked slice of the atlas, not a dump
 of it; the atlas itself is data, deliberately not rendered at this size.

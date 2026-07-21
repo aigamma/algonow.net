@@ -430,5 +430,18 @@
   "SA-IS": { "aka": ["Induced sorting suffix array"] },
   "Eertree": { "aka": ["Palindromic tree"] },
   "MinHash": { "aka": ["Min-wise hashing"] },
-  "Lyndon factorization": { "aka": ["Chen-Fox-Lyndon factorization"] }
+  "Lyndon factorization": { "aka": ["Chen-Fox-Lyndon factorization"] },
+
+  "LZW": { "aka": ["Lempel-Ziv-Welch"] },
+  "LZ77": { "aka": ["Lempel-Ziv 77", "LZ1"] },
+  "LZ78": { "aka": ["Lempel-Ziv 78", "LZ2"] },
+  "Asymmetric numeral systems": { "aka": ["ANS", "Finite state entropy"] },
+  "PPM": { "aka": ["Prediction by partial matching"] },
+  "Run-length encoding": { "aka": ["RLE"] },
+  "Move-to-front coding": { "aka": ["MTF transform"] },
+  "LDPC codes": { "aka": ["Low-density parity-check codes", "Gallager codes"] },
+  "CRC": { "aka": ["Cyclic redundancy check"] },
+  "Reed-Muller codes": { "aka": ["RM codes"] },
+  "Vector quantization": { "aka": ["VQ"] },
+  "Dynamic Markov compression": { "aka": ["DMC"] }
 }

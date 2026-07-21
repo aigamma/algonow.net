@@ -56,5 +56,6 @@
 {"a": "Wavelet compression", "h": "EZW zerotree coding", "d": "Lossy image compression", "t": 3},
 {"a": "Vector quantization", "h": "LBG codebook design", "d": "Lossy compression", "t": 2},
 {"a": "Chain code", "h": null, "d": "Contour compression", "t": 3},
-{"a": "Sugiyama's algorithm", "h": "Polynomial extended Euclid", "d": "Linear recurrence recovery", "t": 3}
+{"a": "Sugiyama's algorithm", "h": "Polynomial extended Euclid", "d": "Linear recurrence recovery", "t": 3},
+{"a": "Fletcher checksum", "h": "Positional weighted sums", "d": "Error detection", "t": 3}
 ]

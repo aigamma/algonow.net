@@ -284,11 +284,11 @@
   },
   "entropy-coding": {
     "label": "Entropy coding",
-    "phrases": ["Entropy compression", "Fast entropy compression", "Near-entropy compression", "Statistical compression", "Single-pass compression", "Maximal-ratio compression", "Benchmark compression"]
+    "phrases": ["Entropy compression", "Fast entropy compression", "Near-entropy compression", "Statistical compression", "Single-pass compression", "Maximal-ratio compression", "Benchmark compression", "Bit-level modeling"]
   },
   "lossy-image-compression": {
-    "label": "Lossy image compression",
-    "phrases": ["Lossy image compression"]
+    "label": "Lossy compression",
+    "phrases": ["Lossy image compression", "Lossy compression"]
   },
   "model-compression": {
     "label": "Model compression",
@@ -1562,5 +1562,34 @@
   "regex-construction": {
     "label": "Regex to automaton construction",
     "phrases": ["Regex to NFA"]
+  },
+
+  "prefix-codes": {
+    "label": "Prefix code construction",
+    "phrases": ["Optimal prefix codes", "Compact code tables", "Length-limited prefix codes", "Prefix coding"]
+  },
+  "transform-compression": {
+    "label": "Transform and run-length stages",
+    "phrases": ["Repetition compression", "Locality exploitation", "Block-sorting compression"]
+  },
+  "integer-coding": {
+    "label": "Integer coding and compression",
+    "phrases": ["Integer coding", "Integer compression", "Geometric-source coding", "Fast integer coding", "Robust integer coding", "Sequential-data compression", "Integer-column compression", "Inverted-index compression", "Postings compression"]
+  },
+  "compressed-bitsets": {
+    "label": "Compressed bitsets",
+    "phrases": ["Compressed bitsets"]
+  },
+  "error-correcting-codes": {
+    "label": "Error-correcting codes",
+    "phrases": ["Single-error correction", "Burst error correction", "Error correction", "Multi-error correction", "Streaming error correction", "Near-capacity coding", "Capacity-achieving coding", "Trellis decoding"]
+  },
+  "rateless-codes": {
+    "label": "Rateless erasure codes",
+    "phrases": ["Rateless erasure coding"]
+  },
+  "error-detection": {
+    "label": "Error detection",
+    "phrases": ["Error detection"]
   }
 }

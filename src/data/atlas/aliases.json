@@ -341,5 +341,24 @@
   "Automatic differentiation": { "aka": ["Autodiff", "AD"] },
   "Boundary element method": { "aka": ["BEM"] },
   "Tensor train decomposition": { "aka": ["TT decomposition", "Matrix product states"] },
-  "Particle-in-cell": { "aka": ["PIC"] }
+  "Particle-in-cell": { "aka": ["PIC"] },
+
+  "Generative adversarial network": { "aka": ["GAN"] },
+  "Variational autoencoder": { "aka": ["VAE"] },
+  "Convolutional neural network": { "aka": ["CNN", "ConvNet"] },
+  "Recurrent neural network": { "aka": ["RNN"] },
+  "LSTM": { "aka": ["Long short-term memory"] },
+  "GRU": { "aka": ["Gated recurrent unit"] },
+  "Vision transformer": { "aka": ["ViT"] },
+  "Graph neural network": { "aka": ["GNN"] },
+  "Graph convolutional network": { "aka": ["GCN"] },
+  "Graph attention network": { "aka": ["GAT"] },
+  "Mixture of experts": { "aka": ["MoE"] },
+  "Rotary position embedding": { "aka": ["Rotary embeddings"], "note": "The usual abbreviation RoPE is omitted as an alias: the uniqueness normalizer would conflate it with the Rope sequence structure." },
+  "LoRA": { "aka": ["Low-rank adaptation"] },
+  "Momentum contrast": { "aka": ["MoCo"] },
+  "Masked autoencoder": { "aka": ["MAE"] },
+  "Neural architecture search": { "aka": ["NAS"] },
+  "Diffusion model": { "aka": ["Score-based generative model"] },
+  "Nucleus sampling": { "aka": ["Beam-free sampling", "Top-p sampling"], "note": "The deep-learning entry 'Beam-free sampling' was this same method under a coined name and was merged here 2026-07-21." }
 }

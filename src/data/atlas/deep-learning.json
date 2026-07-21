@@ -48,6 +48,7 @@
 {"a": "Network pruning", "h": "Magnitude-based sparsification", "d": "Model compression", "t": 2},
 {"a": "Quantization-aware training", "h": null, "d": "Model compression", "t": 3},
 {"a": "LoRA", "h": "Low-rank adapter updates", "d": "Efficient fine-tuning", "t": 2},
+{"a": "Adapter tuning", "h": "Bottleneck adapter layers", "d": "Efficient fine-tuning", "t": 3},
 {"a": "Neural architecture search", "h": "Reinforcement controller", "d": "Architecture optimization", "t": 3},
 {"a": "DARTS", "h": "Differentiable architecture relaxation", "d": "Architecture search", "t": 3},
 {"a": "Gradient clipping", "h": "Global-norm rescaling", "d": "Training stabilization", "t": 2},
@@ -55,6 +56,5 @@
 {"a": "Residual dropout", "h": null, "d": "Regularization", "t": 3},
 {"a": "Label smoothing", "h": null, "d": "Classifier calibration", "t": 3},
 {"a": "Mixup augmentation", "h": "Convex sample interpolation", "d": "Data augmentation", "t": 3},
-{"a": "Beam-free sampling", "h": "Nucleus and temperature", "d": "Sequence generation", "t": 3},
 {"a": "Word embedding pretraining", "h": "Negative sampling", "d": "Representation learning", "t": 2}
 ]

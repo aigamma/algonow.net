@@ -218,7 +218,7 @@
   },
   "image-classification": {
     "label": "Image classification",
-    "phrases": ["Image classification", "Deep image classification", "Efficient image classification"]
+    "phrases": ["Image classification", "Deep image classification", "Efficient image classification", "Image recognition", "Digit recognition", "On-device vision"]
   },
   "dimensionality-reduction": {
     "label": "Dimensionality reduction",
@@ -242,7 +242,7 @@
   },
   "image-segmentation": {
     "label": "Image segmentation",
-    "phrases": ["Image segmentation", "Interactive segmentation", "Superpixel segmentation", "Boundary extraction"]
+    "phrases": ["Image segmentation", "Interactive segmentation", "Superpixel segmentation", "Boundary extraction", "Instance segmentation"]
   },
   "optical-flow": {
     "label": "Optical flow",
@@ -1303,5 +1303,58 @@
   "scattered-interpolation": {
     "label": "Scattered-data interpolation",
     "phrases": ["Scattered-data interpolation", "Spatial interpolation"]
+  },
+
+  "object-detection": {
+    "label": "Object detection",
+    "phrases": ["Object detection"]
+  },
+  "sequence-modeling": {
+    "label": "Sequence modeling",
+    "phrases": ["Sequence modeling", "Long-sequence modeling", "Sequence labeling", "Translation"]
+  },
+  "language-modeling": {
+    "label": "Language model pretraining",
+    "phrases": ["Language understanding", "Language generation"]
+  },
+  "transformer-architecture": {
+    "label": "Transformer architecture engineering",
+    "phrases": ["Sparse large models", "Efficient attention", "Transformer positioning"]
+  },
+  "generative-modeling": {
+    "label": "Generative modeling",
+    "phrases": ["Generative modeling", "Stable GAN training", "Image generation", "Diffusion sampling", "Efficient image generation", "Conditional generation"]
+  },
+  "density-estimation": {
+    "label": "Density estimation",
+    "phrases": ["Density estimation"]
+  },
+  "graph-learning": {
+    "label": "Graph representation learning",
+    "phrases": ["Graph representation learning", "Node classification", "Inductive graph learning", "Graph learning"]
+  },
+  "self-supervised-learning": {
+    "label": "Self-supervised representation learning",
+    "phrases": ["Self-supervised representation", "Self-supervised vision"]
+  },
+  "parameter-efficient-tuning": {
+    "label": "Parameter-efficient fine-tuning",
+    "phrases": ["Efficient fine-tuning"]
+  },
+  "architecture-search": {
+    "label": "Neural architecture search",
+    "phrases": ["Architecture optimization", "Architecture search"]
+  },
+  "training-regularization": {
+    "label": "Training stabilization and regularization",
+    "phrases": ["Training stabilization", "Regularization", "Classifier calibration", "Data augmentation", "Training schedules"]
+  },
+  "text-decoding": {
+    "label": "Text decoding strategies",
+    "phrases": ["Sequence generation", "Text generation"]
+  },
+  "representation-learning": {
+    "label": "Representation learning",
+    "phrases": ["Representation learning"]
   }
 }

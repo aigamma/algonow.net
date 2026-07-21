@@ -552,7 +552,7 @@
   },
   "puzzle-state-search": {
     "label": "Puzzle-state search",
-    "phrases": ["Puzzle-state search", "Sliding-puzzle search", "Fifteen-puzzle search", "Memory-bound puzzle search", "Pancake-sorting search"]
+    "phrases": ["Puzzle-state search", "Sliding-puzzle search", "Fifteen-puzzle search", "Memory-bound puzzle search", "Pancake-sorting search", "Sliding puzzle", "Sliding-block puzzle", "Board puzzle", "Box-pushing puzzle"]
   },
   "budgeted-informed-search": {
     "label": "Informed search under budgets",
@@ -645,7 +645,7 @@
   },
   "combinatorial-games": {
     "label": "Combinatorial game solving",
-    "phrases": ["Combinatorial game values", "Impartial game solving"]
+    "phrases": ["Combinatorial game values", "Impartial game solving", "Combinatorial game", "Combinatorial game theory", "Topological game"]
   },
   "string-segmentation": {
     "label": "String segmentation",
@@ -804,7 +804,7 @@
   },
   "emergent-computation": {
     "label": "Emergent and cellular computation",
-    "phrases": ["Cell-inspired parallelism", "Emergent computation", "Continuous artificial life"]
+    "phrases": ["Cell-inspired parallelism", "Emergent computation", "Continuous artificial life", "Cellular automaton simulation", "Emergent-behavior automaton"]
   },
   "reservoir-computing": {
     "label": "Reservoir computing",
@@ -1119,5 +1119,50 @@
   "fuzzing": {
     "label": "Fuzzing and security testing",
     "phrases": ["Security testing", "Bug finding"]
+  },
+
+  "rubiks-cube": {
+    "label": "Rubik's cube solving",
+    "phrases": ["Twisty puzzle solving", "Near-optimal cube solving", "Cube solving", "Optimal cube solving"]
+  },
+  "tower-of-hanoi": {
+    "label": "Tower of Hanoi",
+    "phrases": ["Disk-transfer puzzle", "Four-peg Hanoi"]
+  },
+  "constraint-puzzles": {
+    "label": "Constraint puzzles",
+    "phrases": ["Constraint puzzle", "Large-N queens", "Solution enumeration"]
+  },
+  "hamiltonian-paths": {
+    "label": "Hamiltonian paths and tours",
+    "phrases": ["Hamiltonian-path puzzle", "Hamiltonian-path counting"]
+  },
+  "logic-puzzle-solving": {
+    "label": "Logic puzzle solving",
+    "phrases": ["Logic puzzle", "Logic puzzle solving", "Picture logic puzzle", "Cross-sum puzzle", "Deduction puzzle"]
+  },
+  "exact-cover": {
+    "label": "Exact cover",
+    "phrases": ["Exact-cover backtracking support", "Tiling puzzle"]
+  },
+  "maze-generation": {
+    "label": "Maze generation",
+    "phrases": ["Maze construction", "Unbiased maze construction", "Infinite maze construction"]
+  },
+  "maze-solving": {
+    "label": "Maze solving",
+    "phrases": ["Maze navigation"]
+  },
+  "word-puzzles": {
+    "label": "Word puzzles",
+    "phrases": ["Word puzzle", "Word-grid puzzle", "Word-grid construction"]
+  },
+  "number-puzzles": {
+    "label": "Number puzzles",
+    "phrases": ["Arithmetic puzzle", "Number arrangement"]
+  },
+  "code-breaking": {
+    "label": "Code-breaking puzzles",
+    "phrases": ["Code-breaking puzzle"]
   }
 }

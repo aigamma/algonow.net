@@ -294,5 +294,11 @@
   "Control flow integrity": { "aka": ["CFI"] },
   "Differential power analysis": { "aka": ["DPA"] },
   "Federated averaging": { "aka": ["FedAvg"] },
-  "Homomorphic encryption": { "aka": ["FHE"] }
+  "Homomorphic encryption": { "aka": ["FHE"] },
+
+  "N-queens": { "aka": ["Eight queens problem"] },
+  "Tower of Hanoi": { "aka": ["Towers of Hanoi"] },
+  "Mastermind solving": { "aka": ["Knuth five-guess algorithm"] },
+  "Conway's Game of Life": { "aka": ["Game of Life"] },
+  "Polyomino tiling": { "aka": ["Pentomino tiling"] }
 }

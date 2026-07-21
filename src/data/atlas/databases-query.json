@@ -21,7 +21,7 @@
 {"a": "Vectorized execution", "h": "Batch-at-a-time processing", "d": "Analytical query execution", "t": 2},
 {"a": "Query compilation", "h": "Data-centric code generation", "d": "Query execution", "t": 3},
 {"a": "Morsel-driven parallelism", "h": null, "d": "Parallel query execution", "t": 3},
-{"a": "External sort-merge", "h": "K-way run merging", "d": "Large-relation sorting", "t": 1},
+{"a": "External merge sort", "h": "K-way run merging", "d": "Large-relation sorting", "t": 1},
 {"a": "Two-phase locking", "h": null, "d": "Transaction concurrency", "t": 1},
 {"a": "Strict two-phase locking", "h": null, "d": "Transaction concurrency", "t": 2},
 {"a": "Multiversion concurrency control", "h": "Snapshot timestamps", "d": "Transaction isolation", "t": 1},

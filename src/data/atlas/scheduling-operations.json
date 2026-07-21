@@ -33,7 +33,6 @@
 {"a": "Or-opt", "h": "Segment relocation", "d": "Tour improvement", "t": 2},
 {"a": "2-opt", "h": "Edge-uncrossing swaps", "d": "Tour improvement", "t": 1},
 {"a": "3-opt", "h": null, "d": "Tour improvement", "t": 2},
-{"a": "Christofides algorithm", "h": "Matching-augmented spanning tree", "d": "Metric TSP approximation", "t": 1},
 {"a": "Nearest neighbor tour", "h": null, "d": "TSP construction", "t": 2},
 {"a": "Greedy edge tour", "h": null, "d": "TSP construction", "t": 3},
 {"a": "Savings-based construction", "h": null, "d": "TSP construction", "t": 3},

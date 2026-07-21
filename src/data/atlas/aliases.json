@@ -58,5 +58,12 @@
   "Mapper algorithm": { "aka": ["Mapper", "TDA Mapper"] },
   "Cylindrical algebraic decomposition": { "aka": ["CAD"] },
   "Blahut-Arimoto": { "aka": ["Arimoto-Blahut"] },
-  "Benjamini-Hochberg": { "aka": ["BH procedure"] }
+  "Benjamini-Hochberg": { "aka": ["BH procedure"] },
+
+  "Christofides": { "aka": ["Christofides algorithm", "Christofides-Serdyukov"], "note": "The scheduling-operations copy (same method, same 'Metric TSP approximation' problem, reworded heuristic) was merged here 2026-07-21; approximation is the home topic." },
+  "Smith-Waterman": { "aka": ["Smith-Waterman DP", "Smith-Waterman alignment"], "note": "The dynamic-programming copy was identical (h null, same problem) and was merged here 2026-07-21; the DP structure is taught on the page, not as a second catalog unit." },
+  "Seam carving": { "aka": ["Seam carving DP"], "note": "Merged from dynamic-programming 2026-07-21; signal-image is the home topic." },
+  "Li Chao tree": { "aka": ["Li Chao tree DP", "LiChao tree"], "note": "Merged from dynamic-programming 2026-07-21; search-structures is the home topic." },
+  "External merge sort": { "aka": ["External sort-merge", "External sorting"], "note": "The databases-query entry was renamed to this canonical spelling 2026-07-21; it stays a distinct unit (a different problem phrase, 'Large-relation sorting') under one consistent algorithm name." },
+  "Longest common subsequence": { "aka": ["LCS", "Longest common subsequence DP"], "note": "Two live units share this canonical name and are genuinely distinct lessons: the plain DP for sequence similarity, and Hunt-Szymanski for diff computation." }
 }

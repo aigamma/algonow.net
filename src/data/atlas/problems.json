@@ -201,7 +201,7 @@
   },
   "continuous-optimization": {
     "label": "Continuous optimization",
-    "phrases": ["Continuous optimization", "Continuous minimization", "Continuous swarm search", "Evolutionary optimization", "Parameter-free optimization"]
+    "phrases": ["Continuous optimization", "Continuous minimization", "Continuous swarm search", "Parameter-free optimization"]
   },
 
   "clustering": {
@@ -556,7 +556,7 @@
   },
   "budgeted-informed-search": {
     "label": "Informed search under budgets",
-    "phrases": ["Bounded-suboptimal search", "Anytime pathfinding", "Linear-memory informed search", "Bounded-memory informed search", "Bounded-width search", "Fast non-optimal routing"]
+    "phrases": ["Bounded-suboptimal search", "Anytime pathfinding", "Linear-memory informed search", "Bounded-memory informed search", "Bounded-width search", "Fast non-optimal routing", "Bounded-width stochastic search"]
   },
   "incremental-replanning": {
     "label": "Incremental replanning",
@@ -1037,5 +1037,34 @@
   "point-in-polygon": {
     "label": "Point in polygon",
     "phrases": ["Geometric containment"]
+  },
+
+  "local-search-escape": {
+    "label": "Local search and escaping local optima",
+    "phrases": ["Local optimization", "Discrete optimization", "Convergence-guaranteed annealing", "Restart-friendly annealing", "Annealing without randomness", "Threshold-based local search", "Parameter-light local search", "Neighborhood search with memory", "Self-tuning tabu memory", "Tabu override on improvement", "Long-term search memory", "Escaping local optima", "Restart-based refinement", "Systematic neighborhood switching", "Deterministic neighborhood switching"]
+  },
+  "large-neighborhood-search": {
+    "label": "Ruin-and-recreate search",
+    "phrases": ["Ruin-and-recreate optimization", "Self-tuning ruin-and-recreate"]
+  },
+  "constructive-metaheuristics": {
+    "label": "Constructive and elite-set search",
+    "phrases": ["Randomized greedy construction", "Self-tuning greedy construction", "Elite-solution recombination", "Population path search"]
+  },
+  "evolutionary-computation": {
+    "label": "Evolutionary computation",
+    "phrases": ["Evolutionary optimization", "Bit-string evolution", "Permutation evolution", "Tour evolution", "Numeric evolution", "Incremental evolution", "Hybrid evolution", "Niche preservation", "Continuous self-adaptation", "Program evolution", "Distribution-estimation evolution", "Rare-event optimization"]
+  },
+  "ant-colony": {
+    "label": "Ant colony optimization",
+    "phrases": ["Constructive swarm search", "Tour construction", "Stagnation-resistant ant search"]
+  },
+  "multi-objective": {
+    "label": "Multi-objective optimization",
+    "phrases": ["Multi-objective optimization", "Many-objective optimization"]
+  },
+  "derivative-free-optimization": {
+    "label": "Derivative-free optimization",
+    "phrases": ["Derivative-free optimization", "Derivative-free continuous optimization"]
   }
 }

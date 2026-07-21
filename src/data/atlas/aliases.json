@@ -257,5 +257,24 @@
   "Bresenham's line algorithm": { "aka": ["Bresenham algorithm"] },
   "Xiaolin Wu's line algorithm": { "aka": ["Wu's algorithm"] },
   "Shoelace formula": { "aka": ["Surveyor's formula", "Gauss area formula"] },
-  "Annoy": { "aka": ["Approximate nearest neighbors oh yeah"] }
+  "Annoy": { "aka": ["Approximate nearest neighbors oh yeah"] },
+
+  "Particle swarm optimization": { "aka": ["PSO"] },
+  "Ant Colony System": { "aka": ["ACS"] },
+  "MAX-MIN Ant System": { "aka": ["MMAS"] },
+  "Genetic algorithm": { "aka": ["GA"] },
+  "Differential evolution": { "aka": ["DE"] },
+  "Evolution strategy": { "aka": ["ES", "Evolution strategies"] },
+  "Genetic programming": { "aka": ["GP"] },
+  "Variable neighborhood search": { "aka": ["VNS"] },
+  "Iterated local search": { "aka": ["ILS"] },
+  "Large neighborhood search": { "aka": ["LNS"] },
+  "Adaptive large neighborhood search": { "aka": ["ALNS"] },
+  "GRASP": { "aka": ["Greedy randomized adaptive search procedure"] },
+  "Cross-entropy method": { "aka": ["CEM"] },
+  "Late acceptance hill climbing": { "aka": ["LAHC"] },
+  "Univariate marginal distribution algorithm": { "aka": ["UMDA"] },
+  "Bayesian optimization algorithm": { "aka": ["BOA"] },
+  "Tabu search": { "aka": ["Taboo search"] },
+  "CMA-ES": { "aka": ["Covariance matrix adaptation evolution strategy"] }
 }

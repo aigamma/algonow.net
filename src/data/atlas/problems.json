@@ -41,11 +41,11 @@
 
   "single-source-shortest-paths": {
     "label": "Single-source shortest paths",
-    "phrases": ["Nonnegative shortest paths", "Negative-edge shortest paths", "Binary-weight shortest paths", "Small-weight shortest paths", "Parallel shortest paths", "Point-to-point shortest paths"]
+    "phrases": ["Nonnegative shortest paths", "Negative-edge shortest paths", "Binary-weight shortest paths", "Small-weight shortest paths", "Parallel shortest paths", "Point-to-point shortest paths", "Unweighted shortest reach", "Practical Bellman-Ford", "Linear-time undirected SSSP theory", "Acyclic-graph paths", "Point-to-point search"]
   },
   "all-pairs-shortest-paths": {
     "label": "All-pairs shortest paths",
-    "phrases": ["All-pairs shortest paths", "Sparse all-pairs paths"]
+    "phrases": ["All-pairs shortest paths", "Sparse all-pairs paths", "Unweighted APSP via matrices"]
   },
   "k-shortest-paths": {
     "label": "K shortest paths",
@@ -528,5 +528,70 @@
   "distributed-testing": {
     "label": "Distributed-system testing",
     "phrases": ["Distributed-system testing"]
+  },
+
+  "graph-traversal": {
+    "label": "Graph traversal and uninformed search",
+    "phrases": ["Graph exploration backbone", "Memory-lean complete search", "Meet-in-the-middle reach"]
+  },
+  "topological-ordering": {
+    "label": "Topological ordering",
+    "phrases": ["Topological ordering"]
+  },
+  "grid-pathfinding": {
+    "label": "Grid pathfinding",
+    "phrases": ["Grid pathfinding", "Any-direction pathfinding", "Eight-direction grid pathfinding", "King-move grid pathfinding", "Uniform-grid pathfinding", "Fast grid routing", "Game-map routing"]
+  },
+  "road-routing": {
+    "label": "Road-network routing",
+    "phrases": ["Road-network routing", "Preprocessed road routing", "Continental road routing", "Partition-preprocessed routing", "Long-range road routing", "Instant distance queries", "Preprocessed graph search"]
+  },
+  "puzzle-state-search": {
+    "label": "Puzzle-state search",
+    "phrases": ["Puzzle-state search", "Sliding-puzzle search", "Fifteen-puzzle search", "Memory-bound puzzle search", "Pancake-sorting search"]
+  },
+  "budgeted-informed-search": {
+    "label": "Informed search under budgets",
+    "phrases": ["Bounded-suboptimal search", "Anytime pathfinding", "Linear-memory informed search", "Bounded-memory informed search", "Bounded-width search", "Fast non-optimal routing"]
+  },
+  "incremental-replanning": {
+    "label": "Incremental replanning",
+    "phrases": ["Replanning in unknown terrain", "Robot replanning", "Incremental pathfinding", "Any-angle replanning"]
+  },
+  "any-angle-pathfinding": {
+    "label": "Any-angle pathfinding",
+    "phrases": ["Any-angle pathfinding", "Optimal any-angle paths"]
+  },
+  "real-time-search": {
+    "label": "Real-time agent search",
+    "phrases": ["Agent-embedded search"]
+  },
+  "multi-agent-pathfinding": {
+    "label": "Multi-agent pathfinding",
+    "phrases": ["Multi-agent pathfinding", "Optimal multi-agent paths"]
+  },
+  "euler-paths": {
+    "label": "Euler paths and circuits",
+    "phrases": ["Euler circuit construction", "Euler path construction"]
+  },
+  "minimum-mean-cycle": {
+    "label": "Minimum mean cycle",
+    "phrases": ["Minimum mean cycle"]
+  },
+  "chordal-recognition": {
+    "label": "Chordal graph recognition",
+    "phrases": ["Chordal graph recognition", "Chordality recognition"]
+  },
+  "region-labeling": {
+    "label": "Region labeling and connected components",
+    "phrases": ["Region labeling"]
+  },
+  "project-scheduling": {
+    "label": "Project scheduling",
+    "phrases": ["Project scheduling", "Project management"]
+  },
+  "game-solving": {
+    "label": "Game solving and proof search",
+    "phrases": ["Game solving", "Memory-lean game solving", "Proof-oriented game search", "AND-OR graph solving"]
   }
 }

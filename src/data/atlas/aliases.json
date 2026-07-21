@@ -105,5 +105,25 @@
   "Parallel prefix sum": { "aka": ["Parallel scan", "Prefix scan"] },
   "Deterministic simulation testing": { "aka": ["DST"] },
   "LCRQ": { "aka": ["Linked concurrent ring queue"] },
-  "Wing-Gong linearizability check": { "aka": ["Linearizability checking", "Wing-Gong algorithm"] }
+  "Wing-Gong linearizability check": { "aka": ["Linearizability checking", "Wing-Gong algorithm"] },
+
+  "Iterative deepening DFS": { "aka": ["IDDFS", "Iterative deepening depth-first search"] },
+  "IDA*": { "aka": ["Iterative deepening A*"] },
+  "Floyd-Warshall": { "aka": ["Roy-Floyd-Warshall", "Floyd's algorithm"] },
+  "SPFA": { "aka": ["Shortest Path Faster Algorithm"] },
+  "D*": { "aka": ["Dynamic A*"] },
+  "Lifelong Planning A*": { "aka": ["LPA*"] },
+  "Conflict-based search": { "aka": ["CBS"] },
+  "Hub labeling": { "aka": ["Hub labels", "2-hop labeling"] },
+  "Greedy best-first search": { "aka": ["GBFS", "Greedy search"] },
+  "Critical path method": { "aka": ["CPM"] },
+  "Theta*": { "aka": ["Theta star"] },
+  "Weighted A*": { "aka": ["WA*"] },
+  "Anytime Repairing A*": { "aka": ["ARA*"] },
+  "Recursive best-first search": { "aka": ["RBFS"] },
+  "SMA*": { "aka": ["Simplified memory-bounded A*"] },
+  "Learning real-time A*": { "aka": ["LRTA*"] },
+  "Real-time adaptive A*": { "aka": ["RTAA*"] },
+  "Transit node routing": { "aka": ["TNR"] },
+  "PERT": { "aka": ["Program evaluation and review technique"] }
 }

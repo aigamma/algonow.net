@@ -32,7 +32,7 @@
   },
   "sorted-array-search": {
     "label": "Search in a sorted array",
-    "phrases": ["Sorted-array lookup", "Uniform-key sorted lookup", "Unbounded sorted lookup", "Branch-lean sorted lookup", "Addition-only sorted lookup"]
+    "phrases": ["Sorted-array lookup", "Uniform-key sorted lookup", "Unbounded sorted lookup", "Branch-lean sorted lookup", "Addition-only sorted lookup", "Unordered lookup"]
   },
   "selection": {
     "label": "Selection and order statistics",
@@ -156,7 +156,7 @@
   },
   "hash-collision-resolution": {
     "label": "Hash collision resolution",
-    "phrases": ["Cache-friendly hashing", "Cluster-breaking hashing", "Independent-stride hashing", "Concurrent-friendly hashing", "Load-balanced hashing"]
+    "phrases": ["Cache-friendly hashing", "Cluster-breaking hashing", "Independent-stride hashing", "Concurrent-friendly hashing", "Load-balanced hashing", "Expected-constant dictionary", "Variance-lean open addressing", "Worst-case-constant lookup"]
   },
   "dynamic-hashing": {
     "label": "Dynamic hashing",
@@ -350,5 +350,78 @@
   "neural-network-training": {
     "label": "Neural network training",
     "phrases": ["Neural network training"]
+  },
+
+  "ordered-dictionary": {
+    "label": "Ordered dictionaries and balanced search trees",
+    "phrases": ["Ordered dictionary", "Balanced dictionary", "Strictly balanced dictionary", "Self-adjusting dictionary", "Randomized balanced dictionary", "Rotation-free balanced dictionary", "Simplified balanced dictionary", "Multiway balanced dictionary", "Probabilistic ordered dictionary", "Competitive-optimal BST theory"]
+  },
+  "disk-ordered-index": {
+    "label": "Disk-friendly ordered indexing",
+    "phrases": ["Disk-friendly ordered index", "Database range index", "High-occupancy disk index"]
+  },
+  "priority-queue": {
+    "label": "Priority queues",
+    "phrases": ["Priority queue", "Priority queue tuning", "Meldable priority queue", "Amortized-optimal priority queue", "Practical meldable priority queue", "Self-adjusting priority queue", "Comparison-lean priority queue", "Approximate priority queue theory"]
+  },
+  "integer-priority-queue": {
+    "label": "Integer and monotone priority queues",
+    "phrases": ["Integer-key priority queue", "Small-integer priority queue", "Event-simulation priority queue"]
+  },
+  "double-ended-priority-queue": {
+    "label": "Double-ended priority queues",
+    "phrases": ["Min-max queries"]
+  },
+  "unimodal-search": {
+    "label": "Unimodal extremum search",
+    "phrases": ["Unimodal maximum finding", "Unimodal optimization"]
+  },
+  "dynamic-trees": {
+    "label": "Dynamic trees",
+    "phrases": ["Dynamic forest connectivity", "Dynamic tree aggregation", "Dynamic tree path queries"]
+  },
+  "editor-buffers": {
+    "label": "Text editor buffers",
+    "phrases": ["Large-string editing", "Editor buffer management", "Cursor-local editing"]
+  },
+  "persistent-map": {
+    "label": "Persistent maps",
+    "phrases": ["Persistent map"]
+  },
+  "persistent-sequence": {
+    "label": "Persistent sequences",
+    "phrases": ["Persistent sequence with ends access"]
+  },
+  "string-key-dictionary": {
+    "label": "String-keyed dictionaries and tries",
+    "phrases": ["Prefix-keyed dictionary", "Space-lean prefix dictionary", "Memory-lean string dictionary", "In-memory index", "String-set indexing", "Bitwise string dictionary"]
+  },
+  "integer-predecessor": {
+    "label": "Integer predecessor search",
+    "phrases": ["Loglog-time integer dictionary", "Integer predecessor queries", "Space-lean integer predecessor", "Word-RAM predecessor theory"]
+  },
+  "array-range-queries": {
+    "label": "Array range queries",
+    "phrases": ["Range queries", "Range updates", "Prefix-sum queries", "Static idempotent range queries", "Blocked range queries", "Versioned range queries", "Offline range queries", "Sequence-to-tree bridge"]
+  },
+  "rank-select-queries": {
+    "label": "Rank and select queries",
+    "phrases": ["Rank and select queries", "Rank-select over sequences", "Range rank queries"]
+  },
+  "self-organizing-lists": {
+    "label": "Self-organizing lists",
+    "phrases": ["Access-adaptive lists"]
+  },
+  "disjoint-sets": {
+    "label": "Disjoint sets and connectivity",
+    "phrases": ["Disjoint-set connectivity"]
+  },
+  "hash-function-design": {
+    "label": "Hash function families",
+    "phrases": ["Adversary-proof hashing", "Fast strong hashing"]
+  },
+  "perfect-hashing": {
+    "label": "Perfect hashing of static sets",
+    "phrases": ["Static collision-free lookup", "Static key-set indexing"]
   }
 }

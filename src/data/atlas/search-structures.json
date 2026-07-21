@@ -92,5 +92,9 @@
 {"a": "Interval tree", "h": null, "d": "Stabbing queries", "t": 2},
 {"a": "Range tree", "h": "Fractional cascading", "d": "Multidimensional range search", "t": 2},
 {"a": "Fractional cascading", "h": null, "d": "Repeated-search speedup", "t": 3},
-{"a": "Dancing links", "h": null, "d": "Exact-cover backtracking support", "t": 2}
+{"a": "Dancing links", "h": null, "d": "Exact-cover backtracking support", "t": 2},
+{"a": "Min-max heap", "h": "Alternating min and max levels", "d": "Min-max queries", "t": 3},
+{"a": "Persistent red-black tree", "h": "Path copying", "d": "Persistent map", "t": 2},
+{"a": "CHAMP", "h": "Canonical bitmap-node compression", "d": "Persistent map", "t": 3},
+{"a": "RRB tree", "h": "Relaxed radix balancing", "d": "Persistent sequence with ends access", "t": 3}
 ]

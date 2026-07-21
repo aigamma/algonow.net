@@ -65,5 +65,23 @@
   "Seam carving": { "aka": ["Seam carving DP"], "note": "Merged from dynamic-programming 2026-07-21; signal-image is the home topic." },
   "Li Chao tree": { "aka": ["Li Chao tree DP", "LiChao tree"], "note": "Merged from dynamic-programming 2026-07-21; search-structures is the home topic." },
   "External merge sort": { "aka": ["External sort-merge", "External sorting"], "note": "The databases-query entry was renamed to this canonical spelling 2026-07-21; it stays a distinct unit (a different problem phrase, 'Large-relation sorting') under one consistent algorithm name." },
-  "Longest common subsequence": { "aka": ["LCS", "Longest common subsequence DP"], "note": "Two live units share this canonical name and are genuinely distinct lessons: the plain DP for sequence similarity, and Hunt-Szymanski for diff computation." }
+  "Longest common subsequence": { "aka": ["LCS", "Longest common subsequence DP"], "note": "Two live units share this canonical name and are genuinely distinct lessons: the plain DP for sequence similarity, and Hunt-Szymanski for diff computation." },
+
+  "Fenwick tree": { "aka": ["Binary indexed tree", "BIT"] },
+  "Trie": { "aka": ["Prefix tree", "Digital tree"] },
+  "Radix tree": { "aka": ["Radix trie", "Compressed trie", "Compact prefix tree"] },
+  "Crit-bit tree": { "aka": ["PATRICIA trie", "PATRICIA tree"], "note": "PATRICIA (Morrison 1968) is the one-bit-decision radix trie; byte-level path-compressed tries are the separate Radix tree entry." },
+  "Van Emde Boas tree": { "aka": ["vEB tree"] },
+  "Red-black tree": { "aka": ["RB tree"] },
+  "Segment tree": { "aka": ["Segtree"] },
+  "Binary search": { "aka": ["Half-interval search", "Logarithmic search", "Bisection search"], "note": "Bisection search the array-lookup routine; the root-finder on reals is the separate Bisection method entry." },
+  "Hash array mapped trie": { "aka": ["HAMT"] },
+  "Adaptive radix tree": { "aka": ["ART"] },
+  "Ternary search tree": { "aka": ["TST"] },
+  "Dancing links": { "aka": ["DLX"], "note": "DLX names Knuth's Algorithm X implemented over dancing links." },
+  "Sqrt decomposition": { "aka": ["Square root decomposition"] },
+  "B+ tree": { "aka": ["B-plus tree"] },
+  "Skip list": { "aka": ["Skiplist"] },
+  "RRB tree": { "aka": ["Relaxed radix balanced tree", "RRB vector"] },
+  "CHAMP": { "aka": ["Compressed hash-array mapped prefix-tree"], "note": "The canonically compressed successor layout to the HAMT; powers modern immutable collections." }
 }

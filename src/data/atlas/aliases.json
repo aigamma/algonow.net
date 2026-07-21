@@ -83,5 +83,27 @@
   "B+ tree": { "aka": ["B-plus tree"] },
   "Skip list": { "aka": ["Skiplist"] },
   "RRB tree": { "aka": ["Relaxed radix balanced tree", "RRB vector"] },
-  "CHAMP": { "aka": ["Compressed hash-array mapped prefix-tree"], "note": "The canonically compressed successor layout to the HAMT; powers modern immutable collections." }
+  "CHAMP": { "aka": ["Compressed hash-array mapped prefix-tree"], "note": "The canonically compressed successor layout to the HAMT; powers modern immutable collections." },
+
+  "PBFT": { "aka": ["Practical Byzantine fault tolerance", "Castro-Liskov protocol"] },
+  "Read-copy-update": { "aka": ["RCU"] },
+  "Software transactional memory": { "aka": ["STM"] },
+  "Two-phase commit": { "aka": ["2PC"] },
+  "Three-phase commit": { "aka": ["3PC"] },
+  "Bulk synchronous parallel": { "aka": ["BSP", "BSP model"] },
+  "Michael-Scott queue": { "aka": ["MS queue", "Michael-Scott nonblocking queue"] },
+  "Chord DHT": { "aka": ["Chord"] },
+  "CAN": { "aka": ["Content-addressable network"] },
+  "Operational transformation": { "aka": ["OT"] },
+  "Rendezvous hashing": { "aka": ["HRW hashing", "Highest random weight hashing"] },
+  "Lamport's bakery algorithm": { "aka": ["Bakery algorithm"] },
+  "Nakamoto consensus": { "aka": ["Bitcoin consensus"] },
+  "CRDT OR-set": { "aka": ["Observed-remove set"] },
+  "Hybrid logical clocks": { "aka": ["HLC"] },
+  "Gossip protocol": { "aka": ["Epidemic protocol"] },
+  "SWIM": { "aka": ["Scalable weakly-consistent infection-style membership"] },
+  "Parallel prefix sum": { "aka": ["Parallel scan", "Prefix scan"] },
+  "Deterministic simulation testing": { "aka": ["DST"] },
+  "LCRQ": { "aka": ["Linked concurrent ring queue"] },
+  "Wing-Gong linearizability check": { "aka": ["Linearizability checking", "Wing-Gong algorithm"] }
 }

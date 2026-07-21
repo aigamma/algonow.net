@@ -72,5 +72,15 @@
 {"a": "Merkle-tree anti-entropy", "h": null, "d": "Replica reconciliation", "t": 2},
 {"a": "Quorum read-write", "h": "R plus W greater than N", "d": "Tunable consistency", "t": 2},
 {"a": "Hinted handoff", "h": null, "d": "Availability under failure", "t": 3},
-{"a": "Deterministic simulation testing", "h": null, "d": "Distributed-system testing", "t": 3}
+{"a": "Deterministic simulation testing", "h": null, "d": "Distributed-system testing", "t": 3},
+{"a": "Lai-Yang snapshot", "h": "Message coloring", "d": "Distributed snapshots", "t": 3},
+{"a": "Mattern's snapshot", "h": "Vector-clock cuts", "d": "Distributed snapshots", "t": 3},
+{"a": "Mitchell-Merritt", "h": "Priority-labeled probes", "d": "Distributed deadlock detection", "t": 3},
+{"a": "Work sharing", "h": "Central task queue", "d": "Task-parallel scheduling", "t": 3},
+{"a": "Anderson-Miller list ranking", "h": "Random independent-set contraction", "d": "Parallel list processing", "t": 3},
+{"a": "Test-and-set lock", "h": "Exponential backoff", "d": "Contended spinlock baseline", "t": 2},
+{"a": "LCRQ", "h": "Fetch-and-add ring segments", "d": "Lock-free queue", "t": 3},
+{"a": "Reader-writer lock", "h": "Writer-preference policy", "d": "Reader-writer synchronization", "t": 1},
+{"a": "Combining tree", "h": "Hierarchical request merging", "d": "Scalable counting", "t": 3},
+{"a": "Wing-Gong linearizability check", "h": "History permutation search", "d": "Distributed-system testing", "t": 3}
 ]

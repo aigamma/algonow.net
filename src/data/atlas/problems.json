@@ -293,7 +293,7 @@
 
   "distributed-consensus": {
     "label": "Distributed consensus",
-    "phrases": ["Distributed consensus", "Byzantine consensus", "Permissionless consensus", "ZooKeeper consensus"]
+    "phrases": ["Distributed consensus", "Byzantine consensus", "Permissionless consensus", "ZooKeeper consensus", "Byzantine fault tolerance", "Replicated state machines"]
   },
   "page-replacement": {
     "label": "Page replacement",
@@ -423,5 +423,110 @@
   "perfect-hashing": {
     "label": "Perfect hashing of static sets",
     "phrases": ["Static collision-free lookup", "Static key-set indexing"]
+  },
+
+  "atomic-commitment": {
+    "label": "Atomic commitment across services",
+    "phrases": ["Atomic distributed transactions", "Non-blocking commit", "Long-lived transactions"]
+  },
+  "logical-clocks": {
+    "label": "Logical clocks and causality tracking",
+    "phrases": ["Logical clocks", "Causal ordering", "Replica conflict detection", "Causal-physical time", "Dynamic causality"]
+  },
+  "distributed-snapshots": {
+    "label": "Distributed snapshots",
+    "phrases": ["Distributed snapshots"]
+  },
+  "deadlock-detection": {
+    "label": "Deadlock detection",
+    "phrases": ["Distributed deadlock detection"]
+  },
+  "distributed-mutex": {
+    "label": "Distributed mutual exclusion",
+    "phrases": ["Distributed mutual exclusion"]
+  },
+  "leader-election": {
+    "label": "Leader election",
+    "phrases": ["Leader election"]
+  },
+  "broadcast-dissemination": {
+    "label": "Broadcast and epidemic dissemination",
+    "phrases": ["Epidemic dissemination", "Efficient broadcast"]
+  },
+  "group-membership": {
+    "label": "Membership and failure detection",
+    "phrases": ["Membership and failure detection", "Failure detection", "Overlay membership"]
+  },
+  "distributed-key-placement": {
+    "label": "Distributed key placement",
+    "phrases": ["Distributed key placement", "Bucket assignment", "Load-balancer hashing"]
+  },
+  "p2p-lookup": {
+    "label": "Peer-to-peer lookup",
+    "phrases": ["Peer-to-peer lookup"]
+  },
+  "distributed-batch-compute": {
+    "label": "Distributed batch computation",
+    "phrases": ["Batch parallel processing", "Parallel computation model", "Large-graph processing"]
+  },
+  "task-parallel-scheduling": {
+    "label": "Task-parallel scheduling",
+    "phrases": ["Task-parallel scheduling", "Recursive parallelism"]
+  },
+  "parallel-scan-reduce": {
+    "label": "Parallel scan and reduction",
+    "phrases": ["Data-parallel primitive", "Parallel prefix circuit", "Data-parallel aggregation"]
+  },
+  "parallel-list-ranking": {
+    "label": "Parallel list ranking",
+    "phrases": ["Parallel list processing"]
+  },
+  "shared-memory-mutex": {
+    "label": "Shared-memory mutual exclusion",
+    "phrases": ["Two-thread mutual exclusion", "Mutual exclusion", "N-thread mutual exclusion"]
+  },
+  "spinlocks": {
+    "label": "Spinlock design",
+    "phrases": ["Fair spinlock", "Scalable spinlock", "Contended spinlock baseline"]
+  },
+  "concurrent-reclamation": {
+    "label": "Concurrent memory reclamation",
+    "phrases": ["Safe memory reclamation", "Concurrent memory reclamation", "Read-mostly synchronization"]
+  },
+  "concurrent-stack": {
+    "label": "Concurrent stacks",
+    "phrases": ["Lock-free stack", "Scalable concurrent stack"]
+  },
+  "concurrent-queue": {
+    "label": "Concurrent queues",
+    "phrases": ["Lock-free queue"]
+  },
+  "concurrent-structure-strategy": {
+    "label": "Building concurrent data structures",
+    "phrases": ["Concurrent data structures", "Composable concurrency"]
+  },
+  "reader-writer-sync": {
+    "label": "Reader-writer synchronization",
+    "phrases": ["Reader-writer synchronization"]
+  },
+  "scalable-counting": {
+    "label": "Scalable concurrent counting",
+    "phrases": ["Scalable counting"]
+  },
+  "crdts": {
+    "label": "Conflict-free replicated data types",
+    "phrases": ["Convergent replicated counter", "Convergent replicated set", "Convergent replicated register"]
+  },
+  "collaborative-editing": {
+    "label": "Collaborative text editing",
+    "phrases": ["Collaborative editing", "Collaborative text editing"]
+  },
+  "replica-consistency": {
+    "label": "Replica consistency and repair",
+    "phrases": ["Tunable consistency", "Availability under failure", "Replica reconciliation"]
+  },
+  "distributed-testing": {
+    "label": "Distributed-system testing",
+    "phrases": ["Distributed-system testing"]
   }
 }

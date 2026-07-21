@@ -521,5 +521,25 @@
   "Nested Monte Carlo search": { "aka": ["NMCS"] },
   "Retrograde analysis": { "aka": ["Endgame tablebase generation"] },
   "Quiescence search": { "aka": ["Quiescent search"] },
-  "Expectiminimax": { "aka": ["Expectimax"], "note": "Expectimax is the chance-node-only variant; the same search family, and the atlas keeps one canonical entry." }
+  "Expectiminimax": { "aka": ["Expectimax"], "note": "Expectimax is the chance-node-only variant; the same search family, and the atlas keeps one canonical entry." },
+
+  "Lasso regression": { "aka": ["L1 regularization", "Least absolute shrinkage and selection operator"] },
+  "Ridge regression": { "aka": ["Tikhonov regularization", "L2 regularization"] },
+  "LARS": { "aka": ["Least angle regression"] },
+  "CART": { "aka": ["Classification and regression trees"] },
+  "Independent component analysis": { "aka": ["ICA"] },
+  "t-SNE": { "aka": ["t-distributed stochastic neighbor embedding"] },
+  "UMAP": { "aka": ["Uniform manifold approximation and projection"] },
+  "Locally linear embedding": { "aka": ["LLE"] },
+  "Deep Q-network": { "aka": ["DQN"] },
+  "Proximal policy optimization": { "aka": ["PPO"] },
+  "Trust region policy optimization": { "aka": ["TRPO"] },
+  "Soft actor-critic": { "aka": ["SAC"] },
+  "Upper confidence bound": { "aka": ["UCB1", "UCB algorithm"] },
+  "No-U-Turn sampler": { "aka": ["NUTS"] },
+  "Variational inference": { "aka": ["VI", "Variational Bayes"] },
+  "Temporal difference learning": { "aka": ["TD learning", "TD-lambda"] },
+  "Local outlier factor": { "aka": ["LOF"] },
+  "Isolation forest": { "aka": ["iForest"] },
+  "Backpropagation": { "aka": ["Backprop", "Reverse-mode training"] }
 }

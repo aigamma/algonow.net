@@ -250,11 +250,11 @@
   },
   "classification": {
     "label": "Classification",
-    "phrases": ["Classification", "Binary classification", "Linear classification", "Nonlinear classification", "Max-margin classification", "Large-scale classification", "Instance-based classification", "Correlation-aware classification", "Interpretable classification", "Regression and classification trees", "Ensemble classification", "Boosted classification", "Probabilistic classification", "Nonparametric classification", "Kernel classification", "Online classification", "Online kernel classification", "Text classification", "Imbalanced classification"]
+    "phrases": ["Classification", "Binary classification", "Linear classification", "Nonlinear classification", "Max-margin classification", "Large-scale classification", "Instance-based classification", "Correlation-aware classification", "Interpretable classification", "Regression and classification trees", "Ensemble classification", "Boosted classification", "Probabilistic classification", "Nonparametric classification", "Kernel classification", "Online classification", "Online kernel classification", "Text classification", "Imbalanced classification", "Decision tree induction", "Boosted prediction", "Tabular prediction", "Large tabular prediction", "Categorical prediction", "Ensemble blending"]
   },
   "regression": {
     "label": "Regression",
-    "phrases": ["Linear regression", "Regularized regression", "Sparse regression", "Outlier-resistant regression", "Conditional-quantile regression", "Correlated-error regression", "Kernel regression", "Probabilistic regression", "Probabilistic kernel regression", "Heavy-tailed regression", "Vector-valued regression"]
+    "phrases": ["Linear regression", "Regularized regression", "Sparse regression", "Outlier-resistant regression", "Conditional-quantile regression", "Correlated-error regression", "Kernel regression", "Probabilistic regression", "Probabilistic kernel regression", "Heavy-tailed regression", "Vector-valued regression", "Continuous prediction", "Regularization path"]
   },
   "image-classification": {
     "label": "Image classification",
@@ -262,7 +262,7 @@
   },
   "dimensionality-reduction": {
     "label": "Dimensionality reduction",
-    "phrases": ["Dimensionality reduction", "Linear dimensionality reduction", "Nonlinear dimensionality reduction", "Topological dimensionality reduction", "Quantum dimensionality reduction", "High-dimensional features"]
+    "phrases": ["Dimensionality reduction", "Linear dimensionality reduction", "Nonlinear dimensionality reduction", "Topological dimensionality reduction", "Quantum dimensionality reduction", "High-dimensional features", "Visualization embedding", "Manifold embedding", "Manifold learning"]
   },
   "feature-selection": {
     "label": "Feature selection",
@@ -295,6 +295,10 @@
   "approximate-inference": {
     "label": "Approximate Bayesian inference",
     "phrases": ["Approximate inference", "Approximate Bayesian inference", "Bayesian inference"]
+  },
+  "graphical-model-inference": {
+    "label": "Graphical model inference",
+    "phrases": ["Graphical-model inference", "Exact graphical inference"]
   },
   "stream-sampling": {
     "label": "Stream sampling",
@@ -393,7 +397,7 @@
   },
   "neural-network-training": {
     "label": "Neural network training",
-    "phrases": ["Neural network training"]
+    "phrases": ["Neural network training", "Sparse-gradient training", "Recurrent network training"]
   },
 
   "ordered-dictionary": {
@@ -693,7 +697,7 @@
   },
   "hmm-inference": {
     "label": "Hidden Markov model inference",
-    "phrases": ["Most-likely state path", "Sequence likelihood", "HMM inference"]
+    "phrases": ["Most-likely state path", "Sequence likelihood", "HMM inference", "Hidden Markov decoding"]
   },
   "parameter-estimation": {
     "label": "Parameter estimation",
@@ -1387,7 +1391,7 @@
   },
   "training-regularization": {
     "label": "Training stabilization and regularization",
-    "phrases": ["Training stabilization", "Regularization", "Classifier calibration", "Data augmentation", "Training schedules"]
+    "phrases": ["Training stabilization", "Regularization", "Classifier calibration", "Data augmentation", "Training schedules", "Neural regularization"]
   },
   "text-decoding": {
     "label": "Text decoding strategies",
@@ -1780,5 +1784,26 @@
   "pure-exploration": {
     "label": "Pure-exploration bandits",
     "phrases": ["Pure-exploration bandits"]
+  },
+
+  "reinforcement-learning": {
+    "label": "Reinforcement learning",
+    "phrases": ["Reinforcement learning", "On-policy reinforcement learning", "Value-based deep RL", "Policy-based RL", "Deep reinforcement learning", "Continuous-control RL"]
+  },
+  "bandits": {
+    "label": "Multi-armed bandits",
+    "phrases": ["Multi-armed bandits", "Adversarial bandits", "Contextual bandits"]
+  },
+  "topic-modeling": {
+    "label": "Topic modeling",
+    "phrases": ["Topic modeling", "Parts-based decomposition"]
+  },
+  "source-separation": {
+    "label": "Blind source separation",
+    "phrases": ["Blind source separation"]
+  },
+  "instance-reduction": {
+    "label": "Instance and prototype reduction",
+    "phrases": ["Prototype reduction"]
   }
 }

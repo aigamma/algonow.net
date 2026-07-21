@@ -408,5 +408,17 @@
   "BB84": { "aka": ["Bennett-Brassard 1984"] },
   "Quantum amplitude estimation": { "aka": ["QAE"] },
   "Matrix product state simulation": { "aka": ["MPS simulation"] },
-  "Grover-optimized minimum finding": { "aka": ["Durr-Hoyer algorithm"] }
+  "Grover-optimized minimum finding": { "aka": ["Durr-Hoyer algorithm"] },
+
+  "Rapidly-exploring random tree": { "aka": ["RRT"] },
+  "Probabilistic roadmap": { "aka": ["PRM"] },
+  "Model predictive control": { "aka": ["Receding horizon control"], "note": "The MPC abbreviation is ambiguous with secure multiparty computation, which claims it as a redirect; this entry does not." },
+  "Linear quadratic regulator": { "aka": ["LQR"] },
+  "Iterative closest point": { "aka": ["ICP"] },
+  "Normal distributions transform": { "aka": ["NDT"] },
+  "Monte Carlo localization": { "aka": ["MCL", "Particle filter localization"] },
+  "Differential dynamic programming": { "aka": ["DDP"] },
+  "Reciprocal velocity obstacles": { "aka": ["RVO", "ORCA"] },
+  "Dynamic window approach": { "aka": ["DWA"] },
+  "Inverse kinematics": { "aka": ["IK"] }
 }

@@ -1484,5 +1484,54 @@
   "quantum-simulation": {
     "label": "Classical simulation of quantum systems",
     "phrases": ["Classical Clifford simulation", "Quantum circuit simulation", "Many-body simulation"]
+  },
+
+  "motion-planning": {
+    "label": "Motion and path planning",
+    "phrases": ["Motion planning", "Optimal motion planning", "Multi-query planning", "Optimal roadmap planning", "Dynamics-aware planning", "Polygonal path planning", "Path planning", "Safe path planning"]
+  },
+  "vehicle-planning": {
+    "label": "Vehicle motion planning",
+    "phrases": ["Vehicle planning", "Car-like planning", "Car path primitives", "Forward-only vehicle paths"]
+  },
+  "reactive-navigation": {
+    "label": "Reactive navigation and obstacle avoidance",
+    "phrases": ["Reactive navigation", "Local obstacle avoidance"]
+  },
+  "trajectory-optimization": {
+    "label": "Trajectory optimization",
+    "phrases": ["Trajectory optimization", "Path refinement", "Trajectory optimization control"]
+  },
+  "slam": {
+    "label": "Simultaneous localization and mapping",
+    "phrases": ["Simultaneous localization and mapping", "SLAM", "SLAM backend", "Environment mapping", "Dense visual SLAM", "Egomotion estimation"]
+  },
+  "structure-from-motion": {
+    "label": "Structure from motion and reconstruction",
+    "phrases": ["Structure from motion", "3D reconstruction"]
+  },
+  "point-registration": {
+    "label": "Registration and scan matching",
+    "phrases": ["Point-cloud registration", "Scan matching", "Image registration"]
+  },
+  "robot-localization": {
+    "label": "Robot localization",
+    "phrases": ["Robot localization"]
+  },
+  "feedback-control": {
+    "label": "Feedback and optimal control",
+    "phrases": ["Feedback control", "Optimal control", "Stochastic optimal control", "Constrained control"]
+  },
+  "path-following": {
+    "label": "Path following",
+    "phrases": ["Path following"]
+  },
+  "inverse-kinematics": {
+    "label": "Inverse kinematics",
+    "phrases": ["Manipulator control", "Inverse kinematics"]
+  },
+  "crowd-navigation": {
+    "label": "Multi-agent collision avoidance",
+    "phrases": ["Multi-agent avoidance", "Multi-agent navigation", "Crowd simulation"]
   }
 }

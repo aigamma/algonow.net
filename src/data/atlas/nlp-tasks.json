@@ -19,6 +19,7 @@
 {"a": "Keyphrase extraction", "h": "RAKE co-occurrence", "d": "Keyword extraction", "t": 2},
 {"a": "Keyphrase extraction", "h": "YAKE statistical features", "d": "Keyword extraction", "t": 3},
 {"a": "Language identification", "h": "Character n-gram profiles", "d": "Language detection", "t": 2},
+{"a": "Language identification", "h": "Naive Bayes over byte n-grams", "d": "Language detection", "t": 3},
 {"a": "Textual entailment", "h": "Alignment plus classification", "d": "Natural language inference", "t": 3},
 {"a": "Paraphrase detection", "h": null, "d": "Semantic similarity", "t": 3},
 {"a": "Sentence segmentation", "h": "Punctuation-plus-abbreviation rules", "d": "Text preprocessing", "t": 1},
@@ -29,5 +30,7 @@
 {"a": "Constituency parsing", "h": "Chart-based CKY", "d": "Syntactic parsing", "t": 2},
 {"a": "Discourse parsing", "h": "Rhetorical structure theory", "d": "Discourse analysis", "t": 3},
 {"a": "Retrieval-augmented generation", "h": "Retrieve-then-generate", "d": "Grounded generation", "t": 2},
-{"a": "Semantic textual similarity", "h": "Sentence-embedding cosine", "d": "Similarity scoring", "t": 2}
+{"a": "Semantic textual similarity", "h": "Sentence-embedding cosine", "d": "Similarity scoring", "t": 2},
+{"a": "Grammar error correction", "h": "Rule and n-gram detection", "d": "Writing assistance", "t": 3},
+{"a": "BERTScore", "h": "Contextual-embedding matching", "d": "Summarization evaluation", "t": 3}
 ]

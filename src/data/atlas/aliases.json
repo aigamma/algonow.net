@@ -571,5 +571,19 @@
   "Symbolic model checking": { "aka": ["BDD model checking"] },
   "Program slicing": { "aka": ["Weiser slicing"] },
   "Datalog-based analysis": { "aka": ["Declarative program analysis", "Doop-style analysis"] },
-  "Spectrum-based fault localization": { "aka": ["SBFL", "Ochiai localization"] }
+  "Spectrum-based fault localization": { "aka": ["SBFL", "Ochiai localization"] },
+
+  "Porter stemmer": { "aka": ["Porter stemming algorithm"] },
+  "Snowball stemmer": { "aka": ["Porter2 stemmer"] },
+  "Retrieval-augmented generation": { "aka": ["RAG"] },
+  "Semantic role labeling": { "aka": ["SRL"] },
+  "Semantic textual similarity": { "aka": ["STS"] },
+  "Textual entailment": { "aka": ["Natural language inference", "NLI"] },
+  "IBM alignment models": { "aka": ["IBM models 1-5"] },
+  "BLEU scoring": { "aka": ["BLEU metric"] },
+  "ROUGE scoring": { "aka": ["ROUGE metric"] },
+  "Open information extraction": { "aka": ["OpenIE"] },
+  "Constituency parsing": { "aka": ["Phrase structure parsing"] },
+  "Discourse parsing": { "aka": ["RST parsing"] },
+  "BERTScore": { "aka": ["Embedding-based generation metric"] }
 }

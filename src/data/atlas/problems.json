@@ -317,6 +317,50 @@
     "label": "General context-free parsing",
     "phrases": ["Context-free parsing", "General context-free parsing", "Fast context-free parsing", "Ambiguous-grammar parsing", "General top-down parsing", "Natural-language parsing"]
   },
+  "text-preprocessing": {
+    "label": "Text preprocessing and normalization",
+    "phrases": ["Word normalization", "Text preprocessing", "Text normalization", "Language detection"]
+  },
+  "sentiment-analysis": {
+    "label": "Sentiment analysis",
+    "phrases": ["Sentiment analysis", "Fine-grained sentiment"]
+  },
+  "machine-translation": {
+    "label": "Machine translation",
+    "phrases": ["Statistical translation", "Bitext alignment"]
+  },
+  "nlp-evaluation": {
+    "label": "Generation evaluation metrics",
+    "phrases": ["Translation evaluation", "Summarization evaluation"]
+  },
+  "summarization": {
+    "label": "Summarization",
+    "phrases": ["Abstractive summarization", "Extractive baseline", "Extractive summarization"]
+  },
+  "semantic-analysis": {
+    "label": "Sentence-level semantic analysis",
+    "phrases": ["Shallow semantics", "Natural language inference", "Semantic similarity", "Similarity scoring", "Word sense disambiguation", "Discourse analysis"]
+  },
+  "keyword-extraction": {
+    "label": "Keyword extraction",
+    "phrases": ["Keyword extraction"]
+  },
+  "information-extraction": {
+    "label": "Information extraction",
+    "phrases": ["Information extraction", "Entity linking"]
+  },
+  "grounded-generation": {
+    "label": "Retrieval-grounded generation",
+    "phrases": ["Grounded generation"]
+  },
+  "text-editing": {
+    "label": "Text correction and editing",
+    "phrases": ["Writing assistance"]
+  },
+  "shallow-parsing": {
+    "label": "Shallow parsing",
+    "phrases": ["Phrase identification"]
+  },
   "dependency-parsing": {
     "label": "Dependency parsing",
     "phrases": ["Projective dependency parsing", "Non-projective dependency parsing", "Syntactic parsing"]

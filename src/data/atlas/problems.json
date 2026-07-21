@@ -513,6 +513,38 @@
     "label": "Cluster membership",
     "phrases": ["Cluster membership"]
   },
+  "option-pricing": {
+    "label": "Option pricing",
+    "phrases": ["Option pricing", "Path-dependent pricing", "American option pricing", "American option approximation", "PDE option pricing", "Characteristic-function pricing", "Volatility-surface pricing"]
+  },
+  "volatility-surface": {
+    "label": "Volatility surface modeling",
+    "phrases": ["Volatility smile", "Volatility-surface calibration", "Volatility extraction"]
+  },
+  "greeks": {
+    "label": "Sensitivity computation",
+    "phrases": ["Sensitivity computation"]
+  },
+  "portfolio-construction": {
+    "label": "Portfolio construction",
+    "phrases": ["Portfolio construction", "Portfolio allocation", "Tail-risk portfolio"]
+  },
+  "risk-measurement": {
+    "label": "Risk measurement",
+    "phrases": ["Risk measurement", "Tail-risk measurement", "Credit risk", "Joint-default risk"]
+  },
+  "statistical-arbitrage": {
+    "label": "Statistical arbitrage",
+    "phrases": ["Statistical arbitrage", "Pairs trading", "Multivariate cointegration"]
+  },
+  "trade-execution": {
+    "label": "Trade execution and market making",
+    "phrases": ["Trade execution", "Market making"]
+  },
+  "interest-rate-modeling": {
+    "label": "Interest rate and curve modeling",
+    "phrases": ["Interest rate modeling", "Curve construction", "Yield curve modeling"]
+  },
   "dependency-parsing": {
     "label": "Dependency parsing",
     "phrases": ["Projective dependency parsing", "Non-projective dependency parsing", "Syntactic parsing"]
@@ -2020,7 +2052,35 @@
 
   "reinforcement-learning": {
     "label": "Reinforcement learning",
-    "phrases": ["Reinforcement learning", "On-policy reinforcement learning", "Value-based deep RL", "Policy-based RL", "Deep reinforcement learning", "Continuous-control RL"]
+    "phrases": ["Reinforcement learning", "On-policy reinforcement learning", "Value-based deep RL", "Policy-based RL", "Deep reinforcement learning", "Continuous-control RL", "Model-free RL", "On-policy RL", "Overestimation-free RL", "Deep RL", "Policy-gradient deep RL", "Policy-gradient RL", "Policy-gradient variance reduction", "Distributed RL", "RL acceleration", "Sparse-reward RL"]
+  },
+  "model-based-rl": {
+    "label": "Model-based reinforcement learning",
+    "phrases": ["Model-based RL", "Sample-efficient RL", "Planning without rules", "Game mastery"]
+  },
+  "distributional-rl": {
+    "label": "Distributional reinforcement learning",
+    "phrases": ["Distributional RL", "Value-distribution learning"]
+  },
+  "rl-exploration": {
+    "label": "Exploration in reinforcement learning",
+    "phrases": ["Exploration"]
+  },
+  "offline-rl": {
+    "label": "Offline reinforcement learning",
+    "phrases": ["Offline RL"]
+  },
+  "imitation-learning": {
+    "label": "Imitation learning",
+    "phrases": ["Imitation learning", "Reward inference"]
+  },
+  "multi-agent-rl": {
+    "label": "Multi-agent reinforcement learning",
+    "phrases": ["Multi-agent RL", "Cooperative multi-agent RL"]
+  },
+  "hierarchical-rl": {
+    "label": "Hierarchical and transfer RL",
+    "phrases": ["Hierarchical RL", "Transfer in RL"]
   },
   "bandits": {
     "label": "Multi-armed bandits",

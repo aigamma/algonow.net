@@ -613,5 +613,20 @@
   "Complex event processing": { "aka": ["CEP"] },
   "Watermark generation": { "aka": ["Stream watermarks"] },
   "Micro-batch processing": { "aka": ["Discretized streams", "DStream model"] },
-  "Dataflow windowing model": { "aka": ["Beam model", "Google Dataflow model"] }
+  "Dataflow windowing model": { "aka": ["Beam model", "Google Dataflow model"] },
+
+  "MFCC extraction": { "aka": ["Mel-frequency cepstral coefficients"] },
+  "Linear predictive coding": { "aka": ["LPC"] },
+  "Connectionist temporal classification": { "aka": ["CTC"] },
+  "Voice activity detection": { "aka": ["VAD"] },
+  "Constant-Q transform": { "aka": ["CQT"] },
+  "RNN transducer": { "aka": ["RNN-T"] },
+  "Listen-attend-spell": { "aka": ["LAS"] },
+  "Acoustic echo cancellation": { "aka": ["AEC"] },
+  "Dynamic range compression": { "aka": ["Audio compressor"] },
+  "Distributed sequence generation": { "aka": ["Snowflake ID generation"] },
+  "Coordinator-free transactions": { "aka": ["RAMP transactions"] },
+  "Hybrid transactional-analytical": { "aka": ["HTAP systems"] },
+  "Spanner TrueTime": { "aka": ["TrueTime"] },
+  "Leaderless replication": { "aka": ["Dynamo-style replication"] }
 }

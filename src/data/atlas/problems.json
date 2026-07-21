@@ -461,6 +461,58 @@
     "label": "Event pattern detection",
     "phrases": ["Event pattern detection"]
   },
+  "audio-features": {
+    "label": "Audio feature extraction",
+    "phrases": ["Speech features", "Audio features", "Music signal analysis", "Harmony analysis"]
+  },
+  "pitch-estimation": {
+    "label": "Pitch estimation",
+    "phrases": ["Pitch estimation"]
+  },
+  "speech-synthesis": {
+    "label": "Speech and audio synthesis",
+    "phrases": ["Speech synthesis", "Audio generation", "Spectrogram inversion", "Speech coding", "Time-scale modification"]
+  },
+  "speech-recognition": {
+    "label": "Speech recognition",
+    "phrases": ["Speech recognition", "Streaming speech recognition"]
+  },
+  "music-analysis": {
+    "label": "Music structure analysis",
+    "phrases": ["Rhythm analysis", "Event detection", "Music identification"]
+  },
+  "adaptive-filtering": {
+    "label": "Adaptive filtering",
+    "phrases": ["Adaptive signal processing", "Echo removal"]
+  },
+  "speech-segmentation": {
+    "label": "Speech segmentation and diarization",
+    "phrases": ["Speech gating", "Who-spoke-when"]
+  },
+  "audio-dynamics": {
+    "label": "Audio dynamics and perceptual coding",
+    "phrases": ["Audio dynamics", "Perceptual audio coding"]
+  },
+  "sharding": {
+    "label": "Sharding and partitioning",
+    "phrases": ["Horizontal scaling", "Dynamic sharding"]
+  },
+  "distributed-query": {
+    "label": "Distributed query execution",
+    "phrases": ["Sharded queries", "Distributed query", "Distributed indexing", "Incremental processing", "HTAP"]
+  },
+  "distributed-transactions": {
+    "label": "Distributed transactions",
+    "phrases": ["Distributed transactions", "Global consistency", "Replicated transactions", "Atomic visibility"]
+  },
+  "id-generation": {
+    "label": "Distributed id generation",
+    "phrases": ["Unique id assignment"]
+  },
+  "cluster-membership": {
+    "label": "Cluster membership",
+    "phrases": ["Cluster membership"]
+  },
   "dependency-parsing": {
     "label": "Dependency parsing",
     "phrases": ["Projective dependency parsing", "Non-projective dependency parsing", "Syntactic parsing"]
@@ -751,7 +803,7 @@
   },
   "replica-consistency": {
     "label": "Replica consistency and repair",
-    "phrases": ["Tunable consistency", "Availability under failure", "Replica reconciliation"]
+    "phrases": ["Tunable consistency", "Availability under failure", "Replica reconciliation", "Replica convergence"]
   },
   "distributed-testing": {
     "label": "Distributed-system testing",
@@ -1408,7 +1460,7 @@
   },
   "denoising": {
     "label": "Denoising and smoothing",
-    "phrases": ["Image denoising", "Edge-preserving smoothing", "Optimal linear denoising", "Signal smoothing", "Impulse-noise removal", "Noise removal"]
+    "phrases": ["Image denoising", "Edge-preserving smoothing", "Optimal linear denoising", "Signal smoothing", "Impulse-noise removal", "Noise removal", "Noise reduction"]
   },
   "edge-detection": {
     "label": "Edge detection",
@@ -1473,7 +1525,7 @@
   },
   "replication-schemes": {
     "label": "Replication schemes",
-    "phrases": ["Fault tolerance", "Strongly-consistent storage", "Fault-tolerant services", "Consistent replication", "Eventual consistency"]
+    "phrases": ["Fault tolerance", "Strongly-consistent storage", "Fault-tolerant services", "Consistent replication", "Eventual consistency", "High-availability writes", "Replicated storage", "Read scaling", "Consistent local reads", "Data placement"]
   },
   "distributed-coordination": {
     "label": "Distributed locking and coordination",
@@ -1658,7 +1710,7 @@
   },
   "concurrency-control": {
     "label": "Transaction concurrency control",
-    "phrases": ["Transaction concurrency", "Transaction isolation"]
+    "phrases": ["Transaction concurrency", "Transaction isolation", "Transaction management"]
   },
   "analytical-storage": {
     "label": "Analytical storage and scan pruning",
@@ -1980,7 +2032,7 @@
   },
   "source-separation": {
     "label": "Blind source separation",
-    "phrases": ["Blind source separation"]
+    "phrases": ["Blind source separation", "Source separation"]
   },
   "instance-reduction": {
     "label": "Instance and prototype reduction",

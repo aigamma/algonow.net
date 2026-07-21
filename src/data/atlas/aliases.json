@@ -556,5 +556,20 @@
   "Template matching": { "aka": ["Normalized cross-correlation matching"] },
   "Viola-Jones": { "aka": ["Haar cascade detector"] },
   "SRCNN": { "aka": ["Super-resolution CNN"] },
-  "Scene text detection": { "aka": ["Stroke width transform"] }
+  "Scene text detection": { "aka": ["Stroke width transform"] },
+
+  "Sparse conditional constant propagation": { "aka": ["SCCP"] },
+  "Common subexpression elimination": { "aka": ["CSE", "Global value numbering"] },
+  "Partial redundancy elimination": { "aka": ["PRE", "Lazy code motion"] },
+  "Loop-invariant code motion": { "aka": ["LICM"] },
+  "Dead code elimination": { "aka": ["DCE"] },
+  "Type inference": { "aka": ["Hindley-Milner inference", "Algorithm W"] },
+  "Interprocedural dataflow": { "aka": ["IFDS", "IDE framework"] },
+  "CEGAR": { "aka": ["Counterexample-guided abstraction refinement"] },
+  "IC3": { "aka": ["Property-directed reachability", "PDR"] },
+  "Bounded model checking": { "aka": ["BMC"] },
+  "Symbolic model checking": { "aka": ["BDD model checking"] },
+  "Program slicing": { "aka": ["Weiser slicing"] },
+  "Datalog-based analysis": { "aka": ["Declarative program analysis", "Doop-style analysis"] },
+  "Spectrum-based fault localization": { "aka": ["SBFL", "Ochiai localization"] }
 }

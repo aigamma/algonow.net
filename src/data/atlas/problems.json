@@ -393,7 +393,47 @@
   },
   "compiler-optimization": {
     "label": "Compiler optimization",
-    "phrases": ["Compiler optimization"]
+    "phrases": ["Compiler optimization", "Redundancy elimination", "Code hoisting", "Allocation optimization", "Loop optimization"]
+  },
+  "dataflow-analysis": {
+    "label": "Dataflow analysis",
+    "phrases": ["Dataflow analysis", "Dataflow engine", "Static analysis", "Range analysis"]
+  },
+  "pointer-analysis": {
+    "label": "Points-to and interprocedural analysis",
+    "phrases": ["Points-to analysis", "Interprocedural analysis", "Whole-program analysis"]
+  },
+  "test-generation": {
+    "label": "Automated test generation",
+    "phrases": ["Test generation"]
+  },
+  "model-checking": {
+    "label": "Model checking",
+    "phrases": ["Verification", "Concurrent verification", "Abstraction refinement", "Hardware verification"]
+  },
+  "program-proof": {
+    "label": "Program proof",
+    "phrases": ["Program proof", "Heap verification", "Software verification"]
+  },
+  "type-systems": {
+    "label": "Type inference and checking",
+    "phrases": ["Static typing", "Type checking"]
+  },
+  "race-detection": {
+    "label": "Data race detection",
+    "phrases": ["Concurrency analysis"]
+  },
+  "fault-localization": {
+    "label": "Fault localization",
+    "phrases": ["Fault localization", "Debugging aid"]
+  },
+  "security-analysis": {
+    "label": "Static security analysis",
+    "phrases": ["Security analysis"]
+  },
+  "loop-analysis": {
+    "label": "Loop and control-flow structure",
+    "phrases": ["Loop analysis"]
   },
   "neural-network-training": {
     "label": "Neural network training",

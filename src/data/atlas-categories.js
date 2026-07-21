@@ -37,8 +37,8 @@ export const CATEGORIES = [
   {
     key: 'optimization-or',
     label: 'Optimization & Operations Research',
-    blurb: 'Metaheuristics, approximation, scheduling, online decisions, mechanism design.',
-    families: ['metaheuristics', 'approximation', 'scheduling-operations', 'online-competitive', 'game-theory-social-choice'],
+    blurb: 'Metaheuristics, approximation, scheduling, online decisions, mechanism design, quantitative finance.',
+    families: ['metaheuristics', 'approximation', 'scheduling-operations', 'online-competitive', 'game-theory-social-choice', 'quantitative-finance'],
   },
   {
     key: 'search-constraints-games',
@@ -73,8 +73,8 @@ export const CATEGORIES = [
   {
     key: 'ml-ai',
     label: 'Machine Learning & AI',
-    blurb: 'Supervised and unsupervised learning, inference, reinforcement learning.',
-    families: ['machine-learning'],
+    blurb: 'Classical learning, deep networks, sequence forecasting, recommendation, causal inference.',
+    families: ['machine-learning', 'deep-learning', 'time-series', 'recommender-causal'],
   },
   {
     key: 'probabilistic',

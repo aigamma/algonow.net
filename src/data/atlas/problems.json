@@ -152,7 +152,11 @@
   },
   "cryptographic-hashing": {
     "label": "Cryptographic hashing",
-    "phrases": ["Cryptographic hashing", "Fast cryptographic hashing", "Password hashing"]
+    "phrases": ["Cryptographic hashing", "Fast cryptographic hashing"]
+  },
+  "password-hashing": {
+    "label": "Password hashing and key derivation",
+    "phrases": ["Password hashing", "Key derivation"]
   },
   "hash-collision-resolution": {
     "label": "Hash collision resolution",
@@ -597,7 +601,7 @@
 
   "linear-recurrences": {
     "label": "Linear recurrence evaluation",
-    "phrases": ["Overlapping subproblems intro", "Linear recurrence evaluation"]
+    "phrases": ["Overlapping subproblems intro", "Linear recurrence evaluation", "Number-theoretic recurrences"]
   },
   "subset-sum": {
     "label": "Subset sum and partition",
@@ -837,5 +841,66 @@
   "multimodal-optimization": {
     "label": "Multimodal optimization",
     "phrases": ["Multimodal optimization"]
+  },
+
+  "gcd-computation": {
+    "label": "Greatest common divisor",
+    "phrases": ["Greatest common divisor", "Division-free GCD", "Big-integer GCD", "Modular inverse"]
+  },
+  "modular-arithmetic": {
+    "label": "Fast modular arithmetic",
+    "phrases": ["Fast modular powers", "Constant-time powers", "Fast modular arithmetic", "Fast modular reduction", "Modular reconstruction"]
+  },
+  "prime-sieves": {
+    "label": "Prime sieves and multiplicative tables",
+    "phrases": ["Prime enumeration", "Range prime enumeration", "Prime counting", "Multiplicative function tables", "Number-theoretic summation"]
+  },
+  "modular-square-roots": {
+    "label": "Modular square roots",
+    "phrases": ["Modular square roots"]
+  },
+  "discrete-logarithm": {
+    "label": "Discrete logarithms",
+    "phrases": ["Discrete logarithm", "Smooth-order discrete log"]
+  },
+  "public-key-encryption": {
+    "label": "Public-key encryption",
+    "phrases": ["Public-key encryption", "Secure RSA encryption", "Factoring-based encryption", "Historical public-key", "Additively homomorphic encryption"]
+  },
+  "key-exchange": {
+    "label": "Key exchange",
+    "phrases": ["Key exchange"]
+  },
+  "curve-arithmetic": {
+    "label": "Elliptic-curve arithmetic",
+    "phrases": ["Curve cryptography", "Pairing computation"]
+  },
+  "digital-signatures": {
+    "label": "Digital signatures and identity proofs",
+    "phrases": ["Digital signatures", "Post-quantum signatures", "Identity proofs"]
+  },
+  "symmetric-encryption": {
+    "label": "Symmetric encryption",
+    "phrases": ["Block cipher", "Stream cipher", "Block cipher construction", "Authenticated encryption"]
+  },
+  "message-authentication": {
+    "label": "Message authentication",
+    "phrases": ["Message authentication", "Keyed authentication"]
+  },
+  "lattice-crypto": {
+    "label": "Lattice cryptography and reduction",
+    "phrases": ["Lattice cryptography", "Lattice encryption", "Lattice basis shortening", "Cryptanalysis"]
+  },
+  "secret-sharing": {
+    "label": "Secret sharing",
+    "phrases": ["Threshold secret splitting"]
+  },
+  "data-integrity": {
+    "label": "Verifiable data integrity",
+    "phrases": ["Verifiable data integrity"]
+  },
+  "recurrence-recovery": {
+    "label": "Linear recurrence recovery",
+    "phrases": ["Linear recurrence recovery"]
   }
 }

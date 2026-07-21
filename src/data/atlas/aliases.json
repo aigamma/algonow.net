@@ -189,5 +189,24 @@
   "Slime mold optimization": { "aka": ["Physarum optimization"] },
   "Probabilistic bit computing": { "aka": ["P-bit computing"] },
   "Stochastic computing": { "aka": ["Bitstream computing"] },
-  "Logarithmic number system": { "aka": ["LNS arithmetic"] }
+  "Logarithmic number system": { "aka": ["LNS arithmetic"] },
+
+  "Extended Euclidean algorithm": { "aka": ["EEA", "Extended GCD"] },
+  "Binary GCD": { "aka": ["Stein's algorithm"] },
+  "Chinese remainder theorem": { "aka": ["CRT"] },
+  "Baby-step giant-step": { "aka": ["BSGS", "Shanks's algorithm"] },
+  "General number field sieve": { "aka": ["GNFS", "Number field sieve"] },
+  "Lenstra elliptic-curve factorization": { "aka": ["ECM", "Elliptic curve method"] },
+  "Baillie-PSW": { "aka": ["BPSW"] },
+  "Learning with errors": { "aka": ["LWE"] },
+  "Elliptic-curve Diffie-Hellman": { "aka": ["ECDH"] },
+  "Diffie-Hellman": { "aka": ["DH key exchange"] },
+  "Merkle tree": { "aka": ["Hash tree"] },
+  "Shamir secret sharing": { "aka": ["Shamir's threshold scheme"] },
+  "Modular exponentiation": { "aka": ["Fast powering", "Binary exponentiation"] },
+  "Tonelli-Shanks": { "aka": ["Shanks-Tonelli"] },
+  "Pohlig-Hellman": { "aka": ["Silver-Pohlig-Hellman"] },
+  "AES": { "aka": ["Rijndael", "Advanced Encryption Standard"] },
+  "SHA-3": { "aka": ["Keccak"] },
+  "Sugiyama's algorithm": { "aka": ["Euclidean decoder"] }
 }

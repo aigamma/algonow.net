@@ -74,5 +74,7 @@
 {"a": "Euler totient sieve", "h": null, "d": "Multiplicative function tables", "t": 2},
 {"a": "Mobius sieve", "h": null, "d": "Number-theoretic summation", "t": 3},
 {"a": "Meissel-Mertens prime counting", "h": null, "d": "Prime counting", "t": 3},
-{"a": "Lucas sequence computation", "h": null, "d": "Number-theoretic recurrences", "t": 3}
+{"a": "Lucas sequence computation", "h": null, "d": "Number-theoretic recurrences", "t": 3},
+{"a": "Blakley secret sharing", "h": "Hyperplane intersection", "d": "Threshold secret splitting", "t": 3},
+{"a": "Hash chain", "h": null, "d": "Verifiable data integrity", "t": 2}
 ]

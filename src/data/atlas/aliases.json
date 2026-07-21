@@ -481,5 +481,21 @@
   "Morris counter": { "aka": ["Approximate counting algorithm"] },
   "AMS sketch": { "aka": ["Alon-Matias-Szegedy sketch", "Tug-of-war sketch"] },
   "Vose alias sampling": { "aka": ["Vose's alias method"] },
-  "Inverse transform sampling": { "aka": ["Smirnov transform", "Inversion sampling"] }
+  "Inverse transform sampling": { "aka": ["Smirnov transform", "Inversion sampling"] },
+
+  "First fit decreasing": { "aka": ["FFD"] },
+  "Earliest deadline first": { "aka": ["EDF"] },
+  "Rate-monotonic scheduling": { "aka": ["RMS", "Rate monotonic analysis"] },
+  "Completely fair scheduler": { "aka": ["CFS"] },
+  "Multilevel feedback queue": { "aka": ["MLFQ"] },
+  "Weighted fair queueing": { "aka": ["WFQ", "Packet-by-packet generalized processor sharing"] },
+  "Hierarchical token bucket": { "aka": ["HTB"] },
+  "Clarke-Wright savings": { "aka": ["Savings algorithm"] },
+  "Lin-Kernighan-Helsgaun": { "aka": ["LKH"] },
+  "EOQ model": { "aka": ["Economic order quantity", "Wilson formula"] },
+  "Wagner-Whitin": { "aka": ["Wagner-Whitin lot sizing"] },
+  "Cutting plane method": { "aka": ["Gomory cutting planes"] },
+  "Graham list scheduling": { "aka": ["LPT scheduling", "List scheduling"] },
+  "Shortest processing time": { "aka": ["SPT rule"] },
+  "Karmarkar-Karp": { "aka": ["Largest differencing method", "KK heuristic"] }
 }

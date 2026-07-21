@@ -1010,12 +1010,12 @@
     "phrases": ["IP forwarding", "Switch forwarding", "Switch lookup", "Firewall matching", "Multicast forwarding"]
   },
   "traffic-shaping": {
-    "label": "Traffic policing and shaping",
-    "phrases": ["Traffic policing", "Traffic shaping", "Global rate control"]
+    "label": "Traffic policing",
+    "phrases": ["Traffic policing", "Global rate control"]
   },
   "packet-scheduling": {
     "label": "Packet scheduling and link sharing",
-    "phrases": ["Packet scheduling", "Link sharing"]
+    "phrases": ["Packet scheduling", "Link sharing", "Traffic shaping"]
   },
   "rtt-estimation": {
     "label": "RTT estimation and timeouts",
@@ -1677,5 +1677,46 @@
   "matrix-sketching": {
     "label": "Streaming matrix sketching",
     "phrases": ["Streaming matrix sketching"]
+  },
+
+  "bin-packing": {
+    "label": "Bin packing and partitioning",
+    "phrases": ["Bin packing", "Streaming bin packing", "Bin covering", "Number partitioning", "Balanced partitioning", "Cutting stock"]
+  },
+  "single-machine-scheduling": {
+    "label": "Single-machine scheduling",
+    "phrases": ["Single-machine scheduling", "Lateness minimization", "Minimizing late jobs", "Weighted completion time"]
+  },
+  "shop-scheduling": {
+    "label": "Shop and parallel-machine scheduling",
+    "phrases": ["Two-machine flow shop", "Parallel-machine makespan", "Job-shop scheduling", "Tree-precedence scheduling", "Precedence-constrained scheduling"]
+  },
+  "realtime-scheduling": {
+    "label": "Real-time scheduling",
+    "phrases": ["Real-time scheduling", "Real-time task scheduling"]
+  },
+  "cpu-scheduling": {
+    "label": "CPU and resource scheduling",
+    "phrases": ["CPU scheduling", "OS process scheduling", "Resource scheduling"]
+  },
+  "vehicle-routing": {
+    "label": "Vehicle routing",
+    "phrases": ["Vehicle routing"]
+  },
+  "tour-improvement": {
+    "label": "Tour improvement",
+    "phrases": ["Tour improvement"]
+  },
+  "lot-sizing": {
+    "label": "Lot sizing and inventory control",
+    "phrases": ["Dynamic lot sizing", "Lot sizing", "Inventory ordering", "Single-period inventory", "Inventory control"]
+  },
+  "transportation-problem": {
+    "label": "Transportation problem",
+    "phrases": ["Transportation problem", "Transportation startup"]
+  },
+  "integer-programming": {
+    "label": "Integer and decomposed programming",
+    "phrases": ["Integer programming", "Stochastic programming", "Block-structured LP", "Combinatorial bounds"]
   }
 }

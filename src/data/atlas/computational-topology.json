@@ -1,0 +1,23 @@
+[
+{"a": "Persistent homology", "h": "Boundary matrix reduction", "d": "Topological data analysis", "t": 2},
+{"a": "Vietoris-Rips complex", "h": "Distance-threshold cliques", "d": "Simplicial approximation", "t": 2},
+{"a": "Cech complex", "h": "Ball-cover nerve", "d": "Simplicial approximation", "t": 3},
+{"a": "Alpha complex", "h": "Delaunay filtration", "d": "Simplicial approximation", "t": 3},
+{"a": "Witness complex", "h": "Landmark subsampling", "d": "Scalable TDA", "t": 3},
+{"a": "Zigzag persistence", "h": null, "d": "Time-varying topology", "t": 3},
+{"a": "Bottleneck distance", "h": "Optimal diagram matching", "d": "Persistence comparison", "t": 2},
+{"a": "Wasserstein diagram distance", "h": null, "d": "Persistence comparison", "t": 3},
+{"a": "Persistence landscape", "h": null, "d": "Topological features", "t": 3},
+{"a": "Persistence images", "h": "Gaussian-weighted rasterization", "d": "Topological features", "t": 3},
+{"a": "Mapper algorithm", "h": "Cover-and-cluster", "d": "Topological visualization", "t": 2},
+{"a": "Reeb graph", "h": null, "d": "Scalar-field topology", "t": 3},
+{"a": "Morse-Smale complex", "h": "Gradient-flow segmentation", "d": "Scalar-field analysis", "t": 3},
+{"a": "Discrete Morse theory", "h": "Discrete gradient vector field", "d": "Complex simplification", "t": 3},
+{"a": "Union-find persistence", "h": "0-dimensional pairing", "d": "Connected-component persistence", "t": 2},
+{"a": "Clearing optimization", "h": "Twist reduction", "d": "Fast persistence", "t": 3},
+{"a": "Cohomology computation", "h": "Annotation vectors", "d": "Topological invariants", "t": 3},
+{"a": "Euler characteristic curve", "h": null, "d": "Topological summary", "t": 3},
+{"a": "Betti number computation", "h": "Smith normal form", "d": "Homology ranks", "t": 3},
+{"a": "Circular coordinates", "h": "Cohomology-guided embedding", "d": "Topological dimensionality reduction", "t": 3},
+{"a": "Ripser reduction", "h": "Cohomology with clearing", "d": "Fast persistence", "t": 3}
+]

@@ -1,0 +1,23 @@
+[
+{"a": "Shannon entropy estimation", "h": "Maximum likelihood plug-in", "d": "Entropy estimation", "t": 1},
+{"a": "Miller-Madow correction", "h": "Bias-corrected entropy", "d": "Entropy estimation", "t": 3},
+{"a": "NSB entropy estimator", "h": "Bayesian mixture prior", "d": "Entropy estimation", "t": 3},
+{"a": "KSG mutual information", "h": "K-nearest-neighbor estimation", "d": "Mutual information estimation", "t": 2},
+{"a": "MINE", "h": "Neural lower bound", "d": "Mutual information estimation", "t": 3},
+{"a": "Blahut-Arimoto", "h": "Alternating capacity iteration", "d": "Channel capacity", "t": 2},
+{"a": "Blahut-Arimoto rate-distortion", "h": null, "d": "Rate-distortion computation", "t": 3},
+{"a": "Slepian-Wolf coding", "h": "Syndrome binning", "d": "Distributed source coding", "t": 3},
+{"a": "Wyner-Ziv coding", "h": "Side-information quantization", "d": "Lossy distributed coding", "t": 3},
+{"a": "Lempel-Ziv complexity", "h": null, "d": "Sequence complexity", "t": 2},
+{"a": "Kolmogorov complexity approximation", "h": "Compression-length proxy", "d": "Algorithmic complexity", "t": 3},
+{"a": "Normalized compression distance", "h": null, "d": "Universal similarity", "t": 3},
+{"a": "Transfer entropy", "h": "Conditional mutual information", "d": "Directed information flow", "t": 3},
+{"a": "Information bottleneck", "h": "Compression-relevance tradeoff", "d": "Representation learning", "t": 3},
+{"a": "Maximum entropy modeling", "h": "Lagrange-constraint fitting", "d": "Distribution estimation", "t": 2},
+{"a": "Kullback-Leibler estimation", "h": "Density-ratio", "d": "Divergence estimation", "t": 2},
+{"a": "Jensen-Shannon divergence", "h": null, "d": "Distribution comparison", "t": 2},
+{"a": "Typical set decoding", "h": null, "d": "Channel decoding theory", "t": 3},
+{"a": "Arithmetic-coding entropy bound", "h": null, "d": "Coding efficiency", "t": 3},
+{"a": "Chow-Liu tree", "h": "Max-weight mutual-information spanning tree", "d": "Graphical model structure", "t": 2},
+{"a": "Rate-distortion optimization", "h": "Lagrangian bit allocation", "d": "Lossy compression control", "t": 3}
+]

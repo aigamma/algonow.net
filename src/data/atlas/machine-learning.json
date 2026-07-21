@@ -76,7 +76,6 @@
 {"a": "Hamiltonian Monte Carlo", "h": "Leapfrog trajectories", "d": "MCMC sampling", "t": 2},
 {"a": "No-U-Turn sampler", "h": "Trajectory-length auto-tuning", "d": "MCMC sampling", "t": 2},
 {"a": "Variational inference", "h": "Evidence lower bound", "d": "Approximate Bayesian inference", "t": 2},
-{"a": "Expectation propagation", "h": null, "d": "Approximate inference", "t": 3},
 {"a": "Latent Dirichlet allocation", "h": "Collapsed Gibbs sampling", "d": "Topic modeling", "t": 2},
 {"a": "Q-learning", "h": "Epsilon-greedy exploration", "d": "Reinforcement learning", "t": 1},
 {"a": "SARSA", "h": null, "d": "On-policy reinforcement learning", "t": 2},

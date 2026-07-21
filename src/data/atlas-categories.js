@@ -31,7 +31,7 @@ export const CATEGORIES = [
     key: 'graphs',
     label: 'Graph Algorithms',
     blurb: 'Traversal, shortest paths, flows, matchings, connectivity, coloring, network science.',
-    topics: ['graphs-paths', 'graphs-structure', 'network-science'],
+    topics: ['graphs-paths', 'graphs-structure', 'network-science', 'graph-drawing'],
   },
   {
     key: 'dp-combinatorics',
@@ -59,15 +59,15 @@ export const CATEGORIES = [
   },
   {
     key: 'geometry',
-    label: 'Computational Geometry',
-    blurb: 'Hulls, triangulation, spatial indexing, intersection, nearest neighbors.',
-    topics: ['computational-geometry'],
+    label: 'Computational Geometry & Topology',
+    blurb: 'Hulls, triangulation, spatial indexing, intersection, nearest neighbors, topological data analysis.',
+    topics: ['computational-geometry', 'computational-topology'],
   },
   {
     key: 'numerical',
     label: 'Numerical & Scientific Computing',
-    blurb: 'Root finding, linear algebra, optimization, integration, transforms, PDE solvers.',
-    topics: ['numerical', 'numerical-pde'],
+    blurb: 'Root finding, linear algebra, integration, transforms, PDE solvers, computer algebra.',
+    topics: ['numerical', 'numerical-pde', 'computational-algebra'],
   },
   {
     key: 'signal-graphics',
@@ -85,7 +85,7 @@ export const CATEGORIES = [
     key: 'probabilistic',
     label: 'Probabilistic, Randomized & Simulation',
     blurb: 'Sketches, sampling, Monte Carlo, Markov chains, stochastic simulation.',
-    topics: ['probabilistic-streaming', 'stochastic-simulation'],
+    topics: ['probabilistic-streaming', 'stochastic-simulation', 'statistics-inference'],
   },
   {
     key: 'crypto-number-theory',
@@ -95,9 +95,9 @@ export const CATEGORIES = [
   },
   {
     key: 'compression-coding',
-    label: 'Compression & Coding Theory',
-    blurb: 'Entropy coding, dictionary compression, error-correcting codes.',
-    topics: ['compression-coding'],
+    label: 'Information Theory & Coding',
+    blurb: 'Entropy coding, dictionary compression, error-correcting codes, information measures.',
+    topics: ['compression-coding', 'information-theory'],
   },
   {
     key: 'distributed-systems',

@@ -52,7 +52,6 @@
 {"a": "Raptor codes", "h": null, "d": "Rateless erasure coding", "t": 3},
 {"a": "CRC", "h": "Polynomial division", "d": "Error detection", "t": 1},
 {"a": "Viterbi decoding", "h": null, "d": "Trellis decoding", "t": 2},
-{"a": "Lempel-Ziv-complexity estimation", "h": null, "d": "Sequence complexity", "t": 3},
 {"a": "JPEG pipeline", "h": "DCT quantization", "d": "Lossy image compression", "t": 2},
 {"a": "Wavelet compression", "h": "EZW zerotree coding", "d": "Lossy image compression", "t": 3},
 {"a": "Vector quantization", "h": "LBG codebook design", "d": "Lossy compression", "t": 2},

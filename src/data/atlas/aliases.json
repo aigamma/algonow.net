@@ -46,5 +46,17 @@
   "Consistent hashing": { "aka": ["ring hashing"] },
   "HyperLogLog": { "aka": ["HLL"] },
   "Count-min sketch": { "aka": ["CM sketch"] },
-  "Viterbi algorithm": { "aka": ["Viterbi decoding"], "note": "Merge candidate demonstrator: the same dynamic program appears domain-specialized as Viterbi DP, Viterbi decoding, and Viterbi tagging across DP, coding, and NLP families. Kept separate as distinct lessons for now; this note marks the relationship." }
+  "Viterbi algorithm": { "aka": ["Viterbi decoding"], "note": "Merge candidate demonstrator: the same dynamic program appears domain-specialized as Viterbi DP, Viterbi decoding, and Viterbi tagging across DP, coding, and NLP families. Kept separate as distinct lessons for now; this note marks the relationship." },
+  "Lempel-Ziv complexity": { "aka": ["Lempel-Ziv-complexity estimation", "LZ76 complexity", "LZ complexity"], "note": "The former compression-coding entry 'Lempel-Ziv-complexity estimation' was merged into this canonical entry (2026-07-21); the retired name stays as a redirect." },
+  "Expectation propagation": { "aka": ["EP"], "note": "The former machine-learning standalone entry was merged into the statistics-inference pair with moment matching (2026-07-21)." },
+  "Lenstra-Lenstra-Lovasz": { "aka": ["LLL", "LLL lattice reduction"] },
+  "Maximum likelihood estimation": { "aka": ["MLE"] },
+  "Ordinary least squares": { "aka": ["OLS"] },
+  "Kernel density estimation": { "aka": ["KDE", "Parzen window density estimation", "Parzen-Rosenblatt window"] },
+  "Kolmogorov-Smirnov test": { "aka": ["KS test"] },
+  "Vietoris-Rips complex": { "aka": ["Rips complex"] },
+  "Mapper algorithm": { "aka": ["Mapper", "TDA Mapper"] },
+  "Cylindrical algebraic decomposition": { "aka": ["CAD"] },
+  "Blahut-Arimoto": { "aka": ["Arimoto-Blahut"] },
+  "Benjamini-Hochberg": { "aka": ["BH procedure"] }
 }

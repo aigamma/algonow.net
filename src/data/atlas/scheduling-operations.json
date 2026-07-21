@@ -50,7 +50,6 @@
 {"a": "Benders decomposition", "h": "Master-subproblem cuts", "d": "Stochastic programming", "t": 3},
 {"a": "Dantzig-Wolfe decomposition", "h": null, "d": "Block-structured LP", "t": 3},
 {"a": "Lagrangian relaxation", "h": "Subgradient multiplier update", "d": "Combinatorial bounds", "t": 2},
-{"a": "Assignment via auction", "h": null, "d": "Personnel assignment", "t": 3},
 {"a": "Critical chain scheduling", "h": "Buffer management", "d": "Project management", "t": 3},
 {"a": "Resource-constrained project scheduling", "h": "Serial schedule generation", "d": "Project scheduling", "t": 3},
 {"a": "PERT", "h": "Three-point beta estimates", "d": "Project scheduling", "t": 2},

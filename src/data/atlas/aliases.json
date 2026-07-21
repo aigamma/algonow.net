@@ -208,5 +208,26 @@
   "Pohlig-Hellman": { "aka": ["Silver-Pohlig-Hellman"] },
   "AES": { "aka": ["Rijndael", "Advanced Encryption Standard"] },
   "SHA-3": { "aka": ["Keccak"] },
-  "Sugiyama's algorithm": { "aka": ["Euclidean decoder"] }
+  "Sugiyama's algorithm": { "aka": ["Euclidean decoder"] },
+
+  "Betweenness centrality": { "aka": ["Brandes' algorithm", "Brandes betweenness"], "note": "The graphs-structure standalone 'Brandes' algorithm' was the same computation as this network-science pair and was merged here 2026-07-21; the name stays as a redirect." },
+  "Auction algorithm": { "aka": ["Bertsekas auction", "Assignment via auction"], "note": "The scheduling-operations entry 'Assignment via auction' was the same Bertsekas method and was merged here 2026-07-21." },
+  "DP on trees": { "aka": ["Rerooting tree DP", "Rerooting technique"], "note": "The graphs-structure standalone 'Rerooting tree DP' was merged into this pair 2026-07-21." },
+  "Borůvka's algorithm": { "aka": ["Boruvka's algorithm", "Sollin's algorithm"] },
+  "Hopcroft-Karp": { "aka": ["Hopcroft-Karp-Karzanov"] },
+  "Hungarian algorithm": { "aka": ["Kuhn-Munkres", "Munkres algorithm"] },
+  "Blossom algorithm": { "aka": ["Edmonds' blossom algorithm"] },
+  "Dinic's algorithm": { "aka": ["Dinitz's algorithm"] },
+  "Push-relabel": { "aka": ["Goldberg-Tarjan", "Preflow-push"] },
+  "Weisfeiler-Leman refinement": { "aka": ["WL test", "Color refinement"] },
+  "McKay's canonical labeling": { "aka": ["nauty"] },
+  "Reverse Cuthill-McKee": { "aka": ["RCM"] },
+  "Heavy-light decomposition": { "aka": ["HLD", "Heavy path decomposition"] },
+  "Louvain method": { "aka": ["Louvain modularity"] },
+  "Prüfer sequence": { "aka": ["Prufer code", "Prufer sequence"] },
+  "Erdős-Gallai check": { "aka": ["Erdos-Gallai theorem"] },
+  "Fiduccia-Mattheyses": { "aka": ["FM partitioning"] },
+  "Multilevel partitioning": { "aka": ["Multilevel k-way partitioning"] },
+  "2-SAT via implication SCC": { "aka": ["Aspvall-Plass-Tarjan"] },
+  "Holm-de Lichtenberg-Thorup": { "aka": ["HDT connectivity"] }
 }

@@ -89,7 +89,7 @@
   },
   "boolean-satisfiability": {
     "label": "Boolean satisfiability",
-    "phrases": ["Boolean satisfiability", "Molecular satisfiability"]
+    "phrases": ["Boolean satisfiability", "Molecular satisfiability", "Boolean constraint solving"]
   },
   "link-analysis": {
     "label": "Node importance and link analysis",
@@ -629,7 +629,7 @@
   },
   "tree-dp": {
     "label": "Dynamic programming on trees",
-    "phrases": ["Rooted subtree optimization", "All-root answers"]
+    "phrases": ["Rooted subtree optimization", "All-root answers", "Subtree aggregation"]
   },
   "poset-transforms": {
     "label": "Subset and poset transforms",
@@ -902,5 +902,66 @@
   "recurrence-recovery": {
     "label": "Linear recurrence recovery",
     "phrases": ["Linear recurrence recovery"]
+  },
+
+  "graph-connectivity-structure": {
+    "label": "Bridges, cut vertices, and biconnectivity",
+    "phrases": ["Cut edges", "Cut vertices", "Two-connected decomposition", "Biconnectivity structure"]
+  },
+  "dynamic-connectivity": {
+    "label": "Dynamic connectivity",
+    "phrases": ["Fully dynamic connectivity", "Query-known connectivity"]
+  },
+  "strongly-connected-components": {
+    "label": "Strongly connected components",
+    "phrases": ["Strongly connected components"]
+  },
+  "assignment-problem": {
+    "label": "Assignment",
+    "phrases": ["Optimal assignment", "Assignment via bidding"]
+  },
+  "clique-finding": {
+    "label": "Clique finding",
+    "phrases": ["Maximal clique listing", "Sparse-graph clique listing", "Maximum clique"]
+  },
+  "independent-set": {
+    "label": "Independent sets",
+    "phrases": ["Independent set approximation", "Parallel maximal independent set"]
+  },
+  "subgraph-isomorphism": {
+    "label": "Subgraph isomorphism",
+    "phrases": ["Subgraph isomorphism"]
+  },
+  "graph-isomorphism": {
+    "label": "Graph isomorphism",
+    "phrases": ["Isomorphism invariants", "Graph isomorphism practice", "Tree isomorphism"]
+  },
+  "matrix-ordering": {
+    "label": "Sparse matrix ordering",
+    "phrases": ["Bandwidth reduction", "Profile reduction", "Sparse-factorization fill reduction"]
+  },
+  "planarity": {
+    "label": "Planarity and minor testing",
+    "phrases": ["Planarity testing", "Graph minor testing"]
+  },
+  "lca-queries": {
+    "label": "Lowest common ancestor",
+    "phrases": ["Ancestor queries"]
+  },
+  "tree-decompositions": {
+    "label": "Tree path and subtree decompositions",
+    "phrases": ["Tree path queries", "Tree divide and conquer"]
+  },
+  "graph-partitioning": {
+    "label": "Graph partitioning",
+    "phrases": ["Graph bisection", "Hypergraph partitioning", "Large-graph partitioning"]
+  },
+  "dominators": {
+    "label": "Dominator computation",
+    "phrases": ["Dominator trees", "Control-flow analysis"]
+  },
+  "degree-sequences": {
+    "label": "Degree sequence realization",
+    "phrases": ["Degree-sequence realizability", "Degree-sequence realization"]
   }
 }

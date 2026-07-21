@@ -6,7 +6,6 @@
 {"a": "Coin change DP", "h": null, "d": "Minimum-coin counting", "t": 1},
 {"a": "Longest common subsequence", "h": null, "d": "Sequence similarity", "t": 1},
 {"a": "Longest increasing subsequence", "h": "Patience piles with binary search", "d": "Longest increasing subsequence", "t": 1},
-{"a": "Edit distance DP", "h": null, "d": "String transformation cost", "t": 1},
 {"a": "Matrix chain multiplication", "h": null, "d": "Optimal parenthesization", "t": 1},
 {"a": "Optimal binary search tree", "h": "Knuth optimization", "d": "Weighted lookup trees", "t": 2},
 {"a": "Rod cutting DP", "h": null, "d": "Revenue maximization", "t": 1},

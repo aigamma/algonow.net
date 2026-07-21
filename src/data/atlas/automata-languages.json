@@ -11,7 +11,6 @@
 {"a": "Myhill-Nerode", "h": "Equivalence-class counting", "d": "Regular language theory", "t": 2},
 {"a": "Angluin's L-star", "h": "Membership-equivalence queries", "d": "Automaton learning", "t": 3},
 {"a": "RPNI", "h": "State-merging induction", "d": "Grammar induction", "t": 3},
-{"a": "Aho-Corasick automaton", "h": "Failure links", "d": "Multi-pattern automata", "t": 1},
 {"a": "Weighted automaton determinization", "h": null, "d": "Speech and NLP transducers", "t": 3},
 {"a": "Recursive descent parsing", "h": null, "d": "Top-down parsing", "t": 1},
 {"a": "LL(1) parsing", "h": "First-follow table", "d": "Predictive parsing", "t": 1},

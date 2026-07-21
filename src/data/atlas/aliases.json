@@ -420,5 +420,15 @@
   "Differential dynamic programming": { "aka": ["DDP"] },
   "Reciprocal velocity obstacles": { "aka": ["RVO", "ORCA"] },
   "Dynamic window approach": { "aka": ["DWA"] },
-  "Inverse kinematics": { "aka": ["IK"] }
+  "Inverse kinematics": { "aka": ["IK"] },
+
+  "Wagner-Fischer": { "aka": ["Edit distance DP", "Levenshtein DP"], "note": "The dynamic-programming entry 'Edit distance DP' was this same algorithm under a generic name and was merged here 2026-07-21." },
+  "Z-algorithm": { "aka": ["Z-function"] },
+  "Aho-Corasick": { "aka": ["Aho-Corasick automaton"], "note": "The automata-languages entry 'Aho-Corasick automaton' (same failure-link construction, reworded) was merged here 2026-07-21." },
+  "Suffix automaton": { "aka": ["DAWG", "Directed acyclic word graph"] },
+  "FM-index": { "aka": ["Ferragina-Manzini index"] },
+  "SA-IS": { "aka": ["Induced sorting suffix array"] },
+  "Eertree": { "aka": ["Palindromic tree"] },
+  "MinHash": { "aka": ["Min-wise hashing"] },
+  "Lyndon factorization": { "aka": ["Chen-Fox-Lyndon factorization"] }
 }

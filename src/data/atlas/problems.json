@@ -111,19 +111,19 @@
 
   "substring-search": {
     "label": "Substring search",
-    "phrases": ["Substring search", "Constant-space substring search", "Substring and plagiarism search"]
+    "phrases": ["Substring search", "Constant-space substring search", "Substring and plagiarism search", "Pattern preprocessing"]
   },
   "approximate-string-matching": {
     "label": "Approximate string matching",
-    "phrases": ["Approximate string matching", "Approximate matching"]
+    "phrases": ["Approximate string matching", "Approximate matching", "Fuzzy dictionary lookup"]
   },
   "edit-distance": {
     "label": "Edit distance and sequence comparison",
-    "phrases": ["Edit distance", "Bounded edit distance", "Speedup for edit distance", "Sequence similarity", "String transformation cost", "Sequence symmetry"]
+    "phrases": ["Edit distance", "Bounded edit distance", "Speedup for edit distance", "Sequence similarity", "Sequence symmetry", "Transposition-aware distance"]
   },
   "pairwise-sequence-alignment": {
     "label": "Pairwise sequence alignment",
-    "phrases": ["Global sequence alignment", "Local sequence alignment", "Sequence alignment", "Similar-sequence alignment"]
+    "phrases": ["Global sequence alignment", "Local sequence alignment", "Sequence alignment", "Similar-sequence alignment", "Linear-space alignment", "Sequence comparison"]
   },
   "multiple-sequence-alignment": {
     "label": "Multiple sequence alignment",
@@ -1533,5 +1533,34 @@
   "crowd-navigation": {
     "label": "Multi-agent collision avoidance",
     "phrases": ["Multi-agent avoidance", "Multi-agent navigation", "Crowd simulation"]
+  },
+
+  "palindrome-substrings": {
+    "label": "Palindromic substrings",
+    "phrases": ["Longest palindromic substring", "Palindromic substring structure"]
+  },
+  "text-indexing": {
+    "label": "Full-text indexing",
+    "phrases": ["Full-text indexing", "Linear suffix arrays", "LCP array construction", "Substring recognition", "Multi-string substring queries", "Compressed full-text search", "Compression preprocessing", "Full-text search"]
+  },
+  "text-diffing": {
+    "label": "Text diffing",
+    "phrases": ["Diff computation", "Text diffing", "Readable text diffing", "Unix diff foundation"]
+  },
+  "similarity-sketching": {
+    "label": "Similarity sketching and near-duplicates",
+    "phrases": ["Set-similarity estimation", "Near-duplicate detection", "Record linkage"]
+  },
+  "string-periodicity": {
+    "label": "String periodicity and factorization",
+    "phrases": ["Repetition analysis", "String canonical decomposition", "Least rotation", "All tandem repeats", "Maximal repetitions"]
+  },
+  "2d-pattern-matching": {
+    "label": "Two-dimensional pattern matching",
+    "phrases": ["Two-dimensional pattern matching", "Image and grid matching"]
+  },
+  "regex-construction": {
+    "label": "Regex to automaton construction",
+    "phrases": ["Regex to NFA"]
   }
 }

@@ -258,7 +258,7 @@
   },
   "dimensionality-reduction": {
     "label": "Dimensionality reduction",
-    "phrases": ["Dimensionality reduction", "Linear dimensionality reduction", "Nonlinear dimensionality reduction", "Topological dimensionality reduction", "Quantum dimensionality reduction"]
+    "phrases": ["Dimensionality reduction", "Linear dimensionality reduction", "Nonlinear dimensionality reduction", "Topological dimensionality reduction", "Quantum dimensionality reduction", "High-dimensional features"]
   },
   "feature-selection": {
     "label": "Feature selection",
@@ -294,11 +294,11 @@
   },
   "stream-sampling": {
     "label": "Stream sampling",
-    "phrases": ["Fast stream sampling", "Uniform stream sampling", "Streaming sampling", "Weighted stream sampling", "Distinct sampling"]
+    "phrases": ["Fast stream sampling", "Uniform stream sampling", "Streaming sampling", "Weighted stream sampling", "Distinct sampling", "Subset-sum estimation"]
   },
   "random-variate-generation": {
     "label": "Random variate generation",
-    "phrases": ["Discrete random sampling", "Weighted sampling", "Gaussian random sampling"]
+    "phrases": ["Discrete random sampling", "Weighted sampling", "Gaussian random sampling", "Random variate generation"]
   },
 
   "parser-construction": {
@@ -349,7 +349,7 @@
   },
   "cardinality-estimation": {
     "label": "Cardinality estimation",
-    "phrases": ["Cardinality estimation"]
+    "phrases": ["Cardinality estimation", "Set-operation cardinality"]
   },
   "document-ranking": {
     "label": "Document ranking",
@@ -1293,7 +1293,7 @@
   },
   "set-reconciliation": {
     "label": "Set reconciliation",
-    "phrases": ["Set reconciliation", "Set difference recovery"]
+    "phrases": ["Set reconciliation", "Set difference recovery", "Distributed sketching"]
   },
   "garbage-collection": {
     "label": "Garbage collection",
@@ -1585,7 +1585,7 @@
   },
   "similarity-sketching": {
     "label": "Similarity sketching and near-duplicates",
-    "phrases": ["Set-similarity estimation", "Near-duplicate detection", "Record linkage"]
+    "phrases": ["Set-similarity estimation", "Near-duplicate detection", "Record linkage", "Jaccard similarity estimation", "Fast similarity estimation", "Approximate similarity join"]
   },
   "string-periodicity": {
     "label": "String periodicity and factorization",
@@ -1652,5 +1652,30 @@
   "volatility-modeling": {
     "label": "Volatility modeling",
     "phrases": ["Volatility forecasting", "Risk forecasting", "Volatility estimation"]
+  },
+
+  "approximate-membership": {
+    "label": "Approximate set membership",
+    "phrases": ["Approximate set membership", "Deletable set membership", "Fast set membership", "Static set membership", "Cache-friendly membership", "Space-lean membership", "Approximate function lookup"]
+  },
+  "frequency-estimation": {
+    "label": "Frequency estimation sketches",
+    "phrases": ["Frequency estimation", "Majority element", "Stream moment estimation", "Approximate counting", "Windowed stream counting"]
+  },
+  "streaming-quantiles": {
+    "label": "Streaming quantiles",
+    "phrases": ["Streaming quantiles", "Distributed quantiles"]
+  },
+  "pseudorandom-generation": {
+    "label": "Pseudorandom number generation",
+    "phrases": ["Pseudorandom generation", "Fast pseudorandom generation", "Statistical-quality randomness", "Seeding and fast randomness", "Cryptographic PRNG"]
+  },
+  "shuffling": {
+    "label": "Shuffling and permutation",
+    "phrases": ["Uniform permutation", "Streaming shuffle"]
+  },
+  "matrix-sketching": {
+    "label": "Streaming matrix sketching",
+    "phrases": ["Streaming matrix sketching"]
   }
 }

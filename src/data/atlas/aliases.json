@@ -468,5 +468,18 @@
   "Molecular dynamics": { "aka": ["MD simulation"] },
   "Sequence logo scoring": { "aka": ["Position weight matrix scanning", "PWM scanning"] },
   "Wavefront alignment": { "aka": ["WFA"] },
-  "AlphaFold-style folding": { "aka": ["Deep-learning structure prediction"], "note": "Named generically because the atlas catalogs methods, not products; the Evoformer-on-MSA architecture is the method." }
+  "AlphaFold-style folding": { "aka": ["Deep-learning structure prediction"], "note": "Named generically because the atlas catalogs methods, not products; the Evoformer-on-MSA architecture is the method." },
+
+  "Boyer-Moore majority vote": { "aka": ["Majority vote algorithm"], "note": "Same authors as the Boyer-Moore string search, a different algorithm; both keep their full names." },
+  "Random projection": { "aka": ["Johnson-Lindenstrauss projection", "JL transform"] },
+  "Feature hashing": { "aka": ["Hashing trick"] },
+  "Mersenne Twister": { "aka": ["MT19937"] },
+  "Linear congruential generator": { "aka": ["LCG"] },
+  "Invertible Bloom lookup table": { "aka": ["IBLT"] },
+  "T-digest": { "aka": ["Tdigest"] },
+  "GK summary": { "aka": ["Greenwald-Khanna summary"] },
+  "Morris counter": { "aka": ["Approximate counting algorithm"] },
+  "AMS sketch": { "aka": ["Alon-Matias-Szegedy sketch", "Tug-of-war sketch"] },
+  "Vose alias sampling": { "aka": ["Vose's alias method"] },
+  "Inverse transform sampling": { "aka": ["Smirnov transform", "Inversion sampling"] }
 }

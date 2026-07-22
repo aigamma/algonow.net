@@ -1,4 +1,5 @@
 import SudokuViz from '../viz/SudokuViz.jsx';
+import Figure from '../components/Figure.jsx';
 import code from '../../solutions/backtracking_mrv.py?raw';
 import { narration } from './backtracking-mrv.narration.js';
 
@@ -96,10 +97,11 @@ export const content = {
   baseline: (
     <>
       Same backtracking, reading order: on the hard grid in the tested
-      solution, abandoned <strong>still unfinished past 2,000,000 calls</strong>{' '}
-      while MRV completed it in <strong>482</strong>; on a gentle grid, 201
-      calls against 50. Both are O(9^m) in the worst case; the heuristic
-      does not change the ceiling, it changes whether you ever meet it.
+      solution it is <strong>still unfinished at 20,000 calls</strong>, the
+      budget the test actually enforces, while MRV completed it in{' '}
+      <strong>482</strong>; on a gentle grid, 201 calls against 50. Both are
+      O(9^m) in the worst case; the heuristic does not change the ceiling, it
+      changes whether you ever meet it.
     </>
   ),
 
@@ -119,6 +121,172 @@ export const content = {
       (propagation, least-constraining-value, learned no-goods). The heuristic
       picks where to work, not how much work can exist.
     </>
+  ),
+
+  problem: 'Constraint satisfaction search',
+  rivals: [
+    {
+      name: 'Backtracking, reading order',
+      cost: 'O(9^m) worst case',
+      wins: (
+        <>
+          Zero heuristic machinery, and it accidentally exploits locality:
+          consecutive cells share a row and a box, so a contradiction usually
+          surfaces nearby. <strong>201 calls</strong> below.
+        </>
+      ),
+      costs: (
+        <>
+          On grids built to defeat it, the same search runs for hours. The
+          locality is luck, not a guarantee.
+        </>
+      ),
+      when: 'A first implementation, or when the instance is known to be gentle.',
+    },
+    {
+      name: 'Backtracking, random cell',
+      cost: 'O(9^m), and the constant is brutal',
+      wins: <>Nothing. It is on this bench to prove a point, and it proves it.</>,
+      costs: (
+        <>
+          <strong>Did not finish inside 20,000 calls</strong> on the same
+          puzzle reading order solved in 201. Choosing at random keeps
+          re-deciding loose cells with seven or eight candidates, so the tree
+          it opens is astronomically wider.
+        </>
+      ),
+      when: 'Never. A bad ordering is far worse than no ordering.',
+    },
+    {
+      name: 'Backtracking × MRV',
+      isThisUnit: true,
+      cost: 'O(9^m) worst case, with a far smaller effective branching factor',
+      wins: (
+        <>
+          Always works the tightest cell first, so a doomed branch dies in one
+          move instead of twenty: <strong>50 calls</strong>, a quarter of
+          reading order, and 482 on a puzzle built to punish naive solvers.
+        </>
+      ),
+      costs: (
+        <>
+          Recounting candidates at every node is real work per placement, and
+          the exponential ceiling still stands.
+        </>
+      ),
+      when: 'Any constraint problem where domains shrink as you assign.',
+    },
+    {
+      name: 'MRV + constraint propagation',
+      cost: 'O(m) per propagation pass',
+      wins: (
+        <>
+          Assigns every forced cell before searching at all, and{' '}
+          <strong>solved this grid in a single call</strong>: no search
+          whatsoever, only inference.
+        </>
+      ),
+      costs: (
+        <>
+          More code, more state to keep consistent, and on genuinely hard
+          grids it merely shrinks the tree rather than removing it.
+        </>
+      ),
+      when: 'Production. This is what real constraint solvers do, and ordering composes with it rather than competing.',
+    },
+  ],
+  neverUse: {
+    name: 'Generate and test',
+    why: (
+      <>
+        Filling every empty cell with digits and then checking validity means{' '}
+        <strong>9 to the power of the blanks</strong> candidate grids. The
+        gentle puzzle below has 51 blanks, so that is roughly{' '}
+        <strong>10⁴⁸</strong> grids to test, against 50 placements for the
+        same answer. The lesson is not that brute force is slow. It is that
+        checking a constraint only at the end throws away the information
+        that makes the problem tractable: a contradiction is visible the
+        moment it is created, and every method on this bench beats generate
+        and test purely by looking sooner.
+      </>
+    ),
+  },
+
+  contest: {
+    instance:
+      'one gentle 9 by 9 Sudoku with 51 blanks, every method capped at 20,000 recursive calls',
+    columns: ['calls', 'solved'],
+    rows: [
+      {
+        method: 'Backtracking, reading order',
+        values: ['201', 'yes'],
+        verdict: 'no heuristic at all, and it exploits locality by accident',
+      },
+      {
+        method: 'Backtracking, random cell',
+        values: ['over 20,000', 'no'],
+        verdict: 'a bad ordering is far worse than none: 100× worse and still unfinished',
+      },
+      {
+        method: 'Backtracking × MRV',
+        isThisUnit: true,
+        values: ['50', 'yes'],
+        verdict: 'tightest cell first, a quarter of the work',
+      },
+      {
+        method: 'MRV + constraint propagation',
+        values: ['1', 'yes'],
+        best: 0,
+        verdict: 'pure inference, no search: the grid was never actually hard',
+      },
+    ],
+    source:
+      'python solutions/backtracking_mrv.py prints this table and asserts every finisher produced a valid grid. On a puzzle built to defeat naive solvers, MRV still finishes in 482 calls.',
+  },
+
+  figure: (
+    <Figure
+      id="fig-mrv-branching"
+      aspect="16 / 7"
+      caption="Why the tightest cell first is not a preference but a pruning device. A cell with seven candidates opens seven branches, and a mistake there is discovered many placements later. A cell with one candidate is free progress, and a cell with none proves the current branch dead immediately, before any of its subtree is generated. Minimum remaining values simply always takes the leftmost bar on this chart."
+      cite={{
+        text: 'The fail-first principle, Haralick and Elliott, "Increasing Tree Search Efficiency for Constraint Satisfaction Problems", Artificial Intelligence 14(3), 1980.',
+        href: 'https://doi.org/10.1016/0004-3702(80)90051-X',
+      }}
+    >
+      <svg viewBox="0 0 640 280" role="img" aria-label="Branching factor bars, from a dead cell with zero candidates to a loose cell with seven">
+        <line x1="56" y1="228" x2="612" y2="228" stroke="#232c40" strokeWidth="1.5" />
+        {[
+          { x: 80, n: 0, h: 4, fill: '#e06767', label: 'dead' },
+          { x: 152, n: 1, h: 26, fill: '#62d98a', label: 'forced' },
+          { x: 224, n: 2, h: 52, fill: '#5da2ff', label: '' },
+          { x: 296, n: 3, h: 78, fill: '#5da2ff', label: '' },
+          { x: 368, n: 4, h: 104, fill: '#5da2ff', label: '' },
+          { x: 440, n: 5, h: 130, fill: '#f0b94b', label: '' },
+          { x: 512, n: 6, h: 156, fill: '#f0b94b', label: '' },
+          { x: 584, n: 7, h: 182, fill: '#f0b94b', label: 'loose' },
+        ].map((b) => (
+          <g key={b.n}>
+            <rect x={b.x - 22} y={228 - b.h} width="44" height={b.h} rx="4" fill={b.fill} opacity="0.72" />
+            <text x={b.x} y="248" textAnchor="middle" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="12">
+              {b.n}
+            </text>
+            {b.label && (
+              <text x={b.x} y={218 - b.h} textAnchor="middle" fill={b.fill} fontFamily="ui-monospace, monospace" fontSize="11">
+                {b.label}
+              </text>
+            )}
+          </g>
+        ))}
+        <text x="56" y="268" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="12">
+          candidates left in the cell  →
+        </text>
+        <text x="56" y="34" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="12">
+          branches opened by choosing that cell
+        </text>
+        <line x1="56" y1="42" x2="56" y2="228" stroke="#232c40" strokeWidth="1.5" />
+      </svg>
+    </Figure>
   ),
 
   code,

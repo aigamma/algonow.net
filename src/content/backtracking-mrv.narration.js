@@ -29,12 +29,27 @@ export const narration = [
   {
     section: 'signals',
     text:
-      'The signals for this pair. Your problem assigns values to variables under hard interlocking rules, and wants a complete assignment or a proof of impossibility. Legal values per variable are cheap to count. And placements propagate, so each decision tightens its neighbors. Sudoku, timetables, seating charts, register allocation: the same shape. The baseline is the same backtracking in plain reading order, and the gap is not subtle. On the hard grid tested in the solution below, reading order was abandoned still unfinished past two million recursive calls, while minimum remaining values completed the same grid in four hundred eighty two. On a gentle grid the gap was two hundred one calls against fifty. Worst case both are exponential, order nine to the number of empty cells; the heuristic does not change the ceiling, it changes whether you ever meet it.',
+      'The signals for this pair. Your problem assigns values to variables under hard interlocking rules, and wants a complete assignment or a proof of impossibility. Legal values per variable are cheap to count. And placements propagate, so each decision tightens its neighbors. Sudoku, timetables, seating charts, register allocation: the same shape. The baseline is the same backtracking in plain reading order, and the gap is not subtle. On the hard grid tested in the solution below, reading order was still unfinished at twenty thousand recursive calls, which is the budget the test actually enforces, while minimum remaining values completed the same grid in four hundred eighty two. On a gentle grid the gap was two hundred one calls against fifty. Worst case both are exponential, order nine to the number of empty cells; the heuristic does not change the ceiling, it changes whether you ever meet it.',
   },
   {
     section: 'tradeoffs',
     text:
       'The strength is completeness with early failure. The search misses nothing, proves impossibility when asked, and the fail first rule converts most wrong guesses into shallow, one move detours while forced cascades do the bulk of the grid for free. The weakness is cost per node and the surviving worst case. Recounting candidates at every step is real work per placement, an adversarial grid can still force exponential thrashing, and plain minimum remaining values alone is weaker than the full industrial recipe, which adds constraint propagation, least constraining value ordering, and learned no goods. The heuristic picks where to work; it does not, by itself, shrink what work can exist.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'Four ways to run the same search sit on the bench, and the numbers separate them harder than intuition would. On one gentle Sudoku with fifty one blanks, every method capped at twenty thousand recursive calls: plain backtracking in reading order solved it in two hundred one calls. Backtracking with minimum remaining values, which is this unit, solved it in fifty. And minimum remaining values combined with constraint propagation solved it in a single call, because once you assign every cell that has only one possible digit, and repeat that to a fixed point, the grid simply falls out with no search at all. That last row is worth sitting with. The puzzle was never actually hard. It only looked hard to a method that refused to look before it leapt.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'The fourth row is the surprising one, and it is the reason this bench exists. Backtracking that picks a random empty cell instead of the tightest one did not finish inside twenty thousand calls, on the same puzzle that reading order finished in two hundred one. That is at least a hundred times worse than having no heuristic whatsoever. The lesson is sharper than the usual advice to add a heuristic. Reading order is not neutral: consecutive cells share a row and a box, so a contradiction tends to surface within a few placements. Random order destroys that accidental locality and keeps re-deciding loose cells with seven or eight candidates each, opening an astronomically wider tree. A bad ordering is not a small loss against a good one. It is far worse than no ordering at all.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'The method you would never bring to this problem is generate and test: fill every blank with digits, then check whether the finished grid is legal. With fifty one blanks that is nine raised to the fifty first power, roughly ten to the forty eighth candidate grids, to answer a question that fifty placements settle. And the reason it fails is more instructive than its size. Generate and test checks the constraints only at the very end, which throws away the single most valuable fact about this problem: a contradiction is visible the instant it is created. Every method on this bench, including the worst of them, beats generate and test purely by looking sooner.',
   },
   {
     section: 'code',

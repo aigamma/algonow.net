@@ -46,6 +46,34 @@ for (const p of Object.values(PUZZLES)) {
   const unknown = sections.filter((s) => !NARRATION_SECTIONS.has(s));
   if (unknown.length) fail(`${p.slug}: unknown narration sections ${unknown.join(',')}`);
   if (sections.length < 6) fail(`${p.slug}: only ${sections.length} narration sections`);
+
+  // The comparative standard (owner directive 2026-07-22): a unit that teaches
+  // one method in isolation fails the site's purpose even when it is correct.
+  // Every page must place its method among real rivals, show a machine-drawn
+  // figure with a citation, and race the field on one shared instance.
+  // MIGRATION: these are warnings only while the six pre-doctrine pages are
+  // brought up to standard (docs/OVERNIGHT-PLAN.md phase B). The moment the
+  // last one lands, flip every `comparative` call below to `fail` so no new
+  // page can ever ship without its rivals. Do not remove the checks instead.
+  const comparative = (msg) => warn(`comparative standard: ${msg}`);
+  const contentSrc = readFileSync(`src/content/${p.slug}.jsx`, 'utf8');
+  const rivalCount = (contentSrc.match(/^\s*\{\s*name:/gm) ?? []).length;
+  if (!/\brivals:\s*\[/.test(contentSrc)) {
+    comparative(`${p.slug}: content has no rivals array (rivals are mandatory)`);
+  } else if (rivalCount < 2) {
+    comparative(`${p.slug}: only ${rivalCount} named rival(s); the doctrine wants two or three`);
+  }
+  if (!/\bproblem:\s*'/.test(contentSrc)) {
+    comparative(`${p.slug}: content names no shared problem for its rivals`);
+  }
+  if (!/\bcontest:\s*\{/.test(contentSrc)) {
+    comparative(`${p.slug}: content has no measured contest table`);
+  }
+  if (!/\bfigure:\s*\(/.test(contentSrc)) {
+    comparative(`${p.slug}: content has no machine-drawn figure`);
+  } else if (!/cite=\{\{/.test(contentSrc)) {
+    comparative(`${p.slug}: figure carries no citation`);
+  }
 }
 
 // 2. Style bans: no em dashes, no banned word, across authored text surfaces.

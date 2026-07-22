@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import SiteShell from './SiteShell.jsx';
 import CodeBlock from './CodeBlock.jsx';
 import ListenPlayer from './ListenPlayer.jsx';
+import RivalsBench from './RivalsBench.jsx';
+import ContestTable from './ContestTable.jsx';
 import { initTelemetry } from '../lib/telemetry.js';
 import { ttsAvailable } from '../lib/tts.js';
 import { nextPuzzle, pairTitle, puzzlePath } from '../data/puzzles.js';
@@ -47,6 +49,11 @@ export default function PuzzlePage({ puzzle, content }) {
     baseline,
     strength,
     weakness,
+    problem,
+    rivals,
+    neverUse,
+    contest,
+    figure,
     code,
     filename,
     Viz,
@@ -140,6 +147,7 @@ export default function PuzzlePage({ puzzle, content }) {
         <section className="section" id="sec-picture">
           <SectionHead id="picture" label="street-level picture" />
           {picture}
+          {figure}
         </section>
 
         <section className="section" id="sec-run">
@@ -187,6 +195,17 @@ export default function PuzzlePage({ puzzle, content }) {
               <p>{weakness}</p>
             </div>
           </div>
+          <RivalsBench problem={problem} rivals={rivals} neverUse={neverUse} />
+        </section>
+
+        <section className="section" id="sec-contest">
+          <SectionHead id="contest" label="the same instance, every method" section="tradeoffs" />
+          <ContestTable
+            instance={contest.instance}
+            columns={contest.columns}
+            rows={contest.rows}
+            source={contest.source}
+          />
         </section>
 
         <section className="section" id="sec-code">

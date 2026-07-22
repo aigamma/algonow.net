@@ -1,0 +1,40 @@
+# Qdrant for algonow. Not deployed yet; see README.md in this directory.
+app = "algonow-qdrant"
+primary_region = "ord"
+
+[build]
+  image = "qdrant/qdrant:latest"
+
+[env]
+  QDRANT__SERVICE__HTTP_PORT = "6333"
+  # Telemetry off: this stores a public algorithm catalog, but sending usage
+  # anywhere by default is not something the site should do silently.
+  QDRANT__TELEMETRY_DISABLED = "true"
+
+[http_service]
+  internal_port = 6333
+  force_https = true
+  auto_stop_machines = "suspend"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 40
+    hard_limit = 80
+
+# The catalog is small (about 3,100 vectors at 1024 dimensions, roughly 13 MB
+# of raw vectors), so the smallest useful machine is genuinely enough. Resize
+# when the catalog reaches the 5,000-entry target, not before.
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "512mb"
+
+[mounts]
+  source = "qdrant_data"
+  destination = "/qdrant/storage"
+
+[[services.http_checks]]
+  path = "/readyz"
+  interval = "30s"
+  timeout = "5s"

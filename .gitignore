@@ -11,3 +11,6 @@ Thumbs.db
 # every unit build. Never belongs in the history.
 __pycache__/
 *.py[cod]
+
+# Dry-run output of scripts/embed-atlas.mjs: derived data, regenerate at will.
+build/

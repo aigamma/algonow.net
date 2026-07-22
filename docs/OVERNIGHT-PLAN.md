@@ -76,14 +76,14 @@ one page today. This phase turns the data into the site.
 Costs money only at the embedding step. **Build everything, run nothing
 paid without an explicit in-session go-ahead** (CLAUDE.md rule 9).
 
-- [ ] **D1. `infra/qdrant/`**: fly.toml, Dockerfile, volume config, and the
+- [x] **D1. `infra/qdrant/`**: fly.toml, Dockerfile, volume config, and the
       collection schema with payload indexes for category, topic, tier,
       problem, aliases.
-- [ ] **D2. `scripts/embed-atlas.mjs`**: builds the staged record from
+- [x] **D2. `scripts/embed-atlas.mjs`**: builds the staged record from
       docs/RETRIEVAL.md, hashes for idempotency, batches, and **refuses to
       run without `--i-am-paying`**. Dry-run mode prints the record count and
       token estimate.
-- [ ] **D3. `netlify/functions/search.js`**: embed query, Qdrant top-K with
+- [x] **D3. `netlify/functions/search.js`**: embed query, Qdrant top-K with
       filters, Voyage rerank, fail open to the client-side filter.
 - [ ] **D4. Wire the atlas search box** to fall back to `/api/search` for
       natural-language queries.
@@ -127,7 +127,7 @@ Phase A standard. Candidates chosen for measurable contrast:
 
 ## Resume pointer
 
-**Next action: Phase D, Qdrant.** Phase C is complete. Phases A and B are complete and the
+**Next action: D4 (wire the atlas search box) then Phase E/F.** Phases A, B, C are complete; D1 through D3 are built and unpaid. Phases A and B are complete and the
 comparative standard is enforced as a hard failure. C1 through C4 and C6 are
 landed: `npm run build` now prerenders 4,597 static data pages into dist and
 emits a chunked sitemap of 3,583 indexable URLs. What remains in C is wiring

@@ -65,6 +65,100 @@ def knapsack_dp(items, capacity):
     return table[capacity]
 
 
+# ---------------------------------------------------------------- the rivals
+
+
+def knapsack_greedy_density(items, capacity):
+    """Take items by value-to-weight ratio until nothing else fits.
+
+    This is the fractional relaxation rounded down, which is exactly the
+    bound this unit uses. As an ANSWER it has no guarantee at all: the
+    classic counterexample is one dense pebble crowding out the gold bar.
+    """
+    order = sorted(range(len(items)), key=lambda k: items[k][1] / items[k][0],
+                   reverse=True)
+    total_w, total_v, chosen = 0, 0, []
+    for k in order:
+        w, v = items[k]
+        if total_w + w <= capacity:
+            total_w += w
+            total_v += v
+            chosen.append(k)
+    return total_v, sorted(chosen)
+
+
+def knapsack_greedy_plus_best_single(items, capacity):
+    """Greedy density, or the single most valuable item that fits, whichever
+    is better.
+
+    A one-line repair with a real theorem behind it: this is a 1/2
+    approximation, so it can never return less than half the optimum. The
+    contrast with plain greedy is the whole lesson about approximation
+    guarantees being cheap when you know where the bad case lives.
+    """
+    gv, gc = knapsack_greedy_density(items, capacity)
+    best_single, best_k = 0, None
+    for k, (w, v) in enumerate(items):
+        if w <= capacity and v > best_single:
+            best_single, best_k = v, k
+    if best_single > gv:
+        return best_single, [best_k]
+    return gv, gc
+
+
+def knapsack_exhaustive(items, capacity, counter=None):
+    """Every subset, no pruning: the honest exponential baseline."""
+    n = len(items)
+    best_v, best_set = 0, []
+    for mask in range(1 << n):
+        if counter is not None:
+            counter[0] += 1
+        w = v = 0
+        chosen = []
+        for k in range(n):
+            if mask >> k & 1:
+                w += items[k][0]
+                v += items[k][1]
+                chosen.append(k)
+                if w > capacity:
+                    break
+        if w <= capacity and v > best_v:
+            best_v, best_set = v, chosen
+    return best_v, best_set
+
+
+def contest(n=18, seed=2026):
+    """Race every method on one shared instance and return the numbers."""
+    rng = random.Random(seed)
+    items = [(rng.randint(3, 30), rng.randint(5, 60)) for _ in range(n)]
+    capacity = int(sum(w for w, _ in items) * 0.4)
+    optimum = knapsack_dp(items, capacity)
+
+    rows = []
+
+    c = [0]
+    v, _ = knapsack_exhaustive(items, capacity, counter=c)
+    rows.append(("Exhaustive subsets", c[0], v))
+
+    c = [0]
+    v, _ = knapsack_branch_and_bound(items, capacity, counter=c, use_bound=False)
+    rows.append(("Branch and bound, no bound", c[0], v))
+
+    c = [0]
+    v, _ = knapsack_branch_and_bound(items, capacity, counter=c, use_bound=True)
+    rows.append(("Branch and bound x fractional bound", c[0], v))
+
+    v, _ = knapsack_greedy_density(items, capacity)
+    rows.append(("Greedy by density", len(items), v))
+
+    v, _ = knapsack_greedy_plus_best_single(items, capacity)
+    rows.append(("Greedy or best single item", len(items), v))
+
+    rows.append(("Dynamic programming", len(items) * capacity, optimum))
+
+    return items, capacity, optimum, rows
+
+
 if __name__ == "__main__":
     rng = random.Random(2026)
 
@@ -102,5 +196,25 @@ if __name__ == "__main__":
             f"bound at {i} undercuts the true optimum"
         )
 
+    # Oracle 4: the published contest. Every exact method must agree with the
+    # dynamic-programming optimum, and neither greedy may exceed it.
+    citems, cap, optimum, rows = contest()
+    by_name = {name: (work, value) for name, work, value in rows}
+    for exact in ("Exhaustive subsets", "Branch and bound, no bound",
+                  "Branch and bound x fractional bound", "Dynamic programming"):
+        assert by_name[exact][1] == optimum, f"{exact} disagreed with the optimum"
+    for approx in ("Greedy by density", "Greedy or best single item"):
+        assert by_name[approx][1] <= optimum, f"{approx} beat the optimum"
+    assert (by_name["Branch and bound x fractional bound"][0]
+            < by_name["Branch and bound, no bound"][0]
+            < by_name["Exhaustive subsets"][0]), "unexpected work ordering"
+    assert by_name["Greedy or best single item"][1] >= optimum / 2, (
+        "the 1/2 approximation guarantee must hold"
+    )
+
+    print(f"contest on {len(citems)} items, capacity {cap}, optimum {optimum}:")
+    for name, work, value in rows:
+        gap = (1 - value / optimum) * 100
+        print(f"  {name:<36} work {work:>9,}   value {value:>5}   gap {gap:5.2f}%")
     print(f"OK: matches DP on 20 instances; nodes {plain[0]:,} plain -> "
           f"{bounded[0]:,} bounded on 18 items")

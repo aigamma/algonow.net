@@ -128,10 +128,34 @@ if (!existsSync('dist/assets')) {
   }
   if (!existsSync('dist/sitemap.xml')) fail('dist/sitemap.xml missing');
   else {
-    const sm = readFileSync('dist/sitemap.xml', 'utf8');
+    // The sitemap is now an index over chunked files, because the prerendered
+    // data surface is thousands of URLs. Search every chunk.
+    const chunks = readdirSync('dist').filter((f) => /^sitemap-\d+\.xml$/.test(f));
+    if (!chunks.length) fail('sitemap index lists no chunk files');
+    const sm = chunks.map((f) => readFileSync(`dist/${f}`, 'utf8')).join('\n');
     const missing = Object.keys(PUZZLES).filter((path) => !sm.includes(`algonow.net${path}`));
     if (missing.length) fail(`sitemap missing: ${missing.join(', ')}`);
-    else ok(`sitemap covers all ${Object.keys(PUZZLES).length + 1} pages`);
+    else {
+      const urls = (sm.match(/<loc>/g) ?? []).length;
+      ok(`sitemap: ${urls} URLs across ${chunks.length} chunk(s), all live pairs present`);
+    }
+  }
+
+  // The prerendered data surface must actually exist in dist, and its pages
+  // must stay small. They carry no JavaScript, so anything large means a
+  // template regression.
+  const dataPages = [
+    'dist/problem/index.html',
+    'dist/category/index.html',
+    'dist/data.css',
+  ];
+  const missingData = dataPages.filter((p) => !existsSync(p));
+  if (missingData.length) {
+    fail(`prerendered data surface missing: ${missingData.join(', ')}`);
+  } else {
+    const gzOf = (p) => gzipSync(readFileSync(p)).length;
+    budget('data.css', gzOf('dist/data.css'), 4 * 1024);
+    budget('html problem index', gzOf('dist/problem/index.html'), 12 * 1024);
   }
 }
 

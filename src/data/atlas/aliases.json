@@ -494,7 +494,7 @@
   "Lin-Kernighan-Helsgaun": { "aka": ["LKH"] },
   "EOQ model": { "aka": ["Economic order quantity", "Wilson formula"] },
   "Wagner-Whitin": { "aka": ["Wagner-Whitin lot sizing"] },
-  "Cutting plane method": { "aka": ["Gomory cutting planes"] },
+  "Cutting-plane method": { "aka": ["Gomory cutting planes", "Kelley method"], "note": "One algorithm, two pairings in the atlas: Kelley outer approximation for convex programs and Gomory cuts for integer programs. The unhyphenated spelling was a second entry until 2026-07-22 and now redirects." },
   "Graham list scheduling": { "aka": ["LPT scheduling", "List scheduling"] },
   "Shortest processing time": { "aka": ["SPT rule"] },
   "Karmarkar-Karp": { "aka": ["Largest differencing method", "KK heuristic"] },

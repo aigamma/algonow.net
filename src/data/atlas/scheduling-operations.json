@@ -46,7 +46,7 @@
 {"a": "Transportation simplex", "h": "MODI method", "d": "Transportation problem", "t": 3},
 {"a": "Vogel approximation", "h": "Penalty-based allocation", "d": "Transportation startup", "t": 3},
 {"a": "Northwest corner method", "h": null, "d": "Transportation startup", "t": 3},
-{"a": "Cutting plane method", "h": "Gomory cuts", "d": "Integer programming", "t": 2},
+{"a": "Cutting-plane method", "h": "Gomory cuts", "d": "Integer programming", "t": 2},
 {"a": "Benders decomposition", "h": "Master-subproblem cuts", "d": "Stochastic programming", "t": 3},
 {"a": "Dantzig-Wolfe decomposition", "h": null, "d": "Block-structured LP", "t": 3},
 {"a": "Lagrangian relaxation", "h": "Subgradient multiplier update", "d": "Combinatorial bounds", "t": 2},

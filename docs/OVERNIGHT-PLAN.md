@@ -54,21 +54,21 @@ sections.
 The atlas is 3,113 entries / 606 problems / 64 topics and renders as exactly
 one page today. This phase turns the data into the site.
 
-- [ ] **C1. Prerender pipeline.** `scripts/prerender.mjs` emits static HTML
+- [x] **C1. Prerender pipeline.** `scripts/prerender.mjs` emits static HTML
       into `dist/` after the Vite build. Not Vite entries: 3,000 Rollup
       inputs would be unbuildable. One small shared CSS, no JS on data pages,
       so the perf budget holds.
-- [ ] **C2. `/problem/<slug>/`** for all 606 problems: the label, every
+- [x] **C2. `/problem/<slug>/`** for all 606 problems: the label, every
       method that attacks it, grouped by topic, with tier badges. This is the
       rivals doctrine made browsable.
-- [ ] **C3. `/algo/<slug>/`** for every canonical algorithm name: what it is,
+- [x] **C3. `/algo/<slug>/`** for every canonical algorithm name: what it is,
       the problems it attacks, its rivals, its aliases, its topic and
       category. Alias slugs 301 to the canonical page per the redirect
       doctrine in ATLAS.md.
-- [ ] **C4. `/topic/<slug>/` and `/category/<slug>/`** index pages.
+- [x] **C4. `/topic/<slug>/` and `/category/<slug>/`** index pages.
 - [ ] **C5. Navigation.** A real nav spine: category rail, topic lists,
       problem cross-links, and search that reaches the new pages.
-- [ ] **C6. Sitemap + robots** covering every generated page, chunked if it
+- [x] **C6. Sitemap + robots** covering every generated page, chunked if it
       exceeds the 50,000-URL limit.
 
 ## Phase D. Qdrant and retrieval
@@ -127,10 +127,11 @@ Phase A standard. Candidates chosen for measurable contrast:
 
 ## Resume pointer
 
-**Next action: C1, the prerender pipeline.** Phases A and B are complete:
-the template now renders rivals, machine-drawn figures with citations, and a
-measured contest, the check enforces all three, and all six live pages meet
-the standard.
+**Next action: C5, navigation.** Phases A and B are complete and the
+comparative standard is enforced as a hard failure. C1 through C4 and C6 are
+landed: `npm run build` now prerenders 4,597 static data pages into dist and
+emits a chunked sitemap of 3,583 indexable URLs. What remains in C is wiring
+the existing site nav and the atlas search box to reach those pages.
 
 Working rules for whoever picks this up (from CLAUDE.md, restated because
 they are the ones most easily lost mid-run):

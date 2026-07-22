@@ -66,7 +66,7 @@ one page today. This phase turns the data into the site.
       category. Alias slugs 301 to the canonical page per the redirect
       doctrine in ATLAS.md.
 - [x] **C4. `/topic/<slug>/` and `/category/<slug>/`** index pages.
-- [ ] **C5. Navigation.** A real nav spine: category rail, topic lists,
+- [x] **C5. Navigation.** A real nav spine: category rail, topic lists,
       problem cross-links, and search that reaches the new pages.
 - [x] **C6. Sitemap + robots** covering every generated page, chunked if it
       exceeds the 50,000-URL limit.
@@ -127,7 +127,7 @@ Phase A standard. Candidates chosen for measurable contrast:
 
 ## Resume pointer
 
-**Next action: C5, navigation.** Phases A and B are complete and the
+**Next action: Phase D, Qdrant.** Phase C is complete. Phases A and B are complete and the
 comparative standard is enforced as a hard failure. C1 through C4 and C6 are
 landed: `npm run build` now prerenders 4,597 static data pages into dist and
 emits a chunked sitemap of 3,583 indexable URLs. What remains in C is wiring

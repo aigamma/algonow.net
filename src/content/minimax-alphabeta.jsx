@@ -118,9 +118,11 @@ export const content = {
   ),
 
   problem: 'Game-tree search',
+  problemSlug: 'game-tree-search',
   rivals: [
     {
       name: 'Plain minimax',
+      algoName: 'Minimax',
       cost: 'O(bᵈ)',
       wins: (
         <>
@@ -138,6 +140,7 @@ export const content = {
     },
     {
       name: 'Alpha-beta, natural order',
+      algoName: 'Alpha-beta pruning',
       cost: 'O(b^(3d/4)) with random ordering',
       wins: (
         <>
@@ -150,6 +153,7 @@ export const content = {
     },
     {
       name: 'Alpha-beta, center-first order',
+      algoName: 'Alpha-beta pruning',
       isThisUnit: true,
       cost: 'O(b^(d/2)) with perfect ordering',
       wins: (
@@ -169,6 +173,7 @@ export const content = {
     },
     {
       name: 'Alpha-beta + transposition table',
+      algoName: 'Alpha-beta pruning',
       cost: 'O(distinct positions), plus memory for the table',
       wins: (
         <>

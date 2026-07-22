@@ -118,6 +118,7 @@ export const content = {
   ),
 
   problem: 'Traveling-salesman tours',
+  problemSlug: 'traveling-salesman',
   rivals: [
     {
       name: 'Simulated annealing',
@@ -141,6 +142,7 @@ export const content = {
     },
     {
       name: 'Nearest neighbor',
+      algoName: 'Nearest neighbor tour',
       cost: 'O(n²)',
       wins: <>Instant, ten lines, and a legitimate starting tour for everything else.</>,
       costs: (
@@ -153,6 +155,7 @@ export const content = {
     },
     {
       name: '2-opt hill climbing',
+      algoName: '2-opt',
       cost: 'O(n²) per sweep until no improving move remains',
       wins: (
         <>
@@ -166,6 +169,7 @@ export const content = {
     },
     {
       name: '2-opt with random restarts',
+      algoName: '2-opt',
       cost: 'O(restarts × climb)',
       wins: (
         <>

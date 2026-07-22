@@ -50,6 +50,7 @@ export default function PuzzlePage({ puzzle, content }) {
     strength,
     weakness,
     problem,
+    problemSlug,
     rivals,
     neverUse,
     contest,
@@ -195,7 +196,12 @@ export default function PuzzlePage({ puzzle, content }) {
               <p>{weakness}</p>
             </div>
           </div>
-          <RivalsBench problem={problem} rivals={rivals} neverUse={neverUse} />
+          <RivalsBench
+            problem={problem}
+            problemSlug={problemSlug}
+            rivals={rivals}
+            neverUse={neverUse}
+          />
         </section>
 
         <section className="section" id="sec-contest">

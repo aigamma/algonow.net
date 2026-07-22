@@ -119,9 +119,11 @@ export const content = {
   ),
 
   problem: 'The 0/1 knapsack',
+  problemSlug: 'knapsack',
   rivals: [
     {
       name: 'Exhaustive subsets',
+      algoName: 'Subset-sum enumeration',
       cost: 'O(2ⁿ · n)',
       wins: <>Cannot be wrong, and fits in ten lines with no cleverness to review.</>,
       costs: (
@@ -134,6 +136,7 @@ export const content = {
     },
     {
       name: 'Branch and bound, no bound',
+      algoName: 'Branch and bound',
       cost: 'O(2ⁿ), with capacity pruning only',
       wins: <>Refuses overweight branches, which already removes 40 percent of the work here.</>,
       costs: (
@@ -146,6 +149,7 @@ export const content = {
     },
     {
       name: 'Branch and bound × fractional bound',
+      algoName: 'Branch and bound',
       isThisUnit: true,
       cost: 'O(2ⁿ) worst case, near-trivial on structured instances',
       wins: (
@@ -167,6 +171,7 @@ export const content = {
     },
     {
       name: 'Dynamic programming',
+      algoName: '0/1 knapsack DP',
       cost: 'O(n · capacity), pseudo-polynomial',
       wins: (
         <>
@@ -185,6 +190,7 @@ export const content = {
     },
     {
       name: 'Greedy by density',
+      algoName: 'Knapsack greedy',
       cost: 'O(n log n)',
       wins: (
         <>
@@ -204,6 +210,7 @@ export const content = {
     },
     {
       name: 'Greedy, or the best single item',
+      algoName: 'Knapsack greedy',
       cost: 'O(n log n)',
       wins: (
         <>

@@ -124,9 +124,11 @@ export const content = {
   ),
 
   problem: 'Constraint satisfaction search',
+  problemSlug: 'constraint-satisfaction',
   rivals: [
     {
       name: 'Backtracking, reading order',
+      algoName: 'Backtracking search',
       cost: 'O(9^m) worst case',
       wins: (
         <>
@@ -145,6 +147,7 @@ export const content = {
     },
     {
       name: 'Backtracking, random cell',
+      algoName: 'Backtracking search',
       cost: 'O(9^m), and the constant is brutal',
       wins: <>Nothing. It is on this bench to prove a point, and it proves it.</>,
       costs: (
@@ -159,6 +162,7 @@ export const content = {
     },
     {
       name: 'Backtracking × MRV',
+      algoName: 'Backtracking search',
       isThisUnit: true,
       cost: 'O(9^m) worst case, with a far smaller effective branching factor',
       wins: (
@@ -178,6 +182,7 @@ export const content = {
     },
     {
       name: 'MRV + constraint propagation',
+      algoName: 'Constraint propagation for Sudoku',
       cost: 'O(m) per propagation pass',
       wins: (
         <>

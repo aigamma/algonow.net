@@ -115,6 +115,7 @@ export const content = {
   ),
 
   problem: 'Nonnegative shortest paths',
+  problemSlug: 'single-source-shortest-paths',
   rivals: [
     {
       name: 'A* search',

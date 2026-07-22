@@ -120,6 +120,7 @@ export const content = {
   ),
 
   problem: 'Spending a fixed budget of trials on options of unknown value',
+  problemSlug: 'bandits',
   rivals: [
     {
       name: 'UCB1',
@@ -143,6 +144,7 @@ export const content = {
     },
     {
       name: 'Epsilon-greedy',
+      algoName: 'Epsilon-greedy',
       cost: 'O(k) per pull, one parameter',
       wins: (
         <>
@@ -161,6 +163,7 @@ export const content = {
     },
     {
       name: 'Thompson sampling',
+      algoName: 'Thompson sampling',
       cost: 'O(k) per pull, one posterior per arm',
       wins: (
         <>
@@ -174,6 +177,7 @@ export const content = {
     },
     {
       name: 'Greedy',
+      algoName: 'Greedy bandit',
       cost: 'O(k) per pull',
       wins: <>Maximum exploitation, and it beat uniform sampling on average.</>,
       costs: (
@@ -187,6 +191,7 @@ export const content = {
     },
     {
       name: 'Uniform sampling',
+      algoName: 'Uniform allocation',
       cost: 'O(1) per pull',
       wins: <>Learns the most about every arm, and its regret has no variance at all.</>,
       costs: (

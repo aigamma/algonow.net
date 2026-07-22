@@ -73,6 +73,36 @@ for (const p of Object.values(PUZZLES)) {
   } else if (!/cite=\{\{/.test(contentSrc)) {
     comparative(`${p.slug}: figure carries no citation`);
   }
+
+  // Link integrity into the prerendered data surface. A rival whose name has
+  // no page is a dead link on a flagship page, and the display name on a unit
+  // is not always the atlas canonical name, which is what `algoName` is for.
+  if (existsSync('dist/algo')) {
+    const slugOf = (name) =>
+      String(name)
+        .toLowerCase()
+        .replace(/['’]/g, '')
+        .replace(/\*/g, ' star ')
+        .replace(/\+/g, ' plus ')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    const pslug = contentSrc.match(/problemSlug:\s*'([^']+)'/)?.[1];
+    if (pslug && !existsSync(`dist/problem/${pslug}/index.html`)) {
+      fail(`${p.slug}: problemSlug "${pslug}" has no generated page`);
+    }
+    // Each rival object may override the link target with algoName.
+    const blocks = contentSrc.split(/\n\s{4}\{\s*\n/).slice(1);
+    for (const b of blocks) {
+      const name = b.match(/^\s*name:\s*'([^']+)'|^\s*name:\s*"([^"]+)"/m);
+      if (!name) continue;
+      const display = name[1] ?? name[2];
+      const override = b.match(/algoName:\s*'([^']+)'/)?.[1];
+      const target = slugOf(override ?? display);
+      if (!existsSync(`dist/algo/${target}/index.html`)) {
+        fail(`${p.slug}: rival "${display}" links to /algo/${target}/ which does not exist`);
+      }
+    }
+  }
 }
 
 // 2. Style bans: no em dashes, no banned word, across authored text surfaces.

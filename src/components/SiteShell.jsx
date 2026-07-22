@@ -16,6 +16,8 @@ export default function SiteShell({ children }) {
           <nav className="site-nav" aria-label="Site">
             <a href="/#pairs">pairs</a>
             <a href="/atlas/">atlas</a>
+            <a href="/problem/">problems</a>
+            <a href="/category/">fields</a>
             <a href="/#listen">listen</a>
           </nav>
         </div>

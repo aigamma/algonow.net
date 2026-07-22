@@ -5,8 +5,8 @@ every entry is either a standalone algorithm or an algorithm × heuristic
 pair. It is the strategy document Eric asked for, kept as data so the check
 script can hold it to account.
 
-**Live size: whatever `src/data/atlas-summary.json` says** (2,914 entries /
-59 topics / 20 categories as of 2026-07-21 evening; `npm run check` prints
+**Live size: whatever `src/data/atlas-summary.json` says** (3,113 entries /
+64 topics / 20 categories as of 2026-07-22; `npm run check` prints
 per-topic totals and the grand total, and fails if the summary drifts). The target
 shape is roughly 5,000 entries across ~100 topics. The map is deliberately
 wide, spanning far past interview and exam canon into exotic and creative
@@ -202,22 +202,34 @@ phrases as a queue.
 
 ## Where the atlas stands, and what is queued
 
-At 2,914 entries / 59 topics / 20 categories against a target of roughly
-5,000 entries across ~100 topics. **Rival coverage is 99.4 percent** (2,897
-of 2,914), up from 51.9 percent when the backfill started on 2026-07-21:
-fifty sweeps registered 570 problems, densified the alias registry to 718
-canonical names and 900 synonyms, authored about 90 real missing rival
-entries, and merged 20 true duplicates the sweeps exposed. Run `npm run
-check` for all live numbers; the standing queues, in rough priority order:
+At 3,113 entries / 64 topics / 20 categories against a target of roughly
+5,000 entries across ~100 topics. **Rival coverage is 99.4 percent**, held
+across five new topics, up from 51.9 percent when the backfill started on
+2026-07-21: fifty sweeps registered the problem taxonomy (now 606
+problems), densified the alias registry (now 810 canonical names / 1,028
+synonyms), authored about 90 real missing rival entries, and merged 20 true
+duplicates the sweeps exposed. Run `npm run check` for all live numbers;
+the standing queues, in rough priority order:
 
 1. **Grow the catalog toward 5,000.** With the rivals layer complete, new
-   entries are the work again. Every new entry needs a `d` phrase that
+   entries are the work again, and a new topic file is the highest-yield
+   unit: five landed on 2026-07-22 (llm-inference, llm-training-alignment,
+   computer-architecture, post-quantum-cryptography, vlsi-eda) for +199
+   entries at full rival coverage. Every new entry needs a `d` phrase that
    either reuses a registered problem or names a new one (see the four-move
    method above); the check's worst-topics line polices this automatically.
+   Fields still absent or thin, each checked for overlap before authoring:
+   vector search as its own topic (HNSW and IVF-PQ currently live in
+   computational geometry, DiskANN and ScaNN are missing), automated
+   theorem proving (resolution, superposition, congruence closure,
+   Knuth-Bendix), queueing and performance modeling as its own topic,
+   geospatial algorithms (map matching, isochrones, tiling, spatial joins),
+   computational chemistry beyond molecular dynamics, and numerical
+   weather and climate methods.
 2. **Topic splits.** A dozen topic files exceed the ~60-entry split
    threshold (search-structures is fattest at ~100 after the backfill's
-   authored rivals). Splitting them is most of the distance to the
-   ~100-topic target.
+   authored rivals). Splitting them, plus new topics, is the distance to
+   the ~100-topic target; 64 of ~100 are in place.
 3. **Retrieval staging is ready.** aliases.json and problems.json are now
    dense enough for the Qdrant record in docs/RETRIEVAL.md to be built
    whenever the owner green-lights the one-time embedding run.

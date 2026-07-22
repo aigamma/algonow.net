@@ -37,6 +37,26 @@ export const narration = [
       'The strength is scale with grace. No evaluation function is needed, memory grows only with the nodes you choose to build, the tree grows asymmetrically toward the lines that matter, and the answer improves smoothly as the budget grows. This is the search that made superhuman Go possible. The weakness is variance and blind tactics. Random rollouts are noisy graders: in razor sharp positions, where one precise line wins and every sibling loses, playout averages blur the difference and the search can miss a shallow trap that minimax would see instantly. The exploration constant needs tuning per game. And convergence guarantees are asymptotic, promises about the limit, not about the budget you can actually afford tonight.',
   },
   {
+    section: 'tradeoffs',
+    text:
+      'To judge the heuristic honestly, put it on a bench against the other standard answers to the same question: given a set of options with unknown payoffs and a fixed budget of trials, how should you spend them? The instance is four slot machines paying at rates of fifty, fifty five, sixty, and forty five percent, a budget of one thousand pulls, averaged over forty independent runs with identical seeds for every policy. The currency is regret, meaning the reward given up compared with an oracle that always plays the best arm, so lower is better and zero is unreachable without clairvoyance.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'The results are not the ones a page about U C B one would prefer. Uniform sampling, spreading pulls evenly, finished with seventy five regret, the worst average on the board, because it keeps paying full price for arms it has already established are bad. Pure greed finished at fifty four point seven on average, better than uniform, with a worst run of one hundred forty nine point seven, nearly three times its own average. That variance is the entire problem with greed: one unlucky early sample on the genuinely best arm and it never plays that arm again. Epsilon greedy, exploring at random ten percent of the time, finished with twenty three point eight, the best mean on the bench. Thompson sampling finished at twenty seven point nine. And U C B one, the heuristic this unit is built on, finished at forty eight point seven. Fourth of five.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'That result deserves to be understood rather than explained away, and it is asserted in the code so this page can never quietly drift into overselling its own subject. U C B one over explores at short horizons. The bonus term keeps sampling arms it has very nearly ruled out, and with one thousand pulls there is not enough time to amortize that curiosity. Its guarantee is asymptotic, a promise about the limit rather than about tonight. Two things it does win are worth more than the average. First, robustness: its worst run of forty was sixty six point six, against greed at one hundred forty nine point seven, so its bad nights stay close to its ordinary ones. Second, it is tuned to nothing at all. The epsilon that won this bench was chosen for this problem, and there is no rule that gives you the right epsilon in advance on a problem you have not seen. Choose U C B one when you cannot tune, cannot repeat the experiment, and care more about the bad night than the average one. Choose Thompson sampling when the payoff model is tractable, because it came within a whisker of the tuned winner while tuning nothing.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'One setting where you would never use U C B one is a horizon of a single pull. The exploration bonus is a statement about how much you still stand to learn, and on the last decision you will never act on that information again, so its correct value is zero and the right policy is pure greed. The principle generalizes past the trivial case. The weight on exploration should scale with the remaining opportunity to use what it buys, which is exactly why U C B one loses to a tuned epsilon greedy over one thousand pulls and would win it back over a million.',
+  },
+  {
     section: 'code',
     text:
       'The Python solution plays tic tac toe, not because the game needs Monte Carlo, but because its perfection is checkable. Each node stores its board, its children, its untried moves, and two numbers, wins and visits, with wins scored for the player who just moved, so the parent’s selection formula reads its children correctly. The four phases are laid out plainly in the search function: the U C B one descent, the single expansion, the random rollout, the walk back up. A second function strips the heuristic to its skeleton: U C B one alone, on a row of slot machines. The file then holds the pair to account: the bandit test must concentrate at least eighty five percent of pulls on the good arm while never abandoning the bad one, the searcher must take an immediate win and block an immediate loss, and self play from the empty board must end in the draw that perfect play guarantees. That is the pair, and the closing of our first six. Monte Carlo tree search supplies the growing memory. U C B one decides, pull by pull, which memory is worth growing.',

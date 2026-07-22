@@ -51,11 +51,10 @@ for (const p of Object.values(PUZZLES)) {
   // one method in isolation fails the site's purpose even when it is correct.
   // Every page must place its method among real rivals, show a machine-drawn
   // figure with a citation, and race the field on one shared instance.
-  // MIGRATION: these are warnings only while the six pre-doctrine pages are
-  // brought up to standard (docs/OVERNIGHT-PLAN.md phase B). The moment the
-  // last one lands, flip every `comparative` call below to `fail` so no new
-  // page can ever ship without its rivals. Do not remove the checks instead.
-  const comparative = (msg) => warn(`comparative standard: ${msg}`);
+  // The comparative standard, enforced. This was a warning during the
+  // migration of the six pre-doctrine pages; all six now comply, so it is a
+  // hard failure and no new unit can ship teaching one method in isolation.
+  const comparative = (msg) => fail(`comparative standard: ${msg}`);
   const contentSrc = readFileSync(`src/content/${p.slug}.jsx`, 'utf8');
   const rivalCount = (contentSrc.match(/^\s*\{\s*name:/gm) ?? []).length;
   if (!/\brivals:\s*\[/.test(contentSrc)) {

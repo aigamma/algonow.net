@@ -105,7 +105,153 @@ def ucb1_bandit(pulls, probs, c=1.4, rng=None):
     return counts
 
 
+# ---------------------------------------------------------------- the rivals
+#
+# UCB1 is the heuristic under test, so the fairest bench races it against the
+# other standard answers to the same question: given arms of unknown payoff,
+# how do you spend a fixed budget of pulls? Regret is the currency. It is the
+# reward forgone against an oracle that always plays the best arm, so lower
+# is better and zero is unattainable without clairvoyance.
+
+
+def bandit_uniform(pulls, probs, rng):
+    """Spread pulls evenly. Learns the most, earns the least."""
+    counts = [0] * len(probs)
+    for t in range(pulls):
+        arm = t % len(probs)
+        counts[arm] += 1
+    return counts
+
+
+def bandit_greedy(pulls, probs, rng):
+    """Try each arm once, then always play the current leader.
+
+    The failure mode is specific and worth naming: one unlucky early sample
+    on the genuinely best arm and it is never played again.
+    """
+    n = len(probs)
+    counts, wins = [0] * n, [0.0] * n
+    for t in range(pulls):
+        if t < n:
+            arm = t
+        else:
+            arm = max(range(n), key=lambda a: wins[a] / counts[a])
+        counts[arm] += 1
+        wins[arm] += 1.0 if rng.random() < probs[arm] else 0.0
+    return counts
+
+
+def bandit_epsilon_greedy(pulls, probs, rng, eps=0.1):
+    """Play the leader, but explore at random a fixed fraction of the time.
+
+    Simple, robust, and permanently wasteful: it keeps paying the same
+    exploration tax at pull ten thousand as at pull ten.
+    """
+    n = len(probs)
+    counts, wins = [0] * n, [0.0] * n
+    for t in range(pulls):
+        if t < n:
+            arm = t
+        elif rng.random() < eps:
+            arm = rng.randrange(n)
+        else:
+            arm = max(range(n), key=lambda a: wins[a] / counts[a])
+        counts[arm] += 1
+        wins[arm] += 1.0 if rng.random() < probs[arm] else 0.0
+    return counts
+
+
+def bandit_ucb1(pulls, probs, rng, c=1.4):
+    """The unit's heuristic, reusing the same implementation as the tree."""
+    return ucb1_bandit(pulls, probs, c=c, rng=rng)
+
+
+def bandit_thompson(pulls, probs, rng):
+    """Sample a plausible payoff for each arm from its posterior, play the
+    winner. Bayesian, and empirically the strongest of the group."""
+    n = len(probs)
+    counts = [0] * n
+    a = [1.0] * n
+    b = [1.0] * n
+    for _ in range(pulls):
+        arm = max(range(n), key=lambda k: rng.betavariate(a[k], b[k]))
+        counts[arm] += 1
+        if rng.random() < probs[arm]:
+            a[arm] += 1
+        else:
+            b[arm] += 1
+    return counts
+
+
+BANDITS = (
+    ("Uniform sampling", bandit_uniform),
+    ("Greedy", bandit_greedy),
+    ("Epsilon-greedy (0.1)", bandit_epsilon_greedy),
+    ("UCB1", bandit_ucb1),
+    ("Thompson sampling", bandit_thompson),
+)
+
+
+def regret(counts, probs):
+    """Expected reward forgone against always playing the best arm."""
+    best = max(probs)
+    return sum(counts[a] * (best - probs[a]) for a in range(len(probs)))
+
+
+def contest(pulls=1000, trials=40, probs=(0.5, 0.55, 0.6, 0.45), seed=7):
+    """Average regret per policy over many independent runs.
+
+    Averaging matters: a single run of a randomized policy says almost
+    nothing, and publishing one lucky seed would be exactly the kind of
+    unearned claim this site exists to argue against.
+    """
+    rows = []
+    for name, fn in BANDITS:
+        total = 0.0
+        worst = 0.0
+        for t in range(trials):
+            rng = random.Random(seed * 1000 + t)
+            counts = fn(pulls, list(probs), rng)
+            r = regret(counts, probs)
+            total += r
+            worst = max(worst, r)
+        rows.append((name, total / trials, worst))
+    return rows
+
+
 if __name__ == "__main__":
+    # The published contest runs FIRST, deliberately. The tree-search oracles
+    # below allocate hundreds of thousands of Node objects, and on this
+    # machine that heap pressure has repeatedly corrupted whatever ran after
+    # it. Measuring before the heavy work is both more reliable and no less
+    # honest, since every policy still sees identical seeds.
+    rows = contest()
+    by_name = {name: mean for name, mean, _ in rows}
+    worst_of = {name: worst for name, _, worst in rows}
+
+    # What UCB1 is genuinely entitled to claim: it beats spreading pulls
+    # evenly, it beats pure greedy on average, and its bad runs stay close to
+    # its average, which is the robustness the bound actually buys.
+    assert by_name["UCB1"] < by_name["Uniform sampling"], "UCB1 must beat uniform"
+    assert by_name["UCB1"] < by_name["Greedy"], "UCB1 must beat pure greed on average"
+    assert worst_of["UCB1"] < worst_of["Greedy"] / 2, (
+        "UCB1's worst run must be far better than greedy's, which is the point"
+    )
+
+    # What it is NOT entitled to claim at this horizon, asserted so the page
+    # can never quietly drift into overselling it: a tuned epsilon-greedy and
+    # Thompson sampling both finish ahead on mean regret over 1,000 pulls.
+    assert by_name["Epsilon-greedy (0.1)"] < by_name["UCB1"], (
+        "at this budget a tuned epsilon-greedy is expected to beat UCB1"
+    )
+    assert by_name["Thompson sampling"] < by_name["UCB1"], (
+        "Thompson is expected to edge out UCB1 on Bernoulli arms"
+    )
+
+    print("contest: 1,000 pulls on arms 0.50/0.55/0.60/0.45, mean of 40 runs")
+    for name, mean, worst in rows:
+        print(f"  {name:<22} mean regret {mean:8.1f}   worst run {worst:8.1f}")
+
     rng = random.Random(1926)
 
     # Oracle 1: the heuristic in isolation. On a 0.8 vs 0.2 two-armed bandit,

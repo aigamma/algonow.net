@@ -8,6 +8,7 @@
 {"a": "Kahn's algorithm", "h": null, "d": "Topological ordering", "t": 1},
 {"a": "DFS topological sort", "h": null, "d": "Topological ordering", "t": 2},
 {"a": "Dijkstra's algorithm", "h": null, "d": "Nonnegative shortest paths", "t": 1},
+{"a": "Dijkstra's algorithm", "h": "Binary heap priority queue", "d": "Nonnegative shortest paths", "t": 1},
 {"a": "Bidirectional Dijkstra", "h": "Balanced frontier termination", "d": "Point-to-point shortest paths", "t": 2},
 {"a": "Dial's algorithm", "h": "Bucket-indexed distances", "d": "Small-weight shortest paths", "t": 3},
 {"a": "Bellman-Ford", "h": null, "d": "Negative-edge shortest paths", "t": 1},

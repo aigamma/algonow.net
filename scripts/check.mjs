@@ -96,7 +96,8 @@ for (const p of Object.values(PUZZLES)) {
       const name = b.match(/^\s*name:\s*'([^']+)'|^\s*name:\s*"([^"]+)"/m);
       if (!name) continue;
       const display = name[1] ?? name[2];
-      const override = b.match(/algoName:\s*'([^']+)'/)?.[1];
+      const override = b.match(/algoName:\s*'([^']+)'/)?.[1]
+        ?? b.match(/algoName:\s*"([^"]+)"/)?.[1];
       const target = slugOf(override ?? display);
       if (!existsSync(`dist/algo/${target}/index.html`)) {
         fail(`${p.slug}: rival "${display}" links to /algo/${target}/ which does not exist`);

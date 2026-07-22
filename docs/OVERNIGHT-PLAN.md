@@ -112,7 +112,7 @@ lands; the check's worst-topics line will name it if not.
 Rotate across categories, tier 1 first, one pair per commit, each to the
 Phase A standard. Candidates chosen for measurable contrast:
 
-- [ ] F1. Dijkstra × binary heap (vs Bellman-Ford, 0-1 BFS, Floyd-Warshall)
+- [x] F1. Dijkstra × binary heap (vs linear scan, Bellman-Ford, BFS)
 - [ ] F2. Union-Find × union by rank with path compression (vs naive, quick-find)
 - [ ] F3. KMP × failure function (vs naive, Boyer-Moore, Rabin-Karp)
 - [ ] F4. Quicksort × median-of-three (vs merge, heap, introsort, Timsort)
@@ -127,7 +127,7 @@ Phase A standard. Candidates chosen for measurable contrast:
 
 ## Resume pointer
 
-**Next action: D4 (wire the atlas search box) then Phase E/F.** Phases A, B, C are complete; D1 through D3 are built and unpaid. Phases A and B are complete and the
+**Next action: F2 (Union-Find), then more of Phase F and E.** Phases A, B, C complete; D1-D3 built and unpaid; F1 landed as puzzle 07, the first unit built to the comparative standard from scratch. Phases A and B are complete and the
 comparative standard is enforced as a hard failure. C1 through C4 and C6 are
 landed: `npm run build` now prerenders 4,597 static data pages into dist and
 emits a chunked sitemap of 3,583 indexable URLs. What remains in C is wiring

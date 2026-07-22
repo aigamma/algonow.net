@@ -113,6 +113,23 @@ export const PUZZLES = {
     vite: 'mcts-ucb1',
     html: 'mcts-ucb1/index.html',
   },
+  '/dijkstra-binary-heap/': {
+    slug: 'dijkstra-binary-heap',
+    number: 7,
+    algorithm: "Dijkstra's algorithm",
+    heuristic: 'Binary heap priority queue',
+    domain: 'Nonnegative shortest paths',
+    oneLiner:
+      'One proof, four data structures: which container answers "nearest unsettled vertex" decides whether the same algorithm costs seconds or hours.',
+    description:
+      "Dijkstra's algorithm paired with a binary heap: the same proof strategy priced by its priority queue, raced against a linear scan, Bellman-Ford, and breadth-first search on one graph, with a tested Python solution and a spoken lesson.",
+    listenMinutes: 8,
+    time: 'O(E log V)',
+    space: 'O(V)',
+    baseline: 'Linear scan, O(V^2)',
+    vite: 'dijkstra-binary-heap',
+    html: 'dijkstra-binary-heap/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

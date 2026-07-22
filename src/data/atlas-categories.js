@@ -90,8 +90,8 @@ export const CATEGORIES = [
   {
     key: 'crypto-number-theory',
     label: 'Cryptography & Number Theory',
-    blurb: 'Modular arithmetic, primality, factorization, ciphers, protocols, privacy and security.',
-    topics: ['cryptography-number-theory', 'privacy-security'],
+    blurb: 'Modular arithmetic, primality, factorization, ciphers, protocols, privacy and security, and the post-quantum migration.',
+    topics: ['cryptography-number-theory', 'privacy-security', 'post-quantum-cryptography'],
   },
   {
     key: 'compression-coding',

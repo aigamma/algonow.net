@@ -1221,7 +1221,7 @@
   },
   "key-exchange": {
     "label": "Key exchange",
-    "phrases": ["Key exchange"]
+    "phrases": ["Key exchange", "Post-quantum key exchange"]
   },
   "curve-arithmetic": {
     "label": "Elliptic-curve arithmetic",
@@ -1229,7 +1229,7 @@
   },
   "digital-signatures": {
     "label": "Digital signatures and identity proofs",
-    "phrases": ["Digital signatures", "Post-quantum signatures", "Identity proofs"]
+    "phrases": ["Digital signatures", "Post-quantum signatures", "Identity proofs", "Hash-based signatures", "Isogeny cryptography"]
   },
   "symmetric-encryption": {
     "label": "Symmetric encryption",
@@ -1764,6 +1764,18 @@
   "latency-hiding": {
     "label": "Latency hiding",
     "phrases": ["Latency hiding"]
+  },
+  "pq-migration": {
+    "label": "Post-quantum migration",
+    "phrases": ["Migration strategy", "Quantum threat modeling"]
+  },
+  "pq-cryptanalysis": {
+    "label": "Post-quantum cryptanalysis",
+    "phrases": ["Post-quantum cryptanalysis", "Broken post-quantum schemes"]
+  },
+  "lattice-arithmetic": {
+    "label": "Lattice implementation arithmetic",
+    "phrases": ["Lattice arithmetic", "Implementation hardening"]
   },
   "generative-modeling": {
     "label": "Generative modeling",

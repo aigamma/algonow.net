@@ -829,5 +829,21 @@
   "Loop tiling": { "aka": ["Loop blocking", "Cache blocking"] },
   "RRIP replacement": { "aka": ["Re-reference interval prediction"] },
   "Superword level parallelism": { "aka": ["SLP vectorization"] },
-  "Automatic vectorization": { "aka": ["Auto-vectorization", "SIMD vectorization"] }
+  "Automatic vectorization": { "aka": ["Auto-vectorization", "SIMD vectorization"] },
+
+  "ML-KEM": { "aka": ["Kyber", "CRYSTALS-Kyber", "FIPS 203"] },
+  "ML-DSA": { "aka": ["Dilithium", "CRYSTALS-Dilithium", "FIPS 204"] },
+  "SPHINCS+": { "aka": ["SLH-DSA", "FIPS 205"] },
+  "Falcon": { "aka": ["FN-DSA", "Fast Fourier lattice-based compact signatures"] },
+  "XMSS": { "aka": ["Extended Merkle signature scheme"] },
+  "Leighton-Micali signatures": { "aka": ["LMS signatures"] },
+  "Winternitz one-time signature": { "aka": ["WOTS", "WOTS+"] },
+  "Classic McEliece": { "aka": ["McEliece cryptosystem", "Goppa-code encryption"] },
+  "SIDH": { "aka": ["Supersingular isogeny Diffie-Hellman", "SIKE"], "note": "Kept in the atlas as a negative example: broken in 2022 by the Castryck-Decru torsion-point attack after a decade as a leading candidate." },
+  "Rainbow signatures": { "aka": ["Unbalanced oil and vinegar"], "note": "Kept as a negative example: a NIST round-three finalist broken by Beullens in a weekend of laptop compute." },
+  "Number-theoretic transform for lattices": { "aka": ["Negacyclic NTT"] },
+  "Hybrid key establishment": { "aka": ["Hybrid post-quantum TLS", "PQ hybrid mode"] },
+  "Harvest-now-decrypt-later modeling": { "aka": ["Store-now-decrypt-later", "Retrospective decryption risk"] },
+  "Information set decoding": { "aka": ["ISD", "Prange decoding"] },
+  "Gaussian lattice sampling": { "aka": ["GPV sampling", "Klein sampler"] }
 }

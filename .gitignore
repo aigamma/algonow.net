@@ -6,3 +6,8 @@ dist/
 *.local
 desktop.ini
 Thumbs.db
+
+# Python bytecode from running the solution self-tests, which now happens on
+# every unit build. Never belongs in the history.
+__pycache__/
+*.py[cod]

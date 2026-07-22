@@ -331,7 +331,7 @@
   },
   "nlp-evaluation": {
     "label": "Generation evaluation metrics",
-    "phrases": ["Translation evaluation", "Summarization evaluation"]
+    "phrases": ["Translation evaluation", "Summarization evaluation", "Model output evaluation"]
   },
   "summarization": {
     "label": "Summarization",
@@ -1691,7 +1691,7 @@
   },
   "quantization": {
     "label": "Model quantization",
-    "phrases": ["Model quantization", "Extreme quantization"]
+    "phrases": ["Model quantization", "Extreme quantization", "Low-precision training"]
   },
   "structured-generation": {
     "label": "Structured and constrained generation",
@@ -1700,6 +1700,30 @@
   "retrieval-chunking": {
     "label": "Retrieval chunking",
     "phrases": ["Retrieval chunking"]
+  },
+  "model-parallelism": {
+    "label": "Model parallelism",
+    "phrases": ["Model parallelism"]
+  },
+  "memory-efficient-training": {
+    "label": "Memory-efficient training",
+    "phrases": ["Memory-efficient training"]
+  },
+  "preference-alignment": {
+    "label": "Preference alignment",
+    "phrases": ["Preference alignment", "Reward modeling"]
+  },
+  "reasoning-elicitation": {
+    "label": "Reasoning elicitation",
+    "phrases": ["Reasoning elicitation"]
+  },
+  "tool-using-agents": {
+    "label": "Tool-using agents",
+    "phrases": ["Tool-using agents"]
+  },
+  "pretraining-data": {
+    "label": "Pretraining data selection",
+    "phrases": ["Pretraining data selection"]
   },
   "generative-modeling": {
     "label": "Generative modeling",

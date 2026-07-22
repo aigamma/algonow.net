@@ -789,5 +789,24 @@
   "HyDE": { "aka": ["Hypothetical document embeddings"] },
   "GraphRAG": { "aka": ["Graph retrieval-augmented generation"] },
   "Medusa decoding": { "aka": ["Medusa heads"] },
-  "EAGLE decoding": { "aka": ["Extrapolation algorithm for greater language-model efficiency"] }
+  "EAGLE decoding": { "aka": ["Extrapolation algorithm for greater language-model efficiency"] },
+
+  "ZeRO": { "aka": ["Zero redundancy optimizer", "DeepSpeed ZeRO"] },
+  "Fully sharded data parallel": { "aka": ["FSDP"] },
+  "Gradient checkpointing": { "aka": ["Activation checkpointing", "Rematerialization"], "note": "The same recompute-versus-store trade-off as revolve checkpointing in reverse-mode automatic differentiation; see the automatic-differentiation problem." },
+  "RLHF": { "aka": ["Reinforcement learning from human feedback"] },
+  "Direct preference optimization": { "aka": ["DPO"] },
+  "IPO": { "aka": ["Identity preference optimization"] },
+  "KTO": { "aka": ["Kahneman-Tversky optimization"] },
+  "ORPO": { "aka": ["Odds ratio preference optimization"] },
+  "GRPO": { "aka": ["Group relative policy optimization"] },
+  "Chain-of-thought prompting": { "aka": ["CoT prompting"] },
+  "Tree of thoughts": { "aka": ["ToT search"] },
+  "LLM-as-judge": { "aka": ["Model-based evaluation", "AI judge"] },
+  "Pass-at-k estimation": { "aka": ["Pass@k"] },
+  "Process reward modeling": { "aka": ["Step-level reward model"], "note": "The usual abbreviation PRM is not claimed here: robotics already redirects it to Probabilistic roadmap." },
+  "Prefix tuning": { "aka": ["P-tuning", "Prompt tuning"] },
+  "QLoRA": { "aka": ["Quantized low-rank adaptation"] },
+  "Sequence-level distillation": { "aka": ["Sequence-level knowledge distillation"] },
+  "Deduplication for pretraining": { "aka": ["Corpus deduplication"] }
 }

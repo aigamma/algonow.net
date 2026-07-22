@@ -569,7 +569,7 @@
   },
   "page-replacement": {
     "label": "Page replacement and caching policy",
-    "phrases": ["Page replacement", "Cache admission", "Optimal offline paging", "Competitive paging", "Access-model paging"]
+    "phrases": ["Page replacement", "Cache admission", "Optimal offline paging", "Competitive paging", "Access-model paging", "Cache replacement policy"]
   },
   "disk-scheduling": {
     "label": "Disk arm scheduling",
@@ -629,7 +629,7 @@
   },
   "compiler-optimization": {
     "label": "Compiler optimization",
-    "phrases": ["Compiler optimization", "Redundancy elimination", "Code hoisting", "Allocation optimization", "Loop optimization"]
+    "phrases": ["Compiler optimization", "Redundancy elimination", "Code hoisting", "Allocation optimization", "Loop optimization", "Loop analysis"]
   },
   "dataflow-analysis": {
     "label": "Dataflow analysis",
@@ -666,10 +666,6 @@
   "security-analysis": {
     "label": "Static security analysis",
     "phrases": ["Security analysis"]
-  },
-  "loop-analysis": {
-    "label": "Loop and control-flow structure",
-    "phrases": ["Loop analysis"]
   },
   "neural-network-training": {
     "label": "Neural network training",
@@ -1724,6 +1720,50 @@
   "pretraining-data": {
     "label": "Pretraining data selection",
     "phrases": ["Pretraining data selection"]
+  },
+  "branch-prediction": {
+    "label": "Branch prediction",
+    "phrases": ["Branch prediction", "Indirect branch prediction"]
+  },
+  "out-of-order-execution": {
+    "label": "Out-of-order execution",
+    "phrases": ["Out-of-order execution", "Precise exceptions", "False dependence removal", "Load-store speculation"]
+  },
+  "instruction-scheduling": {
+    "label": "Instruction scheduling",
+    "phrases": ["Instruction scheduling"]
+  },
+  "vectorization": {
+    "label": "Automatic vectorization",
+    "phrases": ["Vectorization"]
+  },
+  "cache-prefetching": {
+    "label": "Cache prefetching",
+    "phrases": ["Cache prefetching"]
+  },
+  "cache-organization": {
+    "label": "Cache organization",
+    "phrases": ["Cache organization"]
+  },
+  "cache-coherence": {
+    "label": "Cache coherence",
+    "phrases": ["Cache coherence"]
+  },
+  "memory-scheduling": {
+    "label": "Memory controller scheduling",
+    "phrases": ["Memory controller scheduling"]
+  },
+  "on-chip-routing": {
+    "label": "On-chip network routing",
+    "phrases": ["On-chip network routing"]
+  },
+  "hardware-arithmetic": {
+    "label": "Hardware arithmetic",
+    "phrases": ["Hardware arithmetic"]
+  },
+  "latency-hiding": {
+    "label": "Latency hiding",
+    "phrases": ["Latency hiding"]
   },
   "generative-modeling": {
     "label": "Generative modeling",

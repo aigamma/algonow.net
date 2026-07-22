@@ -808,5 +808,26 @@
   "Prefix tuning": { "aka": ["P-tuning", "Prompt tuning"] },
   "QLoRA": { "aka": ["Quantized low-rank adaptation"] },
   "Sequence-level distillation": { "aka": ["Sequence-level knowledge distillation"] },
-  "Deduplication for pretraining": { "aka": ["Corpus deduplication"] }
+  "Deduplication for pretraining": { "aka": ["Corpus deduplication"] },
+
+  "Tomasulo's algorithm": { "aka": ["Tomasulo scheduling"] },
+  "TAGE predictor": { "aka": ["Tagged geometric predictor"] },
+  "Gshare predictor": { "aka": ["Global share predictor"] },
+  "Branch target buffer": { "aka": ["BTB"] },
+  "Return address stack": { "aka": ["RAS predictor"] },
+  "Reorder buffer": { "aka": ["ROB"] },
+  "MESI protocol": { "aka": ["Illinois protocol"] },
+  "Directory-based coherence": { "aka": ["Directory coherence"] },
+  "FR-FCFS scheduling": { "aka": ["First-ready first-come first-served"] },
+  "Kogge-Stone adder": { "aka": ["Parallel prefix adder"] },
+  "Wallace tree multiplier": { "aka": ["Wallace tree"] },
+  "Booth multiplication": { "aka": ["Booth recoding", "Booth multiplier"], "note": "Deliberately does NOT claim the bare name 'Booth's algorithm': that belongs to Kellogg Booth's least-rotation algorithm in strings (1980), while this is Andrew Donald Booth's signed multiplier (1951). Same surname, different people, different problems." },
+  "Booth's algorithm": { "aka": ["Booth least rotation"], "note": "Kellogg Booth's 1980 least-rotation algorithm on strings. Not Booth multiplication (Andrew Donald Booth, 1951) in computer-architecture; the atlas keeps both and refuses to alias one to the other." },
+  "SRT division": { "aka": ["Sweeney-Robertson-Tocher division"] },
+  "Simultaneous multithreading": { "aka": ["SMT", "Hyper-threading"], "note": "SMT here is simultaneous multithreading; the solver sense is DPLL(T), which claims the SMT solving phrase instead." },
+  "Software pipelining": { "aka": ["Modulo scheduling"] },
+  "Loop tiling": { "aka": ["Loop blocking", "Cache blocking"] },
+  "RRIP replacement": { "aka": ["Re-reference interval prediction"] },
+  "Superword level parallelism": { "aka": ["SLP vectorization"] },
+  "Automatic vectorization": { "aka": ["Auto-vectorization", "SIMD vectorization"] }
 }

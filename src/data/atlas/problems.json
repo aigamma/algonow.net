@@ -1674,8 +1674,32 @@
     "phrases": ["Language understanding", "Language generation"]
   },
   "transformer-architecture": {
-    "label": "Transformer architecture engineering",
-    "phrases": ["Sparse large models", "Efficient attention", "Transformer positioning"]
+    "label": "Transformer efficiency engineering",
+    "phrases": ["Sparse large models", "Efficient attention", "Attention memory reduction", "Linear attention", "Long-context attention", "Subquadratic sequence modeling"]
+  },
+  "context-extension": {
+    "label": "Context length extension",
+    "phrases": ["Transformer positioning", "Context length extension"]
+  },
+  "kv-cache": {
+    "label": "KV cache management",
+    "phrases": ["KV cache management", "KV cache eviction"]
+  },
+  "inference-serving": {
+    "label": "Inference serving throughput",
+    "phrases": ["Inference throughput"]
+  },
+  "quantization": {
+    "label": "Model quantization",
+    "phrases": ["Model quantization", "Extreme quantization"]
+  },
+  "structured-generation": {
+    "label": "Structured and constrained generation",
+    "phrases": ["Structured generation"]
+  },
+  "retrieval-chunking": {
+    "label": "Retrieval chunking",
+    "phrases": ["Retrieval chunking"]
   },
   "generative-modeling": {
     "label": "Generative modeling",
@@ -1808,7 +1832,7 @@
   },
   "semantic-retrieval": {
     "label": "Semantic document retrieval",
-    "phrases": ["Semantic retrieval", "Approximate document search"]
+    "phrases": ["Semantic retrieval", "Approximate document search", "Query expansion"]
   },
   "tokenization": {
     "label": "Subword tokenization",

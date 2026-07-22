@@ -78,8 +78,8 @@ export const CATEGORIES = [
   {
     key: 'ml-ai',
     label: 'Machine Learning & AI',
-    blurb: 'Classical learning, deep networks, reinforcement learning, forecasting, recommendation, causal inference.',
-    topics: ['machine-learning', 'deep-learning', 'reinforcement-learning', 'kernel-methods', 'gaussian-processes', 'model-selection', 'semi-supervised-meta', 'time-series', 'recommender-causal'],
+    blurb: 'Classical learning, deep networks, large language model systems, reinforcement learning, forecasting, recommendation, causal inference.',
+    topics: ['machine-learning', 'deep-learning', 'llm-inference', 'reinforcement-learning', 'kernel-methods', 'gaussian-processes', 'model-selection', 'semi-supervised-meta', 'time-series', 'recommender-causal'],
   },
   {
     key: 'probabilistic',

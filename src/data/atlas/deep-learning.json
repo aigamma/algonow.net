@@ -46,7 +46,7 @@
 {"a": "Masked autoencoder", "h": "High-ratio patch masking", "d": "Self-supervised vision", "t": 3},
 {"a": "Knowledge distillation", "h": "Soft-label teacher matching", "d": "Model compression", "t": 2},
 {"a": "Network pruning", "h": "Magnitude-based sparsification", "d": "Model compression", "t": 2},
-{"a": "Quantization-aware training", "h": null, "d": "Model compression", "t": 3},
+{"a": "Quantization-aware training", "h": null, "d": "Model quantization", "t": 3},
 {"a": "LoRA", "h": "Low-rank adapter updates", "d": "Efficient fine-tuning", "t": 2},
 {"a": "Adapter tuning", "h": "Bottleneck adapter layers", "d": "Efficient fine-tuning", "t": 3},
 {"a": "Neural architecture search", "h": "Reinforcement controller", "d": "Architecture optimization", "t": 3},

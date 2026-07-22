@@ -767,5 +767,27 @@
   "UUIDv7 generation": { "aka": ["Time-ordered UUID"] },
   "Discrete Morse theory": { "aka": ["Discrete Morse complex"] },
   "Zigzag persistence": { "aka": ["Zigzag homology"] },
-  "Witness complex": { "aka": ["Landmark complex"] }
+  "Witness complex": { "aka": ["Landmark complex"] },
+
+  "Multi-query attention": { "aka": ["MQA"] },
+  "Grouped-query attention": { "aka": ["GQA"] },
+  "Multi-head latent attention": { "aka": ["MLA", "Latent attention"] },
+  "FlashAttention-2": { "aka": ["FA2"], "note": "The successor to the Flash attention entry in deep-learning; kept separate because the work-partitioning rewrite is the lesson." },
+  "Mamba": { "aka": ["Selective state space model", "S6 layer"] },
+  "RWKV": { "aka": ["Receptance weighted key value"] },
+  "ALiBi": { "aka": ["Attention with linear biases"] },
+  "Reformer": { "aka": ["LSH transformer"] },
+  "PagedAttention": { "aka": ["Paged KV cache", "vLLM paging"] },
+  "StreamingLLM": { "aka": ["Attention sink caching"] },
+  "GPTQ": { "aka": ["OPTQ"] },
+  "AWQ": { "aka": ["Activation-aware weight quantization"] },
+  "LLM.int8()": { "aka": ["Int8 outlier decomposition", "bitsandbytes int8"] },
+  "K-quant block quantization": { "aka": ["GGUF k-quants"] },
+  "BitNet": { "aka": ["1-bit LLM", "Ternary weight networks"] },
+  "Grammar-constrained decoding": { "aka": ["Guided decoding", "Constrained decoding"] },
+  "JSON schema decoding": { "aka": ["Structured output decoding"] },
+  "HyDE": { "aka": ["Hypothetical document embeddings"] },
+  "GraphRAG": { "aka": ["Graph retrieval-augmented generation"] },
+  "Medusa decoding": { "aka": ["Medusa heads"] },
+  "EAGLE decoding": { "aka": ["Extrapolation algorithm for greater language-model efficiency"] }
 }

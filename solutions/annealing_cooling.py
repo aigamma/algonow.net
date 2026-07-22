@@ -60,6 +60,125 @@ def anneal_tsp(cities, t_start=None, alpha=0.995, t_min=1e-3, sweeps_per_t=None,
     return best, best_len
 
 
+# ---------------------------------------------------------------- the rivals
+
+
+def nearest_neighbor(cities, start=0):
+    """Greedy construction: always hop to the closest unvisited city.
+
+    Fast, simple, and provably able to be arbitrarily bad. It is the honest
+    baseline every tour heuristic is measured against.
+    """
+    unvisited = set(range(len(cities)))
+    unvisited.remove(start)
+    tour = [start]
+    while unvisited:
+        last = tour[-1]
+        nxt = min(unvisited, key=lambda c: math.hypot(
+            cities[last][0] - cities[c][0], cities[last][1] - cities[c][1]))
+        unvisited.remove(nxt)
+        tour.append(nxt)
+    return tour, tour_length(cities, tour)
+
+
+def two_opt(cities, tour=None, seed=0):
+    """Pure hill climbing over 2-opt moves: accept improvements, never worsen.
+
+    This is simulated annealing with the temperature pinned at zero, which
+    makes it the cleanest possible control for what the cooling schedule is
+    actually buying.
+    """
+    n = len(cities)
+    if tour is None:
+        tour, _ = nearest_neighbor(cities)
+    tour = tour[:]
+    dist = lambda p, q: math.hypot(
+        cities[p][0] - cities[q][0], cities[p][1] - cities[q][1])
+    improved = True
+    while improved:
+        improved = False
+        for i in range(1, n - 1):
+            for j in range(i + 1, n):
+                a, b = tour[i - 1], tour[i]
+                c, d = tour[j], tour[(j + 1) % n]
+                if b == d:
+                    continue
+                delta = dist(a, c) + dist(b, d) - dist(a, b) - dist(c, d)
+                if delta < -1e-12:
+                    tour[i:j + 1] = reversed(tour[i:j + 1])
+                    improved = True
+    return tour, tour_length(cities, tour)
+
+
+def random_restart_two_opt(cities, restarts=12, seed=0):
+    """Hill climbing that escapes local optima by starting over.
+
+    The other classic answer to "my search got stuck": keep the best of many
+    independent climbs instead of letting one climb accept a bad trade.
+    """
+    rng = random.Random(seed)
+    n = len(cities)
+    best, best_len = None, float("inf")
+    for _ in range(restarts):
+        start = list(range(n))
+        rng.shuffle(start)
+        tour, length = two_opt(cities, start)
+        if length < best_len:
+            best, best_len = tour, length
+    return best, best_len
+
+
+def held_karp(cities):
+    """Exact dynamic programming over subsets: the true optimum, at a price.
+
+    O(n^2 * 2^n) time and O(n * 2^n) memory. Included so the page can quote
+    the exact optimum on a small instance and show what exactness costs.
+    """
+    n = len(cities)
+    dist = [[math.hypot(cities[i][0] - cities[j][0], cities[i][1] - cities[j][1])
+             for j in range(n)] for i in range(n)]
+    best = {(1, 0): (0.0, None)}
+    for size in range(2, n + 1):
+        new = {}
+        for mask, last in list(best):
+            if bin(mask).count("1") != size - 1:
+                continue
+            cost, _ = best[(mask, last)]
+            for nxt in range(n):
+                if mask & (1 << nxt):
+                    continue
+                nmask = mask | (1 << nxt)
+                cand = cost + dist[last][nxt]
+                key = (nmask, nxt)
+                if key not in new or cand < new[key][0]:
+                    new[key] = (cand, (mask, last))
+        best.update(new)
+    full = (1 << n) - 1
+    return min(best[(full, last)][0] + dist[last][0] for last in range(1, n))
+
+
+def contest(n=12, seed=99):
+    """Race every method on one shared instance and return the numbers.
+
+    Twelve cities, because Held-Karp must actually finish: that is the point
+    of the row, not an accident of the demo.
+    """
+    rng = random.Random(seed)
+    cities = [(rng.random(), rng.random()) for _ in range(n)]
+    optimum = held_karp(cities)
+    rows = []
+    _, nn = nearest_neighbor(cities)
+    rows.append(("Nearest neighbor", nn))
+    _, hc = two_opt(cities)
+    rows.append(("2-opt hill climbing", hc))
+    _, rr = random_restart_two_opt(cities, restarts=12, seed=1)
+    rows.append(("2-opt with 12 restarts", rr))
+    _, sa = anneal_tsp(cities, seed=3)
+    rows.append(("Simulated annealing", sa))
+    rows.append(("Held-Karp (exact)", optimum))
+    return cities, optimum, rows
+
+
 if __name__ == "__main__":
     # Self-test 1: cities on a circle have a known optimal tour (the circle
     # order). Annealing must land within 2 percent of it.
@@ -95,4 +214,22 @@ if __name__ == "__main__":
     assert abs(ln - tour_length(cities, tour)) < 1e-6, "incremental length drifted"
     assert sorted(tour) == list(range(len(cities))), "tour must visit every city once"
 
+    # Self-test 4: the contest must reproduce the ordering the page claims.
+    _, optimum, rows = contest()
+    by_name = dict(rows)
+    assert abs(by_name["Held-Karp (exact)"] - optimum) < 1e-9
+    for name in ("Nearest neighbor", "2-opt hill climbing",
+                 "2-opt with 12 restarts", "Simulated annealing"):
+        assert by_name[name] >= optimum - 1e-9, f"{name} beat the proven optimum"
+    assert by_name["2-opt hill climbing"] < by_name["Nearest neighbor"], (
+        "local search must improve the greedy construction"
+    )
+    assert by_name["Simulated annealing"] <= by_name["2-opt hill climbing"] + 1e-9, (
+        "annealing must at least match plain hill climbing here"
+    )
+
+    print("contest on 12 random cities in the unit square (seed 99):")
+    for name, length in rows:
+        gap = (length / optimum - 1) * 100
+        print(f"  {name:<24} tour {length:.4f}   gap {gap:+.2f}%")
     print("OK: annealing beats greedy and lands near the circle optimum")

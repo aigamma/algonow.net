@@ -114,8 +114,8 @@ export const CATEGORIES = [
   {
     key: 'languages-compilers',
     label: 'Formal Languages & Compilers',
-    blurb: 'Automata, parsing, compiler-backend algorithms, program analysis, and the processor those compilers target.',
-    topics: ['automata-languages', 'program-analysis', 'computer-architecture'],
+    blurb: 'Automata, parsing, compiler-backend algorithms, program analysis, the processor those compilers target, and the tools that lay out the chip itself.',
+    topics: ['automata-languages', 'program-analysis', 'computer-architecture', 'vlsi-eda'],
   },
   {
     key: 'quantum-unconventional',

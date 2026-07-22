@@ -1777,6 +1777,50 @@
     "label": "Lattice implementation arithmetic",
     "phrases": ["Lattice arithmetic", "Implementation hardening"]
   },
+  "logic-minimization": {
+    "label": "Logic minimization and synthesis",
+    "phrases": ["Exact logic minimization", "Heuristic logic minimization", "Logic synthesis", "Boolean function representation", "Sequential optimization"]
+  },
+  "technology-mapping": {
+    "label": "Technology mapping",
+    "phrases": ["Technology mapping"]
+  },
+  "floorplanning": {
+    "label": "Floorplanning",
+    "phrases": ["Floorplanning"]
+  },
+  "cell-placement": {
+    "label": "Cell placement",
+    "phrases": ["Cell placement", "Placement legalization"]
+  },
+  "chip-routing": {
+    "label": "Chip routing",
+    "phrases": ["Detailed routing", "Global routing", "Channel routing", "Interconnect tree construction"]
+  },
+  "clock-tree-synthesis": {
+    "label": "Clock tree synthesis",
+    "phrases": ["Clock tree synthesis"]
+  },
+  "timing-analysis": {
+    "label": "Timing analysis and closure",
+    "phrases": ["Timing verification", "Timing closure"]
+  },
+  "test-generation-hardware": {
+    "label": "Hardware test generation",
+    "phrases": ["Test pattern generation", "Fault coverage analysis", "Design for testability"]
+  },
+  "low-power-design": {
+    "label": "Low-power design",
+    "phrases": ["Low-power design", "Power integrity"]
+  },
+  "behavioral-synthesis": {
+    "label": "High-level synthesis",
+    "phrases": ["Behavioral synthesis"]
+  },
+  "lithography": {
+    "label": "Lithography compensation",
+    "phrases": ["Lithography compensation"]
+  },
   "generative-modeling": {
     "label": "Generative modeling",
     "phrases": ["Generative modeling", "Stable GAN training", "Image generation", "Diffusion sampling", "Efficient image generation", "Conditional generation"]

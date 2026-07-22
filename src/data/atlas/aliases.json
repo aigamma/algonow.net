@@ -845,5 +845,24 @@
   "Hybrid key establishment": { "aka": ["Hybrid post-quantum TLS", "PQ hybrid mode"] },
   "Harvest-now-decrypt-later modeling": { "aka": ["Store-now-decrypt-later", "Retrospective decryption risk"] },
   "Information set decoding": { "aka": ["ISD", "Prange decoding"] },
-  "Gaussian lattice sampling": { "aka": ["GPV sampling", "Klein sampler"] }
+  "Gaussian lattice sampling": { "aka": ["GPV sampling", "Klein sampler"] },
+
+  "Binary decision diagram": { "aka": ["BDD", "ROBDD", "Reduced ordered binary decision diagram"] },
+  "And-inverter graph rewriting": { "aka": ["AIG rewriting", "ABC rewriting"] },
+  "Espresso minimizer": { "aka": ["Espresso-II", "Espresso heuristic"] },
+  "Quine-McCluskey": { "aka": ["Tabulation method"] },
+  "Lee maze routing": { "aka": ["Lee algorithm", "Maze router"] },
+  "Pathfinder negotiated routing": { "aka": ["Negotiated congestion routing", "PathFinder"] },
+  "Rectilinear Steiner minimal tree": { "aka": ["RSMT", "FLUTE"] },
+  "Deferred-merge embedding": { "aka": ["DME clock tree"] },
+  "Static timing analysis": { "aka": ["STA"] },
+  "Statistical static timing": { "aka": ["SSTA"] },
+  "Buffer insertion": { "aka": ["Van Ginneken buffering"] },
+  "PODEM": { "aka": ["Path-oriented decision making"] },
+  "D-algorithm": { "aka": ["Roth D-algorithm"] },
+  "Built-in self-test": { "aka": ["BIST"] },
+  "Optical proximity correction": { "aka": ["OPC"] },
+  "High-level synthesis scheduling": { "aka": ["HLS scheduling", "Behavioral synthesis scheduling"] },
+  "Analytical placement": { "aka": ["Quadratic placement"] },
+  "Equivalence checking": { "aka": ["Combinational equivalence checking", "CEC"] }
 }

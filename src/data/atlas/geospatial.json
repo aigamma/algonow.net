@@ -1,0 +1,21 @@
+[
+{"a": "Geohash", "h": "Z-order bit interleaving", "d": "Geospatial cell indexing", "t": 2},
+{"a": "S2 cell covering", "h": "Hilbert-curve sphere subdivision", "d": "Geospatial cell indexing", "t": 2},
+{"a": "H3 indexing", "h": "Icosahedral hexagon grid", "d": "Geospatial cell indexing", "t": 3},
+{"a": "Slippy map tiling", "h": "Power-of-two zoom pyramid", "d": "Map tiling", "t": 2},
+{"a": "Quadkey tiling", "h": "Recursive quadrant naming", "d": "Map tiling", "t": 3},
+{"a": "Hidden Markov map matching", "h": "Emission-transition road probabilities", "d": "Map matching", "t": 1},
+{"a": "ST-Matching", "h": "Spatial-temporal candidate graph", "d": "Map matching", "t": 3},
+{"a": "Isochrone computation", "h": "Bounded multi-source Dijkstra", "d": "Reachability contours", "t": 2},
+{"a": "Network Voronoi partition", "h": "Multi-source shortest-path allocation", "d": "Reachability contours", "t": 3},
+{"a": "D8 flow routing", "h": "Steepest-descent neighbor", "d": "Watershed delineation", "t": 3},
+{"a": "Priority-flood depression filling", "h": "Rising-pool priority queue", "d": "Watershed delineation", "t": 3},
+{"a": "Line-of-sight viewshed", "h": "Per-cell ray casting", "d": "Terrain visibility", "t": 3},
+{"a": "R2 viewshed", "h": "Ray-approximated visibility", "d": "Terrain visibility", "t": 3},
+{"a": "Plane-sweep spatial join", "h": "Sorted-boundary scanning", "d": "Spatial join", "t": 2},
+{"a": "Partition-based spatial merge join", "h": "Grid-partitioned bucketing", "d": "Spatial join", "t": 3},
+{"a": "Synchronized R-tree traversal", "h": "Depth-first pair pruning", "d": "Spatial join", "t": 3},
+{"a": "Haversine formula", "h": null, "d": "Geodesic distance", "t": 1},
+{"a": "Vincenty's formulae", "h": "Ellipsoidal fixed-point iteration", "d": "Geodesic distance", "t": 3},
+{"a": "Karney's algorithm", "h": "Series-expanded ellipsoid geodesics", "d": "Geodesic distance", "t": 3}
+]

@@ -844,6 +844,38 @@
     "label": "Disjoint sets and connectivity",
     "phrases": ["Disjoint-set connectivity"]
   },
+  "geospatial-cell-indexing": {
+    "label": "Geospatial cell indexing",
+    "phrases": ["Geospatial cell indexing"]
+  },
+  "map-tiling": {
+    "label": "Map tiling",
+    "phrases": ["Map tiling"]
+  },
+  "map-matching": {
+    "label": "Map matching",
+    "phrases": ["Map matching"]
+  },
+  "reachability-contours": {
+    "label": "Reachability contours",
+    "phrases": ["Reachability contours"]
+  },
+  "watershed-delineation": {
+    "label": "Watershed delineation",
+    "phrases": ["Watershed delineation"]
+  },
+  "terrain-visibility": {
+    "label": "Terrain visibility",
+    "phrases": ["Terrain visibility"]
+  },
+  "spatial-join": {
+    "label": "Spatial join",
+    "phrases": ["Spatial join"]
+  },
+  "geodesic-distance": {
+    "label": "Geodesic distance",
+    "phrases": ["Geodesic distance"]
+  },
   "hash-function-design": {
     "label": "Hash function families",
     "phrases": ["Adversary-proof hashing", "Fast strong hashing"]

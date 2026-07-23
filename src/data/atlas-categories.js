@@ -60,8 +60,8 @@ export const CATEGORIES = [
   {
     key: 'geometry',
     label: 'Computational Geometry & Topology',
-    blurb: 'Hulls, triangulation, spatial indexing, intersection, nearest neighbors, topological data analysis.',
-    topics: ['computational-geometry', 'computational-topology'],
+    blurb: 'Hulls, triangulation, spatial indexing, intersection, nearest neighbors, geospatial computing, topological data analysis.',
+    topics: ['computational-geometry', 'computational-topology', 'geospatial'],
   },
   {
     key: 'numerical',

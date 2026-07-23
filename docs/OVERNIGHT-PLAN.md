@@ -134,8 +134,12 @@ Annoy) out of computational-geometry into the new topic.
       upgraded Jackson and MVA from stochastic-simulation; retired the
       umbrella entry "Queueing analysis x M/M/1 formulas" into an alias
       of the precise M/M/1 analysis entry. Atlas 3,180 -> 3,202.
-- [ ] E4. geospatial (map matching, isochrones, geohash, S2, tile pyramids,
-      spatial joins, GPS smoothing)
+- [x] E4. geospatial: 19 entries under geometry, 8 new problems, 11 alias
+      keys. Cell indexing (Geohash, S2, H3), tiling, HMM and ST map
+      matching, isochrones vs network Voronoi, hydrology (D8,
+      priority-flood), viewsheds, spatial joins, geodesics (haversine,
+      Vincenty, Karney). Visvalingam-Whyatt and ALT found already present
+      and not duplicated. Atlas 3,204 -> 3,223.
 - [ ] E5. computational-chemistry (DFT, Hartree-Fock, force fields, free
       energy perturbation, conformer search)
 - [ ] E6. weather-climate (data assimilation, ensemble Kalman, spectral

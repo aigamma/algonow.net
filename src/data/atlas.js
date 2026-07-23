@@ -22,6 +22,7 @@ const TOPIC_LABELS = {
   'automated-reasoning': 'Automated reasoning & theorem proving',
   'strings': 'Strings & text',
   'computational-geometry': 'Computational geometry',
+  'geospatial': 'Geospatial & GIS',
   'numerical': 'Numerical & linear algebra',
   'numerical-pde': 'PDE & scientific computing',
   'machine-learning': 'Machine learning',

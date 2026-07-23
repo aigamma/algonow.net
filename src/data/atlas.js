@@ -54,6 +54,7 @@ const TOPIC_LABELS = {
   'automata-languages': 'Automata & languages',
   'program-analysis': 'Program analysis',
   'robotics-planning': 'Robotics & motion planning',
+  'computational-chemistry': 'Computational chemistry',
   'game-theory-social-choice': 'Game theory & social choice',
   'information-retrieval-nlp': 'Information retrieval & NLP',
   'vector-search': 'Vector search & ANN',

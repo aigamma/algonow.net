@@ -140,8 +140,16 @@ Annoy) out of computational-geometry into the new topic.
       priority-flood), viewsheds, spatial joins, geodesics (haversine,
       Vincenty, Karney). Visvalingam-Whyatt and ALT found already present
       and not duplicated. Atlas 3,204 -> 3,223.
-- [ ] E5. computational-chemistry (DFT, Hartree-Fock, force fields, free
-      energy perturbation, conformer search)
+- [x] E5. computational-chemistry: 30 entries under comp-bio (category
+      relabeled Computational Biology & Chemistry), 11 new problems, 15
+      alias keys. Electronic structure (HF, Kohn-Sham DFT, MP2, CCSD(T),
+      CASSCF, DMRG), integrals, Ewald/PME/FMM electrostatics, MD
+      integration and constraints (Verlet, SHAKE, RATTLE), thermostats,
+      enhanced sampling (replica exchange, metadynamics), free energy
+      (FEP, TI, umbrella), conformer search, reaction paths (NEB, dimer).
+      The check caught two collisions: DFT left with the Fourier
+      transform, and Replica exchange kept distinct from the existing
+      Parallel tempering entry. Atlas 3,223 -> 3,253.
 - [ ] E6. weather-climate (data assimilation, ensemble Kalman, spectral
       dynamical cores, semi-Lagrangian advection)
 - [ ] E7+ split oversized topics (search-structures ~100, machine-learning

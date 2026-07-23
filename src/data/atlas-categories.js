@@ -125,9 +125,9 @@ export const CATEGORIES = [
   },
   {
     key: 'comp-bio',
-    label: 'Computational Biology',
-    blurb: 'Sequence search and alignment, phylogenetics, assembly, structure.',
-    topics: ['computational-biology'],
+    label: 'Computational Biology & Chemistry',
+    blurb: 'Sequence search and alignment, phylogenetics, assembly, structure, and the quantum chemistry and molecular simulation of matter.',
+    topics: ['computational-biology', 'computational-chemistry'],
   },
   {
     key: 'robotics-control',

@@ -167,7 +167,47 @@
   },
   "molecular-simulation": {
     "label": "Molecular simulation and docking",
-    "phrases": ["Biomolecular simulation", "Drug-target binding"]
+    "phrases": ["Biomolecular simulation", "Drug-target binding", "Molecular dynamics integration", "Configurational sampling"]
+  },
+  "electronic-structure": {
+    "label": "Electronic structure",
+    "phrases": ["Electronic structure"]
+  },
+  "electron-correlation": {
+    "label": "Electron correlation methods",
+    "phrases": ["Post-Hartree-Fock correlation", "Multireference correlation"]
+  },
+  "two-electron-integrals": {
+    "label": "Two-electron integral evaluation",
+    "phrases": ["Two-electron integral evaluation"]
+  },
+  "long-range-electrostatics": {
+    "label": "Long-range electrostatics",
+    "phrases": ["Long-range electrostatics"]
+  },
+  "constrained-dynamics": {
+    "label": "Constrained dynamics",
+    "phrases": ["Constrained dynamics"]
+  },
+  "thermostatting": {
+    "label": "Thermostatting",
+    "phrases": ["Thermostatting"]
+  },
+  "enhanced-sampling": {
+    "label": "Enhanced sampling",
+    "phrases": ["Enhanced sampling"]
+  },
+  "free-energy-estimation": {
+    "label": "Free energy estimation",
+    "phrases": ["Free energy estimation"]
+  },
+  "conformer-search": {
+    "label": "Conformer search",
+    "phrases": ["Conformer search"]
+  },
+  "reaction-path-finding": {
+    "label": "Reaction path finding",
+    "phrases": ["Reaction path finding"]
   },
   "phonetic-matching": {
     "label": "Phonetic matching",

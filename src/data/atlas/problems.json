@@ -703,6 +703,10 @@
     "label": "Model checking",
     "phrases": ["Verification", "Concurrent verification", "Abstraction refinement", "Hardware verification"]
   },
+  "ssa-construction": {
+    "label": "SSA construction",
+    "phrases": ["SSA construction"]
+  },
   "program-proof": {
     "label": "Program proof",
     "phrases": ["Program proof", "Heap verification", "Software verification"]
@@ -2281,7 +2285,7 @@
   },
   "compiler-backend": {
     "label": "Compiler backend code generation",
-    "phrases": ["Compiler backend", "JIT compiler backend", "Compiler IR", "Expression code generation", "Code generation", "Tree pattern matching"]
+    "phrases": ["Compiler backend", "JIT compiler backend", "Expression code generation", "Code generation", "Tree pattern matching"]
   },
   "lexing": {
     "label": "Lexical analysis",

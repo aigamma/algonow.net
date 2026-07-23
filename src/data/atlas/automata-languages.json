@@ -44,7 +44,6 @@
 {"a": "Instruction selection", "h": "DAG dynamic programming", "d": "Compiler backend", "t": 3},
 {"a": "Register allocation", "h": "Graph coloring", "d": "Compiler backend", "t": 1},
 {"a": "Register allocation", "h": "Linear scan", "d": "JIT compiler backend", "t": 2},
-{"a": "SSA construction", "h": "Dominance frontiers", "d": "Compiler IR", "t": 2},
 {"a": "Sethi-Ullman numbering", "h": null, "d": "Expression code generation", "t": 3},
 {"a": "Kleene's algorithm", "h": null, "d": "Automaton to regex", "t": 3},
 {"a": "State elimination", "h": null, "d": "Automaton to regex", "t": 3}

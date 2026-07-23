@@ -10,6 +10,31 @@ yet. There are thousands of backend data pages to populate, classify, and
 navigate; then the site to actually roll them out; then Qdrant; and every
 page wants figures with citations, machine-drawn if necessary.
 
+## Queue-keeping protocol (owner directive, 2026-07-22 evening)
+
+The catalog target is and remains **roughly 5,000 entries across ~100
+topics**. The stall near 3,000 was crash damage, not a revised target; do
+not treat the current size as a ceiling.
+
+Three sessions crashed in two days. The two causes worth engineering
+against: work batches too large to survive a dying session, and finished
+work sitting uncommitted. Countermeasures, mandatory:
+
+1. Small units. One topic file, one unit page, or one hygiene sweep per
+   commit. Push immediately, verify HEAD equals origin, then continue IN
+   THE SAME SESSION with the next unit. Do not stop after one unit.
+2. This file is the task list. Mark `[~]` when starting a unit, `[x]` with
+   the commit hash when it lands, in the same commit as the work.
+3. **Panel rule (owner, 2026-07-22): if the count of open `[ ]` tasks in
+   this file ever drops to three or fewer, convene a task panel before
+   continuing: four agents, run strictly ONE AT A TIME (never
+   concurrently; concurrency is what killed the crashed sessions). Three
+   proposers argue for new tasks from three angles (learner value, site
+   surface, data quality); the fourth is the judge, who votes each
+   proposal in or out against CLAUDE.md and this file. Judge-approved
+   proposals land here as new `[ ]` tasks in one commit. The panel
+   proposes tasks only; it never authors catalog entries (rule 10).**
+
 ## Status legend
 
 `[ ]` not started · `[~]` in flight (name the file) · `[x]` landed (commit)
@@ -91,7 +116,9 @@ paid without an explicit in-session go-ahead** (CLAUDE.md rule 9).
 ## Phase E. Keep growing the catalog (the long tail, runs forever)
 
 New topic files, one per commit. Each needs full rival coverage before it
-lands; the check's worst-topics line will name it if not.
+lands; the check's worst-topics line will name it if not. E1 also
+relocates the five ANN entries (LSH, HNSW, IVF-PQ, Product quantization,
+Annoy) out of computational-geometry into the new topic.
 
 - [ ] E1. vector-search (DiskANN, ScaNN, SPANN, RaBitQ, filtered ANN)
 - [ ] E2. automated-reasoning (resolution, superposition, congruence closure,
@@ -123,15 +150,38 @@ Phase A standard. Candidates chosen for measurable contrast:
 - [ ] F9. Dinic × level graphs (vs Ford-Fulkerson, Edmonds-Karp, push-relabel)
 - [ ] F10. PageRank × damped random walk (vs HITS, SALSA, degree centrality)
 
+## Phase G. Plumbing and hygiene (added 2026-07-22 evening)
+
+- [ ] G1. DNS prep. Read-only: query the Netlify site's domain state, then
+      write `docs/DNS.md` with the exact registrar steps for algonow.net
+      and algohome.net and what Netlify will show at each stage. The
+      registrar/nameserver change itself is the owner's action; everything
+      up to that line gets staged so the site is live minutes after he
+      flips it.
+- [ ] G2. Fold the 19 unregistered 3+ entry phrases into problems.json
+      (word embeddings, node embeddings, link prediction, metric learning,
+      AutoML, and friends), giving them stable /problem/ slugs.
+- [ ] G3. Same-name variant surface. rivalsOf now excludes same-`a`
+      entries (a01ae18); add a "variants of this method" list to the algo
+      page prerender so Dijkstra x binary heap and Dijkstra x arc flags
+      cross-link as variants instead of silently ignoring each other.
+
 ---
 
 ## Resume pointer
 
-**Next action: F2 (Union-Find), then more of Phase F and E.** Phases A, B, C complete; D1-D3 built and unpaid; F1 landed as puzzle 07, the first unit built to the comparative standard from scratch. Phases A and B are complete and the
-comparative standard is enforced as a hard failure. C1 through C4 and C6 are
-landed: `npm run build` now prerenders 4,597 static data pages into dist and
-emits a chunked sitemap of 3,583 indexable URLs. What remains in C is wiring
-the existing site nav and the atlas search box to reach those pages.
+**Next action: E1 (vector-search topic), then E2, E3, with F2
+(Union-Find unit) interleaved after the first topics land.** Owner's
+evening directive: the backend catalog is the bottleneck, so Phase E
+leads; keep the 5,000-entry target in view.
+
+Landed so far: Phases A, B, C complete; D1-D3 built and unpaid; F1 landed
+as puzzle 07, the first unit built to the comparative standard from
+scratch. `npm run build` prerenders 4,600 static data pages and a sitemap
+of 3,587 indexable URLs. a01ae18 fixed the baseline test failure the last
+crash left behind (an entry listed as its own rival) and retired the bare
+Dijkstra entry per ATLAS.md rule 2. What remains in C-land is D4, wiring
+the atlas search box to /api/search as a natural-language fallback.
 
 Working rules for whoever picks this up (from CLAUDE.md, restated because
 they are the ones most easily lost mid-run):

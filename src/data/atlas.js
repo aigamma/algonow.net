@@ -53,6 +53,7 @@ const TOPIC_LABELS = {
   'robotics-planning': 'Robotics & motion planning',
   'game-theory-social-choice': 'Game theory & social choice',
   'information-retrieval-nlp': 'Information retrieval & NLP',
+  'vector-search': 'Vector search & ANN',
   'approximation': 'Approximation algorithms',
   'quantitative-finance': 'Quantitative finance',
   'puzzles-recreational': 'Puzzles & recreational',

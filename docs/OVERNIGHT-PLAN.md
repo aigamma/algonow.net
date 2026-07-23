@@ -120,7 +120,9 @@ lands; the check's worst-topics line will name it if not. E1 also
 relocates the five ANN entries (LSH, HNSW, IVF-PQ, Product quantization,
 Annoy) out of computational-geometry into the new topic.
 
-- [ ] E1. vector-search (DiskANN, ScaNN, SPANN, RaBitQ, filtered ANN)
+- [x] E1. vector-search: 29 entries (24 net new after relocating LSH,
+      HNSW, IVF-PQ, PQ, Annoy from computational-geometry), 3 new
+      problems + 1 phrase registered, 13 alias keys. Atlas 3,116 -> 3,140.
 - [ ] E2. automated-reasoning (resolution, superposition, congruence closure,
       Knuth-Bendix, tableaux, E-matching)
 - [ ] E3. queueing-performance (Little's law, Erlang B and C, PASTA,

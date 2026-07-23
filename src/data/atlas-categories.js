@@ -108,8 +108,8 @@ export const CATEGORIES = [
   {
     key: 'data-retrieval',
     label: 'Databases & Information Retrieval',
-    blurb: 'Joins, query optimization, transactions, ranking, indexing, NLP retrieval.',
-    topics: ['databases-query', 'distributed-databases', 'information-retrieval-nlp', 'nlp-tasks'],
+    blurb: 'Joins, query optimization, transactions, ranking, indexing, vector search, NLP retrieval.',
+    topics: ['databases-query', 'distributed-databases', 'information-retrieval-nlp', 'nlp-tasks', 'vector-search'],
   },
   {
     key: 'languages-compilers',

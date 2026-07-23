@@ -278,7 +278,19 @@
   },
   "nearest-neighbor-search": {
     "label": "Nearest neighbor search",
-    "phrases": ["Approximate nearest neighbors", "Metric nearest neighbors", "Compressed vector search", "Nearest-neighbor search", "Vector similarity search", "Billion-scale vector search"]
+    "phrases": ["Approximate nearest neighbors", "Metric nearest neighbors", "Compressed vector search", "Nearest-neighbor search", "Vector similarity search", "Billion-scale vector search", "Binary vector codes"]
+  },
+  "maximum-inner-product-search": {
+    "label": "Maximum inner product search",
+    "phrases": ["Maximum inner product search"]
+  },
+  "filtered-vector-search": {
+    "label": "Filtered vector search",
+    "phrases": ["Filtered vector search"]
+  },
+  "vector-index-maintenance": {
+    "label": "Vector index maintenance",
+    "phrases": ["Streaming vector index updates"]
   },
   "image-segmentation": {
     "label": "Image segmentation",

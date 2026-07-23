@@ -109,12 +109,14 @@ export const PROBLEM_OF_PHRASE = (() => {
   return map;
 })();
 
-// Every entry that attacks the same problem as `entry`, itself excluded. Falls
+// Every entry that attacks the same problem as `entry`, itself excluded. A
+// same-`a` entry is a heuristic variant of the same method, not a rival, so
+// the whole algorithm is excluded, not just the exact (a, h) pair. Falls
 // back to an exact phrase match when the phrase is not registered yet.
 export function rivalsOf(entry) {
   const slug = PROBLEM_OF_PHRASE[normPhrase(entry.d)];
   return ALL_ENTRIES.filter((e) => {
-    if (e === entry || (e.a === entry.a && e.h === entry.h)) return false;
+    if (e === entry || e.a === entry.a) return false;
     return slug ? PROBLEM_OF_PHRASE[normPhrase(e.d)] === slug : normPhrase(e.d) === normPhrase(entry.d);
   });
 }

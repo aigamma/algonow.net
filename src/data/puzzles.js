@@ -130,6 +130,23 @@ export const PUZZLES = {
     vite: 'dijkstra-binary-heap',
     html: 'dijkstra-binary-heap/index.html',
   },
+  '/unionfind-rank-compression/': {
+    slug: 'unionfind-rank-compression',
+    number: 8,
+    algorithm: 'Union-find',
+    heuristic: 'Union by rank with path compression',
+    domain: 'Components that only merge',
+    oneLiner:
+      'A forest of parent pointers where rank decides who hangs under whom and every lookup flattens the path it walked, until each question costs almost nothing.',
+    description:
+      'Union-find paired with union by rank and path compression: watch the same merge stream build a flat forest against a naive one, raced against quick-find and per-query search, with a tested Python solution and a spoken lesson.',
+    listenMinutes: 8,
+    time: 'O(α(n)) amortized',
+    space: 'O(n)',
+    baseline: 'Quick-find / naive linking',
+    vite: 'unionfind-rank-compression',
+    html: 'unionfind-rank-compression/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

@@ -74,6 +74,8 @@
 {"a": "Union-find", "h": "Union by rank with path compression", "d": "Disjoint-set connectivity", "t": 1},
 {"a": "Union-find", "h": "Union by size", "d": "Disjoint-set connectivity", "t": 2},
 {"a": "Union-find", "h": "Path halving", "d": "Disjoint-set connectivity", "t": 3},
+{"a": "Quick-find", "h": "Eager component relabeling", "d": "Disjoint-set connectivity", "t": 3},
+{"a": "Quick-union", "h": null, "d": "Disjoint-set connectivity", "t": 3},
 {"a": "Self-organizing list", "h": "Move-to-front", "d": "Access-adaptive lists", "t": 2},
 {"a": "Self-organizing list", "h": "Transpose", "d": "Access-adaptive lists", "t": 3},
 {"a": "Self-organizing list", "h": "Frequency count ordering", "d": "Access-adaptive lists", "t": 3},

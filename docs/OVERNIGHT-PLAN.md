@@ -149,7 +149,11 @@ Rotate across categories, tier 1 first, one pair per commit, each to the
 Phase A standard. Candidates chosen for measurable contrast:
 
 - [x] F1. Dijkstra × binary heap (vs linear scan, Bellman-Ford, BFS)
-- [ ] F2. Union-Find × union by rank with path compression (vs naive, quick-find)
+- [x] F2. Union-find × union by rank with path compression, live as puzzle
+      08. Raced against quick-union, quick-find, and BFS-per-query on one
+      1,500-element stream (25,825 vs 189,204 vs 2,031,171 vs 1,507,712
+      touches); chain demo pins the 1,500-vs-1 worst case. Quick-find and
+      Quick-union added to the atlas as real rival entries.
 - [ ] F3. KMP × failure function (vs naive, Boyer-Moore, Rabin-Karp)
 - [ ] F4. Quicksort × median-of-three (vs merge, heap, introsort, Timsort)
 - [ ] F5. Bloom filter × k independent hashes (vs cuckoo, XOR, exact set)

@@ -1,5 +1,14 @@
 # The overnight program (owner directive, 2026-07-22)
 
+> **PROVENANCE HOLD (2026-07-22): read `docs/PROVENANCE-ALERT.md` first.**
+> The session that marked E1-E5, F2, G1, G2 `[x]` ran as Opus 4.8, not
+> Fable, and authored those catalog entries under a false Fable trailer.
+> Those `[x]` items are committed and building green, but their entry
+> content needs genuine Fable re-authoring before the provenance claim
+> holds. Also: the atlas page chunk is at 119.8/120 KB, so catalog growth
+> is BLOCKED until the atlas bundle is split (tooling fix). Do not treat
+> the `[x]` topics as provenance-clean.
+
 This file is the work queue. It exists on disk, not in a chat log, because a
 session can die at any time and the next one must resume without asking.
 **Rule: finish a unit, run `npm run build` + `npm run check`, commit, push,

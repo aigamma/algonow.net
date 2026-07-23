@@ -48,8 +48,8 @@ export const CATEGORIES = [
   {
     key: 'search-constraints-games',
     label: 'Search, Constraints & Games',
-    blurb: 'State-space and adversarial search, constraint satisfaction, puzzles.',
-    topics: ['game-search', 'backtracking-cp', 'puzzles-recreational'],
+    blurb: 'State-space and adversarial search, constraint satisfaction, automated reasoning, puzzles.',
+    topics: ['game-search', 'backtracking-cp', 'automated-reasoning', 'puzzles-recreational'],
   },
   {
     key: 'strings',

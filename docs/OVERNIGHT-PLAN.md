@@ -123,8 +123,12 @@ Annoy) out of computational-geometry into the new topic.
 - [x] E1. vector-search: 29 entries (24 net new after relocating LSH,
       HNSW, IVF-PQ, PQ, Annoy from computational-geometry), 3 new
       problems + 1 phrase registered, 13 alias keys. Atlas 3,116 -> 3,140.
-- [ ] E2. automated-reasoning (resolution, superposition, congruence closure,
-      Knuth-Bendix, tableaux, E-matching)
+- [x] E2. automated-reasoning: 30 entries under search-constraints-games,
+      11 new problems registered, 20 alias keys. Saturation calculi,
+      rewriting, unification (syntactic to higher-order), SMT internals
+      above the SAT core, premise selection, induction, model finding,
+      logic programming. Atlas 3,140 -> 3,170. IC3/CEGAR deliberately
+      left for a program-analysis densify unit (they are model checking).
 - [ ] E3. queueing-performance (Little's law, Erlang B and C, PASTA,
       operational analysis, USL, bottleneck analysis)
 - [ ] E4. geospatial (map matching, isochrones, geohash, S2, tile pyramids,

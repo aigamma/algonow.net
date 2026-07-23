@@ -19,6 +19,7 @@ const TOPIC_LABELS = {
   'metaheuristics': 'Metaheuristics',
   'game-search': 'Adversarial & game search',
   'backtracking-cp': 'Backtracking & constraints',
+  'automated-reasoning': 'Automated reasoning & theorem proving',
   'strings': 'Strings & text',
   'computational-geometry': 'Computational geometry',
   'numerical': 'Numerical & linear algebra',

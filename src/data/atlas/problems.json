@@ -615,6 +615,50 @@
     "label": "SAT solving",
     "phrases": ["Modern SAT solving", "SAT solving", "SAT solver engineering", "Hard random SAT", "Local-search SAT", "SMT solving"]
   },
+  "first-order-theorem-proving": {
+    "label": "First-order theorem proving",
+    "phrases": ["First-order theorem proving"]
+  },
+  "equational-theorem-proving": {
+    "label": "Equational theorem proving",
+    "phrases": ["Equational theorem proving"]
+  },
+  "term-rewriting-completion": {
+    "label": "Term rewriting completion",
+    "phrases": ["Term rewriting completion"]
+  },
+  "unification": {
+    "label": "Unification",
+    "phrases": ["Syntactic unification", "Equational unification", "Higher-order unification"]
+  },
+  "ground-equality-reasoning": {
+    "label": "Ground equality reasoning",
+    "phrases": ["Ground equality reasoning"]
+  },
+  "quantifier-instantiation": {
+    "label": "Quantifier instantiation",
+    "phrases": ["Quantifier instantiation"]
+  },
+  "theory-combination": {
+    "label": "SMT theory combination",
+    "phrases": ["Theory combination"]
+  },
+  "premise-selection": {
+    "label": "Large-theory premise selection",
+    "phrases": ["Large-theory premise selection"]
+  },
+  "inductive-theorem-proving": {
+    "label": "Inductive theorem proving",
+    "phrases": ["Inductive theorem proving"]
+  },
+  "finite-model-finding": {
+    "label": "Finite model finding",
+    "phrases": ["Finite model finding"]
+  },
+  "logic-program-evaluation": {
+    "label": "Logic program evaluation",
+    "phrases": ["Logic program evaluation"]
+  },
   "branch-and-bound": {
     "label": "Branch and bound",
     "phrases": ["Combinatorial optimization", "Memory-lean optimization", "Large integer programs"]

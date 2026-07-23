@@ -169,12 +169,14 @@ Phase A standard. Candidates chosen for measurable contrast:
 
 ## Phase G. Plumbing and hygiene (added 2026-07-22 evening)
 
-- [ ] G1. DNS prep. Read-only: query the Netlify site's domain state, then
-      write `docs/DNS.md` with the exact registrar steps for algonow.net
-      and algohome.net and what Netlify will show at each stage. The
-      registrar/nameserver change itself is the owner's action; everything
-      up to that line gets staged so the site is live minutes after he
-      flips it.
+- [x] G1. DNS prep done to the owner-action line. Both domains ATTACHED
+      to the Netlify site via API (custom_domain algonow.net + www and
+      both algohome hosts, verified in the API response); both currently
+      resolve to registrar parking IPs. `docs/DNS.md` holds the exact
+      registrar records (apex A 75.2.60.5, www CNAME
+      algonow-net.netlify.app), the auto-cert sequence, and the
+      verification commands. The registrar flip is the single remaining
+      owner action.
 - [x] G2. All 19 unregistered 3+ entry phrases folded into problems.json:
       15 new problems, Scalable GP and Causal effect estimation joined
       existing problems, Hierarchical layout moved from graph-layout into

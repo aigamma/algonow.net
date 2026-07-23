@@ -167,9 +167,11 @@ Phase A standard. Candidates chosen for measurable contrast:
       registrar/nameserver change itself is the owner's action; everything
       up to that line gets staged so the site is live minutes after he
       flips it.
-- [ ] G2. Fold the 19 unregistered 3+ entry phrases into problems.json
-      (word embeddings, node embeddings, link prediction, metric learning,
-      AutoML, and friends), giving them stable /problem/ slugs.
+- [x] G2. All 19 unregistered 3+ entry phrases folded into problems.json:
+      15 new problems, Scalable GP and Causal effect estimation joined
+      existing problems, Hierarchical layout moved from graph-layout into
+      a new layered-layout problem beside Layered layout. The rivals
+      queue warning is gone; 643 problems registered.
 - [ ] G3. Same-name variant surface. rivalsOf now excludes same-`a`
       entries (a01ae18); add a "variants of this method" list to the algo
       page prerender so Dijkstra x binary heap and Dijkstra x arc flags

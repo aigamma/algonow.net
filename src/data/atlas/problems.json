@@ -669,7 +669,59 @@
   },
   "causal-inference": {
     "label": "Causal inference",
-    "phrases": ["Causal inference", "Causal effect identification"]
+    "phrases": ["Causal inference", "Causal effect identification", "Causal effect estimation"]
+  },
+  "word-embeddings": {
+    "label": "Word embeddings",
+    "phrases": ["Word embeddings"]
+  },
+  "node-embeddings": {
+    "label": "Node embeddings",
+    "phrases": ["Node embeddings"]
+  },
+  "link-prediction": {
+    "label": "Link prediction",
+    "phrases": ["Link prediction"]
+  },
+  "graph-generation": {
+    "label": "Random graph generation",
+    "phrases": ["Graph generation"]
+  },
+  "metric-learning": {
+    "label": "Metric learning",
+    "phrases": ["Metric learning"]
+  },
+  "imbalanced-learning": {
+    "label": "Imbalanced learning",
+    "phrases": ["Imbalanced learning"]
+  },
+  "generalization-estimation": {
+    "label": "Generalization estimation",
+    "phrases": ["Generalization estimation"]
+  },
+  "model-comparison": {
+    "label": "Model comparison criteria",
+    "phrases": ["Model comparison"]
+  },
+  "automl": {
+    "label": "Automated machine learning",
+    "phrases": ["AutoML"]
+  },
+  "few-shot-learning": {
+    "label": "Few-shot learning",
+    "phrases": ["Few-shot classification"]
+  },
+  "multiple-pattern-search": {
+    "label": "Multiple-pattern search",
+    "phrases": ["Multiple-pattern search"]
+  },
+  "groebner-bases": {
+    "label": "Groebner basis computation",
+    "phrases": ["Groebner bases"]
+  },
+  "simplicial-approximation": {
+    "label": "Simplicial approximation",
+    "phrases": ["Simplicial approximation"]
   },
   "recommendation": {
     "label": "Recommendation",
@@ -1980,7 +2032,19 @@
   },
   "graph-layout": {
     "label": "Graph layout",
-    "phrases": ["Graph layout", "Large-graph layout", "Hierarchical layout", "Diagram layout", "Linear graph layout", "Flow visualization", "Schematic layout", "Graph embedding layout"]
+    "phrases": ["Graph layout", "Large-graph layout", "Diagram layout", "Linear graph layout", "Flow visualization", "Schematic layout", "Graph embedding layout"]
+  },
+  "layered-layout": {
+    "label": "Layered graph drawing",
+    "phrases": ["Hierarchical layout", "Layered layout"]
+  },
+  "tree-layout": {
+    "label": "Tree drawing",
+    "phrases": ["Tree layout"]
+  },
+  "hierarchy-visualization": {
+    "label": "Hierarchy visualization",
+    "phrases": ["Hierarchy visualization"]
   },
   "kernel-design": {
     "label": "Kernel design and selection",
@@ -1992,7 +2056,11 @@
   },
   "gp-scalability": {
     "label": "Scalable Gaussian processes",
-    "phrases": ["Big-data GP", "Time-series GP"]
+    "phrases": ["Big-data GP", "Time-series GP", "Scalable GP"]
+  },
+  "scalable-kernels": {
+    "label": "Scalable kernel approximation",
+    "phrases": ["Scalable kernels"]
   },
   "gp-extensions": {
     "label": "Gaussian process extensions",

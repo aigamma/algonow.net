@@ -44,9 +44,6 @@
 {"a": "Modified policy iteration", "h": null, "d": "Markov decision processes", "t": 3},
 {"a": "Prioritized sweeping", "h": "Bellman-error queue", "d": "Efficient planning", "t": 3},
 {"a": "Real-time dynamic programming", "h": "Trial-based updates", "d": "Online MDP solving", "t": 3},
-{"a": "Queueing analysis", "h": "M/M/1 formulas", "d": "Performance modeling", "t": 2},
-{"a": "Jackson network analysis", "h": null, "d": "Queueing networks", "t": 3},
-{"a": "Mean value analysis", "h": null, "d": "Closed queueing networks", "t": 3},
 {"a": "Renewal reward analysis", "h": null, "d": "Long-run averages", "t": 3},
 {"a": "Brownian motion simulation", "h": "Euler-Maruyama", "d": "Stochastic differential equations", "t": 2},
 {"a": "Milstein scheme", "h": null, "d": "Stochastic differential equations", "t": 3}

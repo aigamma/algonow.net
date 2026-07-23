@@ -84,8 +84,8 @@ export const CATEGORIES = [
   {
     key: 'probabilistic',
     label: 'Probabilistic, Randomized & Simulation',
-    blurb: 'Sketches, sampling, Monte Carlo, Markov chains, stochastic simulation.',
-    topics: ['probabilistic-streaming', 'stochastic-simulation', 'statistics-inference'],
+    blurb: 'Sketches, sampling, Monte Carlo, Markov chains, stochastic simulation, queueing.',
+    topics: ['probabilistic-streaming', 'stochastic-simulation', 'statistics-inference', 'queueing-performance'],
   },
   {
     key: 'crypto-number-theory',

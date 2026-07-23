@@ -31,6 +31,7 @@ const TOPIC_LABELS = {
   'recommender-causal': 'Recommenders & causal inference',
   'probabilistic-streaming': 'Probabilistic & streaming',
   'stochastic-simulation': 'Stochastic & simulation',
+  'queueing-performance': 'Queueing & performance modeling',
   'dynamic-programming': 'Dynamic programming',
   'combinatorial-enumeration': 'Combinatorial enumeration',
   'cryptography-number-theory': 'Cryptography & number theory',

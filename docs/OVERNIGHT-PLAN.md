@@ -129,8 +129,11 @@ Annoy) out of computational-geometry into the new topic.
       above the SAT core, premise selection, induction, model finding,
       logic programming. Atlas 3,140 -> 3,170. IC3/CEGAR deliberately
       left for a program-analysis densify unit (they are model checking).
-- [ ] E3. queueing-performance (Little's law, Erlang B and C, PASTA,
-      operational analysis, USL, bottleneck analysis)
+- [x] E3. queueing-performance: 25 entries under probabilistic, 5 new
+      problems + 2 phrases registered, 15 alias keys. Relocated and
+      upgraded Jackson and MVA from stochastic-simulation; retired the
+      umbrella entry "Queueing analysis x M/M/1 formulas" into an alias
+      of the precise M/M/1 analysis entry. Atlas 3,180 -> 3,202.
 - [ ] E4. geospatial (map matching, isochrones, geohash, S2, tile pyramids,
       spatial joins, GPS smoothing)
 - [ ] E5. computational-chemistry (DFT, Hartree-Fock, force fields, free

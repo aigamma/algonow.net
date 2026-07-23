@@ -2105,7 +2105,27 @@
   },
   "queueing-performance": {
     "label": "Queueing and performance analysis",
-    "phrases": ["Performance modeling", "Queueing networks", "Closed queueing networks", "Long-run averages", "Systems modeling"]
+    "phrases": ["Performance modeling", "Queueing networks", "Closed queueing networks", "Long-run averages", "Systems modeling", "Single-queue analysis", "Scalability modeling"]
+  },
+  "teletraffic-dimensioning": {
+    "label": "Teletraffic dimensioning",
+    "phrases": ["Blocking probability", "Delay probability"]
+  },
+  "waiting-time-analysis": {
+    "label": "Waiting-time analysis",
+    "phrases": ["Waiting-time computation", "Queueing approximation"]
+  },
+  "heavy-traffic-limits": {
+    "label": "Heavy-traffic limits",
+    "phrases": ["Heavy-traffic approximation"]
+  },
+  "structured-markov-chains": {
+    "label": "Structured Markov chains",
+    "phrases": ["Structured Markov chains"]
+  },
+  "transient-markov-analysis": {
+    "label": "Transient Markov analysis",
+    "phrases": ["Transient Markov analysis"]
   },
   "resampling-inference": {
     "label": "Resampling inference",

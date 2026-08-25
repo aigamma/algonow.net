@@ -6,7 +6,10 @@
 import { CATEGORIES, CATEGORY_OF_TOPIC, CATEGORY_BY_KEY } from './atlas-categories.js';
 import { isRegistryKey } from './atlas-registry.js';
 
-const modules = import.meta.glob('./atlas/*.json', { eager: true });
+// problems.json is excluded on purpose: it is only needed by
+// atlas-rivals.js, and globbing it here would ship 26 KB gzipped of rivals
+// registry to every atlas visitor for a function no page calls.
+const modules = import.meta.glob(['./atlas/*.json', '!./atlas/problems.json'], { eager: true });
 
 // Human-readable topic labels. A topic file with no entry here falls back to a
 // title-cased version of its key, so a new topic still renders sanely.
@@ -100,31 +103,9 @@ export const ALL_ENTRIES = TOPICS.flatMap((t) =>
 
 export const ALIASES = modules['./atlas/aliases.json']?.default || {};
 
-// The rivals table: problem slug -> { label, phrases }. Inverted here into the
-// lookup the UI needs, a normalized `d` phrase -> problem, so any entry can
-// find the other methods that attack the same problem.
-export const PROBLEMS = modules['./atlas/problems.json']?.default || {};
-const normPhrase = (s) => String(s ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
-export const PROBLEM_OF_PHRASE = (() => {
-  const map = {};
-  for (const [slug, meta] of Object.entries(PROBLEMS)) {
-    if (slug.startsWith('_') || !meta?.phrases) continue;
-    for (const phrase of meta.phrases) map[normPhrase(phrase)] = slug;
-  }
-  return map;
-})();
+// The rivals table (PROBLEMS, PROBLEM_OF_PHRASE, rivalsOf) lives in
+// atlas-rivals.js so problems.json stays out of this page bundle.
 
-// Every entry that attacks the same problem as `entry`, itself excluded. A
-// same-`a` entry is a heuristic variant of the same method, not a rival, so
-// the whole algorithm is excluded, not just the exact (a, h) pair. Falls
-// back to an exact phrase match when the phrase is not registered yet.
-export function rivalsOf(entry) {
-  const slug = PROBLEM_OF_PHRASE[normPhrase(entry.d)];
-  return ALL_ENTRIES.filter((e) => {
-    if (e === entry || e.a === entry.a) return false;
-    return slug ? PROBLEM_OF_PHRASE[normPhrase(e.d)] === slug : normPhrase(e.d) === normPhrase(entry.d);
-  });
-}
 export const TOTAL = ALL_ENTRIES.length;
 export const CATEGORY_COUNT = CATEGORY_GROUPS.length;
 export const TOPIC_COUNT = TOPICS.length;

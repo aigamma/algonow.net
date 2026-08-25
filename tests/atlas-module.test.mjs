@@ -21,6 +21,9 @@ const server = await createServer({
   appType: 'custom',
 });
 const atlas = await server.ssrLoadModule('/src/data/atlas.js');
+// The rivals table lives in its own module so problems.json stays out of
+// the atlas page bundle; load it the same way.
+const rivals = await server.ssrLoadModule('/src/data/atlas-rivals.js');
 await server.close();
 
 const atlasDir = 'src/data/atlas';
@@ -45,13 +48,13 @@ test('every entry survives aggregation with its category attached', () => {
 
 test('the registries load as objects', () => {
   assert.ok(Object.keys(atlas.ALIASES).length > 0);
-  assert.ok(Object.keys(atlas.PROBLEMS).length > 0);
+  assert.ok(Object.keys(rivals.PROBLEMS).length > 0);
 });
 
 test('rivalsOf resolves across phrasings through the problem registry', () => {
   const dijkstra = atlas.ALL_ENTRIES.find((e) => e.a === "Dijkstra's algorithm");
   assert.ok(dijkstra, 'Dijkstra missing from the atlas');
-  const names = atlas.rivalsOf(dijkstra).map((e) => e.a);
+  const names = rivals.rivalsOf(dijkstra).map((e) => e.a);
   // These live under different d phrases ("Negative-edge shortest paths",
   // "Binary-weight shortest paths"); only the registry links them.
   assert.ok(names.includes('Bellman-Ford'), 'Bellman-Ford is not a rival of Dijkstra');
@@ -61,5 +64,17 @@ test('rivalsOf resolves across phrasings through the problem registry', () => {
 
 test('an unregistered phrase still finds its exact-phrase rivals', () => {
   const msa = atlas.ALL_ENTRIES.find((e) => e.d === 'Multiple sequence alignment');
-  assert.ok(atlas.rivalsOf(msa).length >= 3);
+  assert.ok(rivals.rivalsOf(msa).length >= 3);
+});
+
+// The reason atlas-rivals.js exists: problems.json must not reach the page
+// bundle. If someone globs it back into atlas.js, this fails.
+test('the atlas page module does not pull in the rivals registry', () => {
+  assert.equal(atlas.PROBLEMS, undefined, 'PROBLEMS leaked back into atlas.js');
+  assert.equal(atlas.rivalsOf, undefined, 'rivalsOf leaked back into atlas.js');
+  const src = readFileSync('src/data/atlas.js', 'utf8');
+  assert.ok(
+    src.includes("'!./atlas/problems.json'"),
+    'the glob no longer excludes problems.json'
+  );
 });

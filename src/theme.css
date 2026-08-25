@@ -23,6 +23,7 @@
   --path: #62d98a;
   --path-rgb: 98, 217, 138;
   --warn: #e06767;
+  --warn-rgb: 224, 103, 103;
 
   --font-mono: ui-monospace, 'Cascadia Code', Consolas, 'SF Mono', Menlo, monospace;
   --font-body: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
@@ -1174,4 +1175,58 @@ html[data-motion='still'] .wm-caret {
   .site-header-right { gap: 0.7rem; }
   .motion-trigger-label { display: none; }
   .motion-trigger-short { display: inline; }
+}
+
+/* ---------- listen player: getting out is the loudest control ---------- */
+
+.lp-controls { flex-wrap: wrap; }
+.lp-primary {
+  flex: 1 1 6.5rem;
+  justify-content: center;
+  font-size: 0.86rem;
+  padding: 0.55em 0.9em;
+}
+.lp-stop {
+  justify-content: center;
+  font-size: 0.82rem;
+  padding: 0.55em 0.9em;
+  border-color: rgba(var(--warn-rgb), 0.45);
+  color: var(--warn);
+}
+.lp-stop:hover:not([disabled]) {
+  background: rgba(var(--warn-rgb), 0.14);
+  border-color: var(--warn);
+}
+.lp-icon {
+  padding: 0.5em 0.65em;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: var(--ink-dim);
+}
+.lp-icon:hover { color: var(--ink); }
+.lp-icon[aria-expanded='true'] {
+  color: var(--ink);
+  border-color: rgba(var(--heur-rgb), 0.5);
+}
+.lp-hint {
+  margin: 0.55rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+}
+.lp-hint kbd {
+  font-family: var(--font-mono);
+  font-size: 0.94em;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.05em 0.35em;
+  color: var(--ink-dim);
+}
+.lp-rate { flex: 1; display: inline-flex; align-items: center; gap: 0.4em; }
+.lp-follow { display: inline-flex; align-items: center; gap: 0.35em; }
+.lp-follow input { accent-color: var(--heur); }
+.lp-follow span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-dim);
 }

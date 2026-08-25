@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useCanvasLoop, prefersReducedMotion } from './useCanvasLoop.js';
+import { useCanvasLoop, isStill, holdTicks } from './useCanvasLoop.js';
 import { makeGrid, makeSearch, drawSearch } from './astarModel.js';
 
 const COLS = 32;
@@ -42,7 +42,7 @@ export default function AStarViz() {
           phase: 'search',
           reveal: 0,
           rest: 0,
-          stopAtRest: prefersReducedMotion(),
+          stopAtRest: isStill(),
         };
       },
       tick: (st) => {
@@ -60,7 +60,7 @@ export default function AStarViz() {
             }
             if (r === 'exhausted') {
               st.phase = 'rest';
-              st.rest = 40;
+              st.rest = holdTicks(40);
               break;
             }
           }
@@ -68,7 +68,7 @@ export default function AStarViz() {
           st.reveal += 2;
           if (st.reveal >= st.search.path.length) {
             st.phase = 'rest';
-            st.rest = 60;
+            st.rest = holdTicks(60);
             if (st.stopAtRest) return false;
           }
         } else {

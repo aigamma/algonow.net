@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useCanvasLoop, prefersReducedMotion, mulberry32 } from './useCanvasLoop.js';
+import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
 const W = 640;
 const H = 400;
@@ -85,7 +85,7 @@ export default function AnnealViz() {
           reveal: 0,
           rest: 0,
           uphill: null,
-          stopAtRest: prefersReducedMotion(),
+          stopAtRest: isStill(),
         };
       },
       tick: (st) => {
@@ -132,7 +132,7 @@ export default function AnnealViz() {
           st.reveal += 2;
           if (st.reveal >= N_CITIES + 1) {
             st.phase = 'rest';
-            st.rest = 80;
+            st.rest = holdTicks(80);
             if (st.stopAtRest) return false;
           }
         } else {

@@ -1,3 +1,5 @@
+import MotionControl from './MotionControl.jsx';
+
 export function Wordmark() {
   return (
     <a className="wordmark" href="/" aria-label="algonow home">
@@ -13,13 +15,16 @@ export default function SiteShell({ children }) {
       <header className="site-header">
         <div className="wrap">
           <Wordmark />
-          <nav className="site-nav" aria-label="Site">
-            <a href="/#pairs">pairs</a>
-            <a href="/atlas/">atlas</a>
-            <a href="/problem/">problems</a>
-            <a href="/category/">fields</a>
-            <a href="/#listen">listen</a>
-          </nav>
+          <div className="site-header-right">
+            <nav className="site-nav" aria-label="Site">
+              <a href="/#pairs">pairs</a>
+              <a href="/atlas/">atlas</a>
+              <a href="/problem/">problems</a>
+              <a href="/category/">fields</a>
+              <a href="/#listen">listen</a>
+            </nav>
+            <MotionControl />
+          </div>
         </div>
       </header>
       <main>{children}</main>

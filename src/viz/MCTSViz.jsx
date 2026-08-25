@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useCanvasLoop, prefersReducedMotion, mulberry32 } from './useCanvasLoop.js';
+import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
 const W = 640;
 const H = 400;
@@ -80,7 +80,7 @@ export default function MCTSViz() {
           flashTtl: 0,
           phase: 'grow',
           rest: 0,
-          stopAtRest: prefersReducedMotion(),
+          stopAtRest: isStill(),
         };
       },
       tick: (st) => {
@@ -123,7 +123,7 @@ export default function MCTSViz() {
           if (st.sims >= SIMS) {
             sharesRef.current[modeKey] = Math.round(share * 100);
             st.phase = 'rest';
-            st.rest = 100;
+            st.rest = holdTicks(100);
             if (st.stopAtRest) return false;
           }
         } else {

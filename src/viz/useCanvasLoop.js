@@ -1,7 +1,12 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { getLevel, isStill, subscribe } from '../lib/motion.js';
 
-// Deterministic RNG so every visitor watches the same run and reduced-motion
-// users see the same final state the animation would reach.
+// Re-exported so a viz can reach the motion helpers it needs without importing
+// two modules.
+export { holdTicks, isStill } from '../lib/motion.js';
+
+// Deterministic RNG so every visitor watches the same run and still readers
+// see the same final state the animation would reach.
 export function mulberry32(seed) {
   let a = seed >>> 0;
   return function () {
@@ -13,22 +18,20 @@ export function mulberry32(seed) {
   };
 }
 
-export function prefersReducedMotion() {
-  return (
-    typeof window !== 'undefined' &&
-    window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  );
-}
-
 // Drives a viz model on a canvas: `model.tick(state)` advances (returns false
 // when finished), `model.draw(ctx, state, w, h)` paints. Pauses offscreen and
-// on hidden tabs. Under prefers-reduced-motion the model is run to completion
-// synchronously (bounded) and drawn once, static.
+// on hidden tabs. The reader's motion preference scales `stepMs`, and at the
+// still setting the model is run to completion synchronously (bounded) and
+// drawn once, static.
 //
 // `deps`: re-init when these change (restart buttons bump a counter).
 export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, stepMs = 40, maxTicks = 20000 }, deps = []) {
   const stateRef = useRef(null);
+  const [motionNonce, setMotionNonce] = useState(0);
+
+  // Changing the speed re-initializes the figure, so the new pace applies to
+  // the one the reader is looking at rather than only to the next run.
+  useEffect(() => subscribe(() => setMotionNonce((n) => n + 1)), []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -42,7 +45,7 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
     const state = init();
     stateRef.current = state;
 
-    if (prefersReducedMotion()) {
+    if (isStill()) {
       let guard = 0;
       while (tick(state) !== false && guard < maxTicks) guard += 1;
       draw(ctx, state, width, height);
@@ -63,7 +66,11 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
       if (more === false) running = false;
     };
 
-    timer = setInterval(step, stepMs);
+    // A slower preference stretches every step. The floor keeps a pathological
+    // setting from starving the interval.
+    const pace = Math.max(16, Math.round(stepMs * getLevel().stepScale));
+
+    timer = setInterval(step, pace);
     paint();
 
     const io = new IntersectionObserver(
@@ -80,7 +87,7 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
       io.disconnect();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps);
+  }, [...deps, motionNonce]);
 
   return stateRef;
 }

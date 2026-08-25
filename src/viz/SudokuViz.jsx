@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useCanvasLoop, prefersReducedMotion, mulberry32 } from './useCanvasLoop.js';
+import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
 const W = 640;
 const H = 400;
@@ -93,7 +93,7 @@ export default function SudokuViz() {
           flash: null, // {cell, kind:'undo'|'place', ttl}
           phase: 'solve',
           rest: 0,
-          stopAtRest: prefersReducedMotion(),
+          stopAtRest: isStill(),
         };
       },
       tick: (st) => {
@@ -108,7 +108,7 @@ export default function SudokuViz() {
               if (!empties.length) {
                 countsRef.current[modeKey] = { steps: st.steps, backtracks: st.backtracks };
                 st.phase = 'done';
-                st.rest = 90;
+                st.rest = holdTicks(90);
                 if (st.stopAtRest) return false;
                 break;
               }
@@ -130,7 +130,7 @@ export default function SudokuViz() {
               const top = st.stack[st.stack.length - 1];
               if (!top) {
                 st.phase = 'done'; // contradictory puzzle: does not occur with generated grids
-                st.rest = 60;
+                st.rest = holdTicks(60);
                 break;
               }
               if (top.i < top.cands.length) {

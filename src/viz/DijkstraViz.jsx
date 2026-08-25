@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useCanvasLoop } from './useCanvasLoop.js';
+import { useCanvasLoop, isStill, holdTicks } from './useCanvasLoop.js';
 
 // The live comparison. Both panels run the SAME weighted graph from the same
 // source; the left one answers "which vertex is nearest" with a binary heap,
@@ -161,12 +161,14 @@ export default function DijkstraViz() {
           heapRun: makeRun(weight, true),
           scanRun: makeRun(weight, false),
           rest: 0,
+          stopAtRest: isStill(),
         };
       },
       tick: (s) => {
         if (s.heapRun.done && s.scanRun.done) {
+          if (s.stopAtRest) return false;
           s.rest += 1;
-          if (s.rest > 40) {
+          if (s.rest > holdTicks(40)) {
             cycle.current += 1;
             const weight = makeGraph(SEED + cycle.current * 7919);
             s.weight = weight;

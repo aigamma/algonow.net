@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useCanvasLoop, prefersReducedMotion } from './useCanvasLoop.js';
+import { useCanvasLoop, isStill, holdTicks } from './useCanvasLoop.js';
 import { makeGrid, makeSearch, drawSearch } from './astarModel.js';
 
 const COLS = 16;
@@ -23,7 +23,7 @@ export default function HeroDemo() {
         phase: 'search',
         reveal: 0,
         rest: 0,
-        stopAtRest: prefersReducedMotion(),
+        stopAtRest: isStill(),
       }),
       tick: (st) => {
         if (st.phase === 'search') {
@@ -33,13 +33,13 @@ export default function HeroDemo() {
             st.reveal = 1;
           } else if (r === 'exhausted') {
             st.phase = 'rest';
-            st.rest = 30;
+            st.rest = holdTicks(30);
           }
         } else if (st.phase === 'trace') {
           st.reveal += 1;
           if (st.reveal >= st.search.path.length) {
             st.phase = 'rest';
-            st.rest = 45;
+            st.rest = holdTicks(45);
             if (st.stopAtRest) return false;
           }
         } else {

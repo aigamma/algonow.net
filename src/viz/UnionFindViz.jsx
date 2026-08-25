@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useCanvasLoop } from './useCanvasLoop.js';
+import { useCanvasLoop, isStill, holdTicks } from './useCanvasLoop.js';
 
 // The live comparison. Both panels consume the SAME stream of random unions;
 // the left forest applies union by rank plus path compression, the right one
@@ -138,11 +138,13 @@ export default function UnionFindViz() {
         flat: makeForest(true),
         naive: makeForest(false),
         rest: 0,
+        stopAtRest: isStill(),
       }),
       tick: (s) => {
         if (s.flat.components <= 1) {
+          if (s.stopAtRest) return false;
           s.rest += 1;
-          if (s.rest > 60) {
+          if (s.rest > holdTicks(60)) {
             cycle.current += 1;
             s.rand = mulberry(SEED + cycle.current * 7919);
             s.flat = makeForest(true);

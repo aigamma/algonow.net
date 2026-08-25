@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useCanvasLoop, prefersReducedMotion, mulberry32 } from './useCanvasLoop.js';
+import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
 const W = 640;
 const H = 400;
@@ -117,7 +117,7 @@ export default function MinimaxViz() {
           phase: 'search',
           rest: 0,
           pv: [],
-          stopAtRest: prefersReducedMotion(),
+          stopAtRest: isStill(),
         };
       },
       tick: (st) => {
@@ -184,7 +184,7 @@ export default function MinimaxViz() {
               st.pv.push(at);
             }
             st.phase = 'rest';
-            st.rest = 110;
+            st.rest = holdTicks(110);
             if (st.stopAtRest) return false;
           }
         } else {

@@ -1073,3 +1073,105 @@ code, kbd, pre { font-family: var(--font-mono); }
     transition-duration: 0.001s !important;
   }
 }
+
+/* ---------- motion preference: animation speed, on every page ---------- */
+
+.site-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.motion-ctl { position: relative; }
+
+.motion-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42em;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  padding: 0.42em 0.7em;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  color: var(--ink-dim);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 180ms ease, color 180ms ease;
+}
+.motion-trigger:hover { color: var(--ink); border-color: rgba(var(--algo-rgb), 0.5); }
+.motion-trigger[aria-expanded='true'] {
+  color: var(--ink);
+  border-color: rgba(var(--algo-rgb), 0.55);
+}
+.motion-trigger-short { display: none; }
+
+.motion-panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  z-index: 70;
+  width: min(19rem, calc(100vw - 1.6rem));
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
+  padding: 0.8rem;
+}
+.motion-panel-head {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 0.6rem;
+}
+.motion-opts { display: grid; gap: 0.3rem; }
+.motion-opt {
+  display: grid;
+  gap: 0.15rem;
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: none;
+  cursor: pointer;
+}
+.motion-opt:hover { background: rgba(var(--algo-rgb), 0.08); }
+.motion-opt.is-on {
+  border-color: rgba(var(--algo-rgb), 0.45);
+  background: rgba(var(--algo-rgb), 0.12);
+}
+.motion-opt-name {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.motion-opt.is-on .motion-opt-name { color: var(--algo); }
+.motion-opt-hint {
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: var(--ink-dim);
+}
+.motion-panel-note {
+  margin: 0.7rem 0 0;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--line-soft);
+  font-size: 0.7rem;
+  line-height: 1.45;
+  color: var(--ink-faint);
+}
+
+/* At the still setting nothing on the page should be moving, including the
+   decorative caret in the wordmark. */
+html[data-motion='still'] .wm-caret {
+  animation: none;
+  opacity: 1;
+}
+
+@media (max-width: 760px) {
+  .site-header-right { gap: 0.7rem; }
+  .motion-trigger-label { display: none; }
+  .motion-trigger-short { display: inline; }
+}

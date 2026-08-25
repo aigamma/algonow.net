@@ -400,11 +400,19 @@ if (existsSync(atlasDir)) {
     const unregistered = [...byPhrase.entries()]
       .filter(([np]) => !phraseOwner.has(np))
       .map(([, info]) => ({ d: info.display, n: info.entries.length }))
-      .filter((x) => x.n >= 3)
+      // Two entries is already a rivalry, and a rivalry is what earns a
+      // /problem/ page. The old 3+ floor hid every two-method phrase, which is
+      // the bulk of the queue, so the work looked done when it was not.
+      .filter((x) => x.n >= 2)
       .sort((a, b) => b.n - a.n);
     if (unregistered.length) {
-      warn(`rivals queue: ${unregistered.length} unregistered phrases with 3+ entries (fold into problems.json):`);
+      const entries = unregistered.reduce((n, x) => n + x.n, 0);
+      warn(
+        `rivals queue: ${unregistered.length} unregistered phrases with 2+ entries ` +
+          `(${entries} entries) have rivals but no /problem/ page; fold into problems.json:`
+      );
       console.log(`     ${unregistered.slice(0, 20).map((x) => `${x.d} (${x.n})`).join(' · ')}`);
+      if (unregistered.length > 20) console.log(`     ...and ${unregistered.length - 20} more`);
     }
   } else {
     fail(`${problemsPath} missing`);

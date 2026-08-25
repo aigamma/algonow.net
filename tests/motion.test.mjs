@@ -1,6 +1,7 @@
 // The motion preference is an accessibility control, so its promises are
-// tested rather than assumed: the default really is slow, the still setting
-// really stops, and the components really render without a browser present.
+// tested rather than assumed: the default really does hold a finished figure
+// for two minutes, the still setting really stops, and the components really
+// render without a browser present.
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -38,6 +39,9 @@ function clearBrowser() {
   delete globalThis.document;
 }
 
+// The pace useCanvasLoop stamps onto a state object at init.
+const withPace = (paceMs, PACE_KEY) => ({ [PACE_KEY]: paceMs });
+
 test('levels are well formed and still means still', async () => {
   clearBrowser();
   const m = await freshMotion();
@@ -45,30 +49,57 @@ test('levels are well formed and still means still', async () => {
   assert.equal(new Set(keys).size, keys.length, 'level keys are unique');
   for (const l of m.MOTION_LEVELS) {
     assert.equal(typeof l.stepScale, 'number');
-    assert.equal(typeof l.restScale, 'number');
+    assert.equal(typeof l.restSeconds, 'number');
     assert.ok(l.label && l.hint, `${l.key} has a label and a hint`);
   }
   const still = m.MOTION_LEVELS.find((l) => l.key === 'still');
   assert.equal(still.stepScale, 0, 'still does not animate');
+  assert.equal(still.restSeconds, 0, 'still never repeats');
 });
 
-test('the default is genuinely slower and rests longer than standard', async () => {
+test('the default draws at normal speed and rests two minutes', async () => {
   clearBrowser();
   const m = await freshMotion();
-  assert.equal(m.DEFAULT_LEVEL, 'very-slow');
+  assert.equal(m.DEFAULT_LEVEL, 'calm');
   const def = m.MOTION_LEVELS.find((l) => l.key === m.DEFAULT_LEVEL);
-  const std = m.MOTION_LEVELS.find((l) => l.key === 'standard');
-  assert.ok(def.stepScale >= 3 * std.stepScale, 'default steps at most a third the speed');
-  assert.ok(def.restScale >= 3 * std.restScale, 'default rests at least three times as long');
+  assert.equal(def.stepScale, 1, 'the drawing itself runs at the normal pace');
+  assert.ok(def.restSeconds >= 120, 'a finished figure holds for at least two minutes');
 });
 
-test('holdTicks scales a rest by the active level', async () => {
-  stubBrowser({ stored: 'very-slow' });
+test('holdTicks turns the promised seconds into ticks at any pace', async () => {
+  stubBrowser({ stored: 'calm' });
   const m = await freshMotion();
-  const scale = m.getLevel().restScale;
-  assert.equal(m.holdTicks(60), Math.round(60 * scale));
-  assert.ok(m.holdTicks(60) > 60, 'the default lengthens the pause before a repeat');
-  assert.equal(m.isStill(), false);
+  const seconds = m.getLevel().restSeconds;
+  for (const pace of [16, 34, 40, 55, 137]) {
+    const ticks = m.holdTicks(withPace(pace, m.PACE_KEY));
+    const waited = ticks * pace;
+    assert.ok(
+      waited >= seconds * 1000,
+      `at ${pace}ms per tick the wait is ${waited}ms, short of ${seconds * 1000}ms`
+    );
+    assert.ok(waited < seconds * 1000 + pace, 'and it does not overshoot by more than one tick');
+  }
+});
+
+// The promise is about the figures that actually ship, so this reads their
+// real stepMs out of the source rather than trusting a representative number.
+test('every shipped figure waits at least two minutes before repeating', async () => {
+  stubBrowser({ stored: 'calm' });
+  const m = await freshMotion();
+  const dir = 'src/viz';
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.jsx'));
+  let checked = 0;
+  for (const f of files) {
+    const src = fs.readFileSync(path.join(dir, f), 'utf8');
+    const stepMs = Number((src.match(/stepMs:\s*(\d+)/) || [])[1]);
+    if (!stepMs) continue;
+    assert.match(src, /holdTicks\(\w+\)/, `${f} derives its rest from holdTicks`);
+    const pace = Math.max(16, Math.round(stepMs * m.getLevel().stepScale));
+    const waitMs = m.holdTicks(withPace(pace, m.PACE_KEY)) * pace;
+    assert.ok(waitMs >= 120000, `${f} would repeat after ${Math.round(waitMs / 1000)}s`);
+    checked += 1;
+  }
+  assert.ok(checked >= 9, `expected every viz to be covered, saw ${checked}`);
 });
 
 test('a stored choice wins, and setLevel persists and notifies', async () => {
@@ -81,7 +112,7 @@ test('a stored choice wins, and setLevel persists and notifies', async () => {
   m.setLevel('still');
   assert.equal(m.getLevelKey(), 'still');
   assert.equal(m.isStill(), true);
-  assert.equal(m.holdTicks(60), 0, 'a still figure holds no repeat timer');
+  assert.equal(m.holdTicks(withPace(40, m.PACE_KEY)), 0, 'a still figure holds no repeat timer');
   assert.equal(store.get('algonow:motion'), 'still', 'the choice is persisted');
   assert.deepEqual(seen, ['still'], 'subscribers are told once');
   assert.equal(attrs['data-motion'], 'still', 'the level reaches the html element for CSS');
@@ -106,7 +137,7 @@ test('an explicit choice overrides an operating-system request', async () => {
 test('unknown or absent storage falls back to the calm default', async () => {
   stubBrowser({ stored: 'ludicrous-speed' });
   const m = await freshMotion();
-  assert.equal(m.getLevelKey(), 'very-slow');
+  assert.equal(m.getLevelKey(), 'calm');
 });
 
 // The header renders on the server during prerender, where there is no window
@@ -143,7 +174,7 @@ test('SiteShell and the motion control render with no browser present', async (t
     ]);
     const html = renderToStaticMarkup(React.createElement(mod.default, null, null));
     assert.match(html, /motion-trigger/, 'the motion control is in the header');
-    assert.match(html, /motion: very slow/, 'it opens on the calm default');
+    assert.match(html, /motion: calm/, 'it opens on the calm default');
     assert.match(html, /aria-expanded="false"/, 'the panel starts closed');
     assert.match(html, /<nav class="site-nav"/, 'the rest of the header still renders');
   } finally {

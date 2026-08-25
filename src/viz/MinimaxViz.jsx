@@ -184,7 +184,7 @@ export default function MinimaxViz() {
               st.pv.push(at);
             }
             st.phase = 'rest';
-            st.rest = holdTicks(110);
+            st.rest = holdTicks(st);
             if (st.stopAtRest) return false;
           }
         } else {

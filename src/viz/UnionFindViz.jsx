@@ -144,7 +144,7 @@ export default function UnionFindViz() {
         if (s.flat.components <= 1) {
           if (s.stopAtRest) return false;
           s.rest += 1;
-          if (s.rest > holdTicks(60)) {
+          if (s.rest > holdTicks(s)) {
             cycle.current += 1;
             s.rand = mulberry(SEED + cycle.current * 7919);
             s.flat = makeForest(true);

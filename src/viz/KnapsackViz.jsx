@@ -86,7 +86,7 @@ export default function KnapsackViz() {
             if (!top) {
               countsRef.current[modeKey] = { nodes: st.nodes, pruned: st.pruned };
               st.phase = 'rest';
-              st.rest = holdTicks(100);
+              st.rest = holdTicks(st);
               st.decision.set(st.bestSet);
               if (st.stopAtRest) return false;
               break;

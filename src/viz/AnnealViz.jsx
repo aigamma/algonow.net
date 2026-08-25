@@ -132,7 +132,7 @@ export default function AnnealViz() {
           st.reveal += 2;
           if (st.reveal >= N_CITIES + 1) {
             st.phase = 'rest';
-            st.rest = holdTicks(80);
+            st.rest = holdTicks(st);
             if (st.stopAtRest) return false;
           }
         } else {

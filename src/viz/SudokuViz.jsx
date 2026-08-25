@@ -108,7 +108,7 @@ export default function SudokuViz() {
               if (!empties.length) {
                 countsRef.current[modeKey] = { steps: st.steps, backtracks: st.backtracks };
                 st.phase = 'done';
-                st.rest = holdTicks(90);
+                st.rest = holdTicks(st);
                 if (st.stopAtRest) return false;
                 break;
               }
@@ -130,7 +130,7 @@ export default function SudokuViz() {
               const top = st.stack[st.stack.length - 1];
               if (!top) {
                 st.phase = 'done'; // contradictory puzzle: does not occur with generated grids
-                st.rest = holdTicks(60);
+                st.rest = holdTicks(st);
                 break;
               }
               if (top.i < top.cands.length) {

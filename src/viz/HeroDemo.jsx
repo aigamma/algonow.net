@@ -33,13 +33,13 @@ export default function HeroDemo() {
             st.reveal = 1;
           } else if (r === 'exhausted') {
             st.phase = 'rest';
-            st.rest = holdTicks(30);
+            st.rest = holdTicks(st);
           }
         } else if (st.phase === 'trace') {
           st.reveal += 1;
           if (st.reveal >= st.search.path.length) {
             st.phase = 'rest';
-            st.rest = holdTicks(45);
+            st.rest = holdTicks(st);
             if (st.stopAtRest) return false;
           }
         } else {

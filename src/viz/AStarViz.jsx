@@ -60,7 +60,7 @@ export default function AStarViz() {
             }
             if (r === 'exhausted') {
               st.phase = 'rest';
-              st.rest = holdTicks(40);
+              st.rest = holdTicks(st);
               break;
             }
           }
@@ -68,7 +68,7 @@ export default function AStarViz() {
           st.reveal += 2;
           if (st.reveal >= st.search.path.length) {
             st.phase = 'rest';
-            st.rest = holdTicks(60);
+            st.rest = holdTicks(st);
             if (st.stopAtRest) return false;
           }
         } else {

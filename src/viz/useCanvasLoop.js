@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { getLevel, isStill, subscribe } from '../lib/motion.js';
+import { getLevel, isStill, subscribe, PACE_KEY } from '../lib/motion.js';
 
 // Re-exported so a viz can reach the motion helpers it needs without importing
 // two modules.
@@ -42,7 +42,13 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
     const ctx = canvas.getContext('2d');
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
+    // A slower preference stretches every step. The floor keeps a pathological
+    // setting from starving the interval. The pace is stamped onto the state so
+    // holdTicks can turn a rest promised in seconds into a tick count.
+    const pace = Math.max(16, Math.round(stepMs * getLevel().stepScale));
+
     const state = init();
+    state[PACE_KEY] = pace;
     stateRef.current = state;
 
     if (isStill()) {
@@ -65,10 +71,6 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
       raf = requestAnimationFrame(paint);
       if (more === false) running = false;
     };
-
-    // A slower preference stretches every step. The floor keeps a pathological
-    // setting from starving the interval.
-    const pace = Math.max(16, Math.round(stepMs * getLevel().stepScale));
 
     timer = setInterval(step, pace);
     paint();

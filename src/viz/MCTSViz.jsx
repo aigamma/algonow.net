@@ -123,7 +123,7 @@ export default function MCTSViz() {
           if (st.sims >= SIMS) {
             sharesRef.current[modeKey] = Math.round(share * 100);
             st.phase = 'rest';
-            st.rest = holdTicks(100);
+            st.rest = holdTicks(st);
             if (st.stopAtRest) return false;
           }
         } else {

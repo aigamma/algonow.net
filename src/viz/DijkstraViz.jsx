@@ -168,7 +168,7 @@ export default function DijkstraViz() {
         if (s.heapRun.done && s.scanRun.done) {
           if (s.stopAtRest) return false;
           s.rest += 1;
-          if (s.rest > holdTicks(40)) {
+          if (s.rest > holdTicks(s)) {
             cycle.current += 1;
             const weight = makeGraph(SEED + cycle.current * 7919);
             s.weight = weight;

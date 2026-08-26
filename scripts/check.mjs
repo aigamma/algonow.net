@@ -528,6 +528,18 @@ if (existsSync(atlasDir)) {
           else fail(`merges.json: no redirect page in dist for retired slug "${m.retired}"`);
         }
       }
+      // Server-level 301s: every retired slug needs its exact forced line in
+      // dist/_redirects, or Netlify serves the stub with a 200 and the
+      // permanent-move signal never reaches crawlers.
+      if (existsSync('dist/_redirects')) {
+        const lines = new Set(readFileSync('dist/_redirects', 'utf8').split('\n').filter(Boolean));
+        const missing301 = (manifest.merges ?? []).filter(
+          (m) => !lines.has(`/problem/${m.retired}/ /problem/${m.into}/ 301!`)
+        );
+        if (missing301.length) fail(`_redirects missing forced 301s for: ${missing301.map((m) => m.retired).join(', ')}`);
+      } else if (existsSync('dist/problem')) {
+        fail('dist/_redirects missing: retired problem slugs would serve 200 stubs instead of 301s');
+      }
       for (const add of manifest.added ?? []) {
         if (!problems[add.slug]) fail(`merges.json: added problem "${add.slug}" is not in the live registry`);
       }

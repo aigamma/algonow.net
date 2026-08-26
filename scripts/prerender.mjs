@@ -300,6 +300,21 @@ ${es.map((e) => entryLine(e)).join('\n')}
     count++;
   }
 
+  // ---- dist/_redirects: server-level 301s for the retired problem slugs.
+  // The stub pages above stay as the belt (they work on any static host and
+  // for a reader who saved the HTML), but Netlify should answer with a real
+  // 301 before serving anything: it is the unambiguous permanent-move signal
+  // for crawlers that already hold these URLs from a month of the sitemap.
+  // The trailing ! forces the rule past shadowing, because the stub file
+  // exists on disk and a non-forced rule would lose to it. Exact paths only:
+  // a splat here could shadow live problem pages.
+  writeFileSync(
+    `${OUT}/_redirects`,
+    (merges.merges ?? [])
+      .map((m) => `/problem/${m.retired}/ /problem/${m.into}/ 301!`)
+      .join('\n') + '\n',
+  );
+
   // ---- /problem/ index
   // Alphabetical by canonical label, not by rival count: this is a lookup
   // index, a reader arrives knowing the problem's name, so findability beats

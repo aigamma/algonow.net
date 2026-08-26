@@ -222,6 +222,70 @@ Phase A standard. Candidates chosen for measurable contrast:
       chunk fix itself was 5e01aa1, not this work, and 28d23fa's message
       wrongly implies otherwise (correction recorded in
       docs/TAXONOMY-AUDIT.md). (28d23fa, 78c81e9, c1cdc4e, + audit commit)
+- [ ] G5. Alias-slug 301 phase: extend the dist/_redirects emitter beyond
+      the 30 retired problem slugs to the ~1,121 /algo/ alias slugs from
+      aliases.json (exact-path, force flag while the stub pages exist),
+      with a check assertion on line count and a measured file-size and
+      deploy verification before committing to the full set. Tooling.
+- [ ] G6. Famous-alias sweep beyond the vetted ten: walk the 309 suffixed
+      tier-1 names whose bare stem resolves nowhere, adding only
+      established short forms; skip ambiguous stems (Seidel, Heap,
+      Topological sort). A wrong synonym is worse than a missing one, and
+      the atlas-chunk budget is the hard stop (aliases ship inside it).
+
+## Phase H. Catalog data quality (Fable main thread ONLY, rule 10)
+
+Panel of 2026-08-26 (three proposers + judge, run strictly one at a
+time). Every H unit authors or restructures catalog entries, narration,
+or d phrases, so no agent may execute any of it; one topic file per
+commit, Fable trailer on every commit, check green before each push.
+
+- [ ] H1. Fix the factually wrong phrase on {Coreference resolution,
+      Mention-pair scoring} in nlp-tasks.json: its d says "Entity
+      linking", but coreference clusters mentions within a text while
+      entity linking grounds them to a knowledge base, so the live
+      information-extraction problem page lists coreference as an entity
+      linking method. Give it a truthful d, walk the 15
+      method-name-as-phrase suspects the panel scanned, and unify the
+      "Free-energy estimation" / "Free energy estimation" hyphen twins;
+      every phrase move keeps problems.json alive in the same commit.
+- [ ] H2. Same-name sweep: retire the 13 standalone-beside-pair
+      duplicates that violate ATLAS.md rule 2 (Minimax, Gale-Shapley,
+      Segment tree, Gibbs sampling, MinHash, SimHash, Earley parser,
+      LCS, Bitmap index, Ellipsoid method, Test-and-set lock, Deficit
+      round robin and peers; six are sole carriers of registered
+      phrases, so transfer the phrases), disambiguate the two DIFFERENT
+      algorithms conflated as "Seidel's algorithm" (unweighted APSP vs
+      trapezoidal decomposition) and the two "Label propagation"s
+      (community detection vs semi-supervised), and merge or
+      differentiate the three near-duplicate twins (HMC leapfrog, FMM
+      expansion, external merge sort). The live /algo/ conflations lead.
+- [ ] H3. a-slot inversion for the 12 single-method clusters where the
+      problem sits in the algorithm slot (Maze generation x Wilson's,
+      Data race detection x Happens-before, Influence maximization x
+      CELF, Point-in-polygon x Ray casting, Continual learning x EWC,
+      Mastermind x Knuth minimax, Tetris x Dellacherie, and peers):
+      put the real named method in a, register the Lights Out and
+      Falling-block phrases, author the genuinely missing rivals for
+      least-squares and greeks; retired display names become aliases.
+- [ ] H4. Staged triage of the remaining 37 problem-label-in-the-a-slot
+      rows, one topic per commit: invert the clear cases (Garbage
+      collection x Mark and sweep, Rubik's cube x Kociemba, Association
+      rule mining x Apriori, QEC x Shor code, IK x Jacobian transpose),
+      keep and document the defensible method names, and converge the
+      census to a reviewed allowlist. Unlocks G3.
+- [ ] H5. Rehome the seven canon RL rows (Q-learning, DQN, Double DQN,
+      PPO, SARSA, REINFORCE with baseline, TD learning) from
+      machine-learning.json into reinforcement-learning.json, which
+      currently has one tier-1 entry while its canon sits next door;
+      decide the SVM x RBF / kernel-methods placement in the same pass.
+- [ ] H6. Contest narration section: add 'contest' to NARRATION_SECTIONS,
+      point the contest table's listen chip at it (PuzzlePage.jsx wires
+      it to 'tradeoffs' today, so the chip plays a minute of
+      strength/weakness before any number), and re-key the
+      measured-numbers paragraphs in all 8 narration files in the same
+      unit so the chip never points at an empty section; every narration
+      keeps at least 6 sections.
 
 ---
 

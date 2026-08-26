@@ -166,6 +166,14 @@ export default function Atlas() {
             aria-label="Filter the atlas"
           />
           <button type="button" className="btn btn-listen" onClick={roll}>🎲 random</button>
+          <button
+            type="button"
+            className="btn"
+            title="One catalog entry per day, the same for every visitor"
+            onClick={() => setPick(ALL_ENTRIES[Math.floor(Date.now() / 86400000) % ALL_ENTRIES.length])}
+          >
+            📅 today
+          </button>
           <select
             className="atlas-catselect"
             value={cat}

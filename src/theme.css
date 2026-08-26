@@ -326,6 +326,13 @@ code, kbd, pre { font-family: var(--font-mono); }
 .pair-card .pc-domain { color: var(--ink-dim); font-size: 0.92rem; margin: 0 0 0.8rem; }
 .pair-card .pc-meta { display: flex; flex-wrap: wrap; gap: 0.45rem; }
 
+.pair-card.pc-today {
+  border-color: rgba(var(--algo-rgb), 0.55);
+  background: linear-gradient(160deg, rgba(var(--algo-rgb), 0.08), transparent 60%);
+  display: block;
+  margin-bottom: 1.4rem;
+}
+
 .pair-card.pc-bench {
   opacity: 0.55;
   cursor: default;

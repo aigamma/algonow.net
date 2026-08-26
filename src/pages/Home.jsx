@@ -13,7 +13,17 @@ function PairTitle({ algorithm, heuristic }) {
   );
 }
 
+// The daily anchor: the site's purpose is daily exposure, so every visitor
+// sees the same deterministic pick on the same day, with zero storage and
+// zero fetches. UTC days-since-epoch keeps the pick identical across
+// timezones and across visitors.
+export function todaysPair(date = new Date()) {
+  const day = Math.floor(date.getTime() / 86400000);
+  return LIVE_PUZZLES[day % LIVE_PUZZLES.length];
+}
+
 export default function Home() {
+  const today = todaysPair();
   return (
     <SiteShell>
       <div className="wrap">
@@ -44,6 +54,16 @@ export default function Home() {
         </section>
 
         <section id="pairs">
+          <h2 className="eyebrow">today&apos;s pair</h2>
+          <a className="pair-card pc-today" href={puzzlePath(today)}>
+            <span className="pc-number">
+              <span>puzzle {String(today.number).padStart(2, '0')} · today</span>
+              <span>▶ Listen · ~{today.listenMinutes} min</span>
+            </span>
+            <PairTitle algorithm={today.algorithm} heuristic={today.heuristic} />
+            <p className="pc-domain">{today.oneLiner}</p>
+          </a>
+
           <h2 className="eyebrow">the pairs</h2>
           <div className="pairs-grid">
             {LIVE_PUZZLES.map((p) => (

@@ -258,13 +258,16 @@ ${es.map((e) => entryLine(e)).join('\n')}
   }
 
   // ---- /problem/ index
-  problemList.sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
+  // Alphabetical, not by rival count. This is a lookup index: a reader
+  // arrives knowing the problem's name, so findability beats ranking. The
+  // count still rides along on each row.
+  problemList.sort((a, b) => a.label.localeCompare(b.label, 'en'));
   write('problem', page({
     title: 'Every problem in the atlas · algonow',
     description: `${problemList.length} problems, each with the rival methods that attack it.`,
     canonical: '/problem/',
     crumbs: [{ label: 'algonow', href: '/' }, { label: 'problems' }],
-    body: `<h1>Problems</h1><p class="lede">${problemList.length} problems. The number is how many rival methods the atlas knows for each.</p>
+    body: `<h1>Problems</h1><p class="lede">${problemList.length} problems, A to Z. The number is how many rival methods the atlas knows for each.</p>
 <ul class="index">${problemList.map((p) => `<li><a href="/problem/${p.slug}/">${esc(p.label)}</a><b>${p.n}</b></li>`).join('')}</ul>`,
   }));
   count++;

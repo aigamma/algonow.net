@@ -166,8 +166,15 @@ Annoy) out of computational-geometry into the new topic.
       Parallel tempering entry. Atlas 3,223 -> 3,253.
 - [ ] E6. weather-climate (data assimilation, ensemble Kalman, spectral
       dynamical cores, semi-Lagrangian advection)
-- [ ] E7+ split oversized topics (search-structures ~100, machine-learning
-      ~97, numerical ~98) into finer topics toward the ~100-topic target.
+- [ ] E7+ split oversized topics into finer ones toward the ~100-topic
+      target. Twelve exceed the ~60-entry threshold as of 2026-08-26
+      (recomputed from the topic files): search-structures 102,
+      machine-learning 99, numerical 98, graphs-structure 91,
+      distributed-concurrent 82, cryptography-number-theory 78,
+      signal-image 72, sorting 72, graphs-paths 71, metaheuristics 70,
+      computational-geometry 61, graphics-rendering 61. One split per
+      commit; machine-learning shrinks by seven more when H5 rehomes the
+      RL canon.
 
 ## Phase F. New unit pages (the daily lessons themselves)
 

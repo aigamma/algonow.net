@@ -437,23 +437,40 @@ if (existsSync(atlasDir)) {
     }
 
     // Rival clusters: entries resolve to a registry problem, else to their own
-    // phrase. An entry has rivals when its cluster holds two or more entries.
+    // phrase. An entry has rivals when its cluster holds two or more DISTINCT
+    // METHODS, not merely two entries: rivalsOf excludes same-algorithm
+    // entries (they are heuristic variants, not rivals), so a cluster whose
+    // entries all share one `a` renders a page with zero rivals however many
+    // rows it holds. Counting entries overstated coverage as 99.4% while the
+    // truthful distinct-method figure is what the pages actually show.
     const clusters = new Map();
     for (const [np, info] of byPhrase) {
       const key = phraseOwner.get(np) ?? `phrase:${np}`;
-      if (!clusters.has(key)) clusters.set(key, 0);
-      clusters.set(key, clusters.get(key) + info.entries.length);
+      if (!clusters.has(key)) clusters.set(key, { n: 0, algos: new Set(), display: info.display });
+      const c = clusters.get(key);
+      c.n += info.entries.length;
+      for (const a of info.algos) c.algos.add(a);
     }
     let withRivals = 0;
-    for (const size of clusters.values()) if (size >= 2) withRivals += size;
+    for (const c of clusters.values()) if (c.algos.size >= 2) withRivals += c.n;
     const pct = ((withRivals / total) * 100).toFixed(1);
-    ok(`rivals: ${problemCount} registered problems, ${clusters.size} clusters, ${withRivals}/${total} entries (${pct}%) have at least one rival`);
+    ok(`rivals: ${problemCount} registered problems, ${clusters.size} clusters, ${withRivals}/${total} entries (${pct}%) have at least one rival (distinct-method rule)`);
+
+    // Single-method multi-entry clusters: covered by the old entry count,
+    // rival-less in truth. Each is an authoring target (invert the a-slot or
+    // author a real rival); see Phase H in docs/OVERNIGHT-PLAN.md.
+    const phantom = [...clusters.entries()]
+      .filter(([, c]) => c.n >= 2 && c.algos.size === 1)
+      .map(([key, c]) => `${key.startsWith('phrase:') ? c.display : key} (${c.n})`);
+    if (phantom.length) {
+      console.log(`     single-method clusters (variants, no true rival): ${phantom.join(' · ')}`);
+    }
 
     // Backfill steering: which topics hold the most entries with no rival.
     const uncByTopic = new Map();
     for (const { topic, np } of entryPhrases) {
-      const size = clusters.get(phraseOwner.get(np) ?? `phrase:${np}`) ?? 0;
-      if (size < 2) uncByTopic.set(topic, (uncByTopic.get(topic) ?? 0) + 1);
+      const c = clusters.get(phraseOwner.get(np) ?? `phrase:${np}`);
+      if (!c || c.algos.size < 2) uncByTopic.set(topic, (uncByTopic.get(topic) ?? 0) + 1);
     }
     const worstTopics = [...uncByTopic.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10);
     if (worstTopics.length) {

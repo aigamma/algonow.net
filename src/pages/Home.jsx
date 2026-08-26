@@ -82,8 +82,10 @@ export default function Home() {
             <p className="at-headline">
               <b>{atlasSummary.algorithms.toLocaleString()}</b> algorithms and{' '}
               <b>{atlasSummary.heuristics.toLocaleString()}</b> heuristics, paired into{' '}
-              {atlasSummary.total.toLocaleString()} entries across {atlasSummary.topics} topics
-              in {atlasSummary.categories} categories.
+              {atlasSummary.total.toLocaleString()} entries that attack{' '}
+              <b>{atlasSummary.problems.toLocaleString()}</b> problems, about five rival
+              methods each, across {atlasSummary.topics} topics in {atlasSummary.categories}{' '}
+              categories.
             </p>
             <p className="at-sub">
               The classical core beside the exotic: quantum, DNA and slime-mold computing,

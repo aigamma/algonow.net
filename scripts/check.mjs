@@ -288,6 +288,18 @@ if (existsSync(atlasDir)) {
   if (existsSync(summaryPath)) {
     const summary = JSON.parse(readFileSync(summaryPath, 'utf8'));
     const realTopicCount = topicKeys.length;
+    // Problems are the grouping the whole catalog hangs on, so the summary
+    // carries them too: every distinct `d` phrasing, and the canonical
+    // problems those phrasings collapse into. Read here rather than reusing
+    // the rivals pass below, which runs later.
+    const realPhrasings = byPhrase.size;
+    let realProblems = 0;
+    try {
+      const reg = JSON.parse(readFileSync(`${atlasDir}/problems.json`, 'utf8'));
+      realProblems = Object.keys(reg).filter((k) => !k.startsWith('_')).length;
+    } catch {
+      realProblems = -1;
+    }
     if (summary.total !== total) {
       fail(`atlas-summary.json total ${summary.total} != actual ${total}; update it`);
     } else if (summary.topics !== realTopicCount) {
@@ -298,8 +310,16 @@ if (existsSync(atlasDir)) {
       fail(`atlas-summary.json algorithms ${summary.algorithms} != actual ${algoNames.size}; update it`);
     } else if (summary.heuristics !== heurNames.size) {
       fail(`atlas-summary.json heuristics ${summary.heuristics} != actual ${heurNames.size}; update it`);
+    } else if (summary.phrasings !== realPhrasings) {
+      fail(`atlas-summary.json phrasings ${summary.phrasings} != actual ${realPhrasings}; update it`);
+    } else if (summary.problems !== realProblems) {
+      fail(`atlas-summary.json problems ${summary.problems} != actual ${realProblems}; update it`);
     } else {
-      ok(`atlas-summary.json in sync (${total} entries / ${algoNames.size} algorithms / ${heurNames.size} heuristics / ${realTopicCount} topics / ${CATEGORIES.length} categories)`);
+      ok(
+        `atlas-summary.json in sync (${total} entries = ${algoNames.size} algorithms x ${heurNames.size} heuristics, ` +
+          `attacking ${realPhrasings} phrasings grouped into ${realProblems} problems, ` +
+          `across ${realTopicCount} topics in ${CATEGORIES.length} categories)`
+      );
     }
   } else {
     fail(`${summaryPath} missing`);

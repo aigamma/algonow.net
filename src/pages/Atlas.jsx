@@ -12,6 +12,9 @@ import {
   ALIASES,
 } from '../data/atlas.js';
 import { LIVE_PUZZLES } from '../data/puzzles.js';
+// The problem count comes from the tiny committed summary rather than the
+// rivals registry, which is deliberately kept out of this page's bundle.
+import atlasSummary from '../data/atlas-summary.json';
 
 const norm = (s) =>
   String(s ?? '').toLowerCase().replace(/['’]s\b/g, '').replace(/[^a-z0-9+*]+/g, ' ').trim();
@@ -121,10 +124,11 @@ export default function Atlas() {
           </h1>
           <p className="hero-oneliner">
             {ALGORITHM_COUNT.toLocaleString()} algorithms and {HEURISTIC_COUNT.toLocaleString()}{' '}
-            heuristics, paired into {TOTAL.toLocaleString()} entries, three tiers deep across{' '}
-            {TOPIC_COUNT} topics in {CATEGORY_COUNT} categories. The classical core beside the
-            exotic: quantum, DNA and slime-mold computing, the nature-inspired swarm, and the
-            puzzle solvers.
+            heuristics, paired into {TOTAL.toLocaleString()} entries that attack{' '}
+            {atlasSummary.problems.toLocaleString()} problems, about five rival methods each.
+            Three tiers deep across {TOPIC_COUNT} topics in {CATEGORY_COUNT} categories: the
+            classical core beside the exotic, quantum, DNA and slime-mold computing, the
+            nature-inspired swarm, and the puzzle solvers.
           </p>
         </section>
 

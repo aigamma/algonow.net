@@ -10,7 +10,7 @@
 import { readdirSync, readFileSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { CATEGORIES, CATEGORY_OF_TOPIC } from '../src/data/atlas-categories.js';
 import { REGISTRY_KEYS } from '../src/data/atlas-registry.js';
-import { PUZZLES, SITE_HOST } from '../src/data/puzzles.js';
+import { PUZZLES, SITE_HOST, SITE_NAME } from '../src/data/puzzles.js';
 
 const ATLAS = 'src/data/atlas';
 const OUT = 'dist';
@@ -81,14 +81,27 @@ function loadAtlas() {
 const STYLE = '/data.css';
 
 function page({ title, description, canonical, crumbs, body, head = '' }) {
+  // Head hygiene on every data page: a favicon link (without it, browsers
+  // probe /favicon.ico and 404) and, on indexable pages, the same Open Graph
+  // and Twitter set the app pages carry so shares unfurl with real text. The
+  // noindex stubs (alias redirects, retired-problem redirects, by-rivals)
+  // stay minimal: og tags on a page that asks not to be indexed are noise.
+  const noindex = head.includes('name="robots"');
+  const og = noindex ? '' : `<meta property="og:type" content="website"><meta property="og:site_name" content="${SITE_NAME}">
+<meta property="og:url" content="${SITE_HOST}${canonical}"><meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(description)}"><meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(description)}">
+<meta name="theme-color" content="#0a0d13">
+`;
   return `<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
 <link rel="canonical" href="${SITE_HOST}${canonical}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="${STYLE}">
-${head}</head><body>
+${og}${head}</head><body>
 <header class="dh"><a class="wm" href="/">algo<span>now</span></a>
 <nav class="dn"><a href="/atlas/">atlas</a><a href="/category/">categories</a><a href="/problem/">problems</a></nav></header>
 <main class="dw">

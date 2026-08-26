@@ -16,8 +16,12 @@ for path in solutions:
         [sys.executable, str(path)], capture_output=True, text=True, timeout=300
     )
     out = result.stdout.strip()
-    if result.returncode == 0 and out.startswith("OK"):
-        print(f"PASS {path.name}: {out}")
+    # The comparative standard prints each solution's measured contest table
+    # before its verdict, so the OK line ends the output rather than opening
+    # it. The contract is "prints OK", not "prints OK first".
+    ok_line = next((ln for ln in out.splitlines() if ln.startswith("OK")), None)
+    if result.returncode == 0 and ok_line:
+        print(f"PASS {path.name}: {ok_line}")
     else:
         failures += 1
         print(f"FAIL {path.name}: exit {result.returncode}")

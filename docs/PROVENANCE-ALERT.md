@@ -62,16 +62,44 @@ It also failed the build (see the blocker below), so it was never landable.
 **Do not `stash pop` and commit it as Fable.** Author E6 fresh, or drop the
 stash. E6 is still marked `[ ]` in the plan, which is correct.
 
-## Blocker the fresh session hits immediately: the atlas bundle is full
+## RESOLVED 2026-08-25: the atlas bundle blocker is gone
 
-At 3,253 entries the atlas page chunk is **119.8 KB gzipped against a 120 KB
-budget** (0.2 KB of headroom). The weather-climate draft's 28 entries pushed it
-to 121.1 KB and the build FAILED. **The catalog cannot grow by even one more
-topic until the atlas page stops shipping the entire catalog in one client
-chunk.** This is tooling, not authoring, so any model may fix it. Likely
-direction: split the per-entry data out of the JS bundle (a fetched/prerendered
-JSON the atlas page loads), or paginate/lazy-load by category. This must be
-solved before resuming Phase E growth toward 5,000.
+**This section previously said catalog growth was blocked. It is not. Do not
+act on the old text; it is kept below only so the history reads straight.**
+
+Commit `5e01aa1` cut the atlas page chunk from **119.8 KB to 94.7 KB gzipped**,
+leaving **25.3 KB of headroom** under the same 120 KB ceiling. Nothing about the
+budget changed and no runtime fetch was introduced.
+
+The cause was dead weight, not catalog size. `src/data/atlas.js` globbed
+`./atlas/*.json` eagerly, which pulled `problems.json` (112.5 KB raw, 25.8 KB
+gzipped) into the page bundle to build `PROBLEMS`, `PROBLEM_OF_PHRASE` and
+`rivalsOf`. No page calls any of them: `Atlas.jsx` never mentions rivals, and
+`rivalsOf`'s only callers are in `tests/atlas-module.test.mjs`. Because the glob
+was eager, Vite could not drop it. The rivals table now lives in
+`src/data/atlas-rivals.js`, and a test fails if it leaks back.
+
+**What this means for growth:** roughly a thousand more entries fit today. The
+28-entry weather-climate topic would add about 0.65 KB against 25.3 KB free, so
+it is nowhere near the ceiling. Author new topics normally.
+
+There is a measured next step if the ceiling is ever approached again: shipping
+entry data as tab-separated text instead of JSON objects is 13.8% smaller
+(75.2 KB to 64.8 KB gzipped), which puts capacity around **6,000 entries**. The
+source `.json` topic files would not change; only the client serialization
+would. It is tooling, unbuilt, and not needed yet.
+
+Do NOT "fix" this by raising the budget, and do NOT switch to a runtime-fetched
+JSON asset: CLAUDE.md forbids runtime data fetches on any page, which makes the
+old advice below unusable as written.
+
+### Superseded original text (2026-07-22, historical only)
+
+> At 3,253 entries the atlas page chunk is 119.8 KB gzipped against a 120 KB
+> budget (0.2 KB of headroom). The weather-climate draft's 28 entries pushed it
+> to 121.1 KB and the build FAILED. The catalog cannot grow by even one more
+> topic until the atlas page stops shipping the entire catalog in one client
+> chunk.
 
 ## Suggested order for the fresh Fable session
 

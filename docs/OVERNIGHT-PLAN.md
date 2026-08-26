@@ -5,9 +5,14 @@
 > Fable, and authored those catalog entries under a false Fable trailer.
 > Those `[x]` items are committed and building green, but their entry
 > content needs genuine Fable re-authoring before the provenance claim
-> holds. Also: the atlas page chunk is at 119.8/120 KB, so catalog growth
-> is BLOCKED until the atlas bundle is split (tooling fix). Do not treat
-> the `[x]` topics as provenance-clean.
+> holds. Do not treat the `[x]` topics as provenance-clean.
+>
+> **UPDATE 2026-08-25: catalog growth is NO LONGER blocked.** The atlas
+> chunk went 119.8 KB -> 94.7 KB gzipped in `5e01aa1` (dead weight, not
+> catalog size: `problems.json` was being globbed into the page bundle for
+> a function no page calls). There is now 25.3 KB of headroom, about a
+> thousand entries. Author new topics normally; see
+> `docs/PROVENANCE-ALERT.md` for the detail and the measured next step.
 
 This file is the work queue. It exists on disk, not in a chat log, because a
 session can die at any time and the next one must resume without asking.

@@ -941,5 +941,7 @@
   "Optical proximity correction": { "aka": ["OPC"] },
   "High-level synthesis scheduling": { "aka": ["HLS scheduling", "Behavioral synthesis scheduling"] },
   "Analytical placement": { "aka": ["Quadratic placement"] },
-  "Equivalence checking": { "aka": ["Combinational equivalence checking", "CEC"] }
+  "Equivalence checking": { "aka": ["Combinational equivalence checking", "CEC"] },
+  "Anti-entropy repair": { "aka": ["Merkle-tree anti-entropy"], "note": "The standalone Merkle-tree anti-entropy entry was the same method under a second name; merged 2026-08-26." },
+  "Quorum replication": { "aka": ["Quorum read-write"], "note": "Quorum read-write with R+W>N was the same intersection scheme under a second name; merged 2026-08-26." }
 }

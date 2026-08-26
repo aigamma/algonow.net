@@ -151,7 +151,7 @@ export const PUZZLES = {
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 export const ROADMAP = [
-  { algorithm: 'Greedy best-first search', heuristic: 'Straight-line distance', domain: 'Fast, non-optimal routing' },
+  { algorithm: 'Greedy best-first search', heuristic: 'Euclidean distance', domain: 'Fast, non-optimal routing' },
   { algorithm: 'Beam search', heuristic: 'Top-k frontier pruning', domain: 'Sequence decoding' },
   { algorithm: 'First-fit decreasing', heuristic: 'Descending size order', domain: 'Bin packing' },
   { algorithm: 'Hill climbing', heuristic: 'Random restarts', domain: 'Local optimization' },

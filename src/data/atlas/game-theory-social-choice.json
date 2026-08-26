@@ -2,7 +2,6 @@
 {"a": "Minimax theorem solving", "h": "Linear programming", "d": "Zero-sum equilibrium", "t": 1},
 {"a": "Lemke-Howson", "h": "Complementary pivoting", "d": "Bimatrix Nash equilibrium", "t": 2},
 {"a": "Support enumeration", "h": null, "d": "Nash equilibrium", "t": 2},
-{"a": "Fictitious play", "h": "Empirical best response", "d": "Equilibrium learning", "t": 2},
 {"a": "Regret matching", "h": null, "d": "Correlated equilibrium", "t": 2},
 {"a": "Replicator dynamics", "h": null, "d": "Evolutionary game theory", "t": 3},
 {"a": "Iterated dominance elimination", "h": null, "d": "Game reduction", "t": 2},

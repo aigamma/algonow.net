@@ -69,8 +69,6 @@
 {"a": "CRDT RGA sequence", "h": null, "d": "Collaborative text editing", "t": 3},
 {"a": "Operational transformation", "h": null, "d": "Collaborative editing", "t": 2},
 {"a": "Differential synchronization", "h": null, "d": "Collaborative editing", "t": 3},
-{"a": "Merkle-tree anti-entropy", "h": null, "d": "Replica reconciliation", "t": 2},
-{"a": "Quorum read-write", "h": "R plus W greater than N", "d": "Tunable consistency", "t": 2},
 {"a": "Hinted handoff", "h": null, "d": "Availability under failure", "t": 3},
 {"a": "Deterministic simulation testing", "h": null, "d": "Distributed-system testing", "t": 3},
 {"a": "Lai-Yang snapshot", "h": "Message coloring", "d": "Distributed snapshots", "t": 3},

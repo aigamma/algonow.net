@@ -41,7 +41,7 @@
 {"a": "Recursive best-first search", "h": "Backed-up f-value bounds", "d": "Linear-memory informed search", "t": 2},
 {"a": "SMA*", "h": "Worst-leaf eviction", "d": "Bounded-memory informed search", "t": 3},
 {"a": "Fringe search", "h": "Threshold-sweep frontier", "d": "Grid pathfinding", "t": 3},
-{"a": "Greedy best-first search", "h": "Straight-line distance", "d": "Fast non-optimal routing", "t": 1},
+{"a": "Greedy best-first search", "h": "Euclidean distance", "d": "Fast non-optimal routing", "t": 1},
 {"a": "Greedy best-first search", "h": "Manhattan distance", "d": "Fast grid routing", "t": 2},
 {"a": "Beam search", "h": "Top-k frontier pruning", "d": "Bounded-width search", "t": 1},
 {"a": "Bidirectional A*", "h": "Consistent-heuristic meeting rule", "d": "Point-to-point search", "t": 3},

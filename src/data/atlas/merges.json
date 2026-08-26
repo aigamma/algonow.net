@@ -786,5 +786,66 @@
    "reason": "Lexical normalization: spell out regular expression; the matching-vs-construction distinction stays."
   }
  ],
- "entryRemovals": []
+ "entryRemovals": [
+  {
+   "a": "Fictitious play",
+   "h": "Empirical best response",
+   "d": "Equilibrium learning",
+   "topic": "game-theory-social-choice",
+   "duplicateOf": {
+    "a": "Fictitious play",
+    "h": "Best-response averaging",
+    "topic": "game-search"
+   },
+   "reason": "Same algorithm, and the heuristic phrasings mean the same rule: fictitious play best-responds to the empirical average of past play. Two spellings of one entry. The phrase Equilibrium learning died with it and left problems.json."
+  },
+  {
+   "a": "Anti-entropy repair",
+   "h": "Merkle-tree sync",
+   "d": "Replica convergence",
+   "topic": "distributed-databases",
+   "duplicateOf": {
+    "a": "Anti-entropy repair",
+    "h": "Merkle-tree diffing",
+    "topic": "fault-tolerance-storage"
+   },
+   "reason": "Same algorithm with a synonymous heuristic (sync vs diffing of the same Merkle-tree exchange). The phrase Replica convergence died with it."
+  },
+  {
+   "a": "Merkle-tree anti-entropy",
+   "h": null,
+   "d": "Replica reconciliation",
+   "topic": "distributed-concurrent",
+   "duplicateOf": {
+    "a": "Anti-entropy repair",
+    "h": "Merkle-tree diffing",
+    "topic": "fault-tolerance-storage"
+   },
+   "reason": "The same method under a second display name; the name survives as an alias of Anti-entropy repair. The phrase Replica reconciliation keeps its other entry."
+  },
+  {
+   "a": "Quorum read-write",
+   "h": "R plus W greater than N",
+   "d": "Tunable consistency",
+   "topic": "distributed-concurrent",
+   "duplicateOf": {
+    "a": "Quorum replication",
+    "h": "Read-write intersection",
+    "topic": "fault-tolerance-storage"
+   },
+   "reason": "R+W>N intersection and read-write intersection are one scheme; the name survives as an alias of Quorum replication. The phrase Tunable consistency died with it."
+  }
+ ],
+ "displayNormalizations": [
+  {
+   "field": "h",
+   "from": "Straight-line distance",
+   "to": "Euclidean distance",
+   "entry": {
+    "a": "Greedy best-first search",
+    "topic": "graphs-paths"
+   },
+   "reason": "Straight-line distance and Euclidean distance are one concept; the atlas already used Euclidean distance on the A* entry. The roadmap pair in puzzles.js was updated to match. Distinct-heuristic count drops by one."
+  }
+ ]
 }

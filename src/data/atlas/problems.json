@@ -1143,7 +1143,7 @@
   },
   "nash-equilibrium": {
     "label": "Normal-form equilibrium computation",
-    "phrases": ["Zero-sum equilibrium", "Bimatrix Nash equilibrium", "Nash equilibrium", "Equilibrium learning", "Correlated equilibrium", "Evolutionary game theory", "Game equilibrium learning", "Large matrix games"]
+    "phrases": ["Zero-sum equilibrium", "Bimatrix Nash equilibrium", "Nash equilibrium", "Correlated equilibrium", "Evolutionary game theory", "Game equilibrium learning", "Large matrix games"]
   },
   "extensive-form-solving": {
     "label": "Extensive-form game solving",
@@ -1695,7 +1695,7 @@
   },
   "replication-schemes": {
     "label": "Replication and replica consistency",
-    "phrases": ["Fault tolerance", "Strongly-consistent storage", "Fault-tolerant services", "Consistent replication", "Eventual consistency", "High-availability writes", "Replicated storage", "Read scaling", "Consistent local reads", "Data placement", "Tunable consistency", "Availability under failure", "Replica reconciliation", "Replica convergence", "Convergent replicated counter", "Convergent replicated set", "Convergent replicated register"]
+    "phrases": ["Fault tolerance", "Strongly-consistent storage", "Fault-tolerant services", "Consistent replication", "Eventual consistency", "High-availability writes", "Replicated storage", "Read scaling", "Consistent local reads", "Data placement", "Availability under failure", "Replica reconciliation", "Convergent replicated counter", "Convergent replicated set", "Convergent replicated register"]
   },
   "set-reconciliation": {
     "label": "Set reconciliation",

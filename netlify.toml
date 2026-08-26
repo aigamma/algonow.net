@@ -30,6 +30,16 @@
   status = 301
   force = true
 
+# One public hostname: the bare netlify.app host serves the same bytes as the
+# apex, so canonicalize it. Scoped to the exact hostname on purpose: deploy
+# preview URLs (<hash>--algonow-net.netlify.app) are different hostnames and
+# keep serving content for verification.
+[[redirects]]
+  from = "https://algonow-net.netlify.app/*"
+  to = "https://algonow.net/:splat"
+  status = 301
+  force = true
+
 # Content-hashed build assets are immutable.
 [[headers]]
   for = "/assets/*"

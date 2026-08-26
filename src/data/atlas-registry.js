@@ -7,6 +7,6 @@
 // ignore it correctly while atlas.js treated it as a topic and called .slice()
 // on a plain object, which throws at page load. The build still exited 0
 // because Vite never runs client code. One list, imported by both.
-export const REGISTRY_KEYS = ['aliases', 'problems'];
+export const REGISTRY_KEYS = ['aliases', 'problems', 'merges'];
 
 export const isRegistryKey = (key) => REGISTRY_KEYS.includes(key);

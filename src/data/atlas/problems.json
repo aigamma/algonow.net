@@ -1,11 +1,10 @@
 {
   "_doc": {
-    "purpose": "The RIVALS table. aliases.json solves one axis of collision (one algorithm, many names); this file solves the other (one problem, many phrasings). Each entry's `d` is a specific problem phrase chosen to carry the trade-off ('Negative-edge shortest paths' is exactly why you reach for Bellman-Ford). That specificity is worth keeping, but it fragments the problem axis: Dijkstra and Bellman-Ford stopped looking like rivals because their phrases differ. This registry maps many phrases onto one canonical problem, so rival lookup is mechanical without flattening the phrasing.",
-    "schema": "Every key except those starting with underscore is a slug (lowercase, hyphens) that will become a stable /problem/<slug> URL. Value: { label: display name, phrases: [exact `d` values from atlas entries] }. A phrase must match at least one live entry (check fails on dead phrases) and may be claimed by exactly one problem.",
-    "rivalsRule": "Two entries are RIVALS when they resolve to the same problem, either through this registry or by sharing an identical `d`. Unit pages name two or three rivals with a when-to-prefer line; see the rivals doctrine in CLAUDE.md and docs/ATLAS.md.",
-    "growthNote": "Partial coverage is fine and expected. An unregistered phrase simply stands alone (or clusters with exact matches of itself). `npm run check` prints the largest unregistered phrases as a planning queue, so this file grows from evidence rather than guesswork."
+      "purpose": "The RIVALS table. aliases.json solves one axis of collision (one algorithm, many names); this file solves the other (one problem, many phrasings). Each entry's `d` is a specific problem phrase chosen to carry the trade-off ('Negative-edge shortest paths' is exactly why you reach for Bellman-Ford). That specificity is worth keeping, but it fragments the problem axis: Dijkstra and Bellman-Ford stopped looking like rivals because their phrases differ. This registry maps many phrases onto one canonical problem, so rival lookup is mechanical without flattening the phrasing.",
+      "schema": "Every key except those starting with underscore is a slug (lowercase, hyphens) that will become a stable /problem/<slug> URL. Value: { label: display name, phrases: [exact `d` values from atlas entries] }. A phrase must match at least one live entry (check fails on dead phrases) and may be claimed by exactly one problem.",
+      "rivalsRule": "Two entries are RIVALS when they resolve to the same problem, either through this registry or by sharing an identical `d`. Unit pages name two or three rivals with a when-to-prefer line; see the rivals doctrine in CLAUDE.md and docs/ATLAS.md.",
+      "growthNote": "Partial coverage is fine and expected. An unregistered phrase simply stands alone (or clusters with exact matches of itself). `npm run check` prints the largest unregistered phrases as a planning queue, so this file grows from evidence rather than guesswork."
   },
-
   "comparison-sorting": {
     "label": "Comparison sorting",
     "phrases": ["In-place comparison sorting", "Stable comparison sorting", "In-place stable sorting", "Iterative stable sorting", "Adaptive sorting", "Adaptive in-place sorting", "Adaptive stable sorting", "Real-world stable sorting", "Standard-library sorting", "JDK array sorting", "Small-array sorting", "Minimal-swap sorting", "Pedagogical exchange sorting", "Single-pointer exchange sorting", "Turtle-killing exchange sorting", "Bidirectional bubble sorting", "Gapped insertion sorting", "Comparison-count-optimal small sorting", "Comparison-optimal-leaning sorting", "Comparison-lean heapsort", "Worst-case-safe sorting", "Sorting with many duplicates", "Sorting via BST insertion", "Sorting via solitaire piles", "Write-minimal sorting", "Cache-oblivious sorting", "Top-k sorted output", "In-place merging", "Comparison-lean insertion", "Insertion with breathing room"]
@@ -36,9 +35,8 @@
   },
   "selection": {
     "label": "Selection and order statistics",
-    "phrases": ["Worst-case linear selection", "Comparison-lean selection", "Practical selection", "Top-k selection", "Selection by knockout tree"]
+    "phrases": ["Worst-case linear selection", "Comparison-lean selection", "Practical selection", "Top-k selection", "Selection by knockout tree", "Order statistics"]
   },
-
   "single-source-shortest-paths": {
     "label": "Single-source shortest paths",
     "phrases": ["Nonnegative shortest paths", "Negative-edge shortest paths", "Binary-weight shortest paths", "Small-weight shortest paths", "Parallel shortest paths", "Point-to-point shortest paths", "Unweighted shortest reach", "Practical Bellman-Ford", "Linear-time undirected SSSP theory", "Acyclic-graph paths", "Point-to-point search"]
@@ -81,11 +79,11 @@
   },
   "vertex-coloring": {
     "label": "Vertex coloring",
-    "phrases": ["Vertex coloring", "Exact vertex coloring", "Graph coloring approximation"]
+    "phrases": ["Vertex coloring", "Exact vertex coloring", "Graph coloring approximation", "Exact chromatic number"]
   },
   "traveling-salesman": {
     "label": "Traveling salesman",
-    "phrases": ["Exact traveling salesman", "Traveling salesman exact", "Traveling-salesman problem", "Exact TSP", "Asymmetric TSP", "TSP bounding", "Traveling salesman heuristic", "TSP construction", "Traveling-salesman tours", "Metric TSP approximation"]
+    "phrases": ["Exact traveling salesman", "Traveling salesman exact", "Traveling-salesman problem", "Exact TSP", "Asymmetric TSP", "TSP bounding", "Traveling salesman heuristic", "TSP construction", "Traveling-salesman tours", "Metric TSP approximation", "Tour improvement", "Tour construction", "Tour evolution"]
   },
   "knapsack": {
     "label": "Knapsack",
@@ -93,13 +91,12 @@
   },
   "boolean-satisfiability": {
     "label": "Boolean satisfiability",
-    "phrases": ["Boolean satisfiability", "Molecular satisfiability", "Boolean constraint solving"]
+    "phrases": ["Boolean satisfiability", "Molecular satisfiability", "Boolean constraint solving", "Modern SAT solving", "SAT solving", "SAT solver engineering", "Hard random SAT", "Local-search SAT"]
   },
   "link-analysis": {
     "label": "Node importance and link analysis",
     "phrases": ["Web ranking", "Link-based ranking", "Local graph ranking", "Proximity ranking", "Node importance", "Flow-based ranking", "Graph centrality", "Large-graph centrality"]
   },
-
   "convex-hull": {
     "label": "Convex hull",
     "phrases": ["Convex hull", "Output-sensitive convex hull", "Three-dimensional hulls", "Diameter and width queries"]
@@ -112,7 +109,6 @@
     "label": "Polygon triangulation",
     "phrases": ["Polygon triangulation"]
   },
-
   "substring-search": {
     "label": "Substring search",
     "phrases": ["Substring search", "Constant-space substring search", "Substring and plagiarism search", "Pattern preprocessing"]
@@ -122,12 +118,8 @@
     "phrases": ["Approximate string matching", "Approximate matching", "Fuzzy dictionary lookup"]
   },
   "edit-distance": {
-    "label": "Edit distance and sequence comparison",
-    "phrases": ["Edit distance", "Bounded edit distance", "Speedup for edit distance", "Sequence similarity", "Sequence symmetry", "Transposition-aware distance"]
-  },
-  "pairwise-sequence-alignment": {
-    "label": "Pairwise sequence alignment",
-    "phrases": ["Global sequence alignment", "Local sequence alignment", "Sequence alignment", "Similar-sequence alignment", "Linear-space alignment", "Sequence comparison"]
+    "label": "Edit distance and sequence alignment",
+    "phrases": ["Edit distance", "Bounded edit distance", "Speedup for edit distance", "Sequence similarity", "Sequence symmetry", "Transposition-aware distance", "Global sequence alignment", "Local sequence alignment", "Sequence alignment", "Similar-sequence alignment", "Linear-space alignment", "Sequence comparison"]
   },
   "multiple-sequence-alignment": {
     "label": "Multiple sequence alignment",
@@ -197,10 +189,6 @@
     "label": "Enhanced sampling",
     "phrases": ["Enhanced sampling"]
   },
-  "free-energy-estimation": {
-    "label": "Free energy estimation",
-    "phrases": ["Free energy estimation"]
-  },
   "conformer-search": {
     "label": "Conformer search",
     "phrases": ["Conformer search"]
@@ -217,7 +205,6 @@
     "label": "Regular expression matching",
     "phrases": ["Regex matching", "Fast regex matching", "Linear-time regex matching", "Submatch regex"]
   },
-
   "integer-factorization": {
     "label": "Integer factorization",
     "phrases": ["Integer factorization", "Small-factor factorization", "Medium-factor factorization", "Close-factor factorization", "Large integer factorization", "Record integer factorization"]
@@ -246,7 +233,6 @@
     "label": "Dynamic hashing",
     "phrases": ["Dynamic disk hashing", "Incremental dynamic hashing"]
   },
-
   "root-finding": {
     "label": "Root finding",
     "phrases": ["Root finding", "Bracketed root finding", "Robust root finding", "Derivative-free root finding", "Cubic-convergence root finding", "High-order root finding", "Complex root finding"]
@@ -264,7 +250,7 @@
     "phrases": ["Symmetric eigenvalues", "Full eigenvalue spectrum", "Sparse symmetric eigenvalues", "Sparse nonsymmetric eigenvalues", "Symmetric tridiagonal eigenvalues", "Dominant eigenvector", "Targeted eigenvectors", "Cubic eigenvalue convergence"]
   },
   "least-squares": {
-    "label": "Least squares",
+    "label": "Linear least squares",
     "phrases": ["Least squares", "Sparse least squares"]
   },
   "nonlinear-least-squares": {
@@ -281,16 +267,15 @@
   },
   "continuous-optimization": {
     "label": "Continuous optimization",
-    "phrases": ["Continuous optimization", "Continuous minimization", "Continuous swarm search", "Parameter-free optimization"]
+    "phrases": ["Continuous optimization", "Continuous minimization", "Continuous swarm search", "Parameter-free optimization", "Smooth convex optimization", "Nonlinear optimization", "Quasi-Newton optimization", "Large-scale optimization", "Separable optimization", "Sparse optimization", "Constrained convex optimization", "Constrained optimization", "Sparse regularized optimization", "Distributed convex optimization", "Convex optimization", "Composite optimization", "Biconvex optimization", "Constrained projection", "Derivative-free optimization", "Derivative-free continuous optimization"]
   },
-
   "clustering": {
     "label": "Clustering",
-    "phrases": ["Vector clustering", "Fast clustering", "Streaming clustering", "Robust clustering", "Nonlinear clustering", "Soft clustering", "Overlapping clustering", "Mode-seeking clustering", "Exemplar clustering", "Manifold clustering", "Large-data clustering", "Arbitrary-shape clustering", "Variable-density clustering", "Hierarchical density clustering", "Hierarchical clustering", "Swarm data organization"]
+    "phrases": ["Vector clustering", "Fast clustering", "Streaming clustering", "Robust clustering", "Nonlinear clustering", "Soft clustering", "Overlapping clustering", "Mode-seeking clustering", "Exemplar clustering", "Manifold clustering", "Large-data clustering", "Arbitrary-shape clustering", "Variable-density clustering", "Hierarchical density clustering", "Hierarchical clustering", "Swarm data organization", "K-center approximation", "K-median approximation"]
   },
   "classification": {
     "label": "Classification",
-    "phrases": ["Classification", "Binary classification", "Linear classification", "Nonlinear classification", "Max-margin classification", "Large-scale classification", "Instance-based classification", "Correlation-aware classification", "Interpretable classification", "Regression and classification trees", "Ensemble classification", "Boosted classification", "Probabilistic classification", "Nonparametric classification", "Kernel classification", "Online classification", "Online kernel classification", "Text classification", "Imbalanced classification", "Decision tree induction", "Boosted prediction", "Tabular prediction", "Large tabular prediction", "Categorical prediction", "Ensemble blending", "Nonlinear discrimination", "Post-hoc ensembling"]
+    "phrases": ["Classification", "Binary classification", "Linear classification", "Nonlinear classification", "Max-margin classification", "Large-scale classification", "Instance-based classification", "Correlation-aware classification", "Interpretable classification", "Regression and classification trees", "Ensemble classification", "Boosted classification", "Probabilistic classification", "Nonparametric classification", "Kernel classification", "Online classification", "Online kernel classification", "Text classification", "Imbalanced classification", "Decision tree induction", "Boosted prediction", "Tabular prediction", "Large tabular prediction", "Categorical prediction", "Ensemble blending", "Nonlinear discrimination", "Post-hoc ensembling", "Large-scale SVM"]
   },
   "regression": {
     "label": "Regression",
@@ -334,7 +319,7 @@
   },
   "image-segmentation": {
     "label": "Image segmentation",
-    "phrases": ["Image segmentation", "Interactive segmentation", "Superpixel segmentation", "Boundary extraction", "Instance segmentation", "Scene parsing", "Motion segmentation"]
+    "phrases": ["Image segmentation", "Interactive segmentation", "Superpixel segmentation", "Boundary extraction", "Instance segmentation", "Scene parsing", "Motion segmentation", "Image binarization"]
   },
   "optical-flow": {
     "label": "Optical flow",
@@ -360,14 +345,9 @@
     "label": "Random variate generation",
     "phrases": ["Discrete random sampling", "Weighted sampling", "Gaussian random sampling", "Random variate generation"]
   },
-
-  "parser-construction": {
-    "label": "Parser construction",
-    "phrases": ["Bottom-up parsing", "Predictive parsing", "Top-down parsing", "Linear-time parsing", "Composable parsing", "Expression parsing"]
-  },
   "context-free-parsing": {
-    "label": "General context-free parsing",
-    "phrases": ["Context-free parsing", "General context-free parsing", "Fast context-free parsing", "Ambiguous-grammar parsing", "General top-down parsing", "Natural-language parsing"]
+    "label": "Context-free parsing",
+    "phrases": ["Context-free parsing", "General context-free parsing", "Fast context-free parsing", "Ambiguous-grammar parsing", "General top-down parsing", "Natural-language parsing", "Bottom-up parsing", "Predictive parsing", "Top-down parsing", "Linear-time parsing", "Composable parsing", "Expression parsing"]
   },
   "text-preprocessing": {
     "label": "Text preprocessing and normalization",
@@ -407,7 +387,7 @@
   },
   "text-editing": {
     "label": "Text correction and editing",
-    "phrases": ["Writing assistance"]
+    "phrases": ["Writing assistance", "Spelling correction", "Fast spelling correction"]
   },
   "shallow-parsing": {
     "label": "Shallow parsing",
@@ -424,10 +404,6 @@
   "submodular-maximization": {
     "label": "Submodular maximization",
     "phrases": ["Coverage maximization", "Submodular maximization", "Submodular rounding", "Streaming maximization"]
-  },
-  "clustering-approximation": {
-    "label": "Clustering with approximation guarantees",
-    "phrases": ["K-center approximation", "K-median approximation", "Facility location"]
   },
   "max-cut": {
     "label": "Maximum cut",
@@ -555,7 +531,7 @@
   },
   "distributed-transactions": {
     "label": "Distributed transactions",
-    "phrases": ["Distributed transactions", "Global consistency", "Replicated transactions", "Atomic visibility"]
+    "phrases": ["Distributed transactions", "Global consistency", "Replicated transactions", "Atomic visibility", "Atomic distributed transactions", "Non-blocking commit", "Long-lived transactions"]
   },
   "id-generation": {
     "label": "Distributed id generation",
@@ -597,7 +573,6 @@
     "label": "Dependency parsing",
     "phrases": ["Projective dependency parsing", "Non-projective dependency parsing", "Syntactic parsing"]
   },
-
   "dictionary-compression": {
     "label": "General-purpose compression",
     "phrases": ["Dictionary compression", "General-purpose compression", "Fast general compression", "High-ratio compression", "Very-fast compression", "Throughput-first compression", "Web compression"]
@@ -612,9 +587,8 @@
   },
   "model-compression": {
     "label": "Model compression",
-    "phrases": ["Model compression"]
+    "phrases": ["Model compression", "Model quantization", "Extreme quantization"]
   },
-
   "distributed-consensus": {
     "label": "Distributed consensus",
     "phrases": ["Distributed consensus", "Byzantine consensus", "Permissionless consensus", "ZooKeeper consensus", "Byzantine fault tolerance", "Replicated state machines"]
@@ -636,24 +610,16 @@
     "phrases": ["Cardinality estimation", "Set-operation cardinality"]
   },
   "document-ranking": {
-    "label": "Document ranking",
-    "phrases": ["Document ranking", "Structured-document ranking", "Retrieval reranking", "Ranking optimization", "Long-query retrieval"]
+    "label": "Document ranking and retrieval",
+    "phrases": ["Document ranking", "Structured-document ranking", "Retrieval reranking", "Ranking optimization", "Long-query retrieval", "Semantic retrieval", "Approximate document search", "Query expansion", "Probabilistic retrieval", "Neural retrieval"]
   },
   "game-tree-search": {
     "label": "Game-tree search",
-    "phrases": ["Game-tree search", "Game-tree pruning", "Adversarial game trees", "Symmetric game-tree search", "Tactical stabilization", "Tactical goal search", "Hybrid game search"]
+    "phrases": ["Game-tree search", "Game-tree pruning", "Adversarial game trees", "Symmetric game-tree search", "Tactical stabilization", "Tactical goal search", "Hybrid game search", "Games too big to solve", "Large-branching search", "Knowledge-guided search", "Sample-efficient search", "Neural-guided game search", "Parallel game search", "Baseline move evaluation"]
   },
   "constraint-satisfaction": {
-    "label": "Constraint satisfaction search",
-    "phrases": ["Constraint satisfaction", "Sudoku and constraint grids", "Local-search CSP", "Heavy-tail constraint search", "Backtracking search", "Heuristic-trusting backtracking", "Constraint and inference", "Graphical-model reasoning"]
-  },
-  "constraint-propagation": {
-    "label": "Constraint propagation",
-    "phrases": ["Constraint propagation", "Constraint tightening", "Global-constraint propagation", "Interval constraint propagation", "Alldifferent propagation", "Mixed-integer presolve"]
-  },
-  "sat-solving": {
-    "label": "SAT solving",
-    "phrases": ["Modern SAT solving", "SAT solving", "SAT solver engineering", "Hard random SAT", "Local-search SAT", "SMT solving"]
+    "label": "Constraint satisfaction",
+    "phrases": ["Constraint satisfaction", "Sudoku and constraint grids", "Local-search CSP", "Heavy-tail constraint search", "Backtracking search", "Heuristic-trusting backtracking", "Constraint and inference", "Graphical-model reasoning", "Constraint propagation", "Constraint tightening", "Global-constraint propagation", "Interval constraint propagation", "Alldifferent propagation", "Mixed-integer presolve"]
   },
   "first-order-theorem-proving": {
     "label": "First-order theorem proving",
@@ -680,8 +646,8 @@
     "phrases": ["Quantifier instantiation"]
   },
   "theory-combination": {
-    "label": "SMT theory combination",
-    "phrases": ["Theory combination"]
+    "label": "SMT solving and theory combination",
+    "phrases": ["Theory combination", "SMT solving"]
   },
   "premise-selection": {
     "label": "Large-theory premise selection",
@@ -700,8 +666,8 @@
     "phrases": ["Logic program evaluation"]
   },
   "branch-and-bound": {
-    "label": "Branch and bound",
-    "phrases": ["Combinatorial optimization", "Memory-lean optimization", "Large integer programs"]
+    "label": "Combinatorial optimization",
+    "phrases": ["Combinatorial optimization", "Memory-lean optimization"]
   },
   "community-detection": {
     "label": "Community detection",
@@ -715,17 +681,13 @@
     "label": "Word embeddings",
     "phrases": ["Word embeddings"]
   },
-  "node-embeddings": {
-    "label": "Node embeddings",
-    "phrases": ["Node embeddings"]
-  },
   "link-prediction": {
     "label": "Link prediction",
     "phrases": ["Link prediction"]
   },
   "graph-generation": {
     "label": "Random graph generation",
-    "phrases": ["Graph generation"]
+    "phrases": ["Graph generation", "Random graph generation", "Scale-free graph generation", "Community-structured graphs"]
   },
   "metric-learning": {
     "label": "Metric learning",
@@ -736,12 +698,8 @@
     "phrases": ["Imbalanced learning"]
   },
   "generalization-estimation": {
-    "label": "Generalization estimation",
-    "phrases": ["Generalization estimation"]
-  },
-  "model-comparison": {
-    "label": "Model comparison criteria",
-    "phrases": ["Model comparison"]
+    "label": "Model selection and generalization estimation",
+    "phrases": ["Generalization estimation", "Imbalanced evaluation", "Unbiased model selection", "Temporal evaluation", "Model comparison"]
   },
   "automl": {
     "label": "Automated machine learning",
@@ -749,7 +707,7 @@
   },
   "few-shot-learning": {
     "label": "Few-shot learning",
-    "phrases": ["Few-shot classification"]
+    "phrases": ["Few-shot classification", "Few-shot learning"]
   },
   "multiple-pattern-search": {
     "label": "Multiple-pattern search",
@@ -765,7 +723,7 @@
   },
   "recommendation": {
     "label": "Recommendation",
-    "phrases": ["Recommendation", "Recommendation ranking", "Implicit recommendation", "Sparse prediction", "Candidate retrieval"]
+    "phrases": ["Recommendation", "Recommendation ranking", "Implicit recommendation", "Sparse prediction", "Candidate retrieval", "Rating prediction", "Click prediction", "Sequential recommendation"]
   },
   "semi-supervised-learning": {
     "label": "Semi-supervised learning",
@@ -788,8 +746,8 @@
     "phrases": ["Points-to analysis", "Interprocedural analysis", "Whole-program analysis"]
   },
   "test-generation": {
-    "label": "Automated test generation",
-    "phrases": ["Test generation"]
+    "label": "Automated test generation and fuzzing",
+    "phrases": ["Test generation", "Security testing", "Bug finding"]
   },
   "model-checking": {
     "label": "Model checking",
@@ -823,7 +781,6 @@
     "label": "Neural network training",
     "phrases": ["Neural network training", "Sparse-gradient training", "Recurrent network training"]
   },
-
   "ordered-dictionary": {
     "label": "Ordered dictionaries and balanced search trees",
     "phrases": ["Ordered dictionary", "Balanced dictionary", "Strictly balanced dictionary", "Self-adjusting dictionary", "Randomized balanced dictionary", "Rotation-free balanced dictionary", "Simplified balanced dictionary", "Multiway balanced dictionary", "Probabilistic ordered dictionary", "Competitive-optimal BST theory"]
@@ -924,11 +881,6 @@
     "label": "Perfect hashing of static sets",
     "phrases": ["Static collision-free lookup", "Static key-set indexing"]
   },
-
-  "atomic-commitment": {
-    "label": "Atomic commitment across services",
-    "phrases": ["Atomic distributed transactions", "Non-blocking commit", "Long-lived transactions"]
-  },
   "logical-clocks": {
     "label": "Logical clocks and causality tracking",
     "phrases": ["Logical clocks", "Causal ordering", "Replica conflict detection", "Causal-physical time", "Dynamic causality"]
@@ -942,8 +894,8 @@
     "phrases": ["Distributed deadlock detection", "Deadlock prevention", "Deadlock avoidance", "Deadlock detection", "Deadlock handling"]
   },
   "distributed-mutex": {
-    "label": "Distributed mutual exclusion",
-    "phrases": ["Distributed mutual exclusion"]
+    "label": "Distributed mutual exclusion and locking",
+    "phrases": ["Distributed mutual exclusion", "Distributed locking", "Split-brain prevention"]
   },
   "leader-election": {
     "label": "Leader election",
@@ -1029,23 +981,14 @@
     "label": "Scalable concurrent counting",
     "phrases": ["Scalable counting"]
   },
-  "crdts": {
-    "label": "Conflict-free replicated data types",
-    "phrases": ["Convergent replicated counter", "Convergent replicated set", "Convergent replicated register"]
-  },
   "collaborative-editing": {
     "label": "Collaborative text editing",
     "phrases": ["Collaborative editing", "Collaborative text editing"]
-  },
-  "replica-consistency": {
-    "label": "Replica consistency and repair",
-    "phrases": ["Tunable consistency", "Availability under failure", "Replica reconciliation", "Replica convergence"]
   },
   "distributed-testing": {
     "label": "Distributed-system testing",
     "phrases": ["Distributed-system testing"]
   },
-
   "graph-traversal": {
     "label": "Graph traversal and uninformed search",
     "phrases": ["Graph exploration backbone", "Memory-lean complete search", "Meet-in-the-middle reach"]
@@ -1064,7 +1007,7 @@
   },
   "puzzle-state-search": {
     "label": "Puzzle-state search",
-    "phrases": ["Puzzle-state search", "Sliding-puzzle search", "Fifteen-puzzle search", "Memory-bound puzzle search", "Pancake-sorting search", "Sliding puzzle", "Sliding-block puzzle", "Board puzzle", "Box-pushing puzzle", "Prefix-reversal sorting"]
+    "phrases": ["Puzzle-state search", "Sliding-puzzle search", "Fifteen-puzzle search", "Memory-bound puzzle search", "Pancake-sorting search", "Sliding puzzle", "Sliding-block puzzle", "Board puzzle", "Box-pushing puzzle", "Prefix-reversal sorting", "Single-player optimization", "Puzzle optimization"]
   },
   "budgeted-informed-search": {
     "label": "Informed search under budgets",
@@ -1110,7 +1053,6 @@
     "label": "Game solving and proof search",
     "phrases": ["Game solving", "Memory-lean game solving", "Proof-oriented game search", "AND-OR graph solving"]
   },
-
   "linear-recurrences": {
     "label": "Linear recurrence evaluation",
     "phrases": ["Overlapping subproblems intro", "Linear recurrence evaluation", "Number-theoretic recurrences"]
@@ -1173,7 +1115,7 @@
   },
   "hypothesis-testing": {
     "label": "Hypothesis testing",
-    "phrases": ["Mean comparison", "Multi-group comparison", "Independence testing", "Small-sample independence", "Distribution testing", "Nonparametric comparison", "Paired nonparametric test", "Nonparametric ANOVA", "Normality testing", "Sequential testing", "Two-sample testing"]
+    "phrases": ["Mean comparison", "Multi-group comparison", "Independence testing", "Small-sample independence", "Distribution testing", "Nonparametric comparison", "Paired nonparametric test", "Nonparametric ANOVA", "Normality testing", "Sequential testing", "Two-sample testing", "Hypothesis testing"]
   },
   "multiple-testing": {
     "label": "Multiple testing correction",
@@ -1181,7 +1123,7 @@
   },
   "interval-estimation": {
     "label": "Interval estimation and uncertainty",
-    "phrases": ["Interval estimation", "Uncertainty quantification"]
+    "phrases": ["Interval estimation", "Uncertainty quantification", "Uncertainty estimation", "Bias estimation"]
   },
   "bayesian-computation": {
     "label": "Bayesian computation",
@@ -1199,18 +1141,13 @@
     "label": "Steiner trees and network design",
     "phrases": ["Steiner tree", "Exact Steiner trees", "Steiner tree approximation", "Network design", "Incremental network design"]
   },
-
   "nash-equilibrium": {
-    "label": "Nash equilibrium computation",
-    "phrases": ["Zero-sum equilibrium", "Bimatrix Nash equilibrium", "Nash equilibrium"]
-  },
-  "equilibrium-learning": {
-    "label": "Learning dynamics for equilibria",
-    "phrases": ["Equilibrium learning", "Correlated equilibrium", "Evolutionary game theory", "Imperfect-information equilibria", "Poker-scale equilibria", "Large-game equilibria", "Very-large-game equilibria", "Game equilibrium learning", "Large matrix games"]
+    "label": "Normal-form equilibrium computation",
+    "phrases": ["Zero-sum equilibrium", "Bimatrix Nash equilibrium", "Nash equilibrium", "Equilibrium learning", "Correlated equilibrium", "Evolutionary game theory", "Game equilibrium learning", "Large matrix games"]
   },
   "extensive-form-solving": {
     "label": "Extensive-form game solving",
-    "phrases": ["Extensive-form solving", "Sequential equilibrium", "Game reduction"]
+    "phrases": ["Extensive-form solving", "Sequential equilibrium", "Game reduction", "Imperfect-information equilibria", "Poker-scale equilibria", "Large-game equilibria", "Very-large-game equilibria"]
   },
   "cooperative-payoff": {
     "label": "Cooperative payoff division",
@@ -1248,14 +1185,13 @@
     "label": "Bet and position sizing",
     "phrases": ["Bet sizing", "Position sizing"]
   },
-
   "hidden-surface-removal": {
     "label": "Hidden surface removal",
     "phrases": ["Hidden surface removal", "Visibility ordering"]
   },
   "rasterization": {
     "label": "Rasterization",
-    "phrases": ["Polygon rasterization", "Triangle rasterization", "Attribute interpolation", "Texture mapping"]
+    "phrases": ["Polygon rasterization", "Triangle rasterization", "Attribute interpolation", "Texture mapping", "Raster line drawing", "Smooth line drawing", "Raster circle drawing"]
   },
   "texture-filtering": {
     "label": "Texture filtering",
@@ -1329,7 +1265,6 @@
     "label": "Scalable glyph rendering",
     "phrases": ["Scalable glyph rendering"]
   },
-
   "molecular-computation": {
     "label": "Molecular computation",
     "phrases": ["DNA Hamiltonian path", "Molecular memory computation", "Molecular logic circuits", "Molecular programming", "Chemical logic"]
@@ -1378,7 +1313,6 @@
     "label": "Multimodal optimization",
     "phrases": ["Multimodal optimization"]
   },
-
   "gcd-computation": {
     "label": "Greatest common divisor",
     "phrases": ["Greatest common divisor", "Division-free GCD", "Big-integer GCD", "Modular inverse"]
@@ -1439,7 +1373,6 @@
     "label": "Linear recurrence recovery",
     "phrases": ["Linear recurrence recovery"]
   },
-
   "graph-connectivity-structure": {
     "label": "Bridges, cut vertices, and biconnectivity",
     "phrases": ["Cut edges", "Cut vertices", "Two-connected decomposition", "Biconnectivity structure"]
@@ -1500,7 +1433,6 @@
     "label": "Degree sequence realization",
     "phrases": ["Degree-sequence realizability", "Degree-sequence realization"]
   },
-
   "network-routing": {
     "label": "Network routing",
     "phrases": ["Network routing", "Routing loop avoidance", "Inter-domain routing", "Interior gateway routing", "Loop-free switching", "Source routing", "Datacenter routing", "Wireless scheduling"]
@@ -1537,7 +1469,6 @@
     "label": "Heavy hitters and frequent items",
     "phrases": ["Frequent-item estimation", "Top-k heavy hitters", "Frequent-item mining", "Network telemetry"]
   },
-
   "segment-intersection": {
     "label": "Segment intersection",
     "phrases": ["Segment intersection", "Segment intersection detection"]
@@ -1562,10 +1493,6 @@
     "label": "Convex collision detection",
     "phrases": ["Convex collision detection", "Collision depth"]
   },
-  "raster-drawing": {
-    "label": "Raster primitive drawing",
-    "phrases": ["Raster line drawing", "Smooth line drawing", "Raster circle drawing"]
-  },
   "curve-evaluation": {
     "label": "Curve evaluation and smoothing",
     "phrases": ["Bézier curve evaluation", "Curve smoothing"]
@@ -1574,14 +1501,9 @@
     "label": "Point in polygon",
     "phrases": ["Geometric containment"]
   },
-
   "local-search-escape": {
     "label": "Local search and escaping local optima",
-    "phrases": ["Local optimization", "Discrete optimization", "Convergence-guaranteed annealing", "Restart-friendly annealing", "Annealing without randomness", "Threshold-based local search", "Parameter-light local search", "Neighborhood search with memory", "Self-tuning tabu memory", "Tabu override on improvement", "Long-term search memory", "Escaping local optima", "Restart-based refinement", "Systematic neighborhood switching", "Deterministic neighborhood switching"]
-  },
-  "large-neighborhood-search": {
-    "label": "Ruin-and-recreate search",
-    "phrases": ["Ruin-and-recreate optimization", "Self-tuning ruin-and-recreate"]
+    "phrases": ["Local optimization", "Discrete optimization", "Convergence-guaranteed annealing", "Restart-friendly annealing", "Annealing without randomness", "Threshold-based local search", "Parameter-light local search", "Neighborhood search with memory", "Self-tuning tabu memory", "Tabu override on improvement", "Long-term search memory", "Escaping local optima", "Restart-based refinement", "Systematic neighborhood switching", "Deterministic neighborhood switching", "Ruin-and-recreate optimization", "Self-tuning ruin-and-recreate"]
   },
   "constructive-metaheuristics": {
     "label": "Constructive and elite-set search",
@@ -1589,21 +1511,16 @@
   },
   "evolutionary-computation": {
     "label": "Evolutionary computation",
-    "phrases": ["Evolutionary optimization", "Bit-string evolution", "Permutation evolution", "Tour evolution", "Numeric evolution", "Incremental evolution", "Hybrid evolution", "Niche preservation", "Continuous self-adaptation", "Program evolution", "Distribution-estimation evolution", "Rare-event optimization"]
+    "phrases": ["Evolutionary optimization", "Bit-string evolution", "Permutation evolution", "Numeric evolution", "Incremental evolution", "Hybrid evolution", "Niche preservation", "Continuous self-adaptation", "Program evolution", "Distribution-estimation evolution", "Rare-event optimization"]
   },
   "ant-colony": {
     "label": "Ant colony optimization",
-    "phrases": ["Constructive swarm search", "Tour construction", "Stagnation-resistant ant search"]
+    "phrases": ["Constructive swarm search", "Stagnation-resistant ant search"]
   },
   "multi-objective": {
     "label": "Multi-objective optimization",
     "phrases": ["Multi-objective optimization", "Many-objective optimization"]
   },
-  "derivative-free-optimization": {
-    "label": "Derivative-free optimization",
-    "phrases": ["Derivative-free optimization", "Derivative-free continuous optimization"]
-  },
-
   "differential-privacy": {
     "label": "Differential privacy",
     "phrases": ["Private data release", "Private selection", "Private threshold queries", "Local differential privacy", "Local privacy telemetry", "Private model training", "Privacy budgeting"]
@@ -1652,11 +1569,6 @@
     "label": "Verifiable voting",
     "phrases": ["Verifiable voting"]
   },
-  "fuzzing": {
-    "label": "Fuzzing and security testing",
-    "phrases": ["Security testing", "Bug finding"]
-  },
-
   "rubiks-cube": {
     "label": "Rubik's cube solving",
     "phrases": ["Twisty puzzle solving", "Near-optimal cube solving", "Cube solving", "Optimal cube solving"]
@@ -1701,7 +1613,6 @@
     "label": "Code-breaking puzzles",
     "phrases": ["Code-breaking puzzle"]
   },
-
   "signal-transforms": {
     "label": "Signal transforms",
     "phrases": ["Spectral analysis", "Time-frequency analysis", "Energy compaction", "Multiresolution analysis", "Single-frequency detection", "Analytic signal envelope", "Arbitrary-length transforms", "Prime-length transforms", "Coprime-length transforms", "Exact integer convolution"]
@@ -1766,7 +1677,6 @@
     "label": "Object tracking",
     "phrases": ["Object tracking", "Feature tracking", "Multi-object tracking"]
   },
-
   "storage-redundancy": {
     "label": "Storage redundancy and erasure codes",
     "phrases": ["Disk parallelism", "Disk redundancy", "Single-disk fault tolerance", "Two-disk fault tolerance", "Distributed storage durability", "Efficient repair storage", "Storage repair", "Rateless durability"]
@@ -1784,12 +1694,8 @@
     "phrases": ["Fault recovery", "Distributed recovery"]
   },
   "replication-schemes": {
-    "label": "Replication schemes",
-    "phrases": ["Fault tolerance", "Strongly-consistent storage", "Fault-tolerant services", "Consistent replication", "Eventual consistency", "High-availability writes", "Replicated storage", "Read scaling", "Consistent local reads", "Data placement"]
-  },
-  "distributed-coordination": {
-    "label": "Distributed locking and coordination",
-    "phrases": ["Distributed locking", "Split-brain prevention"]
+    "label": "Replication and replica consistency",
+    "phrases": ["Fault tolerance", "Strongly-consistent storage", "Fault-tolerant services", "Consistent replication", "Eventual consistency", "High-availability writes", "Replicated storage", "Read scaling", "Consistent local reads", "Data placement", "Tunable consistency", "Availability under failure", "Replica reconciliation", "Replica convergence", "Convergent replicated counter", "Convergent replicated set", "Convergent replicated register"]
   },
   "set-reconciliation": {
     "label": "Set reconciliation",
@@ -1803,7 +1709,6 @@
     "label": "Memory allocation",
     "phrases": ["Memory allocation", "Heap allocation", "Kernel memory"]
   },
-
   "pde-discretization": {
     "label": "PDE discretization",
     "phrases": ["PDE discretization", "High-accuracy PDEs", "Conservation laws", "Periodic PDEs", "Non-periodic spectral PDEs", "Exterior-domain PDEs", "Neural PDE solving", "PDE-to-ODE reduction", "Convection-dominated PDEs"]
@@ -1840,18 +1745,17 @@
     "label": "Scattered-data interpolation",
     "phrases": ["Scattered-data interpolation", "Spatial interpolation"]
   },
-
   "object-detection": {
     "label": "Object detection",
     "phrases": ["Object detection", "Face detection", "Pedestrian detection", "Pattern localization", "Shape matching"]
   },
   "sequence-modeling": {
     "label": "Sequence modeling",
-    "phrases": ["Sequence modeling", "Long-sequence modeling", "Sequence labeling", "Translation"]
+    "phrases": ["Sequence modeling", "Long-sequence modeling", "Sequence labeling", "Translation", "Transformer modeling"]
   },
   "language-modeling": {
     "label": "Language model pretraining",
-    "phrases": ["Language understanding", "Language generation"]
+    "phrases": ["Language understanding", "Language generation", "Statistical language modeling"]
   },
   "transformer-architecture": {
     "label": "Transformer efficiency engineering",
@@ -1869,14 +1773,6 @@
     "label": "Inference serving throughput",
     "phrases": ["Inference throughput"]
   },
-  "quantization": {
-    "label": "Model quantization",
-    "phrases": ["Model quantization", "Extreme quantization", "Low-precision training"]
-  },
-  "structured-generation": {
-    "label": "Structured and constrained generation",
-    "phrases": ["Structured generation"]
-  },
   "retrieval-chunking": {
     "label": "Retrieval chunking",
     "phrases": ["Retrieval chunking"]
@@ -1887,7 +1783,7 @@
   },
   "memory-efficient-training": {
     "label": "Memory-efficient training",
-    "phrases": ["Memory-efficient training"]
+    "phrases": ["Memory-efficient training", "Low-precision training"]
   },
   "preference-alignment": {
     "label": "Preference alignment",
@@ -2015,7 +1911,7 @@
   },
   "graph-learning": {
     "label": "Graph representation learning",
-    "phrases": ["Graph representation learning", "Node classification", "Inductive graph learning", "Graph learning"]
+    "phrases": ["Graph representation learning", "Node classification", "Inductive graph learning", "Graph learning", "Node embeddings"]
   },
   "self-supervised-learning": {
     "label": "Self-supervised representation learning",
@@ -2031,31 +1927,26 @@
   },
   "training-regularization": {
     "label": "Training stabilization and regularization",
-    "phrases": ["Training stabilization", "Regularization", "Classifier calibration", "Data augmentation", "Training schedules", "Neural regularization", "Overfitting control"]
+    "phrases": ["Training stabilization", "Regularization", "Classifier calibration", "Data augmentation", "Training schedules", "Neural regularization", "Overfitting control", "Probability calibration", "Training strategy"]
   },
   "text-decoding": {
-    "label": "Text decoding strategies",
-    "phrases": ["Sequence generation", "Text generation", "Fast text generation"]
+    "label": "Text decoding and constrained generation",
+    "phrases": ["Sequence generation", "Text generation", "Fast text generation", "Structured generation"]
   },
   "representation-learning": {
     "label": "Representation learning",
     "phrases": ["Representation learning"]
   },
-
   "svd": {
     "label": "Singular value decomposition and low-rank approximation",
     "phrases": ["Singular value decomposition", "High-accuracy SVD", "Low-rank approximation", "Streaming matrix sketching"]
-  },
-  "gradient-optimization": {
-    "label": "Gradient-based optimization",
-    "phrases": ["Smooth convex optimization", "Nonlinear optimization", "Quasi-Newton optimization", "Large-scale optimization", "Separable optimization", "Sparse optimization", "Constrained convex optimization", "Constrained optimization", "Sparse regularized optimization", "Distributed convex optimization", "Convex optimization", "Composite optimization", "Biconvex optimization", "Constrained projection"]
   },
   "nonsmooth-optimization": {
     "label": "Nonsmooth convex optimization",
     "phrases": ["Nonsmooth convex optimization", "Nonsmooth optimization", "Nonsmooth acceleration", "Monotone operator splitting", "Saddle-point optimization"]
   },
   "interior-point-methods": {
-    "label": "Interior-point and conic optimization",
+    "label": "Conic and semidefinite optimization",
     "phrases": ["Interior-point optimization", "Conic optimization", "Convex matrix optimization", "Convex feasibility"]
   },
   "finite-sum-optimization": {
@@ -2085,10 +1976,6 @@
   "structure-learning": {
     "label": "Graphical model structure learning",
     "phrases": ["Graphical model structure", "Causal structure discovery"]
-  },
-  "random-graph-models": {
-    "label": "Random graph models",
-    "phrases": ["Random graph generation", "Scale-free graph generation", "Community-structured graphs"]
   },
   "subgraph-counting": {
     "label": "Subgraph and motif counting",
@@ -2142,25 +2029,13 @@
     "label": "Gaussian process kernel learning",
     "phrases": ["Kernel learning", "Kernel discovery"]
   },
-  "cross-validation": {
-    "label": "Cross-validation schemes",
-    "phrases": ["Imbalanced evaluation", "Unbiased model selection", "Temporal evaluation"]
-  },
   "model-diagnostics": {
     "label": "Model diagnostics",
     "phrases": ["Data-need diagnosis", "Error analysis"]
   },
-  "semantic-retrieval": {
-    "label": "Semantic document retrieval",
-    "phrases": ["Semantic retrieval", "Approximate document search", "Query expansion"]
-  },
   "tokenization": {
     "label": "Subword tokenization",
     "phrases": ["Subword tokenization", "Language-agnostic tokenization"]
-  },
-  "spelling-correction": {
-    "label": "Spelling correction",
-    "phrases": ["Spelling correction", "Fast spelling correction"]
   },
   "result-diversification": {
     "label": "Result diversification",
@@ -2172,11 +2047,11 @@
   },
   "treatment-effects": {
     "label": "Heterogeneous treatment effects",
-    "phrases": ["Heterogeneous treatment effects", "Treatment targeting"]
+    "phrases": ["Heterogeneous treatment effects", "Treatment targeting", "Treatment effect estimation"]
   },
   "association-rules": {
     "label": "Association rule mining",
-    "phrases": ["Market-basket analysis"]
+    "phrases": ["Market-basket analysis", "Frequent-itemset mining"]
   },
   "continual-learning": {
     "label": "Continual learning",
@@ -2196,7 +2071,7 @@
   },
   "persistent-homology": {
     "label": "Persistent homology",
-    "phrases": ["Topological data analysis", "Scalable TDA", "Time-varying topology", "Connected-component persistence"]
+    "phrases": ["Topological data analysis", "Scalable TDA", "Time-varying topology", "Connected-component persistence", "Fast persistence"]
   },
   "scalar-field-topology": {
     "label": "Scalar field topology",
@@ -2234,10 +2109,9 @@
     "label": "Accurate floating-point summation",
     "phrases": ["Accurate floating-point sums"]
   },
-
   "markov-chain-analysis": {
     "label": "Markov chain analysis",
-    "phrases": ["Stochastic process modeling", "Long-run behavior", "Expected hitting times"]
+    "phrases": ["Stochastic process modeling", "Long-run behavior", "Expected hitting times", "Transient Markov analysis", "Structured Markov chains"]
   },
   "stochastic-kinetics": {
     "label": "Stochastic chemical kinetics",
@@ -2245,35 +2119,19 @@
   },
   "queueing-performance": {
     "label": "Queueing and performance analysis",
-    "phrases": ["Performance modeling", "Queueing networks", "Closed queueing networks", "Long-run averages", "Systems modeling", "Single-queue analysis", "Scalability modeling"]
+    "phrases": ["Performance modeling", "Queueing networks", "Closed queueing networks", "Long-run averages", "Systems modeling", "Single-queue analysis", "Scalability modeling", "Waiting-time computation", "Queueing approximation"]
   },
   "teletraffic-dimensioning": {
     "label": "Teletraffic dimensioning",
     "phrases": ["Blocking probability", "Delay probability"]
   },
-  "waiting-time-analysis": {
-    "label": "Waiting-time analysis",
-    "phrases": ["Waiting-time computation", "Queueing approximation"]
-  },
   "heavy-traffic-limits": {
     "label": "Heavy-traffic limits",
     "phrases": ["Heavy-traffic approximation"]
   },
-  "structured-markov-chains": {
-    "label": "Structured Markov chains",
-    "phrases": ["Structured Markov chains"]
-  },
-  "transient-markov-analysis": {
-    "label": "Transient Markov analysis",
-    "phrases": ["Transient Markov analysis"]
-  },
-  "resampling-inference": {
-    "label": "Resampling inference",
-    "phrases": ["Uncertainty estimation", "Bias estimation", "Hypothesis testing"]
-  },
   "normalizing-constants": {
-    "label": "Normalizing constants and evidence",
-    "phrases": ["Free-energy estimation", "Bayesian evidence"]
+    "label": "Normalizing constants and free energy",
+    "phrases": ["Free-energy estimation", "Bayesian evidence", "Free energy estimation"]
   },
   "spin-models": {
     "label": "Spin-model simulation",
@@ -2287,7 +2145,6 @@
     "label": "SDE integration",
     "phrases": ["Stochastic differential equations"]
   },
-
   "relational-joins": {
     "label": "Relational joins",
     "phrases": ["Relational join", "Equi-join", "Selective join", "Larger-than-memory join", "In-memory join", "Multiway join", "Distributed join pruning", "Distributed join"]
@@ -2318,9 +2175,8 @@
   },
   "top-k-queries": {
     "label": "Top-k query processing",
-    "phrases": ["Ranked retrieval", "Ranked aggregation"]
+    "phrases": ["Ranked retrieval", "Ranked aggregation", "Top-k retrieval"]
   },
-
   "quantum-oracle-problems": {
     "label": "Quantum oracle problems",
     "phrases": ["Constant-vs-balanced oracle", "Hidden-string recovery", "Hidden-period discovery"]
@@ -2353,7 +2209,6 @@
     "label": "Classical simulation of quantum systems",
     "phrases": ["Classical Clifford simulation", "Quantum circuit simulation", "Many-body simulation"]
   },
-
   "motion-planning": {
     "label": "Motion and path planning",
     "phrases": ["Motion planning", "Optimal motion planning", "Multi-query planning", "Optimal roadmap planning", "Dynamics-aware planning", "Polygonal path planning", "Path planning", "Safe path planning"]
@@ -2402,7 +2257,6 @@
     "label": "Multi-agent collision avoidance",
     "phrases": ["Multi-agent avoidance", "Multi-agent navigation", "Crowd simulation"]
   },
-
   "palindrome-substrings": {
     "label": "Palindromic substrings",
     "phrases": ["Longest palindromic substring", "Palindromic substring structure"]
@@ -2428,7 +2282,7 @@
     "phrases": ["Two-dimensional pattern matching", "Image and grid matching"]
   },
   "regex-construction": {
-    "label": "Regex to automaton construction",
+    "label": "Regular expression to automaton construction",
     "phrases": ["Regex to NFA", "NFA to DFA", "Automaton to regex"]
   },
   "automaton-minimization": {
@@ -2451,7 +2305,6 @@
     "label": "Lexical analysis",
     "phrases": ["Tokenization", "Expression to postfix"]
   },
-
   "prefix-codes": {
     "label": "Prefix code construction",
     "phrases": ["Optimal prefix codes", "Compact code tables", "Length-limited prefix codes", "Prefix coding"]
@@ -2480,7 +2333,6 @@
     "label": "Error detection",
     "phrases": ["Error detection"]
   },
-
   "time-series-forecasting": {
     "label": "Time series forecasting",
     "phrases": ["Trend smoothing", "Short-term forecasting", "Trending forecasts", "Seasonal forecasting", "Univariate forecasting", "Forecasting with covariates", "Automated forecasting", "Business forecasting", "Sparse-demand forecasting", "Multivariate forecasting", "Probabilistic forecasting", "Multi-horizon forecasting", "Sequence forecasting", "Forecasting baseline", "Long-seasonality forecasting", "Streaming trend estimation"]
@@ -2505,7 +2357,6 @@
     "label": "Volatility modeling",
     "phrases": ["Volatility forecasting", "Risk forecasting", "Volatility estimation"]
   },
-
   "approximate-membership": {
     "label": "Approximate set membership",
     "phrases": ["Approximate set membership", "Deletable set membership", "Fast set membership", "Static set membership", "Cache-friendly membership", "Space-lean membership", "Approximate function lookup"]
@@ -2526,7 +2377,6 @@
     "label": "Shuffling and permutation",
     "phrases": ["Uniform permutation", "Streaming shuffle", "Uniform subset sampling"]
   },
-
   "bin-packing": {
     "label": "Bin packing and partitioning",
     "phrases": ["Bin packing", "Streaming bin packing", "Bin covering", "Number partitioning", "Balanced partitioning", "Cutting stock", "Bin packing approximation"]
@@ -2551,10 +2401,6 @@
     "label": "Vehicle routing",
     "phrases": ["Vehicle routing"]
   },
-  "tour-improvement": {
-    "label": "Tour improvement",
-    "phrases": ["Tour improvement"]
-  },
   "lot-sizing": {
     "label": "Lot sizing and inventory control",
     "phrases": ["Dynamic lot sizing", "Lot sizing", "Inventory ordering", "Single-period inventory", "Inventory control"]
@@ -2565,9 +2411,8 @@
   },
   "integer-programming": {
     "label": "Integer and decomposed programming",
-    "phrases": ["Integer programming", "Stochastic programming", "Block-structured LP", "Combinatorial bounds", "Quadratic programming", "Nonlinear programming", "Bound-constrained optimization"]
+    "phrases": ["Integer programming", "Stochastic programming", "Block-structured LP", "Combinatorial bounds", "Quadratic programming", "Nonlinear programming", "Bound-constrained optimization", "Large integer programs"]
   },
-
   "permutation-generation": {
     "label": "Permutation generation",
     "phrases": ["Permutation generation", "Loopless enumeration", "Combinatorial generation"]
@@ -2600,11 +2445,6 @@
     "label": "Symbolic summation and integration",
     "phrases": ["Symbolic summation", "Symbolic integration", "Combinatorial identity proof"]
   },
-
-  "monte-carlo-tree-search": {
-    "label": "Monte Carlo tree search",
-    "phrases": ["Games too big to solve", "Large-branching search", "Knowledge-guided search", "Sample-efficient search", "Neural-guided game search", "Parallel game search", "Baseline move evaluation", "Single-player optimization", "Puzzle optimization"]
-  },
   "imperfect-information-search": {
     "label": "Search under hidden information",
     "phrases": ["Imperfect-information games", "Hidden-information games", "Simultaneous-move games"]
@@ -2621,7 +2461,6 @@
     "label": "Endgame databases",
     "phrases": ["Endgame tablebase construction"]
   },
-
   "reinforcement-learning": {
     "label": "Reinforcement learning",
     "phrases": ["Reinforcement learning", "On-policy reinforcement learning", "Value-based deep RL", "Policy-based RL", "Deep reinforcement learning", "Continuous-control RL", "Model-free RL", "On-policy RL", "Overestimation-free RL", "Deep RL", "Policy-gradient deep RL", "Policy-gradient RL", "Policy-gradient variance reduction", "Distributed RL", "RL acceleration", "Sparse-reward RL"]
@@ -2670,7 +2509,6 @@
     "label": "Instance and prototype reduction",
     "phrases": ["Prototype reduction"]
   },
-
   "camera-geometry": {
     "label": "Camera geometry estimation",
     "phrases": ["Intrinsic estimation", "Homography estimation", "Fundamental matrix", "Essential matrix", "Pose estimation"]
@@ -2690,5 +2528,73 @@
   "keypoint-detection": {
     "label": "Human keypoint detection",
     "phrases": ["Keypoint detection"]
+  },
+  "facility-location": {
+    "label": "Facility location",
+    "phrases": ["Facility location"]
+  },
+  "polynomial-gcd": {
+    "label": "Polynomial GCD",
+    "phrases": ["Polynomial GCD"]
+  },
+  "real-root-isolation": {
+    "label": "Real root isolation",
+    "phrases": ["Real root isolation"]
+  },
+  "variant-calling": {
+    "label": "Genetic variant detection",
+    "phrases": ["Genetic variant detection"]
+  },
+  "closest-pair": {
+    "label": "Closest pair of points",
+    "phrases": ["Closest pair of points"]
+  },
+  "polyline-simplification": {
+    "label": "Polyline simplification",
+    "phrases": ["Polyline simplification"]
+  },
+  "persistence-comparison": {
+    "label": "Persistence diagram comparison",
+    "phrases": ["Persistence comparison"]
+  },
+  "persistence-vectorization": {
+    "label": "Persistence vectorization",
+    "phrases": ["Topological features"]
+  },
+  "edge-bundling": {
+    "label": "Edge bundling",
+    "phrases": ["Edge decluttering"]
+  },
+  "many-light-rendering": {
+    "label": "Many-light rendering",
+    "phrases": ["Many-light rendering"]
+  },
+  "all-pairs-min-cuts": {
+    "label": "All-pairs minimum cuts",
+    "phrases": ["All-pairs minimum cuts"]
+  },
+  "transitive-closure": {
+    "label": "Transitive closure and reduction",
+    "phrases": ["Minimal equivalent DAG"]
+  },
+  "graph-comparison": {
+    "label": "Graph comparison and classification",
+    "phrases": ["Graph classification", "Graph similarity"]
+  },
+  "influence-maximization": {
+    "label": "Influence maximization",
+    "phrases": ["Viral marketing"]
+  },
+  "contagion-modeling": {
+    "label": "Contagion and influence spread modeling",
+    "phrases": ["Influence spread", "Contagion modeling"]
+  },
+  "coverage-path-planning": {
+    "label": "Coverage path planning",
+    "phrases": ["Area coverage"]
+  },
+  "shape-analysis": {
+    "label": "Shape analysis and skeletonization",
+    "phrases": ["Shape analysis"]
   }
 }

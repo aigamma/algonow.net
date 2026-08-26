@@ -1,0 +1,790 @@
+{
+ "_doc": {
+  "purpose": "Machine-readable manifest of the 2026-08-26 problem-taxonomy consolidation. Records every retired problem slug with its destination, class, and rationale; phrase moves between surviving problems; unregistered-phrase attachments; new problems; and relabels. scripts/prerender.mjs reads merges[] to emit a redirect page at /problem/<retired>/ for every retired slug, and scripts/check.mjs validates the manifest against the live registry (no retired slug may be live, every destination must be live, redirects must exist in dist). Append-only: future merges add entries here.",
+  "classes": "A exact alias · B surface duplicate (same contract, different wording) · C parent-child inflation (narrow presentation of the same contract) · D method-as-problem (solution family stood as a problem) · E domain specialization that does not change the contract"
+ },
+ "date": "2026-08-26",
+ "merges": [
+  {
+   "retired": "sat-solving",
+   "retiredLabel": "SAT solving",
+   "into": "boolean-satisfiability",
+   "class": "B",
+   "reason": "DPLL (retired-side ancestor lineage sits in boolean-satisfiability) and CDCL solve the identical contract: decide satisfiability of a propositional CNF formula. \"SAT solving\" was the activity name for the same problem. The one non-SAT phrase, SMT solving (DPLL(T)), moves to the SMT problem instead: satisfiability modulo theories has a materially different input contract and stays distinct per the SAT-vs-SMT non-merge rule.",
+   "phrasesMovedElsewhere": {
+    "SMT solving": "theory-combination"
+   },
+   "methodOverlap": {
+    "retiredMethods": 6,
+    "survivorMethods": 4,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "constraint-propagation",
+   "retiredLabel": "Constraint propagation",
+   "into": "constraint-satisfaction",
+   "class": "C",
+   "reason": "The split was already incoherent: AC-3 (Maintaining arc consistency) lived inside constraint-satisfaction while AC-4 and AC-2001, the same arc-consistency family, lived outside it. Propagation levels (forward checking, MAC, bounds consistency, alldifferent filtering) are the inference dial inside the one contract: find an assignment satisfying all constraints. Forward checking vs MAC vs backjumping is the classic rival set of CSP solving.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 8,
+    "survivorMethods": 14,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "gradient-optimization",
+   "retiredLabel": "Gradient-based optimization",
+   "into": "continuous-optimization",
+   "class": "C",
+   "reason": "The oracle boundary this label implied was never respected by the data: gradient descent, Newton, and trust-region methods already lived inside continuous-optimization. One contract: minimize a continuous objective over R^n. First-order, quasi-Newton, proximal, and constrained regimes are preserved as phrases; convex structured classes with their own theory (nonsmooth convex, conic, finite-sum, linear/integer programming) remain separate problems.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 19,
+    "survivorMethods": 25,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "derivative-free-optimization",
+   "retiredLabel": "Derivative-free optimization",
+   "into": "continuous-optimization",
+   "class": "B",
+   "reason": "Every metaheuristic already inside continuous-optimization (evolution strategies, differential evolution, the swarm family) is itself derivative-free, and CMA-ES (here) is literally an evolution strategy (there). Same contract, zeroth-order oracle: minimize a continuous black-box objective. Nelder-Mead vs CMA-ES vs the swarm zoo is one rival set.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 3,
+    "survivorMethods": 25,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "clustering-approximation",
+   "retiredLabel": "Clustering with approximation guarantees",
+   "into": "clustering",
+   "class": "C",
+   "reason": "K-medoids with PAM swap search (inside clustering) and local-search k-median with swap improvements (here) are the same algorithmic idea filed as two problems. K-center, k-median, and k-means are sibling center-based objectives of one partition-into-k-groups contract; the phrases keep each objective distinct. Facility location is genuinely different (opening costs, cluster count not fixed) and becomes its own problem.",
+   "phrasesMovedElsewhere": {
+    "Facility location": "facility-location"
+   },
+   "methodOverlap": {
+    "retiredMethods": 4,
+    "survivorMethods": 15,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "waiting-time-analysis",
+   "retiredLabel": "Waiting-time analysis",
+   "into": "queueing-performance",
+   "class": "B",
+   "reason": "Pollaczek-Khinchine (inside queueing-performance, phrase Single-queue analysis) is itself a waiting-time formula; Kingman and Allen-Cunneen are its GI/G/1 approximations and Lindley its exact recursion. One contract: given arrival and service processes, compute performance measures of the queue.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 3,
+    "survivorMethods": 15,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "node-embeddings",
+   "retiredLabel": "Node embeddings",
+   "into": "graph-learning",
+   "class": "B",
+   "reason": "Shallow embeddings (DeepWalk, node2vec, LINE, struc2vec) and graph neural networks produce the same output contract, vector representations of nodes for downstream tasks, and the shallow-vs-GNN comparison is the canonical bake-off of this literature. Survivor keeps the standard umbrella label Graph representation learning.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 4,
+    "survivorMethods": 4,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "distributed-coordination",
+   "retiredLabel": "Distributed locking and coordination",
+   "into": "distributed-mutex",
+   "class": "B",
+   "reason": "Message-passing mutual exclusion protocols (Ricart-Agrawala, Maekawa, Suzuki-Kasami) and lease-based locking with fencing tokens answer the same contract: at most one holder of exclusive access across a distributed system. Leases-vs-protocol is the real deployment tradeoff (failure tolerance vs message optimality).",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 2,
+    "survivorMethods": 3,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "semantic-retrieval",
+   "retiredLabel": "Semantic document retrieval",
+   "into": "document-ranking",
+   "class": "B",
+   "reason": "Latent semantic indexing vs the vector space model and BM25 is the textbook rivalry of one contract: given a query, return a ranked list of relevant documents. Query-expansion entries are end-to-end retrieval configurations over the same benchmark. Survivor relabeled Document ranking and retrieval.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 5,
+    "survivorMethods": 7,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "transient-markov-analysis",
+   "retiredLabel": "Transient Markov analysis",
+   "into": "markov-chain-analysis",
+   "class": "C",
+   "reason": "Markov chain analysis already spans stationary behavior, hitting times, and simulation; time-t distributions (uniformization, Krylov matrix exponentials) are another output of the same contract: compute quantitative behavior of a given Markov chain. Simulation vs uniformization is a genuine method choice for transient measures.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 2,
+    "survivorMethods": 3,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "structured-markov-chains",
+   "retiredLabel": "Structured Markov chains",
+   "into": "markov-chain-analysis",
+   "class": "C",
+   "reason": "Matrix-geometric and spectral-expansion methods compute stationary behavior of structured (QBD) chains: the same contract exploiting structure, exactly as Sparse linear systems and Tridiagonal systems are phrases of Solving linear systems rather than separate problems.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 2,
+    "survivorMethods": 3,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "quantization",
+   "retiredLabel": "Model quantization",
+   "into": "model-compression",
+   "class": "C",
+   "reason": "Quantize vs prune vs distill is the standard model-compression trilemma: one contract, produce a smaller or faster model at bounded accuracy loss. Low-precision training (mixed precision, FP8) is not model compression at all, it is a training-efficiency technique, and moves to memory-efficient training beside ZeRO and gradient checkpointing.",
+   "phrasesMovedElsewhere": {
+    "Low-precision training": "memory-efficient-training"
+   },
+   "methodOverlap": {
+    "retiredMethods": 9,
+    "survivorMethods": 3,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "spelling-correction",
+   "retiredLabel": "Spelling correction",
+   "into": "text-editing",
+   "class": "C",
+   "reason": "Spelling correction is the restricted case of the text-correction contract (map erroneous text to corrected text); noisy-channel and SymSpell correctors are genuine rivals of sequence-to-sequence grammar correction for the fix-user-text job. Survivor keeps the umbrella label Text correction and editing.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 2,
+    "survivorMethods": 1,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "structured-generation",
+   "retiredLabel": "Structured and constrained generation",
+   "into": "text-decoding",
+   "class": "C",
+   "reason": "Grammar-constrained and JSON-schema decoding are token-masking strategies implemented inside the decoding loop, beside beam, nucleus, and speculative decoding: the same contract (produce an output sequence from a language model), with constraints preserved as a phrase. Survivor relabeled Text decoding and constrained generation.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 2,
+    "survivorMethods": 10,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "tour-improvement",
+   "retiredLabel": "Tour improvement",
+   "into": "traveling-salesman",
+   "class": "D",
+   "reason": "A solution family promoted to a problem: 2-opt, 3-opt, and Or-opt solve the traveling salesman problem, and Lin-Kernighan, the deluxe member of the same move family, was already inside traveling-salesman. The split kept 2-opt and Lin-Kernighan from being rivals.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 3,
+    "survivorMethods": 13,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "parser-construction",
+   "retiredLabel": "Parser construction",
+   "into": "context-free-parsing",
+   "class": "C",
+   "reason": "One contract: string plus context-free grammar to parse tree or rejection. LL/LR/PEG parsers are the restricted-grammar-class specializations and Earley/CYK/GLR the general-grammar methods; choosing between ANTLR-style LL, LALR, GLR, and PEG is one engineering decision, and GLR exists precisely to continue LR beyond determinism. Grammar-class restrictions survive as phrases. Survivor relabeled Context-free parsing.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 12,
+    "survivorMethods": 8,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "pairwise-sequence-alignment",
+   "retiredLabel": "Pairwise sequence alignment",
+   "into": "edit-distance",
+   "class": "B",
+   "reason": "Needleman-Wunsch is weighted edit distance; Hirschberg computes the LCS alignment that edit-distance already owns as Sequence similarity; banded alignment and Ukkonen bounded edit distance are the same diagonal-restriction idea filed twice. One pairwise-comparison contract with global/local/bounded/linear-space regimes preserved as phrases. Survivor relabeled Edit distance and sequence alignment.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 6,
+    "survivorMethods": 6,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "monte-carlo-tree-search",
+   "retiredLabel": "Monte Carlo tree search",
+   "into": "game-tree-search",
+   "class": "D",
+   "reason": "A method family promoted to a problem. The adversarial MCTS variants (UCT, RAVE, PUCT, parallel MCTS, flat Monte Carlo) choose moves in perfect-information games: the same contract as alpha-beta search, and alpha-beta vs MCTS is the central rivalry this site teaches. Nested Monte Carlo and NRPA are single-agent puzzle searches and move to puzzle-state search instead.",
+   "phrasesMovedElsewhere": {
+    "Single-player optimization": "puzzle-state-search",
+    "Puzzle optimization": "puzzle-state-search"
+   },
+   "methodOverlap": {
+    "retiredMethods": 4,
+    "survivorMethods": 15,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "equilibrium-learning",
+   "retiredLabel": "Learning dynamics for equilibria",
+   "into": "nash-equilibrium",
+   "class": "D",
+   "reason": "A method-family label (learning dynamics) whose members compute equilibria of two different game classes. The CFR family solves extensive-form games and joins that problem, where subclass-restricted methods (backward induction on perfect information) sit beside general ones, mirroring 2-SAT beside CDCL. Fictitious play, regret matching, replicator dynamics, and double oracle compute normal-form equilibria and join nash-equilibrium, relabeled Normal-form equilibrium computation to honestly cover the correlated-equilibrium and evolutionary outputs.",
+   "phrasesMovedElsewhere": {
+    "Imperfect-information equilibria": "extensive-form-solving",
+    "Poker-scale equilibria": "extensive-form-solving",
+    "Large-game equilibria": "extensive-form-solving",
+    "Very-large-game equilibria": "extensive-form-solving"
+   },
+   "methodOverlap": {
+    "retiredMethods": 8,
+    "survivorMethods": 3,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "replica-consistency",
+   "retiredLabel": "Replica consistency and repair",
+   "into": "replication-schemes",
+   "class": "B",
+   "reason": "The same techniques were filed on both sides: quorum intersection appears as Quorum replication (there) and Quorum read-write with R+W>N (here); Merkle anti-entropy appears in both. Designing replication and repairing replicas are phases of one contract: keep replicated data consistent and available under failures.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 4,
+    "survivorMethods": 11,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "crdts",
+   "retiredLabel": "Conflict-free replicated data types",
+   "into": "replication-schemes",
+   "class": "D",
+   "reason": "CRDT counters, sets, and registers are a solution family for the replicated-state contract, not a separate problem; a G-counter and an OR-set are not rivals of each other, but coordination-free convergence versus consensus-backed replication is exactly the design rivalry of replication. Per-datatype contracts survive as phrases. Survivor relabeled Replication and replica consistency.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 4,
+    "survivorMethods": 11,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "cross-validation",
+   "retiredLabel": "Cross-validation schemes",
+   "into": "generalization-estimation",
+   "class": "B",
+   "reason": "K-fold cross-validation sat in one problem while stratified, nested, and forward-chaining cross-validation sat in another: the same contract, estimate out-of-sample performance to select among models.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 3,
+    "survivorMethods": 3,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "model-comparison",
+   "retiredLabel": "Model comparison criteria",
+   "into": "generalization-estimation",
+   "class": "B",
+   "reason": "AIC, BIC, and MDL are penalized-likelihood rivals of cross-validation for the same decision (which model generalizes best); AIC is asymptotically equivalent to leave-one-out. Survivor relabeled Model selection and generalization estimation.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 3,
+    "survivorMethods": 3,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "atomic-commitment",
+   "retiredLabel": "Atomic commitment across services",
+   "into": "distributed-transactions",
+   "class": "C",
+   "reason": "The membership shows this was the systems question, not the formal atomic-commitment problem: the saga pattern explicitly abandons atomicity. 2PC/3PC vs deterministic execution (Calvin) vs sagas vs RAMP are alternative architectures for one contract, commit transactions across partitions; Calvin exists to eliminate 2PC.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 3,
+    "survivorMethods": 6,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "fuzzing",
+   "retiredLabel": "Fuzzing and security testing",
+   "into": "test-generation",
+   "class": "B",
+   "reason": "Coverage-guided fuzzing and symbolic/concolic execution generate inputs that expose bugs in the same programs and are benchmarked against each other; concolic testing exists to hybridize them. Hardware ATPG and distributed-system testing remain separate: materially different execution environments and oracles. Survivor relabeled Automated test generation and fuzzing.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 2,
+    "survivorMethods": 2,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "random-graph-models",
+   "retiredLabel": "Random graph models",
+   "into": "graph-generation",
+   "class": "A",
+   "reason": "Near-exact alias labels: the problem labeled Random graph generation and the problem labeled Random graph models split Watts-Strogatz/Chung-Lu/Kronecker from Erdos-Renyi/Barabasi-Albert/SBM arbitrarily; one contract, sample a graph from a generative model.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 3,
+    "survivorMethods": 3,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "raster-drawing",
+   "retiredLabel": "Raster primitive drawing",
+   "into": "rasterization",
+   "class": "E",
+   "reason": "Line, circle, and polygon rasterization share one contract, convert a geometric primitive to pixel coverage, with the primitive as the input parameter; the in-repo precedent is Clipping, which already holds polygon and line clipping as phrases of one problem.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 3,
+    "survivorMethods": 4,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "large-neighborhood-search",
+   "retiredLabel": "Ruin-and-recreate search",
+   "into": "local-search-escape",
+   "class": "C",
+   "reason": "Destroy-and-repair is neighborhood search with very large neighborhoods, as the name says; LNS/ALNS belong to the same meta-contract the survivor already owns (discrete optimization by local moves and escapes) beside tabu, annealing, and VNS.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 2,
+    "survivorMethods": 11,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "resampling-inference",
+   "retiredLabel": "Resampling inference",
+   "into": "interval-estimation",
+   "class": "D",
+   "reason": "A method-family label (resampling) whose members solve two existing contracts. The permutation test is a standard rival of t and rank tests and joins hypothesis testing. Bootstrap and jackknife estimate uncertainty and bias and join interval estimation, where BCa bootstrap intervals and conformal prediction already live.",
+   "phrasesMovedElsewhere": {
+    "Hypothesis testing": "hypothesis-testing"
+   },
+   "methodOverlap": {
+    "retiredMethods": 3,
+    "survivorMethods": 2,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  },
+  {
+   "retired": "free-energy-estimation",
+   "retiredLabel": "Free energy estimation",
+   "into": "normalizing-constants",
+   "class": "E",
+   "reason": "The same mathematical contract in two literatures: estimate (ratios of) partition functions. The phrase collision proved it: Free-energy estimation was already a phrase of normalizing-constants via Wang-Landau while free-energy-estimation held FEP/TI/umbrella sampling. Bennett acceptance ratio and bridge sampling are literally the same identity. Survivor relabeled Normalizing constants and free energy.",
+   "phrasesMovedElsewhere": {},
+   "methodOverlap": {
+    "retiredMethods": 3,
+    "survivorMethods": 2,
+    "sharedMethods": 0,
+    "jaccard": 0
+   }
+  }
+ ],
+ "phraseMoves": [
+  {
+   "phrase": "Large integer programs",
+   "from": "branch-and-bound",
+   "to": "integer-programming",
+   "reason": "Branch and price is a sibling of branch and cut (already filed under integer programming); the split kept the two flagship integer-programming search frameworks from being rivals."
+  },
+  {
+   "phrase": "Tour construction",
+   "from": "ant-colony",
+   "to": "traveling-salesman",
+   "reason": "Ant Colony System constructs TSP tours; traveling-salesman already owns the identical contract under the phrase TSP construction (nearest neighbor, greedy edge, savings). Same contract, so the same problem."
+  },
+  {
+   "phrase": "Tour evolution",
+   "from": "evolutionary-computation",
+   "to": "traveling-salesman",
+   "reason": "Genetic algorithm with edge recombination crossover evolves TSP tours: the same contract traveling-salesman owns. The within-family crossover comparison remains visible on the Genetic algorithm method page."
+  }
+ ],
+ "attachments": [
+  {
+   "phrase": "Fast persistence",
+   "to": "persistent-homology",
+   "reason": "Clearing/twist and Ripser compute persistent homology faster: same output contract the problem already covers as Scalable TDA."
+  },
+  {
+   "phrase": "Exact chromatic number",
+   "to": "vertex-coloring",
+   "reason": "The problem already owns the phrase Exact vertex coloring; chromatic number is the same contract."
+  },
+  {
+   "phrase": "Top-k retrieval",
+   "to": "top-k-queries",
+   "reason": "WAND and block-max WAND prune top-k scoring over inverted lists; Fagin-style threshold algorithms do the same over sorted lists. One contract across the IR and DB literatures."
+  },
+  {
+   "phrase": "Probabilistic retrieval",
+   "to": "document-ranking",
+   "reason": "Query likelihood and divergence-from-randomness are ranking functions on the same benchmark contract as BM25, itself a probabilistic model."
+  },
+  {
+   "phrase": "Neural retrieval",
+   "to": "document-ranking",
+   "reason": "DPR and ColBERT rank documents for queries; dense-vs-sparse is the same rivalry that motivated merging semantic retrieval here."
+  },
+  {
+   "phrase": "Statistical language modeling",
+   "to": "language-modeling",
+   "reason": "N-gram models with Kneser-Ney or Good-Turing smoothing and neural language models share the contract: model the probability of text."
+  },
+  {
+   "phrase": "Transformer modeling",
+   "to": "sequence-modeling",
+   "reason": "Multi-head attention and self-attention entries are sequence-modeling architectures, rivals of recurrent and state-space models on the same contract."
+  },
+  {
+   "phrase": "Large-scale SVM",
+   "to": "classification",
+   "reason": "The problem already owns Max-margin classification and Large-scale classification; core vector machines and Pegasos are classifiers at scale."
+  },
+  {
+   "phrase": "Rating prediction",
+   "to": "recommendation",
+   "reason": "SVD++ and Slope One predict user-item ratings: the core recommendation contract."
+  },
+  {
+   "phrase": "Click prediction",
+   "to": "recommendation",
+   "reason": "Factorization machines and DeepFM predict user-item response probability: the same affinity-prediction contract phrased for ads."
+  },
+  {
+   "phrase": "Sequential recommendation",
+   "to": "recommendation",
+   "reason": "GRU4Rec and SASRec recommend the next item from interaction history: recommendation with sequential context."
+  },
+  {
+   "phrase": "Frequent-itemset mining",
+   "to": "association-rules",
+   "reason": "FP-growth and ECLAT mine the frequent itemsets that association rules are built from; the problem already owns Market-basket analysis."
+  },
+  {
+   "phrase": "Treatment effect estimation",
+   "to": "treatment-effects",
+   "reason": "T-learner and X-learner are heterogeneous-treatment-effect estimators: exactly this problem."
+  },
+  {
+   "phrase": "Probability calibration",
+   "to": "training-regularization",
+   "reason": "The problem already owns the phrase Classifier calibration; Platt scaling and isotonic regression are its standard methods."
+  },
+  {
+   "phrase": "Few-shot learning",
+   "to": "few-shot-learning",
+   "reason": "The problem exists with the phrase Few-shot classification; MAML and Reptile are its canonical methods."
+  },
+  {
+   "phrase": "Training strategy",
+   "to": "training-regularization",
+   "reason": "Curriculum and self-paced learning are training schedules; the problem already owns the phrase Training schedules."
+  },
+  {
+   "phrase": "Image binarization",
+   "to": "image-segmentation",
+   "reason": "Otsu and adaptive thresholding are the foreground/background case of segmentation, filed in every segmentation chapter."
+  },
+  {
+   "phrase": "Order statistics",
+   "to": "selection",
+   "reason": "Quickselect computes order statistics: the problem is literally labeled Selection and order statistics."
+  }
+ ],
+ "added": [
+  {
+   "slug": "facility-location",
+   "label": "Facility location",
+   "phrases": [
+    "Facility location"
+   ],
+   "reason": "Split from the clustering-approximation merge: opening costs and a free number of facilities are a materially different objective from fixed-k clustering."
+  },
+  {
+   "slug": "polynomial-gcd",
+   "label": "Polynomial GCD",
+   "phrases": [
+    "Polynomial GCD"
+   ],
+   "reason": "GCD in polynomial rings has its own contract (coefficient growth is the enemy); subresultant PRS vs modular CRT reconstruction is a real rivalry distinct from integer GCD."
+  },
+  {
+   "slug": "real-root-isolation",
+   "label": "Real root isolation",
+   "phrases": [
+    "Real root isolation"
+   ],
+   "reason": "Certified isolating intervals for real roots are a materially different output contract from numerical root approximation; Sturm vs VCA is the standard rivalry."
+  },
+  {
+   "slug": "variant-calling",
+   "label": "Genetic variant detection",
+   "phrases": [
+    "Genetic variant detection"
+   ],
+   "reason": "Calling variants from aligned reads is a standard bioinformatics contract with two real rival methods present."
+  },
+  {
+   "slug": "closest-pair",
+   "label": "Closest pair of points",
+   "phrases": [
+    "Closest pair of points"
+   ],
+   "reason": "The classic geometry problem; sweep vs divide-and-conquer is the canonical rivalry."
+  },
+  {
+   "slug": "polyline-simplification",
+   "label": "Polyline simplification",
+   "phrases": [
+    "Polyline simplification"
+   ],
+   "reason": "Douglas-Peucker vs Visvalingam-Whyatt is the famous rivalry of one contract: fewer vertices, bounded shape error."
+  },
+  {
+   "slug": "persistence-comparison",
+   "label": "Persistence diagram comparison",
+   "phrases": [
+    "Persistence comparison"
+   ],
+   "reason": "Bottleneck vs Wasserstein distances compare persistence diagrams: a distance contract distinct from computing the diagrams."
+  },
+  {
+   "slug": "persistence-vectorization",
+   "label": "Persistence vectorization",
+   "phrases": [
+    "Topological features"
+   ],
+   "reason": "Landscapes vs persistence images turn diagrams into ML-ready vectors: an embedding contract distinct from diagram distances."
+  },
+  {
+   "slug": "edge-bundling",
+   "label": "Edge bundling",
+   "phrases": [
+    "Edge decluttering"
+   ],
+   "reason": "Bundling reroutes the edges of an existing layout to reduce clutter: a post-layout contract with two real rival methods, distinct from node placement."
+  },
+  {
+   "slug": "many-light-rendering",
+   "label": "Many-light rendering",
+   "phrases": [
+    "Many-light rendering"
+   ],
+   "reason": "Deferred vs tiled forward shading is the real-time architecture rivalry for scenes with many lights, distinct from shading models and from global illumination."
+  },
+  {
+   "slug": "all-pairs-min-cuts",
+   "label": "All-pairs minimum cuts",
+   "phrases": [
+    "All-pairs minimum cuts"
+   ],
+   "reason": "Gomory-Hu and Gusfield trees answer every s-t cut at once: a different output contract from the single global minimum cut, kept distinct exactly as APSP is from SSSP."
+  },
+  {
+   "slug": "transitive-closure",
+   "label": "Transitive closure and reduction",
+   "phrases": [
+    "Minimal equivalent DAG"
+   ],
+   "reason": "Computing the reachability structure of a DAG in either direction (closure, reduction): one contract on the reachability relation."
+  },
+  {
+   "slug": "graph-comparison",
+   "label": "Graph comparison and classification",
+   "phrases": [
+    "Graph classification",
+    "Graph similarity"
+   ],
+   "reason": "Whole-graph kernels and graph edit distance compare or classify entire graphs: a graph-level contract distinct from node-level representation learning."
+  },
+  {
+   "slug": "influence-maximization",
+   "label": "Influence maximization",
+   "phrases": [
+    "Viral marketing"
+   ],
+   "reason": "Choosing a seed set to maximize spread is a submodular optimization contract, distinct from modeling the spread process itself."
+  },
+  {
+   "slug": "contagion-modeling",
+   "label": "Contagion and influence spread modeling",
+   "phrases": [
+    "Influence spread",
+    "Contagion modeling"
+   ],
+   "reason": "Independent cascade, linear threshold, SIR, and SIS all model spreading processes over networks: one modeling contract across the marketing and epidemiology literatures."
+  },
+  {
+   "slug": "coverage-path-planning",
+   "label": "Coverage path planning",
+   "phrases": [
+    "Area coverage"
+   ],
+   "reason": "Sweeping every point of a region is a materially different objective from reaching a goal; boustrophedon vs spanning-tree coverage is a real rivalry."
+  },
+  {
+   "slug": "shape-analysis",
+   "label": "Shape analysis and skeletonization",
+   "phrases": [
+    "Shape analysis"
+   ],
+   "reason": "Distance transforms and medial axes summarize region shape: a morphology contract distinct from segmentation."
+  }
+ ],
+ "relabels": [
+  {
+   "slug": "constraint-satisfaction",
+   "to": "Constraint satisfaction",
+   "reason": "The word search described the method side; the problem is satisfaction."
+  },
+  {
+   "slug": "edit-distance",
+   "to": "Edit distance and sequence alignment",
+   "reason": "Covers both merged names."
+  },
+  {
+   "slug": "context-free-parsing",
+   "to": "Context-free parsing",
+   "reason": "General is redundant once parser construction merges in."
+  },
+  {
+   "slug": "document-ranking",
+   "to": "Document ranking and retrieval",
+   "reason": "Covers the merged retrieval side."
+  },
+  {
+   "slug": "text-decoding",
+   "to": "Text decoding and constrained generation",
+   "reason": "Covers the merged constrained-generation side."
+  },
+  {
+   "slug": "replication-schemes",
+   "to": "Replication and replica consistency",
+   "reason": "Covers the merged consistency-and-repair side."
+  },
+  {
+   "slug": "generalization-estimation",
+   "to": "Model selection and generalization estimation",
+   "reason": "Covers criteria and resampling estimators alike."
+  },
+  {
+   "slug": "nash-equilibrium",
+   "to": "Normal-form equilibrium computation",
+   "reason": "The merged problem also outputs correlated equilibria and evolutionary stable states, not only Nash."
+  },
+  {
+   "slug": "extensive-form-solving",
+   "to": "Extensive-form game solving",
+   "reason": "Unchanged wording, reaffirmed as the umbrella for perfect- and imperfect-information methods."
+  },
+  {
+   "slug": "distributed-mutex",
+   "to": "Distributed mutual exclusion and locking",
+   "reason": "Covers the merged lease-and-fencing side."
+  },
+  {
+   "slug": "test-generation",
+   "to": "Automated test generation and fuzzing",
+   "reason": "Covers the merged fuzzing side."
+  },
+  {
+   "slug": "normalizing-constants",
+   "to": "Normalizing constants and free energy",
+   "reason": "One contract, both literatures named."
+  },
+  {
+   "slug": "text-editing",
+   "to": "Text correction and editing",
+   "reason": "Unchanged wording, reaffirmed as the umbrella over spelling correction."
+  },
+  {
+   "slug": "branch-and-bound",
+   "to": "Combinatorial optimization",
+   "reason": "The method name stood as the label while the phrase told the truth; the members (exact search, QAOA, nature-inspired) attack generic combinatorial optimization."
+  },
+  {
+   "slug": "interior-point-methods",
+   "to": "Conic and semidefinite optimization",
+   "reason": "Interior point is the method; the contract is conic/SDP solving (and the ellipsoid member is not interior-point at all)."
+  },
+  {
+   "slug": "least-squares",
+   "to": "Linear least squares",
+   "reason": "Precision: the numerical solve contract, distinct from statistical regression and from nonlinear least squares."
+  },
+  {
+   "slug": "theory-combination",
+   "to": "SMT solving and theory combination",
+   "reason": "Gains the SMT solving phrase from the SAT merge; DPLL(T) beside Nelson-Oppen and Shostak."
+  },
+  {
+   "slug": "regex-construction",
+   "to": "Regular expression to automaton construction",
+   "reason": "Lexical normalization: spell out regular expression; the matching-vs-construction distinction stays."
+  }
+ ],
+ "entryRemovals": []
+}

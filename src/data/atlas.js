@@ -8,8 +8,10 @@ import { isRegistryKey } from './atlas-registry.js';
 
 // problems.json is excluded on purpose: it is only needed by
 // atlas-rivals.js, and globbing it here would ship 26 KB gzipped of rivals
-// registry to every atlas visitor for a function no page calls.
-const modules = import.meta.glob(['./atlas/*.json', '!./atlas/problems.json'], { eager: true });
+// registry to every atlas visitor for a function no page calls. merges.json
+// (the taxonomy-consolidation manifest) is excluded for the same reason: only
+// the prerender and the check read it, and the atlas chunk has no headroom.
+const modules = import.meta.glob(['./atlas/*.json', '!./atlas/problems.json', '!./atlas/merges.json'], { eager: true });
 
 // Human-readable topic labels. A topic file with no entry here falls back to a
 // title-cased version of its key, so a new topic still renders sanely.

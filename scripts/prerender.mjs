@@ -9,11 +9,14 @@
 // Run after `vite build`. Emits into dist/.
 import { readdirSync, readFileSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { CATEGORIES, CATEGORY_OF_TOPIC } from '../src/data/atlas-categories.js';
+import { REGISTRY_KEYS } from '../src/data/atlas-registry.js';
 import { PUZZLES, SITE_HOST } from '../src/data/puzzles.js';
 
 const ATLAS = 'src/data/atlas';
 const OUT = 'dist';
-const REGISTRIES = new Set(['aliases', 'problems']);
+// The shared registry list, not a local copy: a registry file that this set
+// misses would be prerendered as a topic of entries.
+const REGISTRIES = new Set(REGISTRY_KEYS);
 
 // ---------------------------------------------------------------- utilities
 
@@ -69,7 +72,8 @@ function loadAtlas() {
   }
   const problems = JSON.parse(readFileSync(`${ATLAS}/problems.json`, 'utf8'));
   const aliases = JSON.parse(readFileSync(`${ATLAS}/aliases.json`, 'utf8'));
-  return { topics, byAlgo, byPhrase, problems, aliases };
+  const merges = JSON.parse(readFileSync(`${ATLAS}/merges.json`, 'utf8'));
+  return { topics, byAlgo, byPhrase, problems, aliases, merges };
 }
 
 // ---------------------------------------------------------------- templates
@@ -115,7 +119,7 @@ function main() {
     console.error('FAIL prerender: dist/ missing, run `vite build` first');
     process.exit(1);
   }
-  const { topics, byAlgo, byPhrase, problems, aliases } = loadAtlas();
+  const { topics, byAlgo, byPhrase, problems, aliases, merges } = loadAtlas();
 
   // phrase -> problem slug, and problem slug -> its phrases
   const phraseOwner = new Map();
@@ -253,6 +257,32 @@ ${es.map((e) => entryLine(e)).join('\n')}
       canonical: `/problem/${slug}/`,
       crumbs: [{ label: 'algonow', href: '/' }, { label: 'problems', href: '/problem/' }, { label: meta.label }],
       body,
+    }));
+    count++;
+  }
+
+  // ---- retired problem slugs, per the merge manifest: every consolidated
+  // problem keeps its old URL as a redirect to the survivor, so no inbound
+  // link 404s. Mirrors the /algo/ alias-redirect practice: meta refresh,
+  // canonical on the survivor, noindex. A retired slug that is still (or
+  // again) a live problem would overwrite a real page, so the build stops.
+  for (const m of merges.merges ?? []) {
+    if (problems[m.retired] && !m.retired.startsWith('_')) {
+      console.error(`FAIL prerender: merges.json retires "${m.retired}" but it is a live problem`);
+      process.exit(1);
+    }
+    if (!problems[m.into]) {
+      console.error(`FAIL prerender: merges.json sends "${m.retired}" to missing problem "${m.into}"`);
+      process.exit(1);
+    }
+    const destLabel = problems[m.into].label;
+    write(`problem/${m.retired}`, page({
+      title: `${m.retiredLabel} · see ${destLabel}`,
+      description: `${m.retiredLabel} was consolidated into ${destLabel}; its phrasings and methods live there.`,
+      canonical: `/problem/${m.into}/`,
+      crumbs: [{ label: 'algonow', href: '/' }, { label: 'problems', href: '/problem/' }, { label: destLabel, href: `/problem/${m.into}/` }],
+      head: `<meta http-equiv="refresh" content="0; url=/problem/${m.into}/"><meta name="robots" content="noindex,follow">`,
+      body: `<h1>${esc(m.retiredLabel)}</h1><p class="aka">Now part of <a href="/problem/${m.into}/"><b>${esc(destLabel)}</b></a>. The problems were one computational contract under two names; every phrasing and method moved there. Redirecting.</p>`,
     }));
     count++;
   }

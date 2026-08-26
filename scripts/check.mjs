@@ -150,7 +150,19 @@ if (!existsSync('dist/assets')) {
     // generous budget. If the catalog outgrows this, switch the atlas data
     // from a bundled JS chunk to a runtime-fetched JSON asset rather than
     // just raising the ceiling again.
-    else if (a.startsWith('atlas-')) budget(`atlas chunk ${a}`, size, 120 * 1024);
+    else if (a.startsWith('atlas-')) {
+      budget(`atlas chunk ${a}`, size, 120 * 1024);
+      // The registries that only the build reads must never ship to the
+      // browser. This happened silently: the deployed atlas-Co3eChdu.js chunk
+      // carried all of problems.json (26 KB gz) even though the glob named a
+      // negative pattern, and the SSR test could not see bundle bytes. Checking
+      // the emitted chunk for registry-unique markers is the only oracle that
+      // catches it. "The RIVALS table" opens problems.json's _doc; the second
+      // string opens merges.json's.
+      const text = readFileSync(`dist/assets/${a}`, 'utf8');
+      if (text.includes('The RIVALS table')) fail(`atlas chunk ${a}: problems.json bytes shipped to the browser`);
+      if (text.includes('Machine-readable manifest')) fail(`atlas chunk ${a}: merges.json bytes shipped to the browser`);
+    }
     else if (a.endsWith('.js')) budget(`chunk ${a}`, size, 20 * 1024);
   }
   budget('html index.html', gz('dist/index.html'), 2 * 1024);
@@ -249,8 +261,9 @@ if (existsSync(atlasDir)) {
       if (!byAlgo.has(na)) byAlgo.set(na, { display: e.a, files: new Set() });
       byAlgo.get(na).files.add(file.replace('.json', ''));
       const np = normPhrase(e.d);
-      if (!byPhrase.has(np)) byPhrase.set(np, { display: e.d, entries: [] });
+      if (!byPhrase.has(np)) byPhrase.set(np, { display: e.d, entries: [], algos: new Set() });
       byPhrase.get(np).entries.push(`${e.a}${e.h ? ` × ${e.h}` : ''}`);
+      byPhrase.get(np).algos.add(norm(e.a));
       entryPhrases.push({ topic: file.replace('.json', ''), np });
       algoNames.add(nameKey(e.a));
       if (e.h && String(e.h).trim()) heurNames.add(nameKey(e.h));
@@ -379,12 +392,22 @@ if (existsSync(atlasDir)) {
     }
     const phraseOwner = new Map(); // normalized phrase -> problem slug
     let problemCount = 0;
+    // Canonical labels must be unique after normalization: two problems whose
+    // labels differ only in case, punctuation, or spacing are one problem
+    // wearing two names, which is exactly what the consolidation retired.
+    const labelSeen = new Map();
+    const normLabel = (s) => String(s ?? '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
     for (const [slug, meta] of Object.entries(problems)) {
       if (slug.startsWith('_')) continue; // doc keys
       problemCount += 1;
       if (!/^[a-z0-9-]+$/.test(slug)) fail(`problems "${slug}": key must be a lowercase slug`);
       if (!meta || typeof meta.label !== 'string' || !meta.label.trim())
         fail(`problems "${slug}": missing label`);
+      else {
+        const nl = normLabel(meta.label);
+        if (labelSeen.has(nl)) fail(`problems: labels of "${slug}" and "${labelSeen.get(nl)}" collide as "${meta.label}"`);
+        labelSeen.set(nl, slug);
+      }
       if (!meta || !Array.isArray(meta.phrases) || !meta.phrases.length) {
         fail(`problems "${slug}": missing non-empty phrases array`);
         continue;
@@ -430,20 +453,57 @@ if (existsSync(atlasDir)) {
     // candidate to fold into an existing problem (or to name as a new one).
     const unregistered = [...byPhrase.entries()]
       .filter(([np]) => !phraseOwner.has(np))
-      .map(([, info]) => ({ d: info.display, n: info.entries.length }))
-      // Two entries is already a rivalry, and a rivalry is what earns a
-      // /problem/ page. The old 3+ floor hid every two-method phrase, which is
-      // the bulk of the queue, so the work looked done when it was not.
-      .filter((x) => x.n >= 2)
+      .map(([, info]) => ({ d: info.display, n: info.entries.length, m: info.algos.size }))
+      // Two DISTINCT METHODS is a rivalry, and a rivalry is what earns a
+      // /problem/ page. Entries are the wrong unit here: rivalsOf excludes
+      // same-algorithm entries, so a phrase held by one algorithm's heuristic
+      // variants (Light chasing twice, Tetris placement twice) has no real
+      // rivalry to surface and stays an honest hold instead of queue noise.
+      .filter((x) => x.m >= 2)
       .sort((a, b) => b.n - a.n);
     if (unregistered.length) {
       const entries = unregistered.reduce((n, x) => n + x.n, 0);
       warn(
-        `rivals queue: ${unregistered.length} unregistered phrases with 2+ entries ` +
+        `rivals queue: ${unregistered.length} unregistered phrases with 2+ distinct methods ` +
           `(${entries} entries) have rivals but no /problem/ page; fold into problems.json:`
       );
       console.log(`     ${unregistered.slice(0, 20).map((x) => `${x.d} (${x.n})`).join(' · ')}`);
       if (unregistered.length > 20) console.log(`     ...and ${unregistered.length - 20} more`);
+    }
+
+    // The merge manifest: every problem the consolidation retired must stay
+    // out of the live registry, point at a live survivor (so redirects cannot
+    // chain or loop), and keep a redirect page in dist so old links resolve.
+    const mergesPath = `${atlasDir}/merges.json`;
+    if (existsSync(mergesPath)) {
+      let manifest;
+      try {
+        manifest = JSON.parse(readFileSync(mergesPath, 'utf8'));
+      } catch (e) {
+        fail(`merges.json: invalid JSON (${e.message})`);
+        manifest = { merges: [] };
+      }
+      const retiredSeen = new Set();
+      let redirectPages = 0;
+      for (const m of manifest.merges ?? []) {
+        if (!m.retired || !m.into) { fail(`merges.json: entry missing retired/into`); continue; }
+        if (retiredSeen.has(m.retired)) fail(`merges.json: "${m.retired}" retired twice`);
+        retiredSeen.add(m.retired);
+        if (problems[m.retired]) fail(`merges.json: "${m.retired}" is retired but still a live problem`);
+        if (!problems[m.into]) fail(`merges.json: "${m.retired}" redirects to "${m.into}" which is not a live problem (chain or dangle)`);
+        if (retiredSeen.has(m.into)) fail(`merges.json: "${m.retired}" redirects to retired "${m.into}" (redirect chain)`);
+        for (const dest of Object.values(m.phrasesMovedElsewhere ?? {})) {
+          if (!problems[dest]) fail(`merges.json: "${m.retired}" moves a phrase to missing problem "${dest}"`);
+        }
+        if (existsSync('dist/problem')) {
+          if (existsSync(`dist/problem/${m.retired}/index.html`)) redirectPages += 1;
+          else fail(`merges.json: no redirect page in dist for retired slug "${m.retired}"`);
+        }
+      }
+      for (const add of manifest.added ?? []) {
+        if (!problems[add.slug]) fail(`merges.json: added problem "${add.slug}" is not in the live registry`);
+      }
+      ok(`merges manifest: ${retiredSeen.size} retired slugs, all redirecting to live problems${redirectPages ? `, ${redirectPages} redirect pages in dist` : ''}`);
     }
   } else {
     fail(`${problemsPath} missing`);

@@ -208,6 +208,20 @@ Phase A standard. Candidates chosen for measurable contrast:
       entries (a01ae18); add a "variants of this method" list to the algo
       page prerender so Dijkstra x binary heap and Dijkstra x arc flags
       cross-link as variants instead of silently ignoring each other.
+- [x] G4. Problem-taxonomy consolidation (2026-08-26): 661 -> 648 canonical
+      problems via 30 classified merges (each with rationale and method
+      overlap in src/data/atlas/merges.json), 17 new problems registered
+      from the two-method queue, 18 phrase attachments, 4 true-duplicate
+      entries removed, 30 permanent /problem/ redirects, and A-Z +
+      by-rivals + per-category problem navigation. The 38-phrase
+      rivals-queue warning is retired; the queue floor now counts distinct
+      methods. Bundle-side: the new merges.json is excluded from the atlas
+      page glob (5e01aa1's fix pattern) and check.mjs gains an
+      emitted-bytes guard that fails the build if registry content ever
+      reaches the atlas chunk, which source-level tests cannot see; the
+      chunk fix itself was 5e01aa1, not this work, and 28d23fa's message
+      wrongly implies otherwise (correction recorded in
+      docs/TAXONOMY-AUDIT.md). (28d23fa, 78c81e9, c1cdc4e, + audit commit)
 
 ---
 

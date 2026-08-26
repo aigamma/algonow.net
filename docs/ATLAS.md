@@ -200,6 +200,15 @@ lookup; it falls back to an exact phrase match for unregistered phrases.
 cannot rot), reports rival coverage, and prints the largest unregistered
 phrases as a queue.
 
+Problems have their own redirect doctrine since the 2026-08-26 consolidation
+(661 labels -> 648 distinct contracts; audit in docs/TAXONOMY-AUDIT.md):
+`src/data/atlas/merges.json` records every retired problem slug with its
+survivor, class, and rationale, the prerender emits a permanent redirect
+page at /problem/<retired>/ for each, and the check enforces that retired
+slugs stay out of the registry, that destinations are live (no chains), and
+that the redirect pages exist in dist. A future problem merge is one new
+row in that manifest plus the phrase move in problems.json.
+
 ## Where the atlas stands, and what is queued
 
 At 3,113 entries / 64 topics / 20 categories against a target of roughly

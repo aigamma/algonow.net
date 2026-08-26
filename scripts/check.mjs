@@ -153,12 +153,13 @@ if (!existsSync('dist/assets')) {
     else if (a.startsWith('atlas-')) {
       budget(`atlas chunk ${a}`, size, 120 * 1024);
       // The registries that only the build reads must never ship to the
-      // browser. This happened silently: the deployed atlas-Co3eChdu.js chunk
-      // carried all of problems.json (26 KB gz) even though the glob named a
-      // negative pattern, and the SSR test could not see bundle bytes. Checking
-      // the emitted chunk for registry-unique markers is the only oracle that
-      // catches it. "The RIVALS table" opens problems.json's _doc; the second
-      // string opens merges.json's.
+      // browser. Before 5e01aa1 split out atlas-rivals.js, all of
+      // problems.json (26 KB gz) rode the eager glob into the atlas chunk
+      // for months while every source-level test stayed green: tests see
+      // modules, not bundle bytes. Scanning the emitted chunk for
+      // registry-unique markers is the only oracle that catches a leak of
+      // this kind. "The RIVALS table" opens problems.json's _doc; the
+      // second string opens merges.json's.
       const text = readFileSync(`dist/assets/${a}`, 'utf8');
       if (text.includes('The RIVALS table')) fail(`atlas chunk ${a}: problems.json bytes shipped to the browser`);
       if (text.includes('Machine-readable manifest')) fail(`atlas chunk ${a}: merges.json bytes shipped to the browser`);

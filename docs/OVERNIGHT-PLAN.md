@@ -253,3 +253,8 @@ they are the ones most easily lost mid-run):
    liveness check.
 5. Every claim in a commit message must be cashed out against build exit
    code, check output, or a printed test result.
+6. Pushes do not deploy. The Netlify site has no repo linkage; a session
+   that lands units ends with `netlify deploy --prod` (a free CLI upload
+   of the verified local dist) and a curl against the live site proving
+   the deploy took. Discovered 2026-08-26 with production ten commits
+   stale; see the Deploy section of CLAUDE.md.

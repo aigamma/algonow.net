@@ -119,9 +119,16 @@ vendor chunk < 70 KB · per-page chunk < 20 KB · theme.css < 14 KB · HTML
 
 ## Deploy
 
-Netlify site `algonow` publishes `dist` on push to `main` (or via
-`netlify deploy --prod`). Domains: algonow.net primary, algohome.net 301
-alias (redirects in netlify.toml take effect once DNS points both at the
-site). Functions: `/api/tel` (ingest, no env needed) and `/api/desk`
+Deploys are explicit: `npm run build`, `npm run check`, then
+`netlify deploy --prod` (a CLI upload of the local `dist`, zero build
+minutes). Pushes to `main` do NOT build or publish anything: the Netlify
+site has no repository linkage, verified 2026-08-26 when production sat
+ten commits stale behind origin. Do not link the repo for CI builds
+without the owner's explicit go-ahead (CI builds spend build minutes;
+CLI uploads never do). A session that lands units ends with a verified
+production deploy, or its work is stranded off the site. Domains:
+algonow.net primary (live); algohome.net still on registrar parking
+until its records are flipped (see docs/DNS.md); its 301 alias redirects
+in netlify.toml take effect once DNS points it at the site. Functions: `/api/tel` (ingest, no env needed) and `/api/desk`
 (reads; requires `ALGONOW_DESK_KEY` in Netlify env, shared with the
 mathlimit sources.json entry).

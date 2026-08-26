@@ -565,6 +565,24 @@ if (existsSync(atlasDir)) {
         ok(`problem index: ${idxSlugs.length} problems in alphabetical label order with A-Z anchors`);
       }
       if (!idxHtml.includes('class="az"')) fail('problem index lost its A-Z jump bar');
+      // The lesson funnel: every live pair's /algo/ page must carry a visible
+      // link to its unit, or the reference surface goes back to being a dead
+      // end in front of the actual product. Normalization drift between the
+      // prerender and the live-pair matcher would show up here first.
+      if (existsSync('dist/algo')) {
+        const slugOfName = (name) =>
+          String(name).toLowerCase().replace(/['’]/g, '').replace(/\*/g, ' star ').replace(/\+/g, ' plus ')
+            .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        const funnelless = Object.values(PUZZLES).filter((p) => {
+          const algoPage = `dist/algo/${slugOfName(p.algorithm)}/index.html`;
+          return !existsSync(algoPage) || !readFileSync(algoPage, 'utf8').includes(`href="/${p.slug}/"`);
+        });
+        if (funnelless.length) {
+          fail(`lesson funnel broken: no full-lesson link on the /algo/ page of ${funnelless.map((p) => p.slug).join(', ')}`);
+        } else {
+          ok(`lesson funnel: all ${Object.values(PUZZLES).length} live pairs link from their /algo/ pages`);
+        }
+      }
       const missingCatSections = CATEGORIES.filter(
         (c) => existsSync(`dist/category/${c.key}/index.html`) &&
           !readFileSync(`dist/category/${c.key}/index.html`, 'utf8').includes('Problems attacked from this category')

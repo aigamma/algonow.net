@@ -44,6 +44,23 @@ const esc = (s) =>
 
 const normPhrase = (s) => String(s ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
 
+// The same pair normalizer the atlas page and the live-pair check use, so a
+// live lesson is recognized under possessive and punctuation variation.
+const normPair = (s) =>
+  String(s ?? '').toLowerCase().replace(/['’]s\b/g, '').replace(/[^a-z0-9+*]+/g, ' ').trim();
+
+// Normalized (algorithm, heuristic) -> the live lesson. This is the funnel
+// from the prerendered reference surface into the eight real units: an entry
+// that is live as a lesson carries a visible link to it, and the check fails
+// if a live pair ever stops producing one.
+const LIVE_LESSON = new Map(
+  Object.values(PUZZLES).map((p) => [
+    `${normPair(p.algorithm)}|${normPair(p.heuristic)}`,
+    { path: `/${p.slug}/`, title: `${p.algorithm} × ${p.heuristic}` },
+  ]),
+);
+const lessonOf = (a, h) => LIVE_LESSON.get(`${normPair(a)}|${normPair(h)}`);
+
 function write(relPath, html) {
   const dir = `${OUT}/${relPath}`;
   mkdirSync(dir, { recursive: true });
@@ -103,12 +120,12 @@ function page({ title, description, canonical, crumbs, body, head = '' }) {
 <link rel="stylesheet" href="${STYLE}">
 ${og}${head}</head><body>
 <header class="dh"><a class="wm" href="/">algo<span>now</span></a>
-<nav class="dn"><a href="/atlas/">atlas</a><a href="/category/">categories</a><a href="/problem/">problems</a></nav></header>
+<nav class="dn"><a href="/">lessons</a><a href="/atlas/">atlas</a><a href="/category/">categories</a><a href="/problem/">problems</a></nav></header>
 <main class="dw">
 <nav class="crumbs">${crumbs.map((c) => (c.href ? `<a href="${c.href}">${esc(c.label)}</a>` : `<span>${esc(c.label)}</span>`)).join('<i aria-hidden="true">/</i>')}</nav>
 ${body}
 </main>
-<footer class="df"><p>Every entry is a real named method. Pairs that share a problem are rivals; that is the point.</p></footer>
+<footer class="df"><p>Every entry is a real named method. Pairs that share a problem are rivals; that is the point. <a href="/">The live lessons ▸</a></p></footer>
 </body></html>`;
 }
 
@@ -122,7 +139,9 @@ function entryLine(e, { showAlgo = true } = {}) {
     ? `<a class="ea" href="/algo/${slugify(e.a)}/">${esc(e.a)}</a>`
     : '';
   const heur = e.h ? `<span class="eh">${esc(e.h)}</span>` : '<span class="eh none">standalone</span>';
-  return `<li>${algo}${heur}${tierTag(e.t)}<a class="et" href="/topic/${e.topic}/">${esc(e.topic)}</a></li>`;
+  const lesson = lessonOf(e.a, e.h);
+  const lessonLink = lesson ? `<a class="lesson" href="${lesson.path}">full lesson ▸</a>` : '';
+  return `<li>${algo}${heur}${tierTag(e.t)}${lessonLink}<a class="et" href="/topic/${e.topic}/">${esc(e.topic)}</a></li>`;
 }
 
 // ---------------------------------------------------------------- generate
@@ -205,7 +224,10 @@ function main() {
 ${alias?.aka?.length ? `<p class="aka">Also known as ${alias.aka.map((a) => `<b>${esc(a)}</b>`).join(', ')}. This is the canonical page; those names redirect here.</p>` : ''}
 ${alias?.note ? `<p class="note">${esc(alias.note)}</p>` : ''}
 <section><h2>Pairings in the atlas</h2><ul class="entries">
-${info.pairs.map((p) => `<li><span class="eh">${p.h ? esc(p.h) : 'standalone'}</span>${tierTag(p.t)}<a class="ed" href="${problemHref(p, phraseOwner)}">${esc(p.d)}</a><a class="et" href="/topic/${p.topic}/">${esc(p.topic)}</a></li>`).join('\n')}
+${info.pairs.map((p) => {
+  const lesson = lessonOf(p.a, p.h);
+  return `<li><span class="eh">${p.h ? esc(p.h) : 'standalone'}</span>${tierTag(p.t)}<a class="ed" href="${problemHref(p, phraseOwner)}">${esc(p.d)}</a>${lesson ? `<a class="lesson" href="${lesson.path}">full lesson ▸</a>` : ''}<a class="et" href="/topic/${p.topic}/">${esc(p.topic)}</a></li>`;
+}).join('\n')}
 </ul></section>
 ${rivals.length ? `<section><h2>Rivals: other methods for the same problems</h2><ul class="rivals">
 ${rivals.map((r) => `<li><a href="/algo/${slugify(r)}/">${esc(r)}</a></li>`).join('')}
@@ -497,6 +519,7 @@ ul{list-style:none;margin:0;padding:0}
 .ea{font-weight:600}.eh{color:var(--heur);font-size:.9rem}.eh.none{color:var(--dim)}
 .ed{color:var(--dim);font-size:.88rem}.et{margin-left:auto;font:11px/1 ui-monospace,monospace;color:#8e99b3}
 .tier{font:10px/1 ui-monospace,monospace;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--line);border-radius:99px;padding:.2rem .45rem;color:var(--dim)}
+.lesson{font:11px/1 ui-monospace,monospace;color:var(--path);border:1px solid rgba(98,217,138,.4);border-radius:99px;padding:.2rem .5rem;white-space:nowrap}
 .t1{color:var(--path);border-color:rgba(98,217,138,.4)}.t2{color:var(--algo);border-color:rgba(93,162,255,.35)}
 .phrases span{display:inline-block;background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:.2rem .6rem;margin:0 .35rem .35rem 0;font-size:.82rem;color:var(--dim)}
 .rivals{display:flex;flex-wrap:wrap;gap:.4rem}.rivals li{background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:.25rem .7rem;font-size:.88rem}

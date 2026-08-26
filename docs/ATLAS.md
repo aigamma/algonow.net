@@ -5,9 +5,10 @@ every entry is either a standalone algorithm or an algorithm × heuristic
 pair. It is the strategy document Eric asked for, kept as data so the check
 script can hold it to account.
 
-**Live size: whatever `src/data/atlas-summary.json` says** (3,113 entries /
-64 topics / 20 categories as of 2026-07-22; `npm run check` prints
-per-topic totals and the grand total, and fails if the summary drifts). The target
+**Live size: whatever `src/data/atlas-summary.json` says** (3,249 entries /
+69 topics / 20 categories / 648 problems as of 2026-08-26; `npm run check`
+prints per-topic totals and the grand total, and fails if the summary
+drifts, so trust the file over any number restated in prose). The target
 shape is roughly 5,000 entries across ~100 topics. The map is deliberately
 wide, spanning far past interview and exam canon into exotic and creative
 problem-solving: unconventional computing (DNA, membrane, slime mold,
@@ -181,14 +182,22 @@ One topic per commit, check green, push before the next. A new topic file
 is not finished until its phrases are registered the same way; the check's
 worst-topics line will name it immediately.
 
-**The seventeen honest holds.** Seventeen entries have no rival and are
-left that way on purpose, because inventing a competitor would break the
-real-names rule: digit DP, probability DP, egg drop DP, Instant Insanity,
-tangram solving, chain codes, Puiseux series, skip scan,
-self-stabilization, retrograde analysis, kernel pre-image reconstruction,
-hyper-heuristic search, network tomography, fractional cascading, text
-chunking, complex event processing, power analysis. Each is a candidate
-for a future authored rival, not a defect.
+**The honest holds (refreshed 2026-08-26).** Some entries have no rival
+and are left that way on purpose, because inventing a competitor would
+break the real-names rule; each is a candidate for a future authored
+rival, not a defect. Sixteen unregistered phrases (18 entries) stand
+today: digit DP, probability DP, egg drop DP, Instant Insanity, tangram
+solving, chain codes, Puiseux series, skip scan, self-stabilization,
+kernel pre-image reconstruction, hyper-heuristic search, network
+tomography, fractional cascading, equilibrium geometry, plus the two
+single-method pairs Lights Out and Tetris placement (queued for a-slot
+inversion in Phase H). Four of the original seventeen graduated into
+one-entry registered problems and still await an authored rival there:
+retrograde analysis (endgame-databases), text chunking (shallow-parsing),
+complex event processing (event-pattern-detection), power analysis
+(experiment-design); lithography compensation is a fifth one-entry
+problem. The check's single-method-cluster line and rivals queue print
+the live state on every run; trust those over this paragraph.
 
 `src/data/atlas/problems.json` is the rivals registry: a problem slug maps to
 a label plus the exact `d` phrases that mean that problem, so Dijkstra
@@ -211,14 +220,17 @@ row in that manifest plus the phrase move in problems.json.
 
 ## Where the atlas stands, and what is queued
 
-At 3,113 entries / 64 topics / 20 categories against a target of roughly
-5,000 entries across ~100 topics. **Rival coverage is 99.4 percent**, held
-across five new topics, up from 51.9 percent when the backfill started on
-2026-07-21: fifty sweeps registered the problem taxonomy (now 606
-problems), densified the alias registry (now 810 canonical names / 1,028
-synonyms), authored about 90 real missing rival entries, and merged 20 true
-duplicates the sweeps exposed. Run `npm run check` for all live numbers;
-the standing queues, in rough priority order:
+At 3,249 entries / 69 topics / 20 categories / 648 problems (2026-08-26;
+`src/data/atlas-summary.json` is the source, this sentence is a dated
+snapshot) against a target of roughly 5,000 entries across ~100 topics.
+**Rival coverage is 98.5 percent by the distinct-method rule** (3,201 of
+3,249 entries have at least one true rival; the older 99.4 figure counted
+same-algorithm variants as rivals, which rivalsOf never shows), up from
+51.9 percent when the backfill started on 2026-07-21. The 2026-08-26
+consolidation collapsed 661 problem labels into 648 distinct contracts
+with redirects (docs/TAXONOMY-AUDIT.md); the alias registry stands at 887
+canonical names / 1,128 synonyms. Run `npm run check` for all live
+numbers; the standing queues, in rough priority order:
 
 1. **Grow the catalog toward 5,000.** With the rivals layer complete, new
    entries are the work again, and a new topic file is the highest-yield

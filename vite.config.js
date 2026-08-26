@@ -1,28 +1,13 @@
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { PUZZLES, VITE_ENTRIES, EXTRA_PAGES, SITE_HOST, SITE_NAME } from './src/data/puzzles.js';
+import { PUZZLES, VITE_ENTRIES, SITE_HOST, SITE_NAME } from './src/data/puzzles.js';
 
-// Emit dist/sitemap.xml at build time from the canonical registry, so a pair
-// added to puzzles.js becomes search-discoverable on the next deploy without
-// a parallel sitemap edit.
-function sitemapPlugin() {
-  return {
-    name: 'sitemap-generator',
-    apply: 'build',
-    generateBundle() {
-      const urls = ['/', ...EXTRA_PAGES, ...Object.keys(PUZZLES)].map((p) => `${SITE_HOST}${p}`);
-      const xml = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-        ...urls.map((url) => `  <url><loc>${url}</loc></url>`),
-        '</urlset>',
-        '',
-      ].join('\n');
-      this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: xml });
-    },
-  };
-}
+// The sitemap is owned by scripts/prerender.mjs, which emits a chunked
+// sitemapindex over the full data surface AFTER the Vite build. An earlier
+// in-build generator lived here and was dead code with a live failure mode:
+// its ~10-URL urlset was overwritten on every normal build, but any
+// vite-build-only deploy would have silently shipped it as the whole sitemap.
 
 // Promote each entry HTML's <title> + <meta name="description"> into canonical
 // link, Open Graph / Twitter tags, and JSON-LD. Puzzle pages emit a
@@ -110,7 +95,7 @@ function escapeAttr(s) {
 // Multi-page build: one entry per pair plus the homepage. The input map is
 // derived from the registry; adding a page never edits this file.
 export default defineConfig({
-  plugins: [react(), sitemapPlugin(), seoChromePlugin()],
+  plugins: [react(), seoChromePlugin()],
   build: {
     rollupOptions: {
       input: Object.fromEntries(

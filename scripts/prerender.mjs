@@ -105,7 +105,7 @@ ${og}${head}</head><body>
 <header class="dh"><a class="wm" href="/">algo<span>now</span></a>
 <nav class="dn"><a href="/atlas/">atlas</a><a href="/category/">categories</a><a href="/problem/">problems</a></nav></header>
 <main class="dw">
-<nav class="crumbs">${crumbs.map((c) => (c.href ? `<a href="${c.href}">${esc(c.label)}</a>` : `<span>${esc(c.label)}</span>`)).join('<i>/</i>')}</nav>
+<nav class="crumbs">${crumbs.map((c) => (c.href ? `<a href="${c.href}">${esc(c.label)}</a>` : `<span>${esc(c.label)}</span>`)).join('<i aria-hidden="true">/</i>')}</nav>
 ${body}
 </main>
 <footer class="df"><p>Every entry is a real named method. Pairs that share a problem are rivals; that is the point.</p></footer>
@@ -479,8 +479,8 @@ h2{font:12px/1.4 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppe
 .aka b{color:var(--ink)}.note{color:var(--dim);font-size:.88rem;font-style:italic}
 ul{list-style:none;margin:0;padding:0}
 .entries li{display:flex;flex-wrap:wrap;gap:.5rem;align-items:baseline;padding:.5rem .1rem;border-bottom:1px solid var(--line)}
-.ea{font-weight:600}.eh{color:var(--heur);font-size:.9rem}.eh.none{color:var(--dim);opacity:.6}
-.ed{color:var(--dim);font-size:.88rem}.et{margin-left:auto;font:11px/1 ui-monospace,monospace;color:var(--dim);opacity:.7}
+.ea{font-weight:600}.eh{color:var(--heur);font-size:.9rem}.eh.none{color:var(--dim)}
+.ed{color:var(--dim);font-size:.88rem}.et{margin-left:auto;font:11px/1 ui-monospace,monospace;color:#8e99b3}
 .tier{font:10px/1 ui-monospace,monospace;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--line);border-radius:99px;padding:.2rem .45rem;color:var(--dim)}
 .t1{color:var(--path);border-color:rgba(98,217,138,.4)}.t2{color:var(--algo);border-color:rgba(93,162,255,.35)}
 .phrases span{display:inline-block;background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:.2rem .6rem;margin:0 .35rem .35rem 0;font-size:.82rem;color:var(--dim)}

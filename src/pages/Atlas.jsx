@@ -6,6 +6,8 @@ import {
   TOTAL,
   CATEGORY_COUNT,
   TOPIC_COUNT,
+  ALGORITHM_COUNT,
+  HEURISTIC_COUNT,
   TIER_LABEL,
   ALIASES,
 } from '../data/atlas.js';
@@ -118,10 +120,11 @@ export default function Atlas() {
             <span className="t-algo">{TOTAL.toLocaleString()}</span> ways to solve a problem
           </h1>
           <p className="hero-oneliner">
-            Every algorithm and algorithm-heuristic pair the site is built to teach, three tiers
-            deep: {CATEGORY_COUNT} categories, {TOPIC_COUNT} topics, {TOTAL.toLocaleString()}{' '}
-            entries. The classical core beside the exotic: quantum, DNA and slime-mold computing,
-            the nature-inspired swarm, and the puzzle solvers.
+            {ALGORITHM_COUNT.toLocaleString()} algorithms and {HEURISTIC_COUNT.toLocaleString()}{' '}
+            heuristics, paired into {TOTAL.toLocaleString()} entries, three tiers deep across{' '}
+            {TOPIC_COUNT} topics in {CATEGORY_COUNT} categories. The classical core beside the
+            exotic: quantum, DNA and slime-mold computing, the nature-inspired swarm, and the
+            puzzle solvers.
           </p>
         </section>
 

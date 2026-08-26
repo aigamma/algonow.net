@@ -218,6 +218,11 @@ if (existsSync(atlasDir)) {
   // the rivals pass can rank topics by uncovered entries (the backfill order).
   const byPhrase = new Map();
   const entryPhrases = [];
+  // Distinct display names, counted exactly as src/data/atlas.js counts them
+  // (lowercase, whitespace collapsed) so the printed figures can be verified.
+  const nameKey = (s) => String(s ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
+  const algoNames = new Set();
+  const heurNames = new Set();
   const normPhrase = (s) => String(s ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
   for (const file of readdirSync(atlasDir).filter(isTopicFile).sort()) {
     let arr;
@@ -247,6 +252,8 @@ if (existsSync(atlasDir)) {
       if (!byPhrase.has(np)) byPhrase.set(np, { display: e.d, entries: [] });
       byPhrase.get(np).entries.push(`${e.a}${e.h ? ` × ${e.h}` : ''}`);
       entryPhrases.push({ topic: file.replace('.json', ''), np });
+      algoNames.add(nameKey(e.a));
+      if (e.h && String(e.h).trim()) heurNames.add(nameKey(e.h));
       total += 1;
       return undefined;
     });
@@ -287,8 +294,12 @@ if (existsSync(atlasDir)) {
       fail(`atlas-summary.json topics ${summary.topics} != actual ${realTopicCount}; update it`);
     } else if (summary.categories !== CATEGORIES.length) {
       fail(`atlas-summary.json categories ${summary.categories} != actual ${CATEGORIES.length}; update it`);
+    } else if (summary.algorithms !== algoNames.size) {
+      fail(`atlas-summary.json algorithms ${summary.algorithms} != actual ${algoNames.size}; update it`);
+    } else if (summary.heuristics !== heurNames.size) {
+      fail(`atlas-summary.json heuristics ${summary.heuristics} != actual ${heurNames.size}; update it`);
     } else {
-      ok(`atlas-summary.json in sync (${total} entries / ${realTopicCount} topics / ${CATEGORIES.length} categories)`);
+      ok(`atlas-summary.json in sync (${total} entries / ${algoNames.size} algorithms / ${heurNames.size} heuristics / ${realTopicCount} topics / ${CATEGORIES.length} categories)`);
     }
   } else {
     fail(`${summaryPath} missing`);

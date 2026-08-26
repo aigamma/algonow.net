@@ -106,6 +106,15 @@ export const ALIASES = modules['./atlas/aliases.json']?.default || {};
 // The rivals table (PROBLEMS, PROBLEM_OF_PHRASE, rivalsOf) lives in
 // atlas-rivals.js so problems.json stays out of this page bundle.
 
+// Distinct names, counted the way atlas-summary.json and check.mjs count
+// them: lowercased with whitespace collapsed, nothing else normalized. The
+// three numbers the site prints are verifiable against the JSON on disk.
+const nameKey = (s) => String(s ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
+export const ALGORITHM_COUNT = new Set(ALL_ENTRIES.map((e) => nameKey(e.a))).size;
+export const HEURISTIC_COUNT = new Set(
+  ALL_ENTRIES.filter((e) => e.h && String(e.h).trim()).map((e) => nameKey(e.h))
+).size;
+
 export const TOTAL = ALL_ENTRIES.length;
 export const CATEGORY_COUNT = CATEGORY_GROUPS.length;
 export const TOPIC_COUNT = TOPICS.length;

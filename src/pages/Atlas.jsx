@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import SiteShell from '../components/SiteShell.jsx';
+import { slugify } from '../components/RivalsBench.jsx';
 import {
   CATEGORY_GROUPS,
   ALL_ENTRIES,
@@ -18,8 +19,10 @@ import atlasSummary from '../data/atlas-summary.json';
 
 const norm = (s) =>
   String(s ?? '').toLowerCase().replace(/['’]s\b/g, '').replace(/[^a-z0-9+*]+/g, ' ').trim();
-const LIVE = new Set(LIVE_PUZZLES.map((p) => `${norm(p.algorithm)}|${norm(p.heuristic)}`));
-const isLive = (e) => LIVE.has(`${norm(e.a)}|${norm(e.h)}`);
+// Normalized pair -> the live lesson's path, so the live tag can be a real
+// link instead of an arrow that goes nowhere.
+const LIVE = new Map(LIVE_PUZZLES.map((p) => [`${norm(p.algorithm)}|${norm(p.heuristic)}`, `/${p.slug}/`]));
+const livePath = (e) => LIVE.get(`${norm(e.a)}|${norm(e.h)}`);
 
 // Reverse alias index: any known synonym -> its canonical name.
 const ALIAS_INDEX = (() => {
@@ -46,12 +49,12 @@ function entryMatches(e, query) {
 }
 
 function EntryRow({ e }) {
-  const live = isLive(e);
+  const lesson = livePath(e);
   const hasAka = ALIASES[e.a];
   return (
-    <li className={`atlas-entry${live ? ' atlas-live' : ''}`}>
+    <li className={`atlas-entry${lesson ? ' atlas-live' : ''}`}>
       <span className="ae-pair">
-        <span className="t-algo">{e.a}</span>
+        <a className="t-algo" href={`/algo/${slugify(e.a)}/`}>{e.a}</a>
         {e.h && (
           <>
             <span className="t-x"> × </span>
@@ -66,7 +69,7 @@ function EntryRow({ e }) {
       </span>
       <span className="ae-domain">{e.d}</span>
       <span className={`ae-tier ae-tier-${e.t}`}>{TIER_LABEL[e.t]}</span>
-      {live && <span className="ae-live-tag">live ▸</span>}
+      {lesson && <a className="ae-live-tag" href={lesson}>live ▸</a>}
     </li>
   );
 }
@@ -136,13 +139,14 @@ export default function Atlas() {
           <div className="atlas-pick" ref={pickRef} role="status">
             <span className="ap-label">🎲 random pick</span>
             <span className="ap-pair">
-              <span className="t-algo">{pick.a}</span>
+              <a className="t-algo" href={`/algo/${slugify(pick.a)}/`}>{pick.a}</a>
               {pick.h && (
                 <>
                   <span className="t-x"> × </span>
                   <span className="t-heur">{pick.h}</span>
                 </>
               )}
+              {livePath(pick) && <a className="ae-live-tag" href={livePath(pick)}> live ▸</a>}
             </span>
             <span className="ap-meta">
               {pick.topicLabel} · {pick.d} · {TIER_LABEL[pick.t]}

@@ -1222,6 +1222,13 @@ html[data-motion='still'] .wm-caret {
   color: var(--ink);
   border-color: rgba(var(--heur-rgb), 0.5);
 }
+.lp-next {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+}
+.lp-next a { color: var(--path); }
+
 .lp-hint {
   margin: 0.55rem 0 0;
   font-family: var(--font-mono);

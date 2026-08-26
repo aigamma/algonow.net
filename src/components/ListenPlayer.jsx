@@ -23,7 +23,7 @@ import { record, flushNow } from '../lib/telemetry.js';
 // Everything here talks to the narrator interface (playFrom, pause, resume,
 // stop, isPlaying) rather than to any particular speech engine, so replacing
 // the engine underneath leaves these controls untouched.
-export default function ListenPlayer({ narration, listenMinutes }) {
+export default function ListenPlayer({ narration, listenMinutes, nextPair }) {
   const [open, setOpen] = useState(false);
   const [phase, setPhase] = useState('idle'); // idle | playing | paused
   const [fraction, setFraction] = useState(0);
@@ -35,6 +35,7 @@ export default function ListenPlayer({ narration, listenMinutes }) {
   const narratorRef = useRef(null);
   const sectionRef = useRef('');
   const voicesRef = useRef([]);
+  const paragraphRef = useRef(0);
 
   const highlight = (section) => {
     if (sectionRef.current === section) return;
@@ -50,6 +51,7 @@ export default function ListenPlayer({ narration, listenMinutes }) {
     if (!narratorRef.current) {
       narratorRef.current = createNarrator(narration, {
         onParagraph: (pi) => {
+          paragraphRef.current = pi;
           const section = narration[pi]?.section || '';
           if (section !== sectionRef.current) {
             highlight(section);
@@ -189,6 +191,15 @@ export default function ListenPlayer({ narration, listenMinutes }) {
     record('play', { voice: voiceLabel(), rate });
   };
 
+  // Paragraph skip: recover a missed sentence or jump ahead without
+  // restarting a section from its heading chip. Small icons on purpose; stop
+  // and pause stay the dominant controls per the panel's doctrine.
+  const skipParagraph = (delta) => {
+    if (!narrator || !live) return;
+    const target = Math.max(0, Math.min(narration.length - 1, paragraphRef.current + delta));
+    narrator.playFrom(narrator.chunkForParagraph(target));
+  };
+
   const close = () => {
     if (narrator && live) narrator.stop(false);
     highlight('');
@@ -203,6 +214,11 @@ export default function ListenPlayer({ narration, listenMinutes }) {
         <b>listening</b>
         <span>{phase === 'idle' && fraction >= 1 ? 'finished' : `~${minutesLeft} min left`}</span>
       </p>
+      {phase === 'idle' && fraction >= 1 && nextPair && (
+        <p className="lp-next">
+          next: <a href={nextPair.path}>{nextPair.title} →</a>
+        </p>
+      )}
       <div className="lp-progress" aria-hidden="true">
         <i style={{ width: `${Math.round(fraction * 100)}%` }} />
       </div>
@@ -223,6 +239,26 @@ export default function ListenPlayer({ narration, listenMinutes }) {
           aria-label="Stop narration"
         >
           ■ stop
+        </button>
+        <button
+          type="button"
+          className="btn lp-icon"
+          onClick={() => skipParagraph(-1)}
+          disabled={!live}
+          aria-label="Back one paragraph"
+          title="Back one paragraph"
+        >
+          ‹
+        </button>
+        <button
+          type="button"
+          className="btn lp-icon"
+          onClick={() => skipParagraph(1)}
+          disabled={!live}
+          aria-label="Forward one paragraph"
+          title="Forward one paragraph"
+        >
+          ›
         </button>
         <button
           type="button"
@@ -278,7 +314,7 @@ export default function ListenPlayer({ narration, listenMinutes }) {
             <input
               type="range"
               min="0.75"
-              max="1.4"
+              max="2"
               step="0.05"
               value={rate}
               onChange={(e) => {

@@ -236,7 +236,11 @@ export default function PuzzlePage({ puzzle, content }) {
           </a>
         </div>
       </div>
-      <ListenPlayer narration={narration} listenMinutes={puzzle.listenMinutes} />
+      <ListenPlayer
+        narration={narration}
+        listenMinutes={puzzle.listenMinutes}
+        nextPair={next.slug === puzzle.slug ? null : { title: pairTitle(next), path: puzzlePath(next) }}
+      />
     </SiteShell>
   );
 }

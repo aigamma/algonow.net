@@ -158,12 +158,14 @@ export const PUZZLES = {
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
+// The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
+// F3 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Greedy best-first search', heuristic: 'Euclidean distance', domain: 'Fast, non-optimal routing' },
-  { algorithm: 'Beam search', heuristic: 'Top-k frontier pruning', domain: 'Sequence decoding' },
-  { algorithm: 'First-fit decreasing', heuristic: 'Descending size order', domain: 'Bin packing' },
-  { algorithm: 'Hill climbing', heuristic: 'Random restarts', domain: 'Local optimization' },
-  { algorithm: 'IDA*', heuristic: 'Manhattan distance', domain: 'Memory-bound puzzles' },
+  { algorithm: 'Knuth-Morris-Pratt', heuristic: 'Failure function', domain: 'Substring search' },
+  { algorithm: 'Quicksort', heuristic: 'Median-of-three pivot', domain: 'In-place comparison sorting' },
+  { algorithm: 'Bloom filter', heuristic: 'K independent hashes', domain: 'Approximate set membership' },
+  { algorithm: 'HyperLogLog', heuristic: 'Leading-zero registers', domain: 'Cardinality estimation' },
+  { algorithm: "Kadane's algorithm", heuristic: 'Running maximum', domain: 'Maximum subarray' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

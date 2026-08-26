@@ -288,17 +288,53 @@ ${es.map((e) => entryLine(e)).join('\n')}
   }
 
   // ---- /problem/ index
-  // Alphabetical, not by rival count. This is a lookup index: a reader
-  // arrives knowing the problem's name, so findability beats ranking. The
-  // count still rides along on each row.
+  // Alphabetical by canonical label, not by rival count: this is a lookup
+  // index, a reader arrives knowing the problem's name, so findability beats
+  // ranking. The count rides along on each row as a badge, an A-to-Z jump bar
+  // makes six hundred problems navigable without JavaScript, and the lede's
+  // statistics are derived from the data at build time, never hand-written.
+  // A second static view at /problem/by-rivals/ serves the sort-by-depth
+  // reading (canonical here, noindex, out of the sitemap).
   problemList.sort((a, b) => a.label.localeCompare(b.label, 'en'));
+  const counts = problemList.map((p) => p.n).sort((a, b) => a - b);
+  const meanRivals = counts.reduce((s, n) => s + n, 0) / counts.length;
+  const medianRivals = counts.length % 2
+    ? counts[(counts.length - 1) / 2]
+    : (counts[counts.length / 2 - 1] + counts[counts.length / 2]) / 2;
+  const letterOf = (label) => {
+    const c = label[0].toUpperCase();
+    return c >= 'A' && c <= 'Z' ? c : '#';
+  };
+  const letters = [...new Set(problemList.map((p) => letterOf(p.label)))];
+  const azBar = `<nav class="az" aria-label="Jump to letter">${letters.map((l) => `<a href="#az-${l === '#' ? 'num' : l.toLowerCase()}">${l}</a>`).join('')}</nav>`;
+  const sections = letters.map((l) => {
+    const rows = problemList.filter((p) => letterOf(p.label) === l);
+    return `<section id="az-${l === '#' ? 'num' : l.toLowerCase()}"><h2>${l}</h2><ul class="index">${rows.map((p) => `<li><a href="/problem/${p.slug}/">${esc(p.label)}</a><b>${p.n}</b></li>`).join('')}</ul></section>`;
+  }).join('\n');
+  const statsLede = `${problemList.length} problems, A to Z. The badge is how many rival methods the atlas knows for each: ` +
+    `<b>${meanRivals.toFixed(1)}</b> on average, ${medianRivals} at the median, ${counts[counts.length - 1]} at the deepest. ` +
+    `Sort by <a href="/problem/by-rivals/">most rivals</a>, or filter by <a href="/category/">category</a>.`;
   write('problem', page({
     title: 'Every problem in the atlas · algonow',
     description: `${problemList.length} problems, each with the rival methods that attack it.`,
     canonical: '/problem/',
     crumbs: [{ label: 'algonow', href: '/' }, { label: 'problems' }],
-    body: `<h1>Problems</h1><p class="lede">${problemList.length} problems, A to Z. The number is how many rival methods the atlas knows for each.</p>
-<ul class="index">${problemList.map((p) => `<li><a href="/problem/${p.slug}/">${esc(p.label)}</a><b>${p.n}</b></li>`).join('')}</ul>`,
+    body: `<h1>Problems</h1><p class="lede">${statsLede}</p>\n${azBar}\n${sections}`,
+  }));
+  count++;
+
+  // ---- /problem/by-rivals/ : the same inventory sorted by rival depth, for
+  // inspecting the deepest comparisons. Static mirror of the index: canonical
+  // points at /problem/, robots noindex, not in the sitemap.
+  const byRivals = [...problemList].sort((a, b) => b.n - a.n || a.label.localeCompare(b.label, 'en'));
+  write('problem/by-rivals', page({
+    title: 'Problems by rival depth · algonow',
+    description: 'Every problem in the atlas, deepest rival set first.',
+    canonical: '/problem/',
+    crumbs: [{ label: 'algonow', href: '/' }, { label: 'problems', href: '/problem/' }, { label: 'by rivals' }],
+    head: '<meta name="robots" content="noindex,follow">',
+    body: `<h1>Problems by rival depth</h1><p class="lede">Deepest comparisons first. The same ${byRivals.length} problems <a href="/problem/">A to Z</a>.</p>
+<ul class="index">${byRivals.map((p) => `<li><a href="/problem/${p.slug}/">${esc(p.label)}</a><b>${p.n}</b></li>`).join('')}</ul>`,
   }));
   count++;
 
@@ -319,19 +355,37 @@ ${es.map((e) => entryLine(e)).join('\n')}
   }
 
   // ---- /category/<slug>/ and index
+  // Each category page also lists the problems attacked from inside it: this
+  // is the category filter for the problem inventory, served as plain pages.
+  // A problem can span categories (clustering has members in three), so the
+  // per-category badge counts the methods within THIS category only.
+  const catProblems = new Map(); // category key -> Map(problem slug -> in-category entry count)
+  for (const [slug, entries] of problemEntries) {
+    for (const e of entries) {
+      const ck = CATEGORY_OF_TOPIC[e.topic];
+      if (!ck) continue;
+      if (!catProblems.has(ck)) catProblems.set(ck, new Map());
+      const m = catProblems.get(ck);
+      m.set(slug, (m.get(slug) ?? 0) + 1);
+    }
+  }
   for (const cat of CATEGORIES) {
     const rows = cat.topics.map((t) => ({
       t,
       n: topics.find((x) => x.key === t)?.entries.length ?? 0,
     }));
     const total = rows.reduce((s, r) => s + r.n, 0);
+    const probRows = [...(catProblems.get(cat.key) ?? new Map()).entries()]
+      .map(([slug, n]) => ({ slug, n, label: problems[slug]?.label ?? slug }))
+      .sort((a, b) => a.label.localeCompare(b.label, 'en'));
     write(`category/${cat.key}`, page({
       title: `${cat.label} · algonow`,
       description: `${cat.blurb} ${total} entries across ${rows.length} topics.`,
       canonical: `/category/${cat.key}/`,
       crumbs: [{ label: 'algonow', href: '/' }, { label: 'categories', href: '/category/' }, { label: cat.label }],
       body: `<h1>${esc(cat.label)}</h1><p class="lede">${esc(cat.blurb)}</p>
-<ul class="index">${rows.map((r) => `<li><a href="/topic/${r.t}/">${esc(r.t)}</a><b>${r.n}</b></li>`).join('')}</ul>`,
+<section><h2>Topics</h2><ul class="index">${rows.map((r) => `<li><a href="/topic/${r.t}/">${esc(r.t)}</a><b>${r.n}</b></li>`).join('')}</ul></section>
+${probRows.length ? `<section><h2>Problems attacked from this category</h2><ul class="index">${probRows.map((p) => `<li><a href="/problem/${p.slug}/">${esc(p.label)}</a><b>${p.n}</b></li>`).join('')}</ul></section>` : ''}`,
     }));
     count++;
   }
@@ -419,7 +473,11 @@ ul{list-style:none;margin:0;padding:0}
 .phrases span{display:inline-block;background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:.2rem .6rem;margin:0 .35rem .35rem 0;font-size:.82rem;color:var(--dim)}
 .rivals{display:flex;flex-wrap:wrap;gap:.4rem}.rivals li{background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:.25rem .7rem;font-size:.88rem}
 .index li{display:flex;justify-content:space-between;gap:1rem;padding:.5rem .1rem;border-bottom:1px solid var(--line)}
-.index b{color:var(--dim);font:12px/1.6 ui-monospace,monospace}
+.index b{color:var(--dim);font:12px/1.6 ui-monospace,monospace;background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:.1rem .55rem;flex:none}
+.az{display:flex;flex-wrap:wrap;gap:.25rem;margin:0 0 .5rem}
+.az a{font:13px/1 ui-monospace,monospace;color:var(--dim);border:1px solid var(--line);border-radius:8px;padding:.35rem .55rem;min-width:2.1em;text-align:center}
+.az a:hover{color:var(--algo);border-color:var(--algo);text-decoration:none}
+section[id^=az-]{scroll-margin-top:1rem}
 .meta p{color:var(--dim);font-size:.9rem}
 .df{border-top:1px solid var(--line);padding:1.25rem;color:var(--dim);font-size:.85rem;text-align:center}
 @media(max-width:640px){.et{margin-left:0}}`;

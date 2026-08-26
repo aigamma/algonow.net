@@ -189,6 +189,7 @@ if (!existsSync('dist/assets')) {
   // template regression.
   const dataPages = [
     'dist/problem/index.html',
+    'dist/problem/by-rivals/index.html',
     'dist/category/index.html',
     'dist/data.css',
   ];
@@ -199,6 +200,15 @@ if (!existsSync('dist/assets')) {
     const gzOf = (p) => gzipSync(readFileSync(p)).length;
     budget('data.css', gzOf('dist/data.css'), 4 * 1024);
     budget('html problem index', gzOf('dist/problem/index.html'), 12 * 1024);
+    budget('html problem by-rivals', gzOf('dist/problem/by-rivals/index.html'), 12 * 1024);
+    // The by-rivals view must actually be sorted by rival depth: read its own
+    // badges and require a non-increasing sequence.
+    const byRivalsHtml = readFileSync('dist/problem/by-rivals/index.html', 'utf8');
+    const badge = [...byRivalsHtml.matchAll(/<a href="\/problem\/[a-z0-9-]+\/">[^<]+<\/a><b>(\d+)<\/b>/g)].map((m) => +m[1]);
+    const unsortedAt = badge.findIndex((n, i) => i > 0 && n > badge[i - 1]);
+    if (badge.length < 100) fail(`by-rivals page lists only ${badge.length} problems`);
+    else if (unsortedAt !== -1) fail(`by-rivals page not sorted by rival depth at row ${unsortedAt}`);
+    else ok(`by-rivals view: ${badge.length} problems, depth-sorted`);
   }
 }
 
@@ -504,6 +514,34 @@ if (existsSync(atlasDir)) {
         if (!problems[add.slug]) fail(`merges.json: added problem "${add.slug}" is not in the live registry`);
       }
       ok(`merges manifest: ${retiredSeen.size} retired slugs, all redirecting to live problems${redirectPages ? `, ${redirectPages} redirect pages in dist` : ''}`);
+    }
+
+    // The problem index must list every live problem exactly once, in
+    // alphabetical label order (the lookup contract of the page), and every
+    // category page must carry its problems-in-this-category filter section.
+    if (existsSync('dist/problem/index.html')) {
+      const idxHtml = readFileSync('dist/problem/index.html', 'utf8');
+      const idxSlugs = [...idxHtml.matchAll(/<a href="\/problem\/([a-z0-9-]+)\/">[^<]+<\/a><b>\d+<\/b>/g)].map((m) => m[1]);
+      const expected = Object.entries(problems)
+        .filter(([k]) => !k.startsWith('_'))
+        .sort((a, b) => a[1].label.localeCompare(b[1].label, 'en'))
+        .map(([k]) => k);
+      if (idxSlugs.length !== expected.length) {
+        fail(`problem index lists ${idxSlugs.length} problems, registry has ${expected.length}`);
+      } else if (idxSlugs.some((s, i) => s !== expected[i])) {
+        const i = idxSlugs.findIndex((s, j) => s !== expected[j]);
+        fail(`problem index order breaks at row ${i}: "${idxSlugs[i]}" where "${expected[i]}" belongs`);
+      } else {
+        ok(`problem index: ${idxSlugs.length} problems in alphabetical label order with A-Z anchors`);
+      }
+      if (!idxHtml.includes('class="az"')) fail('problem index lost its A-Z jump bar');
+      const missingCatSections = CATEGORIES.filter(
+        (c) => existsSync(`dist/category/${c.key}/index.html`) &&
+          !readFileSync(`dist/category/${c.key}/index.html`, 'utf8').includes('Problems attacked from this category')
+      );
+      if (missingCatSections.length) {
+        fail(`category pages missing their problems section: ${missingCatSections.map((c) => c.key).join(', ')}`);
+      }
     }
   } else {
     fail(`${problemsPath} missing`);

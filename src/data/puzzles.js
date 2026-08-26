@@ -13,6 +13,7 @@ export const SITE_TAGLINE =
 export const PUZZLES = {
   '/astar-manhattan/': {
     slug: 'astar-manhattan',
+    problemSlug: 'single-source-shortest-paths',
     number: 1,
     algorithm: 'A* search',
     heuristic: 'Manhattan distance',
@@ -30,6 +31,7 @@ export const PUZZLES = {
   },
   '/annealing-cooling/': {
     slug: 'annealing-cooling',
+    problemSlug: 'traveling-salesman',
     number: 2,
     algorithm: 'Simulated annealing',
     heuristic: 'Geometric cooling schedule',
@@ -47,6 +49,7 @@ export const PUZZLES = {
   },
   '/minimax-alphabeta/': {
     slug: 'minimax-alphabeta',
+    problemSlug: 'game-tree-search',
     number: 3,
     algorithm: 'Minimax',
     heuristic: 'Alpha-beta pruning order',
@@ -64,6 +67,7 @@ export const PUZZLES = {
   },
   '/backtracking-mrv/': {
     slug: 'backtracking-mrv',
+    problemSlug: 'constraint-satisfaction',
     number: 4,
     algorithm: 'Backtracking search',
     heuristic: 'Minimum remaining values',
@@ -81,6 +85,7 @@ export const PUZZLES = {
   },
   '/branchbound-fractional/': {
     slug: 'branchbound-fractional',
+    problemSlug: 'knapsack',
     number: 5,
     algorithm: 'Branch and bound',
     heuristic: 'Fractional relaxation bound',
@@ -98,6 +103,7 @@ export const PUZZLES = {
   },
   '/mcts-ucb1/': {
     slug: 'mcts-ucb1',
+    problemSlug: 'bandits',
     number: 6,
     algorithm: 'Monte Carlo tree search',
     heuristic: 'UCB1 exploration bonus',
@@ -115,6 +121,7 @@ export const PUZZLES = {
   },
   '/dijkstra-binary-heap/': {
     slug: 'dijkstra-binary-heap',
+    problemSlug: 'single-source-shortest-paths',
     number: 7,
     algorithm: "Dijkstra's algorithm",
     heuristic: 'Binary heap priority queue',
@@ -132,6 +139,7 @@ export const PUZZLES = {
   },
   '/unionfind-rank-compression/': {
     slug: 'unionfind-rank-compression',
+    problemSlug: 'disjoint-sets',
     number: 8,
     algorithm: 'Union-find',
     heuristic: 'Union by rank with path compression',

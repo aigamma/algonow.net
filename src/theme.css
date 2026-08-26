@@ -941,6 +941,13 @@ code, kbd, pre { font-family: var(--font-mono); }
   border-radius: 999px;
   padding: 0.1rem 0.45rem;
 }
+.rival-badge.rival-live {
+  color: var(--path);
+  border-color: rgba(98, 217, 138, 0.4);
+  text-decoration: none;
+}
+.rival-badge.rival-live:hover { text-decoration: underline; }
+
 .rival-cost {
   font-family: var(--font-mono);
   font-size: 0.75rem;

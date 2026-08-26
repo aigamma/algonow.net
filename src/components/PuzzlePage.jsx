@@ -201,6 +201,7 @@ export default function PuzzlePage({ puzzle, content }) {
             problemSlug={problemSlug}
             rivals={rivals}
             neverUse={neverUse}
+            currentSlug={puzzle.slug}
           />
         </section>
 

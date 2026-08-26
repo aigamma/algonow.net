@@ -90,6 +90,13 @@ for (const p of Object.values(PUZZLES)) {
     if (pslug && !existsSync(`dist/problem/${pslug}/index.html`)) {
       fail(`${p.slug}: problemSlug "${pslug}" has no generated page`);
     }
+    // The registry carries problemSlug too (it powers the also-live-for-this-
+    // problem cross-links between units); the two declarations must agree or
+    // the cross-link and the bench would name different problems.
+    if (!p.problemSlug) fail(`${p.slug}: registry record lacks problemSlug`);
+    else if (pslug && p.problemSlug !== pslug) {
+      fail(`${p.slug}: registry problemSlug "${p.problemSlug}" != content problemSlug "${pslug}"`);
+    }
     // Each rival object may override the link target with algoName.
     const blocks = contentSrc.split(/\n\s{4}\{\s*\n/).slice(1);
     for (const b of blocks) {

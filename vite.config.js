@@ -35,8 +35,12 @@ function seoChromePlugin() {
       order: 'pre',
       handler(html, ctx) {
         const titleMatch = html.match(/<title>([^<]+)<\/title>/);
+        // The capture must run to the MATCHING quote, not the first quote of
+        // either kind: with the old [^"'] class, an apostrophe inside a
+        // double-quoted description ("Dijkstra's...") truncated og:description,
+        // twitter:description, and the JSON-LD on every page that shipped one.
         const descMatch = html.match(
-          /<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i
+          /<meta\s+name=["']description["']\s+content=(["'])(.*?)\1/i
         );
         if (!titleMatch || !descMatch) return html;
 
@@ -46,7 +50,7 @@ function seoChromePlugin() {
           : rawPath;
         const url = `${SITE_HOST}${path}`;
         const title = escapeAttr(titleMatch[1]);
-        const desc = escapeAttr(descMatch[1]);
+        const desc = escapeAttr(descMatch[2]);
 
         const puzzle = PUZZLES[path];
         const jsonLd = puzzle
@@ -55,7 +59,7 @@ function seoChromePlugin() {
               '@type': 'LearningResource',
               url,
               name: titleMatch[1],
-              description: descMatch[1],
+              description: descMatch[2],
               learningResourceType: 'lesson',
               educationalLevel: 'intermediate',
               teaches: [puzzle.algorithm, puzzle.heuristic, puzzle.domain],
@@ -68,7 +72,7 @@ function seoChromePlugin() {
                 '@type': 'WebSite',
                 name: SITE_NAME,
                 url: SITE_HOST,
-                description: descMatch[1],
+                description: descMatch[2],
               }
             : null;
         const jsonLdTag = jsonLd

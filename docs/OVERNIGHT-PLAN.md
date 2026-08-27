@@ -1422,8 +1422,39 @@ commit, Fable trailer on every commit, check green before each push.
       (t2, h to author, numerical, d Big-integer multiplication,
       grep-verified; Karatsuba's live sibling).
 
-**Next action: F59 Toom-Cook multiplication × five-point
-interpolation (author h per rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F59. Toom-Cook multiplication × five-point interpolation.
+      Puzzle 65, numerical (problemSlug integer-multiplication,
+      shared with the live Karatsuba). Referees: the five-point
+      identity on 500 random scalar quartics (coefficient-exact
+      recovery, every division checked); Python's own product on 300
+      mixed pairs (asymmetric, zeros, single digits); COUNTS EXACT:
+      5^k asserted for k=3..6 at n=3^k (raw-coefficient-list
+      recursion mirroring the live Karatsuba unit's counting
+      conventions, mults counted only at 1-length base cases). The
+      729-digit three-way race: grid 531,441 (= 729^2) / Karatsuba
+      59,049 (= 3^10, padded to 1024) / Toom-3 15,625 (= 5^6), all
+      asserted to the integer: 34x and 3.78x. Every interpolation
+      division by 2 and 3 asserted remainder-zero (the classic
+      correctness pitfall made a referee). Add-inclusive honesty:
+      Toom 239,065 total coeff ops vs Karatsuba 407,199 at 729;
+      crossover in OUR op meter at n=9, with the GMP ~100-word
+      real threshold stated as the model-vs-hardware gap (same
+      lesson as Karatsuba's 128-vs-70). Runtime 5.8s (schoolbook run
+      dominates). Atlas per rule 2: numerical.json Toom-Cook h
+      authored "Five-point interpolation"; summary heuristics 2334
+      -> 2335. Cards: self, Karatsuba (live), FFT (live), Schönhage-
+      Strassen. neverUse: nine limb products out of pride (9-way
+      recursion = n^2 in a costume). Figure: two curves, five posts,
+      the threaded product quartic; cite Bodrato WAIFI 2007 DOI
+      10.1007/978-3-540-73074-3_10 with Toom 1963 / Cook 1966 in
+      prose. Viz: act 1 the post-by-post machine with the quartic
+      threading; act 2 the log-scale ladder bars falling 531,441 ->
+      59,049 -> 15,625. Bench reseeded: Bitap × bitmask fuzzy states
+      (t2, h EXISTS, strings, d Approximate string matching,
+      grep-verified).
+
+**Next action: F60 Bitap × bitmask fuzzy states; sequentially until
+morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

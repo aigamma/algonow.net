@@ -89,7 +89,7 @@
 {"a": "Prime-factor FFT", "h": "Good-Thomas mapping", "d": "Coprime-length transforms", "t": 3},
 {"a": "Number-theoretic transform", "h": null, "d": "Exact integer convolution", "t": 2},
 {"a": "Karatsuba multiplication", "h": "Three-product splitting", "d": "Big-integer multiplication", "t": 1},
-{"a": "Toom-Cook multiplication", "h": null, "d": "Big-integer multiplication", "t": 2},
+{"a": "Toom-Cook multiplication", "h": "Five-point interpolation", "d": "Big-integer multiplication", "t": 2},
 {"a": "Schönhage-Strassen", "h": "FFT over integer rings", "d": "Huge-integer multiplication", "t": 3},
 {"a": "Strassen's algorithm", "h": "Seven-product block split", "d": "Fast matrix multiplication", "t": 1},
 {"a": "Coppersmith-Winograd", "h": null, "d": "Fast matrix multiplication", "t": 3},

@@ -1227,13 +1227,32 @@ export const PUZZLES = {
     vite: 'cuckoo-filter-fingerprint-eviction',
     html: 'cuckoo-filter-fingerprint-eviction/index.html',
   },
+  '/toom-cook-five-point-interpolation/': {
+    slug: 'toom-cook-five-point-interpolation',
+    problemSlug: 'integer-multiplication',
+    number: 65,
+    category: 'numerical',
+    algorithm: 'Toom-Cook multiplication',
+    heuristic: 'Five-point interpolation',
+    domain: 'Big-integer multiplication',
+    oneLiner:
+      'Three limbs make the product a quartic, and five points pin a quartic: evaluate, multiply post by post, interpolate back: five recursive products where pride pays nine.',
+    description:
+      'Toom-Cook paired with five-point interpolation: 5^6 = 15,625 digit mults asserted exactly at 729 digits vs Karatsuba 59,049 and grid 531,441; 500 quartics recovered; every division remainder-zero.',
+    listenMinutes: 8,
+    time: 'O(n^1.465)',
+    space: 'O(n)',
+    baseline: 'Schoolbook grid',
+    vite: 'toom-cook-five-point-interpolation',
+    html: 'toom-cook-five-point-interpolation/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Toom-Cook multiplication', heuristic: 'Five-point interpolation', domain: 'Big-integer multiplication' },
+  { algorithm: 'Bitap algorithm', heuristic: 'Bitmask fuzzy states', domain: 'Approximate string matching' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

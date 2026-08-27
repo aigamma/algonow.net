@@ -695,13 +695,37 @@ export const PUZZLES = {
     vite: 'metropolis-hastings-acceptance',
     html: 'metropolis-hastings-acceptance/index.html',
   },
+  '/fft-cooley-tukey/': {
+    slug: 'fft-cooley-tukey',
+    problemSlug: 'signal-transforms',
+    number: 37,
+    category: 'numerical',
+    algorithm: 'Fast Fourier transform',
+    heuristic: 'Cooley-Tukey radix-2',
+    domain: 'Spectral analysis',
+    oneLiner:
+      'Split into evens and odds, stitch with a twist of phase: exactly (n/2)·log₂ n butterflies where the definition demands n², and the gap grows forever.',
+    description:
+      'The FFT paired with the Cooley-Tukey radix-2 split: butterfly counts asserted to the integer, 205x over the naive-DFT referee, hidden tones surfaced, convolution coefficient-exact against schoolbook.',
+    listenMinutes: 8,
+    time: 'O(n log n)',
+    space: 'O(n)',
+    baseline: 'Naive DFT (the referee)',
+    vite: 'fft-cooley-tukey',
+    html: 'fft-cooley-tukey/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F26 onward, in order), so the public promise and the plan tell one story.
+// F32 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Fast Fourier transform', heuristic: 'Cooley-Tukey radix-2', domain: 'Spectral analysis' },
+  { algorithm: 'LZ77', heuristic: 'Sliding-window matching', domain: 'Dictionary compression' },
+  { algorithm: 'Activity selection', heuristic: 'Earliest-finish-first greedy', domain: 'Non-overlapping selection' },
+  { algorithm: 'Consistent hashing', heuristic: 'Virtual nodes', domain: 'Distributed key placement' },
+  { algorithm: 'Closest pair divide and conquer', heuristic: 'Midline strip merge', domain: 'Closest pair of points' },
+  { algorithm: 'MinHash', heuristic: 'Bottom-k signatures', domain: 'Jaccard similarity estimation' },
+  { algorithm: 'Hopcroft-Karp', heuristic: 'Layered augmenting phases', domain: 'Bipartite maximum matching' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

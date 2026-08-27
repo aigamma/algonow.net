@@ -635,10 +635,51 @@ directive; names atlas-verified):
       (pair existed t1); summary stays 3256/2318. Viz: the critic on
       the bimodal curve, amber occupancy histogram, timid vs tuned
       acts.
-- [ ] F31. FFT × Cooley-Tukey radix-2 (numerical t1; oracle: exact
-      integer convolution vs schoolbook, plus naive DFT agreement;
-      rivals Karatsuba, schoolbook, naive DFT; d Spectral analysis,
-      verify the problem phrase mapping at build).
+- [x] F31. FFT × Cooley-Tukey radix-2. Puzzle 37, numerical
+      (problemSlug signal-transforms). Butterfly counts asserted TO THE
+      INTEGER at five sizes (== (n/2)log2 n); naive-DFT referee agreement
+      to 1e-7; 50 round-trips + Parseval. Headline: n=1,024 naive
+      1,048,576 vs FFT 5,120 (205x, both ran); n=65,536 FFT 524,288
+      measured, naive 4.29B stated-not-run (honesty labeled). Spectral:
+      3 planted tones = exactly the top 3 bins, amplitude 0.999
+      recovered. Polynomial ladder at 1,024 coeffs (all exact):
+      schoolbook 1,048,576 / Karatsuba 59,049 (=3^10) / FFT 35,840;
+      at 8,192 (K and FFT referee each other): 1,594,323 vs 360,448
+      (4.4x, crossover honesty: nearly tied at 1K). Float error
+      5e-11 / 3e-9, rounded exact. Found+fixed: counter passed
+      positionally into invert (empty dict falsy: transform right,
+      counter silently absent). Cards: self, naive DFT (referee),
+      Karatsuba (measured middle rung), Schönhage-Strassen (exact at
+      scale). neverUse: the definition at scale. Figure: butterfly,
+      cite Cooley-Tukey 1965 DOI 10.1090/S0025-5718-1965-0178586-1 +
+      Gauss 1805 story. No atlas edits (pair existed t1); summary
+      stays 3256/2318. Viz: 16-lane cascade with twiddle labels +
+      the 128-sample payoff act (tones surface green).
+- Fifth F-queue extension (atlas-verified, in build order):
+- [ ] F32. LZ77 × sliding-window matching (compression-coding t1).
+      Oracle: decompress == original bytes on real corpus (repo docs);
+      measured compression ratios; cards LZW (null h), DEFLATE
+      (LZ77+Huffman: cross-link huffman live), Huffman alone.
+- [ ] F33. Activity selection × earliest-finish-first greedy
+      (scheduling-operations t1, NEW site category). Oracle: DP/brute
+      optimal count == greedy count across trials; exchange argument;
+      neverUse: earliest-START greedy (measured failure).
+- [ ] F34. Consistent hashing × virtual nodes (distributed-concurrent
+      t1, NEW site category). Oracle: exact key-movement fractions on
+      node join/leave vs mod-N rehash; vnode variance smoothing
+      measured; cards Rendezvous hashing (check atlas), mod-N.
+- [ ] F35. Closest pair divide and conquer × midline strip merge
+      (computational-geometry t2). Oracle: brute force O(n^2) on many
+      trials; strip 7-point bound counted; cards: closest pair sweep
+      (t1), brute force, KD-tree (check atlas).
+- [ ] F36. MinHash × bottom-k signatures (probabilistic-streaming t1).
+      Oracle: exact Jaccard vs estimate, error ~1/sqrt(k) measured;
+      cards Shingling×MinHash-LSH (t2), SimHash (check), exact sets.
+- [ ] F37. Hopcroft-Karp × layered augmenting phases (graphs-structure
+      t1, h null: author per rule 2 as 'Layered augmenting phases').
+      Oracle: matching size == max-flow referee (Dinic on unit graph)
+      or Konig/vertex-cover certificate; phases <= 2*sqrt(V) asserted;
+      cards Kuhn's DFS augmenting (check atlas), Dinic (live badge).
 
 ## Phase G. Plumbing and hygiene (added 2026-07-22 evening)
 
@@ -750,9 +791,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F31 FFT × Cooley-Tukey radix-2, last of the fourth
-extension, then extend the queue again; keep going sequentially until
-morning.** Owner's overnight directive
+**Next action: F32 LZ77 × sliding-window matching, first of the fifth
+extension (F32-F37, listed above), sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

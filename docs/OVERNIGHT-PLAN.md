@@ -293,9 +293,21 @@ populating units; chosen from tier-1 atlas canon for category breadth
 and measurable contrast; each pair verified or authored per rule 2 at
 build time):
 
-- [ ] F11. LRU caching × least-recently-used eviction (vs FIFO, random,
-      LFU, Belady's OPT as the clairvoyant bound) on reuse-heavy and
-      scan-heavy traces; systems category.
+- [x] F11. LRU × recency eviction, live as puzzle 17 (2026-08-27,
+      Fable). 64 slots, 100,000 requests, hit rates on three traces:
+      stationary zipf: LRU 39.6 / FIFO 34.7 / Random 34.8 / LFU 49.3 /
+      OPT 62.3; drifting zipf (ranks reshuffled per 20K): LRU 39.6
+      (identical: recency forgets at the speed of change) / LFU
+      COLLAPSES to 17.0 (stale counts pin dead celebrities) / OPT 62.2;
+      looping scan (80 items through 64 slots): LRU, FIFO, LFU all
+      exactly 0.0 while blind Random gets 62.5 and OPT 79.7. Oracles:
+      Belady verified optimal by exhaustive DP over cache states on 50
+      small instances; the LRU stack property (32-cache subset of
+      33-cache) asserted at every step of 30K requests; Belady's
+      anomaly pinned on his 1969 string (FIFO: 9 faults at 3 frames,
+      10 at 4); residency and hit-truth audits per policy. Viz: one
+      stream, two coat checks: LRU vs the clairvoyant, conga-line scans
+      flushing the hooks. Category optimization-or (online-competitive).
 - [ ] F12. K-means × k-means++ seeding (vs random seeding, single
       linkage?, DBSCAN as the shape counterexample); ml-ai category.
 - [ ] F13. Graham scan × polar-angle sorting (vs gift wrapping
@@ -417,9 +429,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: the extended Phase F queue, strictly sequential (F11
-LRU is next, then F12-F15), one unit per commit+push with a production
-deploy as units land.** Owner's overnight directive
+**Next action: the extended Phase F queue, strictly sequential (F12
+k-means is next, then F13-F15), one unit per commit+push with a
+production deploy as units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

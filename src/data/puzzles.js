@@ -315,13 +315,31 @@ export const PUZZLES = {
     vite: 'pagerank-damped-walk',
     html: 'pagerank-damped-walk/index.html',
   },
+  '/lru-recency-eviction/': {
+    slug: 'lru-recency-eviction',
+    problemSlug: 'page-replacement',
+    number: 17,
+    category: 'optimization-or',
+    algorithm: 'LRU caching',
+    heuristic: 'Least-recently-used eviction',
+    domain: 'Page and cache replacement',
+    oneLiner:
+      'Serve hits, fetch misses, and when a slot must be freed, bet on temporal locality: the resident untouched longest is the one least likely to be missed.',
+    description:
+      "LRU caching paired with recency eviction: watch it race Belady's clairvoyant on one stream, measured against FIFO, LFU, and random on drifting and scanning traces, with a tested Python solution.",
+    listenMinutes: 8,
+    time: 'O(1) per request',
+    space: 'O(k)',
+    baseline: 'FIFO eviction',
+    vite: 'lru-recency-eviction',
+    html: 'lru-recency-eviction/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F11 onward, in order), so the public promise and the plan tell one story.
+// F12 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'LRU caching', heuristic: 'Least-recently-used eviction', domain: 'Page and cache replacement' },
   { algorithm: 'K-means', heuristic: 'K-means++ seeding', domain: 'Clustering points' },
   { algorithm: 'Graham scan', heuristic: 'Polar-angle sorting', domain: 'Convex hulls' },
   { algorithm: 'Gradient descent', heuristic: 'Polyak momentum', domain: 'Smooth minimization' },

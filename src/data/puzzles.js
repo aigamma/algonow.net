@@ -1778,13 +1778,32 @@ export const PUZZLES = {
     vite: 'mvcc-snapshot-timestamps',
     html: 'mvcc-snapshot-timestamps/index.html',
   },
+  '/tomasulo-reservation-stations/': {
+    slug: 'tomasulo-reservation-stations',
+    problemSlug: 'out-of-order-execution',
+    number: 94,
+    category: 'languages-compilers',
+    algorithm: "Tomasulo's algorithm",
+    heuristic: 'Reservation stations with register renaming',
+    domain: 'Out-of-order execution',
+    oneLiner:
+      'Registers hold values or tags naming their future producer: instructions wait on data, never on names: WAW and WAR vanish, and reordering stays bit-invisible to program order.',
+    description:
+      "Tomasulo's algorithm with reservation stations and renaming: 300 programs bit-equal to program order, the dataflow bound respected, the renaming dividend 1.63x, no-rename losing to serial.",
+    listenMinutes: 8,
+    time: 'bounded by dataflow',
+    space: 'stations + tags',
+    baseline: 'Serial execution',
+    vite: 'tomasulo-reservation-stations',
+    html: 'tomasulo-reservation-stations/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Tomasulo's algorithm", heuristic: 'Reservation stations with register renaming', domain: 'Out-of-order execution' },
+  { algorithm: 'Shamir secret sharing', heuristic: 'Polynomial interpolation', domain: 'Threshold secret splitting' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

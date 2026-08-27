@@ -2618,8 +2618,60 @@ commit, Fable trailer on every commit, check green before each push.
       with register renaming (category languages-compilers,
       problem out-of-order-execution).
 
-**Next action: F88 Tomasulo × reservation stations (puzzle 94);
-sequentially until morning.** Owner's overnight directive
+- [x] F88. Tomasulo × reservation stations with register renaming.
+      Puzzle 94, slug tomasulo-reservation-stations, category
+      languages-compilers, problem out-of-order-execution (link
+      verified in dist/algo/tomasulos-algorithm). Solution
+      tomasulo_reservation_stations.py: cycle-counted simulator
+      (in-order 1-wide issue into 3 add + 2 mul stations, execute
+      on operand readiness, one CDB broadcast/cycle
+      oldest-first, register tags; renaming=False arm stalls issue
+      on WAW + WAR name conflicts), sequential interpreter
+      referee, latency-weighted critical_path. FOUR ORACLES,
+      0.1s: (1) RESULT EQUIVALENCE: 300 random dependency-heavy
+      programs (half name-starved): OoO finals == sequential
+      finals, every register, WITH AND WITHOUT renaming
+      (correctness never depended on the heuristic); renaming
+      never hurts (cyc2 >= cyc asserted); (2) THE COMBINED LOWER
+      BOUND: cycles >= max(critical path, n+2 issue bound) on
+      every program; mean over the bound 1.79x: CALIBRATION
+      STORY: first framed as 'within 12% of CP', measured 1.79:
+      the machine's plumbing (issue/wakeup/broadcast each cost a
+      cycle per hop, 5 stations fill) is real: reframed honestly
+      as the plumbing tax rather than hiding it; (3) THE RENAMING
+      ABLATION: 1.63x mean cycles on 60 name-starved programs;
+      (4) client (4 mul+add pairs): serial 48, Tomasulo 28
+      (1.71x, CP 12), and THE TWIST: renaming-OFF pays 52: WORSE
+      THAN SERIAL (asserted c_norename > serial): machinery
+      without names loses to no machinery: why scoreboarding's
+      era ended. Stale guesses fixed (2.9x->1.71x, 1.5->1.63).
+      No atlas edit (pair t1 computer-architecture line 9);
+      summary stays 3257/2343. Cards: self, Scoreboarding (t2,
+      SAME d: the CDC 6600 ancestor: the no-rename arm is its
+      portrait), Reorder buffer (t2: in-order commit: every real
+      core is Tomasulo+ROB), List scheduling (t2: the compiler's
+      static road: predictable latency to the compiler, variance
+      to the machine). neverUse: OUT-OF-ORDER COMPLETION WITHOUT
+      IN-ORDER COMMIT: the 360/91's shipped flaw: imprecise
+      interrupts expose a register state that never existed:
+      exceptions are outputs too (rhymes with modexp's timing).
+      Figure: stations + tagged registers + CDB diagram with the
+      measured ledger, cite Tomasulo IBM J R&D 11(1) 1967 DOI
+      10.1147/rd.111.0025 (WebSearch-verified). Viz TomasuloViz:
+      full JS PORT with per-cycle snapshots: act 1 the machine
+      cycle-by-cycle (program listing, 5 RS slots with WAIT/exec
+      states and tag dependencies, tagged register file, CDB
+      event line); act 2 the three-lane race with serial's finish
+      line drawn across the no-rename lane (the twist visible).
+      NODE-VERIFIED 10 cycles: both variants bit-equal to the JS
+      sequential interpreter, 48/52/28 exact, station pools never
+      overflow, no dangling register tags. Bench reseeded (grep
+      shamir 0 hits, atlas t1 crypto line 59, ls no dir): Shamir
+      secret sharing × Polynomial interpolation (problem
+      secret-sharing).
+
+**Next action: F89 Shamir secret sharing × polynomial
+interpolation (puzzle 95); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

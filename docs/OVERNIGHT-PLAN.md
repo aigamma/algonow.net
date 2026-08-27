@@ -2419,8 +2419,55 @@ commit, Fable trailer on every commit, check green before each push.
       election with terms (category distributed-systems, problem
       distributed-consensus).
 
-**Next action: F84 Raft × leader election with terms (puzzle 90);
-sequentially until morning.** Owner's overnight directive
+- [x] F84. Raft × leader election with terms. Puzzle 90, slug
+      raft-leader-election, category distributed-systems, problem
+      distributed-consensus (link verified in dist/algo/raft).
+      Solution raft_leader_election.py: discrete-event simulator
+      (heapq; alarms with generation counters, RequestVote/grant,
+      leader pulses, KEEPALIVES: the h-word never used) + an
+      audit_safety function that referees from the RAW VOTE LEDGER
+      (at most one vote per (voter, term); at most one majority
+      per term; every crowned leader holds a logged majority).
+      FOUR ORACLES, first run clean, 0.087s: (1) ELECTION SAFETY
+      at zero tolerance: 19,248 votes across 3,875 terms: zero
+      double votes, zero double majorities, zero split-brain
+      terms, INCLUDING all livelocked runs; (2) THE RANDOMIZATION
+      ABLATION: spread 0 + symmetric delays: 0/60 elections
+      resolve in 45 timeout-spans (all five wake together, vote
+      self, split, forever: asserted == 0); spread 150ms: 60/60 at
+      mean 1.00 terms (asserted); (3) the spread dial: 0/2/10/50/
+      150ms -> 0/58/60/60/60 elected at nan/12.21/2.13/1.03/1.00
+      mean terms: the ATC14 figure's shape reproduced; (4) crash
+      client: leader killed 120 consecutive times: 120 successors
+      crowned (asserted ==), mean gap 211ms, worst 700ms, safety
+      audit clean over the whole history. No atlas edit (pair t1
+      distributed-concurrent line 4); summary stays 3257/2343.
+      Cards: self, Paxos (the impenetrable ancestor: generality),
+      Multi-Paxos (stable-leader retrofit: the families converge
+      in production), Zab (ZooKeeper's accent: chosen by running
+      it). neverUse: PROMOTE-ON-TIMEOUT FAILOVER WITHOUT QUORUM:
+      split-brain, the reason STONITH exists: a timeout proves
+      silence, never death: Raft is that instinct plus terms and
+      quorums. Figure: crowned pentagon vs the five-candidate
+      lockstep panel, cite Ongaro-Ousterhout USENIX ATC 2014 Best
+      Paper (no DOI: USENIX page URL, WebSearch-verified). Viz
+      RaftViz: full JS PORT of the election sim (sorted event
+      list, same semantics) driving both acts from real runs:
+      act 1 keepalive pulses, scripted leader death at t=900,
+      randomized timers, candidacy, vote dots, crown; act 2
+      spread-0 lockstep: five amber candidates, five-way split,
+      term++ repeatedly, zero crowns. NODE-VERIFIED 12 cycles:
+      safety in both acts, act-1 succession after the death with
+      higher term AND a quorum of logged vote messages behind
+      every crown, act-2 zero crowns with >=3 terms of exactly
+      five-way splits. Bench reseeded (grep verlet/symplectic 0
+      hits, atlas t1 computational-chemistry line 14, ls no dir):
+      Velocity Verlet dynamics × Symplectic time stepping
+      (category comp-bio: FIRST unit; problem
+      molecular-simulation).
+
+**Next action: F85 Velocity Verlet × symplectic time stepping
+(puzzle 91); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

@@ -1702,13 +1702,32 @@ export const PUZZLES = {
     vite: 'greedy-set-cover-max-coverage',
     html: 'greedy-set-cover-max-coverage/index.html',
   },
+  '/raft-leader-election/': {
+    slug: 'raft-leader-election',
+    problemSlug: 'distributed-consensus',
+    number: 90,
+    category: 'distributed-systems',
+    algorithm: 'Raft',
+    heuristic: 'Leader election with terms',
+    domain: 'Distributed consensus',
+    oneLiner:
+      'Terms as epochs, one vote per node per term, majority crowns: two leaders is arithmetic, not misfortune: and each follower rolls a random timeout so someone usually runs unopposed.',
+    description:
+      'Raft leader election with randomized terms: 19,248 votes audited with zero violations, the randomization ablation livelocking 0/60, the spread dial reproduced, 120/120 crash successions.',
+    listenMinutes: 8,
+    time: 'one round typical',
+    space: 'O(n) per node',
+    baseline: 'Promote-on-timeout failover',
+    vite: 'raft-leader-election',
+    html: 'raft-leader-election/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Raft', heuristic: 'Leader election with terms', domain: 'Distributed consensus' },
+  { algorithm: 'Velocity Verlet dynamics', heuristic: 'Symplectic time stepping', domain: 'Molecular dynamics integration' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

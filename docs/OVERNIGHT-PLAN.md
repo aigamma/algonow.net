@@ -1125,8 +1125,33 @@ commit, Fable trailer on every commit, check green before each push.
       sketch × minimum over hash rows (t1 EXACT names after a first
       draft used wrong ones: grep caught it).
 
-**Next action: F48 Count-min sketch × minimum over hash rows;
-sequentially until morning.** Owner's overnight directive
+- [x] F48. Count-min sketch × minimum over hash rows. Puzzle 54,
+      probabilistic (problemSlug frequency-estimation). 1M-item zipf
+      stream, 145,527 distinct, sketch 4x2,000 = 8,000 counters (18x).
+      The one-sided guarantee asserted UNIVERSALLY (never under on all
+      145,527, both CM variants); mean overcount 205.8 inside Markov's
+      N/w=500, p99 324. The elephants-mice gradient measured (asserts
+      recalibrated after probing: 'top-100 sub-percent' was wrong):
+      rank 1: 0.25%, rank 10: 1.94%, rank 100: 23.6%, count-1 median
+      overcount 200 = 20,000% relative. Top-20 == exact top-20
+      (20/20). Width dial: 3,085 / 207 / 10.2 at w=200/2K/20K.
+      Conservative update (Estan-Varghese) implemented: 1.9x tighter,
+      still never under (assert relaxed from folklore 2x to measured
+      1.4x floor). Count sketch (signed) implemented: bias -1.9 with
+      75,540 genuine underestimates: two-sided unbiasedness measured
+      as a contract difference. No atlas edits (pair existed t1 with
+      h); summary stays 3257/2328. Cards: self, Count sketch, B-M
+      majority vote (the O(1) extreme), HyperLogLog (live badge: the
+      sibling question). neverUse: point-querying the mice ("collision
+      noise in confident typography"). Figure: the grid + minimum,
+      cite Cormode-Muthukrishnan J.Alg 2005 DOI
+      10.1016/j.jalgor.2003.12.001. Viz: three clerks' clipboards
+      heat-mapping a parade, then elephant vs mouse queries with the
+      minimum taken on canvas. Bench reseeded: Karatsuba × three-
+      product splitting (numerical t1, h to author per rule 2).
+
+**Next action: F49 Karatsuba × three-product splitting (author h per
+rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

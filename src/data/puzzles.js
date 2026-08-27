@@ -1018,13 +1018,32 @@ export const PUZZLES = {
     vite: 'interval-tree-max-endpoint',
     html: 'interval-tree-max-endpoint/index.html',
   },
+  '/count-min-sketch-row-minima/': {
+    slug: 'count-min-sketch-row-minima',
+    problemSlug: 'frequency-estimation',
+    number: 54,
+    category: 'probabilistic',
+    algorithm: 'Count-min sketch',
+    heuristic: 'Minimum over hash rows',
+    domain: 'Frequency estimation',
+    oneLiner:
+      'Four clerks with fixed clipboards over-tally a million-banner parade: keep the smallest answer, never undercount, and read only the banners big enough to matter.',
+    description:
+      'The count-min sketch paired with row minima: never under on all 145,527 distinct items (asserted), mean overcount 205.8 inside Markov’s 500, the elephants-mice gradient measured 0.25% to 20,000%.',
+    listenMinutes: 8,
+    time: 'O(d) per op',
+    space: 'O(w·d) fixed',
+    baseline: 'Exact dictionary (when it fits)',
+    vite: 'count-min-sketch-row-minima',
+    html: 'count-min-sketch-row-minima/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Count-min sketch', heuristic: 'Minimum over hash rows', domain: 'Frequency estimation' },
+  { algorithm: 'Karatsuba multiplication', heuristic: 'Three-product splitting', domain: 'Big-integer multiplication' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

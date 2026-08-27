@@ -1512,13 +1512,32 @@ export const PUZZLES = {
     vite: 'manacher-mirrored-radius',
     html: 'manacher-mirrored-radius/index.html',
   },
+  '/z-algorithm-zbox-reuse/': {
+    slug: 'z-algorithm-zbox-reuse',
+    problemSlug: 'substring-search',
+    number: 80,
+    category: 'strings',
+    algorithm: 'Z-algorithm',
+    heuristic: 'Z-box window reuse',
+    domain: 'Pattern preprocessing',
+    oneLiner:
+      'Inside a certified copy of the prefix, your twin’s certificate is yours: comparisons resume only past the box’s edge, and the edge never retreats.',
+    description:
+      "Z-algorithm paired with Z-box window reuse: linear by counter (3,999 vs 7,998,000 on the adversary), the sentinel matcher against find, KMP's failure function rebuilt from Z exact on 200.",
+    listenMinutes: 8,
+    time: 'O(n), ≤ 2n cmps',
+    space: 'O(n)',
+    baseline: 'Naive per-position LCP',
+    vite: 'z-algorithm-zbox-reuse',
+    html: 'z-algorithm-zbox-reuse/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Z-algorithm', heuristic: 'Z-box window reuse', domain: 'Pattern preprocessing' },
+  { algorithm: 'Held-Karp', heuristic: 'Bitmask subset states', domain: 'Exact traveling salesman' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

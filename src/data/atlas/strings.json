@@ -6,7 +6,7 @@
 {"a": "Sunday algorithm", "h": "Next-character shift", "d": "Substring search", "t": 3},
 {"a": "Rabin-Karp", "h": "Rolling hash fingerprints", "d": "Substring and plagiarism search", "t": 1},
 {"a": "Rabin-Karp", "h": "Multi-pattern hash set", "d": "Multiple-pattern search", "t": 2},
-{"a": "Z-algorithm", "h": null, "d": "Pattern preprocessing", "t": 1},
+{"a": "Z-algorithm", "h": "Z-box window reuse", "d": "Pattern preprocessing", "t": 1},
 {"a": "Aho-Corasick", "h": "Failure-link automaton", "d": "Multiple-pattern search", "t": 1},
 {"a": "Commentz-Walter", "h": "Boyer-Moore multi-pattern shifts", "d": "Multiple-pattern search", "t": 3},
 {"a": "Shift-or algorithm", "h": "Bitmask state parallelism", "d": "Substring search", "t": 2},

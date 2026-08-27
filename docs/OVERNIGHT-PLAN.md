@@ -1978,7 +1978,38 @@ commit, Fable trailer on every commit, check green before each push.
       window reuse (t1, h to author, strings: the same
       never-re-verify family, prefix flavor).
 
-**Next action: F74 Z-algorithm × Z-box window reuse (author h per
+- [x] F74. Z-algorithm × Z-box window reuse. Puzzle 80, strings
+      (problemSlug substring-search: the atlas d 'Pattern
+      preprocessing' maps there, verified via the algo page).
+      Referees FROM FOUR DIRECTIONS: full Z-array equality with the
+      naive per-position LCP scan on 400 strings; LINEARITY BY
+      COUNTER on the all-a adversary (3,999 cmps <= 2n vs the naive
+      asserted-quadratic 7,998,000: 2,000x); the sentinel matcher
+      (Z on pattern+sentinel+text) equal to Python's find on 200
+      cases; THE BRIDGE: KMP's failure function RECONSTRUCTED from
+      the Z-array (box claims swept right-to-left, borders of
+      borders propagated) and asserted equal to its direct
+      computation on 200 strings: the live KMP unit and this one
+      proven to be one machine in two coordinate systems: passed
+      FIRST RUN; the periodicity client (Z[p] >= n-p) brute-checked
+      on 200 periodic-heavy strings. Runtime 0.8s. Atlas per rule
+      2: strings.json Z-algorithm h authored "Z-box window reuse";
+      summary heuristics 2341 -> 2342. Cards: self, KMP (live:
+      derive via Z, ship via KMP), Manacher (live: the same
+      economics at symmetry: the family portrait), Suffix array
+      (live: where prefix-shaped ends): THREE live badges.
+      neverUse: memorizing what you can derive (the failure
+      function's memorize-and-pray snippet: own the picture,
+      convert on demand: the bridge is the proof it's safe).
+      Figure: the box with twins and the fresh-work arrow, cite
+      Gusfield 1997 DOI 10.1017/CBO9780511574931 (the book that
+      named it). Viz: the sweep with Z-columns rising per position
+      (green fully-inherited vs amber paid), the box bracket
+      sliding right, paid-vs-inherited meters. Bench reseeded
+      (double-grep + ls clean): Held-Karp × bitmask subset states
+      (t1, h to author, dynamic-programming: exact TSP).
+
+**Next action: F75 Held-Karp × bitmask subset states (author h per
 rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the

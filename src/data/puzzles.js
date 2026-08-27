@@ -1075,13 +1075,32 @@ export const PUZZLES = {
     vite: 'smith-waterman-zero-floor',
     html: 'smith-waterman-zero-floor/index.html',
   },
+  '/edmonds-karp-shortest-paths/': {
+    slug: 'edmonds-karp-shortest-paths',
+    problemSlug: 'maximum-flow',
+    number: 57,
+    category: 'graphs',
+    algorithm: 'Edmonds-Karp',
+    heuristic: 'Shortest augmenting paths',
+    domain: 'Maximum flow',
+    oneLiner:
+      'Ford-Fulkerson plus one word: BFS: the hose route is longer and never elected, distances only grow, and the bound forgets the capacities entirely.',
+    description:
+      'Edmonds-Karp paired with shortest augmenting paths: the zigzag gadget measured at 200,000 augmentations vs 2, duality certified against all enumerated cuts on 200 graphs, a min-cut buying a project portfolio.',
+    listenMinutes: 8,
+    time: 'O(V·E²)',
+    space: 'O(V + E)',
+    baseline: 'Unspecified-path Ford-Fulkerson',
+    vite: 'edmonds-karp-shortest-paths',
+    html: 'edmonds-karp-shortest-paths/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Edmonds-Karp', heuristic: 'Shortest augmenting paths', domain: 'Maximum flow' },
+  { algorithm: 'Ternary search', heuristic: 'Two-probe interval thirds', domain: 'Unimodal maximum finding' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

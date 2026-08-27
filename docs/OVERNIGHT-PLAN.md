@@ -1201,8 +1201,30 @@ commit, Fable trailer on every commit, check green before each push.
       augmenting paths (t1 verified; upgraded from a weaker F-F
       draft).
 
-**Next action: F51 Edmonds-Karp × shortest augmenting paths;
-sequentially until morning.** Owner's overnight directive
+- [x] F51. Edmonds-Karp × shortest augmenting paths. Puzzle 57,
+      graphs (problemSlug maximum-flow, shared with the live Dinic).
+      Duality certified BOTH DIRECTIONS: on 200 small graphs the flow
+      equals the min over ALL 2^(n-2) enumerated cuts, with the full
+      certificate suite (capacity, conservation, cut==flow, crossing
+      edges saturated) on every instance including scale. THE GADGET
+      measured: pathological chooser 200,000 augmentations at
+      C=100,000 (one barrel per hose trip) vs BFS's 2, hose never
+      elected. Scale: n=500 m=3,000 caps to 1e6: 22 augmentations
+      (bound 750,000: capacity-free). Application cashed: project
+      selection by min-cut (net 11 = 35 - 24) matching brute force
+      over all 16 portfolios. Build fix: a mangled main guard
+      ('____main__' or True) caught and normalized. No atlas edits
+      (pair existed t1 with h); summary stays 3257/2330. Cards: self,
+      Dinic (live badge), Push-relabel × FIFO, Capacity-scaling.
+      neverUse: unspecified-path FF on big capacities (invisible to
+      correctness testing: the count is the disease). Figure: the
+      gadget, cite Edmonds-Karp JACM 1972 DOI 10.1145/321694.321699.
+      Viz: the gadget run twice with the spinning counter and the
+      finale's red min-cut dash. Bench reseeded: Ternary search ×
+      two-probe interval thirds (t2, h to author).
+
+**Next action: F52 Ternary search × two-probe interval thirds (author
+h per rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

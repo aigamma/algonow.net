@@ -741,9 +741,28 @@ directive; names atlas-verified):
       10.1109/SFCS.1975.8. Viz: one recursion level, planted
       straddling winner (retry-searched so the caption never lies),
       strip scan with live lemma counter.
-- [ ] F36. MinHash × bottom-k signatures (probabilistic-streaming t1).
-      Oracle: exact Jaccard vs estimate, error ~1/sqrt(k) measured;
-      cards Shingling×MinHash-LSH (t2), SimHash (check), exact sets.
+- [x] F36. MinHash × bottom-k signatures. Puzzle 42, probabilistic
+      (problemSlug similarity-sketching). The collision theorem
+      measured at its exact value: 668/2,000 = 0.3340 vs true 1/3.
+      Composability asserted as EXACT list equality (sketch of union
+      == merged sketches, 100/100). Error ladder over 200 trials/size:
+      RMSE 0.0961 / 0.0500 / 0.0255 / 0.0115 at k=16/64/256/1024,
+      tracking sqrt(J(1-J)/k), monotone + 4x-k => >=2.5x shrink
+      asserted. Hashing bill counted: bottom-k 10,000 hashes vs
+      k-wise 2,560,000 (256x). Site's own prose refereed by full set
+      ops: two narrations J=0.034 (house style quantified); plan vs
+      front-70% J=0.703 est 0.656. LSH banding: 200 docs, 5 planted
+      near-dupes (J>0.75): ALL 5 surfaced in exactly 5 candidate
+      pairs vs 19,900 all-pairs (3,980x, perfect precision+recall).
+      Build fix: the ∪ glyph hard-crashed the cp1252 console print
+      (not just mojibake): ASCII'd. Cards: self, Shingling ×
+      MinHash-LSH, SimHash × random hyperplanes. neverUse: all-pairs
+      exact at corpus scale ("pay exactness per candidate, never per
+      pair"). Figure: the shared-minimum Venn, cite Broder SEQUENCES
+      1997 DOI 10.1109/SEQUEN.1997.666900. No atlas edits (pair
+      existed t1); summary stays 3257/2319. Viz: the lottery played
+      on Venn dot clouds, winner flashes, estimate meter converging
+      to the true-J line.
 - [ ] F37. Hopcroft-Karp × layered augmenting phases (graphs-structure
       t1, h null: author per rule 2 as 'Layered augmenting phases').
       Oracle: matching size == max-flow referee (Dinic on unit graph)
@@ -860,8 +879,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F36 MinHash × bottom-k signatures, then F37
-Hopcroft-Karp, sequentially until morning.** Owner's overnight directive
+**Next action: F37 Hopcroft-Karp × layered augmenting phases (author h
+per rule 2), last of the fifth extension; then extend again if the
+night allows.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

@@ -790,13 +790,31 @@ export const PUZZLES = {
     vite: 'closest-pair-strip-merge',
     html: 'closest-pair-strip-merge/index.html',
   },
+  '/minhash-bottom-k/': {
+    slug: 'minhash-bottom-k',
+    problemSlug: 'similarity-sketching',
+    number: 42,
+    category: 'probabilistic',
+    algorithm: 'MinHash',
+    heuristic: 'Bottom-k signatures',
+    domain: 'Jaccard similarity estimation',
+    oneLiner:
+      'Give every element a lottery ticket: the room’s lowest belongs to both sets with probability exactly J, and keeping the k lowest runs k lotteries from one drawing.',
+    description:
+      'MinHash paired with bottom-k signatures: the collision theorem measured at 0.3340 vs an exact 1/3, composability asserted as list equality, the 1/√k error law priced, and LSH banding at perfect recall for 3,980× fewer comparisons.',
+    listenMinutes: 8,
+    time: 'O(|S|) sketch, O(k) compare',
+    space: 'O(k) per set',
+    baseline: 'Exact set comparison',
+    vite: 'minhash-bottom-k',
+    html: 'minhash-bottom-k/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F32 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'MinHash', heuristic: 'Bottom-k signatures', domain: 'Jaccard similarity estimation' },
   { algorithm: 'Hopcroft-Karp', heuristic: 'Layered augmenting phases', domain: 'Bipartite maximum matching' },
 ];
 

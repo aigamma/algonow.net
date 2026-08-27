@@ -540,8 +540,23 @@ directive; names atlas-verified):
       seven products forming with signed-cell highlights, quadrants
       assembling in green, classical referee agreeing on canvas.
 - Fourth F-queue extension (atlas-verified pairs, in build order):
-- [ ] F26. Miller-Rabin × witness rounds (cryptography-number-theory,
-      t1 pair; d Probabilistic primality). First crypto unit.
+- [x] F26. Miller-Rabin × witness rounds. Puzzle 32, first
+      crypto-number-theory unit. Measured on all 49,999 odd n below
+      100,000 against a sieve matching published pi(10^5)=9,592:
+      Fermat base-2 wrong 78 (first 341; 561 fools all 320 coprime
+      bases, verified exhaustively); MR base-2 wrong 16 (first 2047);
+      MR 20-random 0 wrong at 4.31 modexps/number; deterministic
+      12-witness 0 wrong at 2.41 (proven < 3.3e24, the referee).
+      Rabin's quarter bound verified exhaustively on all 16 strong
+      pseudoprimes: worst liar fraction 0.1857. 561 anatomy: strong
+      liars collapse 320 -> 10. 63-bit hunt: 5 primes in 96
+      candidates, every verdict refereed. neverUse priced: 8,388,600
+      trial divisions vs 1 modexp on a 48-bit semiprime. Cards: self,
+      Deterministic MR (fixed witness set), Fermat, AKS. Figure: the
+      chain's two doors, DOI 10.1016/0022-314X(80)90084-0. No atlas
+      edits needed (pair existed with h; summary stays 3256). Viz:
+      three-act courtroom (97 acquitted, 561 the Carmichael, 2047 the
+      liar), chains box by box, convictions in red.
 - [ ] F27. Quickselect × random pivot (sorting t2; the t1
       median-of-three variant is quicksort's h already, and the
       random pivot is what makes expected-linear true; rivals:
@@ -672,9 +687,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F26 Miller-Rabin × witness rounds, first of the fourth
-extension (F26-F31, atlas-verified, listed under F25 above), then keep
-going sequentially until morning.** Owner's overnight directive
+**Next action: F27 Quickselect × random pivot, then F28-F31 in order
+(fourth extension, atlas-verified, listed under F25 above), then extend
+again; keep going sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

@@ -600,13 +600,31 @@ export const PUZZLES = {
     vite: 'strassen-seven-products',
     html: 'strassen-seven-products/index.html',
   },
+  '/miller-rabin-witness-rounds/': {
+    slug: 'miller-rabin-witness-rounds',
+    problemSlug: 'primality-testing',
+    number: 32,
+    category: 'crypto-number-theory',
+    algorithm: 'Miller-Rabin',
+    heuristic: 'Witness rounds',
+    domain: 'Probabilistic primality',
+    oneLiner:
+      'Convict composites on cryptographic proof, acquit primes with an error you chose: at most a quarter of witnesses can lie, and twenty are called at random.',
+    description:
+      "Miller-Rabin paired with random witness rounds: zero errors in a refereed 100,000 sweep, Rabin's quarter bound verified exhaustively, and the Carmichael con artist convicted on canvas.",
+    listenMinutes: 8,
+    time: 'O(k log³ n)',
+    space: 'O(1)',
+    baseline: 'Fermat test, base 2',
+    vite: 'miller-rabin-witness-rounds',
+    html: 'miller-rabin-witness-rounds/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F26 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Miller-Rabin', heuristic: 'Witness rounds', domain: 'Probabilistic primality' },
   { algorithm: 'Quickselect', heuristic: 'Random pivot', domain: 'Order statistics' },
   { algorithm: 'Bellman-Ford', heuristic: 'Early-exit relaxation', domain: 'Negative-edge shortest paths' },
   { algorithm: 'Segment tree', heuristic: 'Lazy propagation', domain: 'Range updates' },

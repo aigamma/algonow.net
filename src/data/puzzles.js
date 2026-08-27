@@ -1740,13 +1740,32 @@ export const PUZZLES = {
     vite: 'velocity-verlet-symplectic',
     html: 'velocity-verlet-symplectic/index.html',
   },
+  '/external-merge-sort-kway/': {
+    slug: 'external-merge-sort-kway',
+    problemSlug: 'external-sorting',
+    number: 92,
+    category: 'data-retrieval',
+    algorithm: 'External merge sort',
+    heuristic: 'K-way run merging',
+    domain: 'Large-relation sorting',
+    oneLiner:
+      'Sort memory-sized runs, then merge k at a time: the pass count is 1 + ceil(log_k(runs)), and the logarithm base is your memory: a million records, three counted reads, sorted.',
+    description:
+      "External merge sort with k-way run merging: the pass formula exact on 200 instances, the k dial at 3.5x, Knuth's 2M snowplow measured at 1.99x, a 252x client sorted in three counted passes.",
+    listenMinutes: 8,
+    time: '2N·(1+⌈log_k r⌉) I/O',
+    space: 'M pages',
+    baseline: 'In-memory sort (when it fits)',
+    vite: 'external-merge-sort-kway',
+    html: 'external-merge-sort-kway/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'External merge sort', heuristic: 'K-way run merging', domain: 'Large-relation sorting' },
+  { algorithm: 'Multiversion concurrency control', heuristic: 'Snapshot timestamps', domain: 'Transaction isolation' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

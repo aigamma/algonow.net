@@ -2517,8 +2517,58 @@ commit, Fable trailer on every commit, check green before each push.
       t1 databases-query, ls no dir): External merge sort × K-way
       run merging (data-retrieval, problem external-sorting).
 
-**Next action: F86 External merge sort × k-way run merging
-(puzzle 92); sequentially until morning.** Owner's overnight directive
+- [x] F86. External merge sort × k-way run merging. Puzzle 92,
+      slug external-merge-sort-kway, category data-retrieval,
+      problem external-sorting (link verified in
+      dist/algo/external-merge-sort). Solution
+      external_merge_sort_kway.py: page-counting Disk class,
+      simple run formation, REPLACEMENT SELECTION with the memory
+      invariant asserted every step (len(heap)+len(frozen) <=
+      cap), page-buffered k-way merge_pass, external_sort driver,
+      ceil_log. FIVE ORACLES, 2.2s: (1) 200 instances (random /
+      duplicate-heavy / sorted / reversed) == sorted() exactly;
+      (2) PASS FORMULA EXACT per instance: passes == 1 +
+      ceil(log_k(runs)); (3) THE SNOWPLOW LAW: replacement
+      selection runs average 1.99x memory on random input
+      (Knuth's 2M), ONE run on sorted input, and exactly
+      ceil(N/M)=313 runs on reversed input (the adversary,
+      asserted ==); simple runs at 1.00x; (4) THE K DIAL at
+      identical memory: k=2/4/8/16/64 -> 7/4/3/3/2 passes,
+      52,500/30,000/22,500/22,500/15,000 page I/O: monotone
+      asserted, 3.5x; (5) client: 2^20 records with 4,160 records
+      of memory (252x): exactly 3 passes, 49,152 page reads ==
+      3 x 16,384 asserted to the page. BUG FIXED before ship:
+      first replacement selection refilled a WHOLE PAGE per popped
+      record (a never-updated guard variable), ballooning memory
+      and faking 156x runs: rewritten with one-record refill +
+      the memory invariant assert: law immediately landed at
+      1.99x. Stale ratios patched (240x->252x, 2.7x->3.5x). No
+      atlas edit (pair t1 databases-query); summary stays
+      3257/2343. Cards: self, Quicksort (live: IS phase one),
+      Hash join/GRACE (live: the sort-vs-hash planner knife-fight:
+      equality hashes, order sorts), B+ tree (live: CREATE INDEX =
+      this page + linear bulk load). neverUse: IN-MEMORY SORT ATOP
+      VIRTUAL MEMORY: one page fault per comparison vs one page of
+      useful work per I/O: the pager is the live LRU unit fed
+      LRU's worst pattern (uniform random over 252x its size).
+      Figure: runs -> k-way funnel -> one stream + measured
+      ledger, cite Graefe ACM Comp Surv 38(3) 2006 DOI
+      10.1145/1132960.1132964 (WebSearch-verified). Viz
+      ExtSortViz two acts: act 1 the two phases (input tape,
+      chunks landing as amber runs, 8-way funnel emitting the
+      sorted tape with per-record source labels); act 2 the k
+      dial: k=2's three pass bars grinding vs k=8's single sweep,
+      I/O totals 192 vs 96. NODE-VERIFIED 10 cycles: both sims ==
+      sorted truth, pass counts 1 vs 3 exact, page I/O 96 vs 192
+      exact, runs internally sorted, and the animated merge log
+      IS the sorted output stream. Bench reseeded (grep mvcc 0
+      hits, atlas t1 databases-query 'Multiversion concurrency
+      control × Snapshot timestamps', ls no dir, problem
+      concurrency-control via dist/algo/
+      multiversion-concurrency-control).
+
+**Next action: F87 MVCC × snapshot timestamps (puzzle 93);
+sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

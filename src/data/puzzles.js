@@ -1588,13 +1588,32 @@ export const PUZZLES = {
     vite: 'welzl-randomized-basis',
     html: 'welzl-randomized-basis/index.html',
   },
+  '/dpll-unit-propagation/': {
+    slug: 'dpll-unit-propagation',
+    problemSlug: 'boolean-satisfiability',
+    number: 84,
+    category: 'search-constraints-games',
+    algorithm: 'DPLL',
+    heuristic: 'Unit propagation',
+    domain: 'Boolean satisfiability',
+    oneLiner:
+      'Backtracking search that deduces between guesses: any clause with one live literal forces it, cascades follow, and each forced move cancels a subtree: complete both ways, SAT and proven UNSAT.',
+    description:
+      'DPLL with unit propagation: 250 verdicts equal to exhaustion, a controlled ablation at 7x, the phase transition measured at n=90, pigeonhole refuted, the Petersen graph 3-colored.',
+    listenMinutes: 8,
+    time: 'O(2ⁿ) worst',
+    space: 'O(n) trail',
+    baseline: 'Truth-table exhaustion',
+    vite: 'dpll-unit-propagation',
+    html: 'dpll-unit-propagation/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'DPLL', heuristic: 'Unit propagation', domain: 'Boolean satisfiability' },
+  { algorithm: 'Hash join', heuristic: 'Build-probe partitioning', domain: 'Equi-join' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

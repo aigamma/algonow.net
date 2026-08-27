@@ -2132,8 +2132,63 @@ commit, Fable trailer on every commit, check green before each push.
       puzzles.js empty, atlas t1 backtracking-cp line 30 confirmed,
       ls no directory): DPLL × Unit propagation.
 
-**Next action: F78 DPLL × unit propagation (puzzle 84);
-sequentially until morning.** Owner's overnight directive
+- [x] F78. DPLL × unit propagation. Puzzle 84, slug
+      dpll-unit-propagation, category search-constraints-games,
+      problem boolean-satisfiability (link verified in
+      dist/algo/dpll). Solution dpll_unit_propagation.py: recursive
+      DPLL, MOMS-lite branching (most frequent literal among
+      shortest live clauses) IDENTICAL in both experiment arms so
+      the ablation isolates propagation; UP audits each forced
+      literal at force time (all other literals false, asserted).
+      FIVE ORACLES: (1) 250 instances n<=13 vs full 2^n exhaustion:
+      verdicts identical (197 SAT / 53 UNSAT), every model
+      re-checked clause-by-clause (bug fixed pre-ship: models are
+      PARTIAL since DPLL stops when all clauses satisfied:
+      check_model must treat unassigned vars as non-satisfying, not
+      KeyError); (2) CONTROLLED ABLATION on 30 near-threshold
+      n=18 instances: no-UP 2,306 vs UP 343 decisions = 7x from
+      the one rule (assert >3); (3) THE PHASE TRANSITION measured
+      at n=90, 45 instances x 6 ratios (calibration story: n=28
+      flat spike 22 vs 17, scaled n=40/60/75/90 watching the spike
+      sharpen 1.35x -> 1.9x -> 2.6x -> 3.4x: the exponential
+      divergence IS visible in the meter): SAT 100/100/100/60/0/0%
+      across m/n 2/3/3.8/4.26/5/6, mean decisions
+      56/43/131/524/349/154, peak at 4.26 asserted >3x both easy
+      edges, monotone SAT collapse asserted; (4) the nemesis:
+      PHP(6,5) UNSAT in 748 decisions / 3,127 props (assert >200:
+      search without learning pays: the CDCL gap), PHP(5,5) SAT
+      control; (5) client: Petersen graph 3-colored via 85-clause
+      CNF in 12 decisions, model decoded, all 15 edges verified;
+      2-coloring proven UNSAT (odd cycles). Runtime 8.9s. No atlas
+      edit (pair t1 backtracking-cp line 30); summary stays
+      3257/2343. Cards: self, CDCL x VSIDS (conflicts become
+      permanent theorems: industry), WalkSAT (incomplete: model-only
+      workloads), 2-SAT via implication SCC (the linear trapdoor
+      when clauses are binary). neverUse: WalkSAT asked to prove
+      UNSAT (incomplete solver on a completeness question: silence
+      is not a certificate: rhymes with one-Karger-run and
+      Space-Saving placeholders). Figure: measured phase-transition
+      bar chart (524 spike red at 4.26, SAT% row green-to-red),
+      cite DLL CACM 5(7) 1962 DOI 10.1145/368273.368557
+      (WebSearch-verified: ACM DL). Viz DPLLViz two acts:
+      act 1 the clause wall (12x6 grid) + 16-var strip: amber
+      decisions, blue forced cascade with the forcing clause
+      flashed, red conflicts, trail rewinds, verdict; act 2 the
+      ablation: same formula same branching propagation OFF,
+      counter grinding in batches vs act 1's count. NODE-VERIFIED
+      8 cycles vs 2^16 brute force: verdicts match, models
+      clause-checked, EVERY prop/conflict event audited against
+      its own snapshot (prop: all other literals false; conflict:
+      clause truly empty), bare/UP ratio >=4x, deterministic seed
+      search (12-45 decisions, <=260 events) never fell through.
+      Build: chunk 13.5KB gz inside 20KB, check exit 0. Bench
+      reseeded (bare-grep puzzles.js empty, atlas t1
+      databases-query line 6 confirmed, ls no directory): Hash join
+      × Build-probe partitioning (category data-retrieval: FIRST
+      unit in that category).
+
+**Next action: F79 Hash join × build-probe partitioning (puzzle
+85); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

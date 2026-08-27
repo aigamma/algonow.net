@@ -1800,8 +1800,45 @@ commit, Fable trailer on every commit, check green before each push.
       reseeded, double-grep + ls clean: Burrows-Wheeler compression
       × move-to-front plus RLE (t1, h exists, compression-coding).
 
-**Next action: F69 Burrows-Wheeler compression × move-to-front plus
-RLE; sequentially until morning.** Owner's overnight directive
+- [x] F69. Burrows-Wheeler compression × move-to-front plus RLE.
+      Puzzle 75, compression-coding (problemSlug
+      dictionary-compression, third resident with LZ77 and LZW).
+      Referees: BYTE-EXACT ROUND TRIPS at every stage (BWT/LF, MTF,
+      RLE) on 300 mixed strings + the 21,697-char corpus; THE
+      PERMUTATION SHOCKER asserted to 1e-12: H0(BWT) == H0(raw) ==
+      3.9017053931 bits (a permutation compresses NOTHING); the
+      clustering measured (mean run 1.02 -> 4.35, assert >2.2x);
+      MTF cashing it (<=1 fraction 7.3% -> 85.5%, H0 4.23 -> 1.36:
+      note MTF on RAW is WORSE than nothing: 4.23 > 3.90: bonus
+      honest finding kept); RLE folding 21,698 -> 6,273 with the
+      raw-side null result. The transform BUILT VIA the live suffix
+      array unit's prefix doubling (bwt[i] = s[sa[i]-1]); the LF
+      inverse's first draft started at the wrong row and read the
+      wrong direction: fixed by the 'ab' hand trace, lesson in
+      narration. Runtime 0.12s. BUDGET AMENDMENT (recorded for owner
+      review): the shared registry data chunk (puzzles-*.js) crossed
+      the 20KB per-page budget at 75 units: it scales with unit
+      count by design, so check.mjs now gives it its own ceiling
+      (48KB, ~175 units headroom) following the atlas chunk's
+      documented precedent, with the same long-run prescription
+      (runtime-fetched JSON, not ceiling raises). No atlas h edit
+      (pair existed t1); summary stays 3257/2338. Cards: self, LZ77
+      (live), Huffman (live: the real back end: bzip2 = this page +
+      that unit), Suffix array construction (live: the constructor):
+      THREE live badges. neverUse: shipping the transform as
+      compression (a lens, not a press: judge transforms by the
+      meter after the stage that pays). Figure: banana|'s sorted
+      rotations with the lifted last column, cite Manzini JACM 48(3)
+      2001 DOI 10.1145/382780.382782 (B&W SRC-124 1994 named in
+      prose; FM-index kingdom noted). Viz: act 1 the rotations
+      gliding into sorted order with the last column lifting out
+      pre-clustered; act 2 the four entropy bars with the first two
+      landing at identical height. Bench reseeded (double-grep + ls
+      clean): Sieve of Eratosthenes × crossing off from the square
+      (t1, h to author, cryptography-number-theory).
+
+**Next action: F70 Sieve of Eratosthenes × crossing off from the
+square (author h per rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

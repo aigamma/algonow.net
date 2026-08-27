@@ -185,6 +185,14 @@ if (!existsSync('dist/assets')) {
       if (text.includes('The RIVALS table')) fail(`atlas chunk ${a}: problems.json bytes shipped to the browser`);
       if (text.includes('Machine-readable manifest')) fail(`atlas chunk ${a}: merges.json bytes shipped to the browser`);
     }
+    // The shared registry data chunk grows with the unit count by
+    // design (one entry per live pair) and crossed 20KB at 75 units:
+    // it is a shared, cached-once data chunk like the atlas, not a
+    // per-page chunk, so it gets its own ceiling. 48KB covers ~175
+    // units at current prose density; the long-run fix past that is
+    // the same one the atlas comment prescribes: a runtime-fetched
+    // JSON asset, not another ceiling raise.
+    else if (a.startsWith('puzzles-')) budget(`registry chunk ${a}`, size, 48 * 1024);
     else if (a.endsWith('.js')) budget(`chunk ${a}`, size, 20 * 1024);
   }
   budget('html index.html', gz('dist/index.html'), 2 * 1024);

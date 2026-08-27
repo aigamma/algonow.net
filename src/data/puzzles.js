@@ -1417,13 +1417,32 @@ export const PUZZLES = {
     vite: 'lis-patience-piles',
     html: 'lis-patience-piles/index.html',
   },
+  '/burrows-wheeler-mtf-rle/': {
+    slug: 'burrows-wheeler-mtf-rle',
+    problemSlug: 'dictionary-compression',
+    number: 75,
+    category: 'compression-coding',
+    algorithm: 'Burrows-Wheeler compression',
+    heuristic: 'Move-to-front plus RLE',
+    domain: 'Block-sorting compression',
+    oneLiner:
+      'Sort every rotation, keep the last column: same letters, same entropy to the bit: but letters sorted into each other’s company by their shared futures, ready for a dumb coder to eat.',
+    description:
+      'Burrows-Wheeler paired with move-to-front plus RLE: round trips byte-exact at every stage, the permutation identity exact (H0 3.90 both), MTF 4.23 on raw vs 1.36 after: the lens, metered.',
+    listenMinutes: 8,
+    time: 'O(n log² n) block',
+    space: 'O(n)',
+    baseline: 'MTF without the transform',
+    vite: 'burrows-wheeler-mtf-rle',
+    html: 'burrows-wheeler-mtf-rle/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Burrows-Wheeler compression', heuristic: 'Move-to-front plus RLE', domain: 'Block-sorting compression' },
+  { algorithm: 'Sieve of Eratosthenes', heuristic: 'Crossing off from the square', domain: 'Prime enumeration' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

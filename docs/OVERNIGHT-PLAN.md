@@ -1837,8 +1837,43 @@ commit, Fable trailer on every commit, check green before each push.
       clean): Sieve of Eratosthenes × crossing off from the square
       (t1, h to author, cryptography-number-theory).
 
-**Next action: F70 Sieve of Eratosthenes × crossing off from the
-square (author h per rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F70. Sieve of Eratosthenes × crossing off from the square.
+      Puzzle 76, crypto-number-theory (problemSlug prime-sieves,
+      verified against the algo page; label "Prime sieves and
+      multiplicative tables"). Referees: TWO INDEPENDENT JUDGES
+      (trial division AND the live Miller-Rabin's deterministic
+      bases) agreeing with the table on EVERY number to 20,000; the
+      famous constants EXACT: pi(10^6) = 78,498 and 8,169 twin
+      pairs; THE MERTENS BILL: naive crossings 2,197,839 vs
+      n(ln ln sqrt n + M) = 2,194,142: 0.17% (a theorem invoiced to
+      four digits); THE SHAVE EXACT TO THE UNIT: from-square saves
+      precisely sum(p-2) = 75,791 crossings (discovered when run 1
+      sat 3.3% under Mertens and the gap WAS the shave: assert
+      re-aimed at the naive count, the identity derived and pinned:
+      per prime, naive sweeps floor(n/p)-1, from-square floor(n/p)-
+      p+1: saving p-2); the race 14.2x (calibrated from a guessed
+      >15: 2,745,694 divisions vs 193,078 crossings); Goldbach
+      verified for every even number to 20,000. Print lines aligned
+      with the asserted quantities post-fix. Runtime 0.4s. Atlas per
+      rule 2: cryptography-number-theory.json Sieve h authored
+      "Crossing off from the square"; summary heuristics 2338 ->
+      2339. Cards: self, Miller-Rabin (live: the second judge, the
+      opposite contract), Segmented sieve (this unit wearing a
+      window), Sieve of Atkin (the asymptotic one-up that loses the
+      benchmarks). neverUse: trial-dividing a dense range (the
+      index units' rebuild-per-query lesson in number theory's
+      clothes). Figure: the hall of doors with 5 walking past
+      10/15/20 to 25, cite Bays-Hudson BIT 17 1977 DOI
+      10.1007/BF01932283 (Eratosthenes c. 240 BC via Nicomachus in
+      prose). Viz: the 120-door hall: walkers take turns, each
+      visibly starting at his dashed square, 11^2 > 120 ends the
+      walking, and the open doors light green: primality was never
+      tested: it is what remained. Bench reseeded (double-grep + ls
+      clean): Prim's algorithm × cheapest crossing edge (t1, h to
+      author, graphs-structure: the live Kruskal's natural rival).
+
+**Next action: F71 Prim's algorithm × cheapest crossing edge
+(author h per rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

@@ -8,7 +8,7 @@
 {"a": "Montgomery multiplication", "h": null, "d": "Fast modular arithmetic", "t": 2},
 {"a": "Barrett reduction", "h": null, "d": "Fast modular reduction", "t": 3},
 {"a": "Chinese remainder theorem", "h": "Garner's algorithm", "d": "Modular reconstruction", "t": 1},
-{"a": "Sieve of Eratosthenes", "h": null, "d": "Prime enumeration", "t": 1},
+{"a": "Sieve of Eratosthenes", "h": "Crossing off from the square", "d": "Prime enumeration", "t": 1},
 {"a": "Linear sieve", "h": "Smallest-prime-factor marking", "d": "Prime enumeration", "t": 2},
 {"a": "Sieve of Atkin", "h": null, "d": "Prime enumeration", "t": 3},
 {"a": "Segmented sieve", "h": null, "d": "Range prime enumeration", "t": 2},

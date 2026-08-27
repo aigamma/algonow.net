@@ -467,9 +467,36 @@ directive; names atlas-verified):
       that outran planned hardware and became fgrep. Viz: the he/she/
       his/hers trie with dashed failure links, text ticker, nested
       fires. Third strings unit; builds on puzzle 09 explicitly.
-- [ ] F22. Simplex × Dantzig pivot rule (vs interior point, and the
-      Klee-Minty cube as the exponential trap; Bland's rule for the
-      cycling story).
+- [~] F22. Simplex × Dantzig pivot rule: IN FLIGHT (design settled,
+      ground truth verified 2026-08-27). Pair exists (numerical.json
+      t1); problemSlug linear-programming; pages exist for
+      simplex-method and interior-point-method. Design: tableau
+      simplex over standard-form max c^T x, Ax<=b, x>=0 (A positive so
+      origin-feasible and bounded); contest columns [random LPs
+      (median pivots, 30 seeded m=40/n=80 instances), Klee-Minty cube
+      n=12] with rows Dantzig / Bland / random-edge pivot rules;
+      Klee-Minty formulation max sum 2^(n-j)x_j s.t.
+      2*sum_(j<i) 2^(i-j)x_j + x_i <= 5^i; expect ~2^n-1 Dantzig
+      pivots (assert >= 2^(n-1), print exact). Oracles: (a) exhaustive
+      basis enumeration at m=4/n=8 (~70 bases) as the exact-optimum
+      referee, doubling as the measured never-use (C(80,40)~10^23);
+      (b) duality gap zero + dual feasibility from the final tableau
+      on the big randoms; (c) feasibility maintained at every pivot,
+      objective monotone; (d) Beale's classic cycling LP in exact
+      Fractions: Dantzig with fixed tie-break CYCLES (basis revisited,
+      capped) while Bland's rule terminates on the same instance (the
+      1977 anti-cycling theorem demonstrated); (e) contest regen.
+      Interior point is a CARD (Karmarkar 1984, polynomial, no warm
+      starts), not a raced row. Viz: 2D polytope vertex walk (random
+      halfplane intersections, objective arrow, green edge trail,
+      pivot counter), rotating polytopes. Figure: the Klee-Minty n=3
+      cube, the 7-vertex greedy path vs the short path; cite Dantzig
+      1963, Klee-Minty 1972, Bland 1977, and Spielman-Teng smoothed
+      analysis JACM 2004 (DOI 10.1145/990308.990310) as the
+      why-it-works-in-practice resolution. neverUse: vertex
+      enumeration. Registry: number 28, slug simplex-dantzig-pivots,
+      category numerical, domain Linear programming, baseline Bland
+      rule.
 - [ ] F23. Viterbi × max-product trellis (vs greedy per-step argmax,
       beam search, posterior decoding); author h per rule 2.
 - [ ] F24. Skip list × coin-flip level promotion (vs balanced BSTs,

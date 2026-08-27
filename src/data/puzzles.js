@@ -239,13 +239,31 @@ export const PUZZLES = {
     vite: 'hyperloglog-leading-zeros',
     html: 'hyperloglog-leading-zeros/index.html',
   },
+  '/kadane-running-maximum/': {
+    slug: 'kadane-running-maximum',
+    problemSlug: 'maximum-subarray',
+    number: 13,
+    category: 'dp-combinatorics',
+    algorithm: "Kadane's algorithm",
+    heuristic: 'Running maximum',
+    domain: 'The brightest stretch of an array',
+    oneLiner:
+      'One pass, two numbers in hand: the best run ending here and the best run ever, because a negative prefix is dead weight no future window should carry.',
+    description:
+      "Kadane's algorithm paired with the running maximum: one pass finds the maximum subarray against brute force, divide and conquer, and a segment tree under churn, with a tested Python solution.",
+    listenMinutes: 8,
+    time: 'O(n)',
+    space: 'O(1)',
+    baseline: 'Brute force pairs',
+    vite: 'kadane-running-maximum',
+    html: 'kadane-running-maximum/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F7 onward, in order), so the public promise and the plan tell one story.
+// F8 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Kadane's algorithm", heuristic: 'Running maximum', domain: 'Maximum subarray' },
   { algorithm: 'Huffman coding', heuristic: 'Frequency-sorted merges', domain: 'Prefix-free compression' },
   { algorithm: "Dinic's algorithm", heuristic: 'Level-graph blocking flows', domain: 'Maximum flow' },
   { algorithm: 'PageRank', heuristic: 'Damped random walk', domain: 'Ranking linked graphs' },

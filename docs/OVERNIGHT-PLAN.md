@@ -232,7 +232,18 @@ Phase A standard. Candidates chosen for measurable contrast:
       inside the ±3.3% band. Oracles: 2^-r witness tail, 3-sigma landing,
       EXACT register-for-register merge, 1/sqrt(m) error scaling,
       saturation both ways, the sampling trap.
-- [ ] F7. Kadane × running maximum (vs divide and conquer, brute force)
+- [x] F7. Kadane × running maximum, live as puzzle 13 (2026-08-27,
+      Fable). Work = reads + node merges: one-shot n=4,000 Kadane 4,000
+      (exactly n, asserted) vs D&C 51,904 vs brute 8,002,000 vs segment
+      tree 7,999; one-shot n=300,000 Kadane 300,000 vs D&C 5,775,712;
+      2,000 updates: Kadane rescans 8,000,000 vs segment tree 33,936
+      (236x). Atlas: bare Kadane entry gains its pair (h: Running
+      maximum, rule 2), new rival entry Divide-and-conquer maximum
+      subarray (Shamos), summary 3,250 -> 3,251. First dp-combinatorics
+      homepage group. Viz: Kadane's amber run with red restarts vs the
+      brute crawl, same array, same pace. Oracles: 407-case agreement
+      with the definition, witnesses re-summed, all-negative convention,
+      counter == n exactly, 300-update tree-vs-rescan equality.
 - [ ] F8. Huffman × frequency-sorted merges (vs Shannon-Fano, arithmetic, ANS)
 - [ ] F9. Dinic × level graphs (vs Ford-Fulkerson, Edmonds-Karp, push-relabel)
 - [ ] F10. PageRank × damped random walk (vs HITS, SALSA, degree centrality)
@@ -347,10 +358,10 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: G7 (homepage organization; 12 live units are now on the
-flat grid, the owner's threshold), then back to the Phase F queue
-strictly sequentially (F7 Kadane, F8, F9, F10), one unit per
-commit+push with a production deploy as units land.** Owner's overnight directive
+**Next action: the Phase F queue, strictly sequential (F8 Huffman is
+next, then F9, F10), one unit per commit+push with a production deploy
+as units land. G7 landed at the 12-unit threshold; homepage groups now
+absorb new categories automatically.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

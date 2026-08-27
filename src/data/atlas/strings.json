@@ -13,7 +13,7 @@
 {"a": "Bitap algorithm", "h": "Bitmask fuzzy states", "d": "Approximate string matching", "t": 2},
 {"a": "Two-way string matching", "h": "Critical factorization", "d": "Constant-space substring search", "t": 3},
 {"a": "Backward oracle matching", "h": "Factor-oracle automaton", "d": "Substring search", "t": 3},
-{"a": "Manacher's algorithm", "h": null, "d": "Longest palindromic substring", "t": 1},
+{"a": "Manacher's algorithm", "h": "Mirrored radius reuse", "d": "Longest palindromic substring", "t": 1},
 {"a": "Eertree", "h": null, "d": "Palindromic substring structure", "t": 3},
 {"a": "Suffix array construction", "h": "Prefix-doubling ranks", "d": "Full-text indexing", "t": 1},
 {"a": "DC3 suffix array", "h": "Difference-cover sampling", "d": "Linear suffix arrays", "t": 2},

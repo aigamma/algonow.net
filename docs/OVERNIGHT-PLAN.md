@@ -1945,8 +1945,41 @@ commit, Fable trailer on every commit, check green before each push.
       Manacher's algorithm × mirrored radius reuse (t1, h to
       author, strings).
 
-**Next action: F73 Manacher's algorithm × mirrored radius reuse
-(author h per rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F73. Manacher's algorithm × mirrored radius reuse. Puzzle 79,
+      strings (problemSlug palindrome-substrings, verified).
+      Referees: center expansion equal on 400 strings
+      (palindrome-dense, mixed, planted) with EVERY witness verified
+      to be a palindrome of the reported length at the reported
+      position; brute force over ALL substrings on 60; the COUNT
+      IDENTITY sum(ceil(P/2)) == enumeration on 60 more; LINEARITY
+      ASSERTED BY COUNTER on the all-a adversary: expansions <=
+      2n+1 (measured 7,999) while the baseline is asserted
+      quadratic (measured 8,002,000: 1,000x); THE MIRROR AUDIT:
+      60% of all radius inherited (149,750 of 249,748 units) at
+      50,000 palindrome-dense chars. Client:
+      'amanaplanacanalpanama' its own longest palindrome (21). One
+      stale print number fixed pre-commit (3,999 -> the measured
+      7,999). Runtime 0.8s. Atlas per rule 2: strings.json Manacher
+      h authored "Mirrored radius reuse"; summary heuristics 2340
+      -> 2341. Cards: self, Center expansion (the referee as
+      rival, honestly near-linear on random text), Suffix array
+      (live: s+reverse LCE road), Eertree (the 2015 heir: one node
+      per distinct palindrome, at most n+2 exist). neverUse:
+      trusting average-case on adversarial input (the quicksort/
+      hash-flood/regex family: average-case comfort plus
+      adversarial input is an outage schedule). Figure: the great
+      mirror with twins i and j and the frontier R, cite Manacher
+      JACM 22(3) 1975 DOI 10.1145/321892.321896 (folklore
+      generalization + Eertree heir in prose). Viz: one continuous
+      sweep: arcs per center (green = fully inherited, amber =
+      fresh work), the blue frontier bar that only moves right,
+      paid-vs-inherited meters, the witness named in the finale.
+      Bench reseeded (double-grep + ls clean): Z-algorithm × Z-box
+      window reuse (t1, h to author, strings: the same
+      never-re-verify family, prefix flavor).
+
+**Next action: F74 Z-algorithm × Z-box window reuse (author h per
+rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

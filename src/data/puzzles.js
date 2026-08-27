@@ -1493,13 +1493,32 @@ export const PUZZLES = {
     vite: 'pollards-rho-floyd-cycle',
     html: 'pollards-rho-floyd-cycle/index.html',
   },
+  '/manacher-mirrored-radius/': {
+    slug: 'manacher-mirrored-radius',
+    problemSlug: 'palindrome-substrings',
+    number: 79,
+    category: 'strings',
+    algorithm: "Manacher's algorithm",
+    heuristic: 'Mirrored radius reuse',
+    domain: 'Longest palindromic substring',
+    oneLiner:
+      'Inside the great mirror, your twin’s certificate is yours: inherit the radius, pay only past the frontier: and the frontier only ever moves right.',
+    description:
+      "Manacher's algorithm paired with mirrored radius reuse: linearity asserted by counter (7,999 vs 8,002,000 on the adversary), witnesses verified on 400 strings, 60% of all radius inherited.",
+    listenMinutes: 8,
+    time: 'O(n), ≤ 2n expansions',
+    space: 'O(n)',
+    baseline: 'Center expansion',
+    vite: 'manacher-mirrored-radius',
+    html: 'manacher-mirrored-radius/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Manacher's algorithm", heuristic: 'Mirrored radius reuse', domain: 'Longest palindromic substring' },
+  { algorithm: 'Z-algorithm', heuristic: 'Z-box window reuse', domain: 'Pattern preprocessing' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

@@ -396,9 +396,23 @@ atlas-verified, pairs authored per rule 2 at build where h is null):
       100 pairs (cross-links puzzle 07). Atlas: Kruskal h -> Union-find
       cycle test (rule 2), heuristics 2,311. Viz: villages wiring
       cheapest-first, components sharing colors as union-find merges.
-- [ ] F18. Reservoir sampling × Algorithm R (vs sort-by-random-key,
-      Algorithm L as variant, and the full-store baseline); exact
-      uniformity oracle by enumeration on small streams.
+- [x] F18. Reservoir sampling × Algorithm R, live as puzzle 24
+      (2026-08-27, Fable). The ledger at n=1M, k=100: R 999,900 draws /
+      k memory / exact-k; Algorithm L 3,879 draws (258x: skip, do not
+      flip); bottom-k 1M draws + the ONLY exact shard merge (proven
+      byte-for-byte); store-all 100 draws at 10,000x memory; Bernoulli
+      breaks the contract (sizes 72-124 over 400 runs). Uniformity
+      proven EXACTLY: Algorithm R's full decision tree walked in
+      Fractions for all n<=8, k<=3 (every inclusion == k/n as a
+      rational); bottom-k by complete permutation enumeration; 4-sigma
+      statistics at n=100/30K trials for R and L. Never-here:
+      systematic sampling phase-locks when the period divides the
+      stride (period-8 stream, stride 10,000: one phase only, error
+      3.50 vs 0.14; first draft used period 7 and the oracle showed
+      coprimality SAVES it, so the trap was rebuilt honestly). New
+      atlas entry: Bottom-k sampling (Cohen-Kaplan), summary 3,255.
+      Viz: the lifeboat + a decile histogram converging to the uniform
+      line across banked streams.
 - [ ] F19. Wagner-Fischer × prefix-to-prefix table (vs Hirschberg
       linear-space, banded/Ukkonen cutoff, bitap); the DP-state lesson
       beside Kadane's.
@@ -516,8 +530,8 @@ commit, Fable trailer on every commit, check green before each push.
 ## Resume pointer
 
 **Next action: the twice-extended Phase F queue, strictly sequential
-(F18 reservoir sampling is next, then F19-F20), one unit per
-commit+push with a production deploy as units land.** Owner's overnight directive
+(F19 Wagner-Fischer is next, then F20), one unit per commit+push with
+a production deploy as units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

@@ -448,13 +448,31 @@ export const PUZZLES = {
     vite: 'kruskal-union-find',
     html: 'kruskal-union-find/index.html',
   },
+  '/reservoir-algorithm-r/': {
+    slug: 'reservoir-algorithm-r',
+    problemSlug: 'stream-sampling',
+    number: 24,
+    category: 'probabilistic',
+    algorithm: 'Reservoir sampling',
+    heuristic: 'Algorithm R',
+    domain: 'Sampling unbounded streams',
+    oneLiner:
+      'A k-seat lifeboat beside an endless line: item n boards with probability k/n, evicting a random resident, and everyone who ever passed holds exactly the same claim.',
+    description:
+      'Reservoir sampling paired with Algorithm R: uniformity proven in exact fractions, the draw ledger against Algorithm L and bottom-k keys, and the contracts Bernoulli and systematic sampling break.',
+    listenMinutes: 8,
+    time: 'O(1) per item',
+    space: 'O(k)',
+    baseline: 'Store all, pick at end',
+    vite: 'reservoir-algorithm-r',
+    html: 'reservoir-algorithm-r/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F18 onward, in order), so the public promise and the plan tell one story.
+// F19 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Reservoir sampling', heuristic: 'Algorithm R', domain: 'Sampling unbounded streams' },
   { algorithm: 'Wagner-Fischer', heuristic: 'Prefix-to-prefix table', domain: 'Edit distance' },
   { algorithm: 'Fenwick tree', heuristic: 'Low-bit ladders', domain: 'Prefix sums under change' },
 ];

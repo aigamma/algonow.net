@@ -391,13 +391,36 @@ export const PUZZLES = {
     vite: 'gradient-descent-momentum',
     html: 'gradient-descent-momentum/index.html',
   },
+  '/kahn-zero-indegree-queue/': {
+    slug: 'kahn-zero-indegree-queue',
+    problemSlug: 'topological-ordering',
+    number: 21,
+    category: 'graphs',
+    algorithm: "Kahn's algorithm",
+    heuristic: 'Zero in-degree queue',
+    domain: 'Ordering dependencies',
+    oneLiner:
+      'Whatever has no unmet prerequisites is safe to do right now: keep that frontier in a queue and the whole graph orders itself in one pass, waves included.',
+    description:
+      "Kahn's algorithm paired with the zero in-degree queue: watch a dependency graph order itself in parallel waves, measured against DFS finish-order and the naive rescan, with a tested Python solution.",
+    listenMinutes: 8,
+    time: 'O(V + E), exact',
+    space: 'O(V)',
+    baseline: 'Source rescan, O(V²)',
+    vite: 'kahn-zero-indegree-queue',
+    html: 'kahn-zero-indegree-queue/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F15 onward, in order), so the public promise and the plan tell one story.
+// F16 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Kahn's algorithm", heuristic: 'Zero in-degree queue', domain: 'Ordering dependencies' },
+  { algorithm: 'Binary search', heuristic: 'Halving invariant', domain: 'Sorted-array lookup' },
+  { algorithm: "Kruskal's algorithm", heuristic: 'Lightest-edge-first with union-find', domain: 'Minimum spanning trees' },
+  { algorithm: 'Reservoir sampling', heuristic: 'Algorithm R', domain: 'Sampling unbounded streams' },
+  { algorithm: 'Wagner-Fischer', heuristic: 'Prefix-to-prefix table', domain: 'Edit distance' },
+  { algorithm: 'Fenwick tree', heuristic: 'Low-bit ladders', domain: 'Prefix sums under change' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

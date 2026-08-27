@@ -5,7 +5,7 @@
 {"a": "Bidirectional BFS", "h": null, "d": "Meet-in-the-middle reach", "t": 2},
 {"a": "0-1 BFS", "h": "Deque front-back relaxation", "d": "Binary-weight shortest paths", "t": 2},
 {"a": "Lexicographic BFS", "h": null, "d": "Chordal graph recognition", "t": 3},
-{"a": "Kahn's algorithm", "h": null, "d": "Topological ordering", "t": 1},
+{"a": "Kahn's algorithm", "h": "Zero in-degree queue", "d": "Topological ordering", "t": 1},
 {"a": "DFS topological sort", "h": null, "d": "Topological ordering", "t": 2},
 {"a": "Dijkstra's algorithm", "h": "Binary heap priority queue", "d": "Nonnegative shortest paths", "t": 1},
 {"a": "Bidirectional Dijkstra", "h": "Balanced frontier termination", "d": "Point-to-point shortest paths", "t": 2},

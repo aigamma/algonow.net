@@ -352,9 +352,34 @@ build time):
       match Gaussian elimination, BOTH rate theorems bracket measured
       counts, CG <= d, Newton == 1, cliff, monotonicity/overshoot.
       Viz: two marbles, one canyon. First numerical homepage group.
-- [ ] F15. Kahn's algorithm × zero in-degree queue (vs DFS
-      finish-order toposort, and cycle detection as the failure story);
-      author the pair entry per rule 2 (h currently null).
+- [x] F15. Kahn × zero in-degree queue, live as puzzle 21 (2026-08-27,
+      Fable). 2,000 tasks / 8,000 deps: ready queue 12,000 touches
+      (asserted == 2V+E exactly) vs source rescan 2,009,000 (167x) vs
+      DFS finish-order 8,424. Cycle dialects measured on a planted
+      5-ring: Kahn names the full 446-task blast radius, DFS returns
+      the exact 5-cycle (verified edge by edge). Waves: 20 == longest
+      chain + 1 by independent DP. Min-heap variant proven lex-smallest
+      against exhaustive enumeration on 40 small DAGs. Never-here:
+      sorting by in-degree violates 1,049 of 8,000 deps (no scalar key
+      can encode a partial order). Atlas: Kahn h null -> Zero in-degree
+      queue (rule 2), heuristics 2,308 -> 2,309. Viz: the amber
+      frontier sweeping a wave-layouted graph.
+
+The F-queue extends again (2026-08-27, same owner directive; names
+atlas-verified, pairs authored per rule 2 at build where h is null):
+
+- [ ] F16. Binary search × halving invariant (vs linear scan, interpolation
+      search, galloping; the off-by-one museum as oracle material).
+- [ ] F17. Kruskal × sorted edges with union-find (vs Prim, Boruvka,
+      reverse-delete); the union-find unit becomes a live cross-link.
+- [ ] F18. Reservoir sampling × Algorithm R (vs sort-by-random-key,
+      Algorithm L as variant, and the full-store baseline); exact
+      uniformity oracle by enumeration on small streams.
+- [ ] F19. Wagner-Fischer × prefix-to-prefix table (vs Hirschberg
+      linear-space, banded/Ukkonen cutoff, bitap); the DP-state lesson
+      beside Kadane's.
+- [ ] F20. Fenwick tree × low-bit ladders (vs prefix-sum array rebuild,
+      segment tree, sqrt decomposition) under mixed update/query load.
 
 ## Phase G. Plumbing and hygiene (added 2026-07-22 evening)
 
@@ -466,8 +491,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F15 Kahn × zero in-degree queue, the last of the
-extended F-queue, then extend again or pivot per the plan.** Owner's overnight directive
+**Next action: the twice-extended Phase F queue, strictly sequential
+(F16 binary search is next, then F17-F20), one unit per commit+push
+with a production deploy as units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

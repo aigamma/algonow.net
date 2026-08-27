@@ -806,11 +806,25 @@ directive; names atlas-verified):
       (pair existed t1); summary stays 3257/2320. Viz: the stencil on
       a real sentence, right-to-left flashes, leap arcs with
       distances, unread text dim forever, closing percentage card.
-- [ ] F39. Newton's method × tangent-line iteration (numerical t1, h
-      null: author per rule 2). Quadratic convergence MEASURED as
-      digit-doubling per iteration; basin honesty: cycling and
-      divergence gadgets; rivals bisection (guaranteed, slow), secant
-      (derivative-free, 1.618 order measured).
+- [x] F39. Newton's method × tangent-line iteration. Puzzle 45,
+      numerical (problemSlug root-finding). The quadratic law as RAW
+      DATA: sqrt(2) in 60-digit Decimal, correct digits per iteration
+      [1, 2, 5, 11, 24, 48, 58], each rung >= 2k-1 asserted. Contest
+      to 1e-12 on x^2-2: bisection 40 its / 41 evals; secant 6 / 8;
+      Newton 5 / 11: the secant's per-eval win (1.618 on singles beats
+      order-2 on doubles) KEPT and asserted (c_s <= c_n). Failure
+      gadgets asserted exactly: x^3-2x+2 from 0 repeats [0,1,0,1,0,1]
+      literally; cbrt obeys x <- -2x to 1e-9 per step. Clients:
+      Kepler at e=0.9 in 6 its (residual < 1e-13); cash-flow IRR
+      21.62% in 5, bisection cross-check to 1e-9. Atlas: Newton h
+      authored per rule 2 (Tangent-line iteration); summary h 2320 ->
+      2321. Cards: self, Bisection, Secant, Brent × inverse quadratic
+      (Halley named in-card). neverUse: unguarded Newton on an unmet
+      function ("own the basin or rent the bracket"). Figure: the
+      tangent jump + ladder, cite Cayley 1879 basin question DOI
+      10.2307/2369492. Viz: two acts of real tangents: the stride
+      home on the parabola with a live error ladder, then the cubic's
+      2-cycle bouncing forever.
 - [ ] F40. Fisher-Yates shuffle × backward uniform swaps
       (probabilistic-streaming t1, h null: author per rule 2). Exact
       permutation-distribution oracle at n=4 (24 cells); the famous
@@ -939,8 +953,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F39 Newton's method × tangent-line iteration (author h
-per rule 2), then F40-F43, sequentially until morning.** Owner's overnight directive
+**Next action: F40 Fisher-Yates × backward uniform swaps (author h per
+rule 2), then F41-F43, sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

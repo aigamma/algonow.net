@@ -847,13 +847,31 @@ export const PUZZLES = {
     vite: 'boyer-moore-skip-rules',
     html: 'boyer-moore-skip-rules/index.html',
   },
+  '/newtons-method-tangent-iteration/': {
+    slug: 'newtons-method-tangent-iteration',
+    problemSlug: 'root-finding',
+    number: 45,
+    category: 'numerical',
+    algorithm: "Newton's method",
+    heuristic: 'Tangent-line iteration',
+    domain: 'Root finding',
+    oneLiner:
+      'Pretend the curve is its tangent and stride to the crossing: near the root the miss squares away each step, and the digit ladder reads 1, 2, 5, 11, 24, 48.',
+    description:
+      "Newton's method paired with tangent-line iteration: quadratic convergence measured as digit doubling in 60-digit decimal, the secant's per-eval win kept honestly, the 2-cycle and exact ×(−2) runaway asserted.",
+    listenMinutes: 8,
+    time: 'order 2 per step',
+    space: 'O(1)',
+    baseline: 'Bisection (40 iterations)',
+    vite: 'newtons-method-tangent-iteration',
+    html: 'newtons-method-tangent-iteration/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F38 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Newton's method", heuristic: 'Tangent-line iteration', domain: 'Root finding' },
   { algorithm: 'Fisher-Yates shuffle', heuristic: 'Backward uniform swaps', domain: 'Uniform permutation' },
   { algorithm: 'B-tree', heuristic: 'High-fanout node splits', domain: 'Disk-friendly ordered index' },
   { algorithm: 'Earliest deadline first', heuristic: 'Dynamic deadline priority', domain: 'Real-time scheduling' },

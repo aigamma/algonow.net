@@ -1,6 +1,6 @@
 [
 {"a": "Bisection method", "h": null, "d": "Root finding", "t": 1},
-{"a": "Newton's method", "h": null, "d": "Root finding", "t": 1},
+{"a": "Newton's method", "h": "Tangent-line iteration", "d": "Root finding", "t": 1},
 {"a": "Secant method", "h": null, "d": "Derivative-free root finding", "t": 2},
 {"a": "Regula falsi", "h": "Illinois weighting", "d": "Bracketed root finding", "t": 2},
 {"a": "Brent's method", "h": "Inverse quadratic interpolation", "d": "Robust root finding", "t": 1},

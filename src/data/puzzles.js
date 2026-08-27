@@ -1531,13 +1531,32 @@ export const PUZZLES = {
     vite: 'z-algorithm-zbox-reuse',
     html: 'z-algorithm-zbox-reuse/index.html',
   },
+  '/held-karp-bitmask-states/': {
+    slug: 'held-karp-bitmask-states',
+    problemSlug: 'traveling-salesman',
+    number: 81,
+    category: 'dp-combinatorics',
+    algorithm: 'Held-Karp',
+    heuristic: 'Bitmask subset states',
+    domain: 'Exact traveling salesman',
+    oneLiner:
+      'A page per predicament, not per route: two paths reaching the same (visited set, city) share a future, and sixty quadrillion orderings collapse to forty-four million pages.',
+    description:
+      'Held-Karp paired with bitmask subset states: all tours enumerated on 100 instances, the transition count exact to its closed form, heuristics priced against proven optima: NN +10%, 2-opt +0.4%.',
+    listenMinutes: 8,
+    time: 'O(2ⁿn²)',
+    space: 'O(2ⁿn)',
+    baseline: 'Brute force / nearest neighbor',
+    vite: 'held-karp-bitmask-states',
+    html: 'held-karp-bitmask-states/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Held-Karp', heuristic: 'Bitmask subset states', domain: 'Exact traveling salesman' },
+  { algorithm: "Karger's algorithm", heuristic: 'Random edge contraction', domain: 'Minimum cut' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

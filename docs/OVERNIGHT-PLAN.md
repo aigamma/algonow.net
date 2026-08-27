@@ -2009,8 +2009,42 @@ commit, Fable trailer on every commit, check green before each push.
       (double-grep + ls clean): Held-Karp × bitmask subset states
       (t1, h to author, dynamic-programming: exact TSP).
 
-**Next action: F75 Held-Karp × bitmask subset states (author h per
-rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F75. Held-Karp × bitmask subset states. Puzzle 81,
+      dp-combinatorics (problemSlug traveling-salesman, verified).
+      Referees: ALL (n-1)! TOURS enumerated on 100 instances
+      (n=5..9), equal cost AND every reconstructed tour revalidated
+      (visits each city once, re-costs to the optimum); THE
+      TRANSITION COUNT EXACT: at n=13 the counter landed on the
+      closed form sum C(12,s)*s*(12-s) = 135,168 to the unit; the
+      n=20 wall in exact arithmetic: 44,826,624 transitions vs
+      60,822,550,204,416,000 orderings; THE CERTIFICATION DIVIDEND:
+      heuristics priced against proven optima on 100 instances (NN
+      +10% avg / +35% worst / +25.9% on the client; 2-opt +0.4% avg
+      and OUTRIGHT OPTIMAL on the client: a fact only exactness
+      could certify); ordering optimum <= 2-opt <= NN asserted on
+      every instance. Two dead-code fragments cleaned pre-run (an
+      aborted first DP loop and a confused tour-reconstruct line).
+      Runtime 0.6s. Origins: Bellman-Held-Karp 1962, STILL the best
+      exact bound known 63 years on; the OTHER Held-Karp (1-tree
+      bound) noted as Concorde's engine. Atlas per rule 2:
+      dynamic-programming.json Held-Karp h authored "Bitmask subset
+      states"; summary heuristics 2342 -> 2343. Cards: self, 2-opt
+      (edge uncrossing: priced), Christofides (the 1.5x guarantee),
+      Simulated annealing (live: past every wall). neverUse:
+      shipping a heuristic tour unpriced (routes 10% long forever,
+      invisible in every log: exactness at small n is the
+      calibration instrument). Figure: the subset-lattice ledger
+      by popcount layers, cite Held-Karp J. SIAM 10(1) 1962 DOI
+      10.1137/0110015. Viz: act 1 the ledger filling layer by layer
+      with the transition meter; act 2 three tours on one map (red
+      NN with crossings, amber 2-opt, green PROVEN): the JS DP
+      verified in node against brute force on 5 cycle seeds.
+      Bench reseeded (double-grep + ls clean): Karger's algorithm ×
+      random edge contraction (t2, h EXISTS, graphs-structure, d
+      Minimum cut).
+
+**Next action: F76 Karger's algorithm × random edge contraction;
+sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

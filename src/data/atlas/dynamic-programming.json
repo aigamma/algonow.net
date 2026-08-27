@@ -11,7 +11,7 @@
 {"a": "Rod cutting DP", "h": null, "d": "Revenue maximization", "t": 1},
 {"a": "Weighted interval scheduling", "h": "Predecessor binary search", "d": "Non-overlapping selection", "t": 2},
 {"a": "Bitmask DP", "h": "Subset enumeration", "d": "Traveling salesman exact", "t": 1},
-{"a": "Held-Karp", "h": null, "d": "Exact traveling salesman", "t": 1},
+{"a": "Held-Karp", "h": "Bitmask subset states", "d": "Exact traveling salesman", "t": 1},
 {"a": "Digit DP", "h": "Tight-bound state", "d": "Counting in numeric ranges", "t": 2},
 {"a": "Tree DP", "h": null, "d": "Rooted subtree optimization", "t": 1},
 {"a": "DP on trees", "h": "In-out rerooting", "d": "All-root answers", "t": 2},

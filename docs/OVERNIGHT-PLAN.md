@@ -1550,7 +1550,43 @@ commit, Fable trailer on every commit, check green before each push.
       (t2, h EXISTS, graphs-structure, d Maximum flow,
       grep-verified: the live Edmonds-Karp's rival card come alive).
 
-**Next action: F63 Push-relabel × FIFO vertex selection;
+- [x] F63. Push-relabel × FIFO vertex selection. Puzzle 69, graphs
+      (problemSlug maximum-flow, third resident after EK and Dinic).
+      Referee: VALUE EQUALITY with a compact Edmonds-Karp on 200
+      random graphs, plus the duality certificate on EVERY instance
+      (residual cut == flow, t unreachable) plus a discipline
+      assert: internal excess exactly ZERO at termination (a preflow
+      is not a flow until then). The EK page's zigzag gadget
+      (C=100,000) re-raced three ways: pathological FF 200,000
+      augmentations / EK 2 / push-relabel 4 LOCAL OPS: the trap
+      needs a path chooser to catch and there is none. The selection
+      dial on 30 layered graphs, same answers everywhere: FIFO
+      14,023 / bare highest-label 14,829 / random 14,882: TWO honest
+      findings kept: the margins are small (the queue is a tune-up
+      on friendly graphs: FIFO's real earnings are the O(V^3)
+      bound), and the folklore champion highest-label, run BARE,
+      landed mid-pack: its reputation was earned alongside the gap
+      heuristic entourage. Client: 8x8 graph-cut segmentation
+      (terminal affinities + smoothness edges): recovered the
+      planted 4x4 blob EXACTLY, cut == flow == 96 certified. Runtime
+      0.1s. Fixes during build: a mangled f-string in the table
+      print rewritten; a muddled per-edge capacity check replaced by
+      the stronger internal-excess-zero assert. No atlas edit (pair
+      existed t2 with h); summary stays 3257/2336. Cards: self,
+      Edmonds-Karp (live), Dinic's algorithm (live), Push-relabel ×
+      highest label (the sibling with the entourage). neverUse:
+      reading the preflow mid-run (shipping scaffolding as a
+      bridge). Figure: water on terraces, cite Goldberg-Tarjan JACM
+      35(4) 1988 DOI 10.1145/48014.61051 (Karzanov 1974 preflow in
+      prose). Viz: the terrace machine run for real (JS port of the
+      same logic): columns rise on relabel, amber excess pours
+      downhill per op, the dashed min cut appears at the end. Bench
+      reseeded: Space-Saving × min-counter replacement (t2, h
+      EXISTS, probabilistic-streaming, d Top-k heavy hitters,
+      grep-verified: completes the streaming trilogy with count-min
+      and majority vote).
+
+**Next action: F64 Space-Saving × min-counter replacement;
 sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the

@@ -1303,13 +1303,32 @@ export const PUZZLES = {
     vite: 'suffix-tree-ukkonen-online',
     html: 'suffix-tree-ukkonen-online/index.html',
   },
+  '/push-relabel-fifo-selection/': {
+    slug: 'push-relabel-fifo-selection',
+    problemSlug: 'maximum-flow',
+    number: 69,
+    category: 'graphs',
+    algorithm: 'Push-relabel',
+    heuristic: 'FIFO vertex selection',
+    domain: 'Maximum flow',
+    oneLiner:
+      'Flood the source, let excess puddle, push one terrace downhill, jack up whatever sticks: no route is ever planned, and the trap built for path choosers has nothing to catch.',
+    description:
+      'Push-relabel paired with FIFO vertex selection: equal to Edmonds-Karp on 200 graphs with duality certificates, the zigzag gadget in 4 local ops, the graph-cut client recovering its blob exactly.',
+    listenMinutes: 8,
+    time: 'O(V³)',
+    space: 'O(V + E)',
+    baseline: 'Edmonds-Karp',
+    vite: 'push-relabel-fifo-selection',
+    html: 'push-relabel-fifo-selection/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Push-relabel', heuristic: 'FIFO vertex selection', domain: 'Maximum flow' },
+  { algorithm: 'Space-Saving', heuristic: 'Min-counter replacement', domain: 'Top-k heavy hitters' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

@@ -21,7 +21,7 @@
 {"a": "2-3 tree", "h": null, "d": "Multiway balanced dictionary", "t": 2},
 {"a": "2-3-4 tree", "h": null, "d": "Multiway balanced dictionary", "t": 3},
 {"a": "B-tree", "h": "High-fanout node splits", "d": "Disk-friendly ordered index", "t": 1},
-{"a": "B+ tree", "h": null, "d": "Database range index", "t": 1},
+{"a": "B+ tree", "h": "Linked-leaf range scans", "d": "Database range index", "t": 1},
 {"a": "B* tree", "h": "Two-thirds node sharing", "d": "High-occupancy disk index", "t": 3},
 {"a": "Skip list", "h": "Coin-flip level promotion", "d": "Probabilistic ordered dictionary", "t": 1},
 {"a": "Tango tree", "h": "Preferred-path decomposition", "d": "Competitive-optimal BST theory", "t": 3},

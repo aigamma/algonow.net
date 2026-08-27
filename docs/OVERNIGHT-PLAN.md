@@ -1617,8 +1617,45 @@ commit, Fable trailer on every commit, check green before each push.
       range scans (t1, h to author, search-structures, d Database
       range index, grep-verified: the live B-tree's sibling).
 
-**Next action: F65 B+ tree × linked-leaf range scans (author h per
-rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F65. B+ tree × linked-leaf range scans. Puzzle 71,
+      data-structures (problemSlug disk-ordered-index, shared with
+      the live B-tree). Referee: 300 range queries == sorted-list
+      slices EXACTLY on both trees + 2,000 memberships; full
+      invariant checker after 100,000 inserts (sorted nodes, uniform
+      leaf depth, occupancy floors, strictly-ordered chain).
+      UNIFORM DEPTH: 1,000 B+ lookups each touched exactly height 3
+      (zero variance, assert set == {height}) vs the B-tree's 1..3
+      wander. THE TWO-METER FINDING (the unit's core honesty): at
+      equal node widths the touch counts nearly TIE (1,553 vs 1,507:
+      1.03x: in RAM the in-order walk is fine): the chain's real
+      earnings are SEQUENTIAL I/O: under natural page layouts (B+
+      leaves in chain order, B-tree pages in creation order) the
+      seek meter reads 180 vs 1,553 (9x, assert 4x), with 1,327
+      transitions turned sequential. First meter draft showed only
+      the wash: the seek meter was added to carry the true story:
+      the win was never fewer touches, it is touches in a straight
+      line. Copy-up vs move-up split asymmetry implemented and
+      narrated. Fanout arithmetic in prose (4KB pages: ~256
+      separators vs ~60 inline rows: height 4 vs 5 at 10^8). Runtime
+      0.2s. Atlas per rule 2: search-structures.json B+ tree h
+      authored "Linked-leaf range scans"; summary heuristics 2336 ->
+      2337. Cards: self, B-tree (live), Log-structured merge tree
+      (the write-side answer), Skip list (live: the in-memory cousin
+      of the chain). neverUse: scattering the leaves (every
+      correctness test passes while the seeks climb back: the data
+      structure is the layout). Figure: separators route / leaves
+      answer / chain streams, cite Comer CSUR 11(2) 1979 DOI
+      10.1145/356770.356776 (Bayer-McCreight on the B-tree page).
+      Viz: act 1 grows a REAL order-4 B+ tree (JS builder verified
+      in node on every growth prefix: sorted leaf order exact on all
+      5 cycle seeds) with the amber chain; act 2 races the seek
+      strips: green sequential run vs red scatter arcs with live
+      counters. Bench reseeded: Reservoir sampling × Algorithm R
+      (t1, h EXISTS, probabilistic-streaming, d Uniform stream
+      sampling, grep-verified).
+
+**Next action: F66 Reservoir sampling × Algorithm R; sequentially
+until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

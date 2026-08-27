@@ -1341,13 +1341,32 @@ export const PUZZLES = {
     vite: 'space-saving-min-counter',
     html: 'space-saving-min-counter/index.html',
   },
+  '/bplus-tree-linked-leaves/': {
+    slug: 'bplus-tree-linked-leaves',
+    problemSlug: 'disk-ordered-index',
+    number: 71,
+    category: 'data-structures',
+    algorithm: 'B+ tree',
+    heuristic: 'Linked-leaf range scans',
+    domain: 'Database range index',
+    oneLiner:
+      'Every row to a leaf, every internal page pure directions, and the shelves bolted into one aisle: find the first book by cabinet, read the next thousand by walking.',
+    description:
+      'B+ tree paired with linked-leaf range scans: 300 ranges slice-exact, lookups at exactly height 3 with zero variance, touches tying at 1.03x while the seek meter splits 9x for the chain.',
+    listenMinutes: 8,
+    time: 'O(log n) + k/leaf',
+    space: 'O(n) pages',
+    baseline: 'B-tree walk',
+    vite: 'bplus-tree-linked-leaves',
+    html: 'bplus-tree-linked-leaves/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'B+ tree', heuristic: 'Linked-leaf range scans', domain: 'Database range index' },
+  { algorithm: 'Reservoir sampling', heuristic: 'Algorithm R', domain: 'Uniform stream sampling' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

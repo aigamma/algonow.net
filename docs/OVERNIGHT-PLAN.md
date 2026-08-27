@@ -2567,7 +2567,58 @@ commit, Fable trailer on every commit, check green before each push.
       concurrency-control via dist/algo/
       multiversion-concurrency-control).
 
-**Next action: F87 MVCC × snapshot timestamps (puzzle 93);
+- [x] F87. MVCC × snapshot timestamps. Puzzle 93, slug
+      mvcc-snapshot-timestamps, category data-retrieval, problem
+      concurrency-control (link verified in
+      dist/algo/multiversion-concurrency-control). Solution
+      mvcc_snapshot_timestamps.py: a real mini engine (version
+      chains as (commit_ts, value) lists; begin/read-as-of with
+      own-writes-first; buffered writes; FIRST-COMMITTER-WINS
+      commit; read_latest; vacuum with the oldest-active-snapshot
+      horizon) under a deterministic interleaved scheduler. FIVE
+      ORACLES, first run clean, 0.03s: (1) THE FROZEN INSTANT:
+      200 snapshot audits of 20 accounts DURING a 500+ transfer
+      storm: every sum == 2,000 exactly; the read-latest auditor
+      on the SAME storm tore 113/200 (56%, assert >30%); final
+      state preserves the total; (2) LOST UPDATES: 1,000 conflict
+      rounds: final counter == successful commits EXACTLY, aborts
+      == 1,000 exactly (one loser per round); the blind engine
+      loses exactly 1,000 of 2,000 increments; (3) WRITE SKEW
+      MADE TO HAPPEN: both doctors read 2-on-call, write disjoint
+      keys, BOTH commit under SI (asserted), 0 on call (asserted
+      ==): and both serial orders preserve the invariant
+      (asserted): the 1995 hole demonstrated and refuted on one
+      page; (4) serial-replay total preservation; (5) VACUUM
+      ledger: 844 versions -> 20 (one per key), before == after +
+      removed asserted. Label fixes: torn 57->56%, blind-loss
+      phrasing to 'half of 2,000'. No atlas edit (pair t1
+      databases-query); summary stays 3257/2343. Cards: self,
+      Two-phase locking (t1: serializable by queueing), SSI (t3:
+      the 2008 fix: dangerous-structure detection: PostgreSQL
+      SERIALIZABLE), OCC (t2: validation on the read set: the
+      cousin creed). neverUse: LAST-WRITE-WINS ON TRANSACTIONAL
+      DATA: legitimate in eventually-consistent replica
+      reconciliation, silent data loss on counters/balances: the
+      tell is the word 'increment': invisible to every
+      one-at-a-time test. Figure: version chains + snapshot line
+      + skew/ledger ledger, cite Berenson-Bernstein-Gray et al.
+      SIGMOD 1995 DOI 10.1145/223784.223785 (WebSearch-verified:
+      SI defined and write skew named in the same ten pages). Viz
+      MVCCViz: embedded JS mini-MVCC (same semantics) driving
+      act 1 (version timelines: amber commits landing, blue
+      snapshot lines resolving left, reader sums shown) and act 2
+      (write-skew theater: two doctor cards, read/write/commit
+      phases, THE ANOMALY banner, then the serial replay refusing).
+      NODE-VERIFIED 10 cycles: every reader resolves to the
+      correct version (newest <= snapshot, recomputed) and sums
+      300 exactly, finals preserve the total, and the skew script
+      fires under SI and is refused serially. Bench reseeded
+      (grep tomasulo 0 hits, atlas t1 computer-architecture line
+      9, ls no dir): Tomasulo's algorithm × Reservation stations
+      with register renaming (category languages-compilers,
+      problem out-of-order-execution).
+
+**Next action: F88 Tomasulo × reservation stations (puzzle 94);
 sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the

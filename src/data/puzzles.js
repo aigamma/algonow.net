@@ -1759,13 +1759,32 @@ export const PUZZLES = {
     vite: 'external-merge-sort-kway',
     html: 'external-merge-sort-kway/index.html',
   },
+  '/mvcc-snapshot-timestamps/': {
+    slug: 'mvcc-snapshot-timestamps',
+    problemSlug: 'concurrency-control',
+    number: 93,
+    category: 'data-retrieval',
+    algorithm: 'Multiversion concurrency control',
+    heuristic: 'Snapshot timestamps',
+    domain: 'Transaction isolation',
+    oneLiner:
+      'Every write is a new timestamped version; every transaction reads as of its snapshot: readers never block writers, audits never tear, and one named hole (write skew) waits for the unwary.',
+    description:
+      'MVCC with snapshot timestamps: 200 audits exact mid-storm vs 56% torn without versions, lost updates prevented to the count, write skew demonstrated and refuted, the vacuum ledger balanced.',
+    listenMinutes: 8,
+    time: 'O(versions) read',
+    space: 'O(history) + vacuum',
+    baseline: 'Read-latest, blind writes',
+    vite: 'mvcc-snapshot-timestamps',
+    html: 'mvcc-snapshot-timestamps/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Multiversion concurrency control', heuristic: 'Snapshot timestamps', domain: 'Transaction isolation' },
+  { algorithm: "Tomasulo's algorithm", heuristic: 'Reservation stations with register renaming', domain: 'Out-of-order execution' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

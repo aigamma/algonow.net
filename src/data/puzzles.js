@@ -1873,13 +1873,31 @@ export const PUZZLES = {
     vite: 'louvain-modularity-moves',
     html: 'louvain-modularity-moves/index.html',
   },
+  '/chandy-lamport-marker-snapshots/': {
+    slug: 'chandy-lamport-marker-snapshots',
+    problemSlug: 'distributed-snapshots',
+    number: 99,
+    category: 'distributed-systems',
+    algorithm: 'Chandy-Lamport',
+    heuristic: 'Marker-based snapshots',
+    domain: 'Distributed snapshots',
+    oneLiner:
+      'Photograph a running system without pausing it: each process records itself on first marker, and the markers sweep every channel clean: a consistent cut through causality, not time.',
+    description:
+      "Chandy-Lamport marker snapshots: 300/300 exact totals mid-flight vs the naive auditor's 0/300, zero causal violations audited message-by-message, marker accounting exact, the cut measured.",
+    listenMinutes: 8,
+    time: 'O(channels) markers',
+    space: 'O(state + in-flight)',
+    baseline: 'Staggered naive reads',
+    vite: 'chandy-lamport-marker-snapshots',
+    html: 'chandy-lamport-marker-snapshots/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Chandy-Lamport', heuristic: 'Marker-based snapshots', domain: 'Distributed snapshots' },
   { algorithm: 'Timsort', heuristic: 'Galloping merge threshold', domain: 'Real-world stable sorting' },
 ];
 

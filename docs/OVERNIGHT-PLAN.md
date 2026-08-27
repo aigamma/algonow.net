@@ -2901,8 +2901,50 @@ commit, Fable trailer on every commit, check green before each push.
       python triangle-rings merge at ALL K (measured 12..32),
       so the viz ring works at K=12.
 
-**Next action: F93 Chandy-Lamport (99), F94 Timsort (100), then
-the atlas honesty pass, then stop unit production.** Owner's overnight directive
+- [x] F93. Chandy-Lamport × marker-based snapshots. Puzzle 99,
+      slug chandy-lamport-marker-snapshots, category
+      distributed-systems, problem distributed-snapshots (link
+      verified in dist/algo/chandy-lamport). Solution
+      chandy_lamport_marker_snapshots.py: FIFO-channel token
+      simulator (6 banks, random transfers/deliveries), the full
+      protocol (first-marker recording, per-channel windows,
+      marker flood), message-level send/recv history for the
+      causal audit, a naive staggered-reads auditor on the SAME
+      storms. FOUR ORACLES, 0.14s: (1) CONSERVATION AT ZERO
+      TOLERANCE: 300 randomized runs, shutter at random moments:
+      recorded balances + channel records == 100,000 EXACTLY,
+      300/300, mean 7.2 in-flight transfers caught mid-channel;
+      the naive auditor wrong 300/300 (measured 100%, not the
+      drafted 83%: corrected); (2) CAUSAL CONSISTENCY audited
+      message-by-message: zero receives-in-cut without their
+      sends-in-cut; (3) TERMINATION: exactly one marker per
+      channel (30/run), all processes recorded, all channels
+      closed, every run; (4) client IS the audit story. Build
+      fixes: dict-comprehension NameError; staggered read
+      appointments past run end now read the final state. Cards:
+      self, Lamport timestamps (t1: the 1978 foundation: order
+      without clocks), Vector clocks (t1: full causality at O(n)
+      per message), Raft (live: consensus makes snapshots
+      trivial: the cost lives elsewhere). neverUse: A WALL-CLOCK
+      CUT OF A DISTRIBUTED SYSTEM: NTP-synchronized reads: every
+      reading true, the composite false: the failure lives
+      BETWEEN the readings: better clocks cannot see in-flight
+      messages and simultaneity is not a real thing. Figure:
+      jagged causal cut vs the straight wall-clock line through
+      three timelines, cite Chandy-Lamport ACM TOCS 3(1) 1985
+      DOI 10.1145/214451.214456 (WebSearch-verified; the
+      dinner-table origin story in origins). Viz ChandyLamportViz
+      (QC1 standard): 4-bank JS port, act 1 the shutter + marker
+      sweep with channel catches and the exact tally; act 2 the
+      naive photographer's staggered reads composing a false
+      world; scene rerolled so the snapshot catches in-flight
+      money AND the naive total is wrong. NODE-VERIFIED 10
+      cycles: snapshot == 1000 exactly with catches > 0, naive
+      wrong every cycle, final conservation intact, event replay
+      == final balances.
+
+**Next action: F94 Timsort (100), then the atlas honesty pass,
+then stop unit production.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

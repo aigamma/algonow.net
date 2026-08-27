@@ -2988,10 +2988,29 @@ commit, Fable trailer on every commit, check green before each push.
       detected run ascending after flips, multisets preserved,
       sorted target exact, gallop dividend > 2.5x every cycle.
 
-**Next action: the atlas honesty pass (the site reports 100 live
-puzzles as the real offer, the catalog as the reference map, no
-hidden-potentiality framing; hide the empty bench), then STOP
-unit production per the owner's Fable-conservation directive.** Owner's overnight directive
+- [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
+      what we have, not hidden potentiality). (1)
+      atlas-summary.json gains livePuzzles: 100, and check.mjs
+      now FAILS whenever that number differs from the registry
+      count: the honesty is mechanical, fire-tested by planting
+      648 (exact FAIL message) and restoring. (2) The atlas page
+      hero now says '3,257 REFERENCE entries that attack 648
+      CATALOGUED problems' and adds a second line: 'What the site
+      actually offers today: 100 of these pairings are built as
+      full puzzle pages... Everything else here is the reference
+      map those puzzles are drawn from: a catalog of named
+      methods, not a promise of pages.' (3) The homepage atlas
+      teaser sub: '100 of its pairings are built as the full
+      puzzle pages above; the rest are catalog entries, not
+      pages' (no more 'grows nightly': production stopped). (4)
+      The empty bench section is hidden when ROADMAP is empty.
+      Build exit 0, check exit 0 with the new gate green.
+
+**UNIT PRODUCTION STOPPED at a clean 100 live puzzles (owner's
+Fable-conservation directive, 2026-08-27). The bench is empty by
+design. Any future unit: full template + QC1 standard (per-act
+rests, crisp store) + bump livePuzzles in atlas-summary.json (the
+check enforces it).** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

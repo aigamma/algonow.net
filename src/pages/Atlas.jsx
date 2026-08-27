@@ -127,11 +127,18 @@ export default function Atlas() {
           </h1>
           <p className="hero-oneliner">
             {ALGORITHM_COUNT.toLocaleString()} algorithms and {HEURISTIC_COUNT.toLocaleString()}{' '}
-            heuristics, paired into {TOTAL.toLocaleString()} entries that attack{' '}
-            {atlasSummary.problems.toLocaleString()} problems, about five rival methods each.
-            Three tiers deep across {TOPIC_COUNT} topics in {CATEGORY_COUNT} categories: the
-            classical core beside the exotic, quantum, DNA and slime-mold computing, the
-            nature-inspired swarm, and the puzzle solvers.
+            heuristics, paired into {TOTAL.toLocaleString()} reference entries that attack{' '}
+            {atlasSummary.problems.toLocaleString()} catalogued problems, about five rival
+            methods each. Three tiers deep across {TOPIC_COUNT} topics in {CATEGORY_COUNT}{' '}
+            categories: the classical core beside the exotic, quantum, DNA and slime-mold
+            computing, the nature-inspired swarm, and the puzzle solvers.
+          </p>
+          <p className="hero-oneliner" style={{ marginTop: '0.6rem' }}>
+            What the site actually offers today:{' '}
+            <b>{atlasSummary.livePuzzles} of these pairings are built as full puzzle
+            pages</b>, each with a verified solution, a live figure, and a spoken lesson.
+            Everything else here is the reference map those puzzles are drawn from: a
+            catalog of named methods, not a promise of pages.
           </p>
         </section>
 

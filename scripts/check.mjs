@@ -384,6 +384,10 @@ if (existsSync(atlasDir)) {
       fail(`atlas-summary.json phrasings ${summary.phrasings} != actual ${realPhrasings}; update it`);
     } else if (summary.problems !== realProblems) {
       fail(`atlas-summary.json problems ${summary.problems} != actual ${realProblems}; update it`);
+    } else if (summary.livePuzzles !== Object.keys(PUZZLES).length) {
+      // The atlas page quotes this number as the site's real offer:
+      // it must equal the registry, mechanically, forever.
+      fail(`atlas-summary.json livePuzzles ${summary.livePuzzles} != registry ${Object.keys(PUZZLES).length}; update it`);
     } else {
       ok(
         `atlas-summary.json in sync (${total} entries = ${algoNames.size} algorithms x ${heurNames.size} heuristics, ` +

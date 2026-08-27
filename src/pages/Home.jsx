@@ -113,18 +113,22 @@ export default function Home() {
             </section>
           ))}
 
-          <h2 className="eyebrow">on the bench</h2>
-          <div className="pairs-grid">
-            {ROADMAP.map((p) => (
-              <div key={pairTitle(p)} className="pair-card pc-bench" aria-disabled="true">
-                <span className="pc-number">
-                  <span>soon</span>
-                </span>
-                <PairTitle algorithm={p.algorithm} heuristic={p.heuristic} />
-                <p className="pc-domain">{p.domain}</p>
+          {ROADMAP.length > 0 && (
+            <>
+              <h2 className="eyebrow">on the bench</h2>
+              <div className="pairs-grid">
+                {ROADMAP.map((p) => (
+                  <div key={pairTitle(p)} className="pair-card pc-bench" aria-disabled="true">
+                    <span className="pc-number">
+                      <span>soon</span>
+                    </span>
+                    <PairTitle algorithm={p.algorithm} heuristic={p.heuristic} />
+                    <p className="pc-domain">{p.domain}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
         </section>
 
         <a href="/atlas/" className="atlas-teaser">
@@ -140,9 +144,9 @@ export default function Home() {
             </p>
             <p className="at-sub">
               The classical core beside the exotic: quantum, DNA and slime-mold computing,
-              nature-inspired swarms, puzzle solvers. The atlas is the reference map the
-              puzzles are built from: {LIVE_PUZZLES.length} of its pairings are full puzzle
-              pages so far, and the count grows nightly.
+              nature-inspired swarms, puzzle solvers. The atlas is the reference map:{' '}
+              {LIVE_PUZZLES.length} of its pairings are built as the full puzzle pages
+              above; the rest are catalog entries, not pages.
             </p>
           </div>
           <span className="at-cta">browse the atlas →</span>

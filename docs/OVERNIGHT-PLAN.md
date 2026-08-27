@@ -280,15 +280,14 @@ Phase A standard. Candidates chosen for measurable contrast:
       established short forms; skip ambiguous stems (Seidel, Heap,
       Topological sort). A wrong synonym is worse than a missing one, and
       the atlas-chunk budget is the hard stop (aliases ship inside it).
-- [ ] G7. Homepage pairs organization (owner directive, 2026-08-26 late
-      evening): the flat pairs grid reads fine at a handful of units but
-      must not become an infinite scroll as Phase F lands. When the live
-      count passes about twelve, restructure the pairs section with a
-      creative organizing surface (group by category or problem, keep
-      today's pair anchored on top, consider a compact index or filter),
-      derived from the registry so it scales without hand upkeep. Design
-      to the existing pair-card system; homepage chunk stays inside its
-      20 KB budget.
+- [x] G7. Homepage pairs organization (owner directive, 2026-08-26 late
+      evening; landed 2026-08-27 at exactly 12 live units). Each registry
+      record now declares its atlas category, check.mjs derives the truth
+      from the pair's atlas topic file and fails on drift (so the
+      homepage never imports atlas data; the 5e01aa1 lesson), and the
+      pairs section renders as category groups (7 today) under a chip
+      jump strip with counts. Today's pair stays anchored on top; the
+      bench is unchanged. A growing catalog is navigated, not scrolled.
 
 ## Phase H. Catalog data quality (Fable main thread ONLY, rule 10)
 

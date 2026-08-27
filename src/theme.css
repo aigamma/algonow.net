@@ -172,6 +172,32 @@ code, kbd, pre { font-family: var(--font-mono); }
   background: var(--panel);
   white-space: nowrap;
 }
+
+/* Homepage category grouping (G7): the pairs section is grouped by atlas
+   category with a jump strip, so a growing catalog is navigated, not
+   scrolled. */
+.cat-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 1.4rem;
+}
+.cat-strip .chip {
+  text-decoration: none;
+}
+.cat-strip .chip:hover {
+  color: var(--ink);
+  border-color: var(--ink-faint);
+}
+.cat-count {
+  color: var(--algo);
+}
+.pairs-group {
+  margin-top: 1.6rem;
+}
+.cat-head {
+  scroll-margin-top: 84px;
+}
 .chip-algo {
   color: var(--algo);
   border-color: rgba(var(--algo-rgb), 0.35);

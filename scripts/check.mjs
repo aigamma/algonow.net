@@ -313,6 +313,23 @@ if (existsSync(atlasDir)) {
   }
   ok(`atlas total: ${total} unique entries (live pairs covered)`);
 
+  // Homepage grouping (G7): each registry record declares the category its
+  // pair belongs to, so the homepage can group without importing the atlas
+  // (which would blow the homepage chunk budget). The declaration is only
+  // trustworthy because this check derives the truth from the pair's atlas
+  // topic file and fails on drift.
+  let catChecked = 0;
+  for (const p of Object.values(PUZZLES)) {
+    const file = seen.get(`${norm(p.algorithm)}|${norm(p.heuristic)}`);
+    if (!file) continue; // already failed above
+    const want = CATEGORY_OF_TOPIC[file.replace('.json', '')];
+    if (!p.category) fail(`${p.slug}: registry record lacks category (homepage grouping)`);
+    else if (p.category !== want) {
+      fail(`${p.slug}: registry category "${p.category}" != atlas category "${want}"`);
+    } else catChecked += 1;
+  }
+  ok(`registry categories: ${catChecked} live pairs match their atlas placement`);
+
   // The homepage teaser reads a tiny committed summary (importing the full
   // atlas would bloat the homepage bundle past its budget). Keep it honest.
   const summaryPath = 'src/data/atlas-summary.json';

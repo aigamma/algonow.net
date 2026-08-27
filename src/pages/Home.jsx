@@ -1,6 +1,7 @@
 import SiteShell from '../components/SiteShell.jsx';
 import HeroDemo from '../viz/HeroDemo.jsx';
 import { LIVE_PUZZLES, ROADMAP, pairTitle, puzzlePath } from '../data/puzzles.js';
+import { CATEGORIES } from '../data/atlas-categories.js';
 import atlasSummary from '../data/atlas-summary.json';
 
 function PairTitle({ algorithm, heuristic }) {
@@ -12,6 +13,33 @@ function PairTitle({ algorithm, heuristic }) {
     </h3>
   );
 }
+
+function PairCard({ p }) {
+  return (
+    <a className="pair-card" href={puzzlePath(p)}>
+      <span className="pc-number">
+        <span>puzzle {String(p.number).padStart(2, '0')}</span>
+        <span>▶ ~{p.listenMinutes} min</span>
+      </span>
+      <PairTitle algorithm={p.algorithm} heuristic={p.heuristic} />
+      <p className="pc-domain">{p.domain}</p>
+      <span className="pc-meta">
+        <span className="chip">time {p.time}</span>
+        <span className="chip">vs {p.baseline}</span>
+      </span>
+    </a>
+  );
+}
+
+// The pairs section groups by atlas category (G7): the registry declares each
+// pair's category and the check derives the truth from the atlas, so this
+// grouping scales without importing atlas data into the homepage chunk. The
+// jump strip means a growing catalog is navigated, not scrolled.
+const GROUPS = CATEGORIES.map((c) => ({
+  key: c.key,
+  label: c.label,
+  pairs: LIVE_PUZZLES.filter((p) => p.category === c.key),
+})).filter((g) => g.pairs.length > 0);
 
 // The daily anchor: the site's purpose is daily exposure, so every visitor
 // sees the same deterministic pick on the same day, with zero storage and
@@ -64,23 +92,26 @@ export default function Home() {
             <p className="pc-domain">{today.oneLiner}</p>
           </a>
 
-          <h2 className="eyebrow">the pairs</h2>
-          <div className="pairs-grid">
-            {LIVE_PUZZLES.map((p) => (
-              <a key={p.slug} className="pair-card" href={puzzlePath(p)}>
-                <span className="pc-number">
-                  <span>puzzle {String(p.number).padStart(2, '0')}</span>
-                  <span>▶ ~{p.listenMinutes} min</span>
-                </span>
-                <PairTitle algorithm={p.algorithm} heuristic={p.heuristic} />
-                <p className="pc-domain">{p.domain}</p>
-                <span className="pc-meta">
-                  <span className="chip">time {p.time}</span>
-                  <span className="chip">vs {p.baseline}</span>
-                </span>
+          <h2 className="eyebrow">the pairs · {LIVE_PUZZLES.length} live</h2>
+          <nav className="cat-strip" aria-label="Jump to a category">
+            {GROUPS.map((g) => (
+              <a key={g.key} className="chip" href={`#cat-${g.key}`}>
+                {g.label} <b className="cat-count">{g.pairs.length}</b>
               </a>
             ))}
-          </div>
+          </nav>
+          {GROUPS.map((g) => (
+            <section key={g.key} className="pairs-group" aria-labelledby={`cat-${g.key}`}>
+              <h3 className="eyebrow cat-head" id={`cat-${g.key}`}>
+                {g.label}
+              </h3>
+              <div className="pairs-grid">
+                {g.pairs.map((p) => (
+                  <PairCard key={p.slug} p={p} />
+                ))}
+              </div>
+            </section>
+          ))}
 
           <h2 className="eyebrow">on the bench</h2>
           <div className="pairs-grid">

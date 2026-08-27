@@ -173,17 +173,35 @@ export const PUZZLES = {
     vite: 'kmp-failure-function',
     html: 'kmp-failure-function/index.html',
   },
+  '/quicksort-median-of-three/': {
+    slug: 'quicksort-median-of-three',
+    problemSlug: 'comparison-sorting',
+    number: 10,
+    algorithm: 'Quicksort',
+    heuristic: 'Median-of-three pivot',
+    domain: 'In-place comparison sorting',
+    oneLiner:
+      'Partition around a pivot and recurse; three sampled keys per split are the cheap insurance that keeps a great average case from meeting its quadratic ghost.',
+    description:
+      'Quicksort paired with the median-of-three pivot: one array sorted under two pivot rules, raced against mergesort, heapsort, Timsort, and introsort, with a tested Python solution and a spoken lesson.',
+    listenMinutes: 8,
+    time: 'O(n log n) expected',
+    space: 'O(log n)',
+    baseline: 'First-element pivot',
+    vite: 'quicksort-median-of-three',
+    html: 'quicksort-median-of-three/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F4 onward, in order), so the public promise and the plan tell one story.
+// F5 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Quicksort', heuristic: 'Median-of-three pivot', domain: 'In-place comparison sorting' },
   { algorithm: 'Bloom filter', heuristic: 'K independent hashes', domain: 'Approximate set membership' },
   { algorithm: 'HyperLogLog', heuristic: 'Leading-zero registers', domain: 'Cardinality estimation' },
   { algorithm: "Kadane's algorithm", heuristic: 'Running maximum', domain: 'Maximum subarray' },
   { algorithm: 'Huffman coding', heuristic: 'Frequency-sorted merges', domain: 'Prefix-free compression' },
+  { algorithm: "Dinic's algorithm", heuristic: 'Level-graph blocking flows', domain: 'Maximum flow' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

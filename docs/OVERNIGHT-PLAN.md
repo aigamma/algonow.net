@@ -196,7 +196,17 @@ Phase A standard. Candidates chosen for measurable contrast:
       re-read heat map, KMP vs naive on one strand. Solution oracles:
       brute-force border check, 4-way + str.find agreement on 305 cases,
       the 2n+m bound checked numerically, naive backup counter.
-- [ ] F4. Quicksort × median-of-three (vs merge, heap, introsort, Timsort)
+- [x] F4. Quicksort × median-of-three, live as puzzle 10 (2026-08-27,
+      Fable). Six methods raced in comparisons on 2,048 keys across three
+      inputs (shuffled / sorted / McIlroy killer adversary): mo3 24,303 /
+      20,493 / 1,050,624; first-element pivot 23,937 / 2,096,128 /
+      2,096,128; mergesort 19,955 / 11,264 / 20,481; heapsort 38,714 /
+      40,204 / 38,071; Timsort 19,841 / 2,047 / 2,047; introsort 24,303 /
+      20,493 / 81,685. Viz: two-panel bar race, same almost-sorted array,
+      mo3 vs first-element. Oracles: sorted() agreement on 206 cases,
+      stability pinned (merge/Timsort stable, quicksort provably not),
+      the sorted-input cliff, the adversary, the introsort rescue, and
+      Timsort's exact n-1 on sorted input.
 - [ ] F5. Bloom filter × k independent hashes (vs cuckoo, XOR, exact set)
 - [ ] F6. HyperLogLog × leading-zero registers (vs exact, Flajolet-Martin)
 - [ ] F7. Kadane × running maximum (vs divide and conquer, brute force)
@@ -315,8 +325,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: the Phase F queue, strictly sequential (F4 quicksort is
-next, then F5, F6, F7, F8...), one unit per commit+push with a
+**Next action: the Phase F queue, strictly sequential (F5 Bloom filter
+is next, then F6, F7, F8...), one unit per commit+push with a
 production deploy as units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the

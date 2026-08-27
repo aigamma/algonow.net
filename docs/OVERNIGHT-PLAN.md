@@ -2375,8 +2375,52 @@ commit, Fable trailer on every commit, check green before each push.
       no dir): Greedy set cover × Maximum-coverage selection
       (category optimization-or, problem set-cover).
 
-**Next action: F83 Greedy set cover × maximum-coverage selection
-(puzzle 89); sequentially until morning.** Owner's overnight directive
+- [x] F83. Greedy set cover × maximum-coverage selection. Puzzle
+      89, slug greedy-set-cover-max-coverage, category
+      optimization-or, problem set-cover (link verified in
+      dist/algo/greedy-set-cover). Solution
+      greedy_set_cover_max_coverage.py: bitmask greedy with
+      eval counter, brute_optimum (size-order subset search),
+      brute_best_coverage, tight_family generator. FOUR ORACLES,
+      first run clean, 0.6s: (1) 300 instances vs CERTIFIED brute
+      optima: every greedy answer a valid cover, Chvatal's H(d)
+      bound checked INSTANCE BY INSTANCE (worst 1.50x, mean
+      1.039x, exactly optimal 85%); (2) THE TIGHT FAMILY RUN:
+      2x(2^k-1) grid, two rows are OPT=2, doubling column blocks
+      are the bait: greedy takes exactly k blocks, never a row
+      (asserted per k), for k=2..9: at n=1,022 greedy 9 vs OPT 2
+      (4.5x): the log(n) LOWER bound executed; (3) the (1-1/e)
+      max-coverage guarantee vs every budget-b brute optimum on
+      200 instances: floor 63.2%, worst measured 88.9%, mean
+      99.2%; (4) client: 48-branch test-suite minimization: greedy
+      11 vs certified OPT 10 (1.10x) in 253 gain evals. No atlas
+      edit (pair t1 approximation line 2); summary stays
+      3257/2343. Cards: self, LP rounding set cover (t2, SAME d
+      phrase: the d-phrase rival rule: the other O(log n) road,
+      absorbs side constraints), Branch and bound (live: the exact
+      road, refereed this page in its simplest costume), Greedy
+      vertex cover x maximal matching (t1: factor 2: the
+      approximation factor lives in the PROBLEM, not the greed).
+      neverUse: greedy coverage where EXACT cover was asked
+      (at-most-once vs exactly-once: one word moves the problem to
+      backtracking/dancing-links territory). Figure: the trap
+      diagram (two blue OPT rows, amber doubling blocks with pick
+      order) + measured ledger, cite Chvatal Math OR 4(3) 1979 DOI
+      10.1287/moor.4.3.233 (WebSearch-verified). Viz SetCoverViz
+      two acts: act 1 dot universe + set shelf, argmax flashes,
+      gains 12>7>4>1 (submodularity watched); act 2 the trap at
+      k=5: OPT rows flash blue first, then five amber block-baits
+      cascade. NODE-VERIFIED 10 cycles: act-1 argmax HONEST
+      (re-scored per round), gains nonincreasing, valid cover,
+      reel 3-6 picks; act-2 BigInt referee: greedy takes exactly
+      K blocks widest-first, never a row, rows verified covering.
+      Bench reseeded (raft grep 0 hits, atlas t1
+      distributed-concurrent line 4, ls no dir): Raft × Leader
+      election with terms (category distributed-systems, problem
+      distributed-consensus).
+
+**Next action: F84 Raft × leader election with terms (puzzle 90);
+sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

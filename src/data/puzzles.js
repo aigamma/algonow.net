@@ -1683,13 +1683,32 @@ export const PUZZLES = {
     vite: 'modular-exponentiation-square-multiply',
     html: 'modular-exponentiation-square-multiply/index.html',
   },
+  '/greedy-set-cover-max-coverage/': {
+    slug: 'greedy-set-cover-max-coverage',
+    problemSlug: 'set-cover',
+    number: 89,
+    category: 'optimization-or',
+    algorithm: 'Greedy set cover',
+    heuristic: 'Maximum-coverage selection',
+    domain: 'Set cover approximation',
+    oneLiner:
+      'Always take the set covering the most still-uncovered elements: within H(d) of optimal, essentially unbeatable by Feige, and baited into paying log(n) by one famous family: both theorems run here.',
+    description:
+      'Greedy set cover by maximum-coverage selection: 300 certified optima, the H(d) bound checked per instance, the log(n) trap run for k=2..9, the (1-1/e) coverage floor verified on 200 budgets.',
+    listenMinutes: 8,
+    time: 'O(picks · sets)',
+    space: 'O(n) masks',
+    baseline: 'Brute subset search',
+    vite: 'greedy-set-cover-max-coverage',
+    html: 'greedy-set-cover-max-coverage/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Greedy set cover', heuristic: 'Maximum-coverage selection', domain: 'Set cover approximation' },
+  { algorithm: 'Raft', heuristic: 'Leader election with terms', domain: 'Distributed consensus' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

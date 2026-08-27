@@ -1150,8 +1150,31 @@ commit, Fable trailer on every commit, check green before each push.
       minimum taken on canvas. Bench reseeded: Karatsuba × three-
       product splitting (numerical t1, h to author per rule 2).
 
-**Next action: F49 Karatsuba × three-product splitting (author h per
-rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F49. Karatsuba × three-product splitting. Puzzle 55, numerical
+      (problemSlug integer-multiplication). The Strassen rhyme, one
+      domain earlier: Gauss's identity verified on 500 scalar cases;
+      correctness vs Python's own int product (which runs Karatsuba
+      internally above 70 digits: the grown-up referee) at 200 random
+      sizes for pure and cutoff-8 variants; counts asserted TO THE
+      INTEGER at four sizes (n^2 and 3^log2 n exactly). Headline at
+      1,024 digits: 1,048,576 vs 59,049 (17.8x, growing n^0.415). THE
+      CROSSOVER MEASURED: total ops sweep shows the grid winning
+      through 64 digits (4,096 vs 4,719) and Karatsuba first winning
+      at 128: beside CPython's shipped KARATSUBA_CUTOFF=70. Atlas:
+      Karatsuba h authored per rule 2 (Three-product splitting);
+      summary h 2328 -> 2329. Cards: self, Toom-Cook, Strassen (live
+      badge: the cross-domain rhyme), Schönhage-Strassen. neverUse:
+      the grid at cryptographic scale, with the inverse trap (pure
+      recursion below the crossover) measured in the same breath.
+      Figure: the thinning grid 64->48->36->27, cite Karatsuba-Ofman
+      1962 + the Kolmogorov seminar story. Viz: three acts: the grid
+      filling, the 3/4-per-level thinning, Gauss's identity computed
+      on live numbers. Bench: a nonexistent pair ('Ukkonen online
+      DP') was caught by grep and replaced with Smith-Waterman ×
+      zero-floored local scores (t1, h to author).
+
+**Next action: F50 Smith-Waterman × zero-floored local scores (author
+h per rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

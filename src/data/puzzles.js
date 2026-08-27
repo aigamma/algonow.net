@@ -1037,13 +1037,32 @@ export const PUZZLES = {
     vite: 'count-min-sketch-row-minima',
     html: 'count-min-sketch-row-minima/index.html',
   },
+  '/karatsuba-three-products/': {
+    slug: 'karatsuba-three-products',
+    problemSlug: 'integer-multiplication',
+    number: 55,
+    category: 'numerical',
+    algorithm: 'Karatsuba multiplication',
+    heuristic: 'Three-product splitting',
+    domain: 'Big-integer multiplication',
+    oneLiner:
+      'Gauss’s trick, deployed by a 23-year-old against his professor’s conjecture: one combined product minus two paid ones is the whole cross term, and the exponent falls to 1.585.',
+    description:
+      'Karatsuba paired with three-product splitting: 59,049 = 3¹⁰ digit mults asserted exactly where the grid pays n² = 1,048,576, the identity verified on 500 cases, the crossover measured beside CPython’s shipped 70.',
+    listenMinutes: 8,
+    time: 'O(n^1.585)',
+    space: 'O(n)',
+    baseline: 'Schoolbook grid',
+    vite: 'karatsuba-three-products',
+    html: 'karatsuba-three-products/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Karatsuba multiplication', heuristic: 'Three-product splitting', domain: 'Big-integer multiplication' },
+  { algorithm: 'Smith-Waterman', heuristic: 'Zero-floored local scores', domain: 'Local sequence alignment' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

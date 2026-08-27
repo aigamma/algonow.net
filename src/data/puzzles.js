@@ -258,13 +258,31 @@ export const PUZZLES = {
     vite: 'kadane-running-maximum',
     html: 'kadane-running-maximum/index.html',
   },
+  '/huffman-frequency-merges/': {
+    slug: 'huffman-frequency-merges',
+    problemSlug: 'prefix-codes',
+    number: 14,
+    category: 'compression-coding',
+    algorithm: 'Huffman coding',
+    heuristic: 'Frequency-sorted merges',
+    domain: 'Squeezing symbols to their frequencies',
+    oneLiner:
+      'Merge the two rarest, again and again, until one tree remains: rare symbols sink deep, common ones float shallow, and no prefix-free code can do better.',
+    description:
+      'Huffman coding paired with frequency-sorted merges: watch the optimal prefix tree build itself, measured against Shannon-Fano, arithmetic coding, and rANS on prose and on skew, with a tested Python solution.',
+    listenMinutes: 8,
+    time: 'O(k log k) build',
+    space: 'O(k)',
+    baseline: 'Fixed-width code',
+    vite: 'huffman-frequency-merges',
+    html: 'huffman-frequency-merges/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F8 onward, in order), so the public promise and the plan tell one story.
+// F9 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Huffman coding', heuristic: 'Frequency-sorted merges', domain: 'Prefix-free compression' },
   { algorithm: "Dinic's algorithm", heuristic: 'Level-graph blocking flows', domain: 'Maximum flow' },
   { algorithm: 'PageRank', heuristic: 'Damped random walk', domain: 'Ranking linked graphs' },
 ];

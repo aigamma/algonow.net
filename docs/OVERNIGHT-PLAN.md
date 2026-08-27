@@ -244,7 +244,21 @@ Phase A standard. Candidates chosen for measurable contrast:
       brute crawl, same array, same pace. Oracles: 407-case agreement
       with the definition, witnesses re-summed, all-negative convention,
       counter == n exactly, 300-update tree-vs-rescan equality.
-- [ ] F8. Huffman × frequency-sorted merges (vs Shannon-Fano, arithmetic, ANS)
+- [x] F8. Huffman × frequency-sorted merges, live as puzzle 14
+      (2026-08-27, Fable). Bits on two 200,000-symbol instances (entropy
+      floors 805,141 / 31,557): ASCII 1,600,032/1,600,000; fixed width
+      1,000,020/400,000; Shannon-Fano 810,761/203,999 (ties Huffman on
+      both these alphabets; the 200-alphabet sweep pins it never winning
+      and sometimes losing); Huffman 810,761 (0.7% off the floor) /
+      203,999 (the 1-bit floor: 6.5x entropy on skew); arithmetic
+      805,142/31,558 (one bit above the floor, both); rANS 805,168/
+      31,584. Naive RLE measured EXPANDING prose to 3,136,672 bits.
+      Real coders: 32-bit arithmetic with E1/E2/E3, byte-renormalized
+      rANS, both round-tripped. Oracles: Huffman optimal vs exhaustive
+      Kraft-feasible search on 200 alphabets, prefix-freedom + Kraft
+      sums exactly 1, the Shannon floor as an inequality, the skew
+      cliff. Viz: the tree builds itself, two lightest flash amber,
+      leaf depths become code lengths.
 - [ ] F9. Dinic × level graphs (vs Ford-Fulkerson, Edmonds-Karp, push-relabel)
 - [ ] F10. PageRank × damped random walk (vs HITS, SALSA, degree centrality)
 
@@ -358,10 +372,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: the Phase F queue, strictly sequential (F8 Huffman is
-next, then F9, F10), one unit per commit+push with a production deploy
-as units land. G7 landed at the 12-unit threshold; homepage groups now
-absorb new categories automatically.** Owner's overnight directive
+**Next action: the Phase F queue, strictly sequential (F9 Dinic is
+next, then F10), one unit per commit+push with a production deploy as
+units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

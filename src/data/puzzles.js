@@ -638,13 +638,31 @@ export const PUZZLES = {
     vite: 'quickselect-random-pivot',
     html: 'quickselect-random-pivot/index.html',
   },
+  '/bellman-ford-early-exit/': {
+    slug: 'bellman-ford-early-exit',
+    problemSlug: 'single-source-shortest-paths',
+    number: 34,
+    category: 'graphs',
+    algorithm: 'Bellman-Ford',
+    heuristic: 'Early-exit relaxation',
+    domain: 'Negative-edge shortest paths',
+    oneLiner:
+      'Relax every edge until a round goes quiet: the fixpoint is the answer, negative edges are welcome, and a loop still buzzing at round n is arbitrage, certified.',
+    description:
+      'Bellman-Ford paired with early-exit relaxation: 9 rounds instead of 999 measured, every distance confirmed by a Johnson-space referee, negative cycles returned with their sum, Dijkstra wrong 852 times.',
+    listenMinutes: 8,
+    time: 'O(n·m) worst',
+    space: 'O(n)',
+    baseline: 'Full n−1 rounds',
+    vite: 'bellman-ford-early-exit',
+    html: 'bellman-ford-early-exit/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F26 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Bellman-Ford', heuristic: 'Early-exit relaxation', domain: 'Negative-edge shortest paths' },
   { algorithm: 'Segment tree', heuristic: 'Lazy propagation', domain: 'Range updates' },
   { algorithm: 'Metropolis-Hastings', heuristic: 'Proposal acceptance ratio', domain: 'MCMC sampling' },
   { algorithm: 'Fast Fourier transform', heuristic: 'Cooley-Tukey radix-2', domain: 'Spectral analysis' },

@@ -578,10 +578,25 @@ directive; names atlas-verified):
       BFPRT + McIlroy 1999. No atlas edits (pair existed t2); summary
       stays 3256. Viz: two acts on 48 bars, act 2's killer built by a
       JS gas adversary in-module against the same code.
-- [ ] F28. Bellman-Ford × early-exit relaxation (graphs-paths; h is
-      null in atlas, author per rule 2; rivals Dijkstra (neg edges
-      break it: the neverUse), SPFA small-label-first; d
-      Negative-edge shortest paths).
+- [x] F28. Bellman-Ford × early-exit relaxation. Puzzle 34, graphs.
+      Measured at n=1,000 m=5,000 (2,017 negative edges, no negative
+      cycle PROVEN by potential construction): full schedule 5,000,000
+      relaxations, early exit 45,000 (9 rounds vs 999), SPFA 9,306,
+      Dijkstra-on-negatives 4,941 relaxations and 852/1,000 WRONG
+      (gadget certifies the greed failure deterministically). Referee:
+      Johnson-space Dijkstra (shifted nonneg weights) confirms every
+      distance: an independent algorithm in an independent currency.
+      Planted 3-cycle returned as a vertex list, certified sum -120.
+      Arbitrage reading: constructed FX table yields a -log loop
+      multiplying to 1.0064. 200 exhaustive-referee small-graph
+      trials. Cards: self, Dijkstra (live badge), SPFA
+      small-label-first (obituary cited), Distance-vector routing x
+      B-F exchange (the distributed sibling, cross-category).
+      neverUse: Dijkstra on unproven signs. Figure: hop horizons +
+      cycle round, cite Bellman 1958 DOI 10.1090/qam/102435. Atlas:
+      B-F h authored per rule 2 (Early-exit relaxation); summary
+      heuristics 2317 -> 2318. Viz: 12-village telephone chain, act 1
+      quiet-round exit, act 2 planted red loop certified at round n.
 - [ ] F29. Segment tree × lazy propagation (search-structures t1;
       rivals Fenwick (live badge), naive array, sqrt decomposition
       if in atlas; d Range updates).
@@ -703,8 +718,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F28 Bellman-Ford × early-exit relaxation, then F29-F31
-in order (fourth extension, listed under F25 above), then extend again;
+**Next action: F29 Segment tree × lazy propagation, then F30-F31 in
+order (fourth extension, listed under F25 above), then extend again;
 keep going sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the

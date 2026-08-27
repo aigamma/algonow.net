@@ -10,7 +10,7 @@
 {"a": "Dijkstra's algorithm", "h": "Binary heap priority queue", "d": "Nonnegative shortest paths", "t": 1},
 {"a": "Bidirectional Dijkstra", "h": "Balanced frontier termination", "d": "Point-to-point shortest paths", "t": 2},
 {"a": "Dial's algorithm", "h": "Bucket-indexed distances", "d": "Small-weight shortest paths", "t": 3},
-{"a": "Bellman-Ford", "h": null, "d": "Negative-edge shortest paths", "t": 1},
+{"a": "Bellman-Ford", "h": "Early-exit relaxation", "d": "Negative-edge shortest paths", "t": 1},
 {"a": "SPFA", "h": "Small-label-first queueing", "d": "Practical Bellman-Ford", "t": 3},
 {"a": "SPFA", "h": "Large-label-last queueing", "d": "Practical Bellman-Ford", "t": 3},
 {"a": "Floyd-Warshall", "h": null, "d": "All-pairs shortest paths", "t": 1},

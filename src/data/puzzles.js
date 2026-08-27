@@ -562,13 +562,31 @@ export const PUZZLES = {
     vite: 'viterbi-max-product',
     html: 'viterbi-max-product/index.html',
   },
+  '/skip-list-coin-flips/': {
+    slug: 'skip-list-coin-flips',
+    problemSlug: 'ordered-dictionary',
+    number: 30,
+    category: 'data-structures',
+    algorithm: 'Skip list',
+    heuristic: 'Coin-flip level promotion',
+    domain: 'Ordered maps by lottery',
+    oneLiner:
+      'Express lanes staffed by coin flips: ride right, overshoot, take the stairs down, and no arrival order can bias a structure whose randomness is its own.',
+    description:
+      'The skip list paired with coin-flip level promotion: express lanes by lottery, measured immune to arrival order against AVL trees, plain BSTs, and sorted arrays, with the coin itself verified.',
+    listenMinutes: 8,
+    time: 'O(log n) expected',
+    space: 'O(n), ~2× pointers',
+    baseline: 'Plain BST',
+    vite: 'skip-list-coin-flips',
+    html: 'skip-list-coin-flips/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F24 onward, in order), so the public promise and the plan tell one story.
+// F25 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Skip list', heuristic: 'Coin-flip level promotion', domain: 'Ordered maps by lottery' },
   { algorithm: "Strassen's algorithm", heuristic: 'Seven-product block split', domain: 'Fast matrix multiplication' },
 ];
 

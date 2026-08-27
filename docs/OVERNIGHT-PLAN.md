@@ -506,9 +506,22 @@ directive; names atlas-verified):
       (Kadane, W-F, Viterbi) completed and cross-referenced. Second
       ml-ai unit. Viz: the casino trellis over truth bands, backtrace
       hugging the amber loaded stretches, misses ringed red.
-- [ ] F24. Skip list × coin-flip level promotion (vs balanced BSTs,
-      sorted array; expected-log by measurement, the lottery made
-      visible).
+- [x] F24. Skip list × coin-flip level promotion, live as puzzle 30
+      (2026-08-27, Fable). n=20,000, avg visits/op under two arrival
+      orders (random / sorted): skip list 41.0 / 39.8 (immunity: the
+      lottery never sees arrivals, asserted within 15%); AVL 13.4 /
+      13.4 (the visit-count champion, immune via 1,989 rotations and
+      the machinery to perform them, invariant verified per node);
+      plain BST 16.7 / 1,182 (loves chaos, dies of order: measured at
+      n=2,000 because it is that bad); sorted array 2,514.9 / 14.2
+      (dies of chaos, loves order: the honest 2x2 of
+      order-sensitivity). The coin verified (heights >= k at rate
+      2^(1-k)); p99 search 43 visits vs log2 n = 14.3; shadow-set
+      agreement over 10K mixed ops incl. deletes and iteration.
+      Sorted-array card cross-links puzzle 22 via algoName Binary
+      search (live badge). Atlas pair already existed. Third
+      data-structures unit. Viz: lanes with coin-flip towers, the
+      staircase search, coins shown per insert.
 - [ ] F25. Strassen × seven-product block split (vs classical cubic,
       and the crossover threshold measured; author h per rule 2).
 
@@ -622,9 +635,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: the thrice-extended Phase F queue, strictly sequential
-(F24 skip list is next, then F25), one unit per commit+push with a
-production deploy as units land.** Owner's overnight directive
+**Next action: F25 Strassen, the last of the third extension, then
+extend the queue again per the standing owner directive.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

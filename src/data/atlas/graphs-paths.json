@@ -13,7 +13,7 @@
 {"a": "Bellman-Ford", "h": "Early-exit relaxation", "d": "Negative-edge shortest paths", "t": 1},
 {"a": "SPFA", "h": "Small-label-first queueing", "d": "Practical Bellman-Ford", "t": 3},
 {"a": "SPFA", "h": "Large-label-last queueing", "d": "Practical Bellman-Ford", "t": 3},
-{"a": "Floyd-Warshall", "h": null, "d": "All-pairs shortest paths", "t": 1},
+{"a": "Floyd-Warshall", "h": "Intermediate-vertex sweep", "d": "All-pairs shortest paths", "t": 1},
 {"a": "Johnson's algorithm", "h": "Reweighting potentials", "d": "Sparse all-pairs paths", "t": 2},
 {"a": "Delta-stepping", "h": "Bucketed light-heavy relaxation", "d": "Parallel shortest paths", "t": 3},
 {"a": "Seidel's algorithm", "h": null, "d": "Unweighted APSP via matrices", "t": 3},

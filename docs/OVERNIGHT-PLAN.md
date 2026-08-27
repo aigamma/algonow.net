@@ -915,10 +915,29 @@ directive; names atlas-verified):
       order, then binary-search probes landing on the green
       occurrence block. SIXTH EXTENSION COMPLETE (F38-F43).
 - Seventh F-queue extension (atlas-verified):
-- [ ] F44. Floyd-Warshall × intermediate-vertex sweep (graphs-paths
-      t1, h null: author per rule 2). Oracle: n runs of Bellman-Ford
-      referee all-pairs; negative-edge support; transitive-closure
-      reading; the k-loop-order trap (in-place correctness).
+- [x] F44. Floyd-Warshall × intermediate-vertex sweep. Puzzle 50 (a
+      round number worth noting: the site opened tonight at 8), graphs
+      (problemSlug all-pairs-shortest-paths). 200 trials refereed by
+      per-source Bellman-Ford incl. negative edges (potential
+      construction); reachability == BFS (the closure reading); 200+
+      paths reconstructed via next[][] and re-priced edge by edge; the
+      k-innermost LOOP-ORDER BUG measured wrong on 52/60 graphs AND
+      its strange redemption confirmed: repeating the wrong loop 3
+      times healed all 60; planted negative 3-cycle surfaced on the
+      diagonal. Two-terrain ledger at n=200: dense: FW 7.96M ops/0.40s
+      vs Johnson 8.0M/0.21s (honest clock note: heapq's C beats a
+      pure-python triple loop even dense); sparse (m=800): FW 4.39M
+      (blind to sparsity) vs Johnson 354,660 (12x). Johnson == FW
+      exactly on both terrains (mutual referee). Atlas: FW h authored
+      per rule 2 (Intermediate-vertex sweep); summary h 2324 -> 2325.
+      Cards: self, Johnson × reweighting, Dijkstra (live), B-F (live:
+      the referee). neverUse: the sweep past a few thousand vertices.
+      Figure: the certified-interior invariant, cite Floyd Algorithm
+      97 CACM 1962 DOI 10.1145/367766.368168. Viz: seven cities +
+      live tariff matrix, hubs opening one per round, improved cells
+      flashing, finale walking one route on the map from next[][].
+      Bench reseeded: Trie × shared-prefix branching (d fixed to the
+      atlas phrase Prefix-keyed dictionary after grep).
 
 ## Phase G. Plumbing and hygiene (added 2026-07-22 evening)
 
@@ -1030,9 +1049,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F44 Floyd-Warshall × intermediate-vertex sweep (author
-h per rule 2), seventh extension; keep going sequentially until
-morning.** Owner's overnight directive
+**Next action: F45 Trie × shared-prefix branching (author h per rule
+2), continuing the seventh extension; sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

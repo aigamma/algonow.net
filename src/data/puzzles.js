@@ -942,13 +942,32 @@ export const PUZZLES = {
     vite: 'suffix-array-prefix-doubling',
     html: 'suffix-array-prefix-doubling/index.html',
   },
+  '/floyd-warshall-vertex-sweep/': {
+    slug: 'floyd-warshall-vertex-sweep',
+    problemSlug: 'all-pairs-shortest-paths',
+    number: 50,
+    category: 'graphs',
+    algorithm: 'Floyd-Warshall',
+    heuristic: 'Intermediate-vertex sweep',
+    domain: 'All-pairs shortest paths',
+    oneLiner:
+      'Open the hubs one at a time, re-quote every pair through the newcomer: three lines, negative edges welcome, and the k-loop stays outermost or the book goes stale.',
+    description:
+      'Floyd-Warshall paired with the intermediate-vertex sweep: 200 Bellman-Ford-refereed trials, the loop-order bug wrong on 52/60 with its strange 3-pass healing confirmed, Johnson agreeing exactly at scale.',
+    listenMinutes: 8,
+    time: 'Θ(n³)',
+    space: 'Θ(n²)',
+    baseline: 'n × single-source runs',
+    vite: 'floyd-warshall-vertex-sweep',
+    html: 'floyd-warshall-vertex-sweep/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Floyd-Warshall', heuristic: 'Intermediate-vertex sweep', domain: 'All-pairs shortest paths' },
+  { algorithm: 'Trie', heuristic: 'Shared-prefix branching', domain: 'Prefix-keyed dictionary' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

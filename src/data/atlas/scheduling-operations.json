@@ -16,7 +16,7 @@
 {"a": "Coffman-Graham", "h": null, "d": "Precedence-constrained scheduling", "t": 3},
 {"a": "Shifting bottleneck", "h": null, "d": "Job-shop scheduling", "t": 3},
 {"a": "Giffler-Thompson", "h": "Active-schedule generation", "d": "Job-shop scheduling", "t": 3},
-{"a": "Rate-monotonic scheduling", "h": null, "d": "Real-time task scheduling", "t": 2},
+{"a": "Rate-monotonic scheduling", "h": "Shorter period wins", "d": "Real-time task scheduling", "t": 2},
 {"a": "Earliest deadline first", "h": "Dynamic deadline priority", "d": "Real-time scheduling", "t": 1},
 {"a": "Least laxity first", "h": null, "d": "Real-time scheduling", "t": 3},
 {"a": "Round-robin scheduling", "h": "Time quantum", "d": "CPU scheduling", "t": 1},

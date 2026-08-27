@@ -1485,8 +1485,39 @@ commit, Fable trailer on every commit, check green before each push.
       scheduling-operations, d Real-time task scheduling,
       grep-verified: the live EDF unit's natural rival).
 
-**Next action: F61 Rate-monotonic scheduling × shorter period wins
-(author h per rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F61. Rate-monotonic scheduling × shorter period wins. Puzzle
+      67, optimization-or (problemSlug realtime-scheduling, shared
+      with the live EDF: the two pages now argue both sides of the
+      same experiment). Referee: RTA vs CYCLE-ACCURATE SIMULATOR,
+      BOTH DIRECTIONS: on 200 random sets, 185 schedulable with
+      worst responses equal task-by-task, 15 RTA-rejected all
+      confirmed missing. Liu-Layland bound: 300 sets under
+      n(2^1/n-1), zero misses. THE GAP measured: 300 sets between
+      the bound and U=0.95: RM missed 10%, EDF (re-simulated) missed
+      ZERO (its U<=1 theorem, asserted). Harmonic (10,20,40 dividing)
+      clean AT U=1.0 exactly (sufficient-not-necessary made vivid).
+      The embedded classic: importance-ordered priorities (telemetry
+      crowned) starve the 5ms sensor at U=0.75 while rate order runs
+      clean at responses [1,8,54] (RTA == sim asserted). One
+      build-time correction: hand-predicted fixpoint 50 for
+      telemetry was wrong: the growing window admits more
+      preemptions: measured 54, assert fixed, lesson kept in-code.
+      Runtime 0.09s. Atlas per rule 2: scheduling-operations.json RM
+      h authored "Shorter period wins"; summary heuristics 2335 ->
+      2336. Cards: self, EDF (live), Least laxity first (tie
+      thrash), Round-robin (fairness is the wrong currency).
+      neverUse: priorities by importance (urgency lives in the
+      period; encode importance in deadlines, never priority order).
+      Figure: the two timelines at U=0.75, cite Liu-Layland JACM
+      20(1) 1973 DOI 10.1145/321738.321743. Viz: two acts, one
+      hyperperiod Gantt: act 1 the crowned telemetry walls off the
+      CPU (red X's stack on the sensor lane); act 2 rate order:
+      amber slices, blue weave, slate gaps, zero misses. Bench
+      reseeded: Suffix tree × Ukkonen online construction (t1, h
+      EXISTS, strings, d Full-text indexing, grep-verified).
+
+**Next action: F62 Suffix tree × Ukkonen online construction;
+sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

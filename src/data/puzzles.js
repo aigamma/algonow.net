@@ -1265,13 +1265,32 @@ export const PUZZLES = {
     vite: 'bitap-bitmask-fuzzy-states',
     html: 'bitap-bitmask-fuzzy-states/index.html',
   },
+  '/rate-monotonic-shorter-period/': {
+    slug: 'rate-monotonic-shorter-period',
+    problemSlug: 'realtime-scheduling',
+    number: 67,
+    category: 'optimization-or',
+    algorithm: 'Rate-monotonic scheduling',
+    heuristic: 'Shorter period wins',
+    domain: 'Real-time task scheduling',
+    oneLiner:
+      'Urgency is a property of the period, not the prestige: crown the fastest clock once, offline, and the theorem says no fixed table does better.',
+    description:
+      'Rate-monotonic paired with shorter period wins: RTA fixpoints equal to the simulator both directions, the Liu-Layland bound clean on 300 sets, the 10% gap EDF closes, harmonic clean at U=1.0.',
+    listenMinutes: 8,
+    time: 'O(1) dispatch',
+    space: 'O(n) static table',
+    baseline: 'Importance priorities',
+    vite: 'rate-monotonic-shorter-period',
+    html: 'rate-monotonic-shorter-period/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Rate-monotonic scheduling', heuristic: 'Shorter period wins', domain: 'Real-time task scheduling' },
+  { algorithm: 'Suffix tree', heuristic: 'Ukkonen online construction', domain: 'Full-text indexing' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

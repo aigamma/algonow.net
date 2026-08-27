@@ -1310,7 +1310,34 @@ commit, Fable trailer on every commit, check green before each push.
       highest-random-weight (t2, h EXISTS, distributed-concurrent,
       d Distributed key placement, grep-verified).
 
-**Next action: F55 Rendezvous hashing × highest-random-weight;
+- [x] F55. Rendezvous hashing × highest-random-weight. Puzzle 61,
+      distributed-systems (problemSlug distributed-key-placement,
+      shared with the live consistent hashing). Referee: EXHAUSTIVE
+      SET ARITHMETIC on 100,000 keys x 10 nodes (blake2b 8-byte
+      scores). Balance: every load within 5 sigma of 10,000; HRW
+      spread 1.03. THE REMOVAL THEOREM asserted key-by-key with ZERO
+      exceptions: dropping node3 moved exactly its 10,077 keys and
+      not one other. Addition: newcomer stole 9.1% ~ 1/11 (within
+      1%), never a move between old nodes. The ring re-raced: bare
+      1-vnode spread 51.16 (!), 100-vnode 1.22, both beaten by HRW's
+      1.03 with no knob. The modulo disaster measured: resize 10->11
+      moved 90.7% (assert > 0.85). Client framing: 95%-hit cache tier
+      resize = re-earn 9.1% vs 90.7% (blip vs outage). Runtime 1.5s,
+      first-run pass. No atlas h edit needed (pair existed t2 with h);
+      summary stays 3257/2333. Cards: self, Consistent hashing
+      (live), Jump consistent hash (end-only growth), Maglev (O(1)
+      table). neverUse: modulo sharding on a live cluster. Figure:
+      the one-key scoreboard with runner-up promotion, cite
+      Thaler-Ravishankar ToN 1998 DOI 10.1109/90.663936 (Michigan TR
+      1996: predates the ring by a year; PIM-SM standardized it).
+      Viz: one continuous scene: 26 keys placed by rising score bars,
+      buckets level out, the heaviest node dies red, its orphans
+      promote one-by-one while every other bucket sits still. Bench
+      reseeded: Mo's algorithm × sqrt block query ordering (t2, h
+      EXISTS, search-structures, d Offline range queries,
+      grep-verified).
+
+**Next action: F56 Mo's algorithm × sqrt block query ordering;
 sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the

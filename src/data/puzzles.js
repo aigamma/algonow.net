@@ -1151,13 +1151,32 @@ export const PUZZLES = {
     vite: 'lzw-growing-phrase-dictionary',
     html: 'lzw-growing-phrase-dictionary/index.html',
   },
+  '/rendezvous-highest-random-weight/': {
+    slug: 'rendezvous-highest-random-weight',
+    problemSlug: 'distributed-key-placement',
+    number: 61,
+    category: 'distributed-systems',
+    algorithm: 'Rendezvous hashing',
+    heuristic: 'Highest-random-weight',
+    domain: 'Distributed key placement',
+    oneLiner:
+      'Every client computes the same scoreboard and the key lives with the tallest bar: agreement without a message, and when the winner dies, the runner-up was standing there all along.',
+    description:
+      'Rendezvous hashing paired with highest-random-weight: the disruption theorem asserted key-by-key on 100,000 keys (zero exceptions), spread 1.03 vs the bare ring 51.16, the 90.7% modulo disaster raced.',
+    listenMinutes: 8,
+    time: 'O(n) per lookup',
+    space: 'O(1) state',
+    baseline: 'Modulo shard',
+    vite: 'rendezvous-highest-random-weight',
+    html: 'rendezvous-highest-random-weight/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Rendezvous hashing', heuristic: 'Highest-random-weight', domain: 'Distributed key placement' },
+  { algorithm: "Mo's algorithm", heuristic: 'Sqrt block query ordering', domain: 'Offline range queries' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

@@ -53,6 +53,16 @@ for (const p of Object.values(PUZZLES)) {
   // must carry it so the pink pill and its 7-day expiry stay true.
   if (p.added && !/^\d{4}-\d{2}-\d{2}$/.test(p.added)) {
     fail(`${p.slug}: added '${p.added}' is not YYYY-MM-DD`);
+  } else if (p.added) {
+    // The pill counts down from the puzzle's ACTUAL ship date, by
+    // owner directive: never a design/backlog date. Anything before
+    // the clean-100 launch or after today is implausible on its face.
+    const t = Date.parse(p.added);
+    if (t < Date.parse('2026-08-27')) {
+      fail(`${p.slug}: added '${p.added}' predates the clean-100 launch; use the ship date`);
+    } else if (t > Date.now() + 86400000) {
+      fail(`${p.slug}: added '${p.added}' is in the future; use the ship date`);
+    }
   }
   if (p.number > 100 && !p.added) {
     fail(`${p.slug}: puzzles after the clean-100 launch need added: 'YYYY-MM-DD' for the new pill`);

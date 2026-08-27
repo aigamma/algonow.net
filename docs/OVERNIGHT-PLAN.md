@@ -3062,3 +3062,11 @@ they are the ones most easily lost mid-run):
       every page). Unused imports dropped (atlasSummary from
       Home, ALGORITHM/HEURISTIC_COUNT from Atlas). Build 0,
       check 0.
+
+- [x] PILL DATE DISCIPLINE (owner, 2026-08-27): every future
+      puzzle's added: field is the SHIP DATE (the day the unit's
+      commit lands), never an atlas/design date: the atlas schema
+      carries no dates, so there is nothing older to inherit, and
+      check.mjs now rejects any added before 2026-08-27 (the
+      clean-100 launch) or in the future. The pill expires 7 days
+      after added, on the visitor's clock, no redeploy.

@@ -866,13 +866,31 @@ export const PUZZLES = {
     vite: 'newtons-method-tangent-iteration',
     html: 'newtons-method-tangent-iteration/index.html',
   },
+  '/fisher-yates-uniform-swaps/': {
+    slug: 'fisher-yates-uniform-swaps',
+    problemSlug: 'shuffling',
+    number: 46,
+    category: 'probabilistic',
+    algorithm: 'Fisher-Yates shuffle',
+    heuristic: 'Backward uniform swaps',
+    domain: 'Uniform permutation',
+    oneLiner:
+      'Fill the last seat from everyone still standing, lock it, repeat: n! equally likely orderings by counting, and the one-character impostor convicted by its own arithmetic.',
+    description:
+      'Fisher-Yates paired with backward uniform swaps: uniformity certified over all 24 cells (χ²=35.3), the swap-anywhere impostor matched to its exact 256-path theory at 41% worst bias, the seed ceiling measured.',
+    listenMinutes: 8,
+    time: 'O(n)',
+    space: 'O(1) in place',
+    baseline: 'Sort by random key',
+    vite: 'fisher-yates-uniform-swaps',
+    html: 'fisher-yates-uniform-swaps/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F38 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Fisher-Yates shuffle', heuristic: 'Backward uniform swaps', domain: 'Uniform permutation' },
   { algorithm: 'B-tree', heuristic: 'High-fanout node splits', domain: 'Disk-friendly ordered index' },
   { algorithm: 'Earliest deadline first', heuristic: 'Dynamic deadline priority', domain: 'Real-time scheduling' },
   { algorithm: 'Suffix array construction', heuristic: 'Prefix-doubling ranks', domain: 'Full-text indexing' },

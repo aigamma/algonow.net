@@ -825,11 +825,27 @@ directive; names atlas-verified):
       10.2307/2369492. Viz: two acts of real tangents: the stride
       home on the parabola with a live error ladder, then the cubic's
       2-cycle bouncing forever.
-- [ ] F40. Fisher-Yates shuffle × backward uniform swaps
-      (probabilistic-streaming t1, h null: author per rule 2). Exact
-      permutation-distribution oracle at n=4 (24 cells); the famous
-      swap-with-anywhere bug MEASURED as chi-square bias; sort-by-
-      random-key as honest rival.
+- [x] F40. Fisher-Yates shuffle × backward uniform swaps. Puzzle 46,
+      probabilistic (problemSlug shuffling). The distribution oracle:
+      all 24 cells over 240K shuffles, every cell within 4.5 sigma,
+      chi2 35.3 (23 dof). The impostor convicted by ITS OWN THEORY:
+      all 256 swap-anywhere paths enumerated exactly, every measured
+      cell matching the enumeration at 5 sigma, worst bias 41%, chi2
+      7,166. Sort-by-float uniform (37.3) at its price; sort-by-tiny-
+      key leaks: identity +228% (also matched to enumeration). Seed
+      ceiling MEASURED: 16-bit seeds reach 64,940 of 3,628,800
+      ten-item orderings (1.79%); 2^32 < 52! asserted (the 1999
+      Planet Poker lesson as arithmetic). Atlas: FY h authored per
+      rule 2 (Backward uniform swaps); summary h 2321 -> 2322. Cards:
+      self, Reservoir sampling (live badge), Lexicographic
+      permutations × next-permutation (the enumerator), Verifiable
+      shuffle × Neff proof (distrusted shufflers). neverUse: the
+      off-by-one impostor ("randomized code is exactly as trustworthy
+      as the tests you run against its distribution"). Figure: the
+      two decision trees (n! vs n^n leaves), cite Durstenfeld CACM
+      1964 DOI 10.1145/364520.364540. Viz: three acts: the sweep with
+      the amber unlocked bracket, then live histograms: the true
+      shuffle flat, the impostor's jagged skyline.
 - [ ] F41. B-tree × high-fanout node splits (search-structures t1, h
       null: author per rule 2). Disk-page read counter vs BST/skip
       list at scale; fanout dial measured; category data-structures.
@@ -953,8 +969,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F40 Fisher-Yates × backward uniform swaps (author h per
-rule 2), then F41-F43, sequentially until morning.** Owner's overnight directive
+**Next action: F41 B-tree × high-fanout node splits (author h per rule
+2), then F42-F43, sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

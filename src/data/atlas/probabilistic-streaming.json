@@ -52,7 +52,7 @@
 {"a": "PCG generator", "h": "Permuted output function", "d": "Statistical-quality randomness", "t": 2},
 {"a": "SplitMix64", "h": null, "d": "Seeding and fast randomness", "t": 3},
 {"a": "Linear congruential generator", "h": null, "d": "Pseudorandom generation", "t": 2},
-{"a": "Fisher-Yates shuffle", "h": null, "d": "Uniform permutation", "t": 1},
+{"a": "Fisher-Yates shuffle", "h": "Backward uniform swaps", "d": "Uniform permutation", "t": 1},
 {"a": "Reservoir permutation", "h": null, "d": "Streaming shuffle", "t": 3},
 {"a": "Vose alias sampling", "h": null, "d": "Weighted sampling", "t": 3},
 {"a": "Bloomier filter", "h": null, "d": "Approximate function lookup", "t": 3},

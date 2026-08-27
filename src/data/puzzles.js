@@ -1208,13 +1208,32 @@ export const PUZZLES = {
     vite: 'gibbs-coordinate-conditionals',
     html: 'gibbs-coordinate-conditionals/index.html',
   },
+  '/cuckoo-filter-fingerprint-eviction/': {
+    slug: 'cuckoo-filter-fingerprint-eviction',
+    problemSlug: 'frequency-estimation',
+    number: 64,
+    category: 'probabilistic',
+    algorithm: 'Cuckoo filter',
+    heuristic: 'Fingerprint eviction',
+    domain: 'Deletable set membership',
+    oneLiner:
+      'Store twelve bits of the item in one of two homes linked by an XOR: the evicted fingerprint knows where to go without knowing what it is, and deletion finally has a safe door.',
+    description:
+      'Cuckoo filter paired with fingerprint eviction: zero false negatives through 30 churn rounds, FPR 0.1535% vs law 0.1490%, the 97% load frontier, naive Bloom deletion shredding 96% of survivors.',
+    listenMinutes: 8,
+    time: 'O(1) expected/op',
+    space: 'f/load bits per item',
+    baseline: 'Bloom filter',
+    vite: 'cuckoo-filter-fingerprint-eviction',
+    html: 'cuckoo-filter-fingerprint-eviction/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Cuckoo filter', heuristic: 'Fingerprint eviction', domain: 'Deletable set membership' },
+  { algorithm: 'Toom-Cook multiplication', heuristic: 'Five-point interpolation', domain: 'Big-integer multiplication' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

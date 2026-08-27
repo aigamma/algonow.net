@@ -1393,8 +1393,37 @@ commit, Fable trailer on every commit, check green before each push.
       eviction (t2, h EXISTS, probabilistic-streaming, d Deletable
       set membership, grep-verified).
 
-**Next action: F58 Cuckoo filter × fingerprint eviction;
-sequentially until morning.** Owner's overnight directive
+- [x] F58. Cuckoo filter × fingerprint eviction. Puzzle 64,
+      probabilistic (problemSlug frequency-estimation, shared with
+      count-min and majority vote). Referee: ZERO FALSE NEGATIVES
+      asserted on every member after every operation. 50,000 items at
+      load 0.76: FPR measured 0.1535% vs the 2b*load/2^f law's
+      0.1490%. Load frontier: b=4 filled 97.1% of 4,096 slots
+      (longest kick chain 500) vs b=1 collapsing at 52.1%. Deletion:
+      25,000 leavers out with ZERO collateral on 25,000 survivors,
+      ghost rate 0.09%. Bloom naive-delete corruption measured: 96%
+      of survivors false-negatived (matches the analytic ~95.5%).
+      BUILD BUG CAUGHT: first Bloom drew 128 hash bits for indices
+      needing ~174: later indices collapsed toward 0, faking 100%
+      corruption and inflating FPR: fixed to a 32-byte digest, the
+      honest 96% kept and the lesson recorded on-page. HONEST SPACE
+      FINDING: at 76% fill cuckoo pays 15.7 bits/item vs Bloom 13.0:
+      the space win (12.4) exists only run hot: kept in table+prose.
+      Churn client: 30 rounds of 400-out/400-in at 83% load, exact
+      every round. Runtime 0.9s. No atlas edit (pair existed t2 with
+      h); summary stays 3257/2334. Cards: self, Bloom (live),
+      Counting Bloom (the 4x tax), XOR filter (static). neverUse:
+      deleting from a plain Bloom. Figure: the partial-key XOR
+      involution diagram, cite Fan-Andersen-Kaminsky-Mitzenmacher
+      CoNEXT 2014 DOI 10.1145/2674005.2674994. Viz: 16x4 table, kick
+      chains red-flashing hop by hop, load meter past 90%, then churn
+      with one-slot deletes and the zero-collateral banner. Bench
+      reseeded: Toom-Cook multiplication × five-point interpolation
+      (t2, h to author, numerical, d Big-integer multiplication,
+      grep-verified; Karatsuba's live sibling).
+
+**Next action: F59 Toom-Cook multiplication × five-point
+interpolation (author h per rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

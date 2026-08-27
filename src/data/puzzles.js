@@ -1892,13 +1892,31 @@ export const PUZZLES = {
     vite: 'chandy-lamport-marker-snapshots',
     html: 'chandy-lamport-marker-snapshots/index.html',
   },
+  '/timsort-galloping-threshold/': {
+    slug: 'timsort-galloping-threshold',
+    problemSlug: 'comparison-sorting',
+    number: 100,
+    category: 'sorting-selection',
+    algorithm: 'Timsort',
+    heuristic: 'Galloping merge threshold',
+    domain: 'Real-world stable sorting',
+    oneLiner:
+      'Hunt the order already present, keep it stable, and when one side of a merge wins seven straight, gallop in doubling strides: the sort that runs when you type sorted().',
+    description:
+      'Timsort with the galloping merge threshold: 500 arrays equal to sorted() with stability exact, the run dividend at 9.7x, the gallop isolated at 4.4x, the hysteresis tax measured at +1.2%.',
+    listenMinutes: 8,
+    time: 'O(n) to O(n log n)',
+    space: 'O(n/2) merge buffer',
+    baseline: 'Bottom-up mergesort',
+    vite: 'timsort-galloping-threshold',
+    html: 'timsort-galloping-threshold/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Timsort', heuristic: 'Galloping merge threshold', domain: 'Real-world stable sorting' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

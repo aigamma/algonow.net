@@ -2943,8 +2943,55 @@ commit, Fable trailer on every commit, check green before each push.
       wrong every cycle, final conservation intact, event replay
       == final balances.
 
-**Next action: F94 Timsort (100), then the atlas honesty pass,
-then stop unit production.** Owner's overnight directive
+- [x] F94. Timsort × galloping merge threshold. PUZZLE 100: THE
+      OWNER'S CLEAN-100 TARGET REACHED. Slug
+      timsort-galloping-threshold, category sorting-selection,
+      problem comparison-sorting (link verified in
+      dist/algo/timsort). Solution timsort_galloping_threshold.py:
+      faithful teaching Timsort: natural-run detection with
+      in-place reversal of STRICTLY descending runs (stability is
+      why strictly), minrun sizing + binary-insertion extension,
+      merge stack with invariants ASSERTED AT EVERY PUSH,
+      galloping merge (exponential probes 1,3,7,15 + binary
+      search + block copy) with MIN_GALLOP hysteresis and a
+      stability-preserving strict-inequality gallop on the right
+      run; bottom-up mergesort as the counted run-blind rival.
+      FIVE ORACLES, 0.7s: (1) sorted() referee: 500 arrays across
+      seven shapes exact; STABILITY exact on 4,000 tagged records
+      with 30 duplicate keys (Rec class with key-only
+      comparisons); (2) THE RUN DIVIDEND: nearly-sorted 50,000:
+      52,884 vs mergesort's 514,838 comparisons = 9.7x (assert
+      >8); random PARITY 0.99x (assert 0.9-1.1): hunting costs
+      nothing; (3) THE GALLOP DIVIDEND ISOLATED: same code,
+      gallop off/on, block-interleaved: 183,999 vs 41,535 = 4.4x
+      (assert >2.5); hysteresis tax on random +1.2% (assert <5%);
+      (4) THE DIAL: eager MIN_GALLOP=1 pays +77.9% on random:
+      7 is a measured balance, not folklore; (5) stack invariants
+      audited at all 64 pushes, every non-final run >= minrun.
+      Dead-code cleanup pre-run (a stray gallop_right call on
+      tuples, a placeholder loop). Cards: self, Quicksort (live:
+      primitives, in-place, unstable), Introsort (t1: the escape
+      hatch), Natural mergesort (t2: the honest ancestor: shows
+      what the stack + gallop buy). neverUse: REIMPLEMENTING THE
+      LIBRARY SORT (the page's own rebuild as the argument: the
+      JDK invariant bug shipped a decade before formal methods
+      caught it; reimplement to understand, never to deploy).
+      Figure: runs + stack + gallop probes diagram, cite Tim
+      Peters listsort.txt (CPython, canonical URL,
+      WebSearch-verified; McIlroy 1993 gallop lineage; 2015 KeY
+      verification; 2018 Powersort). Viz TimsortViz (QC1
+      standard): act 1 nearly-sorted bars -> runs light up (the
+      descending one flips) -> merge to sorted skyline; act 2
+      plod vs gallop counter race on 100-long streaks (5.0x in
+      the viz scene; streaks lengthened from 40 after the first
+      verify measured only 2.3x). NODE-VERIFIED 10 cycles: every
+      detected run ascending after flips, multisets preserved,
+      sorted target exact, gallop dividend > 2.5x every cycle.
+
+**Next action: the atlas honesty pass (the site reports 100 live
+puzzles as the real offer, the catalog as the reference map, no
+hidden-potentiality framing; hide the empty bench), then STOP
+unit production per the owner's Fable-conservation directive.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

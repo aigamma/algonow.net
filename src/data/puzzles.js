@@ -619,13 +619,31 @@ export const PUZZLES = {
     vite: 'miller-rabin-witness-rounds',
     html: 'miller-rabin-witness-rounds/index.html',
   },
+  '/quickselect-random-pivot/': {
+    slug: 'quickselect-random-pivot',
+    problemSlug: 'selection',
+    number: 33,
+    category: 'sorting-selection',
+    algorithm: 'Quickselect',
+    heuristic: 'Random pivot',
+    domain: 'Order statistics',
+    oneLiner:
+      'Partition, keep only the side holding rank k, and pick the pivot by coin: the killer built for every fixed rule has nothing to aim at.',
+    description:
+      'Quickselect paired with the random pivot: the med-3 killer is built live with McIlroy’s gas adversary, replayed to certified quadratic cost, then dissolved by the lottery at 4.54n comparisons.',
+    listenMinutes: 8,
+    time: 'O(n) expected',
+    space: 'O(1) in place',
+    baseline: 'Median-of-three pivot',
+    vite: 'quickselect-random-pivot',
+    html: 'quickselect-random-pivot/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F26 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Quickselect', heuristic: 'Random pivot', domain: 'Order statistics' },
   { algorithm: 'Bellman-Ford', heuristic: 'Early-exit relaxation', domain: 'Negative-edge shortest paths' },
   { algorithm: 'Segment tree', heuristic: 'Lazy propagation', domain: 'Range updates' },
   { algorithm: 'Metropolis-Hastings', heuristic: 'Proposal acceptance ratio', domain: 'MCMC sampling' },

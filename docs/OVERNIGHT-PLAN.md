@@ -557,11 +557,27 @@ directive; names atlas-verified):
       edits needed (pair existed with h; summary stays 3256). Viz:
       three-act courtroom (97 acquitted, 561 the Carmichael, 2047 the
       liar), chains box by box, convictions in red.
-- [ ] F27. Quickselect × random pivot (sorting t2; the t1
-      median-of-three variant is quicksort's h already, and the
-      random pivot is what makes expected-linear true; rivals:
-      median-of-three on adversarial input, median of medians, full
-      sort; d Order statistics).
+- [x] F27. Quickselect × random pivot. Puzzle 33, sorting-selection.
+      The flagship: McIlroy's gas adversary implemented and run LIVE,
+      building certified killers for med-3 (replay 1,503,501 cmps at
+      n=2,000, >= n^2/8 asserted) and first-element (3,003,000); the
+      lottery eats the same killer at 9,084 cmps (4.54n, 10-seed avg);
+      BFPRT 20,058 (10.0n, unmoved); Timsort 11,266. Friendly ledger
+      at n=100K: random 5.2n avg (classic 3.39n x ~1.5 for the 3-way
+      partition, theory matches), med3 4.36n (honestly cheaper on
+      random), MoM 11.51n, Timsort 15.29n, heapselect 1.00n at k=10 /
+      13.96n at k=n/2. All-equal storm 2.00n (3-way partition's
+      purchase). 300 duplicate-heavy referee trials incl. rank edges.
+      Discovery recorded: first-element on SORTED input is NOT
+      quadratic under a 3-way partition (measured ~75n: the swaps
+      scramble the order); folklore claim replaced by the built
+      killer, honesty noted in code comment. Cards: self
+      (Floyd-Rivest named), MoM (introselect named), Heapselect,
+      Timsort. neverUse: any fixed rule facing chosen inputs. Figure:
+      geometric collapse vs gas starvation, cite Hoare Algorithm 65 +
+      BFPRT + McIlroy 1999. No atlas edits (pair existed t2); summary
+      stays 3256. Viz: two acts on 48 bars, act 2's killer built by a
+      JS gas adversary in-module against the same code.
 - [ ] F28. Bellman-Ford × early-exit relaxation (graphs-paths; h is
       null in atlas, author per rule 2; rivals Dijkstra (neg edges
       break it: the neverUse), SPFA small-label-first; d
@@ -687,9 +703,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F27 Quickselect × random pivot, then F28-F31 in order
-(fourth extension, atlas-verified, listed under F25 above), then extend
-again; keep going sequentially until morning.** Owner's overnight directive
+**Next action: F28 Bellman-Ford × early-exit relaxation, then F29-F31
+in order (fourth extension, listed under F25 above), then extend again;
+keep going sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

@@ -410,13 +410,31 @@ export const PUZZLES = {
     vite: 'kahn-zero-indegree-queue',
     html: 'kahn-zero-indegree-queue/index.html',
   },
+  '/binary-search-halving/': {
+    slug: 'binary-search-halving',
+    problemSlug: 'sorted-array-search',
+    number: 22,
+    category: 'data-structures',
+    algorithm: 'Binary search',
+    heuristic: 'Halving invariant',
+    domain: 'Sorted-array lookup',
+    oneLiner:
+      'Keep one true sentence, "the answer lies in [lo, hi)", and probe the midpoint so either answer halves it: twenty probes on a million keys, guaranteed, on any input.',
+    description:
+      'Binary search paired with the halving invariant: one bracket, three probe policies, measured against interpolation and galloping search, with the 1946 bug pinned spinning in a test.',
+    listenMinutes: 8,
+    time: '⌈log₂ n⌉ + 1 probes',
+    space: 'O(1)',
+    baseline: 'Linear scan, n/2',
+    vite: 'binary-search-halving',
+    html: 'binary-search-halving/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F16 onward, in order), so the public promise and the plan tell one story.
+// F17 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Binary search', heuristic: 'Halving invariant', domain: 'Sorted-array lookup' },
   { algorithm: "Kruskal's algorithm", heuristic: 'Lightest-edge-first with union-find', domain: 'Minimum spanning trees' },
   { algorithm: 'Reservoir sampling', heuristic: 'Algorithm R', domain: 'Sampling unbounded streams' },
   { algorithm: 'Wagner-Fischer', heuristic: 'Prefix-to-prefix table', domain: 'Edit distance' },

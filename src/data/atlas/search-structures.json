@@ -1,6 +1,6 @@
 [
 {"a": "Linear search", "h": null, "d": "Unordered lookup", "t": 1},
-{"a": "Binary search", "h": null, "d": "Sorted-array lookup", "t": 1},
+{"a": "Binary search", "h": "Halving invariant", "d": "Sorted-array lookup", "t": 1},
 {"a": "Uniform binary search", "h": "Precomputed midpoint table", "d": "Branch-lean sorted lookup", "t": 3},
 {"a": "Exponential search", "h": "Doubling range probe", "d": "Unbounded sorted lookup", "t": 2},
 {"a": "Interpolation search", "h": "Linear key-distribution estimate", "d": "Uniform-key sorted lookup", "t": 2},

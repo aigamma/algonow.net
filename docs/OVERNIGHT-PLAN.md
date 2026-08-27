@@ -368,8 +368,20 @@ build time):
 The F-queue extends again (2026-08-27, same owner directive; names
 atlas-verified, pairs authored per rule 2 at build where h is null):
 
-- [ ] F16. Binary search × halving invariant (vs linear scan, interpolation
-      search, galloping; the off-by-one museum as oracle material).
+- [x] F16. Binary search × halving invariant, live as puzzle 22
+      (2026-08-27, Fable). 1M keys, 10K lookups/cell, average probes:
+      binary 20.0 / 19.9 / 20.0 (the flat row: minimax means no bad
+      inputs; the max over all 10,000 lookups asserted <= ceil(log2
+      n)+1); interpolation 4.9 / 250.0 / 4.9 (log log n at home, 12x
+      worse under cubic skew); exponential-from-cursor 37.9 / 37.8 /
+      9.5 (log of the hop); linear-from-cursor 25.4 near-cursor, ~n/2
+      elsewhere (4,867 measured at n=10^4). The museum piece (lo=mid
+      without +1) pinned spinning forever on [1,3] seeking 3, with the
+      1946/1962/90-percent/Java-2006 record cited on the page. Oracles:
+      100K-case bisect agreement incl. duplicates/absences/hints, both
+      interpolation faces, the gallop bound. Atlas: Binary search h
+      null -> Halving invariant (rule 2), heuristics 2,310. Viz: two
+      probe policies racing the same lookups on one strip.
 - [ ] F17. Kruskal × sorted edges with union-find (vs Prim, Boruvka,
       reverse-delete); the union-find unit becomes a live cross-link.
 - [ ] F18. Reservoir sampling × Algorithm R (vs sort-by-random-key,
@@ -492,8 +504,8 @@ commit, Fable trailer on every commit, check green before each push.
 ## Resume pointer
 
 **Next action: the twice-extended Phase F queue, strictly sequential
-(F16 binary search is next, then F17-F20), one unit per commit+push
-with a production deploy as units land.** Owner's overnight directive
+(F17 Kruskal is next, then F18-F20), one unit per commit+push with a
+production deploy as units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

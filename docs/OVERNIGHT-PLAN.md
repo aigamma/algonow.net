@@ -2187,8 +2187,54 @@ commit, Fable trailer on every commit, check green before each push.
       × Build-probe partitioning (category data-retrieval: FIRST
       unit in that category).
 
-**Next action: F79 Hash join × build-probe partitioning (puzzle
-85); sequentially until morning.** Owner's overnight directive
+- [x] F79. Hash join × build-probe partitioning. Puzzle 85, slug
+      hash-join-build-probe, category data-retrieval (FIRST unit in
+      the category), problem relational-joins (link verified in
+      dist/algo/hash-join). Solution hash_join_build_probe.py:
+      hash_join with counters (build/probes/chain-touches/memory),
+      nested_loop referee, sort_merge referee with a CountedKey
+      class so even sort comparisons are tallied, grace_join
+      partitioner. FIVE ORACLES, first run clean: (1) 200
+      duplicate-heavy instances (small key ranges, string + int
+      keys): hash == nested == sort-merge as exact sorted
+      multisets; (2) workload meter 500 x 20,000: nested loop
+      asserted EXACTLY |R|x|S| = 10,000,000; hash 20,500 (488x,
+      assert >400); sort-merge measured 245,177; (3) build-side
+      flip: identical rows at exactly |S|/|R| = 40x memory
+      (asserted to 1e-9); (4) GRACE: 16 partitions, union of
+      partition joins == full join EXACTLY; uniform keys balanced
+      (max 32 vs mean 31); THE SKEW WALL: one hot key (400/500
+      rows) drags its partition 13x the mean (assert >8):
+      partitioning cannot split a single key; (5) THE SABOTAGE:
+      constant hash pays EXACTLY |R|x|S| = 400,000 touches vs 826
+      real (484x): the nested loop reborn: a hash join is only as
+      good as its hash. Runtime 0.5s. No atlas edit (pair t1
+      databases-query line 6); summary stays 3257/2343. Cards:
+      self, Sort-merge (ordered road: wins when order pre-exists,
+      graceful under skew), Index nested loop (B+ unit tie-in: few
+      selective probes), Grace hash join (the disk sibling: this
+      page's union oracle in production form). neverUse: nested
+      loop on a large equi-join (measured 10M vs 20.5K: and the
+      sabotage meter shows a degenerate-hash join IS this disaster
+      renamed: one rule: never all-pairs prices for equality).
+      Figure: GRACE partition diagram (both sides routed by the
+      same hash, aligned partition joins, hot partition red),
+      cite Kitsuregawa-Tanaka-Moto-Oka NGC 1 1983 DOI
+      10.1007/BF03037022 (WebSearch-verified: Springer). Viz
+      HashJoinViz two acts: act 1 build drops into 12 buckets then
+      probe beams (blue) with green match sparks and an output
+      tray; act 2 constant hash: all builds in bucket 0, touch
+      counter grinds to exactly 24x36=864 vs act 1's ~90.
+      NODE-VERIFIED 8 cycles: match counts == brute in both acts,
+      sabotage bill exactly |R|x|S|, every event's bucket follows
+      its hash, counters monotone, buckets fit the frame.
+      Ship note: HTML meta was 201 chars (1 over the 200 gate,
+      caught by check): trimmed. Bench reseeded (bare-grep
+      puzzles.js empty, atlas t1 compression-coding line 53
+      confirmed, ls no directory): CRC × Polynomial division.
+
+**Next action: F80 CRC × polynomial division (puzzle 86);
+sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

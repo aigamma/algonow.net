@@ -1607,13 +1607,32 @@ export const PUZZLES = {
     vite: 'dpll-unit-propagation',
     html: 'dpll-unit-propagation/index.html',
   },
+  '/hash-join-build-probe/': {
+    slug: 'hash-join-build-probe',
+    problemSlug: 'relational-joins',
+    number: 85,
+    category: 'data-retrieval',
+    algorithm: 'Hash join',
+    heuristic: 'Build-probe partitioning',
+    domain: 'Equi-join',
+    oneLiner:
+      'Build a hash table on the small table, stream the big one past it: equal keys hash equally, so every match waits in the one bucket each probe visits: all-pairs prices retired.',
+    description:
+      'The hash join with build-probe partitioning: three join algorithms agree on 200 instances, 488x under all-pairs, the 40x build-side rule, GRACE partitioning, the skew wall, the sabotage.',
+    listenMinutes: 8,
+    time: 'O(|R| + |S|)',
+    space: 'O(min(|R|,|S|))',
+    baseline: 'Nested-loop join',
+    vite: 'hash-join-build-probe',
+    html: 'hash-join-build-probe/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Hash join', heuristic: 'Build-probe partitioning', domain: 'Equi-join' },
+  { algorithm: 'CRC', heuristic: 'Polynomial division', domain: 'Error detection' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

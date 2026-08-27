@@ -219,7 +219,19 @@ Phase A standard. Candidates chosen for measurable contrast:
       flash red. Oracles: zero false negatives everywhere, theory-range
       FP, U-curve, cuckoo delete vs pinned Bloom bit-clearing casualty,
       saturation.
-- [ ] F6. HyperLogLog × leading-zero registers (vs exact, Flajolet-Martin)
+- [x] F6. HyperLogLog × leading-zero registers, live as puzzle 12
+      (2026-08-27, Fable). One budget (~1 KB per sketch), a 1,000,000-item
+      stream with exactly 200,000 distinct: HLL 204,358 (+2.2%) at 768 B;
+      Flajolet-Martin 203,707 (+1.9%) at 1 KB; KMV 170,006 (-15%, its
+      8.8% band shown honestly); linear counting SATURATED at 1 KB (and
+      sharp below its ceiling, verified at n=1,000); exact set 200,000 at
+      3.2 MB. The tempting 1%-sample-x100 shortcut measured at 5.0x truth.
+      New atlas entry: Linear counting (Whang-Vander-Zanden-Taylor 1990),
+      t2, joins the cardinality-estimation rivals cluster; summary 3,249
+      -> 3,250. Viz: 32x32 register grid + live estimate-over-truth trace
+      inside the ±3.3% band. Oracles: 2^-r witness tail, 3-sigma landing,
+      EXACT register-for-register merge, 1/sqrt(m) error scaling,
+      saturation both ways, the sampling trap.
 - [ ] F7. Kadane × running maximum (vs divide and conquer, brute force)
 - [ ] F8. Huffman × frequency-sorted merges (vs Shannon-Fano, arithmetic, ANS)
 - [ ] F9. Dinic × level graphs (vs Ford-Fulkerson, Edmonds-Karp, push-relabel)
@@ -336,10 +348,10 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: the Phase F queue, strictly sequential (F6 HyperLogLog
-is next, then F7, F8...), one unit per commit+push with a production
-deploy as units land. G7 (homepage organization) comes due at ~12 live
-units, which F6 reaches.** Owner's overnight directive
+**Next action: G7 (homepage organization; 12 live units are now on the
+flat grid, the owner's threshold), then back to the Phase F queue
+strictly sequentially (F7 Kadane, F8, F9, F10), one unit per
+commit+push with a production deploy as units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

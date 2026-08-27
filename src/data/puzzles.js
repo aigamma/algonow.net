@@ -209,13 +209,30 @@ export const PUZZLES = {
     vite: 'bloom-filter-k-hashes',
     html: 'bloom-filter-k-hashes/index.html',
   },
+  '/hyperloglog-leading-zeros/': {
+    slug: 'hyperloglog-leading-zeros',
+    problemSlug: 'cardinality-estimation',
+    number: 12,
+    algorithm: 'HyperLogLog',
+    heuristic: 'Leading-zero registers',
+    domain: 'Counting distinct at scale',
+    oneLiner:
+      'A kilobyte of registers counts a million-item stream: the longest run of leading zeros ever seen is a witness statement about how many distinct hashes went by.',
+    description:
+      'HyperLogLog paired with leading-zero registers: watch a 768-byte sketch track a live stream against the true count, raced against Flajolet-Martin, KMV, linear counting, and an exact set.',
+    listenMinutes: 8,
+    time: 'O(1) per item',
+    space: '768 B at ±3.3%',
+    baseline: 'Exact hash set',
+    vite: 'hyperloglog-leading-zeros',
+    html: 'hyperloglog-leading-zeros/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F6 onward, in order), so the public promise and the plan tell one story.
+// F7 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'HyperLogLog', heuristic: 'Leading-zero registers', domain: 'Cardinality estimation' },
   { algorithm: "Kadane's algorithm", heuristic: 'Running maximum', domain: 'Maximum subarray' },
   { algorithm: 'Huffman coding', heuristic: 'Frequency-sorted merges', domain: 'Prefix-free compression' },
   { algorithm: "Dinic's algorithm", heuristic: 'Level-graph blocking flows', domain: 'Maximum flow' },

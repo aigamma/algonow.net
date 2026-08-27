@@ -14,6 +14,7 @@
 {"a": "LogLog counting", "h": null, "d": "Cardinality estimation", "t": 3},
 {"a": "Flajolet-Martin", "h": "Bit-pattern observables", "d": "Cardinality estimation", "t": 2},
 {"a": "K-minimum values", "h": null, "d": "Cardinality estimation", "t": 3},
+{"a": "Linear counting", "h": null, "d": "Cardinality estimation", "t": 2},
 {"a": "Theta sketch", "h": null, "d": "Set-operation cardinality", "t": 3},
 {"a": "MinHash", "h": "Bottom-k signatures", "d": "Jaccard similarity estimation", "t": 1},
 {"a": "One-permutation hashing", "h": "Densification", "d": "Fast similarity estimation", "t": 3},

@@ -1366,7 +1366,7 @@ export const PUZZLES = {
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Reservoir sampling', heuristic: 'Algorithm R', domain: 'Uniform stream sampling' },
+  { algorithm: 'Hungarian algorithm', heuristic: 'Tight-edge alternating paths', domain: 'Optimal assignment' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

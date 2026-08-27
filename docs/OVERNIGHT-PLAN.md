@@ -1654,8 +1654,30 @@ commit, Fable trailer on every commit, check green before each push.
       (t1, h EXISTS, probabilistic-streaming, d Uniform stream
       sampling, grep-verified).
 
-**Next action: F66 Reservoir sampling × Algorithm R; sequentially
-until morning.** Owner's overnight directive
+- [!] F66 NEAR-MISS, REVERTED, LESSON INSTALLED. Reservoir sampling
+      × Algorithm R was benched and fully built (solution with a
+      Fraction-exact subset-distribution referee, content,
+      narration, viz, entries): and the pair was ALREADY LIVE as
+      puzzle 24 (reservoir-algorithm-r, one of the original eight
+      units). The bench grep verified the ATLAS pair but never
+      checked the REGISTRY: the atlas h existed precisely BECAUSE
+      the unit was live. npm run check caught it (lesson-funnel FAIL
+      on the old unit's /algo/ page) before any commit or deploy.
+      Worse: the duplicate's viz reused the filename
+      src/viz/ReservoirViz.jsx, OVERWRITING the live puzzle-24 viz
+      in the working tree; the revert's rm then deleted it; restored
+      intact from HEAD (git checkout, commit 9a4f063's version;
+      production never touched: last deploy predated the overwrite).
+      All duplicate files deleted; registry entry removed; check ALL
+      GREEN again. THE RULE, amended: before benching a pair, grep
+      BOTH the atlas AND src/data/puzzles.js for the algorithm name;
+      an existing h in the atlas is a WARNING SIGN of liveness, not
+      an invitation. Bench reseeded: Hungarian algorithm ×
+      tight-edge alternating paths (t1, h null in atlas AND absent
+      from puzzles.js: both greps clean).
+
+**Next action: F66 Hungarian algorithm × tight-edge alternating
+paths (author h per rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

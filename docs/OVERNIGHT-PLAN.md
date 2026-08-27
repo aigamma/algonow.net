@@ -323,8 +323,20 @@ build time):
       descent asserted per iteration per run, coverage medians, outcome
       gaps, both boundaries. Viz: same blobs, two openings, defects
       visible. First ml-ai homepage group.
-- [ ] F13. Graham scan × polar-angle sorting (vs gift wrapping
-      (output-sensitive), Andrew monotone chain, QuickHull); geometry.
+- [x] F13. Graham scan × polar-angle sorting, live as puzzle 19
+      (2026-08-27, Fable). Work = orientation tests + sort comparisons:
+      disk (n=50,000, h=136): Graham 725,693 / monotone chain 980,336 /
+      Jarvis 6,799,728 (EXACTLY h*n, output sensitivity as poetry) /
+      Quickhull 325,961 (the disk winner). Circle (n=2,000, all on
+      hull): Graham 11,931 / Jarvis 3,996,000 (the n^2 detonation).
+      Brute-force edge definition priced at 41,433 vs 809 on 120
+      points. Three real degenerate-case bugs caught by the oracles and
+      fixed during authoring (all-collinear input, final-ray survivor,
+      Quickhull collinear far-point ties), all candidly recorded on the
+      page: the tests as teachers. Oracles: 4-way agreement on 300
+      cases incl. grids and duplicates, definition-level verification
+      of every hull, Jarvis ~h*n and >=n^2/2 pins, scan budget. Viz:
+      the string tightening, pops flashing red. First geometry group.
 - [ ] F14. Gradient descent × Polyak momentum (vs plain GD, Nesterov,
       Newton) on an ill-conditioned quadratic, iterations measured;
       numerical category; author the pair entry per rule 2.
@@ -442,9 +454,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: the extended Phase F queue, strictly sequential (F13
-Graham scan is next, then F14-F15), one unit per commit+push with a
-production deploy as units land.** Owner's overnight directive
+**Next action: the extended Phase F queue, strictly sequential (F14
+gradient descent × Polyak momentum is next, then F15), one unit per
+commit+push with a production deploy as units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

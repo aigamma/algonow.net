@@ -353,13 +353,31 @@ export const PUZZLES = {
     vite: 'kmeans-plus-plus-seeding',
     html: 'kmeans-plus-plus-seeding/index.html',
   },
+  '/graham-scan-polar-sort/': {
+    slug: 'graham-scan-polar-sort',
+    problemSlug: 'convex-hull',
+    number: 19,
+    category: 'geometry',
+    algorithm: 'Graham scan',
+    heuristic: 'Polar-angle sorting',
+    domain: 'Convex hulls in the plane',
+    oneLiner:
+      'Sort the points by angle around the lowest one and the tour never crosses itself: one forgetful pass with a stack tightens it into the hull.',
+    description:
+      'Graham scan paired with polar-angle sorting: watch the string tighten into a convex hull, measured against Jarvis march, monotone chain, and Quickhull on disks and circles, with a tested Python solution.',
+    listenMinutes: 8,
+    time: 'O(n log n)',
+    space: 'O(n)',
+    baseline: 'Edge-by-edge definition',
+    vite: 'graham-scan-polar-sort',
+    html: 'graham-scan-polar-sort/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F13 onward, in order), so the public promise and the plan tell one story.
+// F14 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Graham scan', heuristic: 'Polar-angle sorting', domain: 'Convex hulls' },
   { algorithm: 'Gradient descent', heuristic: 'Polyak momentum', domain: 'Smooth minimization' },
   { algorithm: "Kahn's algorithm", heuristic: 'Zero in-degree queue', domain: 'Ordering dependencies' },
 ];

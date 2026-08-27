@@ -1322,13 +1322,32 @@ export const PUZZLES = {
     vite: 'push-relabel-fifo-selection',
     html: 'push-relabel-fifo-selection/index.html',
   },
+  '/space-saving-min-counter/': {
+    slug: 'space-saving-min-counter',
+    problemSlug: 'frequency-estimation',
+    number: 70,
+    category: 'probabilistic',
+    algorithm: 'Space-Saving',
+    heuristic: 'Min-counter replacement',
+    domain: 'Top-k heavy hitters',
+    oneLiner:
+      'The stranger takes the coldest seat and inherits its tally, wristband recording the borrowed marks: the head of the chart stays witnessed, and the placeholders confess.',
+    description:
+      'Space-Saving paired with min-counter replacement: brackets asserted at zero tolerance, the n/m guarantee never violated, worst top-10 error 1 vs Misra-Gries 2,303, the no-skew confession.',
+    listenMinutes: 8,
+    time: 'O(1)* per item',
+    space: 'm counters',
+    baseline: 'Dictionary tally',
+    vite: 'space-saving-min-counter',
+    html: 'space-saving-min-counter/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Space-Saving', heuristic: 'Min-counter replacement', domain: 'Top-k heavy hitters' },
+  { algorithm: 'B+ tree', heuristic: 'Linked-leaf range scans', domain: 'Database range index' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

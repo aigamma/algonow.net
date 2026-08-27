@@ -1586,8 +1586,39 @@ commit, Fable trailer on every commit, check green before each push.
       grep-verified: completes the streaming trilogy with count-min
       and majority vote).
 
-**Next action: F64 Space-Saving × min-counter replacement;
-sequentially until morning.** Owner's overnight directive
+- [x] F64. Space-Saving × min-counter replacement. Puzzle 70,
+      probabilistic (problemSlug frequency-estimation: the streaming
+      shelf now complete: majority vote / Misra-Gries card /
+      count-min / cuckoo / Space-Saving). Referee: EXACT Counter
+      with per-item brackets at ZERO tolerance on 60 random Zipf
+      streams: count - err <= true <= count both directions, every
+      monitored item. The guarantee: min counter <= n/m asserted +
+      every item above n/m present, every trial. The equal-budget
+      race (200k-item Zipf alpha 1.2, 5,000 distinct, m=50): both
+      10/10 top-10 recall, worst |est-true| = 1 for Space-Saving vs
+      2,303 for Misra-Gries (tight overestimates vs decrement-
+      decayed underestimates). THE NO-SKEW CONFESSION, recalibrated
+      after a probe: the first assert guessed the zipf summary's
+      tail wrong (39/50 slots ARE placeholders): the honest contrast
+      lives at the head: Zipf top-10 worst error fraction 0.1% vs
+      uniform top-10 BEST 100% (assert <0.05 vs >0.5): rank by
+      count, trust by the gap. Budget dial: recall 3/6/10/10 at
+      m=10/20/50/200. Runtime 0.7s. Atlas: no h edit (pair existed
+      t2); summary stays 3257/2336. Cards: self, Misra-Gries,
+      Count-min (live), Majority vote (live). neverUse: reading
+      placeholder counters as measurements (a dashboard that drops
+      the error column trends fifty strangers with conviction).
+      Figure: the chart-show seats with wristbands, cite Metwally-
+      Agrawal-El Abbadi ICDT 2005 DOI 10.1007/978-3-540-30570-5_27
+      (ad-fraud origins). Viz: two acts on 12 live-sorted seats:
+      solid witnessed span vs pale inherited wristband: Zipf's head
+      goes solid while the tail churns red; uniform comes out all
+      wristband, confessing. Bench reseeded: B+ tree × linked-leaf
+      range scans (t1, h to author, search-structures, d Database
+      range index, grep-verified: the live B-tree's sibling).
+
+**Next action: F65 B+ tree × linked-leaf range scans (author h per
+rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

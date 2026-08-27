@@ -752,13 +752,31 @@ export const PUZZLES = {
     vite: 'activity-selection-earliest-finish',
     html: 'activity-selection-earliest-finish/index.html',
   },
+  '/consistent-hashing-virtual-nodes/': {
+    slug: 'consistent-hashing-virtual-nodes',
+    problemSlug: 'distributed-key-placement',
+    number: 40,
+    category: 'distributed-systems',
+    algorithm: 'Consistent hashing',
+    heuristic: 'Virtual nodes',
+    domain: 'Distributed key placement',
+    oneLiner:
+      'Pin every server to a circle many times: a departure hands over exactly its own arcs, the load levels out, and the grief scatters instead of burying one neighbor.',
+    description:
+      'Consistent hashing paired with virtual nodes: movement equals ownership asserted as set algebra, mod-N’s 90% stampede measured against theory, the vnode dial collapsing load variance 0.716 to 0.035.',
+    listenMinutes: 8,
+    time: 'O(log nv) lookup',
+    space: 'O(n·v) ring points',
+    baseline: 'mod-N rehash',
+    vite: 'consistent-hashing-virtual-nodes',
+    html: 'consistent-hashing-virtual-nodes/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F32 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Consistent hashing', heuristic: 'Virtual nodes', domain: 'Distributed key placement' },
   { algorithm: 'Closest pair divide and conquer', heuristic: 'Midline strip merge', domain: 'Closest pair of points' },
   { algorithm: 'MinHash', heuristic: 'Bottom-k signatures', domain: 'Jaccard similarity estimation' },
   { algorithm: 'Hopcroft-Karp', heuristic: 'Layered augmenting phases', domain: 'Bipartite maximum matching' },

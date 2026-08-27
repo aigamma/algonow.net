@@ -696,10 +696,27 @@ directive; names atlas-verified):
       existed t1); summary stays 3256/2318. Viz: 18 requests, two
       acts (EF sweep with room-free cursor vs shortest-first), seeded
       search guarantees the shortfall every cycle.
-- [ ] F34. Consistent hashing × virtual nodes (distributed-concurrent
-      t1, NEW site category). Oracle: exact key-movement fractions on
-      node join/leave vs mod-N rehash; vnode variance smoothing
-      measured; cards Rendezvous hashing (check atlas), mod-N.
+- [x] F34. Consistent hashing × virtual nodes. Puzzle 40,
+      distributed-systems (NEW site category; problemSlug
+      distributed-key-placement). The movement theorem asserted as SET
+      ALGEBRA (moved == owned exactly, at v=1 and v=100, and for
+      rendezvous too; joins land every moved key on the newcomer,
+      9.8%). Measured at 10 nodes / 100K keys / one removal: mod-N
+      90.0% moved (== (N-1)/N theory) at 1.02 balance (honest: the
+      modulus balances beautifully on a frozen fleet); ring v=1: 24.9%
+      moved (the victim's arc was 2.49x bloated: minimal-movement of a
+      bloated arc) with exactly 1 heir; ring v=100: 9.5% moved, 1.13
+      balance, 9 heirs; rendezvous: 9.9%, 1.02, n hashes/lookup
+      (100,000 vs 10,000 counted). Vnode dial: cv 0.716 / 0.280 /
+      0.079 / 0.035 at v=1/10/100/1000. Perf fix during build: Ring()
+      was being constructed inside dict comprehensions (4 minutes ->
+      2.0s after hoisting). Cards: self, Rendezvous × HRW, Maglev ×
+      permutation table, Bounded loads (networking). neverUse: mod-N
+      where membership changes ("the failure is scheduled"). Figure:
+      two rings (1 pin vs many), cite Karger et al. STOC 1997 DOI
+      10.1145/258533.258660. No atlas edits (pair existed t1); summary
+      stays 3256/2318. Viz: two-act ring with real arc geometry,
+      departure flash, heirs counted on canvas.
 - [ ] F35. Closest pair divide and conquer × midline strip merge
       (computational-geometry t2). Oracle: brute force O(n^2) on many
       trials; strip 7-point bound counted; cards: closest pair sweep
@@ -823,8 +840,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F34 Consistent hashing × virtual nodes, then F35-F37
-(fifth extension, listed above), sequentially until morning.** Owner's overnight directive
+**Next action: F35 Closest pair divide and conquer × midline strip
+merge, then F36-F37, sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

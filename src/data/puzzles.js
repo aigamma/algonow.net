@@ -904,13 +904,31 @@ export const PUZZLES = {
     vite: 'b-tree-high-fanout',
     html: 'b-tree-high-fanout/index.html',
   },
+  '/earliest-deadline-first/': {
+    slug: 'earliest-deadline-first',
+    problemSlug: 'realtime-scheduling',
+    number: 48,
+    category: 'optimization-or',
+    algorithm: 'Earliest deadline first',
+    heuristic: 'Dynamic deadline priority',
+    domain: 'Real-time scheduling',
+    oneLiner:
+      'Rank every job by whose clock runs out next, preempt freely: utilization up to 100% is schedulable, which no fixed priority can promise.',
+    description:
+      'EDF paired with dynamic deadline priority: the optimality theorem hammered over 780 hyperperiod simulations, the Liu-Layland gap measured as a falling curve (120/120 to 58/120), the overload flip priced.',
+    listenMinutes: 8,
+    time: 'O(log n) per decision',
+    space: 'O(n)',
+    baseline: 'Rate-monotonic (fixed priority)',
+    vite: 'earliest-deadline-first',
+    html: 'earliest-deadline-first/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F38 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Earliest deadline first', heuristic: 'Dynamic deadline priority', domain: 'Real-time scheduling' },
   { algorithm: 'Suffix array construction', heuristic: 'Prefix-doubling ranks', domain: 'Full-text indexing' },
 ];
 

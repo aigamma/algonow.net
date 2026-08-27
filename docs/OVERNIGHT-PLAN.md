@@ -869,11 +869,29 @@ directive; names atlas-verified):
       10.1007/BF00288683 + Comer 1979. Viz: a 2-3-4 tree built key by
       key with ROOT-SPLIT banners, then lookups walking root-to-leaf
       with a live page counter.
-- [ ] F42. Earliest deadline first × dynamic deadline priority
-      (scheduling-operations t1, h null: author per rule 2).
-      Preemptive simulator with deadline-miss counting; EDF to 100%
-      utilization vs rate-monotonic's Liu-Layland 69.3% bound
-      (measured schedulability sweep); overload-domino honesty.
+- [x] F42. Earliest deadline first × dynamic deadline priority.
+      Puzzle 48, optimization-or (problemSlug realtime-scheduling).
+      Discrete preemptive simulator, full hyperperiods (lcm) from the
+      synchronous critical instant. The optimality theorem HAMMERED:
+      780 task sets with U <= 1: zero EDF misses (300 broad + 480
+      binned). RM clean on 150 sets below ln 2. The Liu-Layland gap
+      as a measured curve (120 sets/bin): 120/120, 119/120, 98/120,
+      58/120 across U 0.70-1.00. Classic casualty deterministic:
+      (2,5)+(4,7) at U=97.1%: EDF clean, RM drops a job every
+      hyperperiod. Overload flip on (3,5)+(4,7) at U=1.171: EDF
+      sprays [2,2], RM shields [0,4]. HONEST FINDING kept: the first
+      overload gadget ((3,5),(3,8),(9,40)) refuted the folklore: with
+      well-separated periods EDF also shields the fast task (its
+      deadlines are always earliest); the spray needs near-equal
+      non-harmonic periods: measured, noted on the page. Atlas: EDF h
+      authored per rule 2 (Dynamic deadline priority); summary h 2323
+      -> 2324. Cards: self, Rate-monotonic (t2), Activity selection
+      (live badge: the offline non-preemptive contrast). neverUse:
+      fixed priorities past the bound, unanalyzed. Figure: the two
+      curves with the ln 2 line, cite Liu-Layland JACM 1973 DOI
+      10.1145/321738.321743 + Buttazzo's Judgment Day. Viz: the
+      classic pair's Gantt run twice: RM's red X returning every
+      hyperperiod, then EDF landing all 12 jobs.
 - [ ] F43. Suffix array construction × prefix-doubling ranks (strings
       t1). O(n log n) doubling vs naive suffix sort; binary-search
       substring queries on the repo's own text; rivals suffix
@@ -989,9 +1007,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F42 Earliest deadline first × dynamic deadline priority
-(author h per rule 2), then F43 Suffix array, sequentially until
-morning.** Owner's overnight directive
+**Next action: F43 Suffix array construction × prefix-doubling ranks,
+last of the sixth extension; then extend again if the night allows.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

@@ -207,7 +207,18 @@ Phase A standard. Candidates chosen for measurable contrast:
       stability pinned (merge/Timsort stable, quicksort provably not),
       the sorted-input cliff, the adversary, the introsort rescue, and
       Timsort's exact n-1 on sorted input.
-- [ ] F5. Bloom filter × k independent hashes (vs cuckoo, XOR, exact set)
+- [x] F5. Bloom filter × k independent hashes, live as puzzle 11
+      (2026-08-27, Fable). One budget (10,000 keys in 120,000 bits),
+      200,000 absent queries: Bloom k=8 653 lies / k=1 16,082 / k=20
+      3,049 (the U-curve measured at both ends), cuckoo 1,245 with clean
+      deletion proven, XOR 372 at 11.1 bits/key, exact set 0 at 64+.
+      Saturation cliff pinned: 74.6% lies at 5x design load. Atlas h
+      renamed "Multiple independent hashes" -> "K independent hashes"
+      (the standard parameterized name; bench promised it). Viz: two
+      panels, same bits, same keys, same strangers, k=8 vs k=1, lies
+      flash red. Oracles: zero false negatives everywhere, theory-range
+      FP, U-curve, cuckoo delete vs pinned Bloom bit-clearing casualty,
+      saturation.
 - [ ] F6. HyperLogLog × leading-zero registers (vs exact, Flajolet-Martin)
 - [ ] F7. Kadane × running maximum (vs divide and conquer, brute force)
 - [ ] F8. Huffman × frequency-sorted merges (vs Shannon-Fano, arithmetic, ANS)
@@ -325,9 +336,10 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: the Phase F queue, strictly sequential (F5 Bloom filter
-is next, then F6, F7, F8...), one unit per commit+push with a
-production deploy as units land.** Owner's overnight directive
+**Next action: the Phase F queue, strictly sequential (F6 HyperLogLog
+is next, then F7, F8...), one unit per commit+push with a production
+deploy as units land. G7 (homepage organization) comes due at ~12 live
+units, which F6 reaches.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

@@ -191,17 +191,35 @@ export const PUZZLES = {
     vite: 'quicksort-median-of-three',
     html: 'quicksort-median-of-three/index.html',
   },
+  '/bloom-filter-k-hashes/': {
+    slug: 'bloom-filter-k-hashes',
+    problemSlug: 'approximate-membership',
+    number: 11,
+    algorithm: 'Bloom filter',
+    heuristic: 'K independent hashes',
+    domain: 'Approximate set membership',
+    oneLiner:
+      'A bit array that never forgets a member and occasionally imagines one: k hash probes per key, tuned so half the bits stay zero and every zero is proof.',
+    description:
+      'A Bloom filter paired with k independent hashes: watch two filters face the same strangers at different k, raced against cuckoo and XOR filters and an exact set, with a tested Python solution.',
+    listenMinutes: 8,
+    time: 'O(k) per op',
+    space: 'm bits, 12 per key',
+    baseline: 'Exact hash set',
+    vite: 'bloom-filter-k-hashes',
+    html: 'bloom-filter-k-hashes/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F5 onward, in order), so the public promise and the plan tell one story.
+// F6 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Bloom filter', heuristic: 'K independent hashes', domain: 'Approximate set membership' },
   { algorithm: 'HyperLogLog', heuristic: 'Leading-zero registers', domain: 'Cardinality estimation' },
   { algorithm: "Kadane's algorithm", heuristic: 'Running maximum', domain: 'Maximum subarray' },
   { algorithm: 'Huffman coding', heuristic: 'Frequency-sorted merges', domain: 'Prefix-free compression' },
   { algorithm: "Dinic's algorithm", heuristic: 'Level-graph blocking flows', domain: 'Maximum flow' },
+  { algorithm: 'PageRank', heuristic: 'Damped random walk', domain: 'Ranking linked graphs' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

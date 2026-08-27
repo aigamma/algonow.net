@@ -1,5 +1,5 @@
 [
-{"a": "Bloom filter", "h": "Multiple independent hashes", "d": "Approximate set membership", "t": 1},
+{"a": "Bloom filter", "h": "K independent hashes", "d": "Approximate set membership", "t": 1},
 {"a": "Counting Bloom filter", "h": null, "d": "Deletable set membership", "t": 2},
 {"a": "Cuckoo filter", "h": "Fingerprint eviction", "d": "Deletable set membership", "t": 2},
 {"a": "Blocked Bloom filter", "h": "Cache-line locality", "d": "Fast set membership", "t": 3},

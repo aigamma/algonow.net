@@ -8,6 +8,7 @@ import assert from 'node:assert/strict';
 import path from 'node:path';
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
+import { CREATOR_LINK, HEADER_LINKS } from '../src/data/site-chrome.js';
 
 let nonce = 0;
 // Each import gets a fresh module instance, because the level is memoized.
@@ -177,6 +178,15 @@ test('SiteShell and the motion control render with no browser present', async (t
     assert.match(html, /motion: calm/, 'it opens on the calm default');
     assert.match(html, /aria-expanded="false"/, 'the panel starts closed');
     assert.match(html, /<nav class="site-nav"/, 'the rest of the header still renders');
+    for (const link of HEADER_LINKS) {
+      assert.ok(html.includes(`href="${link.href}"`), `${link.label} is in the shared header`);
+      assert.ok(
+        html.includes(`nav-pill-${link.tone}`),
+        `${link.label} carries its ${link.tone} pill tone`,
+      );
+    }
+    assert.ok(html.includes(`href="${CREATOR_LINK.href}"`), 'the creator footer links to About');
+    assert.ok(html.includes(CREATOR_LINK.label), 'the creator footer carries the standard credit');
   } finally {
     fs.rmSync(outfile, { force: true });
   }

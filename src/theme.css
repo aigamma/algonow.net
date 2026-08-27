@@ -86,16 +86,19 @@ code, kbd, pre { font-family: var(--font-mono); }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 80rem;
   min-height: 3.4rem;
   gap: 1rem;
 }
 
 .wordmark {
+  flex: none;
   font-family: var(--font-mono);
   font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--ink);
+  white-space: nowrap;
 }
 .wordmark:hover { text-decoration: none; }
 .wordmark .wm-algo { color: var(--algo); }
@@ -113,21 +116,55 @@ code, kbd, pre { font-family: var(--font-mono); }
 
 .site-nav {
   display: flex;
-  gap: 1.1rem;
+  align-items: center;
+  gap: 0.42rem;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
   font-family: var(--font-mono);
   font-size: 0.82rem;
 }
-.site-nav a { color: var(--ink-dim); }
-.site-nav a:hover { color: var(--ink); text-decoration: none; }
+.site-nav::-webkit-scrollbar { display: none; }
+.site-nav a:hover { text-decoration: none; }
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  min-height: 1.85rem;
+  border: 1px solid;
+  border-radius: 999px;
+  padding: 0.18rem 0.58rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+.nav-pill-blue {
+  color: var(--algo);
+  border-color: rgba(var(--algo-rgb), 0.5);
+  background: rgba(var(--algo-rgb), 0.09);
+}
+.nav-pill-blue:hover {
+  color: #cfe3ff;
+  border-color: rgba(var(--algo-rgb), 0.85);
+  background: rgba(var(--algo-rgb), 0.18);
+}
+.nav-pill-white {
+  color: var(--ink);
+  border-color: rgba(233, 237, 246, 0.34);
+  background: rgba(233, 237, 246, 0.055);
+}
+.nav-pill-white:hover {
+  color: #fff;
+  border-color: rgba(233, 237, 246, 0.68);
+  background: rgba(233, 237, 246, 0.12);
+}
 
 .nav-new {
   /* The header pill for the current 7-day window's puzzles. */
   color: #ff00ff !important;
   border: 1px solid rgba(255, 0, 255, 0.5);
   background: rgba(255, 0, 255, 0.1);
-  border-radius: 999px;
-  padding: 0.14rem 0.6rem;
-  font-weight: 700;
 }
 .nav-new:hover { background: rgba(255, 0, 255, 0.2); text-decoration: none; }
 .nav-new-target { scroll-margin-top: 84px; }
@@ -147,6 +184,17 @@ code, kbd, pre { font-family: var(--font-mono); }
   justify-content: space-between;
 }
 .site-footer a { color: var(--ink-dim); }
+.site-footer .site-footer-author {
+  flex-basis: 100%;
+  margin-top: 0.2rem;
+  color: var(--algo);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+.site-footer .site-footer-author:hover { color: #cfe3ff; }
 
 /* ---------- shared atoms ---------- */
 
@@ -1153,7 +1201,8 @@ code, kbd, pre { font-family: var(--font-mono); }
 .site-header-right {
   display: flex;
   align-items: center;
-  gap: 1.1rem;
+  gap: 0.7rem;
+  min-width: 0;
 }
 
 .motion-ctl { position: relative; }
@@ -1248,6 +1297,31 @@ html[data-motion='still'] .wm-caret {
   .site-header-right { gap: 0.7rem; }
   .motion-trigger-label { display: none; }
   .motion-trigger-short { display: inline; }
+}
+
+@media (max-width: 800px) {
+  .site-header .wrap {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.42rem 0.75rem;
+    min-height: auto;
+    padding-top: 0.48rem;
+    padding-bottom: 0.42rem;
+  }
+  .site-header-right { display: contents; }
+  .site-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding-bottom: 0.08rem;
+  }
+  .motion-ctl {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+  .nav-new-target, .cat-head { scroll-margin-top: 7rem; }
+  .atlas-controls { top: 5.9rem; }
+  .atlas-topic .eyebrow { position: static; }
 }
 
 /* ---------- listen player: getting out is the loudest control ---------- */

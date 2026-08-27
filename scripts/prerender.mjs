@@ -3,14 +3,15 @@
 // Why a separate prerender step rather than Vite entries: 3,500 Rollup inputs
 // would be unbuildable, and these pages need no client JavaScript at all.
 // They are read-only views of committed data, so they ship as static HTML
-// with one shared stylesheet, which keeps every page far inside the perf
-// budget and needs no hydration.
+// with one shared stylesheet and no application bundle. The only script is a
+// tiny shared helper that expires the new-puzzle pill without hydration.
 //
 // Run after `vite build`. Emits into dist/.
 import { readdirSync, readFileSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { CATEGORIES, CATEGORY_OF_TOPIC } from '../src/data/atlas-categories.js';
 import { REGISTRY_KEYS } from '../src/data/atlas-registry.js';
-import { PUZZLES, SITE_HOST, SITE_NAME } from '../src/data/puzzles.js';
+import { NEW_WINDOW_MS, PUZZLES, SITE_HOST, SITE_NAME } from '../src/data/puzzles.js';
+import { CREATOR_LINK, HEADER_LINKS } from '../src/data/site-chrome.js';
 
 const ATLAS = 'src/data/atlas';
 const OUT = 'dist';
@@ -43,6 +44,25 @@ const esc = (s) =>
     .replace(/"/g, '&quot;');
 
 const normPhrase = (s) => String(s ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
+
+const recentPuzzleTimes = Object.values(PUZZLES)
+  .map((p) => Date.parse(p.added))
+  .filter((t) => Number.isFinite(t) && Date.now() - t < NEW_WINDOW_MS);
+const newPuzzleScriptTag = recentPuzzleTimes.length
+  ? '<script defer src="/new-puzzles.js"></script>'
+  : '';
+
+function dataNav() {
+  // The shared helper keeps this count synchronized with the auto-expiring
+  // React pill without loading the full registry into thousands of pages.
+  const newPill = recentPuzzleTimes.length
+    ? `<a class="nn" href="/#new">new · <b>${recentPuzzleTimes.length}</b></a>`
+    : '';
+  const stable = HEADER_LINKS.map(
+    (link) => `<a class="n${link.tone[0]}" href="${link.href}">${esc(link.label)}</a>`,
+  ).join('');
+  return `<nav class="dn" aria-label="Site">${newPill}${stable}</nav>`;
+}
 
 // The same pair normalizer the atlas page and the live-pair check use, so a
 // live lesson is recognized under possessive and punctuation variation.
@@ -118,14 +138,13 @@ function page({ title, description, canonical, crumbs, body, head = '' }) {
 <link rel="canonical" href="${SITE_HOST}${canonical}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="${STYLE}">
-${og}${head}</head><body>
-<header class="dh"><a class="wm" href="/">algo<span>now</span></a>
-<nav class="dn"><a href="/">lessons</a><a href="/atlas/">atlas</a><a href="/category/">categories</a><a href="/problem/">problems</a></nav></header>
+${newPuzzleScriptTag}${og}${head}</head><body>
+<header class="dh"><a class="wm" href="/">algo<span>now</span></a>${dataNav()}</header>
 <main class="dw">
 <nav class="crumbs">${crumbs.map((c) => (c.href ? `<a href="${c.href}">${esc(c.label)}</a>` : `<span>${esc(c.label)}</span>`)).join('<i aria-hidden="true">/</i>')}</nav>
 ${body}
 </main>
-<footer class="df"><p>Every entry is a real named method. Pairs that share a problem are rivals; that is the point. <a href="/">The live lessons ▸</a></p></footer>
+<footer class="df"><p>Every entry is a real named method. Pairs that share a problem are rivals; that is the point. <a href="/">The live lessons ▸</a></p><a class="fa" href="${CREATOR_LINK.href}">${CREATOR_LINK.label}</a></footer>
 </body></html>`;
 }
 
@@ -359,16 +378,20 @@ ${es.map((e) => entryLine(e)).join('\n')}
   const azBar = `<nav class="az" aria-label="Jump to letter">${letters.map((l) => `<a href="#az-${l === '#' ? 'num' : l.toLowerCase()}">${l}</a>`).join('')}</nav>`;
   const sections = letters.map((l) => {
     const rows = problemList.filter((p) => letterOf(p.label) === l);
-    return `<section id="az-${l === '#' ? 'num' : l.toLowerCase()}"><h2>${l}</h2><ul class="index">${rows.map((p) => `<li><a href="/problem/${p.slug}/">${esc(p.label)}</a><b>${p.n}</b></li>`).join('')}</ul></section>`;
+    // The base URL below makes these compact relative links resolve to the
+    // same canonical paths. An li end tag is optional in HTML and omitting it
+    // gives this 648-row static index room for the shared site chrome.
+    return `<section id="az-${l === '#' ? 'num' : l.toLowerCase()}"><h2>${l}</h2><ul class="index">${rows.map((p) => `<li><a href="${p.slug}/">${esc(p.label)}</a><b>${p.n}</b>`).join('')}</ul></section>`;
   }).join('\n');
-  const statsLede = `${problemList.length} problems, A to Z. The badge is how many rival methods the atlas knows for each: ` +
-    `<b>${meanRivals.toFixed(1)}</b> on average, ${medianRivals} at the median, ${counts[counts.length - 1]} at the deepest. ` +
-    `Sort by <a href="/problem/by-rivals/">most rivals</a>, or filter by <a href="/category/">category</a>.`;
+  const statsLede = `${problemList.length} problems. Rivals: ${meanRivals.toFixed(1)} mean · ` +
+    `${medianRivals} median · ${counts[counts.length - 1]} maximum. ` +
+    `<a href="by-rivals/">Most rivals</a> · <a href="/category/">categories</a>.`;
   write('problem', page({
     title: 'Every problem in the atlas · algonow',
     description: `${problemList.length} problems, each with the rival methods that attack it.`,
     canonical: '/problem/',
     crumbs: [{ label: 'algonow', href: '/' }, { label: 'problems' }],
+    head: '<base href="/problem/">',
     body: `<h1>Problems</h1><p class="lede">${statsLede}</p>\n${azBar}\n${sections}`,
   }));
   count++;
@@ -382,9 +405,9 @@ ${es.map((e) => entryLine(e)).join('\n')}
     description: 'Every problem in the atlas, deepest rival set first.',
     canonical: '/problem/',
     crumbs: [{ label: 'algonow', href: '/' }, { label: 'problems', href: '/problem/' }, { label: 'by rivals' }],
-    head: '<meta name="robots" content="noindex,follow">',
+    head: '<base href="/problem/"><meta name="robots" content="noindex,follow">',
     body: `<h1>Problems by rival depth</h1><p class="lede">Deepest comparisons first. The same ${byRivals.length} problems <a href="/problem/">A to Z</a>.</p>
-<ul class="index">${byRivals.map((p) => `<li><a href="/problem/${p.slug}/">${esc(p.label)}</a><b>${p.n}</b></li>`).join('')}</ul>`,
+<ul class="index">${byRivals.map((p) => `<li><a href="${p.slug}/">${esc(p.label)}</a><b>${p.n}</b>`).join('')}</ul>`,
   }));
   count++;
 
@@ -449,6 +472,13 @@ ${probRows.length ? `<section><h2>Problems attacked from this category</h2><ul c
   count += 1;
 
   writeFileSync(`${OUT}/data.css`, DATA_CSS);
+  // Always emit this helper because the standalone 404 carries a hidden
+  // placeholder that it reveals only while the current new-puzzle window is
+  // active. The data pages include the script only when they render the pill.
+  writeFileSync(
+    `${OUT}/new-puzzles.js`,
+    `(()=>{const e=document.querySelector('.nn');if(!e)return;const n=[${recentPuzzleTimes.join(',')}].filter(t=>Date.now()-t<${NEW_WINDOW_MS}).length;e.hidden=!n;n?e.querySelector('b').textContent=n:e.remove()})();`,
+  );
 
   // ---- sitemaps. One file per 40,000 URLs, well inside the 50,000 limit,
   // plus an index. Alias redirect pages are deliberately excluded: they carry
@@ -506,7 +536,7 @@ const DATA_CSS = `:root{--bg:#0b0e14;--panel:#111725;--ink:#e8edf7;--dim:#9aa5bd
 a{color:var(--algo);text-decoration:none}a:hover{text-decoration:underline}
 .dh{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.25rem;border-bottom:1px solid var(--line);flex-wrap:wrap}
 .wm{font-weight:700;letter-spacing:-.02em;color:var(--ink)}.wm span{color:var(--algo)}
-.dn a{margin-left:1rem;color:var(--dim);font-size:.9rem}
+.dn{display:flex;align-items:center;gap:.4rem;min-width:0;overflow-x:auto;scrollbar-width:none}.dn::-webkit-scrollbar{display:none}.dn a{flex:none;border:1px solid;border-radius:99px;padding:.12rem .55rem;font:700 .82rem/1.45 ui-monospace,monospace}.dn a:hover{text-decoration:none}.dn .nb{color:var(--algo);border-color:rgba(93,162,255,.5);background:rgba(93,162,255,.09)}.dn .nw{color:var(--ink);border-color:rgba(232,237,247,.34);background:rgba(232,237,247,.055)}.dn .nn{color:#ff00ff;border-color:rgba(255,0,255,.5);background:rgba(255,0,255,.1)}
 .dw{max-width:60rem;margin:0 auto;padding:1.5rem 1.25rem 3rem}
 .crumbs{font:12px/1.4 ui-monospace,monospace;color:var(--dim);margin-bottom:1.25rem}.crumbs i{margin:0 .5rem;font-style:normal;opacity:.5}
 h1{font-size:1.9rem;letter-spacing:-.02em;margin:.2rem 0 .6rem}
@@ -530,8 +560,8 @@ ul{list-style:none;margin:0;padding:0}
 .az a:hover{color:var(--algo);border-color:var(--algo);text-decoration:none}
 section[id^=az-]{scroll-margin-top:1rem}
 .meta p{color:var(--dim);font-size:.9rem}
-.df{border-top:1px solid var(--line);padding:1.25rem;color:var(--dim);font-size:.85rem;text-align:center}
-@media(max-width:640px){.et{margin-left:0}}`;
+.df{border-top:1px solid var(--line);padding:1.25rem;color:var(--dim);font-size:.85rem;text-align:center}.fa{display:block;margin-top:.7rem;font-size:.9rem;font-weight:700;letter-spacing:.04em}
+@media(max-width:700px){.dn{order:3;flex-basis:100%;padding-bottom:.08rem}.et{margin-left:0}}`;
 
 const stats = main();
 console.log(

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import MotionControl from './MotionControl.jsx';
+import { CREATOR_LINK, HEADER_LINKS } from '../data/site-chrome.js';
 
 export function Wordmark() {
   return (
@@ -35,15 +36,19 @@ export default function SiteShell({ children }) {
           <div className="site-header-right">
             <nav className="site-nav" aria-label="Site">
               {newCount > 0 && (
-                <a className="nav-new" href="/#new">
+                <a className="nav-pill nav-new" href="/#new">
                   new · {newCount}
                 </a>
               )}
-              <a href="/#pairs">pairs</a>
-              <a href="/atlas/">atlas</a>
-              <a href="/problem/">problems</a>
-              <a href="/category/">fields</a>
-              <a href="/#listen">listen</a>
+              {HEADER_LINKS.map((link) => (
+                <a
+                  key={link.href}
+                  className={`nav-pill nav-pill-${link.tone}`}
+                  href={link.href}
+                >
+                  {link.label}
+                </a>
+              ))}
             </nav>
             <MotionControl />
           </div>
@@ -57,6 +62,9 @@ export default function SiteShell({ children }) {
             written twice: once for your eyes, once for your ears · solutions in{' '}
             <a href="https://www.python.org" rel="noopener">Python</a>
           </span>
+          <a className="site-footer-author" href={CREATOR_LINK.href}>
+            {CREATOR_LINK.label}
+          </a>
         </div>
       </footer>
     </>

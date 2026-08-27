@@ -5,6 +5,7 @@ import { gzipSync } from 'node:zlib';
 import { PUZZLES } from '../src/data/puzzles.js';
 import { CATEGORIES, CATEGORY_OF_TOPIC } from '../src/data/atlas-categories.js';
 import { REGISTRY_KEYS } from '../src/data/atlas-registry.js';
+import { CREATOR_LINK, HEADER_LINKS } from '../src/data/site-chrome.js';
 
 let failures = 0;
 let warnings = 0;
@@ -234,13 +235,15 @@ if (!existsSync('dist/assets')) {
   }
 
   // The prerendered data surface must actually exist in dist, and its pages
-  // must stay small. They carry no JavaScript, so anything large means a
-  // template regression.
+  // must stay small. It carries no application bundle; the pill-expiry
+  // helper has its own tiny budget below.
   const dataPages = [
+    'dist/404.html',
     'dist/problem/index.html',
     'dist/problem/by-rivals/index.html',
     'dist/category/index.html',
     'dist/data.css',
+    'dist/new-puzzles.js',
   ];
   const missingData = dataPages.filter((p) => !existsSync(p));
   if (missingData.length) {
@@ -248,12 +251,28 @@ if (!existsSync('dist/assets')) {
   } else {
     const gzOf = (p) => gzipSync(readFileSync(p)).length;
     budget('data.css', gzOf('dist/data.css'), 4 * 1024);
+    budget('new-puzzles.js', gzOf('dist/new-puzzles.js'), 1024);
     budget('html problem index', gzOf('dist/problem/index.html'), 12 * 1024);
     budget('html problem by-rivals', gzOf('dist/problem/by-rivals/index.html'), 12 * 1024);
+    const chromeLinks = [...HEADER_LINKS, CREATOR_LINK];
+    for (const [surface, file] of [
+      ['prerendered site chrome', 'dist/problem/index.html'],
+      ['404 site chrome', 'dist/404.html'],
+    ]) {
+      const chrome = readFileSync(file, 'utf8');
+      const missingChrome = chromeLinks.filter(
+        (link) => !chrome.includes(`href="${link.href}"`) || !chrome.includes(link.label),
+      );
+      if (missingChrome.length) {
+        fail(`${surface} missing: ${missingChrome.map((link) => link.label).join(', ')}`);
+      } else {
+        ok(`${surface}: ${HEADER_LINKS.length} header links plus creator footer`);
+      }
+    }
     // The by-rivals view must actually be sorted by rival depth: read its own
     // badges and require a non-increasing sequence.
     const byRivalsHtml = readFileSync('dist/problem/by-rivals/index.html', 'utf8');
-    const badge = [...byRivalsHtml.matchAll(/<a href="\/problem\/[a-z0-9-]+\/">[^<]+<\/a><b>(\d+)<\/b>/g)].map((m) => +m[1]);
+    const badge = [...byRivalsHtml.matchAll(/<a href="(?:\/problem\/)?[a-z0-9-]+\/">[^<]+<\/a><b>(\d+)<\/b>/g)].map((m) => +m[1]);
     const unsortedAt = badge.findIndex((n, i) => i > 0 && n > badge[i - 1]);
     if (badge.length < 100) fail(`by-rivals page lists only ${badge.length} problems`);
     else if (unsortedAt !== -1) fail(`by-rivals page not sorted by rival depth at row ${unsortedAt}`);
@@ -620,7 +639,7 @@ if (existsSync(atlasDir)) {
     // category page must carry its problems-in-this-category filter section.
     if (existsSync('dist/problem/index.html')) {
       const idxHtml = readFileSync('dist/problem/index.html', 'utf8');
-      const idxSlugs = [...idxHtml.matchAll(/<a href="\/problem\/([a-z0-9-]+)\/">[^<]+<\/a><b>\d+<\/b>/g)].map((m) => m[1]);
+      const idxSlugs = [...idxHtml.matchAll(/<a href="(?:\/problem\/)?([a-z0-9-]+)\/">[^<]+<\/a><b>\d+<\/b>/g)].map((m) => m[1]);
       const expected = Object.entries(problems)
         .filter(([k]) => !k.startsWith('_'))
         .sort((a, b) => a[1].label.localeCompare(b[1].label, 'en'))

@@ -5,35 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>404 · algonow</title>
     <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/data.css" />
+    <script defer src="/new-puzzles.js"></script>
     <style>
       body {
-        margin: 0;
         min-height: 100vh;
         display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto 1fr auto;
+      }
+      .nf {
+        display: grid;
         place-items: center;
-        background: #0a0d13;
-        color: #e9edf6;
-        font-family: ui-monospace, 'Cascadia Code', Consolas, Menlo, monospace;
+        padding: 3rem 1.25rem;
         text-align: center;
       }
-      h1 { font-size: 2.4rem; margin: 0 0 0.4rem; letter-spacing: -0.02em; }
-      h1 span { color: #f0b94b; }
-      p { color: #9aa5bd; margin: 0 0 1.6rem; }
-      a {
+      .nf h1 { font: 700 2.4rem/1.15 ui-monospace, monospace; margin: 0 0 0.4rem; }
+      .nf h1 span { color: #f0b94b; }
+      .nf p { color: #9aa5bd; margin: 0 0 1.6rem; }
+      .nf-home {
         color: #5da2ff;
         border: 1px solid #232c40;
         border-radius: 8px;
         padding: 0.6em 1.1em;
         text-decoration: none;
       }
-      a:hover { border-color: #5da2ff; }
+      .nf-home:hover { border-color: #5da2ff; text-decoration: none; }
     </style>
   </head>
   <body>
-    <main>
-      <h1>404 <span>·</span> goal not in the open set</h1>
-      <p>The heuristic says home is this way.</p>
-      <a href="/">← back to the pairs</a>
+    <header class="dh">
+      <a class="wm" href="/">algo<span>now</span></a>
+      <nav class="dn" aria-label="Site">
+        <a class="nn" hidden href="/#new">new · <b>0</b></a>
+        <a class="nb" href="/#pairs">pairs</a>
+        <a class="nw" href="/atlas/">atlas</a>
+        <a class="nb" href="/problem/">problems</a>
+        <a class="nw" href="/category/">fields</a>
+        <a class="nb" href="/#listen">listen</a>
+        <a class="nw" href="https://aigamma.com/">quant</a>
+        <a class="nb" href="https://ai-firehose.com/">AI</a>
+        <a class="nw" href="https://worldthought.com/">philosophy</a>
+      </nav>
+    </header>
+    <main class="nf">
+      <div>
+        <h1>404 <span>·</span> goal not in the open set</h1>
+        <p>The heuristic says home is this way.</p>
+        <a class="nf-home" href="/">← back to the pairs</a>
+      </div>
     </main>
+    <footer class="df">
+      <a class="fa" href="https://about.aigamma.com/">Created by Eric Allione</a>
+    </footer>
   </body>
 </html>

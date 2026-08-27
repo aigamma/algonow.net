@@ -18,7 +18,7 @@
 {"a": "2-SAT via implication SCC", "h": null, "d": "Boolean constraint solving", "t": 2},
 {"a": "Hopcroft-Karp", "h": "Layered augmenting phases", "d": "Bipartite maximum matching", "t": 1},
 {"a": "Kuhn's algorithm", "h": "Augmenting-path DFS", "d": "Bipartite matching", "t": 2},
-{"a": "Hungarian algorithm", "h": null, "d": "Optimal assignment", "t": 1},
+{"a": "Hungarian algorithm", "h": "Tight-edge alternating paths", "d": "Optimal assignment", "t": 1},
 {"a": "Auction algorithm", "h": "Epsilon-scaling bid increments", "d": "Assignment via bidding", "t": 2},
 {"a": "Blossom algorithm", "h": null, "d": "General graph matching", "t": 1},
 {"a": "Micali-Vazirani", "h": null, "d": "Fast general matching", "t": 3},

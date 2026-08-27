@@ -1360,13 +1360,32 @@ export const PUZZLES = {
     vite: 'bplus-tree-linked-leaves',
     html: 'bplus-tree-linked-leaves/index.html',
   },
+  '/hungarian-tight-edge-paths/': {
+    slug: 'hungarian-tight-edge-paths',
+    problemSlug: 'assignment-problem',
+    number: 72,
+    category: 'graphs',
+    algorithm: 'Hungarian algorithm',
+    heuristic: 'Tight-edge alternating paths',
+    domain: 'Optimal assignment',
+    oneLiner:
+      'Stipends and discounts that never beat a price, marriages only where the books balance to the cent: when the last worker weds, the ledger equality IS the optimality proof.',
+    description:
+      'Hungarian algorithm paired with tight-edge alternating paths: equal to all n! permutations on 150 instances, the duality certificate at every size, greedy beaten 334x on the trap and 160% on random.',
+    listenMinutes: 8,
+    time: 'O(n³)',
+    space: 'O(n²)',
+    baseline: 'Greedy assignment',
+    vite: 'hungarian-tight-edge-paths',
+    html: 'hungarian-tight-edge-paths/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Hungarian algorithm', heuristic: 'Tight-edge alternating paths', domain: 'Optimal assignment' },
+  { algorithm: 'Gale-Shapley', heuristic: 'Deferred acceptance', domain: 'Stable matching' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

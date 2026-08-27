@@ -1676,8 +1676,40 @@ commit, Fable trailer on every commit, check green before each push.
       tight-edge alternating paths (t1, h null in atlas AND absent
       from puzzles.js: both greps clean).
 
-**Next action: F66 Hungarian algorithm × tight-edge alternating
-paths (author h per rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F66. Hungarian algorithm × tight-edge alternating paths.
+      Puzzle 72, graphs (problemSlug assignment-problem: checked
+      against dist/algo/hungarian-algorithm's link). Referees:
+      EXHAUSTIVE PERMUTATION SEARCH on 150 instances (n=2..7),
+      equal every time: plus THE LP DUALITY CERTIFICATE at every
+      size: u[i]+v[j] <= c on all 22,500 pairs at n=150, matched
+      edges tight, dual total == primal cost (1,747 == 1,747), the
+      match a true permutation. The greedy trap EXACT: four
+      [[1,2],[1,1000]] blocks: greedy 4,004 vs optimal 12 (334x,
+      the shared cheap column steals the neighbor's only exit).
+      Random-cost greedy gap measured: 160% over optimal at n=150
+      (assert > 5%). The machinery counted: 886 dual updates inside
+      the n^2=22,500 bound. Runtime 0.1s, first-run pass. Origins
+      gold: named for Konig+Egervary; Munkres 1957; Jacobi had it a
+      century early (2006 rediscovery). Atlas per rule 2:
+      graphs-structure.json Hungarian h authored "Tight-edge
+      alternating paths"; summary heuristics 2337 -> 2338. Cards:
+      self, Hopcroft-Karp (live: the unweighted specialist),
+      Successive shortest paths (assignment as min-cost flow),
+      Auction algorithm (decentralized bidding). neverUse: greedy
+      assignment on shared scarcity (greedy prices what a column is
+      worth to ME, never what taking it costs everyone else).
+      Figure: the subsidy ledger with a 3x3 example, cite Kuhn NRLQ
+      2 1955 DOI 10.1002/nav.3800020109. Viz: act 1 the trap's
+      greedy cascade bleeding to 4,004 then the green optimal 12;
+      act 2 the REAL machine on a 6x6 (JS port verified in node vs
+      brute force on 8 seeds, duals feasible): tight cells green,
+      matches blue, u/v bars updating, the books balancing in the
+      banner. Bench reseeded DOUBLE-grep-verified (atlas + registry
+      per the F66 near-miss rule): Gale-Shapley × deferred
+      acceptance (t1, h exists in atlas, absent from puzzles.js).
+
+**Next action: F67 Gale-Shapley × deferred acceptance; sequentially
+until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

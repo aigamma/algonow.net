@@ -763,11 +763,55 @@ directive; names atlas-verified):
       existed t1); summary stays 3257/2319. Viz: the lottery played
       on Venn dot clouds, winner flashes, estimate meter converging
       to the true-J line.
-- [ ] F37. Hopcroft-Karp × layered augmenting phases (graphs-structure
-      t1, h null: author per rule 2 as 'Layered augmenting phases').
-      Oracle: matching size == max-flow referee (Dinic on unit graph)
-      or Konig/vertex-cover certificate; phases <= 2*sqrt(V) asserted;
-      cards Kuhn's DFS augmenting (check atlas), Dinic (live badge).
+- [x] F37. Hopcroft-Karp × layered augmenting phases. Puzzle 43,
+      graphs (problemSlug bipartite-matching). The crown oracle:
+      KONIG CERTIFICATES: from the final failed BFS the code
+      constructs a vertex cover of exactly the matching's size and
+      checks it against EVERY edge, on all 300 brute-refereed small
+      trials AND the 50K-edge instance (4,999-vertex cover verified
+      edge by edge). Measured at 5,000+5,000 / 50,000 edges: HK
+      279,886 edge touches, matching 4,999, 4 phases vs permitted
+      ~2sqrt(V)=200; Kuhn same answer at 1,776,030 touches (6.3x,
+      honest: random ground is kind to Kuhn); greedy 4,659 (93.2%
+      here, pinned to EXACTLY 50% on the constructed 500-fold P3
+      gadget). Hall-violation gadget: 10 lefts sharing 3 rights:
+      matching exactly 5 = 3+1+1, self-certified. Atlas: HK h
+      authored per rule 2 (Layered augmenting phases); summary
+      heuristics 2319 -> 2320. Cards: self, Kuhn × augmenting DFS,
+      Hungarian (the weighted boundary), Dinic (live badge: HK = Dinic
+      on unit networks). neverUse: greedy as the final answer. Figure:
+      one phase's layers + batch, cite Hopcroft-Karp SIAM JC 1973 DOI
+      10.1137/0202019. Viz: the job-fair tide: BFS ripples, batches
+      flipping together, then the Konig cover in red rings with the
+      equality on canvas (instance seeded-searched for >=2 phases
+      with a real batch). FIFTH EXTENSION COMPLETE (F32-F37).
+- Sixth F-queue extension (atlas-verified, in build order):
+- [ ] F38. Boyer-Moore × bad-character and good-suffix rules (strings
+      t1). Sublinear search: character inspections < n measured on
+      English text; rivals KMP (live), Horspool (variant named
+      in-card), naive.
+- [ ] F39. Newton's method × tangent-line iteration (numerical t1, h
+      null: author per rule 2). Quadratic convergence MEASURED as
+      digit-doubling per iteration; basin honesty: cycling and
+      divergence gadgets; rivals bisection (guaranteed, slow), secant
+      (derivative-free, 1.618 order measured).
+- [ ] F40. Fisher-Yates shuffle × backward uniform swaps
+      (probabilistic-streaming t1, h null: author per rule 2). Exact
+      permutation-distribution oracle at n=4 (24 cells); the famous
+      swap-with-anywhere bug MEASURED as chi-square bias; sort-by-
+      random-key as honest rival.
+- [ ] F41. B-tree × high-fanout node splits (search-structures t1, h
+      null: author per rule 2). Disk-page read counter vs BST/skip
+      list at scale; fanout dial measured; category data-structures.
+- [ ] F42. Earliest deadline first × dynamic deadline priority
+      (scheduling-operations t1, h null: author per rule 2).
+      Preemptive simulator with deadline-miss counting; EDF to 100%
+      utilization vs rate-monotonic's Liu-Layland 69.3% bound
+      (measured schedulability sweep); overload-domino honesty.
+- [ ] F43. Suffix array construction × prefix-doubling ranks (strings
+      t1). O(n log n) doubling vs naive suffix sort; binary-search
+      substring queries on the repo's own text; rivals suffix
+      automaton/tree if in atlas (check at build).
 
 ## Phase G. Plumbing and hygiene (added 2026-07-22 evening)
 
@@ -879,9 +923,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F37 Hopcroft-Karp × layered augmenting phases (author h
-per rule 2), last of the fifth extension; then extend again if the
-night allows.** Owner's overnight directive
+**Next action: F38 Boyer-Moore × bad-character and good-suffix rules,
+first of the sixth extension (F38-F43, listed above), sequentially
+until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

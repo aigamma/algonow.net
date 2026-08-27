@@ -809,13 +809,37 @@ export const PUZZLES = {
     vite: 'minhash-bottom-k',
     html: 'minhash-bottom-k/index.html',
   },
+  '/hopcroft-karp-layered-phases/': {
+    slug: 'hopcroft-karp-layered-phases',
+    problemSlug: 'bipartite-matching',
+    number: 43,
+    category: 'graphs',
+    algorithm: 'Hopcroft-Karp',
+    heuristic: 'Layered augmenting phases',
+    domain: 'Bipartite maximum matching',
+    oneLiner:
+      'Layer the whole graph in one BFS wave, flip a batch of disjoint shortest augmenting paths at once: about √V waves close the fair, and the failed search is the certificate.',
+    description:
+      'Hopcroft-Karp paired with layered augmenting phases: 4 phases against a permitted 200, every answer certified by a constructed König cover checked edge by edge, greedy pinned to exactly half on its gadget.',
+    listenMinutes: 8,
+    time: 'O(E·√V)',
+    space: 'O(V + E)',
+    baseline: "Kuhn's one-path DFS",
+    vite: 'hopcroft-karp-layered-phases',
+    html: 'hopcroft-karp-layered-phases/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F32 onward, in order), so the public promise and the plan tell one story.
+// F38 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Hopcroft-Karp', heuristic: 'Layered augmenting phases', domain: 'Bipartite maximum matching' },
+  { algorithm: 'Boyer-Moore', heuristic: 'Bad-character and good-suffix rules', domain: 'Substring search' },
+  { algorithm: "Newton's method", heuristic: 'Tangent-line iteration', domain: 'Root finding' },
+  { algorithm: 'Fisher-Yates shuffle', heuristic: 'Backward uniform swaps', domain: 'Uniform permutation' },
+  { algorithm: 'B-tree', heuristic: 'High-fanout node splits', domain: 'Disk-friendly ordered index' },
+  { algorithm: 'Earliest deadline first', heuristic: 'Dynamic deadline priority', domain: 'Real-time scheduling' },
+  { algorithm: 'Suffix array construction', heuristic: 'Prefix-doubling ranks', domain: 'Full-text indexing' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

@@ -16,7 +16,7 @@
 {"a": "Holm-de Lichtenberg-Thorup", "h": null, "d": "Fully dynamic connectivity", "t": 3},
 {"a": "Offline dynamic connectivity", "h": "Segment-tree edge intervals", "d": "Query-known connectivity", "t": 3},
 {"a": "2-SAT via implication SCC", "h": null, "d": "Boolean constraint solving", "t": 2},
-{"a": "Hopcroft-Karp", "h": null, "d": "Bipartite maximum matching", "t": 1},
+{"a": "Hopcroft-Karp", "h": "Layered augmenting phases", "d": "Bipartite maximum matching", "t": 1},
 {"a": "Kuhn's algorithm", "h": "Augmenting-path DFS", "d": "Bipartite matching", "t": 2},
 {"a": "Hungarian algorithm", "h": null, "d": "Optimal assignment", "t": 1},
 {"a": "Auction algorithm", "h": "Epsilon-scaling bid increments", "d": "Assignment via bidding", "t": 2},

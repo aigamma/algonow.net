@@ -1453,8 +1453,40 @@ commit, Fable trailer on every commit, check green before each push.
       (t2, h EXISTS, strings, d Approximate string matching,
       grep-verified).
 
-**Next action: F60 Bitap × bitmask fuzzy states; sequentially until
-morning.** Owner's overnight directive
+- [x] F60. Bitap × bitmask fuzzy states. Puzzle 66, strings
+      (problemSlug approximate-string-matching: the atlas d's own
+      problem page, NOT edit-distance: checked against
+      dist/algo/bitap-algorithm's link). Referee: THE SELLERS DP
+      (Wagner-Fischer's approximate form), agreeing on EVERY end
+      position: 400 exhaustive small cases (alphabets 2 and 4,
+      m 2..9, k=0..2) + the full client + a 96-char pattern past C's
+      64-bit word cliff (a cost cliff, not a correctness cliff:
+      stated). Exact mode == naive scan on 50 texts. Client: 24-base
+      probe planted in 120,000 bases with ONE substitution at
+      71,003: find() returns -1, k=0 agrees, k=1 pins end 71,027,
+      referee concurs. THE METER: n*m = 2,880,000 DP cells vs
+      n*(k+1) = 240,000 word-ops asserted exactly: 12x fewer ops,
+      each 24 lanes wide. One pre-run fix: a dead conditional
+      artifact in the accept test simplified to R[k]. Runtime 0.5s,
+      referee agreement first try. No atlas edit (pair existed t2
+      with h); summary stays 3257/2335. Cards: self, Wagner-Fischer
+      (live: the referee, keeps the traceback), Smith-Waterman
+      (live: weighted scoring), Boyer-Moore (live: exact, measured
+      blind here): THREE live badges. neverUse: exact search on text
+      that lies (clean, confident, empty: the most dangerous wrong).
+      Figure: the two lamp rows with the substitution splice, cite
+      Wu-Manber CACM 35(10) 1992 DOI 10.1145/135239.135244
+      (back-to-back with Baeza-Yates-Gonnet shift-or in the same
+      issue; Domolki 1964 in prose). Viz: one continuous scene, two
+      plants (clean + one lie): R0 lamps die at the mutated base
+      while R1 inherits through the splice and hits accept: blue vs
+      amber markers under the strip. Bench reseeded: Rate-monotonic
+      scheduling × shorter period wins (t2, h to author,
+      scheduling-operations, d Real-time task scheduling,
+      grep-verified: the live EDF unit's natural rival).
+
+**Next action: F61 Rate-monotonic scheduling × shorter period wins
+(author h per rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

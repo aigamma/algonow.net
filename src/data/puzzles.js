@@ -1246,13 +1246,32 @@ export const PUZZLES = {
     vite: 'toom-cook-five-point-interpolation',
     html: 'toom-cook-five-point-interpolation/index.html',
   },
+  '/bitap-bitmask-fuzzy-states/': {
+    slug: 'bitap-bitmask-fuzzy-states',
+    problemSlug: 'approximate-string-matching',
+    number: 66,
+    category: 'strings',
+    algorithm: 'Bitap algorithm',
+    heuristic: 'Bitmask fuzzy states',
+    domain: 'Approximate string matching',
+    oneLiner:
+      'Bit j of the register means the first j+1 pattern characters still might end here: one shift-AND advances every hypothesis at once, and a second register forgives one lie.',
+    description:
+      'Bitap paired with bitmask fuzzy states: the Sellers DP packed into words, 240,000 word-ops vs 2,880,000 cells for identical positions, the planted typo exact search misses, 400 referee cases.',
+    listenMinutes: 8,
+    time: 'O(n·(k+1)) word-ops',
+    space: 'O(σ + k)',
+    baseline: 'Sellers DP',
+    vite: 'bitap-bitmask-fuzzy-states',
+    html: 'bitap-bitmask-fuzzy-states/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Bitap algorithm', heuristic: 'Bitmask fuzzy states', domain: 'Approximate string matching' },
+  { algorithm: 'Rate-monotonic scheduling', heuristic: 'Shorter period wins', domain: 'Real-time task scheduling' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

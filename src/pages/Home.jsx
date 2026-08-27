@@ -1,6 +1,6 @@
 import SiteShell from '../components/SiteShell.jsx';
 import HeroDemo from '../viz/HeroDemo.jsx';
-import { LIVE_PUZZLES, ROADMAP, pairTitle, puzzlePath } from '../data/puzzles.js';
+import { LIVE_PUZZLES, ROADMAP, pairTitle, puzzlePath, isNewPuzzle } from '../data/puzzles.js';
 import { CATEGORIES } from '../data/atlas-categories.js';
 
 function PairTitle({ algorithm, heuristic }) {
@@ -17,7 +17,10 @@ function PairCard({ p }) {
   return (
     <a className="pair-card" href={puzzlePath(p)}>
       <span className="pc-number">
-        <span>puzzle {String(p.number).padStart(2, '0')}</span>
+        <span>
+          puzzle {String(p.number).padStart(2, '0')}
+          {isNewPuzzle(p) && <span className="pc-new">new</span>}
+        </span>
         <span>▶ ~{p.listenMinutes} min</span>
       </span>
       <PairTitle algorithm={p.algorithm} heuristic={p.heuristic} />
@@ -84,7 +87,10 @@ export default function Home() {
           <h2 className="eyebrow">today&apos;s pair</h2>
           <a className="pair-card pc-today" href={puzzlePath(today)}>
             <span className="pc-number">
-              <span>puzzle {String(today.number).padStart(2, '0')} · today</span>
+              <span>
+                puzzle {String(today.number).padStart(2, '0')} · today
+                {isNewPuzzle(today) && <span className="pc-new">new</span>}
+              </span>
               <span>▶ Listen · ~{today.listenMinutes} min</span>
             </span>
             <PairTitle algorithm={today.algorithm} heuristic={today.heuristic} />

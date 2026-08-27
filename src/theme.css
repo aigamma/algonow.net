@@ -346,6 +346,19 @@ code, kbd, pre { font-family: var(--font-mono); }
   display: flex;
   justify-content: space-between;
 }
+.pc-new {
+  /* The owner's pick: #ff00ff marks puzzles added within 7 days. */
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ff00ff;
+  border: 1px solid rgba(255, 0, 255, 0.5);
+  background: rgba(255, 0, 255, 0.1);
+  border-radius: 999px;
+  padding: 0.08rem 0.5rem;
+  margin-left: 0.5rem;
+}
 .pair-card h3 {
   font-family: var(--font-mono);
   font-size: 1.02rem;

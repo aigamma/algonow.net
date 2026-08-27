@@ -49,6 +49,15 @@ for (const p of Object.values(PUZZLES)) {
   if (missing.length) fail(`${p.slug}: missing ${missing.join(', ')}`);
   else ok(`${p.slug}: all five unit files present`);
 
+  // The new-puzzle pill reads `added`; every post-launch puzzle
+  // must carry it so the pink pill and its 7-day expiry stay true.
+  if (p.added && !/^\d{4}-\d{2}-\d{2}$/.test(p.added)) {
+    fail(`${p.slug}: added '${p.added}' is not YYYY-MM-DD`);
+  }
+  if (p.number > 100 && !p.added) {
+    fail(`${p.slug}: puzzles after the clean-100 launch need added: 'YYYY-MM-DD' for the new pill`);
+  }
+
   const html = readFileSync(`${p.slug}/index.html`, 'utf8');
   const desc = html.match(/<meta\s+name="description"\s+content="([^"]+)"/);
   if (!html.includes('<title>')) fail(`${p.slug}: entry html lacks <title>`);

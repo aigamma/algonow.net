@@ -1837,6 +1837,7 @@ export const PUZZLES = {
   },
   '/kalman-covariance-correction/': {
     slug: 'kalman-covariance-correction',
+    added: '2026-08-27',
     problemSlug: 'state-estimation',
     number: 97,
     category: 'signal-graphics',
@@ -1856,6 +1857,7 @@ export const PUZZLES = {
   },
   '/louvain-modularity-moves/': {
     slug: 'louvain-modularity-moves',
+    added: '2026-08-27',
     problemSlug: 'community-detection',
     number: 98,
     category: 'graphs',
@@ -1875,6 +1877,7 @@ export const PUZZLES = {
   },
   '/chandy-lamport-marker-snapshots/': {
     slug: 'chandy-lamport-marker-snapshots',
+    added: '2026-08-27',
     problemSlug: 'distributed-snapshots',
     number: 99,
     category: 'distributed-systems',
@@ -1894,6 +1897,7 @@ export const PUZZLES = {
   },
   '/timsort-galloping-threshold/': {
     slug: 'timsort-galloping-threshold',
+    added: '2026-08-27',
     problemSlug: 'comparison-sorting',
     number: 100,
     category: 'sorting-selection',
@@ -1918,6 +1922,18 @@ export const PUZZLES = {
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
 ];
+
+
+// The pink new-puzzle pill: a puzzle carrying an `added` date wears
+// it for seven days, client-side, then it disappears on its own.
+// Puzzles from the original clean-100 launch carry no date and
+// never pill; the check requires the field on every later number.
+export const NEW_WINDOW_MS = 7 * 86400000;
+export function isNewPuzzle(p, now = Date.now()) {
+  if (!p.added) return false;
+  const t = Date.parse(p.added);
+  return Number.isFinite(t) && now - t < NEW_WINDOW_MS;
+}
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);
 

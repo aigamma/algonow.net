@@ -452,8 +452,21 @@ atlas-verified, pairs authored per rule 2 at build where h is null):
 The F-queue extends a third time (2026-08-27, same standing
 directive; names atlas-verified):
 
-- [ ] F21. Aho-Corasick × failure-link automaton (vs repeated KMP,
-      Rabin-Karp multi-hash, suffix automata); builds on puzzle 09.
+- [x] F21. Aho-Corasick × failure-link automaton, live as puzzle 27
+      (2026-08-27, Fable). Text n=50,000, dictionary grows 10x: AC
+      95,700 -> 96,807 steps (the flat row: +1%); KMP-per-pattern
+      5,829,248 at k=100 (61x, k*n by construction; puzzle 09 unshared);
+      RK multi-hash 50,040 -> 50,176 (also flat, single-length cage).
+      The ushers nest pinned (she@1, he@2, hers@2 via output links);
+      every failure link verified against its definition by exhaustive
+      enumeration; the rolling-hash evict-before-shift bug caught by
+      the agreement oracle mid-build and recorded in the narration.
+      Never-here: a 1,000-way backtracking regex alternation (the
+      k-pass strategy in convenient syntax; RE2/Hyperscan compile to
+      exactly this automaton). Origins: Bell Labs 1975, the automaton
+      that outran planned hardware and became fgrep. Viz: the he/she/
+      his/hers trie with dashed failure links, text ticker, nested
+      fires. Third strings unit; builds on puzzle 09 explicitly.
 - [ ] F22. Simplex × Dantzig pivot rule (vs interior point, and the
       Klee-Minty cube as the exponential trap; Bland's rule for the
       cycling story).
@@ -576,8 +589,8 @@ commit, Fable trailer on every commit, check green before each push.
 ## Resume pointer
 
 **Next action: the thrice-extended Phase F queue, strictly sequential
-(F21 Aho-Corasick is next, then F22-F25), one unit per commit+push
-with a production deploy as units land.** Owner's overnight directive
+(F22 Simplex × Dantzig is next, then F23-F25), one unit per
+commit+push with a production deploy as units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

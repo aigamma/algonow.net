@@ -505,13 +505,31 @@ export const PUZZLES = {
     vite: 'fenwick-lowbit-ladders',
     html: 'fenwick-lowbit-ladders/index.html',
   },
+  '/aho-corasick-failure-links/': {
+    slug: 'aho-corasick-failure-links',
+    problemSlug: 'multiple-pattern-search',
+    number: 27,
+    category: 'strings',
+    algorithm: 'Aho-Corasick',
+    heuristic: 'Failure-link automaton',
+    domain: 'Matching many patterns at once',
+    oneLiner:
+      'One trie holds the whole watchlist, threaded with KMP’s failure idea: the text streams through once, and ten times the patterns costs one percent more.',
+    description:
+      'Aho-Corasick paired with the failure-link automaton: one pass serves the whole watchlist, measured flat as the dictionary grows tenfold, against per-pattern KMP and Rabin-Karp multi-hash.',
+    listenMinutes: 8,
+    time: 'O(n + matches)',
+    space: 'O(Σ|patterns|)',
+    baseline: 'KMP once per pattern',
+    vite: 'aho-corasick-failure-links',
+    html: 'aho-corasick-failure-links/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F21 onward, in order), so the public promise and the plan tell one story.
+// F22 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Aho-Corasick', heuristic: 'Failure-link automaton', domain: 'Matching many patterns at once' },
   { algorithm: 'Simplex method', heuristic: 'Dantzig pivot rule', domain: 'Linear programming' },
   { algorithm: 'Viterbi algorithm', heuristic: 'Max-product trellis', domain: 'Decoding hidden sequences' },
   { algorithm: 'Skip list', heuristic: 'Coin-flip level promotion', domain: 'Ordered maps by lottery' },

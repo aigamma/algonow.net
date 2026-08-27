@@ -44,6 +44,7 @@
 {"a": "Mean shift", "h": "Kernel density gradient", "d": "Mode-seeking clustering", "t": 2},
 {"a": "Agglomerative clustering", "h": "Ward linkage", "d": "Hierarchical clustering", "t": 1},
 {"a": "Agglomerative clustering", "h": "Complete linkage", "d": "Hierarchical clustering", "t": 2},
+{"a": "Agglomerative clustering", "h": "Single linkage", "d": "Hierarchical clustering", "t": 2},
 {"a": "Spectral clustering", "h": "Graph-Laplacian eigenvectors", "d": "Manifold clustering", "t": 2},
 {"a": "Affinity propagation", "h": "Responsibility-availability messages", "d": "Exemplar clustering", "t": 3},
 {"a": "BIRCH", "h": "Clustering-feature tree", "d": "Large-data clustering", "t": 3},

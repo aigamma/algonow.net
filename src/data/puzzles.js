@@ -334,13 +334,31 @@ export const PUZZLES = {
     vite: 'lru-recency-eviction',
     html: 'lru-recency-eviction/index.html',
   },
+  '/kmeans-plus-plus-seeding/': {
+    slug: 'kmeans-plus-plus-seeding',
+    problemSlug: 'clustering',
+    number: 18,
+    category: 'ml-ai',
+    algorithm: 'K-means',
+    heuristic: 'K-means++ seeding',
+    domain: 'Clustering points into k groups',
+    oneLiner:
+      'Lloyd’s descent always converges; where it converges is decided before it starts, so seed each center proportional to squared distance from the rest.',
+    description:
+      'K-means paired with k-means++ seeding: the same blobs clustered from good and bad openings, measured against DBSCAN, Gaussian mixtures, and single linkage, with a tested Python solution.',
+    listenMinutes: 8,
+    time: 'O(nk) per iteration',
+    space: 'O(n + k)',
+    baseline: 'Uniform random seeds',
+    vite: 'kmeans-plus-plus-seeding',
+    html: 'kmeans-plus-plus-seeding/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F12 onward, in order), so the public promise and the plan tell one story.
+// F13 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'K-means', heuristic: 'K-means++ seeding', domain: 'Clustering points' },
   { algorithm: 'Graham scan', heuristic: 'Polar-angle sorting', domain: 'Convex hulls' },
   { algorithm: 'Gradient descent', heuristic: 'Polyak momentum', domain: 'Smooth minimization' },
   { algorithm: "Kahn's algorithm", heuristic: 'Zero in-degree queue', domain: 'Ordering dependencies' },

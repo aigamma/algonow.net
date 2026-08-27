@@ -308,8 +308,21 @@ build time):
       10 at 4); residency and hit-truth audits per policy. Viz: one
       stream, two coat checks: LRU vs the clairvoyant, conga-line scans
       flushing the hooks. Category optimization-or (online-competitive).
-- [ ] F12. K-means × k-means++ seeding (vs random seeding, single
-      linkage?, DBSCAN as the shape counterexample); ml-ai category.
+- [x] F12. K-means × k-means++ seeding, live as puzzle 18 (2026-08-27,
+      Fable). 15 blobs / 750 points / k=15 / 30 restarts per row: ++
+      median 1.00x best with the optimum in 21/30 runs at 2 iterations;
+      random median 7.63x with 1/30 (SSE quantized by defect count:
+      each doubled seed is a ~4x level); best-of-10-random still 4.26x
+      median at 38x the work (the folk remedy priced). Seed spread 15
+      vs 10 of 15 blobs. Shape boundary: two rings, k-means 0.50 Rand
+      at ANY seeding vs DBSCAN and single-linkage 1.00; chaining
+      boundary: a 15-point bridge drags single-linkage (= MST with
+      longest edges cut) to 0.76 while ++ holds 0.95. New atlas entry:
+      Agglomerative clustering x Single linkage (the canonical chaining
+      variant was missing), summary 3,252 -> 3,253. Oracles: Lloyd
+      descent asserted per iteration per run, coverage medians, outcome
+      gaps, both boundaries. Viz: same blobs, two openings, defects
+      visible. First ml-ai homepage group.
 - [ ] F13. Graham scan × polar-angle sorting (vs gift wrapping
       (output-sensitive), Andrew monotone chain, QuickHull); geometry.
 - [ ] F14. Gradient descent × Polyak momentum (vs plain GD, Nesterov,
@@ -429,8 +442,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: the extended Phase F queue, strictly sequential (F12
-k-means is next, then F13-F15), one unit per commit+push with a
+**Next action: the extended Phase F queue, strictly sequential (F13
+Graham scan is next, then F14-F15), one unit per commit+push with a
 production deploy as units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the

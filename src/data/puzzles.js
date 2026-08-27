@@ -1379,13 +1379,32 @@ export const PUZZLES = {
     vite: 'hungarian-tight-edge-paths',
     html: 'hungarian-tight-edge-paths/index.html',
   },
+  '/gale-shapley-deferred-acceptance/': {
+    slug: 'gale-shapley-deferred-acceptance',
+    problemSlug: 'stable-matching',
+    number: 73,
+    category: 'optimization-or',
+    algorithm: 'Gale-Shapley',
+    heuristic: 'Deferred acceptance',
+    domain: 'Stable matching',
+    oneLiner:
+      'Nobody says yes: only you-may-stay-for-now: rejections are forever, holds are provisional, and when the floor quiets, the silence is the proof of stability.',
+    description:
+      'Gale-Shapley paired with deferred acceptance: zero blocking pairs on 300/300, the optimal/pessimal theorems checked against every enumerated stable matching, proposing worth 3.01 ranks.',
+    listenMinutes: 8,
+    time: 'O(n²)',
+    space: 'O(n²) lists',
+    baseline: 'Rank-greedy pairing',
+    vite: 'gale-shapley-deferred-acceptance',
+    html: 'gale-shapley-deferred-acceptance/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Gale-Shapley', heuristic: 'Deferred acceptance', domain: 'Stable matching' },
+  { algorithm: "Kadane's algorithm", heuristic: 'Running maximum', domain: 'Maximum subarray' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

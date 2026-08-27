@@ -1708,8 +1708,39 @@ commit, Fable trailer on every commit, check green before each push.
       per the F66 near-miss rule): Gale-Shapley × deferred
       acceptance (t1, h exists in atlas, absent from puzzles.js).
 
-**Next action: F67 Gale-Shapley × deferred acceptance; sequentially
-until morning.** Owner's overnight directive
+- [x] F67. Gale-Shapley × deferred acceptance. Puzzle 73,
+      optimization-or (game-theory-social-choice topic; problemSlug
+      stable-matching, verified against the algo page). Referees:
+      ZERO BLOCKING PAIRS on 300/300 instances (all n^2 pairs
+      audited each time, proposals <= n^2 counted); THE THEOREM
+      STACK BY ENUMERATION: on 60 small instances every stable
+      matching listed by brute force (25 had several): GS's outcome
+      IN the set, PROPOSER-OPTIMAL against every member, RECEIVER-
+      PESSIMAL against every member: not one counterexample. The
+      asymmetry measured at n=20 over 40 instances: average partner
+      rank 2.20 proposing vs 5.21 receiving = 3.01 ranks (the NRMP's
+      1997 applicant-proposing flip, quantified). Naive rivals
+      counted: random matching 90.4 blocking pairs (90 of 380 cross
+      pairs), rank-greedy 6, DA 0. One print correction: a guessed
+      '~1 in 13' fraction replaced with the computed 90-of-380.
+      Runtime 0.15s, first-run pass. No atlas edit (pair existed t1
+      with h); summary stays 3257/2338. Cards: self, Hungarian
+      (live: stability vs total-welfare, the two units argue),
+      Irving's algorithm (roommates: existence not guaranteed), Top
+      trading cycles (endowments: efficient AND strategy-proof).
+      neverUse: shipping an unstable matching (blocking pairs are
+      kindling; the pre-1952 residency pathology). Figure: the dance
+      floor with held hands, cite Gale-Shapley AMM 69(1) 1962 DOI
+      10.2307/2312726 (NRMP practice preceded the proof by a decade;
+      Roth; 2012 Nobel). Viz: the REAL dance on 6x6 (JS runs the
+      same hold/swap/reject loop): amber held hands, red swaps and
+      bounces, then the 36-pair audit sweep ending in green silence.
+      Bench reseeded DOUBLE-grep-verified: Kadane's algorithm ×
+      running maximum (t1, h exists in atlas, absent from
+      puzzles.js).
+
+**Next action: F68 Kadane's algorithm × running maximum;
+sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

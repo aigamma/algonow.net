@@ -885,13 +885,31 @@ export const PUZZLES = {
     vite: 'fisher-yates-uniform-swaps',
     html: 'fisher-yates-uniform-swaps/index.html',
   },
+  '/b-tree-high-fanout/': {
+    slug: 'b-tree-high-fanout',
+    problemSlug: 'disk-ordered-index',
+    number: 47,
+    category: 'data-structures',
+    algorithm: 'B-tree',
+    heuristic: 'High-fanout node splits',
+    domain: 'Disk-friendly ordered index',
+    oneLiner:
+      'Pack each node to the page and split around medians on the way down: height becomes log base 128, every leaf shares a depth, and three page reads answer anything.',
+    description:
+      'The B-tree paired with high-fanout node splits: 2.99 pages per lookup vs the pointer-chaser’s 21.12 measured on identical keys, the fanout dial 13/5/3/2, every leaf provably level at every stage.',
+    listenMinutes: 8,
+    time: 'O(log_B n) pages',
+    space: 'O(n), ~69% occupancy',
+    baseline: 'Sorted file + binary search',
+    vite: 'b-tree-high-fanout',
+    html: 'b-tree-high-fanout/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F38 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'B-tree', heuristic: 'High-fanout node splits', domain: 'Disk-friendly ordered index' },
   { algorithm: 'Earliest deadline first', heuristic: 'Dynamic deadline priority', domain: 'Real-time scheduling' },
   { algorithm: 'Suffix array construction', heuristic: 'Prefix-doubling ranks', domain: 'Full-text indexing' },
 ];

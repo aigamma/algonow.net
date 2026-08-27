@@ -846,9 +846,29 @@ directive; names atlas-verified):
       1964 DOI 10.1145/364520.364540. Viz: three acts: the sweep with
       the amber unlocked bracket, then live histograms: the true
       shuffle flat, the impostor's jagged skyline.
-- [ ] F41. B-tree × high-fanout node splits (search-structures t1, h
-      null: author per rule 2). Disk-page read counter vs BST/skip
-      list at scale; fanout dial measured; category data-structures.
+- [x] F41. B-tree × high-fanout node splits. Puzzle 47,
+      data-structures (problemSlug disk-ordered-index). Full B-tree
+      implemented (preemptive median splits, range scans, page-read
+      counters) with a recursive invariant checker: sorted-in-node,
+      occupancy bounds, key-range containment, and SAME-DEPTH for
+      every leaf, re-verified every 1,000 ops and at every fanout.
+      Shadow bisect-dict referee agreed on 20,000 mixed ops incl.
+      exact range contents. Measured at 100K keys / 10K lookups:
+      B-tree t=64: 2.99 pages/lookup, height 3; sorted-file binary
+      search 9.53; BST pointer-per-key 21.12 (7x, asserted > 4x).
+      Fanout dial: t=2/8/64/512 -> heights 13/5/3/2 (monotone
+      asserted). Range scan of 500 keys: 8 pages (height + payload).
+      Splits: 1,124 across 100K inserts (~n/t, < n/32 asserted).
+      Atlas: B-tree h authored per rule 2 (High-fanout node splits);
+      summary h 2322 -> 2323. Cards: self, B+ tree (the shipping
+      leaf-linked form), LSM tree × tiered compaction (the read/write
+      bargain), Skip list (live badge, the RAM tier). neverUse:
+      pointer-per-key trees as disk indexes ("reads blocks, uses
+      bytes: retail for wholesale"). Figure: tall 1-key pages vs the
+      3-level ledger, cite Bayer-McCreight Acta Informatica 1972 DOI
+      10.1007/BF00288683 + Comer 1979. Viz: a 2-3-4 tree built key by
+      key with ROOT-SPLIT banners, then lookups walking root-to-leaf
+      with a live page counter.
 - [ ] F42. Earliest deadline first × dynamic deadline priority
       (scheduling-operations t1, h null: author per rule 2).
       Preemptive simulator with deadline-miss counting; EDF to 100%
@@ -969,8 +989,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F41 B-tree × high-fanout node splits (author h per rule
-2), then F42-F43, sequentially until morning.** Owner's overnight directive
+**Next action: F42 Earliest deadline first × dynamic deadline priority
+(author h per rule 2), then F43 Suffix array, sequentially until
+morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

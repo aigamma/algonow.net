@@ -676,10 +676,26 @@ directive; names atlas-verified):
       the site's own tagline, amber margin notes, green = never
       stored, live byte ledger. NOTE: corpus is living: printed
       numbers drift as the repo grows; asserts are structural.
-- [ ] F33. Activity selection × earliest-finish-first greedy
-      (scheduling-operations t1, NEW site category). Oracle: DP/brute
-      optimal count == greedy count across trials; exchange argument;
-      neverUse: earliest-START greedy (measured failure).
+- [x] F33. Activity selection × earliest-finish-first greedy. Puzzle
+      39, optimization-or (problemSlug interval-scheduling). Three-layer
+      referee: DP (weighted-interval, predecessor bisect) == subset
+      brute force on 300 small instances, then EF == DP on ALL 2,000
+      random trials + both gadgets. The wrongness gradient measured at
+      n=10,000 (optimum 229): earliest-start 13 (6% of optimal! FCFS
+      as policy-vs-objective lesson; gadget 1 vs 50), shortest-first
+      227 (fails 311/2,000; gadget 50 vs 100), fewest-conflicts right
+      499/500 with a discovered 29-interval counterexample kept.
+      Weighted boundary priced: cardinality greed keeps 82.1% avg /
+      42.5% worst of optimal value over 300 weighted trials. Perf
+      fixes during build: shortest-first needed bisect conflict
+      checks; fewest-conflicts got right-sized loops (500 trials n<=30
+      + its own n=400 row). Cards: self, Weighted interval scheduling
+      DP, Earliest deadline first (the preemptive cousin). neverUse:
+      FCFS as an optimizer. Figure: the exchange argument, cite
+      Edmonds 1971 DOI 10.1007/BF01584082. No atlas edits (pair
+      existed t1); summary stays 3256/2318. Viz: 18 requests, two
+      acts (EF sweep with room-free cursor vs shortest-first), seeded
+      search guarantees the shortfall every cycle.
 - [ ] F34. Consistent hashing × virtual nodes (distributed-concurrent
       t1, NEW site category). Oracle: exact key-movement fractions on
       node join/leave vs mod-N rehash; vnode variance smoothing
@@ -807,9 +823,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F33 Activity selection × earliest-finish-first greedy,
-then F34-F37 (fifth extension, listed above), sequentially until
-morning.** Owner's overnight directive
+**Next action: F34 Consistent hashing × virtual nodes, then F35-F37
+(fifth extension, listed above), sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

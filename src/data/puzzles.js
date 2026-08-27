@@ -733,13 +733,31 @@ export const PUZZLES = {
     vite: 'lz77-sliding-window',
     html: 'lz77-sliding-window/index.html',
   },
+  '/activity-selection-earliest-finish/': {
+    slug: 'activity-selection-earliest-finish',
+    problemSlug: 'interval-scheduling',
+    number: 39,
+    category: 'optimization-or',
+    algorithm: 'Activity selection',
+    heuristic: 'Earliest-finish-first greedy',
+    domain: 'Non-overlapping selection',
+    oneLiner:
+      'Sort by the clock at the end and sweep: the one greedy compass that is a theorem, measured against three plausible ones that are not.',
+    description:
+      'Activity selection paired with earliest-finish-first: optimal on all 2,000 trials against a verified DP referee while earliest-start books 13 of 229, shortest-first misses by 2, and fewest-conflicts falls once in 500.',
+    listenMinutes: 8,
+    time: 'O(n log n)',
+    space: 'O(1) beyond the sort',
+    baseline: 'The same skeleton, wrong compass',
+    vite: 'activity-selection-earliest-finish',
+    html: 'activity-selection-earliest-finish/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F32 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Activity selection', heuristic: 'Earliest-finish-first greedy', domain: 'Non-overlapping selection' },
   { algorithm: 'Consistent hashing', heuristic: 'Virtual nodes', domain: 'Distributed key placement' },
   { algorithm: 'Closest pair divide and conquer', heuristic: 'Midline strip merge', domain: 'Closest pair of points' },
   { algorithm: 'MinHash', heuristic: 'Bottom-k signatures', domain: 'Jaccard similarity estimation' },

@@ -597,9 +597,24 @@ directive; names atlas-verified):
       B-F h authored per rule 2 (Early-exit relaxation); summary
       heuristics 2317 -> 2318. Viz: 12-village telephone chain, act 1
       quiet-round exit, act 2 planted red loop certified at round n.
-- [ ] F29. Segment tree × lazy propagation (search-structures t1;
-      rivals Fenwick (live badge), naive array, sqrt decomposition
-      if in atlas; d Range updates).
+- [x] F29. Segment tree × lazy propagation. Puzzle 35, data-structures.
+      Measured at n=10,000, m=2,000 mixed range-adds/range-sums (avg
+      span 2,480): naive 4,961,554 visits (2,481/op, asserted == summed
+      spans exactly), sqrt decomposition 244,402 (122/op, 20x), lazy
+      segtree 94,400 (47/op, 53x), Fenwick two-tree 53,220 (27/op,
+      93x: the sum-specialist honestly WINS its home algebra; builds
+      priced off the clock after catching the ledger distortion).
+      Generality proven: min-monoid lazy tree referee-checked over
+      1,000 ops. neverUse: the eager tree, 1,297,075 vs 15,984 visits
+      (81x, certified >= 20x). Referees: brute-force agreement on
+      every query across all structures at n=200 and n=10,000; lazy
+      inside 4(log n + 2)/op bound. Cards: self, Fenwick two-tree
+      (live badge), Sqrt decomposition, Mo's algorithm (offline
+      regime). Figure: debt stamps on cover nodes, cite de Berg et
+      al. ch. 10, DOI 10.1007/978-3-540-77974-2. No atlas edits
+      (pair existed t1); summary stays 3256/2318. Viz: 16-leaf tree,
+      amber debt chips, pushes under footsteps, full-range ops
+      touching one node.
 - [ ] F30. Metropolis-Hastings × proposal acceptance ratio
       (machine-learning t1; oracle: exact stationary distribution of
       a small discrete chain; d MCMC sampling).
@@ -718,9 +733,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F29 Segment tree × lazy propagation, then F30-F31 in
-order (fourth extension, listed under F25 above), then extend again;
-keep going sequentially until morning.** Owner's overnight directive
+**Next action: F30 Metropolis-Hastings × proposal acceptance ratio,
+then F31 FFT (fourth extension, listed under F25 above), then extend
+again; keep going sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

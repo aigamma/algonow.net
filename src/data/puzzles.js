@@ -657,13 +657,31 @@ export const PUZZLES = {
     vite: 'bellman-ford-early-exit',
     html: 'bellman-ford-early-exit/index.html',
   },
+  '/segment-tree-lazy-propagation/': {
+    slug: 'segment-tree-lazy-propagation',
+    problemSlug: 'array-range-queries',
+    number: 35,
+    category: 'data-structures',
+    algorithm: 'Segment tree',
+    heuristic: 'Lazy propagation',
+    domain: 'Range updates',
+    oneLiner:
+      'Stamp a range write on its cover nodes as unpaid debt, push it down only under later footsteps: writes become as cheap as reads, in any algebra.',
+    description:
+      'The segment tree paired with lazy propagation: 47 visits per op where naive spends 2,481, the min-monoid generality referee-proven, the Fenwick specialist honestly ahead on pure sums, the eager tree priced at 81x.',
+    listenMinutes: 8,
+    time: 'O(log n) per op',
+    space: 'O(n) (~4n nodes)',
+    baseline: 'Naive array',
+    vite: 'segment-tree-lazy-propagation',
+    html: 'segment-tree-lazy-propagation/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F26 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Segment tree', heuristic: 'Lazy propagation', domain: 'Range updates' },
   { algorithm: 'Metropolis-Hastings', heuristic: 'Proposal acceptance ratio', domain: 'MCMC sampling' },
   { algorithm: 'Fast Fourier transform', heuristic: 'Cooley-Tukey radix-2', domain: 'Spectral analysis' },
 ];

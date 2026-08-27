@@ -1797,13 +1797,32 @@ export const PUZZLES = {
     vite: 'tomasulo-reservation-stations',
     html: 'tomasulo-reservation-stations/index.html',
   },
+  '/shamir-secret-sharing/': {
+    slug: 'shamir-secret-sharing',
+    problemSlug: 'secret-sharing',
+    number: 95,
+    category: 'crypto-number-theory',
+    algorithm: 'Shamir secret sharing',
+    heuristic: 'Polynomial interpolation',
+    domain: 'Threshold secret splitting',
+    oneLiner:
+      'Hide the secret at f(0) on a random polynomial and deal points: k shares interpolate straight home, k-1 fit every candidate secret equally: the cliff is vertical, the leak is zero.',
+    description:
+      'Shamir secret sharing by polynomial interpolation: 3,235 quorums exact, perfect secrecy exhibited by exhaustion (a flat table), the 1/p cliff measured, the silent poison healed by majority.',
+    listenMinutes: 8,
+    time: 'O(k²) reconstruct',
+    space: 'n shares',
+    baseline: 'XOR splitting (n-of-n)',
+    vite: 'shamir-secret-sharing',
+    html: 'shamir-secret-sharing/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Shamir secret sharing', heuristic: 'Polynomial interpolation', domain: 'Threshold secret splitting' },
+  { algorithm: 'de Bruijn graph assembly', heuristic: 'K-mer overlap', domain: 'Genome assembly' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

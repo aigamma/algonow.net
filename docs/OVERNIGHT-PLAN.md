@@ -2670,8 +2670,59 @@ commit, Fable trailer on every commit, check green before each push.
       secret sharing × Polynomial interpolation (problem
       secret-sharing).
 
-**Next action: F89 Shamir secret sharing × polynomial
-interpolation (puzzle 95); sequentially until morning.** Owner's overnight directive
+- [x] F89. Shamir secret sharing × polynomial interpolation.
+      Puzzle 95, slug shamir-secret-sharing, category
+      crypto-number-theory, problem secret-sharing (link verified
+      in dist/algo/shamir-secret-sharing). Solution
+      shamir_secret_sharing.py: dealing by Horner over
+      GF(2^127-1) (Mersenne), Lagrange-at-zero reconstruction
+      with modular inverses. FIVE ORACLES, 0.1s: (1) EVERY quorum
+      of EVERY split: 300 splits, all C(n,k) subsets = 3,235,
+      all exact; (2) PERFECT SECRECY BY EXHAUSTION in GF(257):
+      given k-1 shares, enumerate all polynomials through them:
+      each of the 257 candidate secrets consistent with EXACTLY
+      ONE polynomial: the flat table asserted flat (calibration
+      catch: expected p-per-secret, but 3 coefficients minus 2
+      constraints leaves 1 dof: flat at ONE: constant fixed, the
+      flatness assert was already the load-bearing one); (3) the
+      cliff: guessing with k-1 succeeds 76/20,000 ~ 1/257 (the
+      field floor), with k: 40/40; (4) THE SILENT POISON: one
+      corrupt share among k: wrong secret 300/300 with zero
+      warnings (Lagrange has no error light); the k+2
+      majority-over-subsets antidote heals 300/300 (the
+      Reed-Solomon kinship measured); (5) client: ten of ten
+      3-of-5 quorums round-trip a 127-bit key. No atlas edit
+      (pair t1 crypto line 59); summary stays 3257/2343. Cards:
+      self, Blakley (t3, SAME d 'Threshold secret splitting':
+      hyperplanes: raw form not perfect, shares k times larger),
+      Reed-Solomon (shares ARE codeword symbols: erasures/errors:
+      the healing oracle is RS decoding in miniature), CRT
+      splitting/Asmuth-Bloom (algoName Chinese remainder theorem:
+      swapped in after check FAILed the original XOR-splitting
+      card for lacking an atlas entry: gate working as designed;
+      XOR splitting stays as the prose baseline). neverUse:
+      CHOPPING THE KEY INTO SUBSTRINGS: the folk seed-phrase
+      practice: each fragment IS information (256 -> 128 bits),
+      collusion compounds linearly, vs the flat table's
+      everything-until-k: custody guides warn against it by name.
+      Figure: the two-panel parabola story (3 shares: one curve
+      home; 2 shares: a fan hitting every secret), cite Shamir
+      CACM 22(11) 1979 DOI 10.1145/359168.359176
+      (WebSearch-verified). Viz ShamirViz over GF(97): act 1 the
+      3-of-5 quorum: field DOTS (honest discrete picture, not a
+      smooth parabola) revealing right-to-left to f(0); act 2 two
+      shares only: 24 candidate fits cycle, each landing at its
+      own secret on the axis: the uniform fill. NODE-VERIFIED 10
+      cycles: quorum reconstruction exact on two different
+      quorums, every share on the true polynomial, every act-2
+      candidate fit passing through both known shares and landing
+      at its own secret, landings injective. Bench reseeded (grep
+      de bruijn 0 hits, atlas t1 computational-biology line 16,
+      ls no dir): de Bruijn graph assembly × K-mer overlap
+      (comp-bio, problem genome-assembly).
+
+**Next action: F90 de Bruijn assembly × k-mer overlap (puzzle
+96); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

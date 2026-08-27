@@ -714,13 +714,31 @@ export const PUZZLES = {
     vite: 'fft-cooley-tukey',
     html: 'fft-cooley-tukey/index.html',
   },
+  '/lz77-sliding-window/': {
+    slug: 'lz77-sliding-window',
+    problemSlug: 'dictionary-compression',
+    number: 38,
+    category: 'compression-coding',
+    algorithm: 'LZ77',
+    heuristic: 'Sliding-window matching',
+    domain: 'Dictionary compression',
+    oneLiner:
+      'Replace every repeat with a margin note pointing into the recent past: the decoder copies from its own output, and everything green was never stored.',
+    description:
+      'LZ77 paired with sliding-window matching: byte-exact round trips on this repo’s own files, the window dial measured monotone, the DEFLATE pipeline beating both single stages, pigeonhole priced to the byte.',
+    listenMinutes: 8,
+    time: 'O(n) decode',
+    space: 'O(window)',
+    baseline: 'Huffman coding alone',
+    vite: 'lz77-sliding-window',
+    html: 'lz77-sliding-window/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F32 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'LZ77', heuristic: 'Sliding-window matching', domain: 'Dictionary compression' },
   { algorithm: 'Activity selection', heuristic: 'Earliest-finish-first greedy', domain: 'Non-overlapping selection' },
   { algorithm: 'Consistent hashing', heuristic: 'Virtual nodes', domain: 'Distributed key placement' },
   { algorithm: 'Closest pair divide and conquer', heuristic: 'Midline strip merge', domain: 'Closest pair of points' },

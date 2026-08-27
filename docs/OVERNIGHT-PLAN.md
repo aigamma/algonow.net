@@ -656,10 +656,26 @@ directive; names atlas-verified):
       stays 3256/2318. Viz: 16-lane cascade with twiddle labels +
       the 128-sample payoff act (tones surface green).
 - Fifth F-queue extension (atlas-verified, in build order):
-- [ ] F32. LZ77 × sliding-window matching (compression-coding t1).
-      Oracle: decompress == original bytes on real corpus (repo docs);
-      measured compression ratios; cards LZW (null h), DEFLATE
-      (LZ77+Huffman: cross-link huffman live), Huffman alone.
+- [x] F32. LZ77 × sliding-window matching. Puzzle 38,
+      compression-coding. LZSS flag-bit framing implemented and NAMED
+      honestly (the first crude 2-byte-literal format made prose
+      expand at small windows: caught by measurement, upgraded).
+      Living-corpus oracle: byte-exact round trips on 4 repo files +
+      edges. Headline (OVERNIGHT-PLAN.md, 51,790 B): Huffman alone
+      32,128 (1.61x) vs LZ77 alone 32,719 (1.58x): a measured NEAR-TIE
+      from disjoint redundancy, and DEFLATE (zlib -9) 23,064 (2.25x)
+      beating both by 40% (asserted strictly). Window dial monotone:
+      256B -> 49,827; 4K -> 37,838; 32K -> 32,719 (asserted). Corpus:
+      puzzles.js 2.04x, theme.css 2.93x, fft solution 1.80x. Edges:
+      all-same 10K -> 127 B (79x); random 10K -> 11,250 B (expansion
+      = the flag bits EXACTLY: pigeonhole priced). Cards: self,
+      Huffman (live badge), DEFLATE, LZW (patent saga). neverUse:
+      compressing the incompressible. Figure: window + back-arc, cite
+      Ziv-Lempel 1977 DOI 10.1109/TIT.1977.1055714. No atlas edits
+      (pair existed t1); summary stays 3256/2318. Viz: the scribe on
+      the site's own tagline, amber margin notes, green = never
+      stored, live byte ledger. NOTE: corpus is living: printed
+      numbers drift as the repo grows; asserts are structural.
 - [ ] F33. Activity selection × earliest-finish-first greedy
       (scheduling-operations t1, NEW site category). Oracle: DP/brute
       optimal count == greedy count across trials; exchange argument;
@@ -791,8 +807,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F32 LZ77 × sliding-window matching, first of the fifth
-extension (F32-F37, listed above), sequentially until morning.** Owner's overnight directive
+**Next action: F33 Activity selection × earliest-finish-first greedy,
+then F34-F37 (fifth extension, listed above), sequentially until
+morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

@@ -22,6 +22,7 @@
 {"a": "Marching squares", "h": null, "d": "Contour extraction", "t": 2},
 {"a": "Closest pair sweep", "h": "Strip-check after sort", "d": "Closest pair of points", "t": 1},
 {"a": "Closest pair divide and conquer", "h": "Midline strip merge", "d": "Closest pair of points", "t": 2},
+{"a": "Rabin's closest pair", "h": "Random grid rounds", "d": "Closest pair of points", "t": 3},
 {"a": "K-d tree", "h": "Median-split axis cycling", "d": "Nearest-neighbor search", "t": 1},
 {"a": "K-d tree", "h": "Surface-area heuristic splits", "d": "Ray tracing acceleration", "t": 3},
 {"a": "Ball tree", "h": "Bounding-sphere partition", "d": "Metric nearest neighbors", "t": 2},

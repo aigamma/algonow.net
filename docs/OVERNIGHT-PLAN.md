@@ -717,10 +717,30 @@ directive; names atlas-verified):
       10.1145/258533.258660. No atlas edits (pair existed t1); summary
       stays 3256/2318. Viz: two-act ring with real arc geometry,
       departure flash, heirs counted on canvas.
-- [ ] F35. Closest pair divide and conquer × midline strip merge
-      (computational-geometry t2). Oracle: brute force O(n^2) on many
-      trials; strip 7-point bound counted; cards: closest pair sweep
-      (t1), brute force, KD-tree (check atlas).
+- [x] F35. Closest pair divide and conquer × midline strip merge.
+      Puzzle 41, geometry (problemSlug closest-pair). The packing
+      lemma COUNTED live: <= 7 asserted on every strip point of every
+      run; observed max 2 (uniform) and 1 (collinear). 500
+      brute-refereed trials across 4 hostile shapes incl. distance-0
+      duplicates; mutual 1e-9 agreement of D&C/sweep/grid at n=100K
+      (0.013389). Ledger with BOTH currencies (distances AND seconds:
+      the metric lesson): brute 5.0B stated ~1hr; D&C 142,614 / 0.41s;
+      sweep 21 / 0.06s (distances near-free: bill is window upkeep);
+      Rabin grid 70 / 0.40s, 26 rebuilds. TWO honest surprises kept:
+      distance counts alone would crown the sweep 6,000x, and the
+      collinear stress expected to hurt the sweep instead helps it
+      (identical x arrives y-sorted: inserts append). Sweep eviction
+      rewritten to amortized x-pointer during build. Atlas: Rabin's
+      closest pair × Random grid rounds ADDED (computational-geometry
+      t3; check.mjs caught the dangling card link, which is the
+      enforcement working); summary 3256 -> 3257 (a 3026, h 2319).
+      Cards: self, Closest pair sweep (t1), Rabin's closest pair,
+      Bowyer-Watson (Delaunay-edge route). neverUse: the double loop
+      past its crossover (with the below-100 honesty). Figure: strip
+      + delta-box packing, cite Shamos-Hoey FOCS 1975 DOI
+      10.1109/SFCS.1975.8. Viz: one recursion level, planted
+      straddling winner (retry-searched so the caption never lies),
+      strip scan with live lemma counter.
 - [ ] F36. MinHash × bottom-k signatures (probabilistic-streaming t1).
       Oracle: exact Jaccard vs estimate, error ~1/sqrt(k) measured;
       cards Shingling×MinHash-LSH (t2), SimHash (check), exact sets.
@@ -840,8 +860,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F35 Closest pair divide and conquer × midline strip
-merge, then F36-F37, sequentially until morning.** Owner's overnight directive
+**Next action: F36 MinHash × bottom-k signatures, then F37
+Hopcroft-Karp, sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

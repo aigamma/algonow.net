@@ -771,13 +771,31 @@ export const PUZZLES = {
     vite: 'consistent-hashing-virtual-nodes',
     html: 'consistent-hashing-virtual-nodes/index.html',
   },
+  '/closest-pair-strip-merge/': {
+    slug: 'closest-pair-strip-merge',
+    problemSlug: 'closest-pair',
+    number: 41,
+    category: 'geometry',
+    algorithm: 'Closest pair divide and conquer',
+    heuristic: 'Midline strip merge',
+    domain: 'Closest pair of points',
+    oneLiner:
+      'Solve each half, then check the fence corridor: a δ×2δ box holds at most 8 points, so the quadratic-looking strip scan is seven checks deep, counted live.',
+    description:
+      'Closest pair divide and conquer paired with the midline strip merge: the 7-successor packing lemma asserted on every strip point, 142,614 distances where brute force needs five billion, three methods refereeing each other.',
+    listenMinutes: 8,
+    time: 'O(n log n) worst case',
+    space: 'O(n)',
+    baseline: 'Brute force (and referee)',
+    vite: 'closest-pair-strip-merge',
+    html: 'closest-pair-strip-merge/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F32 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Closest pair divide and conquer', heuristic: 'Midline strip merge', domain: 'Closest pair of points' },
   { algorithm: 'MinHash', heuristic: 'Bottom-k signatures', domain: 'Jaccard similarity estimation' },
   { algorithm: 'Hopcroft-Karp', heuristic: 'Layered augmenting phases', domain: 'Bipartite maximum matching' },
 ];

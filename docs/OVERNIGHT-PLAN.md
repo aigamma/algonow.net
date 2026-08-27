@@ -2466,8 +2466,59 @@ commit, Fable trailer on every commit, check green before each push.
       (category comp-bio: FIRST unit; problem
       molecular-simulation).
 
-**Next action: F85 Velocity Verlet × symplectic time stepping
-(puzzle 91); sequentially until morning.** Owner's overnight directive
+- [x] F85. Velocity Verlet × symplectic time stepping. Puzzle 91,
+      slug velocity-verlet-symplectic, category comp-bio (FIRST
+      unit in the category), problem molecular-simulation (link
+      verified in dist/algo/velocity-verlet-dynamics). Solution
+      velocity_verlet_symplectic.py: velocity Verlet, forward
+      Euler, RK4 (1D oscillator + 2D Kepler forms), energy/angmom.
+      FOUR ORACLES, first run clean, 0.83s: (1) CLOSED-FORM
+      REFEREE: 200,000 oscillator steps: Verlet |E-1/2| < 3.1e-4
+      (bounded band) while Euler inflates energy x10^43 on the
+      IDENTICAL run (assert >1e40); (2) TIME REVERSAL, the oracle
+      no schedule can fake: 20,000 Kepler steps out, velocities
+      flipped, 20,000 back: Verlet re-arrives within 1.3e-12
+      (assert <1e-9): Euler misses by 2.45 on an orbit 2 wide
+      (assert >1.0); (3) CONVERGENCE ORDERS measured by
+      dt-halving: 1.02 / 2.00 / 4.00 (bands asserted): textbook
+      numbers produced by running code; (4) THE KEPLER MARATHON:
+      200 periods of e=0.6, 400k steps: Verlet band 3.2e-5 never
+      widening, angular momentum 4.4e-14 (roundoff), and RK4:
+      FOURTH order: leaking energy MONOTONICALLY on 199/200 orbits
+      (assert >190): accurate per step, dissipative per epoch:
+      precision is not conservation. Stale-number fixes: header
+      and OK line updated to measured values (1.02/2.00/4.00,
+      1.3e-12, 3.1e-4). No atlas edit (pair t1
+      computational-chemistry line 14); summary stays 3257/2343.
+      Cards: self, RK4 (short horizons, non-Hamiltonian), RKF
+      (adaptivity: breaks the symplectic guarantee by
+      construction: choose by horizon), Leapfrog dynamics (t2,
+      SAME atlas d: the twin with staggered bookkeeping).
+      neverUse: FORWARD EULER ON CONSERVATIVE DYNAMICS: passes
+      every short test honestly (order 1.02 as advertised) while
+      categorically wrong for the horizon: each step stretches
+      phase space by sqrt(1+dt^2 w^2) > 1: and symplectic Euler is
+      the SAME arithmetic reordered, so the mistake is free to
+      fix. Figure: three-curve energy-error sketch (Euler
+      exponential, RK4 monotone, Verlet band) + measured ledger,
+      cite Verlet Phys Rev 159 1967 DOI 10.1103/PhysRev.159.98
+      (WebSearch-verified). Viz VerletViz: real JS integration
+      driving both acts: act 1 same orbit, Euler red spiraling out
+      vs Verlet blue closing, live |dE/E| readouts; act 2 THE
+      MIRROR: Verlet retraces home to a green ring, Euler's
+      return endpoint drawn as a clamped arrow (gap 4-14 units,
+      offscreen). Act-2 dt coarsened to 0.012 x 1400 steps after
+      the first verify showed Euler's gap only 0.087 at the fine
+      dt (measured dt/e sweep first). NODE-VERIFIED 10 cycles:
+      Verlet band <2e-2, Euler pumped >0.1|E0|, gaps 1e-13 vs
+      >1.0 (measured 11.16), the return path retracing the
+      outbound to 4.4e-14 at sampled points, every drawn point
+      onscreen. Bench reseeded (grep external merge 0 hits, atlas
+      t1 databases-query, ls no dir): External merge sort × K-way
+      run merging (data-retrieval, problem external-sorting).
+
+**Next action: F86 External merge sort × k-way run merging
+(puzzle 92); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

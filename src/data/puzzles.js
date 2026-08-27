@@ -1721,13 +1721,32 @@ export const PUZZLES = {
     vite: 'raft-leader-election',
     html: 'raft-leader-election/index.html',
   },
+  '/velocity-verlet-symplectic/': {
+    slug: 'velocity-verlet-symplectic',
+    problemSlug: 'molecular-simulation',
+    number: 91,
+    category: 'comp-bio',
+    algorithm: 'Velocity Verlet dynamics',
+    heuristic: 'Symplectic time stepping',
+    domain: 'Molecular dynamics integration',
+    oneLiner:
+      'Kick, drift, kick: one force evaluation per step, and a symplectic structure that makes the energy error orbit in a band forever instead of marching: marathons need the shape, not the size.',
+    description:
+      'Velocity Verlet with symplectic stepping: energy banded over 200 orbits, time reversal to 1e-12, orders measured 1.02/2.00/4.00, RK4 leaking monotonically, Euler inflating 10^43-fold.',
+    listenMinutes: 8,
+    time: 'O(1 force eval)/step',
+    space: 'O(n) state',
+    baseline: 'Forward Euler',
+    vite: 'velocity-verlet-symplectic',
+    html: 'velocity-verlet-symplectic/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Velocity Verlet dynamics', heuristic: 'Symplectic time stepping', domain: 'Molecular dynamics integration' },
+  { algorithm: 'External merge sort', heuristic: 'K-way run merging', domain: 'Large-relation sorting' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

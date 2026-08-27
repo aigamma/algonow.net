@@ -522,8 +522,45 @@ directive; names atlas-verified):
       search (live badge). Atlas pair already existed. Third
       data-structures unit. Viz: lanes with coin-flip towers, the
       staircase search, coins shown per insert.
-- [ ] F25. Strassen × seven-product block split (vs classical cubic,
-      and the crossover threshold measured; author h per rule 2).
+- [x] F25. Strassen × seven-product block split. Puzzle 31, numerical.
+      Measured at n=256 exact integers: classical 16,777,216 mults /
+      16.7M adds (asserted == n^3); cutoff-16 Strassen 9,834,496 /
+      12.5M (asserted == 7^4·16^3), total ops 22.3M vs 33.5M; pure
+      recursion at n=64 exactly 7^6 = 117,649 mults. Cutoff sweep
+      monotone: every deeper level helps (16 best of {16..256}).
+      Freivalds referee: 3.9M ops vs 33.5M recompute (8x), planted
+      corruption caught, identity verified on 500 scalar cases,
+      padding agrees at n=31,33,100. Cards: self, Coppersmith-Winograd
+      (galactic, honest), Freivalds. neverUse: a galactic exponent in
+      production. Figure: the seven Ms beside the four quadrant
+      assemblies, DOI 10.1007/BF02165411. Atlas: Strassen h authored
+      per rule 2; Freivalds x Random vector probes ADDED (numerical,
+      t2); phrase Matrix product verification joined
+      matrix-multiplication; summary 3256. Viz: 2x2 scalar blocks, the
+      seven products forming with signed-cell highlights, quadrants
+      assembling in green, classical referee agreeing on canvas.
+- Fourth F-queue extension (atlas-verified pairs, in build order):
+- [ ] F26. Miller-Rabin × witness rounds (cryptography-number-theory,
+      t1 pair; d Probabilistic primality). First crypto unit.
+- [ ] F27. Quickselect × random pivot (sorting t2; the t1
+      median-of-three variant is quicksort's h already, and the
+      random pivot is what makes expected-linear true; rivals:
+      median-of-three on adversarial input, median of medians, full
+      sort; d Order statistics).
+- [ ] F28. Bellman-Ford × early-exit relaxation (graphs-paths; h is
+      null in atlas, author per rule 2; rivals Dijkstra (neg edges
+      break it: the neverUse), SPFA small-label-first; d
+      Negative-edge shortest paths).
+- [ ] F29. Segment tree × lazy propagation (search-structures t1;
+      rivals Fenwick (live badge), naive array, sqrt decomposition
+      if in atlas; d Range updates).
+- [ ] F30. Metropolis-Hastings × proposal acceptance ratio
+      (machine-learning t1; oracle: exact stationary distribution of
+      a small discrete chain; d MCMC sampling).
+- [ ] F31. FFT × Cooley-Tukey radix-2 (numerical t1; oracle: exact
+      integer convolution vs schoolbook, plus naive DFT agreement;
+      rivals Karatsuba, schoolbook, naive DFT; d Spectral analysis,
+      verify the problem phrase mapping at build).
 
 ## Phase G. Plumbing and hygiene (added 2026-07-22 evening)
 
@@ -635,8 +672,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F25 Strassen, the last of the third extension, then
-extend the queue again per the standing owner directive.** Owner's overnight directive
+**Next action: F26 Miller-Rabin × witness rounds, first of the fourth
+extension (F26-F31, atlas-verified, listed under F25 above), then keep
+going sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

@@ -2099,7 +2099,7 @@
   },
   "matrix-multiplication": {
     "label": "Fast matrix multiplication",
-    "phrases": ["Fast matrix multiplication"]
+    "phrases": ["Fast matrix multiplication", "Matrix product verification"]
   },
   "polynomial-interpolation": {
     "label": "Polynomial interpolation and approximation",

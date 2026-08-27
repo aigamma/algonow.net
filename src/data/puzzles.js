@@ -581,13 +581,37 @@ export const PUZZLES = {
     vite: 'skip-list-coin-flips',
     html: 'skip-list-coin-flips/index.html',
   },
+  '/strassen-seven-products/': {
+    slug: 'strassen-seven-products',
+    problemSlug: 'matrix-multiplication',
+    number: 31,
+    category: 'numerical',
+    algorithm: "Strassen's algorithm",
+    heuristic: 'Seven-product block split',
+    domain: 'Fast matrix multiplication',
+    oneLiner:
+      'Seven block products where eight seemed necessary, compounded by recursion into a fallen exponent, with every answer audited at an eight-to-one discount.',
+    description:
+      "Strassen's algorithm paired with the seven-product block split: 9.8M multiplications where classical spends 16.8M, measured with exact counters and audited by Freivalds' random probes.",
+    listenMinutes: 8,
+    time: 'O(n^2.807)',
+    space: 'O(n²)',
+    baseline: 'Classical triple loop',
+    vite: 'strassen-seven-products',
+    html: 'strassen-seven-products/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F25 onward, in order), so the public promise and the plan tell one story.
+// F26 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Strassen's algorithm", heuristic: 'Seven-product block split', domain: 'Fast matrix multiplication' },
+  { algorithm: 'Miller-Rabin', heuristic: 'Witness rounds', domain: 'Probabilistic primality' },
+  { algorithm: 'Quickselect', heuristic: 'Random pivot', domain: 'Order statistics' },
+  { algorithm: 'Bellman-Ford', heuristic: 'Early-exit relaxation', domain: 'Negative-edge shortest paths' },
+  { algorithm: 'Segment tree', heuristic: 'Lazy propagation', domain: 'Range updates' },
+  { algorithm: 'Metropolis-Hastings', heuristic: 'Proposal acceptance ratio', domain: 'MCMC sampling' },
+  { algorithm: 'Fast Fourier transform', heuristic: 'Cooley-Tukey radix-2', domain: 'Spectral analysis' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

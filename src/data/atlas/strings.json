@@ -31,7 +31,7 @@
 {"a": "Patience diff", "h": "Unique-line anchoring", "d": "Readable text diffing", "t": 3},
 {"a": "Hirschberg's algorithm", "h": "Divide-and-conquer LCS", "d": "Linear-space alignment", "t": 2},
 {"a": "Needleman-Wunsch", "h": null, "d": "Global sequence alignment", "t": 1},
-{"a": "Smith-Waterman", "h": null, "d": "Local sequence alignment", "t": 1},
+{"a": "Smith-Waterman", "h": "Zero-floored local scores", "d": "Local sequence alignment", "t": 1},
 {"a": "Gotoh's algorithm", "h": "Affine gap penalties", "d": "Sequence alignment", "t": 2},
 {"a": "Banded alignment", "h": "Diagonal band restriction", "d": "Similar-sequence alignment", "t": 2},
 {"a": "Four-Russians alignment", "h": "Block lookup tables", "d": "Speedup for edit distance", "t": 3},

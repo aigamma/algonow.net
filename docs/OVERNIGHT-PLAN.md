@@ -1173,8 +1173,36 @@ commit, Fable trailer on every commit, check green before each push.
       DP') was caught by grep and replaced with Smith-Waterman ×
       zero-floored local scores (t1, h to author).
 
-**Next action: F50 Smith-Waterman × zero-floored local scores (author
-h per rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F50. Smith-Waterman × zero-floored local scores. Puzzle 56,
+      strings (problemSlug edit-distance, shared with W-F as
+      dijkstra/B-F share theirs). THE DEFINITIONAL ORACLE: SW == max
+      over ALL substring pairs of global score, enumerated
+      exhaustively on 150 trials (thousands of pairs each), with
+      every traceback re-priced move by move. Island experiment:
+      40-char planted island in 400-char flanks: local 70, global
+      -285 (forced ends drown), floor ablated to 19 (the zero is the
+      engine). Scale: 60-char island in 1,200x1,200: full SW finds it
+      at BOTH offsets (124/120, 1.44M cells); banded k=50: 118,650
+      cells (12x) finds near-diag (124) and MISSES shifted (21): the
+      bet priced both ways. THE PHASE LESSON, learned by measurement:
+      the draft's gentle 2/-1/-2 scoring measured a 172-point
+      meander of pure noise over a 74-point island (Karlin-Altschul
+      linear phase); fixed with BLASTN-strength 2/-3/-4 and the story
+      kept in-code and on-page. Atlas: SW h authored per rule 2
+      (Zero-floored local scores); summary h 2329 -> 2330. Cards:
+      self, Needleman-Wunsch, Banded alignment (measured both ways),
+      BLAST × seed-and-extend. neverUse: local alignment outside the
+      log phase ("noise wearing a certificate"). Figure: the ridge in
+      the sea, cite Smith-Waterman JMB 1981 DOI
+      10.1016/0022-2836(81)90087-5. Viz: the 26x26 heatmap sea with
+      the island ridge rising, peak flash, traceback walking down,
+      recovered island printed beside the planted one, global corner
+      shown negative. Bench reseeded: Edmonds-Karp × shortest
+      augmenting paths (t1 verified; upgraded from a weaker F-F
+      draft).
+
+**Next action: F51 Edmonds-Karp × shortest augmenting paths;
+sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

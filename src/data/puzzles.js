@@ -1056,13 +1056,32 @@ export const PUZZLES = {
     vite: 'karatsuba-three-products',
     html: 'karatsuba-three-products/index.html',
   },
+  '/smith-waterman-zero-floor/': {
+    slug: 'smith-waterman-zero-floor',
+    problemSlug: 'edit-distance',
+    number: 56,
+    category: 'strings',
+    algorithm: 'Smith-Waterman',
+    heuristic: 'Zero-floored local scores',
+    domain: 'Local sequence alignment',
+    oneLiner:
+      'Floor every cell at zero and bank the peak: debts forgiven, credit kept, and the shared island rises from the sea no matter where it sits in either sequence.',
+    description:
+      'Smith-Waterman paired with the zero floor: verified equal to exhaustive substring-pair enumeration on 150 trials, the planted island at local 70 vs global −285, and the Karlin-Altschul phase lesson measured the hard way.',
+    listenMinutes: 8,
+    time: 'O(nm)',
+    space: 'O(nm) with traceback',
+    baseline: 'Needleman-Wunsch (global)',
+    vite: 'smith-waterman-zero-floor',
+    html: 'smith-waterman-zero-floor/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Smith-Waterman', heuristic: 'Zero-floored local scores', domain: 'Local sequence alignment' },
+  { algorithm: 'Edmonds-Karp', heuristic: 'Shortest augmenting paths', domain: 'Maximum flow' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

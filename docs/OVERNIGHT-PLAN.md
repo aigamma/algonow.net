@@ -2281,8 +2281,53 @@ commit, Fable trailer on every commit, check green before each push.
       3, ls no dir): Subset construction × Powerset
       determinization (category languages-compilers: FIRST unit).
 
-**Next action: F81 Subset construction × powerset determinization
-(puzzle 87); sequentially until morning.** Owner's overnight directive
+- [x] F81. Subset construction × powerset determinization. Puzzle
+      87, slug subset-construction-powerset, category
+      languages-compilers (FIRST unit in the category), problem
+      regex-construction (link verified in
+      dist/algo/subset-construction). Solution
+      subset_construction_powerset.py: eps_closure, frontier
+      simulation (the referee), lazy subset construction, Moore
+      partition refinement, blowup family last_nth_is_a, keyword
+      NFA builder. FOUR ORACLES, first run clean, 2.3s: (1)
+      EXHAUSTIVE LANGUAGE EQUALITY: 250 random epsilon-heavy NFAs
+      x all 2,047 strings of length <=10 = 511,750 checks + 20,000
+      long strings: DFA == frontier simulation everywhere; (2) THE
+      BLOWUP THEOREM MEASURED: (a|b)*a(a|b)^(n-1): exactly 2^n
+      reachable states for n=3..14 asserted, AND Moore refinement
+      proves all 2^n necessary through n=10 (the lower bound run,
+      not recited); (3) THE LAZINESS DIVIDEND: sparse 16-state
+      NFAs: mean 12 subsets built of 65,536 possible = 5,592x
+      never constructed (assert >100); (4) client: 4-keyword
+      scanner (240 DFA states) == Python substring search on all
+      5,000 strings, exactly 1.0 transitions/char vs frontier's
+      1.39. No atlas edit (pair t1 automata-languages line 3);
+      summary stays 3257/2343. Cards: self, Thompson's (upstream:
+      regex->NFA: the 1968 pipeline), Hopcroft's (downstream:
+      n log n collapse: hands back exactly 2^n on the blowup
+      family: minimization is not magic), Brzozowski derivatives
+      (skip automata: same wall, different spelling). neverUse:
+      BACKTRACKING REGEX ON UNTRUSTED INPUT: ReDoS, the Cloudflare
+      2019 global outage: the frontier merges guesses, the
+      backtracker relives all 2^n of them. Figure: two-panel (kind
+      case: 12 of 65,536 subsets; cruel case: 2^n bars), cite
+      Rabin-Scott IBM J. R&D 3(2) 1959 DOI 10.1147/rd.32.0114
+      (WebSearch-verified; the 1976 Turing Award paper). Viz
+      SubsetViz two acts: act 1 the frontier gets a name: the
+      third-from-end NFA with frontier lit blue over 4 state
+      circles + the DFA box naming the subset, synchronized
+      through a 14-char string; act 2 the blowup ladder n=1..8:
+      amber linear NFA bars vs red doubling DFA bars, computed by
+      RUNNING the JS construction. NODE-VERIFIED 10 cycles: every
+      prefix verdict == the third-from-last truth, frontiers
+      well-formed, ladder exactly 2^n, 2^12 spot check. Bench
+      reseeded (bare-grep empty, atlas t1 crypto line 6, ls no
+      dir): Modular exponentiation × Square-and-multiply (the
+      Montgomery ladder t2 sibling earmarked as the timing-attack
+      rival card).
+
+**Next action: F82 Modular exponentiation × square-and-multiply
+(puzzle 88); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

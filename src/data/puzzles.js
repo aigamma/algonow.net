@@ -1645,13 +1645,32 @@ export const PUZZLES = {
     vite: 'crc-polynomial-division',
     html: 'crc-polynomial-division/index.html',
   },
+  '/subset-construction-powerset/': {
+    slug: 'subset-construction-powerset',
+    problemSlug: 'regex-construction',
+    number: 87,
+    category: 'languages-compilers',
+    algorithm: 'Subset construction',
+    heuristic: 'Powerset determinization',
+    domain: 'NFA to DFA',
+    oneLiner:
+      'The set of states a guessing machine could be in is itself one definite thing: name each reachable subset, and nondeterminism becomes one table lookup per character.',
+    description:
+      'The subset construction with powerset determinization: 511,750 exhaustive checks against frontier simulation, the 2^n blowup measured and Moore-verified minimal, laziness at 5,592x.',
+    listenMinutes: 8,
+    time: 'O(2ⁿ) worst, lazy',
+    space: 'O(reachable · |Σ|)',
+    baseline: 'NFA frontier simulation',
+    vite: 'subset-construction-powerset',
+    html: 'subset-construction-powerset/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Subset construction', heuristic: 'Powerset determinization', domain: 'NFA to DFA' },
+  { algorithm: 'Modular exponentiation', heuristic: 'Square-and-multiply', domain: 'Fast modular powers' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

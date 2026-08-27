@@ -35,7 +35,7 @@
 {"a": "Gotoh's algorithm", "h": "Affine gap penalties", "d": "Sequence alignment", "t": 2},
 {"a": "Banded alignment", "h": "Diagonal band restriction", "d": "Similar-sequence alignment", "t": 2},
 {"a": "Four-Russians alignment", "h": "Block lookup tables", "d": "Speedup for edit distance", "t": 3},
-{"a": "Wagner-Fischer", "h": null, "d": "Edit distance", "t": 1},
+{"a": "Wagner-Fischer", "h": "Prefix-to-prefix table", "d": "Edit distance", "t": 1},
 {"a": "Ukkonen's edit distance", "h": "Diagonal cutoff for bounded k", "d": "Bounded edit distance", "t": 3},
 {"a": "Levenshtein automaton", "h": null, "d": "Fuzzy dictionary lookup", "t": 2},
 {"a": "Hunt-McIlroy diff", "h": null, "d": "Unix diff foundation", "t": 3},

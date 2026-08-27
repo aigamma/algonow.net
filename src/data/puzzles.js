@@ -467,13 +467,31 @@ export const PUZZLES = {
     vite: 'reservoir-algorithm-r',
     html: 'reservoir-algorithm-r/index.html',
   },
+  '/wagner-fischer-table/': {
+    slug: 'wagner-fischer-table',
+    problemSlug: 'edit-distance',
+    number: 25,
+    category: 'strings',
+    algorithm: 'Wagner-Fischer',
+    heuristic: 'Prefix-to-prefix table',
+    domain: 'Edit distance, witnessed',
+    oneLiner:
+      'D[i][j] = the distance between prefixes: three neighbors answer every cell, the corner holds the cost, and walking the argmins home is the edit script itself.',
+    description:
+      'Wagner-Fischer paired with the prefix-to-prefix table: watch the edit-distance grid fill and trace its script, measured against Hirschberg, Ukkonen’s band, and Myers diff, every script applied and verified.',
+    listenMinutes: 8,
+    time: 'Θ(nm) cells',
+    space: 'O(nm), O(m) two-row',
+    baseline: 'Naive recursion, 3ⁿ',
+    vite: 'wagner-fischer-table',
+    html: 'wagner-fischer-table/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F19 onward, in order), so the public promise and the plan tell one story.
+// F20 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Wagner-Fischer', heuristic: 'Prefix-to-prefix table', domain: 'Edit distance' },
   { algorithm: 'Fenwick tree', heuristic: 'Low-bit ladders', domain: 'Prefix sums under change' },
 ];
 

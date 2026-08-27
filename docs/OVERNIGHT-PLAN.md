@@ -413,9 +413,24 @@ atlas-verified, pairs authored per rule 2 at build where h is null):
       atlas entry: Bottom-k sampling (Cohen-Kaplan), summary 3,255.
       Viz: the lifeboat + a decile histogram converging to the uniform
       line across banked streams.
-- [ ] F19. Wagner-Fischer × prefix-to-prefix table (vs Hirschberg
-      linear-space, banded/Ukkonen cutoff, bitap); the DP-state lesson
-      beside Kadane's.
+- [x] F19. Wagner-Fischer × prefix-to-prefix table, live as puzzle 25
+      (2026-08-27, Fable). 2,000-char pair, 40 planted edits, true
+      distance 37: full table 3,993,996 cells (asserted == (n+1)(m+1)
+      exactly) with a verified script; two-row same work at 1/1000
+      space, script gone; Hirschberg 8,045,979 (2x) with the script
+      back at linear space, also verified; Ukkonen band k=45 179,781
+      (22x less), honest 'more than k' on a distant pair; Myers diff
+      3,626 steps in its own indel metric (d=53; snakes down
+      diagonals; git diff's engine); naive recursion 797,161 calls at
+      n=12 (3^n). Every script APPLIED as an executable witness; the
+      metric axioms (incl. triangle) on 200 triples; the indel
+      identity d = n+m-2*LCS confirmed by three independent programs;
+      SETH lower bound (Backurs-Indyk 2015) cited as the honest
+      quadratic wall. Atlas: W-F h -> Prefix-to-prefix table (rule 2),
+      heuristics 2,313. Viz: the table filling with real values, then
+      the green backtrace; five rotating word pairs. The DP-state
+      lesson explicitly paired with Kadane's (state cannot shrink here;
+      shrink space, work, or metric instead).
 - [ ] F20. Fenwick tree × low-bit ladders (vs prefix-sum array rebuild,
       segment tree, sqrt decomposition) under mixed update/query load.
 
@@ -529,9 +544,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: the twice-extended Phase F queue, strictly sequential
-(F19 Wagner-Fischer is next, then F20), one unit per commit+push with
-a production deploy as units land.** Owner's overnight directive
+**Next action: F20 Fenwick tree, the last of the second extension,
+then extend the queue again per the standing owner directive.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

@@ -272,7 +272,40 @@ Phase A standard. Candidates chosen for measurable contrast:
       asserted on every Dinic run, phase bound, PR height bound. Viz:
       real Dinic replayed event-by-event (levels stamp, blocking flows
       fill pipes green, augments flash amber, distance only rises).
-- [ ] F10. PageRank × damped random walk (vs HITS, SALSA, degree centrality)
+- [x] F10. PageRank × damped random walk, live as puzzle 16
+      (2026-08-27, Fable). A 2,000-page web with three planted attacks:
+      PageRank d=0.85 converges in 82 passes, trap mass 2.7%, clique
+      capture 5%, and survives all three; undamped walk >500 passes with
+      the 10-page trap hoarding 84.7% (the dangling patch's faint
+      teleport is why not 100%, noted honestly); HITS 19 passes and 100%
+      clique capture (TKC at full strength); SALSA 131 passes, capture
+      5% (the normalization repair, measured); in-degree 1 pass and
+      farm-fatal. Farm experiment: 100 socks -> target in-degree rank 1,
+      PageRank rank 9 (from 1,690): dilution not immunity, stated as
+      such. Oracles: exact Gaussian solve match to 1e-10, ring symmetry,
+      unit-mass fixed point, monotone damping price, trap, TKC, farm.
+      New atlas entry: Degree centrality (t1, Node importance), summary
+      3,251 -> 3,252. Viz: 200 surfers converge onto eigenvector rings.
+      The queued Phase F is complete: F1-F10 all live.
+
+The F-queue continues (2026-08-27, owner overnight directive: keep
+populating units; chosen from tier-1 atlas canon for category breadth
+and measurable contrast; each pair verified or authored per rule 2 at
+build time):
+
+- [ ] F11. LRU caching × least-recently-used eviction (vs FIFO, random,
+      LFU, Belady's OPT as the clairvoyant bound) on reuse-heavy and
+      scan-heavy traces; systems category.
+- [ ] F12. K-means × k-means++ seeding (vs random seeding, single
+      linkage?, DBSCAN as the shape counterexample); ml-ai category.
+- [ ] F13. Graham scan × polar-angle sorting (vs gift wrapping
+      (output-sensitive), Andrew monotone chain, QuickHull); geometry.
+- [ ] F14. Gradient descent × Polyak momentum (vs plain GD, Nesterov,
+      Newton) on an ill-conditioned quadratic, iterations measured;
+      numerical category; author the pair entry per rule 2.
+- [ ] F15. Kahn's algorithm × zero in-degree queue (vs DFS
+      finish-order toposort, and cycle detection as the failure story);
+      author the pair entry per rule 2 (h currently null).
 
 ## Phase G. Plumbing and hygiene (added 2026-07-22 evening)
 
@@ -384,9 +417,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F10 PageRank, the last queued Phase F unit, then extend
-the F-queue from tier-1 atlas canon (one unit per commit+push with a
-production deploy as units land).** Owner's overnight directive
+**Next action: the extended Phase F queue, strictly sequential (F11
+LRU is next, then F12-F15), one unit per commit+push with a production
+deploy as units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

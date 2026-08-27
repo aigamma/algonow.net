@@ -296,13 +296,36 @@ export const PUZZLES = {
     vite: 'dinic-level-graphs',
     html: 'dinic-level-graphs/index.html',
   },
+  '/pagerank-damped-walk/': {
+    slug: 'pagerank-damped-walk',
+    problemSlug: 'link-analysis',
+    number: 16,
+    category: 'probabilistic',
+    algorithm: 'PageRank',
+    heuristic: 'Damped random walk',
+    domain: 'Ranking linked graphs',
+    oneLiner:
+      'Importance as the habit of a distractible reader: follow links, jump anywhere every seventh click, and rank pages by where eternity gets spent.',
+    description:
+      'PageRank paired with the damped random walk: watch a swarm of surfers converge to the eigenvector, measured against HITS, SALSA, and in-degree on traps, cliques, and link farms.',
+    listenMinutes: 8,
+    time: 'O(E) per pass',
+    space: 'O(V)',
+    baseline: 'In-degree count',
+    vite: 'pagerank-damped-walk',
+    html: 'pagerank-damped-walk/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F10 onward, in order), so the public promise and the plan tell one story.
+// F11 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'PageRank', heuristic: 'Damped random walk', domain: 'Ranking linked graphs' },
+  { algorithm: 'LRU caching', heuristic: 'Least-recently-used eviction', domain: 'Page and cache replacement' },
+  { algorithm: 'K-means', heuristic: 'K-means++ seeding', domain: 'Clustering points' },
+  { algorithm: 'Graham scan', heuristic: 'Polar-angle sorting', domain: 'Convex hulls' },
+  { algorithm: 'Gradient descent', heuristic: 'Polyak momentum', domain: 'Smooth minimization' },
+  { algorithm: "Kahn's algorithm", heuristic: 'Zero in-degree queue', domain: 'Ordering dependencies' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

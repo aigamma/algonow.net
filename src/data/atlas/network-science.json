@@ -12,6 +12,7 @@
 {"a": "Katz centrality", "h": null, "d": "Node importance", "t": 3},
 {"a": "Closeness centrality", "h": null, "d": "Node importance", "t": 2},
 {"a": "Harmonic centrality", "h": null, "d": "Node importance", "t": 3},
+{"a": "Degree centrality", "h": null, "d": "Node importance", "t": 1},
 {"a": "Betweenness centrality", "h": "Brandes accumulation", "d": "Node importance", "t": 1},
 {"a": "Approximate betweenness", "h": "Pivot sampling", "d": "Large-graph centrality", "t": 3},
 {"a": "PageRank centrality", "h": "Personalized restart", "d": "Node importance", "t": 2},

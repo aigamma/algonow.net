@@ -1835,13 +1835,34 @@ export const PUZZLES = {
     vite: 'de-bruijn-kmer-assembly',
     html: 'de-bruijn-kmer-assembly/index.html',
   },
+  '/kalman-covariance-correction/': {
+    slug: 'kalman-covariance-correction',
+    problemSlug: 'state-estimation',
+    number: 97,
+    category: 'signal-graphics',
+    algorithm: 'Kalman filter',
+    heuristic: 'Covariance-weighted correction',
+    domain: 'Linear state estimation',
+    oneLiner:
+      'Predict through the model, correct toward the sensor by K = P/(P+R): the trust ratio computed from the two uncertainties, never tuned: optimal in constant memory since Apollo.',
+    description:
+      'The Kalman filter with covariance-weighted correction: Bayes agreement to 1e-12, the Riccati root hit exactly, optimality measured against 40 gains on 400,000 steps, the maneuver spike shown.',
+    listenMinutes: 8,
+    time: 'O(1) per step',
+    space: 'O(1) state + P',
+    baseline: 'Trust the sensor / dead reckoning',
+    vite: 'kalman-covariance-correction',
+    html: 'kalman-covariance-correction/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Kalman filter', heuristic: 'Covariance-weighted correction', domain: 'Linear state estimation' },
+  { algorithm: 'Louvain method', heuristic: 'Greedy modularity moves', domain: 'Community detection' },
+  { algorithm: 'Chandy-Lamport', heuristic: 'Marker-based snapshots', domain: 'Distributed snapshots' },
+  { algorithm: 'Timsort', heuristic: 'Galloping merge threshold', domain: 'Real-world stable sorting' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

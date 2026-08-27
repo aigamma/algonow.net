@@ -2810,9 +2810,55 @@ commit, Fable trailer on every commit, check green before each push.
       nightly). Build exit 0, check exit 0 (theme.css inside its
       14KB budget).
 
-**Next action: F91 Kalman filter × covariance-weighted correction
-(puzzle 97); sequentially until morning, at the corrected
-standard (crisp canvases, per-act rests).** Owner's overnight directive
+- [x] F91. Kalman filter × covariance-weighted correction. Puzzle
+      97, slug kalman-covariance-correction, category
+      signal-graphics (FIRST unit in the category), problem
+      state-estimation (link verified in dist/algo/kalman-filter).
+      RULE 2 ATLAS EDIT: signal-image.json Kalman filter h null ->
+      'Covariance-weighted correction'; atlas-summary heuristics
+      2343 -> 2344 (total stays 3257). Solution
+      kalman_covariance_correction.py: scalar random-walk filter,
+      INDEPENDENT precision-Bayes referee (separate derivation),
+      closed-form Riccati steady gain, fixed-gain grid,
+      hand-rolled 2D constant-velocity tracker. FIVE ORACLES,
+      1.3s: (1) TWO DERIVATIONS ONE ANSWER: filter posterior ==
+      precision-Bayes to 1e-12 in mean AND variance, 300 steps;
+      (2) the iterated gain == the algebraic Riccati root to
+      1e-12 (calibration catch: first band guessed 0.61 = 1-K:
+      actual K* = 0.3904); (3) OPTIMALITY MEASURED: 400,000
+      steps, 40-gain grid: best grid gain 0.400 with MSE 1.56 ==
+      Kalman's 1.56, no gain beats it: search rediscovers
+      algebra; (4) ablation: sensor-only MSE == R = 4.00 exactly,
+      dead reckoning drift 99 -> 412 (q*t), blend 1.56; (5) 2D
+      client: raw GPS RMSE 7.1 vs cruise 3.1 (2.3x), unmodeled
+      90-degree maneuver spikes 2.9x then re-converges: the
+      divergence lesson measured. Cards: self, EKF (local
+      linearization gamble), Particle filter (multimodal escape
+      hatch), Savitzky-Golay (offline smoothing: a different
+      question). neverUse: A HAND-TUNED CONSTANT GAIN SHIPPED AS
+      A TRACKER: the 40-gain search rediscovering Riccati's
+      number is the indictment: tuning breaks silently when Q/R
+      change and throws away P. Figure: predict/correct loop with
+      the K box + measured ledger, cite Kalman J. Basic Eng 82(1)
+      1960 DOI 10.1115/1.3662552 (WebSearch-verified). Viz
+      KalmanViz (per-act rests + crisp store per QC1): act 1
+      truth/measurements/estimate with 2-sigma band and the gain
+      readout converging to K*; act 2 three gains raced with live
+      MSE meters. NODE-VERIFIED 10 cycles: gain at the Riccati
+      root, every on-screen estimate == precision-Bayes to 1e-9,
+      Kalman lane beats both extremes every cycle. Bench reseeded
+      with the FINAL THREE to the owner's clean-100 target
+      (dirs clear, atlas t1/t1/t2 confirmed, problem links
+      verified in dist): 98 Louvain × Greedy modularity moves
+      (community-detection), 99 Chandy-Lamport × Marker-based
+      snapshots (distributed-snapshots), 100 Timsort × Galloping
+      merge threshold (comparison-sorting).
+
+**Next action: F92 Louvain (98), F93 Chandy-Lamport (99), F94
+Timsort (100), then the atlas honesty pass (owner directive
+2026-08-27: the site reports the 100 live puzzles as the real
+offer, the catalog as the reference map, no hidden-potentiality
+framing), then stop unit production.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

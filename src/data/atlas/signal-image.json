@@ -11,7 +11,7 @@
 {"a": "FIR filter design", "h": "Parks-McClellan equiripple", "d": "Optimal filter design", "t": 3},
 {"a": "IIR filter design", "h": "Bilinear transform", "d": "Recursive filtering", "t": 2},
 {"a": "Butterworth filter", "h": null, "d": "Maximally-flat filtering", "t": 2},
-{"a": "Kalman filter", "h": null, "d": "Linear state estimation", "t": 1},
+{"a": "Kalman filter", "h": "Covariance-weighted correction", "d": "Linear state estimation", "t": 1},
 {"a": "Extended Kalman filter", "h": "Local linearization", "d": "Nonlinear state estimation", "t": 2},
 {"a": "Unscented Kalman filter", "h": "Sigma-point propagation", "d": "Nonlinear state estimation", "t": 2},
 {"a": "Particle filter", "h": "Sequential importance resampling", "d": "Nonlinear state estimation", "t": 2},

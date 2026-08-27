@@ -543,13 +543,31 @@ export const PUZZLES = {
     vite: 'simplex-dantzig-pivots',
     html: 'simplex-dantzig-pivots/index.html',
   },
+  '/viterbi-max-product/': {
+    slug: 'viterbi-max-product',
+    problemSlug: 'hmm-inference',
+    number: 29,
+    category: 'ml-ai',
+    algorithm: 'Viterbi algorithm',
+    heuristic: 'Max-product trellis',
+    domain: 'Decoding hidden sequences',
+    oneLiner:
+      'The most believable screenplay of the whole night, not a chain of local guesses: max-product over the trellis, with backpointers reading the story out.',
+    description:
+      'The Viterbi algorithm paired with the max-product trellis: the dishonest casino decoded, posterior decoding’s impossible story pinned, greedy’s collapse measured, and beam search’s 50 certified losses.',
+    listenMinutes: 8,
+    time: 'O(n·S²)',
+    space: 'O(n·S)',
+    baseline: 'Greedy chained argmax',
+    vite: 'viterbi-max-product',
+    html: 'viterbi-max-product/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F23 onward, in order), so the public promise and the plan tell one story.
+// F24 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Viterbi algorithm', heuristic: 'Max-product trellis', domain: 'Decoding hidden sequences' },
   { algorithm: 'Skip list', heuristic: 'Coin-flip level promotion', domain: 'Ordered maps by lottery' },
   { algorithm: "Strassen's algorithm", heuristic: 'Seven-product block split', domain: 'Fast matrix multiplication' },
 ];

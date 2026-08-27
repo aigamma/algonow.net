@@ -486,8 +486,26 @@ directive; names atlas-verified):
       Viz: 2D polytope walk with objective contours. Second numerical
       unit.
 
-- [ ] F23. Viterbi × max-product trellis (vs greedy per-step argmax,
-      beam search, posterior decoding); author h per rule 2.
+- [x] F23. Viterbi × max-product trellis, live as puzzle 29
+      (2026-08-27, Fable). Casino (2 states, 30x300): Viterbi 81.0%
+      accuracy with all paths legal and 50/50 optimal in the 12-state
+      arena; posterior decoding 82.5% (wins per-position, the famous
+      split) but outputs the IMPOSSIBLE [B,A] story on the canonical
+      three-parallel-stories instance (prob exactly 0; first two trap
+      drafts failed because a single forbidden edge always gets
+      bridged by the gateway state under smoothing, so the canonical
+      construction replaced them); greedy chained argmax 58.7%,
+      WORSE than ignoring transitions entirely (72.8%): commitment
+      compounds on sticky chains; beam-3 on 12 states 4x cheaper and
+      0/50 optimal, every miss certified. Linear-space Viterbi
+      underflows to exactly 0.0 at n=2,000 (log-space: -3,594.4).
+      Oracles: full 3^7 = 2,187-path enumeration matches Viterbi AND
+      forward-backward marginals to 1e-9 on 15 models; no rival path
+      ever exceeds the MAP log-prob. Atlas: Viterbi h -> Max-product
+      trellis (rule 2), heuristics 2,315. The DP-state trilogy
+      (Kadane, W-F, Viterbi) completed and cross-referenced. Second
+      ml-ai unit. Viz: the casino trellis over truth bands, backtrace
+      hugging the amber loaded stretches, misses ringed red.
 - [ ] F24. Skip list × coin-flip level promotion (vs balanced BSTs,
       sorted array; expected-log by measurement, the lottery made
       visible).
@@ -605,7 +623,7 @@ commit, Fable trailer on every commit, check green before each push.
 ## Resume pointer
 
 **Next action: the thrice-extended Phase F queue, strictly sequential
-(F23 Viterbi is next, then F24-F25), one unit per commit+push with a
+(F24 skip list is next, then F25), one unit per commit+push with a
 production deploy as units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the

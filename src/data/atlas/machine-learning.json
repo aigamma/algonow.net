@@ -67,7 +67,7 @@
 {"a": "Dropout", "h": null, "d": "Neural regularization", "t": 2},
 {"a": "Batch normalization", "h": null, "d": "Training stabilization", "t": 2},
 {"a": "Learning rate warmup", "h": "Cosine annealing schedule", "d": "Training schedules", "t": 2},
-{"a": "Viterbi algorithm", "h": null, "d": "Hidden Markov decoding", "t": 1},
+{"a": "Viterbi algorithm", "h": "Max-product trellis", "d": "Hidden Markov decoding", "t": 1},
 {"a": "Forward-backward algorithm", "h": null, "d": "HMM inference", "t": 2},
 {"a": "Baum-Welch", "h": "EM for HMMs", "d": "HMM training", "t": 2},
 {"a": "Belief propagation", "h": null, "d": "Graphical-model inference", "t": 2},

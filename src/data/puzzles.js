@@ -1816,13 +1816,32 @@ export const PUZZLES = {
     vite: 'shamir-secret-sharing',
     html: 'shamir-secret-sharing/index.html',
   },
+  '/de-bruijn-kmer-assembly/': {
+    slug: 'de-bruijn-kmer-assembly',
+    problemSlug: 'genome-assembly',
+    number: 96,
+    category: 'comp-bio',
+    algorithm: 'de Bruijn graph assembly',
+    heuristic: 'K-mer overlap',
+    domain: 'Genome assembly',
+    oneLiner:
+      'Shred reads into k-mers, wire each as an edge from prefix to suffix, walk every edge once: adjacency without comparison, the genome as an Eulerian path, and repeats as the proven wall.',
+    description:
+      'de Bruijn assembly by k-mer overlap: 300 genomes reassembled exactly, the repeat ambiguity proven by two spectrum-equal assemblies, the coverage curve 21 to 1, the error bubble healed.',
+    listenMinutes: 8,
+    time: 'O(total bases)',
+    space: 'O(distinct k-mers)',
+    baseline: 'Overlap-layout-consensus',
+    vite: 'de-bruijn-kmer-assembly',
+    html: 'de-bruijn-kmer-assembly/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'de Bruijn graph assembly', heuristic: 'K-mer overlap', domain: 'Genome assembly' },
+  { algorithm: 'Kalman filter', heuristic: 'Covariance-weighted correction', domain: 'Linear state estimation' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

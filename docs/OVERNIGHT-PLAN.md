@@ -2721,8 +2721,65 @@ commit, Fable trailer on every commit, check green before each push.
       ls no dir): de Bruijn graph assembly × K-mer overlap
       (comp-bio, problem genome-assembly).
 
-**Next action: F90 de Bruijn assembly × k-mer overlap (puzzle
-96); sequentially until morning.** Owner's overnight directive
+- [x] F90. de Bruijn graph assembly × k-mer overlap. Puzzle 96,
+      slug de-bruijn-kmer-assembly, category comp-bio, problem
+      genome-assembly (link verified in
+      dist/algo/de-bruijn-graph-assembly). Solution
+      de_bruijn_kmer_assembly.py: k-mer counting, prefix->suffix
+      graph with multiplicity, Hierholzer with a tiebreak switch,
+      distinct() (read spectra carry ~20x multiplicity: the walk
+      wants occurrences), contigs_from (non-branching paths on
+      the distinct graph), shred with granted terminal reads,
+      spectral cleaning. FIVE ORACLES, 6.1s: (1) 300 random
+      genomes reassembled EXACTLY from k-mer multisets (string
+      equality); (2) THE REPEAT THEOREM RUN: 40-base motif
+      planted THREE times (a two-copy repeat is still uniquely
+      assemblable: one cycle, one insertion point: measured
+      before the fix), flanking chars forced distinct (matching
+      flanks silently extend the effective repeat: caught when
+      ambiguity leaked to k=42): k in {20,30,41}: TWO DISTINCT
+      assemblies, both asserted spectrum-equal to the truth: k in
+      {42,50}: unique and exact: THE CLIFF AT REPEAT+2 EXACT;
+      (3) coverage curve: 2x/5x/20x -> 21/4/1 contigs, 2x breaks
+      exactness, 20x achieves it (bug chain fixed: read
+      multiplicities made the multiset walk nonsense -> distinct
+      graph; contig counter counted edge multiplicity as
+      branching -> collapse first; genome ENDS need a read at
+      position 0 -> terminal reads granted at coverage/4 depth so
+      cleaning does not kill them); (4) error bubble: one
+      substituted base breaks raw assembly, count>=3 threshold
+      heals exactly (true ~20x vs noise 1x); (5) client:
+      1,500-base gene exact from 500 raw reads after cleaning.
+      No atlas edit (pair t1 computational-biology line 16);
+      summary stays 3257/2343. Cards: self, OLC (t2, SAME d: the
+      first era AND the long-read renaissance), String graph
+      (t3, same d: OLC refined by transitive reduction), BWT read
+      alignment (t1: MAPPING vs assembly: live BWT unit tie-in:
+      ask does-a-reference-exist first). neverUse: SHIPPING ONE
+      WALK THROUGH A TANGLED GRAPH: the two-truths oracle makes
+      it concrete: misassembly, the field's quiet plague: report
+      contigs at tangles or bring spanning evidence. Figure:
+      edges-through-nodes chain + the collapsed repeat with two
+      loops, cite Pevzner-Tang-Waterman PNAS 98(17) 2001 DOI
+      10.1073/pnas.171285098 (WebSearch-verified). Viz
+      DeBruijnViz: act 1 shred-and-walk on a 46-base repeat-free
+      genome (k=6, box sliding, green assembly growing); act 2
+      the repeat trap at k=4: collapsed node diagram, two walks
+      spelling two genomes (real assembleFrom output), k=8
+      untying it: scene reroll requires the trap AND clean k=8
+      uniqueness (flank coincidences caught in verify cycle 1).
+      NODE-VERIFIED 12 cycles: act-1 assembly == genome, act-2
+      walks distinct and both spectrum-consistent (k-mer multiset
+      equality), k=8 exact. Bench reseeded (kalman grep 0 hits,
+      atlas t1 signal-image line 14 with h NULL: RULE 2: heuristic
+      'Covariance-weighted correction' to be authored at build
+      time: summary heuristics will go 2343 -> 2344): Kalman
+      filter × Covariance-weighted correction (category
+      signal-graphics: FIRST unit; problem via
+      dist/algo/kalman-filter at build).
+
+**Next action: F91 Kalman filter × covariance-weighted correction
+(puzzle 97); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

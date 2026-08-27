@@ -1249,8 +1249,37 @@ commit, Fable trailer on every commit, check green before each push.
       majority vote × pairwise cancellation (t1, h to author,
       probabilistic-streaming, d Majority element, grep-verified).
 
-**Next action: F53 Boyer-Moore majority vote × pairwise cancellation
-(author h per rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F53. Boyer-Moore majority vote × pairwise cancellation. Puzzle
+      59, probabilistic (problemSlug frequency-estimation, shared with
+      the live count-min). Referee: THE PAIRING THEORY ITSELF: the
+      surplus bound count >= 2m-n asserted on 300 planted-majority
+      streams under 4 adversarial layouts (front, back, alternating,
+      shuffled), with EXACT equality on the alternating gadget
+      (counter lands on 2m-n = 2, every pair destroys one majority
+      copy). Dictionary-truth agreement on 500 mixed streams (316 held
+      a majority). THE BETRAYAL: a,b,a,b,c crowns 'c', the RAREST
+      element (asserted strict minority + verify pass catches it);
+      across 1,000 no-majority streams the unverified candidate was
+      not even the mode 68% of the time (assert > 0.25). Memory
+      contest at n=1,000,000 (500,001 planted among 499,999 distinct):
+      dict tally 500,000 keys (len asserted exactly), sort-and-middle
+      full copy (middle seat == MAJ), Misra-Gries k=8 (instrumented
+      high-water <= 8, majority present), BM 2 words + verify. Client:
+      7-way modular redundancy, up to 3 COLLUDING faults, 200/200
+      recoveries. Runtime 0.8s. Atlas: probabilistic-streaming.json h
+      authored "Pairwise cancellation" (rule 2); summary heuristics
+      2331 -> 2332. Cards: self, Misra-Gries, Count-min (live),
+      Quickselect (live: median-is-majority). neverUse: the unverified
+      single-pass vote. Figure cites Boyer-Moore MJRTY 1991 DOI
+      10.1007/978-94-011-3488-0_5 (written 1980, Fortran mechanically
+      proved, "efficient use of magnetic tape"). Viz: two acts, the
+      brawl with red pair arcs and the verify sweep: act 2's 14/14/8
+      gadget unmasked (a survivor, not a winner). Bench reseeded: LZW
+      × growing phrase dictionary (t1, h to author,
+      compression-coding, d Dictionary compression, grep-verified).
+
+**Next action: F54 LZW × growing phrase dictionary (author h per
+rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

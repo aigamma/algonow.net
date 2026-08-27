@@ -23,7 +23,7 @@
 {"a": "Reservoir sampling", "h": "Algorithm L skip", "d": "Fast stream sampling", "t": 3},
 {"a": "Bottom-k sampling", "h": "Minimum random keys", "d": "Uniform stream sampling", "t": 2},
 {"a": "Priority sampling", "h": null, "d": "Subset-sum estimation", "t": 3},
-{"a": "Boyer-Moore majority vote", "h": null, "d": "Majority element", "t": 1},
+{"a": "Boyer-Moore majority vote", "h": "Pairwise cancellation", "d": "Majority element", "t": 1},
 {"a": "Misra-Gries", "h": "Bounded counter eviction", "d": "Frequent-item estimation", "t": 2},
 {"a": "Space-Saving", "h": "Min-counter replacement", "d": "Top-k heavy hitters", "t": 2},
 {"a": "Lossy counting", "h": "Bucketed decrement sweeps", "d": "Frequent-item mining", "t": 2},

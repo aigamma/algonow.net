@@ -1113,13 +1113,32 @@ export const PUZZLES = {
     vite: 'ternary-search-interval-thirds',
     html: 'ternary-search-interval-thirds/index.html',
   },
+  '/boyer-moore-majority-vote/': {
+    slug: 'boyer-moore-majority-vote',
+    problemSlug: 'frequency-estimation',
+    number: 59,
+    category: 'probabilistic',
+    algorithm: 'Boyer-Moore majority vote',
+    heuristic: 'Pairwise cancellation',
+    domain: 'Majority element',
+    oneLiner:
+      'Every decrement pairs the candidate with a stranger and both walk out: a faction holding more than half the hall cannot run out of partners first.',
+    description:
+      'Boyer-Moore majority vote paired with pairwise cancellation: the surplus bound asserted on 300 adversarial layouts, 2 words vs 500,000 keys measured, the unverified vote crowning the rarest element.',
+    listenMinutes: 8,
+    time: 'O(n), two passes',
+    space: 'O(1): two words',
+    baseline: 'Dictionary tally',
+    vite: 'boyer-moore-majority-vote',
+    html: 'boyer-moore-majority-vote/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Boyer-Moore majority vote', heuristic: 'Pairwise cancellation', domain: 'Majority element' },
+  { algorithm: 'LZW', heuristic: 'Growing phrase dictionary', domain: 'Dictionary compression' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

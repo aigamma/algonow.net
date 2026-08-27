@@ -46,6 +46,7 @@
 {"a": "Gradient descent", "h": "Fixed step size", "d": "Continuous minimization", "t": 1},
 {"a": "Gradient descent", "h": "Backtracking line search", "d": "Continuous minimization", "t": 1},
 {"a": "Gradient descent", "h": "Barzilai-Borwein step", "d": "Continuous minimization", "t": 2},
+{"a": "Gradient descent", "h": "Polyak momentum", "d": "Continuous minimization", "t": 1},
 {"a": "Nesterov accelerated gradient", "h": "Momentum extrapolation", "d": "Smooth convex optimization", "t": 1},
 {"a": "Conjugate gradient optimization", "h": "Fletcher-Reeves updates", "d": "Nonlinear optimization", "t": 2},
 {"a": "Conjugate gradient optimization", "h": "Polak-Ribière updates", "d": "Nonlinear optimization", "t": 2},

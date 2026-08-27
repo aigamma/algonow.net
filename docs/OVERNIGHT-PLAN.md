@@ -337,9 +337,21 @@ build time):
       cases incl. grids and duplicates, definition-level verification
       of every hull, Jarvis ~h*n and >=n^2/2 pins, scan budget. Viz:
       the string tightening, pops flashing red. First geometry group.
-- [ ] F14. Gradient descent × Polyak momentum (vs plain GD, Nesterov,
-      Newton) on an ill-conditioned quadratic, iterations measured;
-      numerical category; author the pair entry per rule 2.
+- [x] F14. Gradient descent × Polyak momentum, live as puzzle 20
+      (2026-08-27, Fable). One rotated quadratic, d=60, kappa=100, stop
+      at gradient 1e-8: plain GD 823 iterations (theorem predicts ~921),
+      +momentum 108 (theorem ~92: the sqrt-kappa speedup measured at
+      7.6x), Nesterov 177 (same class + the optimality certificate),
+      conjugate gradient EXACTLY d=60 (finite termination through
+      float), Newton 1 step at ~11 gradient-equivalents (wins the
+      quadratic outright: the honest d^3 boundary lesson). The 2/L
+      step cliff diverged on schedule (1.05^k), and the underdamped
+      ball measurably climbs mid-flight while converging (momentum is
+      not a descent method). New atlas pair entry {Gradient descent,
+      Polyak momentum, t1}, summary 3,253 -> 3,254. Oracles: all five
+      match Gaussian elimination, BOTH rate theorems bracket measured
+      counts, CG <= d, Newton == 1, cliff, monotonicity/overshoot.
+      Viz: two marbles, one canyon. First numerical homepage group.
 - [ ] F15. Kahn's algorithm × zero in-degree queue (vs DFS
       finish-order toposort, and cycle detection as the failure story);
       author the pair entry per rule 2 (h currently null).
@@ -454,9 +466,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: the extended Phase F queue, strictly sequential (F14
-gradient descent × Polyak momentum is next, then F15), one unit per
-commit+push with a production deploy as units land.** Owner's overnight directive
+**Next action: F15 Kahn × zero in-degree queue, the last of the
+extended F-queue, then extend again or pivot per the plan.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

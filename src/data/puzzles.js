@@ -372,13 +372,31 @@ export const PUZZLES = {
     vite: 'graham-scan-polar-sort',
     html: 'graham-scan-polar-sort/index.html',
   },
+  '/gradient-descent-momentum/': {
+    slug: 'gradient-descent-momentum',
+    problemSlug: 'continuous-optimization',
+    number: 20,
+    category: 'numerical',
+    algorithm: 'Gradient descent',
+    heuristic: 'Polyak momentum',
+    domain: 'Smooth minimization',
+    oneLiner:
+      'In a narrow valley the gradient points at the opposite wall; remember a fraction of your last step and the crosswise bounces cancel while the downhill drift compounds.',
+    description:
+      'Gradient descent paired with Polyak momentum: two marbles descend one ill-conditioned canyon, measured against Nesterov, conjugate gradient, and Newton, with both rate theorems checked numerically.',
+    listenMinutes: 8,
+    time: 'O(√κ log 1/ε)',
+    space: 'O(d)',
+    baseline: 'Plain gradient descent',
+    vite: 'gradient-descent-momentum',
+    html: 'gradient-descent-momentum/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F14 onward, in order), so the public promise and the plan tell one story.
+// F15 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Gradient descent', heuristic: 'Polyak momentum', domain: 'Smooth minimization' },
   { algorithm: "Kahn's algorithm", heuristic: 'Zero in-degree queue', domain: 'Ordering dependencies' },
 ];
 

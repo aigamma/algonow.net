@@ -2077,8 +2077,63 @@ commit, Fable trailer on every commit, check green before each push.
       beach line on implementation-risk grounds at this hour:
       equal teaching value, far safer build).
 
-**Next action: F77 Welzl's algorithm × randomized incremental
-basis; sequentially until morning.** Owner's overnight directive
+- [x] F77. Welzl's algorithm × randomized incremental basis. Puzzle
+      83, slug welzl-randomized-basis, category geometry, problem
+      bounding-spheres ("Bounding circles and spheres", link
+      verified in dist/algo/welzls-algorithm). Solution
+      welzl_randomized_basis.py: iterative Welzl (no recursion:
+      Python stack stays out of the story) with circle_2 /
+      circumcircle closed forms and a per-arrival test counter.
+      FIVE ORACLES: (1) 150 instances n<=16 equal to exhaustion
+      over EVERY pair-diameter and triple-circumcircle to 1e-7;
+      (2) the optimality certificate at 100,000 points, where no
+      exhaustion can referee: all inside, basis of 3 ON the
+      boundary to 1e-6, circle recomputed from its basis, center
+      inside the basis hull (barycentric signs); (3) expected
+      linearity as a scale law: work/point 7.54 / 9.09 / 8.87
+      across 10^3/10^4/10^5, max/min 1.21 (first attempt used one
+      run per scale and a small-n freak rebuild skewed 26.2/pt:
+      re-metered as means over 30/10/3 reps: "expected" is a claim
+      about the MEAN, so the meter must average); (4) THE
+      SORTED-ORDER BETRAYAL: 2,000 circle points fed in angular
+      order, no shuffle: 502,500 tests vs the shuffle's 2,034:
+      247x for the identical answer (quickselect's random-pivot
+      lesson in geometry: the shuffle IS the algorithm); (5) the
+      centroid+max-radius client priced: valid, never smaller,
+      +12.2% fat. Runtime ~9s. No atlas edit (pair existed t2 in
+      computational-geometry line 51); summary stays 3257/2343.
+      Cards: self, Ritter's two-pass growth (atlas t3: valid and
+      5-20% fat, for culling where slack is free), Graham scan
+      (live: hull-first shrinks n to h when the hull is in hand),
+      Fortune's beach line (farthest-point Voronoi: the pre-1991
+      classical road: a diagram of machinery for a 3-point answer).
+      neverUse: simulated annealing on the center (convex
+      objective, named exact O(n) algorithm at the bottom of the
+      bowl: a stochastic hammer on a convex nail, 100x for a worse
+      answer, no certificate). Figure: blob + circle + 3 amber
+      basis points (all three verified ON the 108px circle), the
+      3/i backwards-analysis line, measured numbers; cite Welzl
+      1991 LNCS 555 DOI 10.1007/BFb0038202 (WebSearch-verified:
+      Springer + dblp). Viz: WelzlViz two acts: act 1 fifty-six
+      shuffled arrivals (median-of-5 real shuffles: a single n=56
+      run can be a freak; the median IS the typical behavior the
+      theorem prices), rare red outsider flash, amber basis rings,
+      blue running circle; act 2 the betrayal: a 160-degree arc fed
+      in sorted angular order, EVERY arrival outside, 990 tests vs
+      act 1's ~198. NODE-VERIFIED across 14 cycles: act-1 final ==
+      brute SEC with basis on boundary, act-2 all 44 arrivals
+      outside (claim exact), work asymmetry >3x, circle exactly
+      framed (similarity-map normalizes every cycle's SEC to
+      r=128 at (320,158): gaussian tails had pushed one cycle's
+      circle offscreen; a similarity preserves which points pin the
+      circle, so the animated run stays real). Build: registry
+      chunk 12.1KB gz inside 20KB, html 0.9KB, check exit 0,
+      registry keys unique at 83. Bench reseeded (bare-grep of
+      puzzles.js empty, atlas t1 backtracking-cp line 30 confirmed,
+      ls no directory): DPLL × Unit propagation.
+
+**Next action: F78 DPLL × unit propagation (puzzle 84);
+sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

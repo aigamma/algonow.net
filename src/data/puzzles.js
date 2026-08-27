@@ -1569,13 +1569,32 @@ export const PUZZLES = {
     vite: 'karger-random-contraction',
     html: 'karger-random-contraction/index.html',
   },
+  '/welzl-randomized-basis/': {
+    slug: 'welzl-randomized-basis',
+    problemSlug: 'bounding-spheres',
+    number: 83,
+    category: 'geometry',
+    algorithm: "Welzl's algorithm",
+    heuristic: 'Randomized incremental basis',
+    domain: 'Smallest enclosing circle',
+    oneLiner:
+      'Shuffle the points, keep a circle, rebuild only on the rare arrival outside: at most three points pin the answer, and random order makes late rebuilds vanish: expected linear, exactly.',
+    description:
+      "Welzl's algorithm with a randomized incremental basis: 150 instances equal to exhaustion, the optimality certificate at 100,000 points, and the sorted-feed betrayal measured at 247x.",
+    listenMinutes: 8,
+    time: 'O(n) expected',
+    space: 'O(1) basis',
+    baseline: 'Pair-and-triple exhaustion',
+    vite: 'welzl-randomized-basis',
+    html: 'welzl-randomized-basis/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Welzl's algorithm", heuristic: 'Randomized incremental basis', domain: 'Smallest enclosing circle' },
+  { algorithm: 'DPLL', heuristic: 'Unit propagation', domain: 'Boolean satisfiability' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

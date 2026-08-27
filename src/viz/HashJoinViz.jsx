@@ -97,8 +97,15 @@ export default function HashJoinViz() {
         s.tick += 1;
         const run = s.act === 0 ? s.scene.good : s.scene.bad;
         if (s.tick >= run.events.length * 3 + END_HOLD) {
-          s.tick = 0;
-          s.act += 1;
+          // Hold the finished act for the full rest before the next
+          // act begins: every burst of motion earns its two minutes.
+          s.tick = run.events.length * 3 + END_HOLD;
+          s.actRest = (s.actRest || 0) + 1;
+          if (s.actRest > holdTicks(s)) {
+            s.tick = 0;
+            s.act += 1;
+            s.actRest = 0;
+          }
         }
         return true;
       },

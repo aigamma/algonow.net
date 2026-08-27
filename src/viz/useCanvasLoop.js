@@ -36,11 +36,27 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return undefined;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.round(width * dpr);
-    canvas.height = Math.round(height * dpr);
     const ctx = canvas.getContext('2d');
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    // Crispness: the model draws in logical width x height units, but
+    // the CSS box is usually wider (the canvas fills its frame), so a
+    // backing store of only width x height gets upscaled and blurs.
+    // Size the store from the RENDERED box times devicePixelRatio and
+    // scale the context, so one logical unit maps to >= 1 device
+    // pixel and text and lines stay sharp at every zoom level.
+    const fit = () => {
+      const cssW = canvas.getBoundingClientRect().width || width;
+      const dpr = Math.min(window.devicePixelRatio || 1, 3);
+      const scale = (cssW / width) * dpr;
+      const pw = Math.max(1, Math.round(width * scale));
+      const ph = Math.max(1, Math.round(height * scale));
+      if (canvas.width !== pw || canvas.height !== ph) {
+        canvas.width = pw;
+        canvas.height = ph;
+      }
+      ctx.setTransform(scale, 0, 0, scale, 0, 0);
+    };
+    fit();
 
     // A slower preference stretches every step. The floor keeps a pathological
     // setting from starving the interval. The pace is stamped onto the state so
@@ -55,7 +71,13 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
       let guard = 0;
       while (tick(state) !== false && guard < maxTicks) guard += 1;
       draw(ctx, state, width, height);
-      return undefined;
+      // Stay crisp if the column reflows (window resize, zoom).
+      const roStill = new ResizeObserver(() => {
+        fit();
+        draw(ctx, state, width, height);
+      });
+      roStill.observe(canvas);
+      return () => roStill.disconnect();
     }
 
     let raf = 0;
@@ -83,10 +105,19 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
     );
     io.observe(canvas);
 
+    // Re-fit the backing store when the layout changes size, so the
+    // figure never sits upscaled and soft after a reflow.
+    const ro = new ResizeObserver(() => {
+      fit();
+      paint();
+    });
+    ro.observe(canvas);
+
     return () => {
       clearInterval(timer);
       cancelAnimationFrame(raf);
       io.disconnect();
+      ro.disconnect();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [...deps, motionNonce]);

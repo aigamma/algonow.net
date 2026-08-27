@@ -118,6 +118,18 @@ export default function KargerViz() {
           return true;
         }
         s.tick += 1;
+        // Each contraction run wipes the graph and re-merges, so each
+        // finished run holds its final frame for the full rest before
+        // the next lottery ticket is drawn.
+        const boundary = s.tick % perRun === 0 && s.tick < RUNS_SHOWN * perRun;
+        if (boundary) {
+          s.actRest = (s.actRest || 0) + 1;
+          if (s.actRest <= holdTicks(s)) {
+            s.tick -= 1;
+          } else {
+            s.actRest = 0;
+          }
+        }
         return true;
       },
       draw: (ctx, s) => {

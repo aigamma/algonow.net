@@ -117,11 +117,18 @@ export default function FisherYatesViz() {
             }
           }
           if (s.tick >= HIST_TICKS + HIST_HOLD) {
-            s.act += 1;
-            s.tick = 0;
-            if (s.act === 2) {
-              s.counts = new Array(24).fill(0);
-              s.total = 0;
+            // Hold the finished act for the full rest before the next
+            // act begins: every burst of motion earns its two minutes.
+            s.tick = HIST_TICKS + HIST_HOLD;
+            s.actRest = (s.actRest || 0) + 1;
+            if (s.actRest > holdTicks(s)) {
+              s.act += 1;
+              s.tick = 0;
+              s.actRest = 0;
+              if (s.act === 2) {
+                s.counts = new Array(24).fill(0);
+                s.total = 0;
+              }
             }
           }
         }

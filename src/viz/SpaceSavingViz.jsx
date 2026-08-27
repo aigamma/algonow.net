@@ -128,8 +128,15 @@ export default function SpaceSavingViz() {
         }
         s.tick += 1;
         if (s.tick >= ACT_TOTAL) {
-          s.tick = 0;
-          s.act += 1;
+          // Hold the finished act for the full rest before the next
+          // act begins: every burst of motion earns its two minutes.
+          s.tick = ACT_TOTAL;
+          s.actRest = (s.actRest || 0) + 1;
+          if (s.actRest > holdTicks(s)) {
+            s.tick = 0;
+            s.act += 1;
+            s.actRest = 0;
+          }
         }
         return true;
       },

@@ -126,11 +126,18 @@ export default function MillerRabinViz() {
         const run = s.acts[s.act].runs[s.wit];
         const total = run.vals.length * TICKS_PER_BOX + VERDICT_HOLD;
         if (s.tick >= total) {
-          s.tick = 0;
-          s.wit += 1;
-          if (s.wit >= s.acts[s.act].runs.length) {
-            s.wit = 0;
-            s.act += 1;
+          // Each witness run wipes and rebuilds the canvas, so each
+          // holds its verdict for the full rest before the next one.
+          s.tick = total;
+          s.actRest = (s.actRest || 0) + 1;
+          if (s.actRest > holdTicks(s)) {
+            s.tick = 0;
+            s.actRest = 0;
+            s.wit += 1;
+            if (s.wit >= s.acts[s.act].runs.length) {
+              s.wit = 0;
+              s.act += 1;
+            }
           }
         }
         return true;

@@ -2778,8 +2778,41 @@ commit, Fable trailer on every commit, check green before each push.
       signal-graphics: FIRST unit; problem via
       dist/algo/kalman-filter at build).
 
+- [x] QC1 (owner spot-check, 2026-08-27 morning, four reports,
+      all fixed in one commit before resuming units):
+      (1) REST VIOLATION: multi-act vizzes launched act 2 only
+      ~3s after act 1's finale: a fresh burst of motion inside
+      the promised 120s window. Fix: EVERY act transition now
+      holds the finished act's final frame for the full
+      holdTicks(s) rest (s.actRest gate), patched mechanically
+      across all 36 s.act vizzes + KargerViz's six-run
+      boundaries + MillerRabinViz's per-witness wipes +
+      FisherYatesViz's custom advance. VERIFIED: headless
+      cadence harness on 14 units measured the motionless gap
+      before every act/cycle transition: 120s exactly, every
+      transition, 25 simulated minutes each; grep audit: all 36
+      act-advance sites inside the gate. (2) BLURRY CANVASES
+      ('blown-up JPEG', any resolution): the backing store was
+      fixed at 640x300 logical px while the CSS box renders
+      wider: upscale blur. Fix IN ONE PLACE for all 97 vizzes +
+      HeroDemo (all route through useCanvasLoop): fit() sizes
+      the store from getBoundingClientRect().width x DPR (cap 3)
+      and scales the ctx transform, with ResizeObservers
+      re-fitting on reflow in both animated and still modes.
+      (3) SECTION HEADERS too small/dim ('Graph Algorithms'):
+      .eyebrow 0.74rem ink-faint -> 0.82rem ink-dim; .cat-head
+      (homepage category headers) 1.05rem full ink with a
+      stronger rule line. (4) THE 648 PROMISE: the homepage
+      atlas teaser read as promising 648 puzzles: copy now says
+      the atlas is the reference map the puzzles are built from,
+      with the LIVE count named inline ({LIVE_PUZZLES.length}
+      of its pairings are full puzzle pages so far, growing
+      nightly). Build exit 0, check exit 0 (theme.css inside its
+      14KB budget).
+
 **Next action: F91 Kalman filter × covariance-weighted correction
-(puzzle 97); sequentially until morning.** Owner's overnight directive
+(puzzle 97); sequentially until morning, at the corrected
+standard (crisp canvases, per-act rests).** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

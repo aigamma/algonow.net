@@ -140,11 +140,11 @@ code, kbd, pre { font-family: var(--font-mono); }
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-dim);
   display: flex;
   align-items: center;
   gap: 0.7rem;
@@ -197,6 +197,14 @@ code, kbd, pre { font-family: var(--font-mono); }
 }
 .cat-head {
   scroll-margin-top: 84px;
+  /* Category headers are wayfinding, not decoration: larger and at
+     full ink so a scanning reader can see the seams of the list. */
+  font-size: 1.05rem;
+  letter-spacing: 0.09em;
+  color: var(--ink);
+}
+.cat-head::after {
+  background: var(--line);
 }
 .chip-algo {
   color: var(--algo);

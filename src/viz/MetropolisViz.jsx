@@ -101,8 +101,15 @@ export default function MetropolisViz() {
         }
         s.tick += 1;
         if (s.tick >= Math.ceil(STEPS / STEPS_PER_TICK) + ACT_HOLD) {
-          s.tick = 0;
-          s.act += 1;
+          // Hold the finished act for the full rest before the next
+          // act begins: every burst of motion earns its two minutes.
+          s.tick = Math.ceil(STEPS / STEPS_PER_TICK) + ACT_HOLD;
+          s.actRest = (s.actRest || 0) + 1;
+          if (s.actRest > holdTicks(s)) {
+            s.tick = 0;
+            s.act += 1;
+            s.actRest = 0;
+          }
         }
         return true;
       },

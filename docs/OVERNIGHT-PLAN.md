@@ -1365,8 +1365,36 @@ commit, Fable trailer on every commit, check green before each push.
       sampling × coordinate-wise conditional draws (t1, h to author,
       machine-learning, d Posterior sampling, grep-verified).
 
-**Next action: F57 Gibbs sampling × coordinate-wise conditional
-draws (author h per rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F57. Gibbs sampling × coordinate-wise conditional draws.
+      Puzzle 63, ml-ai (problemSlug posterior-sampling, shared with
+      the live Metropolis-Hastings). Referees: ANALYTIC + EXHAUSTIVE.
+      Gaussian rho=0.6: moments within 0.02/0.03, corr err 0.0017.
+      THE MIXING LAW MATCHED: the x-subchain is AR(1) with coef
+      rho^2, so lag-1 autocorr and tau=(1+rho^2)/(1-rho^2) are
+      predictions: measured 0.3605 vs 0.36 and 0.9900 vs 0.9900
+      (fourth decimal!), tau 2.1 vs 2.1 and 199 vs 200. THE CRAWL:
+      rho=0.995 accepts every draw and mixes 94x slower (assert >50).
+      The race at equal budgets: Gibbs 0.0017 / MH sigma=1.2 (acc
+      0.420) 0.0059 / MH sigma=12 (acc 0.010) 0.0171. ISING 4x4:
+      exact enumeration of ALL 65,536 states at beta=0.4: |M|/16
+      exact 0.4779 vs Gibbs 0.4803, energy -11.31 vs -11.33 (the
+      Geman brothers' habitat in miniature). Runtime 0.9s, first-run
+      pass. Atlas per rule 2: machine-learning.json Gibbs h authored
+      "Coordinate-wise conditional draws"; summary heuristics 2333 ->
+      2334. Cards: self, Metropolis-Hastings (live), Hamiltonian
+      Monte Carlo, Slice sampling. neverUse: reading acceptance as
+      health (acceptance is the proposal; mixing is the geometry).
+      Figure: staircase vs knife ridge with both taus, cite Geman &
+      Geman TPAMI 1984 DOI 10.1109/TPAMI.1984.4767596 (named for the
+      physicist, 81 years dead; BUGS origin note). Viz: two acts, the
+      axis-aligned staircase filling the rho=0.6 ellipse then
+      shuffling along the 0.995 ridge, acceptance meter pinned at
+      1.000 in both. Bench reseeded: Cuckoo filter × fingerprint
+      eviction (t2, h EXISTS, probabilistic-streaming, d Deletable
+      set membership, grep-verified).
+
+**Next action: F58 Cuckoo filter × fingerprint eviction;
+sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

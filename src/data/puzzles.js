@@ -1189,13 +1189,32 @@ export const PUZZLES = {
     vite: 'mos-algorithm-sqrt-blocks',
     html: 'mos-algorithm-sqrt-blocks/index.html',
   },
+  '/gibbs-coordinate-conditionals/': {
+    slug: 'gibbs-coordinate-conditionals',
+    problemSlug: 'posterior-sampling',
+    number: 63,
+    category: 'ml-ai',
+    algorithm: 'Gibbs sampling',
+    heuristic: 'Coordinate-wise conditional draws',
+    domain: 'Posterior sampling',
+    oneLiner:
+      'Propose each coordinate from its own full conditional and the acceptance ratio cancels to one: the reject branch vanishes, and only the geometry is left to fight.',
+    description:
+      'Gibbs sampling paired with coordinate-wise conditional draws: no reject branch exists, the AR(1) mixing law matched at rho 0.6 and 0.995, the 94x crawl measured, Ising exact over 65,536 states.',
+    listenMinutes: 8,
+    time: 'O(d) draws/sweep',
+    space: 'O(d)',
+    baseline: 'Random-walk MH',
+    vite: 'gibbs-coordinate-conditionals',
+    html: 'gibbs-coordinate-conditionals/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Gibbs sampling', heuristic: 'Coordinate-wise conditional draws', domain: 'Posterior sampling' },
+  { algorithm: 'Cuckoo filter', heuristic: 'Fingerprint eviction', domain: 'Deletable set membership' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

@@ -73,7 +73,7 @@
 {"a": "Belief propagation", "h": null, "d": "Graphical-model inference", "t": 2},
 {"a": "Loopy belief propagation", "h": null, "d": "Approximate inference", "t": 3},
 {"a": "Junction tree algorithm", "h": null, "d": "Exact graphical inference", "t": 3},
-{"a": "Gibbs sampling", "h": null, "d": "Posterior sampling", "t": 1},
+{"a": "Gibbs sampling", "h": "Coordinate-wise conditional draws", "d": "Posterior sampling", "t": 1},
 {"a": "Metropolis-Hastings", "h": "Proposal acceptance ratio", "d": "MCMC sampling", "t": 1},
 {"a": "Hamiltonian Monte Carlo", "h": "Leapfrog trajectories", "d": "MCMC sampling", "t": 2},
 {"a": "No-U-Turn sampler", "h": "Trajectory-length auto-tuning", "d": "MCMC sampling", "t": 2},

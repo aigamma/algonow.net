@@ -1398,13 +1398,32 @@ export const PUZZLES = {
     vite: 'gale-shapley-deferred-acceptance',
     html: 'gale-shapley-deferred-acceptance/index.html',
   },
+  '/lis-patience-piles/': {
+    slug: 'lis-patience-piles',
+    problemSlug: 'longest-increasing-subsequence',
+    number: 74,
+    category: 'dp-combinatorics',
+    algorithm: 'Longest increasing subsequence',
+    heuristic: 'Patience piles with binary search',
+    domain: 'Longest increasing subsequence',
+    oneLiner:
+      'Deal the array into solitaire: piles only decrease, so the count is a ceiling; every new pile drags a climbing chain behind it, so the count is a floor: the deal is the proof.',
+    description:
+      'LIS paired with patience piles and binary search: DP-matched on 400 arrays with witnesses verified, 2^n enumeration on 50, the pile duality every trial, 677x measured, Ulam at 93.7 vs 100.',
+    listenMinutes: 8,
+    time: 'O(n log n)',
+    space: 'O(n)',
+    baseline: 'Quadratic DP',
+    vite: 'lis-patience-piles',
+    html: 'lis-patience-piles/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Longest increasing subsequence', heuristic: 'Patience piles with binary search', domain: 'Longest increasing subsequence' },
+  { algorithm: 'Burrows-Wheeler compression', heuristic: 'Move-to-front plus RLE', domain: 'Block-sorting compression' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

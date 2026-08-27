@@ -1766,8 +1766,42 @@ commit, Fable trailer on every commit, check green before each push.
       patience piles with binary search (t1, h in atlas, bare-name
       absent from registry, no slug directory).
 
-**Next action: F68 Longest increasing subsequence × patience piles
-with binary search; sequentially until morning.** Owner's overnight directive
+- [x] F68. Longest increasing subsequence × patience piles with
+      binary search. Puzzle 74, dp-combinatorics (problemSlug
+      longest-increasing-subsequence, verified against the algo
+      page). Referees: the O(n^2) DP on 400 arrays (heavy-tie cases
+      included) with EVERY witness verified strictly increasing and
+      index-ordered; FULL 2^n ENUMERATION on 50 arrays (n<=15): the
+      absolute referee; THE PILE DUALITY on every trial: pile count
+      == LIS, every pile decreasing, and Erdos-Szekeres LIS x LDS >=
+      n (constructive, from the piles themselves). Op meter at
+      n=10,000: 73,897 bisect-steps vs 49,995,000 DP comparisons
+      (677x). ULAM'S PROBLEM MEASURED: mean LIS of random
+      2,500-permutations = 93.7 vs the 2 sqrt(n) = 100 ceiling (the
+      Tracy-Widom-sized shave, asserted in [88,100]). Client: 200
+      envelopes, nesting chain 23 (width-sorted, heights tie-broken
+      DESC), witness verified pair by pair + 2D-DP-matched. One
+      figure fix pre-commit: the SVG's worked example was dealt
+      wrong (4 piles drawn for a 3-pile sequence with hedging text):
+      replaced with a hand-verified deal (3 1 5 2 8 6 9 -> piles
+      [3,1][5,2][8,6][9], witness 1 2 6 9). Runtime 4s. No atlas
+      edit (pair existed t1 with h); summary stays 3257/2338.
+      Cards: self, Quadratic DP (the referee as rival), Fenwick-
+      indexed LIS (live badge machinery: weights/counts/updates),
+      Kadane (live: the contiguous confusion). neverUse: the
+      quadratic DP past ten thousand (correct, beloved, and the
+      pipeline's hidden dominant cost). Figure: the piles with the
+      chase, cite Aldous-Diaconis Bull. AMS 36(4) 1999 DOI
+      10.1090/S0273-0979-99-00796-X (Ulam -> Hammersley ->
+      Vershik-Kerov -> BDJ arc in origins). Viz: the live deal with
+      pile-count ticker, deal-time backpointers, then the chase
+      lighting one card per pile into the green witness (scene
+      retries deterministically to keep 4-8 piles on canvas). Bench
+      reseeded, double-grep + ls clean: Burrows-Wheeler compression
+      × move-to-front plus RLE (t1, h exists, compression-coding).
+
+**Next action: F69 Burrows-Wheeler compression × move-to-front plus
+RLE; sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

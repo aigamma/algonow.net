@@ -1132,13 +1132,32 @@ export const PUZZLES = {
     vite: 'boyer-moore-majority-vote',
     html: 'boyer-moore-majority-vote/index.html',
   },
+  '/lzw-growing-phrase-dictionary/': {
+    slug: 'lzw-growing-phrase-dictionary',
+    problemSlug: 'dictionary-compression',
+    number: 60,
+    category: 'compression-coding',
+    algorithm: 'LZW',
+    heuristic: 'Growing phrase dictionary',
+    domain: 'Dictionary compression',
+    oneLiner:
+      'Every emission mints one new phrase, so the decoder can grow the identical dictionary one step behind: no codebook ever crosses the wire, and the one impossible code is forced, not guessed.',
+    description:
+      'LZW paired with the growing phrase dictionary: 300 byte-exact round trips, the KwKwK corner forced and counted, log corpus 4.65x vs zlib 5.30x, noise expanding 1.42x, the 172% freeze-on-drift tax.',
+    listenMinutes: 8,
+    time: 'O(n), one pass',
+    space: 'O(2¹²) table',
+    baseline: 'Raw bytes / DEFLATE',
+    vite: 'lzw-growing-phrase-dictionary',
+    html: 'lzw-growing-phrase-dictionary/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'LZW', heuristic: 'Growing phrase dictionary', domain: 'Dictionary compression' },
+  { algorithm: 'Rendezvous hashing', heuristic: 'Highest-random-weight', domain: 'Distributed key placement' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

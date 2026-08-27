@@ -12,7 +12,7 @@
 {"a": "Run-length encoding", "h": null, "d": "Repetition compression", "t": 1},
 {"a": "LZ77", "h": "Sliding-window matching", "d": "Dictionary compression", "t": 1},
 {"a": "LZ78", "h": null, "d": "Dictionary compression", "t": 2},
-{"a": "LZW", "h": null, "d": "Dictionary compression", "t": 1},
+{"a": "LZW", "h": "Growing phrase dictionary", "d": "Dictionary compression", "t": 1},
 {"a": "LZSS", "h": "Match-length threshold", "d": "Dictionary compression", "t": 2},
 {"a": "LZMA", "h": "Range coding with context", "d": "High-ratio compression", "t": 2},
 {"a": "DEFLATE", "h": "LZ77 plus Huffman", "d": "General-purpose compression", "t": 1},

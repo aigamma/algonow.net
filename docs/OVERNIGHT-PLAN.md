@@ -1278,8 +1278,40 @@ commit, Fable trailer on every commit, check green before each push.
       × growing phrase dictionary (t1, h to author,
       compression-coding, d Dictionary compression, grep-verified).
 
-**Next action: F54 LZW × growing phrase dictionary (author h per
-rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F54. LZW × growing phrase dictionary. Puzzle 60,
+      compression-coding (problemSlug dictionary-compression, shared
+      with the live LZ77). Referee: THE ROUND TRIP:
+      decode(encode(x)) == x byte-exact on 300 mixed trials (full
+      random, tiny alphabets, run-heavy) plus empty/single-byte
+      edges, and on every contest corpus: with zlib -9 (stdlib
+      DEFLATE) racing as the shipped rival. The KwKwK corner FORCED
+      on the run gadget (3 hits, asserted >= 1) and counted in the
+      wild: 3,898 reconstructions across the trials. Growth invariant
+      EXACT: table == 256 + codes - 1. Contest (12-bit fixed codes):
+      english-ish text 46,624 B at 4.36x, server log 49,781 B at
+      4.65x, random bytes 20,480 B at 0.70x (a 1.42x EXPANSION,
+      asserted < 0.75), zlib winning every corpus (5.57x / 5.30x /
+      1.00x, asserted). Freeze-on-drift asserted BOTH directions:
+      text+DNA joint 172% MORE bits than fresh dictionaries per half
+      (the capped table frozen full of yesterday's phrases), same-kind
+      halves 4% cheaper shared (reuse is real). Runtime 0.2s. One
+      build fix: a reused stats dict shadowed the KwKwK counter in the
+      print (KeyError post-assert): renamed kw_run/growth. Atlas per
+      rule 2: compression-coding.json LZW h authored "Growing phrase
+      dictionary"; summary heuristics 2332 -> 2333. Cards: self, LZ77
+      (live), Huffman coding (live), DEFLATE. neverUse: LZW on
+      incompressible bytes (the 1.42x expansion; DEFLATE stores raw
+      blocks instead). Figure: encoder/decoder tables one step apart,
+      cite Welch 1984 DOI 10.1109/MC.1984.1659158; origins carries
+      the Unisys patent story (PNG exists because of it). Viz: two
+      acts on one machine: amber phrase cursor, minted chips, blue
+      code cells, bits bars: prose compresses, noise's out-bar
+      overtakes raw in red. Bench reseeded: Rendezvous hashing ×
+      highest-random-weight (t2, h EXISTS, distributed-concurrent,
+      d Distributed key placement, grep-verified).
+
+**Next action: F55 Rendezvous hashing × highest-random-weight;
+sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

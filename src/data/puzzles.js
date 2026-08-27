@@ -1550,13 +1550,32 @@ export const PUZZLES = {
     vite: 'held-karp-bitmask-states',
     html: 'held-karp-bitmask-states/index.html',
   },
+  '/karger-random-contraction/': {
+    slug: 'karger-random-contraction',
+    problemSlug: 'minimum-cut',
+    number: 82,
+    category: 'graphs',
+    algorithm: "Karger's algorithm",
+    heuristic: 'Random edge contraction',
+    domain: 'Minimum cut',
+    oneLiner:
+      'Fuse random edges until two blobs remain: the min cut has few edges, so the frenzy rarely draws one: a lottery ticket per run, and the theorem prices the ticket.',
+    description:
+      "Karger's algorithm paired with random edge contraction: 100 graphs brute-matched with partitions revalidated, the success bound measured over 20,000 runs, amplification 70% to 0.1%.",
+    listenMinutes: 8,
+    time: 'O(n²) per run',
+    space: 'O(n + m)',
+    baseline: 'Brute bipartitions',
+    vite: 'karger-random-contraction',
+    html: 'karger-random-contraction/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Karger's algorithm", heuristic: 'Random edge contraction', domain: 'Minimum cut' },
+  { algorithm: "Welzl's algorithm", heuristic: 'Randomized incremental basis', domain: 'Smallest enclosing circle' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

@@ -2043,8 +2043,42 @@ commit, Fable trailer on every commit, check green before each push.
       random edge contraction (t2, h EXISTS, graphs-structure, d
       Minimum cut).
 
-**Next action: F76 Karger's algorithm × random edge contraction;
-sequentially until morning.** Owner's overnight directive
+- [x] F76. Karger's algorithm × random edge contraction. Puzzle 82,
+      graphs (problemSlug minimum-cut). Referees: BRUTE FORCE over
+      all 2^(n-1) bipartitions on 100 graphs (n<=12), the amplified
+      Karger (10n^2 runs, failure e^-20) matching EVERY one with
+      partitions re-cut-counted; THE THEOREM AS MEASUREMENT: the K6
+      dumbbell's unique min cut 2: single-run success 31.3% over
+      20,000 runs vs the 2/(n(n-1)) = 1.5% bound (the bound is
+      worst-case; the margin is honest); THE AMPLIFICATION CURVE:
+      failure 70% -> 22% -> 0.8% -> 0.1% at R = 1/4/16/64, monotone
+      with geometric-decay pattern asserted; contractions EXACTLY
+      n-2 per run (500 runs counted); the client's two bridge
+      cables named ((0,6),(1,7), asserted). BUILD STORY FOR THE
+      AGES: the first brute referee started its mask loop at 1,
+      excluding the isolate-vertex-0 cut: KARGER FOUND A SMALLER
+      CUT THAN THE 'EXACT' ANSWER: the defendant corrected the
+      judge: referee fixed, transcript kept on-page. One print
+      variable unclobbered (audit count 500, not the loop leftover
+      64). Runtime 1.1s. No atlas edit (pair existed t2); summary
+      stays 3257/2343. Cards: self, Karger-Stein (repetition spent
+      where danger lives), Stoer-Wagner (certainty as a feature),
+      Edmonds-Karp (live: n-1 flows, duality-certified). neverUse:
+      one run read as the answer (the repetition IS the algorithm:
+      R=1 is zero tickets and an announced jackpot). Figure: the
+      dumbbell with amber dense edges and red surviving bridges,
+      cite Karger-Stein JACM 43(4) 1996 DOI 10.1145/234533.234534.
+      Viz: the merger frenzy on the dumbbell, six runs replaying
+      with a hit/miss scoreboard: blobs fuse and drift together,
+      bridges in red usually standing, losing tickets shown
+      honestly (most single runs lose). Bench reseeded (double-grep
+      + ls clean): Welzl's algorithm × randomized incremental basis
+      (t2, h EXISTS, computational-geometry: chosen over Fortune's
+      beach line on implementation-risk grounds at this hour:
+      equal teaching value, far safer build).
+
+**Next action: F77 Welzl's algorithm × randomized incremental
+basis; sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

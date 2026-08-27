@@ -431,8 +431,39 @@ atlas-verified, pairs authored per rule 2 at build where h is null):
       the green backtrace; five rotating word pairs. The DP-state
       lesson explicitly paired with Kadane's (state cannot shrink here;
       shrink space, work, or metric instead).
-- [ ] F20. Fenwick tree × low-bit ladders (vs prefix-sum array rebuild,
-      segment tree, sqrt decomposition) under mixed update/query load.
+- [x] F20. Fenwick tree × low-bit ladders, live as puzzle 26
+      (2026-08-27, Fable). n=3,000, cells touched: mixed 3k updates +
+      3k queries: Fenwick 34,906 (winner) vs rebuild-cumulative
+      4,473,363 (128x) vs segment tree 68,444 (the 2x generality tax)
+      vs sqrt blocks 167,663. Static build + 100k queries: cumulative
+      array 100,000 (5.6x UNDER Fenwick's 560,918: the honest
+      crossover). Worst single Fenwick op at n=100,000: 15 touches
+      (bound 18), asserted as a maximum. Ownership invariant
+      (tree[i] == its block sum) verified for EVERY cell; lowbit
+      identity over 4,096 ints; reversibility; and the never-here
+      proven information-theoretically: two witness arrays with
+      identical prefix minima and different range minima, so range-min
+      is unrecoverable from prefixes (min has no subtraction). Atlas:
+      Fenwick h -> Low-bit ladders (rule 2), heuristics 2,314. Origins
+      loop closed: Fenwick 1994 built it for arithmetic-coding models
+      (puzzle 14's coder). Viz: ownership arcs over 16 cells, queries
+      descending green, updates climbing amber.
+
+The F-queue extends a third time (2026-08-27, same standing
+directive; names atlas-verified):
+
+- [ ] F21. Aho-Corasick × failure-link automaton (vs repeated KMP,
+      Rabin-Karp multi-hash, suffix automata); builds on puzzle 09.
+- [ ] F22. Simplex × Dantzig pivot rule (vs interior point, and the
+      Klee-Minty cube as the exponential trap; Bland's rule for the
+      cycling story).
+- [ ] F23. Viterbi × max-product trellis (vs greedy per-step argmax,
+      beam search, posterior decoding); author h per rule 2.
+- [ ] F24. Skip list × coin-flip level promotion (vs balanced BSTs,
+      sorted array; expected-log by measurement, the lottery made
+      visible).
+- [ ] F25. Strassen × seven-product block split (vs classical cubic,
+      and the crossover threshold measured; author h per rule 2).
 
 ## Phase G. Plumbing and hygiene (added 2026-07-22 evening)
 
@@ -544,8 +575,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F20 Fenwick tree, the last of the second extension,
-then extend the queue again per the standing owner directive.** Owner's overnight directive
+**Next action: the thrice-extended Phase F queue, strictly sequential
+(F21 Aho-Corasick is next, then F22-F25), one unit per commit+push
+with a production deploy as units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

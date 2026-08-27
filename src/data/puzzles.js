@@ -486,13 +486,36 @@ export const PUZZLES = {
     vite: 'wagner-fischer-table',
     html: 'wagner-fischer-table/index.html',
   },
+  '/fenwick-lowbit-ladders/': {
+    slug: 'fenwick-lowbit-ladders',
+    problemSlug: 'array-range-queries',
+    number: 26,
+    category: 'data-structures',
+    algorithm: 'Fenwick tree',
+    heuristic: 'Low-bit ladders',
+    domain: 'Prefix sums under change',
+    oneLiner:
+      'A tree that was never built: each index owns a block of length i & (−i), queries descend the ladder, updates climb it, and the routing table is binary itself.',
+    description:
+      'The Fenwick tree paired with low-bit ladders: watch queries descend and updates climb the phantom tree, measured against cumulative sums, segment trees, and sqrt blocks on mixed and static workloads.',
+    listenMinutes: 8,
+    time: 'O(log n) per op',
+    space: 'n cells',
+    baseline: 'Rebuild cumulative sums',
+    vite: 'fenwick-lowbit-ladders',
+    html: 'fenwick-lowbit-ladders/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F20 onward, in order), so the public promise and the plan tell one story.
+// F21 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Fenwick tree', heuristic: 'Low-bit ladders', domain: 'Prefix sums under change' },
+  { algorithm: 'Aho-Corasick', heuristic: 'Failure-link automaton', domain: 'Matching many patterns at once' },
+  { algorithm: 'Simplex method', heuristic: 'Dantzig pivot rule', domain: 'Linear programming' },
+  { algorithm: 'Viterbi algorithm', heuristic: 'Max-product trellis', domain: 'Decoding hidden sequences' },
+  { algorithm: 'Skip list', heuristic: 'Coin-flip level promotion', domain: 'Ordered maps by lottery' },
+  { algorithm: "Strassen's algorithm", heuristic: 'Seven-product block split', domain: 'Fast matrix multiplication' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

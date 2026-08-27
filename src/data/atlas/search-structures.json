@@ -79,7 +79,7 @@
 {"a": "Self-organizing list", "h": "Move-to-front", "d": "Access-adaptive lists", "t": 2},
 {"a": "Self-organizing list", "h": "Transpose", "d": "Access-adaptive lists", "t": 3},
 {"a": "Self-organizing list", "h": "Frequency count ordering", "d": "Access-adaptive lists", "t": 3},
-{"a": "Fenwick tree", "h": null, "d": "Prefix-sum queries", "t": 1},
+{"a": "Fenwick tree", "h": "Low-bit ladders", "d": "Prefix-sum queries", "t": 1},
 {"a": "Segment tree", "h": null, "d": "Range queries", "t": 1},
 {"a": "Segment tree", "h": "Lazy propagation", "d": "Range updates", "t": 1},
 {"a": "Persistent segment tree", "h": null, "d": "Versioned range queries", "t": 2},

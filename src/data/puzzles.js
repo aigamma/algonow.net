@@ -524,13 +524,31 @@ export const PUZZLES = {
     vite: 'aho-corasick-failure-links',
     html: 'aho-corasick-failure-links/index.html',
   },
+  '/simplex-dantzig-pivots/': {
+    slug: 'simplex-dantzig-pivots',
+    problemSlug: 'linear-programming',
+    number: 28,
+    category: 'numerical',
+    algorithm: 'Simplex method',
+    heuristic: 'Dantzig pivot rule',
+    domain: 'Linear programming',
+    oneLiner:
+      'Walk the polytope’s vertices along the steepest improving edge until none improves: nine pivots on real ground, every corner of the adversary’s cube, and a receipt signed by the dual.',
+    description:
+      'The simplex method paired with Dantzig’s pivot rule: nine median pivots on random programs, 4,095 on the Klee-Minty cube, Beale’s cycle in exact arithmetic, and dual certificates throughout.',
+    listenMinutes: 8,
+    time: 'few pivots typical, 2ⁿ trap',
+    space: 'O(mn) tableau',
+    baseline: "Bland's rule",
+    vite: 'simplex-dantzig-pivots',
+    html: 'simplex-dantzig-pivots/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F22 onward, in order), so the public promise and the plan tell one story.
+// F23 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Simplex method', heuristic: 'Dantzig pivot rule', domain: 'Linear programming' },
   { algorithm: 'Viterbi algorithm', heuristic: 'Max-product trellis', domain: 'Decoding hidden sequences' },
   { algorithm: 'Skip list', heuristic: 'Coin-flip level promotion', domain: 'Ordered maps by lottery' },
   { algorithm: "Strassen's algorithm", heuristic: 'Seven-product block split', domain: 'Fast matrix multiplication' },

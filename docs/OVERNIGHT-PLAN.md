@@ -467,36 +467,25 @@ directive; names atlas-verified):
       that outran planned hardware and became fgrep. Viz: the he/she/
       his/hers trie with dashed failure links, text ticker, nested
       fires. Third strings unit; builds on puzzle 09 explicitly.
-- [~] F22. Simplex × Dantzig pivot rule: IN FLIGHT (design settled,
-      ground truth verified 2026-08-27). Pair exists (numerical.json
-      t1); problemSlug linear-programming; pages exist for
-      simplex-method and interior-point-method. Design: tableau
-      simplex over standard-form max c^T x, Ax<=b, x>=0 (A positive so
-      origin-feasible and bounded); contest columns [random LPs
-      (median pivots, 30 seeded m=40/n=80 instances), Klee-Minty cube
-      n=12] with rows Dantzig / Bland / random-edge pivot rules;
-      Klee-Minty formulation max sum 2^(n-j)x_j s.t.
-      2*sum_(j<i) 2^(i-j)x_j + x_i <= 5^i; expect ~2^n-1 Dantzig
-      pivots (assert >= 2^(n-1), print exact). Oracles: (a) exhaustive
-      basis enumeration at m=4/n=8 (~70 bases) as the exact-optimum
-      referee, doubling as the measured never-use (C(80,40)~10^23);
-      (b) duality gap zero + dual feasibility from the final tableau
-      on the big randoms; (c) feasibility maintained at every pivot,
-      objective monotone; (d) Beale's classic cycling LP in exact
-      Fractions: Dantzig with fixed tie-break CYCLES (basis revisited,
-      capped) while Bland's rule terminates on the same instance (the
-      1977 anti-cycling theorem demonstrated); (e) contest regen.
-      Interior point is a CARD (Karmarkar 1984, polynomial, no warm
-      starts), not a raced row. Viz: 2D polytope vertex walk (random
-      halfplane intersections, objective arrow, green edge trail,
-      pivot counter), rotating polytopes. Figure: the Klee-Minty n=3
-      cube, the 7-vertex greedy path vs the short path; cite Dantzig
-      1963, Klee-Minty 1972, Bland 1977, and Spielman-Teng smoothed
-      analysis JACM 2004 (DOI 10.1145/990308.990310) as the
-      why-it-works-in-practice resolution. neverUse: vertex
-      enumeration. Registry: number 28, slug simplex-dantzig-pivots,
-      category numerical, domain Linear programming, baseline Bland
-      rule.
+- [x] F22. Simplex × Dantzig pivot rule, live as puzzle 28
+      (2026-08-27, Fable). Pivots to the proven optimum: random 30x60
+      LPs (median of 30): Dantzig 9 / Bland 35 / random edge 29 (greed
+      wins real ground 4x). Klee-Minty n=12: Dantzig 4,095 = 2^12 - 1
+      EXACTLY, with the whole ladder measured (63, 255, 1,023, 4,095);
+      Bland 465; random edge 39 (a coin cannot be pre-trapped: 105x
+      under the rule the cube was built against, the smoothed-analysis
+      story in miniature). Beale's corner in exact Fractions: Dantzig
+      with the plain tie-break CYCLES (basis revisited, caught by
+      tracking) while Bland terminates at 1/20 in 6 pivots (the 1977
+      theorem demonstrated). Oracles: 3 rules match exhaustive basis
+      enumeration on 25 exact instances (495 bases each); dual read
+      off the final tableau verified feasible with ZERO gap on every
+      large solve (strong duality as a unit test); per-pivot
+      feasibility; the cube ladder asserted. Never-here: vertex
+      enumeration (the toy referee; C(90,30) ~ 6e23 at contest scale).
+      Viz: 2D polytope walk with objective contours. Second numerical
+      unit.
+
 - [ ] F23. Viterbi × max-product trellis (vs greedy per-step argmax,
       beam search, posterior decoding); author h per rule 2.
 - [ ] F24. Skip list × coin-flip level promotion (vs balanced BSTs,
@@ -616,8 +605,8 @@ commit, Fable trailer on every commit, check green before each push.
 ## Resume pointer
 
 **Next action: the thrice-extended Phase F queue, strictly sequential
-(F22 Simplex × Dantzig is next, then F23-F25), one unit per
-commit+push with a production deploy as units land.** Owner's overnight directive
+(F23 Viterbi is next, then F24-F25), one unit per commit+push with a
+production deploy as units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

@@ -828,13 +828,31 @@ export const PUZZLES = {
     vite: 'hopcroft-karp-layered-phases',
     html: 'hopcroft-karp-layered-phases/index.html',
   },
+  '/boyer-moore-skip-rules/': {
+    slug: 'boyer-moore-skip-rules',
+    problemSlug: 'substring-search',
+    number: 44,
+    category: 'strings',
+    algorithm: 'Boyer-Moore',
+    heuristic: 'Bad-character and good-suffix rules',
+    domain: 'Substring search',
+    oneLiner:
+      'Compare from the pattern’s last character and let every mismatch launch a leap: most of the haystack is never read, and the longer the needle, the less of it you touch.',
+    description:
+      'Boyer-Moore paired with the bad-character and good-suffix rules: 10.9% of the text read for a 13-char pattern, deepening to 6% at 32; the two-rule split priced where Horspool reads 1.50n on binary.',
+    listenMinutes: 8,
+    time: 'O(n/m) typical',
+    space: 'O(m + σ)',
+    baseline: 'KMP (reads exactly n)',
+    vite: 'boyer-moore-skip-rules',
+    html: 'boyer-moore-skip-rules/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F38 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Boyer-Moore', heuristic: 'Bad-character and good-suffix rules', domain: 'Substring search' },
   { algorithm: "Newton's method", heuristic: 'Tangent-line iteration', domain: 'Root finding' },
   { algorithm: 'Fisher-Yates shuffle', heuristic: 'Backward uniform swaps', domain: 'Uniform permutation' },
   { algorithm: 'B-tree', heuristic: 'High-fanout node splits', domain: 'Disk-friendly ordered index' },

@@ -786,10 +786,26 @@ directive; names atlas-verified):
       equality on canvas (instance seeded-searched for >=2 phases
       with a real batch). FIFTH EXTENSION COMPLETE (F32-F37).
 - Sixth F-queue extension (atlas-verified, in build order):
-- [ ] F38. Boyer-Moore × bad-character and good-suffix rules (strings
-      t1). Sublinear search: character inspections < n measured on
-      English text; rivals KMP (live), Horspool (variant named
-      in-card), naive.
+- [x] F38. Boyer-Moore × bad-character and good-suffix rules. Puzzle
+      44, strings. Sublinearity MEASURED on the site's own plan
+      (60,365 chars, living corpus): 'the algorithm' found reading
+      6,599 chars = 10.9%; the pattern-length dial 31.0%/16.6%/10.0%/
+      6.0% at m=4/8/16/32 (monotone asserted); KMP reads exactly
+      100.0% (>= n asserted); naive 107.1%. THE FINDING (prediction
+      corrected by measurement, kept): on binary text Horspool alone
+      reads 1.50n: MORE than the text: while the good-suffix rule
+      holds full BM to 0.50n; on prose the two tie exactly (6,599 ==
+      6,599). The good-suffix table's measured raison d'etre. Worst
+      case measured: a^20000 vs a^20 = 399,620 inspections (> 5n),
+      Galil cited as the patch. 600 str.find-refereed trials across
+      four alphabets. Cards: self, KMP (live badge), Horspool
+      (distinct atlas t2 entry; Sunday named in-card), Aho-Corasick
+      (live badge, multi-pattern regime). neverUse: bad-character
+      alone on a small alphabet. Figure: the leap, cite Boyer-Moore
+      CACM 1977 DOI 10.1145/359842.359859 + grep lore. No atlas edits
+      (pair existed t1); summary stays 3257/2320. Viz: the stencil on
+      a real sentence, right-to-left flashes, leap arcs with
+      distances, unread text dim forever, closing percentage card.
 - [ ] F39. Newton's method × tangent-line iteration (numerical t1, h
       null: author per rule 2). Quadratic convergence MEASURED as
       digit-doubling per iteration; basin honesty: cycling and
@@ -923,9 +939,8 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F38 Boyer-Moore × bad-character and good-suffix rules,
-first of the sixth extension (F38-F43, listed above), sequentially
-until morning.** Owner's overnight directive
+**Next action: F39 Newton's method × tangent-line iteration (author h
+per rule 2), then F40-F43, sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

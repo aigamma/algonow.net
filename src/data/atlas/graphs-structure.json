@@ -1,6 +1,6 @@
 [
 {"a": "Kruskal's algorithm", "h": "Union-find cycle test", "d": "Minimum spanning trees", "t": 1},
-{"a": "Prim's algorithm", "h": null, "d": "Minimum spanning trees", "t": 1},
+{"a": "Prim's algorithm", "h": "Cheapest crossing edge", "d": "Minimum spanning trees", "t": 1},
 {"a": "Borůvka's algorithm", "h": null, "d": "Parallel-friendly spanning trees", "t": 2},
 {"a": "Reverse-delete algorithm", "h": null, "d": "Spanning trees by removal", "t": 3},
 {"a": "Karger-Klein-Tarjan MST", "h": "Random sampling verification", "d": "Expected-linear spanning trees", "t": 3},

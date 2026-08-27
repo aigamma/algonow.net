@@ -1872,8 +1872,48 @@ commit, Fable trailer on every commit, check green before each push.
       clean): Prim's algorithm × cheapest crossing edge (t1, h to
       author, graphs-structure: the live Kruskal's natural rival).
 
-**Next action: F71 Prim's algorithm × cheapest crossing edge
-(author h per rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F71. Prim's algorithm × cheapest crossing edge. Puzzle 77,
+      graphs (problemSlug minimum-spanning-tree, joining the live
+      Kruskal: the MST shelf now argues internally). Referees:
+      Kruskal-equal on 300 graphs; ALL SPANNING TREES enumerated on
+      50 small graphs (the absolute referee); identical edge SETS
+      under distinct weights on 100 (the unique-MST theorem
+      exercised); and THE CUT PROPERTY AUDITED: every tree edge on
+      every graph removed, its cut recovered via union-find, and
+      the edge asserted minimal across it: the exchange argument as
+      a running assertion. Meters: dense n=200/m=9,950: Prim 10,257
+      heap ops vs Kruskal 159,232 (the global sort is the bill);
+      sparse 10,923 vs 94,080: with the honest asterisk that
+      C-speed sorts flip the stopwatch (the Toom model-vs-hardware
+      lesson, again, stated). THE KEYSTROKE TRAP measured: key
+      d+w instead of w turns the loop into Dijkstra: hub gadget
+      (40 spokes cost 10, ring cost 1): MST exactly 49, SPT 400:
+      8.2x: different questions one line apart. Client: cabling 200
+      plane sites: MST 9.32 < NN chain 11.97 < best star 76.65.
+      BUILD BUG (11 minutes of silence): the graph generator's
+      uncapped m spun forever when small-n draws requested more
+      distinct edges than exist (oracle 3's m up to 3n vs
+      n(n-1)/2): profiled stanza by stanza to isolate, capped in
+      the generator, lesson in-code and in narration. Runtime 0.37s
+      post-fix. Atlas per rule 2: graphs-structure.json Prim h
+      authored "Cheapest crossing edge"; summary heuristics 2339 ->
+      2340. Cards: self, Kruskal (live), Boruvka (the 1926
+      parallel original), Dijkstra (live: the doppelganger).
+      neverUse: Dijkstra keys in a Prim loop (passes review, costs
+      8.2x: the audit catches it, care does not). Figure: the lit
+      region and the dark with the cheapest crossing wire, cite
+      Prim BSTJ 36(6) 1957 DOI 10.1002/j.1538-7305.1957.tb01515.x
+      (Jarnik 1930 and the Boruvka electrification origin in
+      prose). Viz: two acts on one island (scenes retried until
+      connected AND the trees differ, verified in node across 6
+      seeds): Prim's glow grows green; the keystroke variant grows
+      the same seed into red commuter spokes, totals side by side.
+      Bench reseeded (double-grep + ls clean): Pollard's rho ×
+      Floyd cycle detection (t1, h EXISTS,
+      cryptography-number-theory).
+
+**Next action: F72 Pollard's rho × Floyd cycle detection;
+sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

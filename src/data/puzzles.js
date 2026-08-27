@@ -1455,13 +1455,32 @@ export const PUZZLES = {
     vite: 'sieve-crossing-from-square',
     html: 'sieve-crossing-from-square/index.html',
   },
+  '/prims-cheapest-crossing/': {
+    slug: 'prims-cheapest-crossing',
+    problemSlug: 'minimum-spanning-tree',
+    number: 77,
+    category: 'graphs',
+    algorithm: "Prim's algorithm",
+    heuristic: 'Cheapest crossing edge',
+    domain: 'Minimum spanning trees',
+    oneLiner:
+      'A lit region, a dark region, and one question forever: the cheapest wire crossing the boundary is never a mistake: any plan that omits it improves by swapping it in.',
+    description:
+      "Prim's algorithm paired with the cheapest crossing edge: Kruskal-equal on 300 graphs, all spanning trees enumerated on 50, the cut property audited edge by edge, the keystroke trap at 8.2x.",
+    listenMinutes: 8,
+    time: 'O(E log V)',
+    space: 'O(E) heap',
+    baseline: "Kruskal's sort-and-sweep",
+    vite: 'prims-cheapest-crossing',
+    html: 'prims-cheapest-crossing/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Prim's algorithm", heuristic: 'Cheapest crossing edge', domain: 'Minimum spanning trees' },
+  { algorithm: "Pollard's rho", heuristic: 'Floyd cycle detection', domain: 'Integer factorization' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

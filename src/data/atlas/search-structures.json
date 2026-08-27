@@ -91,7 +91,7 @@
 {"a": "Li Chao tree", "h": null, "d": "Dynamic line-minimum queries", "t": 3},
 {"a": "Sliding window minimum", "h": "Monotonic deque", "d": "Streaming extrema", "t": 2},
 {"a": "Order-statistic tree", "h": "Subtree-size augmentation", "d": "Rank and select queries", "t": 2},
-{"a": "Interval tree", "h": null, "d": "Stabbing queries", "t": 2},
+{"a": "Interval tree", "h": "Max-endpoint subtree pruning", "d": "Stabbing queries", "t": 2},
 {"a": "Range tree", "h": "Fractional cascading", "d": "Multidimensional range search", "t": 2},
 {"a": "Fractional cascading", "h": null, "d": "Repeated-search speedup", "t": 3},
 {"a": "Dancing links", "h": null, "d": "Exact-cover backtracking support", "t": 2},

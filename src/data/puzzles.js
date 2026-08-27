@@ -999,13 +999,32 @@ export const PUZZLES = {
     vite: 'tarjan-scc-low-links',
     html: 'tarjan-scc-low-links/index.html',
   },
+  '/interval-tree-max-endpoint/': {
+    slug: 'interval-tree-max-endpoint',
+    problemSlug: 'spatial-indexing',
+    number: 53,
+    category: 'data-structures',
+    algorithm: 'Interval tree',
+    heuristic: 'Max-endpoint subtree pruning',
+    domain: 'Stabbing queries',
+    oneLiner:
+      'File bookings by check-in, label every drawer with its latest check-out: a drawer whose label ends before tonight cannot hold tonight’s guests: skip it unopened.',
+    description:
+      'The interval tree paired with max-endpoint pruning: 33 visits per query where the scan pays 20,000, the max-end invariant machine-checked at every node, and the long-survivor adversary drowning sorted scans at 114×.',
+    listenMinutes: 8,
+    time: 'O(log n) find, O(k log n) enumerate',
+    space: 'O(n)',
+    baseline: 'Start-sorted list + bisect',
+    vite: 'interval-tree-max-endpoint',
+    html: 'interval-tree-max-endpoint/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Interval tree', heuristic: 'Max-endpoint subtree pruning', domain: 'Stabbing queries' },
+  { algorithm: 'Count-min sketch', heuristic: 'Minimum over hash rows', domain: 'Frequency estimation' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

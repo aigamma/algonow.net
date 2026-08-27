@@ -1099,8 +1099,34 @@ commit, Fable trailer on every commit, check green before each push.
       the rope stack column, back-edge flashes, components flooding
       color as they seal, downstream first.
 
-**Next action: F47 Interval tree × max-endpoint subtree pruning
-(author h per rule 2; grep-verified t2); sequentially until morning.** Owner's overnight directive
+- [x] F47. Interval tree × max-endpoint subtree pruning. Puzzle 53,
+      data-structures (problemSlug spatial-indexing). The CLRS
+      augmented-BST form, built balanced by median recursion, with the
+      max-end invariant RE-VERIFIED recursively at every node of every
+      tree. 20,000 refereed point+window queries across 100 sets;
+      scale (20K bookings / year of minutes / 2K stabs avg k=9.3):
+      brute 20,000 visits/query, sorted-list+bisect 10,160, interval
+      tree 33 (600x). THE ADVERSARY: 40 long-lived intervals among
+      20K, late-day queries: sorted scan 14,889/query (74% of the
+      set: sorting never narrows past long survivors), tree 131
+      (114x): shape, not size, breaks indexes. Honesty: enumerate is
+      O(k log n) (centered Edelsbrunner/McCreight variant named for
+      the tight bound). Atlas: Interval tree h authored per rule 2
+      (Max-endpoint subtree pruning); summary h 2327 -> 2328. Cards:
+      self, R-tree × minimal enlargement (the d-dimensional lift),
+      Segment tree (live badge: array-position ranges, the different
+      question). neverUse: a start-sorted list as a stabbing index
+      ("index the question you will ask, not the sort that was
+      easy"). Figure: drawers with max-end labels + the pruned
+      subtree, cite CLRS ch.14 + Edelsbrunner/McCreight 1980 +
+      Guttman R-tree DOI 10.1145/602259.602266. Viz: timeline bars +
+      the labeled tree, query line drops, pruned subtrees stamp red,
+      hits glow green on both panels. Bench reseeded: Count-min
+      sketch × minimum over hash rows (t1 EXACT names after a first
+      draft used wrong ones: grep caught it).
+
+**Next action: F48 Count-min sketch × minimum over hash rows;
+sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

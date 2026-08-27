@@ -1337,8 +1337,36 @@ commit, Fable trailer on every commit, check green before each push.
       EXISTS, search-structures, d Offline range queries,
       grep-verified).
 
-**Next action: F56 Mo's algorithm × sqrt block query ordering;
-sequentially until morning.** Owner's overnight directive
+- [x] F56. Mo's algorithm × sqrt block query ordering. Puzzle 62,
+      data-structures (problemSlug array-range-queries, shared with
+      the live segment tree and Fenwick). Referee: BRUTE-FORCE
+      RECOUNT of all 900 distinct-count queries on n=6,000, with all
+      SIX orderings asserted to produce identical answers through the
+      SAME window machinery; meter counts every add/remove exactly.
+      Measured: random order 3,060,650 moves; sorted-by-l 927,263;
+      Mo sqrt blocks (b=77) 411,033 (inside the 2(n^2/b + qb + n)
+      theory bound, < half of both baselines); snake 241,825; snake +
+      tuned block 228,894; HILBERT 154,452 (best, 19.8x vs random).
+      THE DIAL HONESTY FINDING: folklore b=sqrt(n) is calibrated for
+      q~n; with q=900 << n the true balance point b=n/sqrt(q)=200 cut
+      moves 44% (U-shape measured: 880K at b=10, 519K at b=2000,
+      assert dial[b_true] < dial[b_folk]). Runtime 0.5s. One fix: a
+      middle-dot glyph mojibake'd on cp1252 (ASCII'd). One narration
+      fix: a stray non-English word caught and replaced. Origins
+      honestly folklore: no paper exists (named for Mo Tao, c. 2010,
+      cp-algorithms cite); the measurements are the citation. No
+      atlas edit (pair existed t2 with h); summary stays 3257/2333.
+      Cards: self, Segment tree (live), Sqrt decomposition,
+      Persistent segment tree. neverUse: Mo's on a decomposable query
+      (the tree answers online in log n with updates). Figure: the
+      (l,r)-plane path comparison, chaotic vs boustrophedon. Viz: two
+      acts over the same 16 query points with a live move meter and
+      the actual window strip sliding below. Bench reseeded: Gibbs
+      sampling × coordinate-wise conditional draws (t1, h to author,
+      machine-learning, d Posterior sampling, grep-verified).
+
+**Next action: F57 Gibbs sampling × coordinate-wise conditional
+draws (author h per rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

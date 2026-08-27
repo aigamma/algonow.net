@@ -1170,13 +1170,32 @@ export const PUZZLES = {
     vite: 'rendezvous-highest-random-weight',
     html: 'rendezvous-highest-random-weight/index.html',
   },
+  '/mos-algorithm-sqrt-blocks/': {
+    slug: 'mos-algorithm-sqrt-blocks',
+    problemSlug: 'array-range-queries',
+    number: 62,
+    category: 'data-structures',
+    algorithm: "Mo's algorithm",
+    heuristic: 'Sqrt block query ordering',
+    domain: 'Offline range queries',
+    oneLiner:
+      'Sqrt-decompose the query schedule, not the data: the same window slides the same array, and sorting the visits is worth twenty to one on the meter.',
+    description:
+      "Mo's algorithm paired with sqrt block ordering: six orderings through one window, 3,060,650 moves down to 154,452 with identical answers asserted, the folklore sqrt-n block corrected by 44%.",
+    listenMinutes: 8,
+    time: 'O((n+q)·√n)',
+    space: 'O(n)',
+    baseline: 'Recount per query',
+    vite: 'mos-algorithm-sqrt-blocks',
+    html: 'mos-algorithm-sqrt-blocks/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Mo's algorithm", heuristic: 'Sqrt block query ordering', domain: 'Offline range queries' },
+  { algorithm: 'Gibbs sampling', heuristic: 'Coordinate-wise conditional draws', domain: 'Posterior sampling' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

@@ -97,6 +97,19 @@ export default function Home() {
             <p className="pc-domain">{today.oneLiner}</p>
           </a>
 
+          {LIVE_PUZZLES.some((p) => isNewPuzzle(p)) && (
+            <>
+              <h2 className="eyebrow nav-new-target" id="new">
+                new this week
+              </h2>
+              <div className="pairs-grid">
+                {LIVE_PUZZLES.filter((p) => isNewPuzzle(p)).map((p) => (
+                  <PairCard key={p.slug} p={p} />
+                ))}
+              </div>
+            </>
+          )}
+
           <h2 className="eyebrow">the pairs · {LIVE_PUZZLES.length} live</h2>
           <nav className="cat-strip" aria-label="Jump to a category">
             {GROUPS.map((g) => (

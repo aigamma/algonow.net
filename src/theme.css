@@ -120,6 +120,18 @@ code, kbd, pre { font-family: var(--font-mono); }
 .site-nav a { color: var(--ink-dim); }
 .site-nav a:hover { color: var(--ink); text-decoration: none; }
 
+.nav-new {
+  /* The header pill for the current 7-day window's puzzles. */
+  color: #ff00ff !important;
+  border: 1px solid rgba(255, 0, 255, 0.5);
+  background: rgba(255, 0, 255, 0.1);
+  border-radius: 999px;
+  padding: 0.14rem 0.6rem;
+  font-weight: 700;
+}
+.nav-new:hover { background: rgba(255, 0, 255, 0.2); text-decoration: none; }
+.nav-new-target { scroll-margin-top: 84px; }
+
 .site-footer {
   border-top: 1px solid var(--line-soft);
   margin-top: 5rem;

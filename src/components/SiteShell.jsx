@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import MotionControl from './MotionControl.jsx';
 
 export function Wordmark() {
@@ -10,6 +11,22 @@ export function Wordmark() {
 }
 
 export default function SiteShell({ children }) {
+  // The header's new-puzzle count loads lazily in the browser so the
+  // registry never joins SiteShell's shared chunk (it blew the 20KB
+  // page budget when imported statically); the chunk it lives in is
+  // already cached by every hydrated page.
+  const [newCount, setNewCount] = useState(0);
+  useEffect(() => {
+    let alive = true;
+    import('../data/puzzles.js')
+      .then(({ LIVE_PUZZLES, isNewPuzzle }) => {
+        if (alive) setNewCount(LIVE_PUZZLES.filter((p) => isNewPuzzle(p)).length);
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, []);
   return (
     <>
       <header className="site-header">
@@ -17,6 +34,11 @@ export default function SiteShell({ children }) {
           <Wordmark />
           <div className="site-header-right">
             <nav className="site-nav" aria-label="Site">
+              {newCount > 0 && (
+                <a className="nav-new" href="/#new">
+                  new · {newCount}
+                </a>
+              )}
               <a href="/#pairs">pairs</a>
               <a href="/atlas/">atlas</a>
               <a href="/problem/">problems</a>

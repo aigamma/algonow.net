@@ -187,7 +187,15 @@ Phase A standard. Candidates chosen for measurable contrast:
       1,500-element stream (25,825 vs 189,204 vs 2,031,171 vs 1,507,712
       touches); chain demo pins the 1,500-vs-1 worst case. Quick-find and
       Quick-union added to the atlas as real rival entries.
-- [ ] F3. KMP × failure function (vs naive, Boyer-Moore, Rabin-Karp)
+- [x] F3. KMP × failure function, live as puzzle 09 (2026-08-27, Fable).
+      Raced against naive, full Boyer-Moore (strong good suffix), and
+      Rabin-Karp on two instances: a 120,000-char CA-microsatellite
+      (120,611 vs 1,850,895 vs 1,781,638 vs 1,901,580 chars examined,
+      59,386 overlapping matches) and 120,000 chars of prose where the
+      board flips (Boyer-Moore 13,334 vs KMP 122,329). Viz: two-panel
+      re-read heat map, KMP vs naive on one strand. Solution oracles:
+      brute-force border check, 4-way + str.find agreement on 305 cases,
+      the 2n+m bound checked numerically, naive backup counter.
 - [ ] F4. Quicksort × median-of-three (vs merge, heap, introsort, Timsort)
 - [ ] F5. Bloom filter × k independent hashes (vs cuckoo, XOR, exact set)
 - [ ] F6. HyperLogLog × leading-zero registers (vs exact, Flajolet-Martin)
@@ -239,6 +247,15 @@ Phase A standard. Candidates chosen for measurable contrast:
       established short forms; skip ambiguous stems (Seidel, Heap,
       Topological sort). A wrong synonym is worse than a missing one, and
       the atlas-chunk budget is the hard stop (aliases ship inside it).
+- [ ] G7. Homepage pairs organization (owner directive, 2026-08-26 late
+      evening): the flat pairs grid reads fine at a handful of units but
+      must not become an infinite scroll as Phase F lands. When the live
+      count passes about twelve, restructure the pairs section with a
+      creative organizing surface (group by category or problem, keep
+      today's pair anchored on top, consider a compact index or filter),
+      derived from the registry so it scales without hand upkeep. Design
+      to the existing pair-card system; homepage chunk stays inside its
+      20 KB budget.
 
 ## Phase H. Catalog data quality (Fable main thread ONLY, rule 10)
 
@@ -298,10 +315,13 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: E1 (vector-search topic), then E2, E3, with F2
-(Union-Find unit) interleaved after the first topics land.** Owner's
-evening directive: the backend catalog is the bottleneck, so Phase E
-leads; keep the 5,000-entry target in view.
+**Next action: the Phase F queue, strictly sequential (F4 quicksort is
+next, then F5, F6, F7, F8...), one unit per commit+push with a
+production deploy as units land.** Owner's overnight directive
+(2026-08-26 late evening): populate as many unit pages as possible to
+the current standard; G7 (homepage organization) becomes due when the
+live count passes about twelve. The prior pointer (E1-E3 + F2) is
+complete and superseded.
 
 Landed so far: Phases A, B, C complete; D1-D3 built and unpaid; F1 landed
 as puzzle 07, the first unit built to the comparative standard from

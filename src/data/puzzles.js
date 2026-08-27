@@ -155,17 +155,35 @@ export const PUZZLES = {
     vite: 'unionfind-rank-compression',
     html: 'unionfind-rank-compression/index.html',
   },
+  '/kmp-failure-function/': {
+    slug: 'kmp-failure-function',
+    problemSlug: 'substring-search',
+    number: 9,
+    algorithm: 'Knuth-Morris-Pratt',
+    heuristic: 'Failure-function prefixes',
+    domain: 'Needles in streaming haystacks',
+    oneLiner:
+      'A forward-only scan whose text finger never backs up: when a match breaks, a table of the pattern’s self-overlaps says exactly how much certainty survives.',
+    description:
+      'Knuth-Morris-Pratt paired with the failure function: watch it race a naive scan on repetitive text without re-reading a character, with a tested Python solution and a spoken lesson.',
+    listenMinutes: 8,
+    time: 'O(n + m)',
+    space: 'O(m)',
+    baseline: 'Naive scan, O(n·m)',
+    vite: 'kmp-failure-function',
+    html: 'kmp-failure-function/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F3 onward, in order), so the public promise and the plan tell one story.
+// F4 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Knuth-Morris-Pratt', heuristic: 'Failure function', domain: 'Substring search' },
   { algorithm: 'Quicksort', heuristic: 'Median-of-three pivot', domain: 'In-place comparison sorting' },
   { algorithm: 'Bloom filter', heuristic: 'K independent hashes', domain: 'Approximate set membership' },
   { algorithm: 'HyperLogLog', heuristic: 'Leading-zero registers', domain: 'Cardinality estimation' },
   { algorithm: "Kadane's algorithm", heuristic: 'Running maximum', domain: 'Maximum subarray' },
+  { algorithm: 'Huffman coding', heuristic: 'Frequency-sorted merges', domain: 'Prefix-free compression' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

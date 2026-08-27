@@ -1516,7 +1516,41 @@ commit, Fable trailer on every commit, check green before each push.
       reseeded: Suffix tree × Ukkonen online construction (t1, h
       EXISTS, strings, d Full-text indexing, grep-verified).
 
-**Next action: F62 Suffix tree × Ukkonen online construction;
+- [x] F62. Suffix tree × Ukkonen online construction. Puzzle 68,
+      strings (problemSlug text-indexing, shared with the live
+      suffix array). THE HEAVYWEIGHT: full Ukkonen (active point,
+      open leaves with global end, rule 3, suffix links) implemented
+      and refereed. Oracles: leaf path-labels == the true suffix set
+      on 200 random strings (the decisive referee: passed FIRST RUN);
+      size theorem <= 2(n+1) nodes with exactly n+1 leaves on every
+      build; amortized linearity at scale: 199,589 chars in 464,432
+      extension steps = 2.33/char (assert < 6); membership == Python
+      `in` on 500 queries with a 20-char query walking EXACTLY 20
+      comparisons; longest repeated substring (deepest internal) ==
+      brute force on 100 strings (client text: 47 chars); LCS via
+      generalized tree == DP on 100 pairs. TWO honest findings: (1)
+      the naive-build race depends on repetitiveness: english-ish
+      only 3.7x worse (suffixes diverge fast) vs 358x on 17-periodic
+      text (repetition is the quadratic adversary: genomes, logs):
+      both corpora measured and kept; (2) the naive splitter walked
+      off the string when a terminator was omitted (found the hard
+      way, fixed, lesson in-code). Runtime 0.6s. The viz PORTS the
+      same builder to JS and was verified in node: exact suffix sets
+      on all 8 cycle seeds before shipping (tree grows char by char,
+      open leaves green with ->E, splits flash amber, size theorem
+      in the hold). No atlas edit (pair existed t1 with h); summary
+      stays 3257/2336. Cards: self, Suffix array construction
+      (live), Aho-Corasick (live: the dual), Trie (live: the
+      uncompressed ancestor): three live badges. neverUse:
+      rebuilding the index per query (indexes are capital; the build
+      is worth ~23,000 queries). Figure: the machinery diagram with
+      open leaves and a suffix link, cite Ukkonen Algorithmica 14
+      1995 DOI 10.1007/BF01206331 (Weiner 1973, McCreight 1976 in
+      prose). Bench reseeded: Push-relabel × FIFO vertex selection
+      (t2, h EXISTS, graphs-structure, d Maximum flow,
+      grep-verified: the live Edmonds-Karp's rival card come alive).
+
+**Next action: F63 Push-relabel × FIFO vertex selection;
 sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the

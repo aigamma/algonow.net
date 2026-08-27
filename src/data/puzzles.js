@@ -1284,13 +1284,32 @@ export const PUZZLES = {
     vite: 'rate-monotonic-shorter-period',
     html: 'rate-monotonic-shorter-period/index.html',
   },
+  '/suffix-tree-ukkonen-online/': {
+    slug: 'suffix-tree-ukkonen-online',
+    problemSlug: 'text-indexing',
+    number: 68,
+    category: 'strings',
+    algorithm: 'Suffix tree',
+    heuristic: 'Ukkonen online construction',
+    domain: 'Full-text indexing',
+    oneLiner:
+      'Open leaves grow on one global pointer, the active point never re-walks, rule three quits early, suffix links teleport: four masks of one amortized argument, and the index is linear.',
+    description:
+      "Suffix tree paired with Ukkonen's online construction: suffix sets exact on 200 strings, 2.33 steps/char at 200K scale, the naive build 358x worse on repetitive text, LRS and LCS DP-verified.",
+    listenMinutes: 8,
+    time: 'O(n) build, O(p) query',
+    space: 'O(n) nodes',
+    baseline: 'Naive suffix insertion',
+    vite: 'suffix-tree-ukkonen-online',
+    html: 'suffix-tree-ukkonen-online/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Suffix tree', heuristic: 'Ukkonen online construction', domain: 'Full-text indexing' },
+  { algorithm: 'Push-relabel', heuristic: 'FIFO vertex selection', domain: 'Maximum flow' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

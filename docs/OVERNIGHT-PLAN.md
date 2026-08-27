@@ -2326,8 +2326,57 @@ commit, Fable trailer on every commit, check green before each push.
       Montgomery ladder t2 sibling earmarked as the timing-attack
       rival card).
 
-**Next action: F82 Modular exponentiation × square-and-multiply
-(puzzle 88); sequentially until morning.** Owner's overnight directive
+- [x] F82. Modular exponentiation × square-and-multiply. Puzzle
+      88, slug modular-exponentiation-square-multiply, category
+      crypto-number-theory, problem modular-arithmetic (link
+      verified in dist/algo/modular-exponentiation). Solution
+      modular_exponentiation_square_multiply.py: left-to-right sqm
+      with counters, Montgomery ladder, naive_power, Miller-Rabin
+      riding sqm, gen_prime. FIVE ORACLES, 38s (prime generation
+      dominates): (1) STDLIB REFEREE: sqm AND ladder == pow on
+      3,006 triples up to 2048 bits incl. edges (e=0, m=1, a=0);
+      (2) THE COUNT LAW EXACT on 500 exponents: squares ==
+      bit_length-1, multiplies == popcount-1, asserted per
+      exponent; naive ladder RUN IN FULL at e=999,983 (999,983
+      mults counted) vs sqm's 29: 34,482x (assert >20,000); at
+      2048 bits: 3,091 ops vs a 617-digit count (asserted 617
+      digits); (3) THE LEAK COUNTED: same 1024-bit length,
+      popcount 3 vs 496: op gap EXACTLY the popcount gap (493,
+      asserted ==); ladder counts IDENTICAL for both (asserted):
+      the Kocher timing channel measured in ops and sealed; (4)
+      toy RSA: 512-bit MR primes, 50 messages round-tripped
+      exactly; (5) DH: 100 handshakes, s1==s2==g^(ab) all
+      asserted. Comment-vs-measured fix: 25,641x stale comment
+      corrected to 34,482x. No atlas edit (pair t1 crypto line 6);
+      summary stays 3257/2343. Cards: self, Montgomery ladder
+      (2/bit always: identical counts asserted: silence costs 2x),
+      Fixed-window (table amortization for fixed keys), Pollard
+      rho for dlog (the ADVERSARY'S road priced as the product:
+      forward 3,091 vs backward 10^38: the asymmetry IS public-key
+      crypto: live-unit tie-in). neverUse: BRANCH-ON-SECRET in
+      production crypto: all 3,006 correctness matches pass either
+      way, and the 493-op count gap is the whole vulnerability:
+      time/power/cache are outputs too (Kocher 1996). Figure: the
+      binary reading of e=45 with SQ/SQ+M per bit + the measured
+      ledger, cite Diffie-Hellman IEEE IT-22(6) 1976 DOI
+      10.1109/TIT.1976.1055638 (WebSearch-verified). Viz ModExpViz
+      two acts: act 1 the bit ladder: 20-bit exponent consumed
+      bit-by-bit, accumulator staying small, our-ops vs
+      naive-for-prefix counters (naive races toward a million);
+      act 2 the leak: S/M stripe trails for sparse vs dense
+      same-length exponents (visibly different lengths) then the
+      ladder's identical 30-stripe rows. NODE-VERIFIED 10 cycles:
+      trace result == naive ladder RUN IN FULL (746,065 mults in
+      the referee), every intermediate register recomputed
+      independently, count law exact, leak visible every cycle,
+      ladder counts equal. Bench reseeded (bare-grep: Bellman-Ford
+      AND Floyd-Warshall found LIVE at lines 646/950, discipline
+      catch; set cover 0 hits, atlas t1 approximation line 2, ls
+      no dir): Greedy set cover × Maximum-coverage selection
+      (category optimization-or, problem set-cover).
+
+**Next action: F83 Greedy set cover × maximum-coverage selection
+(puzzle 89); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

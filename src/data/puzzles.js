@@ -1664,13 +1664,32 @@ export const PUZZLES = {
     vite: 'subset-construction-powerset',
     html: 'subset-construction-powerset/index.html',
   },
+  '/modular-exponentiation-square-multiply/': {
+    slug: 'modular-exponentiation-square-multiply',
+    problemSlug: 'modular-arithmetic',
+    number: 88,
+    category: 'crypto-number-theory',
+    algorithm: 'Modular exponentiation',
+    heuristic: 'Square-and-multiply',
+    domain: 'Fast modular powers',
+    oneLiner:
+      'Read the exponent in binary: square for every bit, multiply on the 1s, reduce always: log-many operations where the naive ladder needs a 617-digit count: the loop under every handshake.',
+    description:
+      'Modular exponentiation by square-and-multiply: 3,006 matches against pow, the count law exact on 500 exponents, the naive ladder beaten 34,482x, the timing leak counted and sealed.',
+    listenMinutes: 8,
+    time: 'O(log e) mults',
+    space: 'O(1)',
+    baseline: 'Naive multiplication ladder',
+    vite: 'modular-exponentiation-square-multiply',
+    html: 'modular-exponentiation-square-multiply/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Modular exponentiation', heuristic: 'Square-and-multiply', domain: 'Fast modular powers' },
+  { algorithm: 'Greedy set cover', heuristic: 'Maximum-coverage selection', domain: 'Set cover approximation' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

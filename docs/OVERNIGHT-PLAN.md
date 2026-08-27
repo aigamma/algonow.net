@@ -1739,8 +1739,35 @@ commit, Fable trailer on every commit, check green before each push.
       running maximum (t1, h exists in atlas, absent from
       puzzles.js).
 
-**Next action: F68 Kadane's algorithm × running maximum;
-sequentially until morning.** Owner's overnight directive
+- [!] F68 SECOND NEAR-MISS, REVERTED, GUARD INSTALLED. Kadane's
+      algorithm × running maximum was benched and fully built: and
+      it is PUZZLE 13, one of the original eight, live at the SAME
+      SLUG (kadane-running-maximum). The registry grep missed it
+      because the original entry uses DOUBLE quotes (algorithm:
+      "Kadane's algorithm": the apostrophe forces them) while the
+      grep pattern assumed single quotes: the same quoting blind
+      spot that had just been caught for Dijkstra moments earlier
+      by a case-insensitive BARE-NAME grep. Worse than the reservoir
+      near-miss: the same slug meant the six Writes OVERWROTE the
+      live unit's files in the working tree. esbuild only WARNS on
+      the duplicate object key, and every downstream check stayed
+      green because the shadowing unit was itself complete. Caught
+      via the esbuild warning line in the build output; all six
+      original files restored byte-identical from HEAD; the
+      duplicate registry entry removed; nothing was ever committed
+      or deployed. MECHANICAL GUARD INSTALLED in scripts/check.mjs
+      (check 0): the puzzles.js SOURCE TEXT is scanned for duplicate
+      registry keys and FAILS on any twin: verified live (a planted
+      duplicate failed the run; clean source passes at 73 keys).
+      THE RULE, hardened: bench-verify with case-insensitive
+      BARE-NAME greps of puzzles.js (never quote-anchored patterns)
+      AND ls the slug directory before any Write. Bench reseeded
+      with both greps clean: Longest increasing subsequence ×
+      patience piles with binary search (t1, h in atlas, bare-name
+      absent from registry, no slug directory).
+
+**Next action: F68 Longest increasing subsequence × patience piles
+with binary search; sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

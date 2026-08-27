@@ -22,6 +22,20 @@ const NARRATION_SECTIONS = new Set([
   'puzzle', 'origins', 'pair', 'picture', 'run', 'signals', 'tradeoffs', 'code',
 ]);
 
+// 0. Registry keys are unique IN THE SOURCE. A duplicate object key
+// silently overrides its twin at import time (esbuild only warns), so
+// a rebuilt unit can shadow a live one with every downstream check
+// still green: the F68 near-miss. Scan the source text, not the
+// imported object.
+{
+  const src = readFileSync('src/data/puzzles.js', 'utf8');
+  const keys = [...src.matchAll(/'\/([a-z0-9-]+)\/':\s*\{/g)].map((m) => m[1]);
+  const seen = new Set();
+  const dups = keys.filter((k) => (seen.has(k) ? true : (seen.add(k), false)));
+  if (dups.length) fail(`duplicate registry key(s) in puzzles.js source: ${dups.join(', ')}`);
+  else ok(`registry source keys unique (${keys.length})`);
+}
+
 // 1. Lockstep: every registry entry has its five files.
 for (const p of Object.values(PUZZLES)) {
   const files = [

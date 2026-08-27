@@ -1404,7 +1404,7 @@ export const PUZZLES = {
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Kadane's algorithm", heuristic: 'Running maximum', domain: 'Maximum subarray' },
+  { algorithm: 'Longest increasing subsequence', heuristic: 'Patience piles with binary search', domain: 'Longest increasing subsequence' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

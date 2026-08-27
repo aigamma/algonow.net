@@ -382,8 +382,20 @@ atlas-verified, pairs authored per rule 2 at build where h is null):
       interpolation faces, the gallop bound. Atlas: Binary search h
       null -> Halving invariant (rule 2), heuristics 2,310. Viz: two
       probe policies racing the same lookups on one strip.
-- [ ] F17. Kruskal × sorted edges with union-find (vs Prim, Boruvka,
-      reverse-delete); the union-find unit becomes a live cross-link.
+- [x] F17. Kruskal × union-find cycle test, live as puzzle 23
+      (2026-08-27, Fable). n=1,200, distinct weights (unique MST: all
+      four methods must return the IDENTICAL edge set, and do). Work
+      (sort charged at E log E): sparse E=8,000: Kruskal+UF 115,881
+      (sort ~104K, connectivity nearly free at 0.93 parent-jumps/find,
+      puzzle 08's promise measured) vs BFS cycle test 3,998,220 (34x)
+      vs Prim 32,001 (raw winner) vs Boruvka 102,487 (11 halving
+      rounds). Dense E=120,000: Kruskal 2.04M (90% sort) vs Prim 480K.
+      Cycle-property certificate verified on 500 sampled non-tree
+      edges; disconnected input yields the correct forest; never-here:
+      the MST as a routing table, worst detour 15.2x vs Dijkstra over
+      100 pairs (cross-links puzzle 07). Atlas: Kruskal h -> Union-find
+      cycle test (rule 2), heuristics 2,311. Viz: villages wiring
+      cheapest-first, components sharing colors as union-find merges.
 - [ ] F18. Reservoir sampling × Algorithm R (vs sort-by-random-key,
       Algorithm L as variant, and the full-store baseline); exact
       uniformity oracle by enumeration on small streams.
@@ -504,8 +516,8 @@ commit, Fable trailer on every commit, check green before each push.
 ## Resume pointer
 
 **Next action: the twice-extended Phase F queue, strictly sequential
-(F17 Kruskal is next, then F18-F20), one unit per commit+push with a
-production deploy as units land.** Owner's overnight directive
+(F18 reservoir sampling is next, then F19-F20), one unit per
+commit+push with a production deploy as units land.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

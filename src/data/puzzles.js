@@ -429,13 +429,31 @@ export const PUZZLES = {
     vite: 'binary-search-halving',
     html: 'binary-search-halving/index.html',
   },
+  '/kruskal-union-find/': {
+    slug: 'kruskal-union-find',
+    problemSlug: 'minimum-spanning-tree',
+    number: 23,
+    category: 'graphs',
+    algorithm: "Kruskal's algorithm",
+    heuristic: 'Union-find cycle test',
+    domain: 'Minimum spanning trees',
+    oneLiner:
+      'Scan edges cheapest-first and lay each one only if its endpoints are on different grids: one question asked E times, answered in under one parent-jump by the flat forest.',
+    description:
+      "Kruskal's algorithm paired with the union-find cycle test: watch villages wire themselves cheapest-first, measured against Prim, Borůvka, and the BFS test, with the MST certified by the cycle property.",
+    listenMinutes: 8,
+    time: 'O(E log E)',
+    space: 'O(V)',
+    baseline: 'BFS cycle test',
+    vite: 'kruskal-union-find',
+    html: 'kruskal-union-find/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F17 onward, in order), so the public promise and the plan tell one story.
+// F18 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Kruskal's algorithm", heuristic: 'Lightest-edge-first with union-find', domain: 'Minimum spanning trees' },
   { algorithm: 'Reservoir sampling', heuristic: 'Algorithm R', domain: 'Sampling unbounded streams' },
   { algorithm: 'Wagner-Fischer', heuristic: 'Prefix-to-prefix table', domain: 'Edit distance' },
   { algorithm: 'Fenwick tree', heuristic: 'Low-bit ladders', domain: 'Prefix sums under change' },

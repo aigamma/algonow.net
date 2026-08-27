@@ -145,8 +145,9 @@ export default function Home() {
             <p className="at-sub">
               The classical core beside the exotic: quantum, DNA and slime-mold computing,
               nature-inspired swarms, puzzle solvers. The atlas is the reference map:{' '}
-              {LIVE_PUZZLES.length} of its pairings are built as the full puzzle pages
-              above; the rest are catalog entries, not pages.
+              {LIVE_PUZZLES.length} of its pairings are built out as the full puzzle
+              lessons above; every other entry is an index card: the method, its pairing,
+              its problem, and its rivals: with no lesson behind it.
             </p>
           </div>
           <span className="at-cta">browse the atlas →</span>

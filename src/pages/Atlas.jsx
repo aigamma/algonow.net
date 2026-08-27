@@ -135,10 +135,11 @@ export default function Atlas() {
           </p>
           <p className="hero-oneliner" style={{ marginTop: '0.6rem' }}>
             What the site actually offers today:{' '}
-            <b>{atlasSummary.livePuzzles} of these pairings are built as full puzzle
-            pages</b>, each with a verified solution, a live figure, and a spoken lesson.
-            Everything else here is the reference map those puzzles are drawn from: a
-            catalog of named methods, not a promise of pages.
+            <b>{atlasSummary.livePuzzles} of these pairings are built out as full puzzle
+            lessons</b>, each with a verified solution, a live figure, and a spoken
+            walkthrough. Every other entry is an index card: the method, its pairing, the
+            problem it attacks, and its rivals: useful for looking things up, but no
+            lesson stands behind it.
           </p>
         </section>
 

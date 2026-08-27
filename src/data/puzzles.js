@@ -1094,13 +1094,32 @@ export const PUZZLES = {
     vite: 'edmonds-karp-shortest-paths',
     html: 'edmonds-karp-shortest-paths/index.html',
   },
+  '/ternary-search-interval-thirds/': {
+    slug: 'ternary-search-interval-thirds',
+    problemSlug: 'unimodal-search',
+    number: 58,
+    category: 'data-structures',
+    algorithm: 'Ternary search',
+    heuristic: 'Two-probe interval thirds',
+    domain: 'Unimodal maximum finding',
+    oneLiner:
+      'Two probes at the thirds, one comparison, one third of the interval dead per round: and the entire guarantee lives in a premise the loop never checks.',
+    description:
+      'Ternary search paired with two-probe interval thirds: 600 constructed-argmax tests exact, golden-section’s probe reuse measured at 46 evals vs 104, the bimodal betrayal converging to the wrong hill.',
+    listenMinutes: 8,
+    time: 'O(log(1/ε)) evals',
+    space: 'O(1)',
+    baseline: 'Grid scan',
+    vite: 'ternary-search-interval-thirds',
+    html: 'ternary-search-interval-thirds/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Ternary search', heuristic: 'Two-probe interval thirds', domain: 'Unimodal maximum finding' },
+  { algorithm: 'Boyer-Moore majority vote', heuristic: 'Pairwise cancellation', domain: 'Majority element' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

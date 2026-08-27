@@ -6,7 +6,7 @@
 {"a": "Interpolation search", "h": "Linear key-distribution estimate", "d": "Uniform-key sorted lookup", "t": 2},
 {"a": "Fibonacci search", "h": "Golden-section index splits", "d": "Addition-only sorted lookup", "t": 3},
 {"a": "Jump search", "h": "Sqrt-n block stride", "d": "Sorted-array lookup", "t": 3},
-{"a": "Ternary search", "h": null, "d": "Unimodal maximum finding", "t": 2},
+{"a": "Ternary search", "h": "Two-probe interval thirds", "d": "Unimodal maximum finding", "t": 2},
 {"a": "Golden-section search", "h": null, "d": "Unimodal optimization", "t": 2},
 {"a": "Binary search tree", "h": null, "d": "Ordered dictionary", "t": 1},
 {"a": "AVL tree", "h": "Height-balance rotations", "d": "Strictly balanced dictionary", "t": 1},

@@ -1223,8 +1223,34 @@ commit, Fable trailer on every commit, check green before each push.
       finale's red min-cut dash. Bench reseeded: Ternary search ×
       two-probe interval thirds (t2, h to author).
 
-**Next action: F52 Ternary search × two-probe interval thirds (author
-h per rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F52. Ternary search × two-probe interval thirds. Puzzle 58,
+      data-structures (problemSlug unimodal-search; same category as
+      the live binary search, its rival with a live badge). Referee:
+      CONSTRUCTION: 300 continuous functions (parabolas, asymmetric
+      powers, smooth bumps) with analytically known argmax, all to
+      1e-7 by both ternary and golden, plus 300 unimodal integer
+      arrays exact via ternary_int. Evaluation bills vs shrink-rate
+      theory within 4: ternary 104 (2 probes/round, 2/3 shrink),
+      golden-section 46 (phi spacing reuses one probe: 1 fresh
+      eval/round), golden < 0.6x ternary asserted. Client: revenue
+      p*1000*exp(-p/20) maximized at p = 20.000000 vs calculus 20.
+      Plateau (trapezoid top) safe: returned point attains max. THE
+      BETRAYAL measured: 2.0-tall spike at 0.06 vs 1.0 hill at 0.70:
+      f(1/3) < f(2/3) discards the spike's third in ROUND ONE and the
+      dance converges confidently to 0.700, asserted both ways (found
+      the hill, missed the spike). Atlas: search-structures.json h
+      authored "Two-probe interval thirds" (rule 2); summary
+      heuristics 2330 -> 2331. Cards: self, Golden-section search,
+      Binary search (live), Newton (live). neverUse: two probes on an
+      unverified premise. Figure cites Kiefer 1953 DOI
+      10.1090/S0002-9939-1953-0055639-3. Viz: two acts, unimodal
+      ridge shrinking to green, then the bimodal betrayal with the
+      red X on the summit it never saw. Bench reseeded: Boyer-Moore
+      majority vote × pairwise cancellation (t1, h to author,
+      probabilistic-streaming, d Majority element, grep-verified).
+
+**Next action: F53 Boyer-Moore majority vote × pairwise cancellation
+(author h per rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

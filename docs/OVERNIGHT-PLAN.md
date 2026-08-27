@@ -2854,11 +2854,55 @@ commit, Fable trailer on every commit, check green before each push.
       snapshots (distributed-snapshots), 100 Timsort × Galloping
       merge threshold (comparison-sorting).
 
-**Next action: F92 Louvain (98), F93 Chandy-Lamport (99), F94
-Timsort (100), then the atlas honesty pass (owner directive
-2026-08-27: the site reports the 100 live puzzles as the real
-offer, the catalog as the reference map, no hidden-potentiality
-framing), then stop unit production.** Owner's overnight directive
+- [x] F92. Louvain method × greedy modularity moves. Puzzle 98,
+      slug louvain-modularity-moves, category graphs, problem
+      community-detection (link verified in
+      dist/algo/louvain-method). Solution
+      louvain_modularity_moves.py: modularity from the definition
+      (the independent judge), full two-phase Louvain with an
+      AUDIT SWITCH (every accepted move's incremental delta-Q ==
+      from-scratch difference to 1e-12), Bell-recursion partition
+      enumeration, planted-block generator, clique ring, the
+      karate club's 78 edges verbatim. BUILD BUG CAUGHT BY THE
+      AUDIT MACHINERY: the first draft leaked aggregated
+      SELF-LOOPS into the neighbor-links scan, inflating
+      stay-home gains and stalling the merge phase (planted
+      recovery 6/30, 4-9 fragments): self-loops excluded (they
+      are internal wherever the node goes): recovery 30/30.
+      FIVE ORACLES, 0.8s: (1) 335 moves audited, zero drift;
+      (2) vs enumerated optima on 60 graphs n<=9: optimal 54/60,
+      mean 98.7% of Q*, never exceeding; (3) planted 4x25 blocks
+      (p_in .40/p_out .01): 30/30 exact (pair agreement 1.0);
+      (4) THE RESOLUTION LIMIT RUN: ring of 10 five-cliques ->
+      all 10; ring of 40 -> 20, AND the merged partition asserted
+      to score HIGHER Q (0.9045 vs 0.8841): the objective
+      convicted, not the search; (5) karate club: Q = 0.4188 (the
+      canonical number), 4 communities, best 2-coarsening ==
+      1977 fission 33/34. Cards: self, Leiden (t2: refinement
+      fixes Louvain's connectivity defect: same bent ruler),
+      Girvan-Newman (t2: the classical dendrogram, O(m^2 n)),
+      Label propagation (t2: no objective at all: anarchy as a
+      feature). neverUse: TRUSTING THE OPTIMUM OF A PROXY
+      OBJECTIVE: the merged-Q conviction makes it concrete:
+      optimizing a proxy harder converges to the proxy's mistake:
+      reward hacking's graph-theory ancestor. Figure: two-phase
+      diagram + the clique-ring pairs + the Q-conviction numbers,
+      cite Blondel et al. J. Stat. Mech. 2008 DOI
+      10.1088/1742-5468/2008/10/P10008 (WebSearch-verified). Viz
+      LouvainViz (QC1 standard): act 1 confetti -> four blocks
+      with a climbing Q meter (fullLouvain with aggregation:
+      stage-2 merge events carry full label SNAPSHOTS since the
+      two stages' label spaces diverge: replay asserted == final;
+      deterministic reroll so the shown instance recovers
+      exactly); act 2 the ring of 12 triangles fusing into 6
+      pairs with the conviction line. NODE-VERIFIED 12 cycles:
+      planted exact, Q nondecreasing, replay == final both acts,
+      merge + conviction, all nodes onscreen. Runtime note:
+      python triangle-rings merge at ALL K (measured 12..32),
+      so the viz ring works at K=12.
+
+**Next action: F93 Chandy-Lamport (99), F94 Timsort (100), then
+the atlas honesty pass, then stop unit production.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

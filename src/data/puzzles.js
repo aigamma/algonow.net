@@ -1854,13 +1854,31 @@ export const PUZZLES = {
     vite: 'kalman-covariance-correction',
     html: 'kalman-covariance-correction/index.html',
   },
+  '/louvain-modularity-moves/': {
+    slug: 'louvain-modularity-moves',
+    problemSlug: 'community-detection',
+    number: 98,
+    category: 'graphs',
+    algorithm: 'Louvain method',
+    heuristic: 'Greedy modularity moves',
+    domain: 'Community detection',
+    oneLiner:
+      'Every node joins whichever neighbor community raises modularity most; then communities collapse to supernodes and it happens again: locality buys million-node scale, hierarchy comes free.',
+    description:
+      'The Louvain method with greedy modularity moves: 335 moves audited to 1e-12, 54/60 enumerated optima, 30/30 planted blocks exact, the karate club at Q=0.4188, the resolution limit run.',
+    listenMinutes: 8,
+    time: 'O(m) per sweep',
+    space: 'O(n + m)',
+    baseline: 'Exhaustive partition search',
+    vite: 'louvain-modularity-moves',
+    html: 'louvain-modularity-moves/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Louvain method', heuristic: 'Greedy modularity moves', domain: 'Community detection' },
   { algorithm: 'Chandy-Lamport', heuristic: 'Marker-based snapshots', domain: 'Distributed snapshots' },
   { algorithm: 'Timsort', heuristic: 'Galloping merge threshold', domain: 'Real-world stable sorting' },
 ];

@@ -892,10 +892,33 @@ directive; names atlas-verified):
       10.1145/321738.321743 + Buttazzo's Judgment Day. Viz: the
       classic pair's Gantt run twice: RM's red X returning every
       hyperperiod, then EDF landing all 12 jobs.
-- [ ] F43. Suffix array construction × prefix-doubling ranks (strings
-      t1). O(n log n) doubling vs naive suffix sort; binary-search
-      substring queries on the repo's own text; rivals suffix
-      automaton/tree if in atlas (check at build).
+- [x] F43. Suffix array construction × prefix-doubling ranks. Puzzle
+      49, strings (problemSlug text-indexing). Layered certification:
+      300 slice-refereed small builds (4 text shapes incl runs), then
+      at scale (the plan, 65,995 chars, living corpus) the ENTIRE
+      ordering certified adjacent-pair-by-adjacent-pair via a Kasai
+      LCP array that is itself re-verified char-by-char (run holds,
+      maximal, strictly ordered). Rounds 7 <= ceil(log2 n), and the 7
+      CORROBORATES max(LCP) = 78 < 2^7: the same fact twice. 20
+      pattern locate/counts == find-loop referee (overlaps included).
+      Longest repeat: 78 chars of the plan's own boilerplate,
+      find!=rfind certified. Adversary: at n=1,000, cmp-sort pays
+      14,912 char compares on English vs 1,811,090 on 'ab'*500
+      (121x); doubling 10 rounds on both. neverUse: materializing
+      suffixes (1.8 GB for this text, stated not run). Cards: self,
+      Suffix tree × Ukkonen, FM-index × backward search (the
+      compressed genomics winner), Kasai's (the companion that IS
+      this page's verifier). Figure: rank pairs summarizing 2^k
+      chars, cite Manber-Myers SIAM JC 1993 DOI 10.1137/0222058. No
+      atlas edits (pair existed t1 with h); summary stays 3257/2324.
+      Viz: abracadabra$ doubling rounds with rank badges gliding into
+      order, then binary-search probes landing on the green
+      occurrence block. SIXTH EXTENSION COMPLETE (F38-F43).
+- Seventh F-queue extension (atlas-verified):
+- [ ] F44. Floyd-Warshall × intermediate-vertex sweep (graphs-paths
+      t1, h null: author per rule 2). Oracle: n runs of Bellman-Ford
+      referee all-pairs; negative-edge support; transitive-closure
+      reading; the k-loop-order trap (in-place correctness).
 
 ## Phase G. Plumbing and hygiene (added 2026-07-22 evening)
 
@@ -1007,8 +1030,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F43 Suffix array construction × prefix-doubling ranks,
-last of the sixth extension; then extend again if the night allows.** Owner's overnight directive
+**Next action: F44 Floyd-Warshall × intermediate-vertex sweep (author
+h per rule 2), seventh extension; keep going sequentially until
+morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

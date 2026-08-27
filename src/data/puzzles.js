@@ -923,13 +923,32 @@ export const PUZZLES = {
     vite: 'earliest-deadline-first',
     html: 'earliest-deadline-first/index.html',
   },
+  '/suffix-array-prefix-doubling/': {
+    slug: 'suffix-array-prefix-doubling',
+    problemSlug: 'text-indexing',
+    number: 49,
+    category: 'strings',
+    algorithm: 'Suffix array construction',
+    heuristic: 'Prefix-doubling ranks',
+    domain: 'Full-text indexing',
+    oneLiner:
+      'Rank every suffix, then let two integers stand in for 2ᵏ characters: the horizon doubles each round, seven rounds index the whole text, and binary search answers forever.',
+    description:
+      'Suffix array construction paired with prefix-doubling ranks: 7 rounds index 66K chars with the ordering certified via a re-verified Kasai LCP array, 20 queries refereed, the repetition adversary priced at 121×.',
+    listenMinutes: 8,
+    time: 'O(n log n) build',
+    space: 'O(n) integers',
+    baseline: 'Char-by-char suffix sort',
+    vite: 'suffix-array-prefix-doubling',
+    html: 'suffix-array-prefix-doubling/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F38 onward, in order), so the public promise and the plan tell one story.
+// F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Suffix array construction', heuristic: 'Prefix-doubling ranks', domain: 'Full-text indexing' },
+  { algorithm: 'Floyd-Warshall', heuristic: 'Intermediate-vertex sweep', domain: 'All-pairs shortest paths' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

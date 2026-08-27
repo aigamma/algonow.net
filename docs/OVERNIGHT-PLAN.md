@@ -3006,11 +3006,19 @@ commit, Fable trailer on every commit, check green before each push.
       The empty bench section is hidden when ROADMAP is empty.
       Build exit 0, check exit 0 with the new gate green.
 
-**UNIT PRODUCTION STOPPED at a clean 100 live puzzles (owner's
-Fable-conservation directive, 2026-08-27). The bench is empty by
-design. Any future unit: full template + QC1 standard (per-act
-rests, crisp store) + bump livePuzzles in atlas-summary.json (the
-check enforces it).** Owner's overnight directive
+**PRODUCTION CADENCE (owner directive, 2026-08-27 follow-up): the
+site now publicly promises ROUGHLY TEN NEW PUZZLES A WEEK: the
+Fable budget the owner can spare. The copy on the homepage teaser
+and the atlas hero both carry the promise, and both surfaces now
+LEAD with the live-puzzle count: the owner judges the index cards
+'nearly useless abstractions... empty pointers, deeply meshed
+semantically with puzzles yet to come', so the cards are framed
+as the queue, not the content. Weekly sessions should build ~10
+units, sequential, full template + QC1 standard (per-act rests,
+crisp store), bumping livePuzzles in atlas-summary.json each time
+(the check enforces the number against the registry). The bench
+is empty between sessions; reseed with the hardened double-grep +
+ls discipline.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is
@@ -3042,3 +3050,15 @@ they are the ones most easily lost mid-run):
    of the verified local dist) and a curl against the live site proving
    the deploy took. Discovered 2026-08-26 with production ten commits
    stale; see the Deploy section of CLAUDE.md.
+
+- [x] COPY REFOCUS (owner, 2026-08-27): homepage teaser + atlas
+      hero rewritten to lead with the puzzle count and the
+      ten-a-week promise; the 3,257/648 statistics demoted to one
+      demoted sentence on the atlas page framing the cards as the
+      queue ('an index card with nothing to learn from yet: an
+      empty pointer, already meshed with its rivals'); the atlas
+      h1 is now '100 puzzles, and the map behind them'; the
+      teaser says where the atlas lives (the link + the header on
+      every page). Unused imports dropped (atlasSummary from
+      Home, ALGORITHM/HEURISTIC_COUNT from Atlas). Build 0,
+      check 0.

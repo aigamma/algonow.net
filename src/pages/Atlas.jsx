@@ -7,8 +7,6 @@ import {
   TOTAL,
   CATEGORY_COUNT,
   TOPIC_COUNT,
-  ALGORITHM_COUNT,
-  HEURISTIC_COUNT,
   TIER_LABEL,
   ALIASES,
 } from '../data/atlas.js';
@@ -123,23 +121,22 @@ export default function Atlas() {
         <section className="puzzle-hero" style={{ paddingBottom: '0.8rem' }}>
           <p className="eyebrow" style={{ marginBottom: '0.9rem' }}>the atlas</p>
           <h1 style={{ fontSize: 'clamp(1.7rem, 4.5vw, 2.5rem)' }}>
-            <span className="t-algo">{TOTAL.toLocaleString()}</span> ways to solve a problem
+            <span className="t-algo">{atlasSummary.livePuzzles}</span> puzzles, and the map
+            behind them
           </h1>
           <p className="hero-oneliner">
-            {ALGORITHM_COUNT.toLocaleString()} algorithms and {HEURISTIC_COUNT.toLocaleString()}{' '}
-            heuristics, paired into {TOTAL.toLocaleString()} reference entries that attack{' '}
-            {atlasSummary.problems.toLocaleString()} catalogued problems, about five rival
-            methods each. Three tiers deep across {TOPIC_COUNT} topics in {CATEGORY_COUNT}{' '}
-            categories: the classical core beside the exotic, quantum, DNA and slime-mold
-            computing, the nature-inspired swarm, and the puzzle solvers.
+            Every lesson on this site is one pairing from this map: a real named algorithm
+            joined to the heuristic that makes it fly.{' '}
+            <b>{atlasSummary.livePuzzles} pairings are built out as full puzzles</b>: a
+            verified solution, a live figure, a spoken walkthrough: and roughly{' '}
+            <b>ten new puzzles join them each week</b>.
           </p>
           <p className="hero-oneliner" style={{ marginTop: '0.6rem' }}>
-            What the site actually offers today:{' '}
-            <b>{atlasSummary.livePuzzles} of these pairings are built out as full puzzle
-            lessons</b>, each with a verified solution, a live figure, and a spoken
-            walkthrough. Every other entry is an index card: the method, its pairing, the
-            problem it attacks, and its rivals: useful for looking things up, but no
-            lesson stands behind it.
+            The remaining entries: {TOTAL.toLocaleString()} pairings across {TOPIC_COUNT}{' '}
+            topics in {CATEGORY_COUNT} categories: are the queue, not the content. Each is
+            an index card with nothing to learn from yet: an empty pointer, already meshed
+            with its rivals, so each week&apos;s puzzles land connected to the ones before.
+            The categories and problems indexes in the header walk the same map.
           </p>
         </section>
 

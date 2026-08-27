@@ -2,7 +2,6 @@ import SiteShell from '../components/SiteShell.jsx';
 import HeroDemo from '../viz/HeroDemo.jsx';
 import { LIVE_PUZZLES, ROADMAP, pairTitle, puzzlePath } from '../data/puzzles.js';
 import { CATEGORIES } from '../data/atlas-categories.js';
-import atlasSummary from '../data/atlas-summary.json';
 
 function PairTitle({ algorithm, heuristic }) {
   return (
@@ -135,19 +134,16 @@ export default function Home() {
           <div>
             <span className="at-eyebrow">the atlas</span>
             <p className="at-headline">
-              <b>{atlasSummary.algorithms.toLocaleString()}</b> algorithms and{' '}
-              <b>{atlasSummary.heuristics.toLocaleString()}</b> heuristics, paired into{' '}
-              {atlasSummary.total.toLocaleString()} entries that attack{' '}
-              <b>{atlasSummary.problems.toLocaleString()}</b> problems, about five rival
-              methods each, across {atlasSummary.topics} topics in {atlasSummary.categories}{' '}
-              categories.
+              Every puzzle above is one pairing from the atlas, this site&apos;s map of
+              real named algorithms and heuristics.{' '}
+              <b>{LIVE_PUZZLES.length} pairings are built out as full lessons</b>, and
+              roughly <b>ten new puzzles land each week</b>.
             </p>
             <p className="at-sub">
-              The classical core beside the exotic: quantum, DNA and slime-mold computing,
-              nature-inspired swarms, puzzle solvers. The atlas is the reference map:{' '}
-              {LIVE_PUZZLES.length} of its pairings are built out as the full puzzle
-              lessons above; every other entry is an index card: the method, its pairing,
-              its problem, and its rivals: with no lesson behind it.
+              The rest of the map is the queue, not the content: index-card entries with
+              nothing to learn from yet, each already wired to its rivals so tomorrow&apos;s
+              lessons arrive connected. The atlas lives at the link below and in the
+              header on every page.
             </p>
           </div>
           <span className="at-cta">browse the atlas →</span>

@@ -676,13 +676,31 @@ export const PUZZLES = {
     vite: 'segment-tree-lazy-propagation',
     html: 'segment-tree-lazy-propagation/index.html',
   },
+  '/metropolis-hastings-acceptance/': {
+    slug: 'metropolis-hastings-acceptance',
+    problemSlug: 'posterior-sampling',
+    number: 36,
+    category: 'ml-ai',
+    algorithm: 'Metropolis-Hastings',
+    heuristic: 'Proposal acceptance ratio',
+    domain: 'MCMC sampling',
+    oneLiner:
+      'Wander by local proposals, accept by the ratio min(1, π(y)/π(x)): the unknown constant cancels, detailed balance appears, and the walk’s occupancy becomes the answer.',
+    description:
+      'Metropolis-Hastings paired with the acceptance ratio: detailed balance verified on all 144 pairs of an exact chain, Z-independence proven by bitwise-identical runs, the step-size dial priced in effective samples.',
+    listenMinutes: 8,
+    time: 'O(1) evals/step',
+    space: 'O(1)',
+    baseline: 'A mistuned step size',
+    vite: 'metropolis-hastings-acceptance',
+    html: 'metropolis-hastings-acceptance/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F26 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Metropolis-Hastings', heuristic: 'Proposal acceptance ratio', domain: 'MCMC sampling' },
   { algorithm: 'Fast Fourier transform', heuristic: 'Cooley-Tukey radix-2', domain: 'Spectral analysis' },
 ];
 

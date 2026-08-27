@@ -615,9 +615,26 @@ directive; names atlas-verified):
       (pair existed t1); summary stays 3256/2318. Viz: 16-leaf tree,
       amber debt chips, pushes under footsteps, full-range ops
       touching one node.
-- [ ] F30. Metropolis-Hastings × proposal acceptance ratio
-      (machine-learning t1; oracle: exact stationary distribution of
-      a small discrete chain; d MCMC sampling).
+- [x] F30. Metropolis-Hastings × proposal acceptance ratio. Puzzle 36,
+      ml-ai. Three-layer exact-chain oracle: detailed balance verified
+      on all 144 pairs of a 12-state ring chain, pi recovered by power
+      iteration (err 1e-10) AND a 300K-step simulation (err 0.003).
+      Z-independence PROVEN bitwise (same-seed chains with/without an
+      arbitrary constant identical). Bimodal moments: mean -0.036 /
+      E[X^2] 9.98 / P(X>0) 0.495 vs exact 0/10/0.5. Dial at 100K
+      steps: timid sigma 0.1: 96.9% acc, ESS 110, 26 crossings; tuned
+      2.4: 49.3%, ESS 4,047, 5,088; reckless 50: 5.0%, ESS 2,493
+      (HONEST SURPRISE kept: a landed leap teleports in 1-D, assert
+      relaxed to 1.3x and the finding recorded) but 0.00% acceptance
+      at d=6 (dimension is the killer, measured). Beta(8,4) coin
+      posterior: mean 0.6671 vs 2/3, var to 4 decimals. neverUse:
+      rejection sampling at d=6: 50/200,000 accepts (0.03% vs theory
+      0.025%!) vs MH ESS 8,009 (160x). Cards: self, Gibbs, HMC,
+      Rejection sampling. Figure: detailed balance flow, cite
+      Metropolis et al. 1953 DOI 10.1063/1.1699114. No atlas edits
+      (pair existed t1); summary stays 3256/2318. Viz: the critic on
+      the bimodal curve, amber occupancy histogram, timid vs tuned
+      acts.
 - [ ] F31. FFT × Cooley-Tukey radix-2 (numerical t1; oracle: exact
       integer convolution vs schoolbook, plus naive DFT agreement;
       rivals Karatsuba, schoolbook, naive DFT; d Spectral analysis,
@@ -733,9 +750,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F30 Metropolis-Hastings × proposal acceptance ratio,
-then F31 FFT (fourth extension, listed under F25 above), then extend
-again; keep going sequentially until morning.** Owner's overnight directive
+**Next action: F31 FFT × Cooley-Tukey radix-2, last of the fourth
+extension, then extend the queue again; keep going sequentially until
+morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

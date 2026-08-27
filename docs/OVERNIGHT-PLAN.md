@@ -1073,8 +1073,34 @@ commit, Fable trailer on every commit, check green before each push.
       the fingertip subtree. Bench reseeded: Tarjan's SCC × low-link
       stack discipline (t1, h null: author at build; grep-verified).
 
-**Next action: F46 Tarjan's SCC × low-link stack discipline (author h
-per rule 2); sequentially until morning.** Owner's overnight directive
+- [x] F46. Tarjan's SCC × low-link stack discipline. Puzzle 52, graphs
+      (problemSlug strongly-connected-components). ITERATIVE Tarjan
+      (explicit work stack: survives 20K-deep walks). Referees
+      layered: 300 brute mutual-reachability trials; structure gadgets
+      exact (ring=1 SCC, DAG=singletons, chained cycles emitted
+      downstream-first); Kosaraju agreeing at n=20,000 m=60,000 with
+      touch counters asserted EXACTLY m (59,995) vs 2m (119,990); the
+      condensation's reverse-topo emission asserted on every cross
+      edge. THE PAYLOAD: Aspvall-Plass-Tarjan 2-SAT via implication
+      SCCs: 250 instances (134 SAT / 116 UNSAT) matching exhaustive
+      truth tables, every satisfying assignment re-verified clause by
+      clause. Build fixes: the touch asserts were off by skipped
+      self-loops (count actual edges); Aspvall's assignment rule was
+      inverted (True iff the true-literal's comp is topologically
+      later = LOWER Tarjan index). Atlas: Tarjan h authored per rule
+      2 (Low-link stack discipline); summary h 2326 -> 2327. Cards:
+      self, Kosaraju (2 elegant passes, priced), 2-SAT via
+      implication SCC (t2: the payload as a card), Kahn (live badge:
+      the condensation's consumer; Gabow named in-card). neverUse:
+      per-pair reachability at scale ("quadratic honesty referees
+      linear cleverness; production ships the cleverness"). Figure:
+      index/lowlink tree with the sealing proof, cite Tarjan SIAM JC
+      1972 DOI 10.1137/0201010. Viz: the cave spelunk: chalk marks,
+      the rope stack column, back-edge flashes, components flooding
+      color as they seal, downstream first.
+
+**Next action: F47 Interval tree × max-endpoint subtree pruning
+(author h per rule 2; grep-verified t2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

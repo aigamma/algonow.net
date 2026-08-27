@@ -980,13 +980,32 @@ export const PUZZLES = {
     vite: 'trie-shared-prefix-branching',
     html: 'trie-shared-prefix-branching/index.html',
   },
+  '/tarjan-scc-low-links/': {
+    slug: 'tarjan-scc-low-links',
+    problemSlug: 'strongly-connected-components',
+    number: 52,
+    category: 'graphs',
+    algorithm: "Tarjan's SCC algorithm",
+    heuristic: 'Low-link stack discipline',
+    domain: 'Strongly connected components',
+    oneLiner:
+      'Chalk each chamber, keep one note: the earliest chamber anything below can climb back to: and when the note points home, coil off the sealed cavern as a unit.',
+    description:
+      "Tarjan's SCC paired with the low-link stack discipline: one pass at exactly m touches (asserted), reverse-topo emission proven on every cross edge, Kosaraju agreeing at 20K vertices, 2-SAT certified 250 times.",
+    listenMinutes: 8,
+    time: 'O(n + m), one pass',
+    space: 'O(n)',
+    baseline: "Kosaraju's two passes",
+    vite: 'tarjan-scc-low-links',
+    html: 'tarjan-scc-low-links/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Tarjan's SCC algorithm", heuristic: 'Low-link stack discipline', domain: 'Strongly connected components' },
+  { algorithm: 'Interval tree', heuristic: 'Max-endpoint subtree pruning', domain: 'Stabbing queries' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

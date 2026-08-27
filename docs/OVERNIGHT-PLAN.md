@@ -1049,8 +1049,32 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: F45 Trie × shared-prefix branching (author h per rule
-2), continuing the seventh extension; sequentially until morning.** Owner's overnight directive
+- [x] F45. Trie × shared-prefix branching. Puzzle 51, data-structures
+      (problemSlug string-key-dictionary). Built on the site's OWN
+      vocabulary (2,551 words from the plan). 20,000 shadow-refereed
+      mixed ops (bisect ranges as prefix referee). The flat-cost
+      theorem asserted EXACT: lookup visits == len(key)+1, identical
+      at 300 and 2,551 words. Structural identities asserted: nodes ==
+      distinct prefixes + 1 == 7,892; DFS == sorted vocabulary (radix
+      order free). Chain fraction 59% measured (the radix tree's
+      pitch, priced). Ledger: 2,000 lookups: trie 14,700 visits;
+      bisect ~154K char-cmps; hash ~12.8K hashes. 200 prefix queries:
+      trie 11,239; bisect 4,800 (the HONEST STATIC WINNER, said
+      plainly); hash-scan 510,200 (45x: the neverUse). Autocomplete
+      'al' -> the site's own words. Build fixes: a dfs generator
+      filtered on the wrong loop variable (caught pre-run), sentinel
+      chr(0x10FFFF). Atlas: Trie h authored per rule 2 (Shared-prefix
+      branching); summary h 2325 -> 2326. Cards: self, Radix tree ×
+      path compression, Hash table with chaining, Aho-Corasick (live
+      badge: the trie that grew failure links). Figure: the shared
+      a-l-g-o spine, cite Fredkin CACM 1960 DOI 10.1145/367390.367400.
+      Viz: two acts: inserts riding paid paths (amber) vs founding
+      nodes (green) with a reuse counter, then autocomplete lighting
+      the fingertip subtree. Bench reseeded: Tarjan's SCC × low-link
+      stack discipline (t1, h null: author at build; grep-verified).
+
+**Next action: F46 Tarjan's SCC × low-link stack discipline (author h
+per rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

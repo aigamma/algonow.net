@@ -60,7 +60,7 @@
 {"a": "Minimal perfect hashing", "h": "Hash-and-displace construction", "d": "Static key-set indexing", "t": 3},
 {"a": "Universal hashing", "h": "Random linear-function family", "d": "Adversary-proof hashing", "t": 2},
 {"a": "Tabulation hashing", "h": null, "d": "Fast strong hashing", "t": 3},
-{"a": "Trie", "h": null, "d": "Prefix-keyed dictionary", "t": 1},
+{"a": "Trie", "h": "Shared-prefix branching", "d": "Prefix-keyed dictionary", "t": 1},
 {"a": "Radix tree", "h": "Path compression", "d": "Space-lean prefix dictionary", "t": 1},
 {"a": "Ternary search tree", "h": null, "d": "Memory-lean string dictionary", "t": 2},
 {"a": "Adaptive radix tree", "h": "Node-size escalation", "d": "In-memory index", "t": 2},

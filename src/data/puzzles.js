@@ -961,13 +961,32 @@ export const PUZZLES = {
     vite: 'floyd-warshall-vertex-sweep',
     html: 'floyd-warshall-vertex-sweep/index.html',
   },
+  '/trie-shared-prefix-branching/': {
+    slug: 'trie-shared-prefix-branching',
+    problemSlug: 'string-key-dictionary',
+    number: 51,
+    category: 'data-structures',
+    algorithm: 'Trie',
+    heuristic: 'Shared-prefix branching',
+    domain: 'Prefix-keyed dictionary',
+    oneLiner:
+      'One node per distinct prefix: every word rides the paths already paved, lookups cost len(key)+1 at any dictionary size, and a neighborhood is a place you stand.',
+    description:
+      'The trie paired with shared-prefix branching: len(key)+1 visits asserted flat across an 8.5× size jump, nodes == prefixes + 1, DFS == sorted, and the 59% chain fat measured for the radix sibling.',
+    listenMinutes: 8,
+    time: 'O(|key|) per op',
+    space: 'O(distinct prefixes)',
+    baseline: 'Sorted list + bisect',
+    vite: 'trie-shared-prefix-branching',
+    html: 'trie-shared-prefix-branching/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Trie', heuristic: 'Shared-prefix branching', domain: 'Prefix-keyed dictionary' },
+  { algorithm: "Tarjan's SCC algorithm", heuristic: 'Low-link stack discipline', domain: 'Strongly connected components' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

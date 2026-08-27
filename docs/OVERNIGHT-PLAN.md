@@ -1912,8 +1912,41 @@ commit, Fable trailer on every commit, check green before each push.
       Floyd cycle detection (t1, h EXISTS,
       cryptography-number-theory).
 
-**Next action: F72 Pollard's rho × Floyd cycle detection;
-sequentially until morning.** Owner's overnight directive
+- [x] F72. Pollard's rho × Floyd cycle detection. Puzzle 78,
+      crypto-number-theory (problemSlug integer-factorization).
+      Referees: 300 semiprime factors MULTIPLICATION-CHECKED; 200
+      full factorizations to 10^12 rebuilt exactly with every part
+      MR-certified; THE BIRTHDAY BILL AS A SCALE LAW: hidden factor
+      grown 100x -> mean Floyd steps grew 9.4x vs the sqrt-law's
+      predicted 10 (80 semiprimes, assert 5..20); Brent's
+      batched-gcd refinement counted: 60,424 vs 81,117 f-evals =
+      26% saved (literature: ~25%); FOLKLORE CORRECTED: c=0 (bare
+      squaring) 'must be avoided' measured at ZERO failures in 60
+      but a 4.2x step tax (assert >3): structure was expensive, not
+      fatal: first assert encoded the folklore as failures and
+      measured 0/60 both sides: reframed to the tax. Client: 8051 =
+      83x97 + the 12-digit semiprime in 169 steps vs trial
+      division's 999,979 (5,917x: honestly noted as a lucky draw vs
+      the ~1,000-step expectation: variance is the spec). Runtime
+      0.13s. No atlas h edit (pair existed t1); summary stays
+      3257/2340. Cards: self, Trial division (the wheel opener),
+      Miller-Rabin (live: the upstream verdict), Quadratic sieve
+      (past the birthday's reach, ECM named). neverUse: reading
+      rho's clock as a deadline (the tail is the spec: engineer for
+      the distribution). Figure: the rho track with tortoise/hare
+      and the shadow-world gcd, cite Pollard BIT 15 1975 DOI
+      10.1007/BF01933667 (Brent 1980 in prose). Viz: THE SHADOW
+      WORLD drawn for real (verified in node on 6 cycle seeds:
+      factors valid, 6-8 step walks): left panel the ring mod p
+      where the identical walk bends into the rho and collides,
+      right panel the patternless scatter mod n, the gcd banner
+      reading the hidden factor off a collision the visible world
+      never showed. Bench reseeded (double-grep + ls clean):
+      Manacher's algorithm × mirrored radius reuse (t1, h to
+      author, strings).
+
+**Next action: F73 Manacher's algorithm × mirrored radius reuse
+(author h per rule 2); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

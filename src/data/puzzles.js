@@ -1474,13 +1474,32 @@ export const PUZZLES = {
     vite: 'prims-cheapest-crossing',
     html: 'prims-cheapest-crossing/index.html',
   },
+  '/pollards-rho-floyd-cycle/': {
+    slug: 'pollards-rho-floyd-cycle',
+    problemSlug: 'integer-factorization',
+    number: 78,
+    category: 'crypto-number-theory',
+    algorithm: "Pollard's rho",
+    heuristic: 'Floyd cycle detection',
+    domain: 'Integer factorization',
+    oneLiner:
+      'The walk looks endless mod n and tiny mod the hidden factor: two runners, one twice as fast, collide in the shadow world, and the gcd reads the shadow’s name.',
+    description:
+      "Pollard's rho paired with Floyd cycle detection: every factor multiplication-checked, the sqrt(p) birthday law measured at 9.4x per 100x, Brent's 26% counted, the c=0 folklore corrected.",
+    listenMinutes: 8,
+    time: 'O(√p) expected',
+    space: 'O(1)',
+    baseline: 'Trial division',
+    vite: 'pollards-rho-floyd-cycle',
+    html: 'pollards-rho-floyd-cycle/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Pollard's rho", heuristic: 'Floyd cycle detection', domain: 'Integer factorization' },
+  { algorithm: "Manacher's algorithm", heuristic: 'Mirrored radius reuse', domain: 'Longest palindromic substring' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

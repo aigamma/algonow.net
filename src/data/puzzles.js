@@ -277,13 +277,31 @@ export const PUZZLES = {
     vite: 'huffman-frequency-merges',
     html: 'huffman-frequency-merges/index.html',
   },
+  '/dinic-level-graphs/': {
+    slug: 'dinic-level-graphs',
+    problemSlug: 'maximum-flow',
+    number: 15,
+    category: 'graphs',
+    algorithm: "Dinic's algorithm",
+    heuristic: 'Level-graph blocking flows',
+    domain: 'Maximum flow through a network',
+    oneLiner:
+      'Augment only along shortest paths, in bulk: BFS layers the residual graph, a blocking flow saturates the whole layer cake, and the distance to the sink can only rise.',
+    description:
+      "Dinic's algorithm paired with level-graph blocking flows: watch phases saturate a network, raced against Edmonds-Karp, Ford-Fulkerson, and push-relabel, with a tested Python solution.",
+    listenMinutes: 8,
+    time: 'O(V²E), O(E√V) unit',
+    space: 'O(V + E)',
+    baseline: 'Any augmenting path',
+    vite: 'dinic-level-graphs',
+    html: 'dinic-level-graphs/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
-// F9 onward, in order), so the public promise and the plan tell one story.
+// F10 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Dinic's algorithm", heuristic: 'Level-graph blocking flows', domain: 'Maximum flow' },
   { algorithm: 'PageRank', heuristic: 'Damped random walk', domain: 'Ranking linked graphs' },
 ];
 

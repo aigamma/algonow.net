@@ -259,7 +259,19 @@ Phase A standard. Candidates chosen for measurable contrast:
       sums exactly 1, the Shannon floor as an inequality, the skew
       cliff. Viz: the tree builds itself, two lightest flash amber,
       leaf depths become code lengths.
-- [ ] F9. Dinic × level graphs (vs Ford-Fulkerson, Edmonds-Karp, push-relabel)
+- [x] F9. Dinic × level graphs, live as puzzle 15 (2026-08-27, Fable).
+      Work = edge examinations, two instances: layered network (V=1,202,
+      E=4,500, max flow 3,583): Dinic 50,608 in 2 phases; Edmonds-Karp
+      6,661,398 (823 augmentations, 131x); FF-DFS 8,998,320; plain FIFO
+      push-relabel 18,476,847 (pricing its missing gap/global-relabel
+      heuristics by their absence). Zwick diamond trap (C=250,000):
+      adversarial FF 1,500,000 ops (exactly 2C one-unit augmentations,
+      pinned at C=1,000) vs EK 12, Dinic 20, PR 18. Oracles: 4-way
+      agreement on 200 random nets + both instances, capacity and
+      conservation checked edge-by-edge, max-flow = min-cut certificate
+      asserted on every Dinic run, phase bound, PR height bound. Viz:
+      real Dinic replayed event-by-event (levels stamp, blocking flows
+      fill pipes green, augments flash amber, distance only rises).
 - [ ] F10. PageRank × damped random walk (vs HITS, SALSA, degree centrality)
 
 ## Phase G. Plumbing and hygiene (added 2026-07-22 evening)
@@ -372,9 +384,9 @@ commit, Fable trailer on every commit, check green before each push.
 
 ## Resume pointer
 
-**Next action: the Phase F queue, strictly sequential (F9 Dinic is
-next, then F10), one unit per commit+push with a production deploy as
-units land.** Owner's overnight directive
+**Next action: F10 PageRank, the last queued Phase F unit, then extend
+the F-queue from tier-1 atlas canon (one unit per commit+push with a
+production deploy as units land).** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

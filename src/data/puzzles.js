@@ -1626,13 +1626,32 @@ export const PUZZLES = {
     vite: 'hash-join-build-probe',
     html: 'hash-join-build-probe/index.html',
   },
+  '/crc-polynomial-division/': {
+    slug: 'crc-polynomial-division',
+    problemSlug: 'error-detection',
+    number: 86,
+    category: 'compression-coding',
+    algorithm: 'CRC',
+    heuristic: 'Polynomial division',
+    domain: 'Error detection',
+    oneLiner:
+      'Divide the message by a chosen polynomial and ship the remainder: the divisor decides what damage cannot hide: every burst up to the width, provably, at shift-register cost.',
+    description:
+      'CRC with polynomial division: both forms equal zlib bit-for-bit, 443,186 bursts exhausted with zero escapes, the width law measured across three widths, the sum checksum blinded 500 for 500.',
+    listenMinutes: 8,
+    time: 'O(n)',
+    space: 'O(1) register',
+    baseline: 'Additive checksum',
+    vite: 'crc-polynomial-division',
+    html: 'crc-polynomial-division/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'CRC', heuristic: 'Polynomial division', domain: 'Error detection' },
+  { algorithm: 'Subset construction', heuristic: 'Powerset determinization', domain: 'NFA to DFA' },
 ];
 
 export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.number);

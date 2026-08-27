@@ -2233,8 +2233,56 @@ commit, Fable trailer on every commit, check green before each push.
       puzzles.js empty, atlas t1 compression-coding line 53
       confirmed, ls no directory): CRC × Polynomial division.
 
-**Next action: F80 CRC × polynomial division (puzzle 86);
-sequentially until morning.** Owner's overnight directive
+- [x] F80. CRC × polynomial division. Puzzle 86, slug
+      crc-polynomial-division, category compression-coding, problem
+      error-detection (link verified in dist/algo/crc). Solution
+      crc_polynomial_division.py: bit-serial CRC-32 (the LFSR as
+      code) AND table-driven form, CRC-16/CCITT-FALSE, CRC-8/SMBus,
+      sum + XOR checksums, flip_burst helper. FIVE ORACLES, 8.3s:
+      (1) STDLIB REFEREE: both CRC-32 forms == binascii.crc32
+      (zlib's C) bit-for-bit on 300 buffers incl. empty; published
+      check values pinned (CCITT 0x29B1, CRC-8 0xF4); (2) THE BURST
+      THEOREM EXHAUSTED: 443,186 bursts (every position and
+      endpoint-anchored pattern to 12 bits, 100k sampled 13..32):
+      ZERO escaped the degree-32 generator; (3) small errors
+      exhausted on 512 bits: all 512 singles, all 130,816 doubles,
+      50k triples: zero missed (HD=4 to 91,607 bits); (4) THE WIDTH
+      LAW: shrink w until misses appear: CRC-8 202/60,000 (2^-8
+      band asserted), CRC-16 0 (<=6), CRC-32 0: the 2^-w ladder
+      measured; (5) THE COMMUTATIVITY TRAP: 500 word swaps: sum
+      checksum missed 500/500 (asserted ==), XOR 500/500, CRC
+      caught 500/500: addition commutes, division does not. Client:
+      1,200-frame link, all 349 damaged rejected, all clean
+      accepted. Ship fix: table placeholder was an em dash
+      (mojibake + rule 6): 'n/a'. No atlas edit (pair t1
+      compression-coding line 53); summary stays 3257/2343. Cards:
+      self, Fletcher positional sums (software-only speed, no burst
+      theorem: shares atlas d 'Error detection': the d-phrase rival
+      rule), Reed-Solomon (detect vs REPAIR: no-retransmit
+      channels), SHA-256/HMAC (adversaries: the property CRC
+      structurally lacks). neverUse: CRC AS MESSAGE AUTHENTICATION,
+      named disaster WEP: linearity lets attackers flip payload
+      bits and fix the tag with pencil and paper: a remainder is a
+      receipt for physics, never a signature. Figure: the LFSR
+      with amber taps + measured ledger, cite Peterson-Brown Proc
+      IRE 49(1) 1961 DOI 10.1109/JRPROC.1961.287814
+      (WebSearch-verified). Viz CRCViz two acts: act 1 the
+      division machine: 16-cell register eating 48 message bits +
+      16 zeros (tap flashes), then act 1b the receiver's re-divide
+      DRAINING TO ZERO (4 bits/tick); act 2 four corruptions vs
+      two judges scoreboard: value changes both catch, swap +
+      rotate blind the sum only. NODE-VERIFIED 8 cycles:
+      CRC-16/XMODEM published check value 0x31C3 hit, pass-1
+      register ends EXACTLY at the appended CRC (the augmentation
+      subtlety: pass 1 feeds the 16 zeros so the viewer's register
+      matches the printed CRC), pass-2 drains to zero, trace ==
+      crc16 on an independent probe, scoreboard exact. Bench
+      reseeded (bare-grep empty, atlas t1 automata-languages line
+      3, ls no dir): Subset construction × Powerset
+      determinization (category languages-compilers: FIRST unit).
+
+**Next action: F81 Subset construction × powerset determinization
+(puzzle 87); sequentially until morning.** Owner's overnight directive
 (2026-08-26 late evening): populate as many unit pages as possible to
 the current standard; G7 (homepage organization) becomes due when the
 live count passes about twelve. The prior pointer (E1-E3 + F2) is

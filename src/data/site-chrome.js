@@ -1,5 +1,5 @@
 // One source of truth for the stable links shared by the React shell and the
-// prerendered reference pages. Tones alternate after the magenta new-puzzle
+// prerendered reference pages. Tones alternate after the green new-puzzle
 // status pill so every destination reads as part of one navigation system.
 export const HEADER_LINKS = [
   { href: '/#pairs', label: 'pairs', tone: 'blue' },

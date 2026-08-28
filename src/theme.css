@@ -102,17 +102,7 @@ code, kbd, pre { font-family: var(--font-mono); }
 }
 .wordmark:hover { text-decoration: none; }
 .wordmark .wm-algo { color: var(--algo); }
-.wordmark .wm-caret {
-  display: inline-block;
-  width: 0.55em;
-  height: 1.05em;
-  margin-left: 0.12em;
-  background: var(--heur);
-  vertical-align: text-bottom;
-  animation: caret-blink 2.2s steps(1) infinite;
-}
-
-@keyframes caret-blink { 50% { opacity: 0; } }
+.wordmark .wm-tld { color: var(--heur); }
 
 .site-nav {
   display: flex;
@@ -162,11 +152,11 @@ code, kbd, pre { font-family: var(--font-mono); }
 
 .nav-new {
   /* The header pill for the current 7-day window's puzzles. */
-  color: #ff00ff !important;
-  border: 1px solid rgba(255, 0, 255, 0.5);
-  background: rgba(255, 0, 255, 0.1);
+  color: var(--path) !important;
+  border: 1px solid rgba(var(--path-rgb), 0.5);
+  background: rgba(var(--path-rgb), 0.1);
 }
-.nav-new:hover { background: rgba(255, 0, 255, 0.2); text-decoration: none; }
+.nav-new:hover { background: rgba(var(--path-rgb), 0.2); text-decoration: none; }
 .nav-new-target { scroll-margin-top: 84px; }
 
 .site-footer {
@@ -407,14 +397,14 @@ code, kbd, pre { font-family: var(--font-mono); }
   justify-content: space-between;
 }
 .pc-new {
-  /* The owner's pick: #ff00ff marks puzzles added within 7 days. */
+  /* Green marks puzzles added within the current 7-day window. */
   font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #ff00ff;
-  border: 1px solid rgba(255, 0, 255, 0.5);
-  background: rgba(255, 0, 255, 0.1);
+  color: var(--path);
+  border: 1px solid rgba(var(--path-rgb), 0.5);
+  background: rgba(var(--path-rgb), 0.1);
   border-radius: 999px;
   padding: 0.08rem 0.5rem;
   margin-left: 0.5rem;
@@ -1284,13 +1274,6 @@ code, kbd, pre { font-family: var(--font-mono); }
   font-size: 0.7rem;
   line-height: 1.45;
   color: var(--ink-faint);
-}
-
-/* At the still setting nothing on the page should be moving, including the
-   decorative caret in the wordmark. */
-html[data-motion='still'] .wm-caret {
-  animation: none;
-  opacity: 1;
 }
 
 @media (max-width: 760px) {

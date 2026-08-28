@@ -10,7 +10,13 @@
 import { readdirSync, readFileSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { CATEGORIES, CATEGORY_OF_TOPIC } from '../src/data/atlas-categories.js';
 import { REGISTRY_KEYS } from '../src/data/atlas-registry.js';
-import { NEW_WINDOW_MS, PUZZLES, SITE_HOST, SITE_NAME } from '../src/data/puzzles.js';
+import {
+  NEW_WINDOW_MS,
+  PUZZLES,
+  SITE_HOST,
+  SITE_NAME,
+  SOCIAL_CARD,
+} from '../src/data/puzzles.js';
 import { CREATOR_LINK, HEADER_LINKS } from '../src/data/site-chrome.js';
 
 const ATLAS = 'src/data/atlas';
@@ -126,8 +132,13 @@ function page({ title, description, canonical, crumbs, body, head = '' }) {
   const noindex = head.includes('name="robots"');
   const og = noindex ? '' : `<meta property="og:type" content="website"><meta property="og:site_name" content="${SITE_NAME}">
 <meta property="og:url" content="${SITE_HOST}${canonical}"><meta property="og:title" content="${esc(title)}">
-<meta property="og:description" content="${esc(description)}"><meta name="twitter:card" content="summary">
+<meta property="og:description" content="${esc(description)}"><meta property="og:image" content="${SOCIAL_CARD.url}">
+<meta property="og:image:secure_url" content="${SOCIAL_CARD.url}"><meta property="og:image:type" content="${SOCIAL_CARD.type}">
+<meta property="og:image:width" content="${SOCIAL_CARD.width}"><meta property="og:image:height" content="${SOCIAL_CARD.height}">
+<meta property="og:image:alt" content="${SOCIAL_CARD.alt}">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}"><meta name="twitter:description" content="${esc(description)}">
+<meta name="twitter:image" content="${SOCIAL_CARD.url}"><meta name="twitter:image:alt" content="${SOCIAL_CARD.alt}">
 <meta name="theme-color" content="#0a0d13">
 `;
   return `<!doctype html>
@@ -139,7 +150,7 @@ function page({ title, description, canonical, crumbs, body, head = '' }) {
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="${STYLE}">
 ${newPuzzleScriptTag}${og}${head}</head><body>
-<header class="dh"><a class="wm" href="/">algo<span>now</span></a>${dataNav()}</header>
+<header class="dh"><a class="wm" href="/"><span class="wa">algo</span>now<span class="wt">.net</span></a>${dataNav()}</header>
 <main class="dw">
 <nav class="crumbs">${crumbs.map((c) => (c.href ? `<a href="${c.href}">${esc(c.label)}</a>` : `<span>${esc(c.label)}</span>`)).join('<i aria-hidden="true">/</i>')}</nav>
 ${body}
@@ -375,13 +386,13 @@ ${es.map((e) => entryLine(e)).join('\n')}
     return c >= 'A' && c <= 'Z' ? c : '#';
   };
   const letters = [...new Set(problemList.map((p) => letterOf(p.label)))];
-  const azBar = `<nav class="az" aria-label="Jump to letter">${letters.map((l) => `<a href="#az-${l === '#' ? 'num' : l.toLowerCase()}">${l}</a>`).join('')}</nav>`;
+  const azBar = `<nav class="az" aria-label="Jump to letter">${letters.map((l) => `<a href=#az-${l === '#' ? 'num' : l.toLowerCase()}>${l}</a>`).join('')}</nav>`;
   const sections = letters.map((l) => {
     const rows = problemList.filter((p) => letterOf(p.label) === l);
     // The base URL below makes these compact relative links resolve to the
     // same canonical paths. An li end tag is optional in HTML and omitting it
     // gives this 648-row static index room for the shared site chrome.
-    return `<section id="az-${l === '#' ? 'num' : l.toLowerCase()}"><h2>${l}</h2><ul class="index">${rows.map((p) => `<li><a href="${p.slug}/">${esc(p.label)}</a><b>${p.n}</b>`).join('')}</ul></section>`;
+    return `<li id=az-${l === '#' ? 'num' : l.toLowerCase()}><h2>${l}</h2>${rows.map((p) => `<li><a href=${p.slug}/>${esc(p.label)}</a><b>${p.n}</b>`).join('')}`;
   }).join('\n');
   const statsLede = `${problemList.length} problems. Rivals: ${meanRivals.toFixed(1)} mean · ` +
     `${medianRivals} median · ${counts[counts.length - 1]} maximum. ` +
@@ -392,7 +403,7 @@ ${es.map((e) => entryLine(e)).join('\n')}
     canonical: '/problem/',
     crumbs: [{ label: 'algonow', href: '/' }, { label: 'problems' }],
     head: '<base href="/problem/">',
-    body: `<h1>Problems</h1><p class="lede">${statsLede}</p>\n${azBar}\n${sections}`,
+    body: `<h1>Problems</h1><p class="lede">${statsLede}</p>\n${azBar}\n<ul class="index">${sections}</ul>`,
   }));
   count++;
 
@@ -535,8 +546,8 @@ const DATA_CSS = `:root{--bg:#0b0e14;--panel:#111725;--ink:#e8edf7;--dim:#9aa5bd
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
 a{color:var(--algo);text-decoration:none}a:hover{text-decoration:underline}
 .dh{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.25rem;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.wm{font-weight:700;letter-spacing:-.02em;color:var(--ink)}.wm span{color:var(--algo)}
-.dn{display:flex;align-items:center;gap:.4rem;min-width:0;overflow-x:auto;scrollbar-width:none}.dn::-webkit-scrollbar{display:none}.dn a{flex:none;border:1px solid;border-radius:99px;padding:.12rem .55rem;font:700 .82rem/1.45 ui-monospace,monospace}.dn a:hover{text-decoration:none}.dn .nb{color:var(--algo);border-color:rgba(93,162,255,.5);background:rgba(93,162,255,.09)}.dn .nw{color:var(--ink);border-color:rgba(232,237,247,.34);background:rgba(232,237,247,.055)}.dn .nn{color:#ff00ff;border-color:rgba(255,0,255,.5);background:rgba(255,0,255,.1)}
+.wm{font-weight:700;letter-spacing:-.02em;color:var(--ink)}.wm .wa{color:var(--algo)}.wm .wt{color:var(--heur)}
+.dn{display:flex;align-items:center;gap:.4rem;min-width:0;overflow-x:auto;scrollbar-width:none}.dn::-webkit-scrollbar{display:none}.dn a{flex:none;border:1px solid;border-radius:99px;padding:.12rem .55rem;font:700 .82rem/1.45 ui-monospace,monospace}.dn a:hover{text-decoration:none}.dn .nb{color:var(--algo);border-color:rgba(93,162,255,.5);background:rgba(93,162,255,.09)}.dn .nw{color:var(--ink);border-color:rgba(232,237,247,.34);background:rgba(232,237,247,.055)}.dn .nn{color:var(--path);border-color:rgba(98,217,138,.5);background:rgba(98,217,138,.1)}
 .dw{max-width:60rem;margin:0 auto;padding:1.5rem 1.25rem 3rem}
 .crumbs{font:12px/1.4 ui-monospace,monospace;color:var(--dim);margin-bottom:1.25rem}.crumbs i{margin:0 .5rem;font-style:normal;opacity:.5}
 h1{font-size:1.9rem;letter-spacing:-.02em;margin:.2rem 0 .6rem}
@@ -554,11 +565,11 @@ ul{list-style:none;margin:0;padding:0}
 .phrases span{display:inline-block;background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:.2rem .6rem;margin:0 .35rem .35rem 0;font-size:.82rem;color:var(--dim)}
 .rivals{display:flex;flex-wrap:wrap;gap:.4rem}.rivals li{background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:.25rem .7rem;font-size:.88rem}
 .index li{display:flex;justify-content:space-between;gap:1rem;padding:.5rem .1rem;border-bottom:1px solid var(--line)}
+.index li[id]{display:block;padding:0;border:0;scroll-margin-top:1rem}
 .index b{color:var(--dim);font:12px/1.6 ui-monospace,monospace;background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:.1rem .55rem;flex:none}
 .az{display:flex;flex-wrap:wrap;gap:.25rem;margin:0 0 .5rem}
 .az a{font:13px/1 ui-monospace,monospace;color:var(--dim);border:1px solid var(--line);border-radius:8px;padding:.35rem .55rem;min-width:2.1em;text-align:center}
 .az a:hover{color:var(--algo);border-color:var(--algo);text-decoration:none}
-section[id^=az-]{scroll-margin-top:1rem}
 .meta p{color:var(--dim);font-size:.9rem}
 .df{border-top:1px solid var(--line);padding:1.25rem;color:var(--dim);font-size:.85rem;text-align:center}.fa{display:block;margin-top:.7rem;font-size:.9rem;font-weight:700;letter-spacing:.04em}
 @media(max-width:700px){.dn{order:3;flex-basis:100%;padding-bottom:.08rem}.et{margin-left:0}}`;

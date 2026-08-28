@@ -6,6 +6,14 @@ export const SITE_NAME = 'algonow';
 export const SITE_HOST = 'https://algonow.net';
 export const SITE_TAGLINE =
   'Classical algorithms, paired with the heuristics that steer them.';
+export const SOCIAL_CARD = Object.freeze({
+  path: '/social-card-v1.jpg',
+  url: `${SITE_HOST}/social-card-v1.jpg`,
+  width: 1200,
+  height: 627,
+  type: 'image/jpeg',
+  alt: 'algonow: algorithms, heuristics, and a solved path.',
+});
 
 // Live pairs, keyed by URL path. `algorithm` is always the control structure
 // (blue on every surface), `heuristic` the guiding rule (amber). The split is
@@ -1924,7 +1932,7 @@ export const ROADMAP = [
 ];
 
 
-// The pink new-puzzle pill: a puzzle carrying an `added` date wears
+// The green new-puzzle pill: a puzzle carrying an `added` date wears
 // it for seven days, client-side, then it disappears on its own.
 // Puzzles from the original clean-100 launch carry no date and
 // never pill; the check requires the field on every later number.

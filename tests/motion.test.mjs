@@ -178,6 +178,8 @@ test('SiteShell and the motion control render with no browser present', async (t
     assert.match(html, /motion: calm/, 'it opens on the calm default');
     assert.match(html, /aria-expanded="false"/, 'the panel starts closed');
     assert.match(html, /<nav class="site-nav"/, 'the rest of the header still renders');
+    assert.match(html, /<span class="wm-tld">\.net<\/span>/, 'the wordmark ends in a static amber .net');
+    assert.doesNotMatch(html, /wm-caret/, 'the wordmark has no animated caret');
     for (const link of HEADER_LINKS) {
       assert.ok(html.includes(`href="${link.href}"`), `${link.label} is in the shared header`);
       assert.ok(

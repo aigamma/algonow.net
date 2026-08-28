@@ -1,7 +1,13 @@
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { PUZZLES, VITE_ENTRIES, SITE_HOST, SITE_NAME } from './src/data/puzzles.js';
+import {
+  PUZZLES,
+  SOCIAL_CARD,
+  VITE_ENTRIES,
+  SITE_HOST,
+  SITE_NAME,
+} from './src/data/puzzles.js';
 
 // The sitemap is owned by scripts/prerender.mjs, which emits a chunked
 // sitemapindex over the full data surface AFTER the Vite build. An earlier
@@ -50,6 +56,7 @@ function seoChromePlugin() {
               teaches: [puzzle.algorithm, puzzle.heuristic, puzzle.domain],
               programmingLanguage: 'Python',
               isAccessibleForFree: true,
+              image: SOCIAL_CARD.url,
             }
           : path === '/'
             ? {
@@ -58,6 +65,7 @@ function seoChromePlugin() {
                 name: SITE_NAME,
                 url: SITE_HOST,
                 description: descMatch[2],
+                image: SOCIAL_CARD.url,
               }
             : null;
         const jsonLdTag = jsonLd
@@ -72,9 +80,17 @@ function seoChromePlugin() {
     <meta property="og:url" content="${url}" />
     <meta property="og:title" content="${title}" />
     <meta property="og:description" content="${desc}" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="${SOCIAL_CARD.url}" />
+    <meta property="og:image:secure_url" content="${SOCIAL_CARD.url}" />
+    <meta property="og:image:type" content="${SOCIAL_CARD.type}" />
+    <meta property="og:image:width" content="${SOCIAL_CARD.width}" />
+    <meta property="og:image:height" content="${SOCIAL_CARD.height}" />
+    <meta property="og:image:alt" content="${SOCIAL_CARD.alt}" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${title}" />
     <meta name="twitter:description" content="${desc}" />
+    <meta name="twitter:image" content="${SOCIAL_CARD.url}" />
+    <meta name="twitter:image:alt" content="${SOCIAL_CARD.alt}" />
     <meta name="theme-color" content="#0a0d13" />
 ${jsonLdTag}`;
 

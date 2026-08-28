@@ -4,9 +4,9 @@ import { CREATOR_LINK, HEADER_LINKS } from '../data/site-chrome.js';
 
 export function Wordmark() {
   return (
-    <a className="wordmark" href="/" aria-label="algonow home">
+    <a className="wordmark" href="/" aria-label="algonow.net home">
       <span className="wm-algo">algo</span>now
-      <span className="wm-caret" aria-hidden="true" />
+      <span className="wm-tld">.net</span>
     </a>
   );
 }

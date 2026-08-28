@@ -2,7 +2,7 @@
 // Exits non-zero on any FAIL; run after `npm run build` for the budget pass.
 import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { gzipSync } from 'node:zlib';
-import { PUZZLES } from '../src/data/puzzles.js';
+import { PUZZLES, SOCIAL_CARD } from '../src/data/puzzles.js';
 import { CATEGORIES, CATEGORY_OF_TOPIC } from '../src/data/atlas-categories.js';
 import { REGISTRY_KEYS } from '../src/data/atlas-registry.js';
 import { CREATOR_LINK, HEADER_LINKS } from '../src/data/site-chrome.js';
@@ -51,7 +51,7 @@ for (const p of Object.values(PUZZLES)) {
   else ok(`${p.slug}: all five unit files present`);
 
   // The new-puzzle pill reads `added`; every post-launch puzzle
-  // must carry it so the pink pill and its 7-day expiry stay true.
+  // must carry it so the green pill and its 7-day expiry stay true.
   if (p.added && !/^\d{4}-\d{2}-\d{2}$/.test(p.added)) {
     fail(`${p.slug}: added '${p.added}' is not YYYY-MM-DD`);
   } else if (p.added) {
@@ -219,6 +219,76 @@ if (!existsSync('dist/assets')) {
   for (const p of Object.values(PUZZLES)) {
     budget(`html ${p.slug}`, gz(`dist/${p.slug}/index.html`), 2 * 1024);
   }
+
+  const socialCardPath = `dist${SOCIAL_CARD.path}`;
+  if (!existsSync(socialCardPath)) {
+    fail(`social card missing: ${socialCardPath}`);
+  } else {
+    const image = readFileSync(socialCardPath);
+    const sofMarkers = new Set([0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf]);
+    let dimensions = null;
+    if (image[0] === 0xff && image[1] === 0xd8) {
+      for (let offset = 2; offset + 9 < image.length;) {
+        if (image[offset] !== 0xff) {
+          offset += 1;
+          continue;
+        }
+        const marker = image[offset + 1];
+        if (sofMarkers.has(marker)) {
+          dimensions = {
+            height: image.readUInt16BE(offset + 5),
+            width: image.readUInt16BE(offset + 7),
+          };
+          break;
+        }
+        if (marker === 0xd9 || marker === 0xda) break;
+        if (marker === 0x01 || (marker >= 0xd0 && marker <= 0xd7)) {
+          offset += 2;
+          continue;
+        }
+        const length = image.readUInt16BE(offset + 2);
+        if (length < 2) break;
+        offset += 2 + length;
+      }
+    }
+    if (!dimensions) fail('social card is not a readable JPEG');
+    else if (dimensions.width !== SOCIAL_CARD.width || dimensions.height !== SOCIAL_CARD.height) {
+      fail(`social card is ${dimensions.width}x${dimensions.height}, expected ${SOCIAL_CARD.width}x${SOCIAL_CARD.height}`);
+    } else if (image.length > 256 * 1024) {
+      fail(`social card is ${(image.length / 1024).toFixed(1)}KB, exceeds 256KB site budget`);
+    } else {
+      ok(`social card: ${dimensions.width}x${dimensions.height}, ${(image.length / 1024).toFixed(1)}KB JPEG`);
+    }
+  }
+
+  const socialTags = [
+    'property="og:title"',
+    'property="og:description"',
+    'property="og:url"',
+    `property="og:image" content="${SOCIAL_CARD.url}"`,
+    'name="twitter:card" content="summary_large_image"',
+    `name="twitter:image" content="${SOCIAL_CARD.url}"`,
+  ];
+  const richSocialTags = [
+    ...socialTags,
+    `property="og:image:secure_url" content="${SOCIAL_CARD.url}"`,
+    `property="og:image:type" content="${SOCIAL_CARD.type}"`,
+    `property="og:image:width" content="${SOCIAL_CARD.width}"`,
+    `property="og:image:height" content="${SOCIAL_CARD.height}"`,
+    `property="og:image:alt" content="${SOCIAL_CARD.alt}"`,
+    `name="twitter:image:alt" content="${SOCIAL_CARD.alt}"`,
+  ];
+  for (const [surface, file, expectedTags] of [
+    ['homepage social metadata', 'dist/index.html', richSocialTags],
+    ['lesson social metadata', 'dist/astar-manhattan/index.html', richSocialTags],
+    ['reference social metadata', 'dist/problem/index.html', richSocialTags],
+  ]) {
+    const html = readFileSync(file, 'utf8');
+    const missing = expectedTags.filter((tag) => !html.includes(tag));
+    if (missing.length) fail(`${surface} missing ${missing.length} required tag(s)`);
+    else ok(`${surface}: large image card complete`);
+  }
+
   if (!existsSync('dist/sitemap.xml')) fail('dist/sitemap.xml missing');
   else {
     // The sitemap is now an index over chunked files, because the prerendered
@@ -639,7 +709,7 @@ if (existsSync(atlasDir)) {
     // category page must carry its problems-in-this-category filter section.
     if (existsSync('dist/problem/index.html')) {
       const idxHtml = readFileSync('dist/problem/index.html', 'utf8');
-      const idxSlugs = [...idxHtml.matchAll(/<a href="(?:\/problem\/)?([a-z0-9-]+)\/">[^<]+<\/a><b>\d+<\/b>/g)].map((m) => m[1]);
+      const idxSlugs = [...idxHtml.matchAll(/<a href="?(?:\/problem\/)?([a-z0-9-]+)\/"?>[^<]+<\/a><b>\d+<\/b>/g)].map((m) => m[1]);
       const expected = Object.entries(problems)
         .filter(([k]) => !k.startsWith('_'))
         .sort((a, b) => a[1].label.localeCompare(b[1].label, 'en'))

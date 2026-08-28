@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627" viewBox="0 0 1200 627" role="img" aria-labelledby="title desc">
+  <title id="title">algonow: algorithms paired with heuristics</title>
+  <desc id="desc">A dark technical card pairing blue algorithms with amber heuristics and a green solved path.</desc>
+  <defs>
+    <radialGradient id="blueGlow" cx="0" cy="0" r="1" gradientTransform="translate(1050 20) rotate(132) scale(600 430)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5da2ff" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#5da2ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amberGlow" cx="0" cy="0" r="1" gradientTransform="translate(1140 610) rotate(-150) scale(510 330)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f0b94b" stop-opacity=".11"/>
+      <stop offset="1" stop-color="#f0b94b" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse">
+      <path d="M38 0H0V38" fill="none" stroke="#232c40" stroke-opacity=".34"/>
+    </pattern>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0 0L8 4L0 8Z" fill="#f0b94b"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="627" fill="#0a0d13"/>
+  <rect width="1200" height="627" fill="url(#grid)"/>
+  <rect width="1200" height="627" fill="url(#blueGlow)"/>
+  <rect width="1200" height="627" fill="url(#amberGlow)"/>
+  <rect x="22" y="22" width="1156" height="583" rx="24" fill="none" stroke="#232c40" stroke-width="2"/>
+
+  <g font-family="Cascadia Code, Consolas, Menlo, monospace">
+    <text x="68" y="92" font-size="42" font-weight="700" letter-spacing="-2">
+      <tspan fill="#5da2ff">algo</tspan><tspan fill="#e9edf6">now</tspan><tspan fill="#f0b94b">.net</tspan>
+    </text>
+    <text x="68" y="151" fill="#9aa5bd" font-size="18" font-weight="700" letter-spacing="3">LEARN THE PAIR, NOT THE NAME</text>
+
+    <text x="66" y="257" fill="#5da2ff" font-size="72" font-weight="700" letter-spacing="-4">algorithms</text>
+    <text x="74" y="296" fill="#9aa5bd" font-size="20">the control structure</text>
+
+    <text x="66" y="391" fill="#f0b94b" font-size="72" font-weight="700" letter-spacing="-4">heuristics</text>
+    <text x="74" y="430" fill="#9aa5bd" font-size="20">the guiding rule</text>
+
+    <g transform="translate(70 489)" font-size="17" font-weight="700">
+      <rect width="178" height="45" rx="22.5" fill="#111622" stroke="#2b5fa8"/>
+      <text x="89" y="29" text-anchor="middle" fill="#cfe3ff">live visualizations</text>
+      <rect x="194" width="154" height="45" rx="22.5" fill="#111622" stroke="#745c29"/>
+      <text x="271" y="29" text-anchor="middle" fill="#f7d68d">tested Python</text>
+      <rect x="364" width="169" height="45" rx="22.5" fill="#111622" stroke="#2e6c47"/>
+      <text x="448.5" y="29" text-anchor="middle" fill="#b7f3ca">spoken lessons</text>
+    </g>
+
+    <text x="68" y="577" fill="#6b7690" font-size="18" letter-spacing="2">ALGONOW.NET</text>
+  </g>
+
+  <g transform="translate(744 103)" font-family="Cascadia Code, Consolas, Menlo, monospace">
+    <rect width="389" height="386" rx="22" fill="#111622" stroke="#2a354c" stroke-width="2"/>
+    <text x="28" y="42" fill="#6b7690" font-size="15" font-weight="700" letter-spacing="2">ONE PROBLEM · TWO IDEAS</text>
+
+    <g stroke="#2a354c" stroke-width="2">
+      <path d="M65 105H157L222 166H320"/>
+      <path d="M65 284H157L222 223H320"/>
+      <path d="M157 105V284"/>
+    </g>
+
+    <path d="M65 105H157L222 166H320" fill="none" stroke="#5da2ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M65 284H157L222 223H320" fill="none" stroke="#f0b94b" stroke-width="4" stroke-dasharray="9 10" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+    <path d="M222 166V223H320" fill="none" stroke="#62d98a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M222 166V223H320" fill="none" stroke="#62d98a" stroke-opacity=".2" stroke-width="26" stroke-linecap="round" filter="url(#softGlow)"/>
+
+    <g fill="#0a0d13" stroke-width="5">
+      <circle cx="65" cy="105" r="13" stroke="#5da2ff"/>
+      <circle cx="157" cy="105" r="13" stroke="#5da2ff"/>
+      <circle cx="222" cy="166" r="13" stroke="#5da2ff"/>
+      <circle cx="65" cy="284" r="13" stroke="#f0b94b"/>
+      <circle cx="157" cy="284" r="13" stroke="#f0b94b"/>
+      <circle cx="222" cy="223" r="13" stroke="#62d98a"/>
+      <circle cx="320" cy="223" r="16" stroke="#62d98a"/>
+    </g>
+
+    <g font-size="15" font-weight="700">
+      <rect x="34" y="326" width="139" height="37" rx="18.5" fill="#101c2e" stroke="#2b5fa8"/>
+      <text x="103.5" y="350" text-anchor="middle" fill="#5da2ff">ALGORITHM</text>
+      <rect x="188" y="326" width="145" height="37" rx="18.5" fill="#201b12" stroke="#745c29"/>
+      <text x="260.5" y="350" text-anchor="middle" fill="#f0b94b">HEURISTIC</text>
+    </g>
+  </g>
+
+  <text x="1085" y="575" text-anchor="end" fill="#62d98a" font-family="Cascadia Code, Consolas, Menlo, monospace" font-size="20" font-weight="700">→ insight</text>
+</svg>

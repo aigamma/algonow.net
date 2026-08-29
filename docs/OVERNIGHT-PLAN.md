@@ -3233,6 +3233,43 @@ commit, Fable trailer on every commit, check green before each push.
       invariant, outputs == sorted == merge, multiset
       preserved, race sane, ticks bounded.
 
+- [x] F102. Secretary problem × 1/e stopping rule. Puzzle 108,
+      optimization-or (problemSlug optimal-stopping), added
+      2026-08-29. Solution secretary_one_over_e.py (9.5s),
+      referee: EXACT RATIONAL ARITHMETIC (fractions.Fraction):
+      P(r) closed form evaluated for every cutoff at n=20 and
+      50, peak r*=19, P=0.3743 > 1/e, unimodality asserted:
+      then Monte Carlo allowed to agree (100K trials, within 4
+      sigma at every gridpoint). FIVE ORACLES: (1) the exact
+      curve; (2) MC vs exact gridwide; (3) scale invariance:
+      37.1% at n=50, 37.2% at n=5,000; (4) the race on 50,000
+      IDENTICAL streams: hire-first 2.0% < half 35.4% < 1/e
+      37.1% < clairvoyant 100% (flat top noted: n/2 costs only
+      2 points); (5) THE TWO WALLS MEASURED: value objective:
+      backward-induction thresholds (E=(1+E^2)/2) earn 0.964 vs
+      the 1/e rule's 0.793; INFORMATION wall: the cardinal-value
+      DP rule catches the best 45.5% > the rank-only optimum
+      37.1% (full-info optimum ~58%, Gilbert-Mosteller 1966).
+      AUTHOR CORRECTED BY THE RUN: the first draft asserted the
+      information wall BACKWARDS (assumed the famous optimum
+      must win P(best) universally); the measurement flipped it
+      and the fix ships with a comment + the page teaches it as
+      the lesson. Cards: self, Prophet inequality (known F,
+      value guarantee), Ski rental (competitive ratio 2),
+      Backward induction (wins the value row). neverUse: THE
+      37% RULE OUTSIDE ITS OWN GAME (both misapplications
+      priced). Figure: the exact curve + peak + info wall + race
+      line, cite Ferguson Statistical Science 1989 DOI
+      10.1214/ss/1177012493 (Gardner 1960, Lindley 1961, Dynkin
+      1963, Kepler 1613). Viz SecretaryViz (QC1): act 1 twelve
+      hiring episodes (reconnaissance gray/amber record, hire
+      green, true best starred, tally); act 2 the exact curve
+      drawn with 3,000-trial MC dots riding it + the info wall
+      dashed above. NODE-VERIFIED 10 cycles: peak at n/e,
+      episode bookkeeping exact (first-record rule + win
+      flags), MC dots within 4 sigma, wall above peak, ticks
+      bounded.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

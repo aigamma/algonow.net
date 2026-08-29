@@ -2063,13 +2063,32 @@ export const PUZZLES = {
     vite: 'lsd-radix-digit-passes',
     html: 'lsd-radix-digit-passes/index.html',
   },
+  '/secretary-one-over-e/': {
+    slug: 'secretary-one-over-e',
+    added: '2026-08-29',
+    problemSlug: 'optimal-stopping',
+    number: 108,
+    category: 'optimization-or',
+    algorithm: 'Secretary problem',
+    heuristic: '1/e stopping rule',
+    domain: 'Optimal stopping',
+    oneLiner:
+      'Interview 37% of the field hiring nobody: they are the calibration: then hire the first candidate who beats them all. Provably the best you can do on ranks alone, at any scale.',
+    description:
+      "The secretary problem's 1/e rule, refereed by exact rational arithmetic: the cutoff curve peaks at 0.3743, holds its 37% from n = 50 to 5,000, and both of the rule's walls are measured: value objectives lose 0.793 to 0.964, and cardinal information pierces the rank-only bound 45.5% to 37.1%.",
+    listenMinutes: 8,
+    time: 'O(n), one pass',
+    space: 'O(1): one number',
+    baseline: 'Hire-first / clairvoyant',
+    vite: 'secretary-one-over-e',
+    html: 'secretary-one-over-e/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Secretary problem', heuristic: '1/e stopping rule', domain: 'Optimal stopping' },
   { algorithm: 'Thompson sampling', heuristic: 'Posterior draws', domain: 'Multi-armed bandits' },
   { algorithm: 'Alpha-beta pruning', heuristic: 'Iterative deepening move ordering', domain: 'Game-tree search' },
   { algorithm: 'Arithmetic coding', heuristic: 'Range renormalization', domain: 'Near-entropy compression' },

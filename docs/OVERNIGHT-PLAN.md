@@ -3131,6 +3131,36 @@ commit, Fable trailer on every commit, check green before each push.
       ordering, probe ordering, snapshots monotone, ticks
       bounded.
 
+- [x] F99. K-d tree × median-split axis cycling. Puzzle 105,
+      geometry (problemSlug nearest-neighbor-search), added
+      2026-08-29. THE 2026-08-29 FIVE-UNIT BATCH CLOSES
+      (101-105; ROADMAP emptied; owner asked for five this
+      session). Solution kd_tree_median_split_cycling.py
+      (10.2s), ONE currency (points/nodes examined per query),
+      referee: brute force recomputing the exact distance on
+      1,200 queries across four instances, agreement EXACT every
+      time. FIVE ORACLES: (1) the brute referee; (2) the k-d
+      property verified at EVERY node via whole-subtree bounds
+      (not child-vs-parent), depth 16 <= ceil(log2 60000)+1 =
+      17, contents == input multiset; (3) 200 range boxes
+      set-equal to a brute filter; (4) headline: 2D n=60,000:
+      22.2 avg visits vs 60,000 scanned = 2,706x (assert <
+      n/500); (5) THE CURSE MEASURED: same code, n=4,000, d=2/
+      8/16: visits 18 -> 569 -> 3,961 (99% of points; assert
+      monotone and >50% at d=16): the neverUse is a number, not
+      a shudder. Cards: self, Ball tree (t2), LSH (t1: the
+      high-d escape), Vantage-point tree (t2: metric-only).
+      Figure: carved plane + best ball + pruned region + curse
+      bars, cite Bentley CACM 1975 DOI 10.1145/361002.361007
+      (Friedman-Bentley-Finkel 1977 query; Bellman 1961 curse).
+      Viz KdTreeViz (QC1): act 1 the carve appearing by depth,
+      then a traced query: green visited nodes, shrinking
+      dashed ball, red proven-irrelevant regions, visited/brute
+      counter; act 2 curse bars d=2/4/8/12 on n=512 (14 -> 491
+      in-viz, 96%). NODE-VERIFIED 10 cycles: traced + 30 extra
+      queries exact vs brute per cycle, segs==n, curse rows
+      exact and rising, top dim >35% of n, ticks bounded.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

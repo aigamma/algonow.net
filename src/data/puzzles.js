@@ -2003,13 +2003,32 @@ export const PUZZLES = {
     vite: 'lsm-tree-leveled-compaction',
     html: 'lsm-tree-leveled-compaction/index.html',
   },
+  '/kd-tree-median-split-cycling/': {
+    slug: 'kd-tree-median-split-cycling',
+    added: '2026-08-29',
+    problemSlug: 'nearest-neighbor-search',
+    number: 105,
+    category: 'geometry',
+    algorithm: 'K-d tree',
+    heuristic: 'Median-split axis cycling',
+    domain: 'Nearest-neighbor search',
+    oneLiner:
+      'Carve the plane at medians, axis by axis, and answer nearest-neighbor queries by opening only the folds the best-so-far ball can reach: 22 visits where the scan examines sixty thousand.',
+    description:
+      'The k-d tree with median-split axis cycling: 22.2 visits per query against a 60,000-point brute scan (2,706x), exact on 1,200 refereed queries, structure audited at every node, and the curse of dimensionality measured at 99% visited by d = 16.',
+    listenMinutes: 8,
+    time: 'O(log n) expected query',
+    space: 'O(n)',
+    baseline: 'Brute-force scan',
+    vite: 'kd-tree-median-split-cycling',
+    html: 'kd-tree-median-split-cycling/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'K-d tree', heuristic: 'Median-split axis cycling', domain: 'Nearest-neighbor search' },
 ];
 
 

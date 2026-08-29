@@ -2023,12 +2023,42 @@ export const PUZZLES = {
     vite: 'kd-tree-median-split-cycling',
     html: 'kd-tree-median-split-cycling/index.html',
   },
+  '/treap-random-priorities/': {
+    slug: 'treap-random-priorities',
+    added: '2026-08-29',
+    problemSlug: 'ordered-dictionary',
+    number: 106,
+    category: 'data-structures',
+    algorithm: 'Treap',
+    heuristic: 'Random heap priorities',
+    domain: 'Ordered dictionaries, randomized',
+    oneLiner:
+      'One lottery ticket per key holds two orders in one tree: keys read sorted left to right, priorities heap upward: and the shape belongs to the dice, not to whoever chose the arrival order.',
+    description:
+      "The treap with random heap priorities: the canonical-shape theorem proven across three arrival orders, depth 20.4 vs the 2 ln n = 23.0 expectation at n = 100,000, and the sequential adversary costing a plain BST 2,007 visits per lookup to the treap's 14.8.",
+    listenMinutes: 8,
+    time: 'O(log n) expected',
+    space: 'O(n)',
+    baseline: 'Plain BST / sorted array',
+    vite: 'treap-random-priorities',
+    html: 'treap-random-priorities/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
+  { algorithm: 'LSD radix sort', heuristic: 'Stable digit-bucket passes', domain: 'Fixed-width key sorting' },
+  { algorithm: 'Secretary problem', heuristic: '1/e stopping rule', domain: 'Optimal stopping' },
+  { algorithm: 'Thompson sampling', heuristic: 'Posterior draws', domain: 'Multi-armed bandits' },
+  { algorithm: 'Alpha-beta pruning', heuristic: 'Iterative deepening move ordering', domain: 'Game-tree search' },
+  { algorithm: 'Arithmetic coding', heuristic: 'Range renormalization', domain: 'Near-entropy compression' },
+  { algorithm: 'Dormand-Prince', heuristic: 'Embedded error step control', domain: 'Adaptive ODE integration' },
+  { algorithm: 'Pratt parsing', heuristic: 'Binding-power dispatch', domain: 'Expression parsing' },
+  { algorithm: 'Work stealing', heuristic: 'Randomized victim selection', domain: 'Task-parallel scheduling' },
+  { algorithm: 'Rapidly-exploring random tree', heuristic: 'Voronoi-biased sampling', domain: 'Motion planning' },
+  { algorithm: 'Paxos', heuristic: 'Proposer-acceptor quorums', domain: 'Distributed consensus' },
 ];
 
 

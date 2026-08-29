@@ -3161,6 +3161,43 @@ commit, Fable trailer on every commit, check green before each push.
       queries exact vs brute per cycle, segs==n, curse rows
       exact and rising, top dim >35% of n, ticks bounded.
 
+- [x] F100. Treap × random heap priorities. Puzzle 106,
+      data-structures (problemSlug ordered-dictionary: sibling
+      cross-link with the live skip-list unit appears
+      automatically), added 2026-08-29. FIRST UNIT OF THE SECOND
+      2026-08-29 BATCH (owner asked for 11 more: 106-116; queue
+      seeded in ROADMAP, all grep-verified atlas-exact).
+      Solution treap_random_priorities.py (4.4s), split/merge
+      treap, ONE currency (node visits per lookup), referee: a
+      Python set shadowing a 30,000-op workload. SIX ORACLES:
+      (1) in-order == sorted(reference) at all 10 checkpoints,
+      membership agreement throughout; (2) BOTH invariants (BST
+      key order + heap priority order) audited over the whole
+      tree per checkpoint; (3) 500 split/merge round-trips
+      exact; (4) CANONICAL SHAPE: same 3,000 (key,pri) pairs
+      inserted ascending/descending/shuffled -> three identical
+      preorders (the arrival-independence theorem, proven); (5)
+      depth theorem at n=100,000: avg 20.4 vs 2 ln n = 23.0,
+      max 41; (6) THE ADVERSARY: 4,000 sequential keys: plain
+      BST 2,007.0 visits/lookup (a chain) vs treap 14.8 vs
+      bisect 12; PARITY row on shuffled input (14.8 == 14.8,
+      said plainly); array insert cost 2,000 moved. neverUse
+      MEASURED: priorities = -key -> depth 4,000 of 4,000
+      (determinism hands the adversary the dice). Cards: self,
+      Skip list (live sibling), Red-black tree (the
+      certificate), Splay tree (self-adjusting). Figure: the
+      two-orders tree + split/merge + measured numbers, cite
+      Seidel-Aragon Algorithmica 1996 DOI 10.1007/BF01940876
+      (Vuillemin 1980, Pugh 1990, zip trees 2018). Viz TreapViz
+      (QC1): act 1 split-screen adversary race (bst chains to
+      depth 26 red, treap stays ~9 blue); act 2 three arrival
+      orders converge to one identical tree. NODE-VERIFIED 10
+      cycles: chain depth exact, treap invariants + in-order
+      hold, three finals identical, ticks bounded. ALSO this
+      commit-block: owner spot-fix landed separately (3b9380c):
+      wordmark enlarged to 1.3rem and seated on the nav pills'
+      exact box (both chromes; deployed CSS curl-verified).
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

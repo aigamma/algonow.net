@@ -2988,6 +2988,38 @@ commit, Fable trailer on every commit, check green before each push.
       detected run ascending after flips, multisets preserved,
       sorted target exact, gallop dividend > 2.5x every cycle.
 
+- [x] F95. Rabin-Karp × rolling hash fingerprints. Puzzle 101,
+      strings (problemSlug substring-search), added 2026-08-29,
+      the first unit of the weekly-ten batch of 2026-08-29
+      (queue seeded in ROADMAP: Johnson's, GMM×EM, LSM×leveled,
+      K-d tree; all grep-verified atlas-exact). Solution
+      rabin_karp_rolling_hash.py, ONE currency (character
+      touches: roll=2, comparison=1), referee str.find on
+      everything. SEVEN ORACLES: (1) exactness on 300 randomized
+      cases + all instances, overlaps + tiny-modulus runs
+      included; (2) rolling identity: rolled == fresh hash at
+      all 1,984 windows; (3) THE HONEST ROW: naive WINS friendly
+      English (207,971 vs RK 400,504 vs KMP 202,545: mismatches
+      die in one touch); (4) the adversary a^100000 vs a^49b:
+      naive 4,997,550 vs RK 200,000 (25x, KMP 200,048); (5) THE
+      FINGERPRINT DIVIDEND: 100 patterns, one pass: 445,048 vs
+      21.7M naive / 21.2M KMP (49x/48x); (6) the modulus dial:
+      0 spurious at 2^61-1 (42 hash matches = 42 true), 6,573
+      spurious at mod 31, touch tax +1.7% (a false candidate
+      dies in a touch: the bet is safe even losing); (7) fresh
+      hashing per window = 2,399,880 touches = 6.0x the roll
+      (the neverUse, arithmetic on the currency, asserted).
+      Cards: self, KMP (live), Boyer-Moore (live), Aho-Corasick
+      (live: variable-length sets), Naive (wins its row
+      honestly). Figure: ribbon + roll arithmetic + fingerprint
+      set, cite Karp-Rabin IBM JRD 1987 DOI 10.1147/rd.312.0249.
+      Viz RabinKarpViz (QC1): act 1 window sliding with live
+      hash, accept green / spurious red / slide unread, counters
+      racing naive; act 2 pooled-set race, 20 patterns
+      (9.4x in-viz). NODE-VERIFIED 10 cycles: rolled==fresh both
+      moduli, accepts/rejects re-verified, trueHits==indexOf
+      referee, tiny modulus lossier, pooled >3x, ticks bounded.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -1923,12 +1923,36 @@ export const PUZZLES = {
     vite: 'timsort-galloping-threshold',
     html: 'timsort-galloping-threshold/index.html',
   },
+  '/rabin-karp-rolling-hash/': {
+    slug: 'rabin-karp-rolling-hash',
+    added: '2026-08-29',
+    problemSlug: 'substring-search',
+    number: 101,
+    category: 'strings',
+    algorithm: 'Rabin-Karp',
+    heuristic: 'Rolling hash fingerprints',
+    domain: 'Fingerprint substring search',
+    oneLiner:
+      'Stop comparing letters: hash the pattern once, roll the window fingerprint in two touches per slide, and read characters only when the numbers agree: search by arithmetic.',
+    description:
+      'Rabin-Karp with rolling hash fingerprints: 100 patterns in one pass for 49x, the adversary tamed at 25x, 0 spurious hits at 61 bits vs 6,573 at mod 31, every occurrence list equal to str.find.',
+    listenMinutes: 8,
+    time: 'O(n + m) expected',
+    space: 'O(1) beyond the text',
+    baseline: 'Naive scan / KMP',
+    vite: 'rabin-karp-rolling-hash',
+    html: 'rabin-karp-rolling-hash/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
+  { algorithm: "Johnson's algorithm", heuristic: 'Reweighting potentials', domain: 'Sparse all-pairs shortest paths' },
+  { algorithm: 'Gaussian mixture model', heuristic: 'Expectation-maximization', domain: 'Soft clustering' },
+  { algorithm: 'Log-structured merge tree', heuristic: 'Leveled compaction', domain: 'Write-optimized storage' },
+  { algorithm: 'K-d tree', heuristic: 'Median-split axis cycling', domain: 'Nearest-neighbor search' },
 ];
 
 

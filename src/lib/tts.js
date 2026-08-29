@@ -29,7 +29,7 @@ function splitSentences(text) {
     } else {
       // A single very long sentence: split on commas, then hard-wrap.
       let piece = '';
-      for (const part of s.split(/(?<=,)\s+/)) {
+      for (let part of s.split(/(?<=,)\s+/)) {
         if ((piece + part).length > MAX_CHUNK) {
           if (piece) chunks.push(piece.trim());
           piece = '';

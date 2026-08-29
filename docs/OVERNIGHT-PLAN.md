@@ -3091,6 +3091,46 @@ commit, Fable trailer on every commit, check green before each push.
       every iter, resp rows sum 1, ellipses finite, ladder
       strictly rising, ticks bounded.
 
+- [x] F98. Log-structured merge tree × leveled compaction.
+      Puzzle 104, data-retrieval (problemSlug crash-consistency,
+      the registered owner of the 'Write-optimized storage'
+      phrase), added 2026-08-29. Solution
+      lsm_tree_leveled_compaction.py (3.3s), FOUR engines from
+      one merge primitive (leveled, tiered, page-model B-tree,
+      giant-file), ONE currency (bytes of storage traffic),
+      referee: A PLAIN DICT answering all 200,000 mixed ops
+      alongside every engine (60% put / 10% tombstone delete /
+      30% get on 400K keys) + 5,000 final-state reads. FIVE
+      ORACLES: (1) every get == dict, everywhere, always (this
+      referee CAUGHT a real draft bug: probe conflated
+      key-absent with tombstone and resurrected deleted keys
+      from deeper levels; the fix ships with the story); (2)
+      leveled invariant audited after every one of 12+6
+      compactions (one sorted duplicate-free run per level, caps
+      respected, L0 bounded); (3) accounting identity to the
+      byte: 18,861,728 written == 4,456,448 flushed + 14,405,280
+      compacted; (4) THE TRIANGLE asserted: write amp 112.7
+      (b-tree) > 4.2 (leveled) > 1.8 (tiered); read KB/get 36.2
+      (tiered) > 19.6 (leveled) > 12.0 (b-tree); space amp 1.32
+      > 1.06; (5) neverUse measured WITH ITS TREND: giant sorted
+      file rewritten per flush: WA 13.3 at full size vs 7.3 at
+      half (grows with data; the cascade caps it): the
+      disqualifier is the unboundedness, stated. B-tree
+      bisect_right fence fix (key==fence lives in the NEXT page;
+      referee caught it). Cards: self, LSM×tiered (same-a
+      variant card, algoName override), B-tree (live), LFS ×
+      segment cleaning (the 1992 ancestor). Figure: the cascade
+      + triangle numbers, cite O'Neil-Cheng-Gawlick-O'Neil Acta
+      Informatica 1996 DOI 10.1007/s002360050048 (LFS 1992,
+      LevelDB 2011, RUM conjecture framing). Viz LsmViz (QC1):
+      act 1 memtable/flush/cascade with live WA readout and
+      audited-invariant caption; act 2 write-traffic race
+      (btree/leveled/tiered) + probe-count reversal line.
+      NODE-VERIFIED 10 cycles: final-state dict referee exact on
+      all 900 keys BOTH engines, leveled invariant, write
+      ordering, probe ordering, snapshots monotone, ticks
+      bounded.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -1983,13 +1983,32 @@ export const PUZZLES = {
     vite: 'gaussian-mixture-expectation-maximization',
     html: 'gaussian-mixture-expectation-maximization/index.html',
   },
+  '/lsm-tree-leveled-compaction/': {
+    slug: 'lsm-tree-leveled-compaction',
+    added: '2026-08-29',
+    problemSlug: 'crash-consistency',
+    number: 104,
+    category: 'data-retrieval',
+    algorithm: 'Log-structured merge tree',
+    heuristic: 'Leveled compaction',
+    domain: 'Write-optimized storage',
+    oneLiner:
+      'Never edit a page: buffer writes in RAM, flush immutable sorted runs, and merge them down a geometric cascade: one bounded run per level, so reads stay sane while writes stay cheap.',
+    description:
+      "The log-structured merge tree with leveled compaction: write amplification 4.2 vs the B-tree's 112.7 and tiered's 1.8, the read and space triangle measured, every get dict-checked across 200,000 operations.",
+    listenMinutes: 8,
+    time: 'O(levels) per get',
+    space: 'O(n), amp 1.06',
+    baseline: 'B-tree in-place pages',
+    vite: 'lsm-tree-leveled-compaction',
+    html: 'lsm-tree-leveled-compaction/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Log-structured merge tree', heuristic: 'Leveled compaction', domain: 'Write-optimized storage' },
   { algorithm: 'K-d tree', heuristic: 'Median-split axis cycling', domain: 'Nearest-neighbor search' },
 ];
 

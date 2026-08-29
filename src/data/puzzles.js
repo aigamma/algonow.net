@@ -1943,13 +1943,32 @@ export const PUZZLES = {
     vite: 'rabin-karp-rolling-hash',
     html: 'rabin-karp-rolling-hash/index.html',
   },
+  '/johnsons-reweighting-potentials/': {
+    slug: 'johnsons-reweighting-potentials',
+    added: '2026-08-29',
+    problemSlug: 'all-pairs-shortest-paths',
+    number: 102,
+    category: 'graphs',
+    algorithm: "Johnson's algorithm",
+    heuristic: 'Reweighting potentials',
+    domain: 'Sparse all-pairs shortest paths',
+    oneLiner:
+      'One Bellman-Ford survey tilts every negative edge nonnegative without moving a single shortest path: then Dijkstra, forbidden on the raw graph, safely answers all pairs at sparse prices.',
+    description:
+      "Johnson's algorithm with reweighting potentials: negative-edge APSP verified integer-exact against Floyd-Warshall, 48x fewer relaxations sparse, the lift audited on every edge, raw Dijkstra measured wrong on 31% of pairs.",
+    listenMinutes: 8,
+    time: 'O(n·m log n)',
+    space: 'O(n²) output',
+    baseline: 'Floyd-Warshall',
+    vite: 'johnsons-reweighting-potentials',
+    html: 'johnsons-reweighting-potentials/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Johnson's algorithm", heuristic: 'Reweighting potentials', domain: 'Sparse all-pairs shortest paths' },
   { algorithm: 'Gaussian mixture model', heuristic: 'Expectation-maximization', domain: 'Soft clustering' },
   { algorithm: 'Log-structured merge tree', heuristic: 'Leveled compaction', domain: 'Write-optimized storage' },
   { algorithm: 'K-d tree', heuristic: 'Median-split axis cycling', domain: 'Nearest-neighbor search' },

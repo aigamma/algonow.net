@@ -3020,6 +3020,38 @@ commit, Fable trailer on every commit, check green before each push.
       moduli, accepts/rejects re-verified, trueHits==indexOf
       referee, tiny modulus lossier, pooled >3x, ticks bounded.
 
+- [x] F96. Johnson's algorithm × reweighting potentials. Puzzle
+      102, graphs (problemSlug all-pairs-shortest-paths), added
+      2026-08-29. Solution johnsons_reweighting_potentials.py,
+      ONE currency (edge relaxations examined), THREE-WAY
+      referee: Johnson == Floyd-Warshall == n×Bellman-Ford,
+      integer-exact incl. unreachable pairs, on 60 randomized
+      negative-edge graphs + both contest instances. The
+      generator is the theorem run backwards (weights from
+      hidden potentials: negative edges, no negative cycle by
+      construction). FIVE ORACLES, 1.4s: (1) three-way equality;
+      (2) THE LIFT AUDITED: w + h(u) - h(v) >= 0 on EVERY edge
+      (10,800 contest + all referee graphs); un-telescope
+      integer-exact; (3) planted -4 cycle caught TWICE (BF stage
+      + FW diagonal); (4) THE DISASTER MEASURED: plain Dijkstra
+      on raw negative edges wrong on 456/1,485 reachable pairs
+      (31%): the neverUse is wrongness, not cost; (5) contest at
+      n=200: sparse m=800: FW 8,000,000 (n^3 by construction) vs
+      Johnson 165,430 (48x) vs n×BF 1,356,800; dense m=10,000:
+      Johnson 2,112,200 (gap closes to 3.8x, said plainly) vs
+      n×BF 20,180,000. Cards: self, Floyd-Warshall (live, the
+      referee), Bellman-Ford ×n (live), Dijkstra (live: the
+      engine unlocked; raw = the neverUse). Figure: before/after
+      lift on a 3-node path + telescoping identity, cite Johnson
+      JACM 1977 DOI 10.1145/321992.321993 (potentials after
+      Edmonds-Karp 1972). Viz JohnsonViz (QC1): act 1 the lift:
+      8-node graph, red negative edges, BF altitude survey sinks
+      nodes to h, labels relift green nonneg; act 2 counted race
+      at n=60 (13.8x in-viz) + wrong-pairs red line. SEED
+      SCANNED (20260830) so scene 0 shows raw-Dijkstra wrongness
+      3/51. NODE-VERIFIED 10 cycles: lift nonneg, viz distances
+      == independent FW, race sane, ticks bounded.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

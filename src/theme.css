@@ -93,10 +93,17 @@ code, kbd, pre { font-family: var(--font-mono); }
 
 .wordmark {
   flex: none;
+  /* The wordmark shares the nav pills' box (same min-height, centered,
+     line-height 1), so it rests on the same floor the pills rest on
+     instead of riding high on default leading. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.85rem;
   font-family: var(--font-mono);
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 1;
   color: var(--ink);
   white-space: nowrap;
 }

@@ -3052,6 +3052,45 @@ commit, Fable trailer on every commit, check green before each push.
       3/51. NODE-VERIFIED 10 cycles: lift nonneg, viz distances
       == independent FW, race sane, ticks bounded.
 
+- [x] F97. Gaussian mixture model × expectation-maximization.
+      Puzzle 103, ml-ai (problemSlug clustering), added
+      2026-08-29. Solution
+      gaussian_mixture_expectation_maximization.py (4.4s), full
+      2x2 covariances in the log domain, k-means++ seeding, 8
+      restarts best-LL kept (stated on page: naive seeds found a
+      4.28-off optimum in the first draft, kept as the lesson).
+      SIX ORACLES: (1) THE DLR THEOREM CASHED OUT: log-likelihood
+      non-decreasing at every one of 119 main-fit iterations AND
+      every step of 20 restarts (assert inside em_fit, 1e-9
+      tolerance); (2) responsibilities a soft partition (every
+      row sums to 1); (3) RECOVERY: planted 3-source tilted
+      mixture recovered under best permutation (means within
+      0.13, weights 0.02, covs 0.34) AND fitted LL -5,526.2 >=
+      the generator's own -5,536.7; (4) the rival referees
+      itself: Lloyd distortion non-increasing per iteration; (5)
+      contest: tilted overlap GMM 96.2% vs k-means 88.8% (+7.4,
+      assert >5), round separated blobs PARITY 100/100 (assert
+      within 2, said plainly); soft dividend: 173/1500 points
+      max-resp < 0.9; (6) THE SINGULARITY MEASURED: ridgeless EM
+      seeded on one point: cov determinant < 1e-200 in ONE
+      iteration; the likelihood ladder walked parametrically
+      -194 -> -177 -> -131 -> -16 unbounded vs sane -149 (first
+      draft compared 40-pt sick LL vs 1500-pt sane LL:
+      apples/oranges, caught and fixed). Cards: self, K-means
+      (live: also parity row + the seeding this page borrows),
+      DBSCAN (t1), Agglomerative (t1), Gibbs sampling (live:
+      the Bayesian mixture). Figure: ellipses + seam point r =
+      (0.6, 0.4, 0.0) + E/M cycle + monotone staircase, cite
+      Dempster-Laird-Rubin JRSS-B 1977 DOI
+      10.1111/j.2517-6161.1977.tb01600.x (Pearson 1894 crabs, Wu
+      1983). Viz GmmViz (QC1): act 1 responsibility-blended
+      point colors + tightening 2-sigma ellipses + monotone LL
+      staircase (36 recorded EM iters); act 2 the trapdoor:
+      pinned component collapsing on-screen, ladder LL climbing
+      red, ridge moral. NODE-VERIFIED 10 cycles: LL monotone
+      every iter, resp rows sum 1, ellipses finite, ladder
+      strictly rising, ticks bounded.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

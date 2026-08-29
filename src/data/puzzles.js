@@ -1963,13 +1963,32 @@ export const PUZZLES = {
     vite: 'johnsons-reweighting-potentials',
     html: 'johnsons-reweighting-potentials/index.html',
   },
+  '/gaussian-mixture-expectation-maximization/': {
+    slug: 'gaussian-mixture-expectation-maximization',
+    added: '2026-08-29',
+    problemSlug: 'clustering',
+    number: 103,
+    category: 'ml-ai',
+    algorithm: 'Gaussian mixture model',
+    heuristic: 'Expectation-maximization',
+    domain: 'Soft clustering',
+    oneLiner:
+      'Model the data as overlapping tilted Gaussians and let every point belong fractionally to all of them: guess softly, refit exactly, and a theorem guarantees the likelihood only climbs.',
+    description:
+      'Gaussian mixtures fit by expectation-maximization: the monotone-likelihood theorem asserted at every iteration, the planted mixture recovered, soft beating hard by 7.4 points on tilted overlap, and the ridgeless singularity measured.',
+    listenMinutes: 8,
+    time: 'O(t·n·k) densities',
+    space: 'O(n·k)',
+    baseline: 'K-means hard assignment',
+    vite: 'gaussian-mixture-expectation-maximization',
+    html: 'gaussian-mixture-expectation-maximization/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Gaussian mixture model', heuristic: 'Expectation-maximization', domain: 'Soft clustering' },
   { algorithm: 'Log-structured merge tree', heuristic: 'Leveled compaction', domain: 'Write-optimized storage' },
   { algorithm: 'K-d tree', heuristic: 'Median-split axis cycling', domain: 'Nearest-neighbor search' },
 ];

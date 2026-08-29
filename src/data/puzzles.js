@@ -2043,13 +2043,32 @@ export const PUZZLES = {
     vite: 'treap-random-priorities',
     html: 'treap-random-priorities/index.html',
   },
+  '/lsd-radix-digit-passes/': {
+    slug: 'lsd-radix-digit-passes',
+    added: '2026-08-29',
+    problemSlug: 'integer-sorting',
+    number: 107,
+    category: 'sorting-selection',
+    algorithm: 'LSD radix sort',
+    heuristic: 'Stable digit-bucket passes',
+    domain: 'Fixed-width key sorting',
+    oneLiner:
+      'Sorting that never asks which key is smaller: bucket by one digit at a time, gather stably so each pass preserves all the ones before, and walk under the comparison lower bound.',
+    description:
+      'LSD radix sort with stable digit-bucket passes: zero comparisons, 2.0x under the log2(n!) wall on 32-bit keys and 5.9x on 8-bit, the wide-key row honestly conceded, and stability sabotaged to show 200 of 200 arrays break without it.',
+    listenMinutes: 8,
+    time: 'O(w·n), 0 comparisons',
+    space: 'O(n + base)',
+    baseline: 'Comparison sorting',
+    vite: 'lsd-radix-digit-passes',
+    html: 'lsd-radix-digit-passes/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'LSD radix sort', heuristic: 'Stable digit-bucket passes', domain: 'Fixed-width key sorting' },
   { algorithm: 'Secretary problem', heuristic: '1/e stopping rule', domain: 'Optimal stopping' },
   { algorithm: 'Thompson sampling', heuristic: 'Posterior draws', domain: 'Multi-armed bandits' },
   { algorithm: 'Alpha-beta pruning', heuristic: 'Iterative deepening move ordering', domain: 'Game-tree search' },

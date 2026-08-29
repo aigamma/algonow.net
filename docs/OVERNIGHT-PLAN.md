@@ -3198,6 +3198,41 @@ commit, Fable trailer on every commit, check green before each push.
       wordmark enlarged to 1.3rem and seated on the nav pills'
       exact box (both chromes; deployed CSS curl-verified).
 
+- [x] F101. LSD radix sort × stable digit-bucket passes. Puzzle
+      107, sorting-selection (problemSlug integer-sorting),
+      added 2026-08-29. THE h WAS AUTHORED per rule 2 (atlas
+      sorting.json h null -> 'Stable digit-bucket passes';
+      summary heuristics 2344 -> 2345). Solution
+      lsd_radix_digit_passes.py (2.2s), currencies stated per
+      method (comparisons via a counting Key wrapper for the
+      referee; touches + bucket slots for radix). FIVE ORACLES:
+      (1) sorted() exact on 400 randomized cases + all
+      instances; (2) STABILITY exact on 30,000 tagged records;
+      (3) THE SABOTAGE: unstable inner passes (buckets reversed)
+      wrong on 200/200 arrays: the heuristic is load-bearing,
+      proven by removal; (4) the asymptotic split measured:
+      doubling n scales radix 2.00x vs comparisons 2.12x; (5)
+      the digit-width dial both ways (16-bit digits win at
+      n=200K: 931,072 work; lose at n=2,000: 139,072 vs
+      17,024). CONTEST: 32-bit n=200K: sorted() 3,257,989 cmps
+      (just above the log2(n!) = 3,233,399 WALL, printed) vs
+      radix 1,601,024 (2.0x); 8-bit: 2,374,012 vs 400,256
+      (5.9x); HONEST ROW: 64-bit n=1,000: comparisons WIN 2.1x
+      (radix pays per digit regardless of n). Cards: self,
+      Counting sort (the per-digit engine), MSD radix (the
+      string sibling), Timsort (live: wins the wide-key row).
+      Figure: the 3-pass card-room walkthrough (digits verified
+      by hand) + the wall line, cite Hollerith 1890 / Seward
+      1954 / Knuth TAOCP v3 §5.2.5. Viz RadixViz (QC1): act 1
+      cards dealt into 10 pockets x 3 passes with the
+      sorted-by-k-lowest-digits invariant asserted per pass;
+      act 2 counted race (42,855 cmps vs 32,040 touches at
+      4-digit keys: 6-digit decimal would honestly LOSE this
+      size and the model comment says so) + sabotage line
+      (40/40 decks broken). NODE-VERIFIED 10 cycles: per-pass
+      invariant, outputs == sorted == merge, multiset
+      preserved, race sane, ticks bounded.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

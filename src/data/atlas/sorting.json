@@ -41,7 +41,7 @@
 {"a": "Odd-even transposition sort", "h": null, "d": "Parallel exchange sorting", "t": 3},
 {"a": "Counting sort", "h": null, "d": "Small-universe integer sorting", "t": 1},
 {"a": "Pigeonhole sort", "h": null, "d": "Direct-slot integer sorting", "t": 3},
-{"a": "LSD radix sort", "h": null, "d": "Fixed-width key sorting", "t": 1},
+{"a": "LSD radix sort", "h": "Stable digit-bucket passes", "d": "Fixed-width key sorting", "t": 1},
 {"a": "MSD radix sort", "h": null, "d": "Variable-length key sorting", "t": 2},
 {"a": "American flag sort", "h": "In-place bucket permutation", "d": "Cache-friendly radix sorting", "t": 3},
 {"a": "Three-way radix quicksort", "h": null, "d": "String key sorting", "t": 2},

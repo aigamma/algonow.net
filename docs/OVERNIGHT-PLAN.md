@@ -3310,6 +3310,44 @@ commit, Fable trailer on every commit, check green before each push.
       argmax draw, curves monotone, ts < ucb every cycle,
       aggregate greedy >> ts, ticks bounded.
 
+- [x] F104. Alpha-beta pruning × iterative deepening move
+      ordering. Puzzle 110, search-constraints-games
+      (problemSlug game-tree-search: auto-sibling with live
+      minimax-alphabeta), added 2026-08-29. Solution
+      alphabeta_iterative_deepening.py (1.0s). THE MODEL WAS
+      THE LESSON: a hash-random first draft KILLED the paradox
+      (no cross-node correlation, nothing for ordering to
+      learn: ID cost MORE than blind); replaced with the
+      strongly-ordered model (per-(ply,move) increments +
+      noise), the negative result stated in the file and taught
+      in signals/narration. ALSO: history table re-keyed
+      per-ply after global keying failed to separate; the
+      first-cut-rate metric replaced by mean cutoff index +
+      final-iteration-alone cost after rates would not separate
+      (~50% vs 47%: most cut-nodes cut on anything). FIVE
+      ORACLES: (1) exhaustive minimax referee on 40 trees +
+      depth-6 contest, every ordering exact; (2) KNUTH-MOORE
+      FLOOR HIT EXACTLY: oracle ordering visits 431 leaves ==
+      b^ceil(d/2)+b^floor(d/2)-1 at b=6,d=6; (3) depth 8
+      refereed by three-way adversarial-ordering agreement
+      (random/reversed/ID); (4) THE PARADOX: ID all-depths
+      total 3,940 < one blind 14,004 (3.6x); depth 8: 40,769
+      vs 251,348 (16%); (5) mechanism: final iteration alone
+      2,338 (17% of blind), mean cutoff index 0.53 vs 1.38.
+      Cards: self, Minimax (live referee), PVS (the refinement
+      ON this ordering), MCTS (live: the sampling escape).
+      neverUse: THE SINGLE DEEP DIVE (3.6x dearer + nothing
+      when interrupted). Figure: the ID ladder + blind bar +
+      floor note, cite Knuth-Moore AIJ 1975 DOI
+      10.1016/0004-3702(75)90019-3 (Slate-Atkin 1977, Korf
+      1985). Viz AlphaBetaIDViz (QC1): act 1 b=3,d=4 tree, the
+      final ID pass visiting green with pruned subtrees shaded
+      red + proof caption, 37/121 visited; act 2 the ladder:
+      stacked ID iteration bars vs one blind bar (2,040 vs
+      4,099 in-viz, minimax 55,987 for scale). NODE-VERIFIED
+      10 cycles: values == exhaustive minimax everywhere,
+      trace sane, paradox held 10/10, ticks bounded.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

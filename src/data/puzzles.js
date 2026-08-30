@@ -2103,13 +2103,32 @@ export const PUZZLES = {
     vite: 'thompson-sampling-posterior-draws',
     html: 'thompson-sampling-posterior-draws/index.html',
   },
+  '/alphabeta-iterative-deepening/': {
+    slug: 'alphabeta-iterative-deepening',
+    added: '2026-08-29',
+    problemSlug: 'game-tree-search',
+    number: 110,
+    category: 'search-constraints-games',
+    algorithm: 'Alpha-beta pruning',
+    heuristic: 'Iterative deepening move ordering',
+    domain: 'Game-tree search',
+    oneLiner:
+      'The chess-engine paradox: search the same position at every depth up to the target, and the shallow passes order the deep one so well that all of them together cost less than one blind dive.',
+    description:
+      'Alpha-beta with iterative-deepening move ordering: six searches for less than one blind search (3,940 vs 14,004 nodes, exhaustive-minimax refereed), cutoffs at mean index 0.53 vs 1.38, and the Knuth-Moore floor hit exactly at 431 leaves.',
+    listenMinutes: 8,
+    time: '~O(b^(d/2)) well-ordered',
+    space: 'O(nodes) tables',
+    baseline: 'Exhaustive minimax',
+    vite: 'alphabeta-iterative-deepening',
+    html: 'alphabeta-iterative-deepening/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Alpha-beta pruning', heuristic: 'Iterative deepening move ordering', domain: 'Game-tree search' },
   { algorithm: 'Arithmetic coding', heuristic: 'Range renormalization', domain: 'Near-entropy compression' },
   { algorithm: 'Dormand-Prince', heuristic: 'Embedded error step control', domain: 'Adaptive ODE integration' },
   { algorithm: 'Pratt parsing', heuristic: 'Binding-power dispatch', domain: 'Expression parsing' },

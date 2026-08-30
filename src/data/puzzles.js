@@ -2123,13 +2123,32 @@ export const PUZZLES = {
     vite: 'alphabeta-iterative-deepening',
     html: 'alphabeta-iterative-deepening/index.html',
   },
+  '/arithmetic-coding-renormalization/': {
+    slug: 'arithmetic-coding-renormalization',
+    added: '2026-08-29',
+    problemSlug: 'entropy-coding',
+    number: 111,
+    category: 'compression-coding',
+    algorithm: 'Arithmetic coding',
+    heuristic: 'Range renormalization',
+    domain: 'Near-entropy compression',
+    oneLiner:
+      'The whole message becomes one number: each symbol narrows the interval by its probability, settled bits ship out as the registers rescale, and no symbol ever pays a whole bit it did not owe.',
+    description:
+      "Arithmetic coding with range renormalization: 12.4x under Huffman's whole-bit wall on a skewed source, within 0.02% of the Shannon floor and never below it, 97,368 straddle events handled, and the naive exact-fraction coder's state measured exploding.",
+    listenMinutes: 8,
+    time: 'O(n), ~n·H output bits',
+    space: 'O(1): 32-bit registers',
+    baseline: 'Huffman coding',
+    vite: 'arithmetic-coding-renormalization',
+    html: 'arithmetic-coding-renormalization/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Arithmetic coding', heuristic: 'Range renormalization', domain: 'Near-entropy compression' },
   { algorithm: 'Dormand-Prince', heuristic: 'Embedded error step control', domain: 'Adaptive ODE integration' },
   { algorithm: 'Pratt parsing', heuristic: 'Binding-power dispatch', domain: 'Expression parsing' },
   { algorithm: 'Work stealing', heuristic: 'Randomized victim selection', domain: 'Task-parallel scheduling' },

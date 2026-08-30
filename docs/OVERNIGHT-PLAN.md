@@ -3348,6 +3348,44 @@ commit, Fable trailer on every commit, check green before each push.
       10 cycles: values == exhaustive minimax everywhere,
       trace sane, paradox held 10/10, ticks bounded.
 
+- [x] F105. Arithmetic coding × range renormalization. Puzzle
+      111, compression-coding (problemSlug entropy-coding:
+      auto-sibling with live huffman unit), added 2026-08-29.
+      Solution arithmetic_coding_renormalization.py (0.5s), the
+      Witten-Neal-Cleary 32-bit coder (E1/E2/E3 straddle
+      handling with the pending-bit counter). AMUSING BUILD
+      CRASH kept as a header comment: the original line-2
+      comment 'Entropy coding: turn...' matched Python's PEP
+      263 encoding-declaration regex ("encoding problem:
+      turn"): even comments have parsers. FIVE ORACLES: (1)
+      round-trip decode(encode(x)) == x on 300 randomized
+      messages + all contest sources (incl. all-one-symbol
+      edge); (2) THE SHANNON FLOOR: output >= n*H always,
+      within 0.2% + 64 bits (measured +0.02% on the skew); (3)
+      THE HUFFMAN WALL: skewed 99/1 n=50K: huffman 50,000 bits
+      vs arithmetic 4,034 vs floor 4,033 (12.4x); PARITY rows
+      said plainly: english-like +0.8%, uniform dead heat
+      (whole-bit-friendly distributions leave no dividend); (4)
+      renormalization audited: range >= quarter-width at every
+      symbol, 97,368 straddles counted; (5) neverUse MEASURED:
+      the exact-fraction Elias coder: denominator 2,492 ->
+      19,932 bits over 2,000 symbols (monotone, unbounded) vs
+      32-bit registers by construction. Cards: self, Huffman
+      (live: optimal in its whole-bit class), ANS (the
+      successor: zstd), Shannon-Fano (the museum piece with a
+      lesson). Figure: the narrowing ruler + renorm + wall
+      numbers, cite Witten-Neal-Cleary CACM 1987 DOI
+      10.1145/214762.214771 (Elias, Rissanen/Pasco 1976, Duda's
+      ANS). Viz ArithmeticViz (QC1): act 1 the interval
+      narrowing on a full-width ruler with bits shipping at
+      each renorm + straddle debt marker + ideal-vs-shipped
+      readout; act 2 the exact-fraction state explosion drawn
+      from REAL BigInt fractions (2,787 bits at 1,200 symbols)
+      vs the flat 32-bit line. NODE-VERIFIED 10 cycles:
+      renormalized width always in (1/4, 1], intervals inside
+      the ruler, bits track the ideal within 4, BigInt growth
+      strictly monotone, ticks bounded.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

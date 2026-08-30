@@ -2163,13 +2163,32 @@ export const PUZZLES = {
     vite: 'dormand-prince-embedded-error',
     html: 'dormand-prince-embedded-error/index.html',
   },
+  '/pratt-parsing-binding-powers/': {
+    slug: 'pratt-parsing-binding-powers',
+    added: '2026-08-29',
+    problemSlug: 'context-free-parsing',
+    number: 113,
+    category: 'languages-compilers',
+    algorithm: 'Pratt parsing',
+    heuristic: 'Binding-power dispatch',
+    domain: 'Expression parsing',
+    oneLiner:
+      'One loop and a table of badges: every operand goes to the neighbor with the bigger binding power, associativity is one unit on the badge, and adding an operator is adding a row.',
+    description:
+      "Pratt parsing with binding-power dispatch: refereed by Python's own ast module on 500 fuzzed expressions, the recursive-descent tower toll measured at 3.5x and 13.5x, the flat equal-precedence parser counted wrong on 219 of 500, and extension shown as one table row.",
+    listenMinutes: 8,
+    time: 'O(n): ~1 call/token',
+    space: 'O(depth)',
+    baseline: 'Layered recursive descent',
+    vite: 'pratt-parsing-binding-powers',
+    html: 'pratt-parsing-binding-powers/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Pratt parsing', heuristic: 'Binding-power dispatch', domain: 'Expression parsing' },
   { algorithm: 'Work stealing', heuristic: 'Randomized victim selection', domain: 'Task-parallel scheduling' },
   { algorithm: 'Rapidly-exploring random tree', heuristic: 'Voronoi-biased sampling', domain: 'Motion planning' },
   { algorithm: 'Paxos', heuristic: 'Proposer-acceptor quorums', domain: 'Distributed consensus' },

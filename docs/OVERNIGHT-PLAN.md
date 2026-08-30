@@ -3424,6 +3424,44 @@ commit, Fable trailer on every commit, check green before each push.
       in-viz independent RK4 referee, t monotone, span > 20x,
       adaptive < fixed, wall > 10x, ticks bounded.
 
+- [x] F107. Pratt parsing × binding-power dispatch. Puzzle 113,
+      languages-compilers (problemSlug context-free-parsing),
+      added 2026-08-29. Solution
+      pratt_parsing_binding_powers.py (0.07s), referee: PYTHON'S
+      OWN ast MODULE (500 fuzzed expressions tree-identical
+      node-for-node, ^ as **, values in exact Fractions).
+      AUTHOR CORRECTED TWICE: (a) the fuzz evaluator HUNG on
+      nested ^ over / (million-digit Fractions): size-guarded
+      TooBig fallback to the structure oracle; also a 10K-deep
+      left tree blew recursive eval: chain refereed by tree
+      equality instead; (b) THE 15-LEVEL MODEL: first draft
+      appended C's extra levels ABOVE the used operators (walked
+      once: honest 3.5x, no worse than 5 levels); the real toll
+      is per-level-BELOW-the-operator per operand, so the model
+      moved the operands to the loose end (C's a||b||c
+      position): 13.5x. FIVE ORACLES: (1) ast agreement
+      500/500 + canon pinned (1-2-3 left, 2^3^2=512 right,
+      -2^2=-4); (2) contest (4,000-operand chain, one currency:
+      parser calls): descent-5 14,011 (3.5x) / descent-15-loose
+      54,011 (13.5x) / pratt 4,000 (~1/token), all trees
+      identical; (3) neverUse MEASURED: the flat
+      equal-precedence parser wrong on 219/500 (silent: 1+2*3
+      = 9); (4) extensibility: '@' seated between + and * with
+      one table row, asserted; (5) postfix '!' riding the same
+      led loop. Cards: self, Recursive descent (the statement
+      half of the production hybrid, honored), Shunting yard
+      (Dijkstra's stack), LALR (the generator country: verifies
+      its grammar, which a power table cannot). Figure: badge
+      courtroom + tolls, cite Pratt POPL 1973 DOI
+      10.1145/512927.512931 (Crockford, Nystrom, matklad /
+      rust-analyzer). Viz PrattViz (QC1): act 1 a real
+      expression parsed live by the actual loop (badge checks
+      narrated, tree assembling below); act 2 the toll race
+      (4070/1060/301 in-viz) + flat wrongness (33/60 fuzzed).
+      NODE-VERIFIED: canon values exact + 10 cycles: trees
+      identical across parsers, ordering, flat wrong >20%,
+      layout sane, ticks bounded.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

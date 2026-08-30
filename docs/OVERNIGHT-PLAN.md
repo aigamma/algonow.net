@@ -3270,6 +3270,46 @@ commit, Fable trailer on every commit, check green before each push.
       flags), MC dots within 4 sigma, wall above peak, ticks
       bounded.
 
+- [x] F103. Thompson sampling × posterior draws. Puzzle 109,
+      ml-ai (problemSlug bandits: auto-sibling with live
+      mcts-ucb1), added 2026-08-29. Solution
+      thompson_sampling_posterior_draws.py (4.5s), Beta-Bernoulli
+      conjugacy via random.betavariate, 100 runs x T=10,000 on
+      arms [0.45, 0.50, 0.55]. SIX ORACLES: (1) conjugacy
+      audited EXACTLY (Beta(a,b) == (1+wins, 1+losses) vs
+      independent counts, every arm every run); (2) CALIBRATION
+      measured: true rate inside the central 95% credible
+      interval 97.3% of the time (window [88%, 99.5%]); (3)
+      identification 100/100; (4) the race AS MEASURED: greedy
+      470.3 (65% stuck) > UCB1 176.6 > eps-greedy 95.3 >
+      thompson 53.0. AUTHOR CORRECTED TWICE BY THE RUN: (a) the
+      first draft asserted UCB1 < eps (the textbook asymptotic
+      ordering); the measurement flipped it: vanilla UCB1's
+      conservative bonus over-explores at this horizon: kept as
+      the page's honesty centerpiece; (b) the raw half-ratio
+      growth oracle was polluted by early learning cost
+      (eps_growth 1.46 not ~2): replaced by SECOND-HALF
+      INCREMENTS vs the analytic floor: eps paid 30 (floor
+      eps x T/2 x mean-gap = 25, owed forever), thompson 8
+      (bending), UCB1 62 (bending, crossover far past this
+      horizon at 0.05 gaps: stated precisely, not oversold).
+      Cards: self, UCB1 (deterministic + guaranteed: the rent),
+      Epsilon-greedy (honestly strong, linear forever), Exp3
+      (adversarial). neverUse: GREEDY (not slow: PERMANENT:
+      65% stuck). Figure: three posteriors + competing draws +
+      race summary, cite Thompson Biometrika 1933 DOI
+      10.1093/biomet/25.3-4.285 (Chapelle-Li 2011,
+      Agrawal-Goyal 2012). Viz ThompsonViz (QC1): act 1 three
+      Beta curves sharpening live with per-round draws competing
+      (Marsaglia-Tsang gamma -> beta sampler in-viz), true-rate
+      dashed markers; act 2 four regret curves, 10-run mean at
+      T=2,000 (greedy's variance is its character: per-cycle
+      greedy assert replaced by aggregate after cycle 6 showed
+      a lucky greedy: 962 vs 377 across 10 cycles). NODE-
+      VERIFIED 10 cycles: conjugacy replayed exactly, chosen ==
+      argmax draw, curves monotone, ts < ucb every cycle,
+      aggregate greedy >> ts, ticks bounded.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -2083,13 +2083,32 @@ export const PUZZLES = {
     vite: 'secretary-one-over-e',
     html: 'secretary-one-over-e/index.html',
   },
+  '/thompson-sampling-posterior-draws/': {
+    slug: 'thompson-sampling-posterior-draws',
+    added: '2026-08-29',
+    problemSlug: 'bandits',
+    number: 109,
+    category: 'ml-ai',
+    algorithm: 'Thompson sampling',
+    heuristic: 'Posterior draws',
+    domain: 'Multi-armed bandits',
+    oneLiner:
+      'Each round, imagine one plausible world by sampling every arm’s posterior, and play the arm that wins the imagined contest: exploration exactly as large as the doubt, no knob anywhere.',
+    description:
+      "Thompson sampling with posterior draws: the Beta ledger audited exactly, calibration at 97.3%, regret 53 vs epsilon-greedy's 95, UCB1's 177 (the measured horizon twist), and greedy's 470 with 65% of runs stuck forever.",
+    listenMinutes: 8,
+    time: 'O(k) draws per round',
+    space: 'O(k) posteriors',
+    baseline: 'Greedy / epsilon-greedy',
+    vite: 'thompson-sampling-posterior-draws',
+    html: 'thompson-sampling-posterior-draws/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Thompson sampling', heuristic: 'Posterior draws', domain: 'Multi-armed bandits' },
   { algorithm: 'Alpha-beta pruning', heuristic: 'Iterative deepening move ordering', domain: 'Game-tree search' },
   { algorithm: 'Arithmetic coding', heuristic: 'Range renormalization', domain: 'Near-entropy compression' },
   { algorithm: 'Dormand-Prince', heuristic: 'Embedded error step control', domain: 'Adaptive ODE integration' },

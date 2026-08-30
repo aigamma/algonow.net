@@ -3386,6 +3386,44 @@ commit, Fable trailer on every commit, check green before each push.
       the ruler, bits track the ideal within 4, BigInt growth
       strictly monotone, ticks bounded.
 
+- [x] F106. Dormand-Prince × embedded error step control.
+      Puzzle 112, numerical (problemSlug ode-integration),
+      added 2026-08-29. Solution
+      dormand_prince_embedded_error.py (0.3s): the real DP5(4)
+      tableau (ode45's coefficients, FSAL). AUTHOR CORRECTED
+      THREE TIMES BY THE RUN: (a) the estimator audit compared
+      |y5-y4| against y5's O(h^6) error instead of y4's O(h^5):
+      0/40 passed until the target was fixed (the local-
+      extrapolation subtlety, now taught); (b) the step-span
+      threshold guessed at 200x, measured 69x (clamp-limited);
+      (c) the fifth-root cost law measured 2.5x on the flame
+      (clamp-limited flats!) and moved to the error-limited
+      oscillator where it landed at 15.4x vs 15.8x predicted.
+      SIX ORACLES: (1) exact solutions: e^-t to 1.8e-9,
+      oscillator to 2.5e-8; (2) ORDER FIVE AS AN EXPERIMENT:
+      h-halving cut error 32.0x (2^5, on the nose); (3) the
+      estimator audited both ways 40/40 (tracks y4's true
+      error within 10x AND conservatively bounds y5's); (4)
+      THE DIVIDEND: ignition problem: 488 evals vs fixed RK4's
+      4,000 (8x), steps breathing 69x (0.38 -> 26.4), refereed
+      by an independent 400,000-step RK4 run; (5) the dial:
+      15.4x vs 15.8x; (6) THE STIFFNESS WALL: y' = -2000(y -
+      cos t): 5,717 evals vs 49 on the non-stiff twin (117x):
+      stability pins explicit steps: stated as the boundary
+      (BDF country). Cards: self, RK4 (the referee, honored),
+      Velocity Verlet (live: symplectic contract), BDF (the
+      implicit answer). neverUse: ADAPTIVE EXPLICIT ON STIFF
+      (the controller does its job perfectly; the job is
+      unwinnable). Figure: the flame + breathing steps + laws,
+      cite Dormand-Prince JCAM 1980 DOI
+      10.1016/0771-050X(80)90013-3 (Fehlberg 1969, Shampine).
+      Viz DormandPrinceViz (QC1): act 1 the REAL DP pair
+      integrating the flame live (curve + step bar breathing,
+      est readout); act 2 the eval bills + in-viz stiffness
+      wall (2989/56). NODE-VERIFIED 10 cycles: answer ==
+      in-viz independent RK4 referee, t monotone, span > 20x,
+      adaptive < fixed, wall > 10x, ticks bounded.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

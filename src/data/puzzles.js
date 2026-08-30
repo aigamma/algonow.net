@@ -2143,13 +2143,32 @@ export const PUZZLES = {
     vite: 'arithmetic-coding-renormalization',
     html: 'arithmetic-coding-renormalization/index.html',
   },
+  '/dormand-prince-embedded-error/': {
+    slug: 'dormand-prince-embedded-error',
+    added: '2026-08-29',
+    problemSlug: 'ode-integration',
+    number: 112,
+    category: 'numerical',
+    algorithm: 'Dormand-Prince',
+    heuristic: 'Embedded error step control',
+    domain: 'Adaptive ODE integration',
+    oneLiner:
+      'Two Runge-Kutta answers from the same six evaluations, and their difference drives the wheel: steps stretch across the flats, crawl through the flame front, and nobody ever chose a step size.',
+    description:
+      'Dormand-Prince with embedded error step control: order five measured at 32.0x per halving, the fifth-root cost law hit at 15.4x vs 15.8x predicted, steps breathing 69x on the ignition problem, and the 117x stiffness wall measured as the boundary.',
+    listenMinutes: 8,
+    time: '6 evals/step, adaptive',
+    space: 'O(1) state',
+    baseline: 'Fixed-step RK4',
+    vite: 'dormand-prince-embedded-error',
+    html: 'dormand-prince-embedded-error/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Dormand-Prince', heuristic: 'Embedded error step control', domain: 'Adaptive ODE integration' },
   { algorithm: 'Pratt parsing', heuristic: 'Binding-power dispatch', domain: 'Expression parsing' },
   { algorithm: 'Work stealing', heuristic: 'Randomized victim selection', domain: 'Task-parallel scheduling' },
   { algorithm: 'Rapidly-exploring random tree', heuristic: 'Voronoi-biased sampling', domain: 'Motion planning' },

@@ -3462,6 +3462,44 @@ commit, Fable trailer on every commit, check green before each push.
       identical across parsers, ordering, flat wrong >20%,
       layout sane, ticks bounded.
 
+- [x] F108. Work stealing × randomized victim selection. Puzzle
+      114, distributed-systems (problemSlug
+      task-parallel-scheduling), added 2026-08-29. Solution
+      work_stealing_random_victims.py (0.04s): deterministic
+      discrete-step simulator, P=16, skewed fork-join DAG
+      (W=11,688, T_inf=136, 1,461 tasks), one thief per victim
+      per step, central queue serialized. FIVE ORACLES: (1)
+      WORK CONSERVATION exact on every scheduler (each task
+      once, units summing to W); (2) THE TWO-SIDED SQUEEZE
+      from the DAG's own analytics: 730 = max(W/P, T_inf) <=
+      774 <= W/P + 3T_inf + P = 1,154; (3) random 774 <= fixed
+      793 (the convoy) with central at 1,507; (4) THE GRAIN
+      SWEEP with an AUTHOR CORRECTION: coarse (64-unit) tasks:
+      central EDGES stealing 13.5x vs 12.8x (the lock is idle;
+      the first draft assumed stealing wins everywhere and the
+      run corrected it: kept as the parity row + the neverUse's
+      second jaw); fine (4-unit): stealing 11.8x vs central
+      3.9x (the lock collapse); (5) steals 109/1,461 = 7.5%:
+      migration priced by the critical path. Cards: self,
+      Central queue (via Fork-join algoName: honest coarse
+      winner), Graham list scheduling (the offline 4/3
+      classic). neverUse: THE SINGLE LOCK UNDER FINE GRAIN
+      (correct, green in review, dead at scale: and coarse
+      benchmarks hide it). Figure: deque discipline + squeeze
+      numbers, cite Blumofe-Leiserson JACM 1999 DOI
+      10.1145/324133.324234 (Cilk-5 PLDI 1998; TBB/ForkJoinPool
+      /Go/rayon lineage). Viz WorkStealViz (QC1): act 1 eight
+      workers live (deque stacks, busy/idle dots, red steal
+      arcs, steal counter); act 2 the three clocks with the
+      squeeze drawn on the winning bar. VIZ HONESTY: at P=8
+      the SCANNING fixed order ties the dice (aggregate 643 vs
+      601 over 10 cycles): the bar is labeled 'ties the dice at
+      P=8' and the lottery's case (scale, adversarial safety)
+      cites the solution's P=16 run: no strawman. NODE-VERIFIED
+      10 cycles: conservation exact x3 policies, squeeze held,
+      random within 1.25x of fixed with aggregate within 1.1x,
+      central >1.5x random, steals bounded, ticks bounded.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

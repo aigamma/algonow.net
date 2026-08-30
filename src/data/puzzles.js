@@ -2183,13 +2183,32 @@ export const PUZZLES = {
     vite: 'pratt-parsing-binding-powers',
     html: 'pratt-parsing-binding-powers/index.html',
   },
+  '/work-stealing-random-victims/': {
+    slug: 'work-stealing-random-victims',
+    added: '2026-08-29',
+    problemSlug: 'task-parallel-scheduling',
+    number: 114,
+    category: 'distributed-systems',
+    algorithm: 'Work stealing',
+    heuristic: 'Randomized victim selection',
+    domain: 'Task-parallel scheduling',
+    oneLiner:
+      'Every worker owns a deque: pop your own bottom (hot, uncontended), and when you run dry, rob the top of a random victim: the oldest fork, the biggest subtree, one theft per balance.',
+    description:
+      "Work stealing with randomized victims: the measured makespan sits inside the Blumofe-Leiserson squeeze (730 <= 774 <= 1,138), the central lock pays 1,507 and collapses to 3.9x speedup at fine grain, migration stays at 7.5% of tasks, and the coarse-grain parity row is conceded in print.",
+    listenMinutes: 8,
+    time: 'W/P + O(T∞) expected',
+    space: 'O(P) deques',
+    baseline: 'Central shared queue',
+    vite: 'work-stealing-random-victims',
+    html: 'work-stealing-random-victims/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Work stealing', heuristic: 'Randomized victim selection', domain: 'Task-parallel scheduling' },
   { algorithm: 'Rapidly-exploring random tree', heuristic: 'Voronoi-biased sampling', domain: 'Motion planning' },
   { algorithm: 'Paxos', heuristic: 'Proposer-acceptor quorums', domain: 'Distributed consensus' },
 ];

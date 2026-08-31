@@ -16,10 +16,23 @@ interpreting any build prompt; recent commits are the canonical disambiguator.
    what was verified and how. `npm run check` runs `npm test` last, which
    SSR-loads the real page data modules: a green build does NOT prove a page
    renders, since Vite never executes client code at build time.
-4. **Zero-cost audio by default.** The Listen feature uses the browser's Web
-   Speech API only. Never wire a paid TTS provider (OpenAI, ElevenLabs,
-   Google, Amazon) without the owner's explicit go-ahead in the moment; see
-   `docs/TTS-TELEMETRY.md` for the costed upgrade paths.
+4. **Preserved narration is part of every new puzzle.** The production Kalman
+   pilot is the reference implementation. Starting with puzzle 115, a
+   Fable-authored page is not complete until it has two validated, published
+   Chirp 3 HD tracks over the same complete canonical narration array: female
+   Aoede and male Algieba. Aoede is the fresh-reader default. Selecting either
+   voice, including returning to Aoede, resets playback to `1.25x`. The only
+   controls are `1.00x`, `1.25x`, `1.50x`, and `1.75x`. Include every authored
+   spoken-prose entry in order, including code-walkthrough prose; exclude
+   actual executable code and interface chrome. Missing, pending, or invalid
+   preserved audio is a ship blocker and must never fall back to browser Web
+   Speech. Initial dual-track generation for newly completed owner-requested
+   pages has standing owner consent within the $1,200 cross-domain fleet
+   budget when it remains bound to reviewed text, exact selection and hash,
+   current price, an explicit `--max-usd` ceiling, an exclusive lock, and
+   fail-closed outcome rules. Sitewide backfill, post-publication regeneration,
+   and any retry after an ambiguous outcome still require human review. See
+   `infra/narration/README.md` and `docs/TTS-TELEMETRY.md`.
 5. **Telemetry is truthful or absent.** Usage events carry characters spoken
    and the engine name; dollars are derived desk-side from token counts
    (zero for browser speech). Never invent a price, never log synthetic
@@ -50,12 +63,14 @@ interpreting any build prompt; recent commits are the canonical disambiguator.
    name odd-symbols (+, *, non-ASCII), watch the uniqueness normalizer. Never
    say "family"; the middle tier is a TOPIC.
 9. **Token doctrine: subscription first.** Authoring the atlas, dedup,
-   categorization, unit content, narration, and code are subscription work
-   (reasoning/agents), never a metered API. Metered/overflow spend is for the
-   deployed runtime ONLY: the learner chatbot and any cron summarizer, plus the
-   one-time catalog embedding, and even those need an explicit in-session
-   go-ahead before a paid run. Always start with the best models (Voyage 4,
-   latest Claude); cost is not the constraint, but do not spend metered credits
+   categorization, unit content, narration prose, and code are subscription
+   work (reasoning/agents), never a metered authoring API. Synthesis does not
+   author the prose. The initial dual-track generation required by rule 4 is
+   the sole metered authoring-time exception and uses its standing consent and
+   exact spend gates. Metered/overflow spend otherwise remains limited to the
+   deployed runtime, the one-time catalog embedding, and explicitly approved
+   operations. Always start with the best models (Voyage 4, latest Claude);
+   cost is not the constraint, but do not spend unrelated metered credits
    during interactive building.
 
 10. **Fable authors the catalog itself, in the main thread, attributed.**
@@ -76,19 +91,23 @@ interpreting any build prompt; recent commits are the canonical disambiguator.
 ## The unit template
 
 Every pair page renders through `src/components/PuzzlePage.jsx`. A new pair
-touches exactly these files (scripts/check.mjs enforces lockstep):
+includes these authored files (`scripts/check.mjs` enforces lockstep):
 
 1. `src/data/puzzles.js` : registry entry (moves off ROADMAP if present)
 2. `<slug>/index.html` + `<slug>/main.jsx` : the Vite entry
 3. `src/content/<slug>.jsx` : the tight form (given/task/constraint, origins,
    roles, picture, steps, signals, baseline, strength, weakness, rivals)
-4. `src/content/<slug>.narration.js` : the spoken form, sections keyed to
-   page section ids (puzzle, origins, pair, picture, run, signals,
-   tradeoffs, code)
+4. `src/content/<slug>.narration.js` : the complete canonical spoken form,
+   sections keyed to page section ids (puzzle, origins, pair, picture, run,
+   signals, tradeoffs, code)
 5. `src/viz/<Name>Viz.jsx` : the live canvas (deterministic seed, pauses
    offscreen, static final frame under prefers-reduced-motion)
 6. `solutions/<slug>.py` : the solution with a self-test `__main__` that
    asserts correctness against an independent oracle and prints OK
+
+For puzzle 115 onward, the unit also installs its receipt-bound public
+narration manifest and wires the preserved player. The unit is not complete
+until both tracks and the no-fallback behavior pass live verification.
 
 **Rivals are mandatory.** Every unit's tradeoffs section names two or three
 other real methods (atlas entries where possible) that could viably attack

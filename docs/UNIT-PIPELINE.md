@@ -39,7 +39,13 @@ the operational detail layer.
 4. **Narration** (`src/content/<slug>.narration.js`): ~10 sections
    from {puzzle, origins, pair, picture, run, signals, tradeoffs (x4),
    code}; numbers spelled out for the ear; the code section describes
-   the oracles and ends with the would-fail-before-lying line.
+   the oracles and ends with the would-fail-before-lying line. This complete
+   array is the sole spoken source. Include its code-walkthrough prose, but
+   exclude actual executable source and interface chrome. Starting with puzzle
+   115, plan, generate, validate, publish, and install both preserved tracks:
+   Aoede female and Algieba male over identical text. Aoede is the default,
+   selecting either voice resets to `1.25x`, and the only rates are `1.00x`,
+   `1.25x`, `1.50x`, and `1.75x`. Browser Web Speech is not a fallback.
 5. **Viz** (`src/viz/<Name>Viz.jsx`): useCanvasLoop with `stepMs:` and
    `holdTicks(s)` (the motion test regex requires both), deterministic
    seed + cycle bump, `stopAtRest: isStill()` returning false when
@@ -58,14 +64,18 @@ the operational detail layer.
 8. **Plan** `docs/OVERNIGHT-PLAN.md`: mark the F item `[x]` with the
    measured numbers, update the resume pointer. Queue extensions: add
    new `[ ]` F rows only with atlas-verified names.
-9. **Verify + ship**: `npm run build` (exit 0), `npm run check` (ALL
-   CHECKS PASS; watch: banned-word scan caught a narration aside once,
-   em dashes never allowed), `npm test` (21/21; the rest sweep covers
-   every viz with stepMs). Commit (verbose: claim -> numbers -> files
-   -> oracles -> verification; trailer `Co-Authored-By: Claude Fable 5
-   <noreply@anthropic.com>` + Claude-Session line). Push, assert
-   HEAD==origin, `netlify deploy --prod`, curl the new page for 200.
-   THEN start the next unit.
+9. **Verify + ship**: for puzzle 115 onward, complete the credential-free
+   narration plan, use the standing fresh-page consent to generate both
+   tracks under the exact spend gates, publish immutable objects, install the
+   receipt-bound manifest, and run the narration tests. Then run `npm run
+   build` (exit 0), `npm run check` (ALL CHECKS PASS; watch: banned-word scan
+   caught a narration aside once, em dashes never allowed), and `npm test`
+   (21/21; the rest sweep covers every viz with stepMs). Commit (verbose:
+   claim -> numbers -> files -> oracles -> verification; trailer
+   `Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>` + Claude-Session
+   line). Push, assert HEAD==origin, `netlify deploy --prod`, then live-verify
+   both voices, their defaults, media origin, and no-fallback behavior. A
+   missing or pending manifest fails the unit. THEN start the next unit.
 
 ## Standing facts that keep mattering
 

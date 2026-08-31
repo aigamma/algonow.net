@@ -1,6 +1,6 @@
 # Preserved narration pilot
 
-This directory binds the SpokenHistory preserved-audio design to the single AlgoNow pilot page at `/kalman-covariance-correction/`. The two pilot tracks have been generated locally under the owner's fleet budget. This does not authorize a catalog rollout, publication, or deployment.
+This directory binds the SpokenHistory preserved-audio design to the single AlgoNow pilot page at `/kalman-covariance-correction/`. Both tracks were generated, published, installed, deployed, and production-verified in commit `7dd6dee`. This is the reference implementation for every new Fable-authored page. Initial dual-track generation for those new pages has standing owner consent under CLAUDE.md rule 4. The legacy catalog backfill remains behind human listening review.
 
 ## What AlgoNow used before this pilot
 
@@ -30,10 +30,10 @@ The live James Bevel proof of concept predates that snapshot and has older rate 
 | Billing project | `aigamma` | The project is part of the reviewed approval artifact. Execution and reconciliation reject every other project before credential access. |
 | Provider voices | Aoede and Algieba | `en-US-Chirp3-HD-Aoede` is the default female voice. `en-US-Chirp3-HD-Algieba` is the alternate male voice. Both receive identical text. |
 | Synthesis rate | Provider-natural `1` | Pitch remains the provider default. Playback speed does not create extra audio objects. |
-| Fresh-reader playback | Aoede at `1.25x` | Switching to Algieba also uses `1.25x` unless the reader explicitly changes speed. |
+| Fresh-reader playback | Aoede at `1.25x` | Selecting either Aoede or Algieba resets playback to `1.25x`. |
 | Rate controls | `1.00x`, `1.25x`, `1.50x`, `1.75x` | These are the only pilot values, with two-decimal labels. |
-| Public manifest | Generated local entry has the exact `source_characters`, `default_voice: "aoede"`, `default_rate: 1.25`, and the four rate options | Installation into page data waits for validated audio and a separately reviewed publication path. |
-| Public media origin | `infra/media-cdn/template.yaml`, not yet deployed or bound to public identifiers | Publication requires the exact deployed stack, Region, private bucket, CloudFront distribution ID, and CloudFront domain as explicit operator arguments. Do not expose the private bucket, account ID, local path, or credential in a public manifest. |
+| Public manifest | `src/data/narration/kalman-covariance-correction.json` has the exact `source_characters`, `default_voice: "aoede"`, `default_rate: 1.25`, and four rate options | The installed manifest is receipt-bound and contains no local file or private-origin value. |
+| Public media origin | Stack `algonow-media-prod`, distribution `E1BJWNL5BP3R8E`, domain `d1odatz89tx6pl.cloudfront.net` | The S3 origin remains private. Operator commands still require the exact private bucket, but no private bucket, account ID, local path, or credential appears in the public manifest. |
 | Page-view provider access | None | The browser must request only preserved public MP3 files, and only after the reader opens the player. |
 | Section chips | Disabled for the preserved pilot | Whole-track generation has no exact section offsets. Do not estimate offsets from character ratios and do not claim that playback was positioned at a section. |
 
@@ -129,11 +129,11 @@ The generated whole-track MP3s do not contain reviewed section cue offsets. The 
 
 ## Publication boundary
 
-This foundation does not upload, publish, install a public manifest, deploy, or alter production. Before those steps, bind and attest the exact public media origin, use immutable content-addressed object keys, reject overwrites, strip every `local_file`, scan the public manifest recursively for private values, verify full MP3 hashes and byte-range behavior, and complete the test-page browser acceptance pass. Only then should the pilot be considered for a site-wide rollout.
+Commit `7dd6dee` completed the guarded publication path for the Kalman pilot. It bound and attested the exact public media origin, created immutable content-addressed objects without overwrites, stripped every `local_file`, scanned the public manifest for private values, verified full MP3 hashes and byte ranges, proved direct-origin denial, and completed the production browser acceptance pass. This authorizes the tested page and the rule 4 workflow for new pages, not the legacy sitewide backfill.
 
 ## Publication, installation, and verification tooling
 
-The tooling is inert by default and no publication was performed while it was added. The publication dry run becomes available only after both validated local MP3s and `manifest-entry.json` exist:
+The tooling is inert by default. It was added without publishing in commit `83f84e4`, then executed for the exact pilot release in commit `7dd6dee`. A publication dry run is available only after both validated local MP3s and `manifest-entry.json` exist:
 
 ```powershell
 node scripts/narration/publish-kalman-narration.mjs

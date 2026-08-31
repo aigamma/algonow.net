@@ -139,6 +139,9 @@ is reserved for the **deployed runtime** only: the open-ended learner chatbot
 and any scheduled cron agent that summarizes recent activity. Embedding the
 catalog for semantic search is a one-time near-trivial metered cost (see
 `docs/RETRIEVAL.md`) and still requires an explicit go-ahead before any run.
+The one exception is initial dual-track preserved-audio synthesis for a newly
+completed page under CLAUDE.md rule 4. Synthesis reads already-authored prose
+and uses the owner's standing consent plus the exact release spend gates.
 
 ## Rivals: trade-off fluency is the product
 

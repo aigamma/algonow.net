@@ -5,10 +5,11 @@ costed, measured, and (when the owner chooses) joined to the mathlimit desk.
 
 ## What is live today
 
-The ▶ Listen feature runs on the browser's own Web Speech API. Synthesis
-happens on the visitor's device with their OS/browser voices. There is no
-audio vendor, no API key, no stream, and therefore **no dynamic cost and no
-recurring fixed cost. $0.00, structurally.**
+Most legacy pages still use the browser's own Web Speech API. The production
+Kalman page now serves preserved Aoede and Algieba MP3 tracks through
+CloudFront. A page view receives no synthesis credential and incurs no
+per-listener synthesis charge. Starting with puzzle 115, preserved dual-track
+narration is mandatory and browser Web Speech is not a fallback.
 
 Usage telemetry (anonymous, DNT/GPC-respecting, no cookies or user ids):
 
@@ -54,9 +55,9 @@ The usage series lives beside it: `POST .../rpc/algonow_tts_pacing` returns
 mathlimit repo, its Fly volume, or its Supabase project (aigamma-dev, which
 holds the live `mathlimit_*` RPCs). The sources.json line above is additive
 and reversible, but even it should wait until the paper exhibit is out of its
-fragile window. If a paid TTS model ever ships, mathlimit's `sb_price` needs
-one match arm for that model id; until then no mathlimit change of any kind
-is required.
+fragile window. Preserved playback records model `chirp3-hd-preserved` with
+zero runtime tokens, so it does not require a paid-runtime price arm. No
+mathlimit change is required for the preserved release.
 
 ## Decision 2026-08-30: preserved Chirp 3 HD narration
 
@@ -72,15 +73,19 @@ The fixed voice policy is:
 - Aoede, `en-US-Chirp3-HD-Aoede`, female, default
 - Algieba, `en-US-Chirp3-HD-Algieba`, male
 - Provider-natural generation rate
-- Browser playback default `1.25x` for either voice
+- Selecting either Aoede or Algieba resets browser playback to `1.25x`
 - Exact controls `1.00x`, `1.25x`, `1.50x`, `1.75x`
+
+Both voices receive the same complete canonical narration array in authored
+order. That includes the prose which explains the code and excludes actual
+executable source, copy controls, navigation, and other interface chrome.
 
 The Kalman covariance correction lesson is the pilot. Its reviewed adapter
 contains 9,741 characters per voice and 19,482 billable characters across
 both voices. At the official Chirp 3 HD list price of $30 per million
-characters, its exact planning amount is `$0.584460`. The full current
-114-lesson inventory was estimated separately at `$64.052940` for two voices,
-but it is not authorized by a pilot command.
+characters, its exact planning amount is `$0.584460`. The legacy 114-lesson
+sitewide backfill was estimated separately at `$64.052940` for two voices. It
+remains outside the one-page pilot and requires human review before execution.
 
 The owner has established a `$1,200` Google Cloud budget for narration across
 12 major domains. A Google Cloud budget is monitoring and alerting, not a hard
@@ -94,15 +99,23 @@ of the following:
 - an exclusive generation lock
 - a fail-closed policy for ambiguous provider outcomes
 
+Initial dual-track generation for each newly completed owner-requested page is
+already pre-consented within the $1,200 fleet budget. It needs no new per-page
+prompt when every gate above holds. This standing consent does not authorize
+the legacy catalog backfill, regeneration of an already published page, or a
+retry after an ambiguous provider outcome.
+
 The pilot runbook and immutable release contract are in
-`infra/narration/README.md`. Fleet rollout begins only after the pilot audio,
-player, CDN headers, byte-range behavior, accessibility, and telemetry have
-been verified on the production Kalman page.
+`infra/narration/README.md`. The Kalman audio, player, CDN headers, byte-range
+behavior, direct-origin denial, defaults, and both live tracks passed
+production verification on 2026-08-31. The new-page rule is active; legacy
+sitewide backfill remains behind the owner's listening review.
 
 ## Cost model
 
-Browser Web Speech remains the zero-cost baseline on pages without a
-preserved release. Preserved playback records model
+Browser Web Speech is legacy-only. It may remain on pages awaiting the
+reviewed backfill, but it is never a fallback for a required new preserved
+release. Preserved playback records model
 `chirp3-hd-preserved` with zero runtime tokens because the browser only reads
 an already generated MP3. Generation cost is recorded in the reviewed plan
 and release provenance, not invented from client playback events.

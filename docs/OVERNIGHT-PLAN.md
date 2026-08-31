@@ -3551,8 +3551,10 @@ they are the ones most easily lost mid-run):
    origin before moving on.
 2. Fable authors catalog entries and page content in the main thread. No
    subagents for entries, no generation from project code.
-3. No paid API calls during interactive building. Qdrant embedding waits for
-   an explicit go-ahead.
+3. No paid API calls during interactive building except the rule 4 initial
+   dual-track generation for a newly completed page under standing consent.
+   Qdrant embedding, sitewide narration backfill, and regeneration still need
+   explicit human approval.
 4. No em dashes anywhere. Never the word "h*artbeat"; say keepalive or
    liveness check.
 5. Every claim in a commit message must be cashed out against build exit

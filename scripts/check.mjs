@@ -22,6 +22,17 @@ const warn = (msg) => {
 const NARRATION_SECTIONS = new Set([
   'puzzle', 'origins', 'pair', 'picture', 'run', 'signals', 'tradeoffs', 'code',
 ]);
+const PRESERVED_NARRATION_REQUIRED_FROM = 115;
+const PRESERVED_NARRATION_RATES = [
+  { value: 1, label: '1.00x' },
+  { value: 1.25, label: '1.25x' },
+  { value: 1.5, label: '1.50x' },
+  { value: 1.75, label: '1.75x' },
+];
+const PRESERVED_NARRATION_TRACKS = {
+  aoede: { gender: 'female', voice_id: 'en-US-Chirp3-HD-Aoede' },
+  algieba: { gender: 'male', voice_id: 'en-US-Chirp3-HD-Algieba' },
+};
 
 // 0. Registry keys are unique IN THE SOURCE. A duplicate object key
 // silently overrides its twin at import time (esbuild only warns), so
@@ -80,6 +91,59 @@ for (const p of Object.values(PUZZLES)) {
   const unknown = sections.filter((s) => !NARRATION_SECTIONS.has(s));
   if (unknown.length) fail(`${p.slug}: unknown narration sections ${unknown.join(',')}`);
   if (sections.length < 6) fail(`${p.slug}: only ${sections.length} narration sections`);
+
+  // Rule 4 is prospective while the legacy catalog awaits human review.
+  // A new unit cannot quietly inherit the browser-speech fallback: it must
+  // carry the complete published two-track contract and wire the preserved
+  // player before the registry accepts it as live.
+  if (p.slug === 'kalman-covariance-correction'
+    || p.number >= PRESERVED_NARRATION_REQUIRED_FROM) {
+    const manifestPath = `src/data/narration/${p.slug}.json`;
+    const mainPath = `${p.slug}/main.jsx`;
+    if (!existsSync(manifestPath)) {
+      fail(`${p.slug}: preserved narration manifest is required`);
+    } else {
+      try {
+        const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+        if (manifest.status === 'pending') {
+          fail(`${p.slug}: preserved narration manifest is still pending`);
+        }
+        if (manifest.content_id !== `puzzle:${p.slug}`) {
+          fail(`${p.slug}: preserved narration content_id mismatch`);
+        }
+        if (manifest.source_path !== `src/content/${p.slug}.narration.js`) {
+          fail(`${p.slug}: preserved narration source_path mismatch`);
+        }
+        if (manifest.default_voice !== 'aoede' || manifest.default_rate !== 1.25) {
+          fail(`${p.slug}: preserved narration must default to Aoede at 1.25x`);
+        }
+        if (JSON.stringify(manifest.rate_options) !== JSON.stringify(PRESERVED_NARRATION_RATES)) {
+          fail(`${p.slug}: preserved narration rate controls are not exact`);
+        }
+        for (const [trackId, expected] of Object.entries(PRESERVED_NARRATION_TRACKS)) {
+          const track = manifest.tracks?.[trackId];
+          if (!track
+            || track.gender !== expected.gender
+            || track.voice_id !== expected.voice_id
+            || typeof track.object_key !== 'string'
+            || !track.object_key.trim()) {
+            fail(`${p.slug}: complete preserved ${trackId} track is required`);
+          }
+        }
+      } catch (error) {
+        fail(`${p.slug}: preserved narration manifest is invalid JSON (${error.message})`);
+      }
+    }
+
+    const mainSrc = readFileSync(mainPath, 'utf8');
+    if (!mainSrc.includes(`src/data/narration/${p.slug}.json`)
+      || !mainSrc.includes('PreservedListenPlayer')
+      || !mainSrc.includes('narrationPlayer={narrationPlayer}')) {
+      fail(`${p.slug}: entry must wire the preserved narration player and manifest`);
+    } else {
+      ok(`${p.slug}: preserved dual-voice narration contract complete`);
+    }
+  }
 
   // The comparative standard (owner directive 2026-07-22): a unit that teaches
   // one method in isolation fails the site's purpose even when it is correct.

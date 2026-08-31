@@ -1,0 +1,227 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Least-privilege AWS roles for the AlgoNow preserved narration pilot
+
+Parameters:
+  BrokerArn:
+    Type: String
+    Description: ARN of the temporary no-console IAM user allowed to assume the operator roles.
+    AllowedPattern: '^arn:aws:iam::[0-9]{12}:user/bootstrap/algonow-role-broker-[a-z0-9-]+$'
+
+Resources:
+  MediaCloudFormationServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: algonow-media-cloudformation-service
+      Path: /algonow/
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: CloudFormationOnly
+            Effect: Allow
+            Principal:
+              Service: cloudformation.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: algonow-media-stack-resources
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: ManagePrivateMediaBucket
+                Effect: Allow
+                Action:
+                  - s3:CreateBucket
+                  - s3:DeleteBucket
+                  - s3:DeleteBucketPolicy
+                  - s3:DeleteBucketWebsite
+                  - s3:GetBucketAcl
+                  - s3:GetBucketLocation
+                  - s3:GetBucketOwnershipControls
+                  - s3:GetBucketPolicy
+                  - s3:GetBucketPublicAccessBlock
+                  - s3:GetBucketTagging
+                  - s3:GetBucketVersioning
+                  - s3:GetEncryptionConfiguration
+                  - s3:GetLifecycleConfiguration
+                  - s3:ListBucket
+                  - s3:PutBucketOwnershipControls
+                  - s3:PutBucketPolicy
+                  - s3:PutBucketPublicAccessBlock
+                  - s3:PutBucketTagging
+                  - s3:PutBucketVersioning
+                  - s3:PutEncryptionConfiguration
+                  - s3:PutLifecycleConfiguration
+                Resource: 'arn:aws:s3:::algonow-net-media-prod-*'
+              - Sid: ManageMediaDistributionAndOriginAccessControl
+                Effect: Allow
+                Action:
+                  - cloudfront:CreateDistribution
+                  - cloudfront:CreateOriginAccessControl
+                  - cloudfront:DeleteDistribution
+                  - cloudfront:DeleteOriginAccessControl
+                  - cloudfront:GetCachePolicy
+                  - cloudfront:GetDistribution
+                  - cloudfront:GetDistributionConfig
+                  - cloudfront:GetOriginAccessControl
+                  - cloudfront:GetOriginAccessControlConfig
+                  - cloudfront:GetResponseHeadersPolicy
+                  - cloudfront:ListTagsForResource
+                  - cloudfront:TagResource
+                  - cloudfront:UntagResource
+                  - cloudfront:UpdateDistribution
+                  - cloudfront:UpdateOriginAccessControl
+                Resource: '*'
+      Tags:
+        - Key: Client
+          Value: aigamma
+        - Key: Project
+          Value: algonow.net
+        - Key: Environment
+          Value: production
+        - Key: ManagedBy
+          Value: CloudFormation
+
+  MediaInfrastructureOperatorRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: algonow-media-infra-operator
+      Path: /algonow/
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: TemporaryBrokerOnly
+            Effect: Allow
+            Principal:
+              AWS: !Ref BrokerArn
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: algonow-media-stack-operator
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: ValidateReviewedTemplate
+                Effect: Allow
+                Action:
+                  - cloudformation:ValidateTemplate
+                Resource: '*'
+                Condition:
+                  StringEquals:
+                    aws:RequestedRegion: us-east-2
+              - Sid: CreateOrUpdateExactMediaStack
+                Effect: Allow
+                Action:
+                  - cloudformation:CreateStack
+                  - cloudformation:UpdateStack
+                Resource: !Sub 'arn:${AWS::Partition}:cloudformation:us-east-2:${AWS::AccountId}:stack/algonow-media-prod/*'
+                Condition:
+                  StringEquals:
+                    aws:RequestedRegion: us-east-2
+                    cloudformation:RoleArn: !GetAtt MediaCloudFormationServiceRole.Arn
+              - Sid: ReadExactMediaStack
+                Effect: Allow
+                Action:
+                  - cloudformation:DescribeStackEvents
+                  - cloudformation:DescribeStackResource
+                  - cloudformation:DescribeStackResources
+                  - cloudformation:DescribeStacks
+                  - cloudformation:GetTemplate
+                Resource: !Sub 'arn:${AWS::Partition}:cloudformation:us-east-2:${AWS::AccountId}:stack/algonow-media-prod/*'
+                Condition:
+                  StringEquals:
+                    aws:RequestedRegion: us-east-2
+              - Sid: PassExactMediaServiceRole
+                Effect: Allow
+                Action: iam:PassRole
+                Resource: !GetAtt MediaCloudFormationServiceRole.Arn
+                Condition:
+                  StringEquals:
+                    iam:PassedToService: cloudformation.amazonaws.com
+      Tags:
+        - Key: Client
+          Value: aigamma
+        - Key: Project
+          Value: algonow.net
+        - Key: Environment
+          Value: production
+        - Key: ManagedBy
+          Value: CloudFormation
+
+  NarrationPublisherRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: algonow-narration-publisher
+      Path: /algonow/
+      MaxSessionDuration: 3600
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: TemporaryBrokerOnly
+            Effect: Allow
+            Principal:
+              AWS: !Ref BrokerArn
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: publish-kalman-preserved-narration
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: IdentifyPublisherSession
+                Effect: Allow
+                Action: sts:GetCallerIdentity
+                Resource: '*'
+              - Sid: InspectExactMediaStack
+                Effect: Allow
+                Action:
+                  - cloudformation:DescribeStackResource
+                  - cloudformation:DescribeStacks
+                Resource: !Sub 'arn:${AWS::Partition}:cloudformation:us-east-2:${AWS::AccountId}:stack/algonow-media-prod/*'
+                Condition:
+                  StringEquals:
+                    aws:RequestedRegion: us-east-2
+              - Sid: InspectPrivateMediaBucket
+                Effect: Allow
+                Action:
+                  - s3:GetBucketLocation
+                  - s3:GetBucketOwnershipControls
+                  - s3:GetBucketPolicy
+                  - s3:GetBucketPublicAccessBlock
+                  - s3:GetBucketVersioning
+                  - s3:GetEncryptionConfiguration
+                  - s3:ListBucket
+                Resource: 'arn:aws:s3:::algonow-net-media-prod-*'
+              - Sid: PublishOnlyReviewedKalmanObjects
+                Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                Resource:
+                  - 'arn:aws:s3:::algonow-net-media-prod-*/narration/v1/puzzles/kalman-covariance-correction/3e987b927c5f7958cb3f/aoede-c39dd3d548d70421.mp3'
+                  - 'arn:aws:s3:::algonow-net-media-prod-*/narration/v1/puzzles/kalman-covariance-correction/3e987b927c5f7958cb3f/algieba-d6348a408d01758f.mp3'
+              - Sid: InspectMediaDistribution
+                Effect: Allow
+                Action:
+                  - cloudfront:GetDistribution
+                Resource: !Sub 'arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/*'
+              - Sid: InspectMediaOriginAccessControl
+                Effect: Allow
+                Action:
+                  - cloudfront:GetOriginAccessControl
+                Resource: '*'
+      Tags:
+        - Key: Client
+          Value: aigamma
+        - Key: Project
+          Value: algonow.net
+        - Key: Environment
+          Value: production
+        - Key: ManagedBy
+          Value: CloudFormation
+
+Outputs:
+  CloudFormationServiceRoleArn:
+    Value: !GetAtt MediaCloudFormationServiceRole.Arn
+  InfrastructureOperatorRoleArn:
+    Value: !GetAtt MediaInfrastructureOperatorRole.Arn
+  NarrationPublisherRoleArn:
+    Value: !GetAtt NarrationPublisherRole.Arn

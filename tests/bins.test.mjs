@@ -101,3 +101,24 @@ test('aggregate drops events outside the window and groups future paid models', 
     out_tok: 1000,
   });
 });
+
+test('validateBatch preserves the recorded-audio engine with zero runtime tokens', () => {
+  const out = validateBatch(
+    JSON.stringify(
+      batch([{
+        e: 'play',
+        chars: 0,
+        voice: 'Aoede',
+        rate: 1.25,
+        m: 'chirp3-hd-preserved',
+        it: 0,
+        ot: 0,
+        t: ms(T0),
+      }])
+    )
+  );
+  assert.ok(out);
+  assert.equal(out.events[0].m, 'chirp3-hd-preserved');
+  assert.equal(out.events[0].it, 0);
+  assert.equal(out.events[0].ot, 0);
+});

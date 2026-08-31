@@ -54,9 +54,25 @@ export function flushNow() {
 // e: 'play' | 'progress' | 'complete' | 'stop'. chars is the number of
 // narration characters newly spoken since the previous event (a delta, so
 // the server can sum without double counting).
-export function record(e, { chars = 0, voice = '', rate = 1 } = {}) {
+export function record(e, {
+  chars = 0,
+  voice = '',
+  rate = 1,
+  m = 'web-speech',
+  it = 0,
+  ot = 0,
+} = {}) {
   if (!enabled) return;
-  queue.push({ e, chars: Math.round(chars), voice: String(voice).slice(0, 80), rate, t: Date.now() });
+  queue.push({
+    e,
+    chars: Math.round(chars),
+    voice: String(voice).slice(0, 80),
+    rate,
+    m: String(m).slice(0, 40),
+    it: Math.max(0, Math.round(Number(it) || 0)),
+    ot: Math.max(0, Math.round(Number(ot) || 0)),
+    t: Date.now(),
+  });
   if (queue.length >= FLUSH_AT) flush();
   if (!timer) {
     timer = setTimeout(() => {

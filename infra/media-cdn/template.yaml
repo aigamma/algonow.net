@@ -1,0 +1,213 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Private S3 origin and CloudFront distribution for public AlgoNow media
+
+Parameters:
+  DomainName:
+    Type: String
+    Default: algonow.net
+    Description: Human-readable domain used in cost allocation tags.
+    AllowedPattern: '^[a-zA-Z0-9][a-zA-Z0-9.-]{1,61}[a-zA-Z0-9]$'
+
+  DomainSlug:
+    Type: String
+    Default: algonow-net
+    Description: DNS-safe domain identifier used to derive resource names.
+    MinLength: 3
+    MaxLength: 21
+    AllowedPattern: '^[a-z0-9][a-z0-9-]*[a-z0-9]$'
+
+  Client:
+    Type: String
+    Default: aigamma
+    Description: Portfolio owner used in cost allocation tags.
+    AllowedPattern: '^[a-zA-Z0-9][a-zA-Z0-9._-]{0,62}$'
+
+  Environment:
+    Type: String
+    Default: production
+    Description: Deployment environment used in cost allocation tags.
+    AllowedValues:
+      - production
+      - staging
+      - development
+
+  CostCenter:
+    Type: String
+    Default: algonow
+    Description: Cost allocation value shared by the stack resources.
+    AllowedPattern: '^[a-zA-Z0-9][a-zA-Z0-9._-]{0,62}$'
+
+  CloudFrontPriceClass:
+    Type: String
+    Default: PriceClass_100
+    Description: Edge-location set selected for a primarily North American audience.
+    AllowedValues:
+      - PriceClass_100
+      - PriceClass_200
+      - PriceClass_All
+
+Mappings:
+  EnvironmentCodes:
+    production:
+      Code: prod
+    staging:
+      Code: stg
+    development:
+      Code: dev
+
+Resources:
+  MediaBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      BucketNamePrefix: !Sub
+        - '${DomainSlug}-media-${EnvironmentCode}'
+        - EnvironmentCode: !FindInMap [EnvironmentCodes, !Ref Environment, Code]
+      BucketNamespace: account-regional
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      LifecycleConfiguration:
+        Rules:
+          - Id: AbortIncompleteMultipartUploads
+            Status: Enabled
+            AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 7
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      VersioningConfiguration:
+        Status: Enabled
+      Tags:
+        - Key: Name
+          Value: !Sub
+            - '${DomainSlug}-media-${EnvironmentCode}'
+            - EnvironmentCode: !FindInMap [EnvironmentCodes, !Ref Environment, Code]
+        - Key: Client
+          Value: !Ref Client
+        - Key: Project
+          Value: !Ref DomainName
+        - Key: Environment
+          Value: !Ref Environment
+        - Key: CostCenter
+          Value: !Ref CostCenter
+        - Key: Workload
+          Value: media-cdn
+        - Key: DataClassification
+          Value: public
+        - Key: ManagedBy
+          Value: CloudFormation
+
+  MediaOriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Description: !Sub 'Private S3 access for ${DomainName} ${Environment} media'
+        Name: !Sub
+          - '${DomainSlug}-media-${EnvironmentCode}-${AWS::Region}-oac'
+          - EnvironmentCode: !FindInMap [EnvironmentCodes, !Ref Environment, Code]
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  MediaDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Comment: !Sub '${DomainName} ${Environment} public media CDN'
+        DefaultCacheBehavior:
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachedMethods:
+            - GET
+            - HEAD
+          CachePolicyId: b2884449-e4de-46a7-ac36-70bc7f1ddd6d
+          Compress: false
+          ResponseHeadersPolicyId: e61eb60c-9c35-4d20-a928-2b84e02af89c
+          TargetOriginId: S3MediaOrigin
+          ViewerProtocolPolicy: redirect-to-https
+        Enabled: true
+        HttpVersion: http2and3
+        IPV6Enabled: true
+        Origins:
+          - DomainName: !GetAtt MediaBucket.RegionalDomainName
+            Id: S3MediaOrigin
+            OriginAccessControlId: !GetAtt MediaOriginAccessControl.Id
+            S3OriginConfig:
+              OriginAccessIdentity: ''
+        PriceClass: !Ref CloudFrontPriceClass
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: true
+      Tags:
+        - Key: Name
+          Value: !Sub
+            - '${DomainSlug}-media-${EnvironmentCode}-cdn'
+            - EnvironmentCode: !FindInMap [EnvironmentCodes, !Ref Environment, Code]
+        - Key: Client
+          Value: !Ref Client
+        - Key: Project
+          Value: !Ref DomainName
+        - Key: Environment
+          Value: !Ref Environment
+        - Key: CostCenter
+          Value: !Ref CostCenter
+        - Key: Workload
+          Value: media-cdn
+        - Key: DataClassification
+          Value: public
+        - Key: ManagedBy
+          Value: CloudFormation
+
+  MediaBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref MediaBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: AllowCloudFrontReadOnly
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action:
+              - s3:GetObject
+            Resource: !Sub '${MediaBucket.Arn}/*'
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub 'arn:${AWS::Partition}:cloudfront::${AWS::AccountId}:distribution/${MediaDistribution}'
+          - Sid: DenyInsecureTransport
+            Effect: Deny
+            Principal: '*'
+            Action:
+              - s3:*
+            Resource:
+              - !GetAtt MediaBucket.Arn
+              - !Sub '${MediaBucket.Arn}/*'
+            Condition:
+              Bool:
+                aws:SecureTransport: 'false'
+
+Outputs:
+  BucketName:
+    Description: Private S3 media bucket name.
+    Value: !Ref MediaBucket
+
+  DistributionId:
+    Description: CloudFront distribution identifier.
+    Value: !Ref MediaDistribution
+
+  DistributionDomainName:
+    Description: CloudFront hostname assigned by AWS.
+    Value: !GetAtt MediaDistribution.DomainName
+
+  MediaBaseUrl:
+    Description: Public base URL used by the web application.
+    Value: !Sub 'https://${MediaDistribution.DomainName}'

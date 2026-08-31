@@ -12,11 +12,11 @@ function listen(section) {
   window.dispatchEvent(new CustomEvent('algonow:listen', { detail: { section } }));
 }
 
-function SectionHead({ id, label, section }) {
+function SectionHead({ canListen, id, label, section }) {
   return (
     <h2 className="eyebrow" id={`head-${id}`}>
       {label}
-      {ttsAvailable() && (
+      {canListen && (
         <button
           type="button"
           className="chip"
@@ -35,7 +35,7 @@ function SectionHead({ id, label, section }) {
 // polished structure (puzzle card, the pair, picture, run, signals,
 // trade-offs, solution) stays identical across the catalog; content objects
 // supply only the substance.
-export default function PuzzlePage({ puzzle, content }) {
+export default function PuzzlePage({ puzzle, content, narrationPlayer = null }) {
   const {
     given,
     task,
@@ -67,6 +67,14 @@ export default function PuzzlePage({ puzzle, content }) {
 
   const next = nextPuzzle(puzzle);
   const num = String(puzzle.number).padStart(2, '0');
+  const PreservedPlayer = narrationPlayer?.Component || null;
+  const hasPreservedNarration = Boolean(PreservedPlayer);
+  const canListen = hasPreservedNarration || ttsAvailable();
+  const sectionHeadProps = {
+    // Whole-track preserved MP3s do not carry exact section offsets. Keep the
+    // old section entry points off instead of offering an approximate seek.
+    canListen: !hasPreservedNarration && ttsAvailable(),
+  };
 
   return (
     <SiteShell>
@@ -90,15 +98,25 @@ export default function PuzzlePage({ puzzle, content }) {
             </span>
             <span className="chip">time {puzzle.time}</span>
             <span className="chip">space {puzzle.space}</span>
-            <button
-              type="button"
-              className="btn btn-listen"
-              onClick={() => listen(null)}
-              disabled={!ttsAvailable()}
-              title={ttsAvailable() ? undefined : 'Listening needs a browser with speech synthesis'}
-            >
-              ▶ Listen · ~{puzzle.listenMinutes} min
-            </button>
+            {hasPreservedNarration ? (
+              <PreservedPlayer
+                label={`Listen to ${puzzle.algorithm} × ${puzzle.heuristic}`}
+                listenMinutes={puzzle.listenMinutes}
+                manifest={narrationPlayer.manifest}
+                mediaBaseUrl={narrationPlayer.mediaBaseUrl}
+                narration={narration}
+              />
+            ) : (
+              <button
+                type="button"
+                className="btn btn-listen"
+                onClick={() => listen(null)}
+                disabled={!canListen}
+                title={canListen ? undefined : 'Listening needs a browser with speech synthesis'}
+              >
+                ▶ Listen · ~{puzzle.listenMinutes} min
+              </button>
+            )}
           </div>
         </section>
 
@@ -107,7 +125,7 @@ export default function PuzzlePage({ puzzle, content }) {
         </div>
 
         <section className="section" id="sec-puzzle">
-          <SectionHead id="puzzle" label="the puzzle" />
+          <SectionHead {...sectionHeadProps} id="puzzle" label="the puzzle" />
           <div className="puzzle-card">
             <div className="pz-row">
               <span className="pz-label">given</span>
@@ -125,12 +143,12 @@ export default function PuzzlePage({ puzzle, content }) {
         </section>
 
         <section className="section" id="sec-origins">
-          <SectionHead id="origins" label="origins" />
+          <SectionHead {...sectionHeadProps} id="origins" label="origins" />
           {origins}
         </section>
 
         <section className="section" id="sec-pair">
-          <SectionHead id="pair" label="the pair" />
+          <SectionHead {...sectionHeadProps} id="pair" label="the pair" />
           <div className="pair-split">
             <div className="pair-role role-algo">
               <span className="role-tag">algorithm · the control structure</span>
@@ -146,13 +164,13 @@ export default function PuzzlePage({ puzzle, content }) {
         </section>
 
         <section className="section" id="sec-picture">
-          <SectionHead id="picture" label="street-level picture" />
+          <SectionHead {...sectionHeadProps} id="picture" label="street-level picture" />
           {picture}
           {figure}
         </section>
 
         <section className="section" id="sec-run">
-          <SectionHead id="run" label="how it runs" />
+          <SectionHead {...sectionHeadProps} id="run" label="how it runs" />
           <ol className="steps">
             {steps.map((s, i) => (
               <li key={i}>{s}</li>
@@ -161,7 +179,7 @@ export default function PuzzlePage({ puzzle, content }) {
         </section>
 
         <section className="section" id="sec-signals">
-          <SectionHead id="signals" label="when to reach for it" />
+          <SectionHead {...sectionHeadProps} id="signals" label="when to reach for it" />
           <ul className="signal-list">
             {signals.map((s, i) => (
               <li key={i}>{s}</li>
@@ -185,7 +203,7 @@ export default function PuzzlePage({ puzzle, content }) {
         </section>
 
         <section className="section" id="sec-tradeoffs">
-          <SectionHead id="tradeoffs" label="trade-offs" />
+          <SectionHead {...sectionHeadProps} id="tradeoffs" label="trade-offs" />
           <div className="tradeoffs">
             <div className="tradeoff t-strength">
               <h3>strength</h3>
@@ -206,7 +224,12 @@ export default function PuzzlePage({ puzzle, content }) {
         </section>
 
         <section className="section" id="sec-contest">
-          <SectionHead id="contest" label="the same instance, every method" section="tradeoffs" />
+          <SectionHead
+            {...sectionHeadProps}
+            id="contest"
+            label="the same instance, every method"
+            section="tradeoffs"
+          />
           <ContestTable
             instance={contest.instance}
             columns={contest.columns}
@@ -216,7 +239,7 @@ export default function PuzzlePage({ puzzle, content }) {
         </section>
 
         <section className="section" id="sec-code">
-          <SectionHead id="code" label="the solution, in Python" />
+          <SectionHead {...sectionHeadProps} id="code" label="the solution, in Python" />
           <CodeBlock code={code} filename={filename} />
         </section>
 
@@ -236,11 +259,13 @@ export default function PuzzlePage({ puzzle, content }) {
           </a>
         </div>
       </div>
-      <ListenPlayer
-        narration={narration}
-        listenMinutes={puzzle.listenMinutes}
-        nextPair={next.slug === puzzle.slug ? null : { title: pairTitle(next), path: puzzlePath(next) }}
-      />
+      {!hasPreservedNarration ? (
+        <ListenPlayer
+          narration={narration}
+          listenMinutes={puzzle.listenMinutes}
+          nextPair={next.slug === puzzle.slug ? null : { title: pairTitle(next), path: puzzlePath(next) }}
+        />
+      ) : null}
     </SiteShell>
   );
 }

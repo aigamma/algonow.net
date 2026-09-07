@@ -1,0 +1,14 @@
+{
+  "schema": "codexproof-vendored-runtime/v1",
+  "text_hash_encoding": "utf8-lf",
+  "core_revision": "63d6615c4663aa56912c8ec00bb79f51469d5f67",
+  "files": {
+    "identity.mjs": "b2cef5c1a58d50cb861ac4e512e8eb61d8e079e96d5ce965c1bf8c75217a3bba",
+    "consumer.mjs": "65589b90352cd35ada01301abc31ceaf232ec6d9661932707339ab6d8170174c",
+    "capture.mjs": "86c92ea081ee56c450988177b66901b2481fe325eab127721834e2ca39102cf3",
+    "http.mjs": "f39c10db00bf23d40873d737b4b359b9773d2e743ac9e6c485ec4e20c1cd950d",
+    "core-loader.mjs": "64596651a69cb2b5926283c9bcafed38c0d5730ef93ce93913f408a795995dff",
+    "core/prov_wasm.js": "4b31dd0351bec764379f89ea735abbeb18af270cc18c09ef53115b1d8bcd729f",
+    "core/prov_wasm_bg.wasm": "39caf277dc5d1182aae286a668be116cf476ed682cfd77ed401628d81169dc0b"
+  }
+}

@@ -34,6 +34,7 @@ primary_region = "ord"
 [mounts]
   source = "qdrant_data"
   destination = "/qdrant/storage"
+  snapshot_retention = 14
 
 [[http_service.checks]]
   path = "/readyz"

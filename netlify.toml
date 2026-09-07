@@ -10,6 +10,9 @@
 [build.environment]
   NODE_VERSION = "20"
 
+[functions.provenance]
+  included_files = ["netlify/provenance/runtime/core/*"]
+
 # API routes go to functions.
 [[redirects]]
   from = "/api/*"

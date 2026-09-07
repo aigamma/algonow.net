@@ -1,0 +1,430 @@
+{
+  "schema": "algonow-catalog-ingestion/v1",
+  "startedAt": "2026-09-07T10:56:53.457Z",
+  "generation": "4f98282fe4245689664ad6ad2134332fb2d443c5a5737803c9ed4c24c7f29c64",
+  "collection": "algonow_atlas_4f98282fe4245689",
+  "sourceCommit": "0b2272d036bf73e051e8d976ad601d3e1bb4d26a",
+  "records": 3257,
+  "model": "voyage-context-4",
+  "dimension": 1024,
+  "maxTokens": 1500000,
+  "embeddingsRequested": 3257,
+  "embeddingTokens": 186194,
+  "reused": 0,
+  "upserted": 3257,
+  "attempts": [
+    {
+      "count": 64,
+      "idsSha256": "76df4604e88b2da55954a39499a9b4c7fb63cbcb2451267ca7d9cfcfd3ba21ed",
+      "startedAt": "2026-09-07T10:56:54.775Z",
+      "outcome": "received_and_cached",
+      "tokens": 3354,
+      "completedAt": "2026-09-07T10:56:55.425Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "888bb2d146e0ef67b8bb096de1f42e5e425a80ce98a0e088a000ba0bd1e0e147",
+      "startedAt": "2026-09-07T10:56:56.238Z",
+      "outcome": "received_and_cached",
+      "tokens": 3791,
+      "completedAt": "2026-09-07T10:56:57.377Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "6854f9fbd7f1a5103cb751f6a712cd9631d0e8713b4c0b4622f7bf80b9e0e3ae",
+      "startedAt": "2026-09-07T10:56:58.243Z",
+      "outcome": "received_and_cached",
+      "tokens": 3935,
+      "completedAt": "2026-09-07T10:56:58.769Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "276292a84cdfaa9f86b67e3cd59cffbb8316d0da6727b237a41e41f739ae87d5",
+      "startedAt": "2026-09-07T10:56:59.815Z",
+      "outcome": "received_and_cached",
+      "tokens": 3981,
+      "completedAt": "2026-09-07T10:57:00.423Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "320df7e7f104377be427275e726275134b59519e4d6c8f9da6fb383d5b375ded",
+      "startedAt": "2026-09-07T10:57:01.383Z",
+      "outcome": "received_and_cached",
+      "tokens": 3622,
+      "completedAt": "2026-09-07T10:57:01.856Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "b7bac3d6abc7bc9c094323dbb02ec902ff3f878db92b135d425bdb390e33b4b3",
+      "startedAt": "2026-09-07T10:57:02.910Z",
+      "outcome": "received_and_cached",
+      "tokens": 3254,
+      "completedAt": "2026-09-07T10:57:03.403Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "37a81843d2cbf2aa5f237905f5f0cae239d95fb40f6f5d723b3368fe15d40eae",
+      "startedAt": "2026-09-07T10:57:04.334Z",
+      "outcome": "received_and_cached",
+      "tokens": 3597,
+      "completedAt": "2026-09-07T10:57:04.883Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "e633cc70a69e2b23c4401c32656bc55c16e73e76de8cab90f44869b6cc2f3d4a",
+      "startedAt": "2026-09-07T10:57:05.925Z",
+      "outcome": "received_and_cached",
+      "tokens": 3224,
+      "completedAt": "2026-09-07T10:57:06.380Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "5c0ffe2b2e60639c3bbf49c139406317dd2fa2d52b368ece27ddf212ae1a4061",
+      "startedAt": "2026-09-07T10:57:07.549Z",
+      "outcome": "received_and_cached",
+      "tokens": 3319,
+      "completedAt": "2026-09-07T10:57:08.003Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "8c50f1099cde16e9087252901e0c9123f02eb15580e9d73a296df7958a56098f",
+      "startedAt": "2026-09-07T10:57:08.985Z",
+      "outcome": "received_and_cached",
+      "tokens": 3992,
+      "completedAt": "2026-09-07T10:57:09.556Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "79ee65cb5b8d701a401ca9b72fd4e36433238726096ac3ec60e18f4a58367790",
+      "startedAt": "2026-09-07T10:57:10.562Z",
+      "outcome": "received_and_cached",
+      "tokens": 3760,
+      "completedAt": "2026-09-07T10:57:10.880Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "40dbdcde4ad30608436029db1ba15322c8738f2c9fab0a1b38ee53ae93b5e858",
+      "startedAt": "2026-09-07T10:57:11.796Z",
+      "outcome": "received_and_cached",
+      "tokens": 3592,
+      "completedAt": "2026-09-07T10:57:12.199Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "4d9447a0745513379d356df0512df15d29c9cca17051a3393580f68489e2139b",
+      "startedAt": "2026-09-07T10:57:13.245Z",
+      "outcome": "received_and_cached",
+      "tokens": 3440,
+      "completedAt": "2026-09-07T10:57:13.580Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "a710e0d468c15cfc6f75d6b7ad063caa9c4987861f03648c951e1087d9579adc",
+      "startedAt": "2026-09-07T10:57:14.487Z",
+      "outcome": "received_and_cached",
+      "tokens": 3069,
+      "completedAt": "2026-09-07T10:57:14.920Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "49fa11fbc1986260ed479be98032c462baff1ee000f6118852f1ab376e8480bd",
+      "startedAt": "2026-09-07T10:57:15.865Z",
+      "outcome": "received_and_cached",
+      "tokens": 3875,
+      "completedAt": "2026-09-07T10:57:16.303Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "1f7c737b85fbdf1c445dade9ed1e4c1722edb304d3b433ebdfbbe5008ef3c149",
+      "startedAt": "2026-09-07T10:57:17.220Z",
+      "outcome": "received_and_cached",
+      "tokens": 3833,
+      "completedAt": "2026-09-07T10:57:17.758Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "2369def1329e8fff214597d464d7432296139cdfc7131026ab49f05feb7b97ae",
+      "startedAt": "2026-09-07T10:57:18.799Z",
+      "outcome": "received_and_cached",
+      "tokens": 3889,
+      "completedAt": "2026-09-07T10:57:20.128Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "e532cd55d39e6aeca4f9c99f00b61095663d5a5eec1ba7cb4d7cc0c85386f5de",
+      "startedAt": "2026-09-07T10:57:20.958Z",
+      "outcome": "received_and_cached",
+      "tokens": 3481,
+      "completedAt": "2026-09-07T10:57:21.338Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "74255b30caab5d89e5d2b7c261d008fbaac22951899820b24c6aea1a08c6fa60",
+      "startedAt": "2026-09-07T10:57:24.895Z",
+      "outcome": "received_and_cached",
+      "tokens": 3260,
+      "completedAt": "2026-09-07T10:57:25.692Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "27d441b57fa95accf739335a6d9be88ecb4b9f3dc6fffe993f9ff5b238f361ad",
+      "startedAt": "2026-09-07T10:57:26.979Z",
+      "outcome": "received_and_cached",
+      "tokens": 3733,
+      "completedAt": "2026-09-07T10:57:27.274Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "76e935968ba95b5d9403c7006befc69431a226f8cd149bb04f245d753665dacd",
+      "startedAt": "2026-09-07T10:57:28.603Z",
+      "outcome": "received_and_cached",
+      "tokens": 3096,
+      "completedAt": "2026-09-07T10:57:29.035Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "043b4209e2524bfe6a34ebc7e15b66c2e13efaea3990a8ed0dbfc1039e15d154",
+      "startedAt": "2026-09-07T10:57:30.722Z",
+      "outcome": "received_and_cached",
+      "tokens": 3466,
+      "completedAt": "2026-09-07T10:57:31.046Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "0c5a13825921574b3320e43af6e047157f3883bfc553e840ed895e6792807ceb",
+      "startedAt": "2026-09-07T10:57:31.997Z",
+      "outcome": "received_and_cached",
+      "tokens": 3834,
+      "completedAt": "2026-09-07T10:57:32.418Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "c4adcf482bb5ebae375b036de0b66369ac00655eeeb2125a8c5f716b99a1b54a",
+      "startedAt": "2026-09-07T10:57:33.613Z",
+      "outcome": "received_and_cached",
+      "tokens": 3886,
+      "completedAt": "2026-09-07T10:57:33.931Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "0362df310ff823a5d3965c8474bdb6cfa0424d27540eed40d20347ab07edd859",
+      "startedAt": "2026-09-07T10:57:34.963Z",
+      "outcome": "received_and_cached",
+      "tokens": 3786,
+      "completedAt": "2026-09-07T10:57:35.327Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "9a3dbebd5e79a0853c101c62f416e14ddd58010b28c6ce4a325f41f1bf5ce31a",
+      "startedAt": "2026-09-07T10:57:39.201Z",
+      "outcome": "received_and_cached",
+      "tokens": 4007,
+      "completedAt": "2026-09-07T10:57:39.509Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "231327aaf547c031a7dbe7db1572ca736f6c0f3ed3afd4fb1daf01e2fdf156e1",
+      "startedAt": "2026-09-07T10:57:40.440Z",
+      "outcome": "received_and_cached",
+      "tokens": 4624,
+      "completedAt": "2026-09-07T10:57:40.791Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "b6e200e65284af83cafbe4623df4fd23577886512450d55e9f5bd4830fc88d10",
+      "startedAt": "2026-09-07T10:57:41.898Z",
+      "outcome": "received_and_cached",
+      "tokens": 3555,
+      "completedAt": "2026-09-07T10:57:42.222Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "1b6fba83503d6bf0a8007c098f377e9a4da5a24feedd83e6d3bb1114a27a58f7",
+      "startedAt": "2026-09-07T10:57:43.170Z",
+      "outcome": "received_and_cached",
+      "tokens": 3352,
+      "completedAt": "2026-09-07T10:57:43.480Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "01aeecd7f411f156ec834abbe6b85a41dbf0ea41191d9d0398641fdd48a2d84f",
+      "startedAt": "2026-09-07T10:57:44.383Z",
+      "outcome": "received_and_cached",
+      "tokens": 3592,
+      "completedAt": "2026-09-07T10:57:44.710Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "04c9ee17393883fe47addbe4c1b8a1db2819f8c40d46e4a398921ea7a7a41827",
+      "startedAt": "2026-09-07T10:57:45.588Z",
+      "outcome": "received_and_cached",
+      "tokens": 3840,
+      "completedAt": "2026-09-07T10:57:45.928Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "c01153603c446b89a74b94ebb454668f4337eca9bb78302e475d600037ab0af5",
+      "startedAt": "2026-09-07T10:57:46.766Z",
+      "outcome": "received_and_cached",
+      "tokens": 3948,
+      "completedAt": "2026-09-07T10:57:47.128Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "8de2ffbfa37b6fb35629a9660a16d20bdbef700af4026853f7948bbaa2b95a15",
+      "startedAt": "2026-09-07T10:57:47.922Z",
+      "outcome": "received_and_cached",
+      "tokens": 3401,
+      "completedAt": "2026-09-07T10:57:48.315Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "ad378d5d934695217f32cbfa5ebb5d30dc23a8e18419612247ae584cb91a5570",
+      "startedAt": "2026-09-07T10:57:49.229Z",
+      "outcome": "received_and_cached",
+      "tokens": 3958,
+      "completedAt": "2026-09-07T10:57:49.539Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "68b8f9a0ab43892d8f4d3311ccd18bd46c6ab2db6a876447d0c63074ff249bc0",
+      "startedAt": "2026-09-07T10:57:50.468Z",
+      "outcome": "received_and_cached",
+      "tokens": 3775,
+      "completedAt": "2026-09-07T10:57:50.989Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "0e59455f60ba7f2f6463a4d9c5d2114664c34448574dbef05e46cb635d0b7039",
+      "startedAt": "2026-09-07T10:57:52.044Z",
+      "outcome": "received_and_cached",
+      "tokens": 3610,
+      "completedAt": "2026-09-07T10:57:52.345Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "66b485cecb22492e5e1f6913329e8bf253b68ec0cd7d064f48fdf3ff8eb26673",
+      "startedAt": "2026-09-07T10:57:53.459Z",
+      "outcome": "received_and_cached",
+      "tokens": 3322,
+      "completedAt": "2026-09-07T10:57:53.799Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "ddb098a2776cb6d436b45eaa97201c2a7c0f4ada3132fe5ec7615ba0ce8b13d3",
+      "startedAt": "2026-09-07T10:57:54.673Z",
+      "outcome": "received_and_cached",
+      "tokens": 3187,
+      "completedAt": "2026-09-07T10:57:55.013Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "ade0654b05e21db627943f4aaad47e0accdb2597ec727783678178d6ccf7381b",
+      "startedAt": "2026-09-07T10:57:56.027Z",
+      "outcome": "received_and_cached",
+      "tokens": 4345,
+      "completedAt": "2026-09-07T10:57:56.409Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "c913421fbc4184b76c7114aaec4fe0dca89bce270a433ce70684e91b1712f4c5",
+      "startedAt": "2026-09-07T10:57:57.270Z",
+      "outcome": "received_and_cached",
+      "tokens": 3598,
+      "completedAt": "2026-09-07T10:57:57.591Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "6353b245c74f58d7cacd5a0c240f3db705a7030f67a80ea0aef995ab3a6a8500",
+      "startedAt": "2026-09-07T10:57:58.418Z",
+      "outcome": "received_and_cached",
+      "tokens": 3560,
+      "completedAt": "2026-09-07T10:57:58.722Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "5df7655bf0c2e1226a46e16276872cfd0b0d37b4bbc89ca6a123773807df6d6d",
+      "startedAt": "2026-09-07T10:57:59.801Z",
+      "outcome": "received_and_cached",
+      "tokens": 3582,
+      "completedAt": "2026-09-07T10:58:00.166Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "30c017ae71da8685cb10ff36c833bf36dc1618bba5936ee99090c79b4f661f64",
+      "startedAt": "2026-09-07T10:58:01.453Z",
+      "outcome": "received_and_cached",
+      "tokens": 3202,
+      "completedAt": "2026-09-07T10:58:01.815Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "cd1548371d64429802a97691091ce6588206ed7260a2b42b25c3e5d0cd43fcd0",
+      "startedAt": "2026-09-07T10:58:02.772Z",
+      "outcome": "received_and_cached",
+      "tokens": 3560,
+      "completedAt": "2026-09-07T10:58:03.072Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "683b7da7fc0344a55fcb873e53a789c61c93151f4944b430f440d0288a866083",
+      "startedAt": "2026-09-07T10:58:04.162Z",
+      "outcome": "received_and_cached",
+      "tokens": 3531,
+      "completedAt": "2026-09-07T10:58:04.620Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "e7af93ac274bc93b4ab68fe5ab34255af4f9c21c72d7f5eaf87dad3636d79f23",
+      "startedAt": "2026-09-07T10:58:05.537Z",
+      "outcome": "received_and_cached",
+      "tokens": 3890,
+      "completedAt": "2026-09-07T10:58:05.812Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "460b592c8cc08855da5c8a7cf55b86de6d4ca749a34b9b96751f45a31e110613",
+      "startedAt": "2026-09-07T10:58:06.920Z",
+      "outcome": "received_and_cached",
+      "tokens": 4147,
+      "completedAt": "2026-09-07T10:58:07.485Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "52ffbf5e67055973f17b1dbad6b877cc37bb90253f965e2498beed5078192b9e",
+      "startedAt": "2026-09-07T10:58:11.006Z",
+      "outcome": "received_and_cached",
+      "tokens": 3664,
+      "completedAt": "2026-09-07T10:58:11.316Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "c42188ada5eccb9fb454b7bc0af07e8f8f588a0a4341b1bc840de668d9dedd42",
+      "startedAt": "2026-09-07T10:58:12.407Z",
+      "outcome": "received_and_cached",
+      "tokens": 3551,
+      "completedAt": "2026-09-07T10:58:12.797Z"
+    },
+    {
+      "count": 64,
+      "idsSha256": "18c435676778e4e5210049687e2f99aff0cf7f2e6c1ba7c71a2806fd73c3092c",
+      "startedAt": "2026-09-07T10:58:13.874Z",
+      "outcome": "received_and_cached",
+      "tokens": 4027,
+      "completedAt": "2026-09-07T10:58:14.232Z"
+    },
+    {
+      "count": 57,
+      "idsSha256": "3c378a066d1bf95e23705dcfabb55b7677fbbeefba458b843984edfcda37e6ca",
+      "startedAt": "2026-09-07T10:58:15.602Z",
+      "outcome": "received_and_cached",
+      "tokens": 3297,
+      "completedAt": "2026-09-07T10:58:15.995Z"
+    }
+  ],
+  "outcome": "activated",
+  "previousCollection": null,
+  "completedAt": "2026-09-07T10:58:17.314Z",
+  "activeCollection": "algonow_atlas_4f98282fe4245689",
+  "retention": "Previous collections retained. Removal from the new catalog takes effect by atomic alias activation."
+}

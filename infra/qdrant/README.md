@@ -1,68 +1,36 @@
-# Qdrant for algonow
+# Qdrant for AlgoNow
 
-The vector store for semantic search over the atlas. Browsing and lookup do
-NOT need this (see `docs/RETRIEVAL.md`): the atlas page filters client-side
-and the prerendered `/algo/` and `/problem/` pages are static. This exists
-for one feature, natural-language questions like "find near-duplicate
-documents at scale", and for the eventual learner chatbot's retrieval.
+This service supports explicit semantic search over the authored atlas. It does
+not participate in ordinary page delivery, local filtering or narration.
 
-**Nothing here is running yet, and nothing here has been paid for.** The
-files are the deployable configuration; `scripts/embed-atlas.mjs` refuses to
-make a metered call without `--i-am-paying`.
+The pinned image is `qdrant/qdrant:v1.19.1`. One 512 MB shared CPU machine mounts a
+3 GB encrypted Fly volume in ord. Automatic volume snapshots remain enabled.
+The service may suspend when idle and resume for a search. This is a single-node
+availability choice: a failed machine or volume can temporarily disable semantic
+search while the static site remains usable. It is not a replicated cluster.
 
-## Why Qdrant on Fly
+Fly terminates public HTTPS. Separate random administrator and read-only API keys
+are staged through private stdin before deployment. The frontend receives no key;
+Netlify functions receive only the read-only database key. The administrator key
+and recovery copy of the read-only key are held in the central operator's
+Windows CurrentUser DPAPI vault. CORS and Qdrant telemetry are disabled.
 
-Recorded so the choice is not relitigated: it matches the Fly-first infra
-preference, `learnrust.ai` already runs Qdrant so the pattern is proven
-in-stack, payload filtering maps directly onto the atlas schema (category,
-topic, tier, problem), and self-hosting keeps per-query cost off a metered
-vendor. Pinecone and Supabase pgvector were the alternatives; the reasoning
-against each is in `docs/RETRIEVAL.md`.
+The owner authorized central deployment and bounded catalog embedding on
+September 7, 2026. Central administrative scripts live in the private Codexproof
+repository. Do not put secrets in command arguments, source files or logs.
 
-## Deploy
+The current alias is `algonow_atlas`; retained collections are named
+`algonow_atlas_<generation-prefix>`. They use 1024-dimensional cosine vectors and
+keyword payload indexes for category, topic and problem, plus an integer tier
+index. See `docs/RETRIEVAL.md` for complete-generation activation and rollback.
+To restore an older retained generation, use one atomic Qdrant alias change after
+checking its count, model, dimension and receipt. Never delete a collection pinned
+by a research campaign without a separate retention decision.
 
-```sh
-fly launch --no-deploy --copy-config --name algonow-qdrant
-fly volumes create qdrant_data --size 3 --region ord
-fly secrets set QDRANT__SERVICE__API_KEY="$(openssl rand -hex 32)"
-fly deploy
-```
+Read-only setup verification checks that anonymous collection access is rejected
+and authorized access succeeds. Catalog activation and the live search pilot are
+recorded separately from configuration validation. `fly config validate --config
+infra/qdrant/fly.toml` passes for this configuration.
 
-Then point the site at it:
-
-```sh
-netlify env:set QDRANT_URL   "https://algonow-qdrant.fly.dev"
-netlify env:set QDRANT_API_KEY "<the same key>"
-netlify env:set VOYAGE_API_KEY "<voyage key>"
-```
-
-## Collection
-
-One collection, `algonow_atlas`, 1024 dimensions, cosine distance. That
-dimension is the quality-cost knee for the Voyage 4 family; 2048 is
-available and should only be adopted if evaluation shows it pays.
-
-Payload indexes are created up front by the embed script, because adding an
-index later forces a full re-scan:
-
-| field | type | used for |
-|---|---|---|
-| `category` | keyword | "only graph algorithms" |
-| `topic` | keyword | "only in search-structures" |
-| `problem` | keyword | "other methods for this problem" |
-| `tier` | integer | "canon only" |
-
-## Cost
-
-Embedding the whole catalog is one metered call of roughly 214,000 tokens
-(3,116 records), which is cents. Re-embedding is incremental: each record
-carries a content hash, so a re-run only touches changed entries. Query
-embedding plus rerank is per-search and tiny.
-
-Per the token doctrine in `CLAUDE.md`, even this small spend needs an
-explicit in-session go-ahead. Run the dry run first and read what it plans
-to send:
-
-```sh
-node scripts/embed-atlas.mjs --sample 5
-```
+Sources: https://github.com/qdrant/qdrant/releases/tag/v1.19.1 and
+https://fly.io/docs/reference/configuration/.

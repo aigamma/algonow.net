@@ -13,19 +13,14 @@
 //   node scripts/embed-atlas.mjs --i-am-paying   # real embedding + upsert
 //
 // Env for the paid path: VOYAGE_API_KEY, QDRANT_URL, QDRANT_API_KEY.
-import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { CATEGORY_OF_TOPIC, CATEGORY_BY_KEY } from '../src/data/atlas-categories.js';
 
 const ATLAS = 'src/data/atlas';
-const REGISTRIES = new Set(['aliases', 'problems']);
-const COLLECTION = 'algonow_atlas';
-const MODEL = 'voyage-context-4';
-const DIM = 1024;
-
-const argv = process.argv.slice(2);
-const PAYING = argv.includes('--i-am-paying');
-const SAMPLE = Number(argv[argv.indexOf('--sample') + 1]) || 0;
+const REGISTRIES = new Set(['aliases', 'problems', 'merges']);
+import { pathToFileURL } from 'node:url';
+import { runIngestion } from './atlas-ingest.mjs';
 
 const slugify = (name) =>
   String(name)
@@ -38,7 +33,7 @@ const slugify = (name) =>
 
 const normPhrase = (s) => String(s ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
 
-function buildRecords() {
+export function buildRecords() {
   const aliases = JSON.parse(readFileSync(`${ATLAS}/aliases.json`, 'utf8'));
   const problems = JSON.parse(readFileSync(`${ATLAS}/problems.json`, 'utf8'));
 
@@ -60,9 +55,11 @@ function buildRecords() {
   for (const file of readdirSync(ATLAS).filter((f) => f.endsWith('.json')).sort()) {
     const topic = file.replace('.json', '');
     if (REGISTRIES.has(topic)) continue;
-    for (const e of JSON.parse(readFileSync(`${ATLAS}/${file}`, 'utf8'))) {
-      entries.push({ ...e, topic });
-    }
+    const bytes = readFileSync(`${ATLAS}/${file}`);
+    const rows = JSON.parse(bytes.toString('utf8'));
+    if (!Array.isArray(rows) || !CATEGORY_OF_TOPIC[topic]) throw new Error('invalid_topic_file');
+    const fileHash = createHash('sha256').update(bytes).digest('hex');
+    for (const e of rows) entries.push({ ...e, topic, fileHash });
   }
   const byProblem = new Map();
   for (const e of entries) {
@@ -71,7 +68,9 @@ function buildRecords() {
     byProblem.get(key).push(e);
   }
 
-  return entries.map((e) => {
+  const summary = JSON.parse(readFileSync('src/data/atlas-summary.json', 'utf8'));
+  if (entries.length !== summary.total) throw new Error('catalog_count_mismatch');
+  const records = entries.map((e) => {
     const aka = akaOf.get(e.a.toLowerCase()) ?? [];
     const problemKey = phraseOwner.get(normPhrase(e.d)) ?? `phrase:${normPhrase(e.d)}`;
     const label = problemLabel.get(problemKey) ?? e.d;
@@ -97,12 +96,15 @@ function buildRecords() {
       rivals.length ? `rivals ${rivals.slice(0, 8).join(', ')}` : '',
     ].filter(Boolean).join('. ');
 
-    const id = e.h ? `${slugify(e.a)}--${slugify(e.h)}` : slugify(e.a);
+    const pairHash = createHash('sha256').update(JSON.stringify([e.a, e.h ?? ''])).digest('hex');
+    const id = `${slugify(e.a)}--${pairHash.slice(0, 16)}`;
     return {
       id,
       text,
-      hash: createHash('sha256').update(text).digest('hex').slice(0, 16),
+      hash: createHash('sha256').update(text).digest('hex'),
       payload: {
+        source_file: `${ATLAS}/${e.topic}.json`,
+        source_file_sha256: e.fileHash,
         algorithm: e.a,
         heuristic: e.h,
         phrase: e.d,
@@ -117,89 +119,14 @@ function buildRecords() {
       },
     };
   });
+  if (new Set(records.map(r => r.id)).size !== records.length) throw new Error('catalog_id_collision');
+  return records;
 }
 
-async function main() {
-  const records = buildRecords();
-  const chars = records.reduce((s, r) => s + r.text.length, 0);
-  const approxTokens = Math.round(chars / 4);
 
-  mkdirSync('build', { recursive: true });
-  writeFileSync('build/atlas-records.json', JSON.stringify(records, null, 2));
-
-  console.log(`records: ${records.length}`);
-  console.log(`collection: ${COLLECTION} · model: ${MODEL} · dim: ${DIM}`);
-  console.log(`corpus: ${chars.toLocaleString()} chars, ~${approxTokens.toLocaleString()} tokens`);
-  console.log('wrote build/atlas-records.json (gitignored, inspect before paying)');
-
-  for (const r of records.slice(0, SAMPLE)) {
-    console.log('\n---');
-    console.log(r.id);
-    console.log(r.text);
-  }
-
-  if (!PAYING) {
-    console.log(
-      '\nDRY RUN. No API call was made and nothing was spent. ' +
-      'Re-run with --i-am-paying to embed and upsert.',
-    );
-    return;
-  }
-
-  const { VOYAGE_API_KEY, QDRANT_URL, QDRANT_API_KEY } = process.env;
-  if (!VOYAGE_API_KEY || !QDRANT_URL) {
-    console.error('FAIL: --i-am-paying needs VOYAGE_API_KEY and QDRANT_URL in the environment');
-    process.exit(1);
-  }
-
-  // Ensure the collection exists with the payload indexes the filtered
-  // queries need. Creating an index after the fact forces a re-scan, so it is
-  // cheaper to declare them up front.
-  await fetch(`${QDRANT_URL}/collections/${COLLECTION}`, {
-    method: 'PUT',
-    headers: { 'content-type': 'application/json', 'api-key': QDRANT_API_KEY ?? '' },
-    body: JSON.stringify({ vectors: { size: DIM, distance: 'Cosine' } }),
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  runIngestion(buildRecords()).catch(error => {
+    console.error('Atlas ingestion failed: ' + (/^[a-z0-9_]+$/.test(error.message) ? error.message : 'local_or_service_failure'));
+    process.exitCode = 1;
   });
-  for (const field of ['category', 'topic', 'tier', 'problem']) {
-    await fetch(`${QDRANT_URL}/collections/${COLLECTION}/index`, {
-      method: 'PUT',
-      headers: { 'content-type': 'application/json', 'api-key': QDRANT_API_KEY ?? '' },
-      body: JSON.stringify({ field_name: field, field_schema: field === 'tier' ? 'integer' : 'keyword' }),
-    });
-  }
-
-  const BATCH = 128;
-  for (let i = 0; i < records.length; i += BATCH) {
-    const batch = records.slice(i, i + BATCH);
-    const res = await fetch('https://api.voyageai.com/v1/embeddings', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        authorization: `Bearer ${VOYAGE_API_KEY}`,
-      },
-      body: JSON.stringify({ model: MODEL, input: batch.map((r) => r.text), input_type: 'document' }),
-    });
-    if (!res.ok) {
-      console.error(`FAIL: Voyage returned ${res.status} ${await res.text()}`);
-      process.exit(1);
-    }
-    const { data } = await res.json();
-    await fetch(`${QDRANT_URL}/collections/${COLLECTION}/points`, {
-      method: 'PUT',
-      headers: { 'content-type': 'application/json', 'api-key': QDRANT_API_KEY ?? '' },
-      body: JSON.stringify({
-        points: batch.map((r, k) => ({
-          id: createHash('md5').update(r.id).digest('hex').replace(
-            /^(.{8})(.{4})(.{4})(.{4})(.{12}).*$/, '$1-$2-$3-$4-$5',
-          ),
-          vector: data[k].embedding,
-          payload: { ...r.payload, hash: r.hash, entry_id: r.id },
-        })),
-      }),
-    });
-    console.log(`upserted ${Math.min(i + BATCH, records.length)}/${records.length}`);
-  }
-  console.log('done');
 }
-
-main();

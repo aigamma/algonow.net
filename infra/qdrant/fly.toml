@@ -1,15 +1,16 @@
-# Qdrant for algonow. Not deployed yet; see README.md in this directory.
+# Isolated catalog retrieval service. See README.md for operation and retention.
 app = "algonow-qdrant"
 primary_region = "ord"
 
 [build]
-  image = "qdrant/qdrant:latest"
+  image = "qdrant/qdrant:v1.19.1"
 
 [env]
   QDRANT__SERVICE__HTTP_PORT = "6333"
   # Telemetry off: this stores a public algorithm catalog, but sending usage
   # anywhere by default is not something the site should do silently.
   QDRANT__TELEMETRY_DISABLED = "true"
+  QDRANT__SERVICE__ENABLE_CORS = "false"
 
 [http_service]
   internal_port = 6333
@@ -34,7 +35,8 @@ primary_region = "ord"
   source = "qdrant_data"
   destination = "/qdrant/storage"
 
-[[services.http_checks]]
+[[http_service.checks]]
   path = "/readyz"
   interval = "30s"
   timeout = "5s"
+  grace_period = "20s"

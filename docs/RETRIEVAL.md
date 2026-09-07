@@ -1,93 +1,69 @@
-# Retrieval: browsing and searching 2,000+ algorithms
+# Retrieval over the AlgoNow atlas
 
-Two different problems, two different answers. Do not conflate them.
+Semantic search answers a concrete learner question: which cataloged algorithm
+fits a problem described in ordinary language? It searches all committed atlas
+entries, including aliases, heuristics, problem labels and taxonomy. These are
+catalog records, not newly authored lessons. Existing local lookup, random picks,
+prerendered pages and preserved narration remain available independently.
 
-## 1. Browsing the catalog: no backend, already built
+The atlas has an explicit "search by meaning" form. Opening the page, opening the
+form and typing do not invoke retrieval. A submitted search uses the selected
+category and tier. Service failure leaves local filtering available. Results link
+to existing catalog pages and do not synthesize an answer.
 
-The atlas entries are short strings. The `/atlas` page filters the whole
-catalog client-side (atlas-summary.json has the live count), instantly,
-grouped by the 20 categories, with alias resolution (typing `DSU` finds
-Union-Find) and tier filtering. This costs
-nothing, needs no service, and keeps a perfect PageSpeed score. **No vector
-database is needed for browse/lookup, and none should be added for it.**
+## Architecture and provider choice
 
-## 2. Semantic search: "what algorithm solves my problem?"
+Qdrant is deployed as a separate Fly service with a persistent volume. Category,
+topic, tier and problem payload filters map directly to the catalog's structure.
+This follows the owner's Rust/Qdrant preference and existing Fly operating model.
+No existing Pinecone or Supabase data is migrated. A separate service keeps this
+catalog operationally independent of other conference exhibits.
 
-This is the valuable feature and the only one that wants a vector database:
-a natural-language query ("I need to find near-duplicate documents at scale",
-"shortest path with negative edges") returning the right units by meaning, not
-keyword. This is also what feeds the eventual learner chatbot's retrieval.
+Voyage `voyage-context-4` embeds each existing joined entry as one prechunked
+document at 1024 dimensions. Queries use the same model and query input type.
+Both call `/v1/contextualizedembeddings`, with automatic chunking disabled. The
+response has document and chunk indices, which the client validates explicitly.
+Qdrant returns up to 50 cosine candidates; `rerank-2.5` selects up to 12. When
+reranking fails, bounded dense results carry an explicit ranking indicator.
+These choices are implementation decisions, not a measured quality superiority
+claim. Source: https://docs.voyageai.com/docs/contextualized-chunk-embeddings.
 
-### Best-of-everything stack (owner directive: always start with the best)
+The Netlify search function has only a read-only Qdrant credential and the Voyage
+credential. Neither credential reaches the browser. The write credential is held
+by the operator and never installed in the search function. No signer, BLAKE3
+operation, capture archive or provenance dependency is on ordinary search paths.
 
-- **Embeddings: Voyage `voyage-context-4`** (released 2026-06-29), the current
-  best-performing Voyage model: contextualized chunk embeddings on a
-  mixture-of-experts backbone, with built-in auto-chunking and transparent
-  handling of documents past 32K tokens, so chunking stops being a design
-  concern. For plain dense embeddings where a fixed model is simpler, **`voyage-4-large`**
-  (the MoE flagship, 2026-01-15) is the alternative; all Voyage 4 models share
-  a compatible embedding space, so query and document models can be mixed.
-  Supersede the older `voyage-3`/`voyage-3.5` everywhere this stack touches.
-  Dimensions: 2048 / 1024 / 512 / 256 with quantization options; start at 1024
-  (the quality/cost knee) and only go to 2048 if evaluation shows it pays.
-- **Reranker: Voyage `rerank-2.5`** (or the latest `rerank` at build time) over
-  the top ~50 vector candidates. This is where most of the ranking quality is
-  won; never skip it.
-- **Vector store: Qdrant on Fly.io.** Rationale below.
+## Ingestion and continued development
 
-### Vector store choice (all three are subscribed; pick Qdrant)
+`node scripts/embed-atlas.mjs` is a free dry run. It joins the existing authored
+JSON, excludes the three non-entry registries, checks total coverage and unique
+point IDs, and writes `build/atlas-records.json`. It authors no teaching content.
 
-| Option | For | Against |
-|---|---|---|
-| **Qdrant on Fly** (recommended) | Matches the Fly-first infra preference; `learnrust.ai` already runs Qdrant (proven in-stack); rich payload filtering (by category / topic / tier / problem straight from the atlas schema); self-hosted, no per-query vendor metering | One service to run (trivial at this scale) |
-| **Pinecone** | Zero-ops serverless; `worldthought.com` already pairs it with Voyage, so the exact ingest+query pattern exists to copy | Another metered vendor; less flexible payload filtering than Qdrant |
-| **Supabase pgvector** | One fewer vendor if a Postgres is already in play | Entangles algonow with the Supabase project that doubles as the mathlimit conference exhibit; keep them separate |
+An authorized live run adds `--i-am-paying`. Explicit `--max-records` and
+`--max-tokens` bounds can be raised for a reviewed larger run; they are operational
+spend bounds, not limits on the catalog. Calls are sequential, at most 64 short
+records and 28,000 UTF-8 text bytes per embedding request. Actual token usage and
+all attempts are retained in `build/ingestion-*.json`. An ambiguous paid request
+is not automatically retried. Successful vectors are cached before upsert.
 
-Qdrant wins on infra fit and on keeping algonow's data clear of the mathlimit
-exhibit. The atlas schema (`category`, `topic`, `t` tier, `d` phrase, problem
-slug, plus the alias list) maps directly to Qdrant payload fields, so filtered
-semantic search ("only tier-1 graph algorithms about X") is a one-query
-feature.
+Each full generation has a deterministic SHA-256 identifier and its own Qdrant
+collection. Unchanged text vectors are reused from a retained generation or the
+local embedding cache. Payloads include exact embedded text, full text SHA-256,
+source-file path and hash, source commit, embedding model, and generation.
+Every upsert receives an exact payload readback, followed by an exact total count.
+Only then does one atomic alias update activate the complete generation. Removed
+entries disappear from current search through the new generation; older
+collections remain retained for review and rollback. A local exclusive lock
+serializes this operator; it is not a distributed writer lock.
 
-### The staged record (one entry, ready to embed)
+This permits ongoing corpus growth while an empirical campaign pins its specific
+generation and preserves captures. Retention must be managed deliberately:
+old campaign generations are not automatically deleted by ingestion.
 
-Everything below is committed data already; the embed script only joins it.
-Keeping these joins healthy IS the staging work, done now so no forensic
-reconstruction is needed later: alias density is what makes five names
-resolve to one vector, and problem registration (`problems.json`) is what
-lets "what else solves this?" come back as structured rivals instead of
-fuzzy neighbors.
+## Verification and release
 
-- `id`: deterministic slug of the canonical `a` (plus heuristic slug when
-  paired), per the redirect doctrine in ATLAS.md
-- `text` (what gets embedded): canonical name, aliases, heuristic, `d`
-  phrase, problem label, topic, category
-- payload (filterable): `category`, `topic`, `tier`, `problem` slug,
-  `aliases[]`, `rivals[]` (canonical names sharing the problem)
-
-### Cost and the token doctrine
-
-Embedding the full catalog once is a **one-time near-trivial metered cost**
-(a few thousand entries x ~40 tokens of joined record each is on the order
-of 200K tokens on Voyage, cents). Re-embedding
-on catalog growth is incremental. Query embedding + rerank is per-search and
-tiny. Per the standing doctrine (see ATLAS.md), this metered spend is
-legitimate because it is deployed-runtime retrieval, not interactive building;
-the catalog authoring itself stays on the subscription. Even so, **no embedding
-run happens without an explicit in-session go-ahead** (the API-spend rule).
-
-### What to build when green-lit
-
-1. `scripts/embed-atlas.mjs`: read every topic file, compose the staged
-   record above per entry, embed the `text` with `voyage-context-4`, upsert
-   to Qdrant with the payload. Idempotent on a content hash so re-runs only
-   touch changed entries.
-2. A Netlify function `/api/search`: embed the query, Qdrant top-K with optional
-   category/tier filter, Voyage rerank, return canonical units. Fail-open.
-3. Wire the atlas page's search box to fall back from client-side filter to
-   `/api/search` when the query looks like a natural-language question.
-
-This is the same shape as `worldthought.com`'s retrieval, upgraded to Voyage 4.
-
-Sources for the model facts: Voyage AI blog (voyage-4 family, 2026-01-15;
-voyage-context-4, 2026-06-29).
+September 7 implementation checks: full dry run covers 3,257 records; five new
+retrieval checks cover corpus coverage, response ordering and dimensions, filters,
+rerank fallback, and requests rejected before vendor calls. `npm run build` and
+`npm run check` pass, including all 66 tests and existing page-size budgets.
+Deployment and actual provider-call evidence are recorded separately when run.

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import SiteShell from '../components/SiteShell.jsx';
+import SemanticSearch from '../components/SemanticSearch.jsx';
 import { slugify } from '../components/RivalsBench.jsx';
 import {
   CATEGORY_GROUPS,
@@ -160,6 +161,8 @@ export default function Atlas() {
             <button type="button" className="lp-close" onClick={() => setPick(null)} aria-label="Dismiss">✕</button>
           </div>
         )}
+
+        <SemanticSearch category={cat} tier={tier} />
 
         <div className="atlas-controls">
           <input

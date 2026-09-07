@@ -14,3 +14,4 @@ __pycache__/
 
 # Dry-run output of scripts/embed-atlas.mjs: derived data, regenerate at will.
 build/
+.private/

@@ -42,7 +42,7 @@ export async function runIngestion(records, { argv = process.argv.slice(2), env 
   const receipt = { schema: 'algonow-catalog-ingestion/v1', startedAt, generation, collection,
     sourceCommit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
     records: records.length, model: MODEL, dimension: DIM, maxTokens, embeddingsRequested: 0,
-    embeddingTokens: 0, reused: 0, upserted: 0, attempts: [], outcome: 'started' };
+    embeddingTokens: 0, reused: 0, upserted: 0, verified: 0, attempts: [], outcome: 'started' };
   const save = () => writeFile(receiptPath, JSON.stringify(receipt, null, 2) + '\n');
   const qdrant = async (path, method = 'GET', body) => {
     const response = await requestJson(fetcher, new URL(path, base), { method, signal: AbortSignal.timeout(60000),
@@ -66,9 +66,13 @@ export async function runIngestion(records, { argv = process.argv.slice(2), env 
     const pools = [collection, ...(previous && previous !== collection ? [previous] : [])];
     for (const batch of batchesOf(records)) {
       const reusable = new Map();
+      const retained = new Map();
       for (const pool of pools) {
         const points = await qdrant(`collections/${pool}/points`, 'POST', { ids: batch.map(r => pointId(r.id)), with_payload: true, with_vector: true });
-        for (const point of points) if (!reusable.has(point.id)) reusable.set(point.id, point);
+        for (const point of points) {
+          if (!reusable.has(point.id)) reusable.set(point.id, point);
+          if (pool === collection) retained.set(point.id, point);
+        }
       }
       const vectors = new Map();
       const pending = [];
@@ -99,17 +103,26 @@ export async function runIngestion(records, { argv = process.argv.slice(2), env 
         await save();
         if (receipt.embeddingTokens > maxTokens) throw new Error('reported_token_budget_exceeded');
       }
-      const points = batch.map(r => ({ id: pointId(r.id), vector: vectors.get(r.id), payload: { ...r.payload,
-        text: r.text, content_sha256: r.hash, entry_id: r.id, embedding_model: MODEL, generation, catalog_commit: receipt.sourceCommit } }));
-      await qdrant(`collections/${collection}/points?wait=true`, 'PUT', { points });
+      const points = batch.map(r => {
+        const payload = JSON.parse(JSON.stringify({ ...r.payload, text: r.text, content_sha256: r.hash,
+          entry_id: r.id, embedding_model: MODEL, generation }));
+        const id = pointId(r.id);
+        const existingPoint = retained.get(id);
+        if (existingPoint && (!/^[0-9a-f]{40}$/.test(existingPoint.payload.catalog_commit || '') ||
+            Object.keys(payload).some(k => JSON.stringify(existingPoint.payload[k]) !== JSON.stringify(payload[k])))) throw new Error('retained_generation_record_mismatch');
+        return { id, vector: vectors.get(r.id), payload: { ...payload,
+          catalog_commit: existingPoint?.payload.catalog_commit ?? receipt.sourceCommit } };
+      });
+      const missing = points.filter(p => !retained.has(p.id));
+      if (missing.length) await qdrant(`collections/${collection}/points?wait=true`, 'PUT', { points: missing });
       const restored = await qdrant(`collections/${collection}/points`, 'POST', { ids: points.map(p => p.id), with_payload: true, with_vector: false });
       const expected = new Map(points.map(p => [p.id, p]));
       if (restored.length !== points.length || restored.some(p => {
         const want = expected.get(p.id)?.payload;
         return !want || Object.keys(want).some(k => JSON.stringify(p.payload[k]) !== JSON.stringify(want[k]));
       })) throw new Error('upsert_readback_failed');
-      receipt.upserted += points.length; await save();
-      console.log(JSON.stringify({ upserted: receipt.upserted, total: records.length, tokens: receipt.embeddingTokens, reused: receipt.reused }));
+      receipt.upserted += missing.length; receipt.verified += points.length; await save();
+      console.log(JSON.stringify({ upserted: receipt.upserted, verified: receipt.verified, total: records.length, tokens: receipt.embeddingTokens, reused: receipt.reused }));
     }
     const count = await qdrant(`collections/${collection}/points/count`, 'POST', { exact: true });
     if (count.count !== records.length) throw new Error('generation_count_mismatch');

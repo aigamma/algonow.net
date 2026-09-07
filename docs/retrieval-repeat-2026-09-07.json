@@ -1,0 +1,22 @@
+{
+  "schema": "algonow-catalog-ingestion/v1",
+  "startedAt": "2026-09-07T11:11:25.427Z",
+  "generation": "4f98282fe4245689664ad6ad2134332fb2d443c5a5737803c9ed4c24c7f29c64",
+  "collection": "algonow_atlas_4f98282fe4245689",
+  "sourceCommit": "6e6ef57e46d9fb282bcdc4a6fe24ff5fec28bca0",
+  "records": 3257,
+  "model": "voyage-context-4",
+  "dimension": 1024,
+  "maxTokens": 1500000,
+  "embeddingsRequested": 0,
+  "embeddingTokens": 0,
+  "reused": 3257,
+  "upserted": 0,
+  "verified": 3257,
+  "attempts": [],
+  "outcome": "activated",
+  "previousCollection": "algonow_atlas_4f98282fe4245689",
+  "completedAt": "2026-09-07T11:11:48.920Z",
+  "activeCollection": "algonow_atlas_4f98282fe4245689",
+  "retention": "Previous collections retained. Removal from the new catalog takes effect by atomic alias activation."
+}

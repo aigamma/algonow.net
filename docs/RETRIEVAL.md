@@ -67,3 +67,8 @@ retrieval checks cover corpus coverage, response ordering and dimensions, filter
 rerank fallback, and requests rejected before vendor calls. `npm run build` and
 `npm run check` pass, including all 66 tests and existing page-size budgets.
 Deployment and actual provider-call evidence are recorded separately when run.
+
+Repeat ingestion was verified against the live generation: all 3,257 records
+were read back, with zero vector writes and zero embedding tokens. Existing
+generation records retain their original source commit and payload; unexpected
+record drift fails closed rather than rewriting archived evidence.

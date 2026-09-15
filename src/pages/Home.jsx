@@ -45,40 +45,6 @@ const GROUPS = CATEGORIES.map((c) => ({
   pairs: LIVE_PUZZLES.filter((p) => p.category === c.key),
 })).filter((g) => g.pairs.length > 0);
 
-// How much of the catalog the prerendered HTML carries. The rest is rendered
-// straight after hydration, below the fold, which is why it costs no layout
-// shift.
-//
-// This exists because of how PageSpeed Insights' mobile runner behaves, and
-// the numbers are worth keeping. The whole catalog in the HTML is 69KB and
-// 1559 elements, and that page first-paints at about 2.4 seconds there, even
-// though every byte has arrived by 686ms, the main thread does 0.2s of work,
-// and there are no long tasks. The stall tracks document size and nothing
-// else: on the same host and stylesheet, /category/ at 86 elements paints at
-// 281ms, /problem/ at 2043 elements paints at 2361ms, and copies of this page
-// cut to eight of eighteen sections (43KB) paint at 220ms and score 100 on a
-// runner slower than any of the failures.
-//
-// The budget counts CARDS rather than categories so it holds as the catalog
-// grows by about ten a week: adding pairs shortens the opening list instead of
-// quietly fattening the HTML back past the cliff.
-export const FIRST_PAINT_CARDS = 70;
-
-// Categories in order until one would push the card count past the budget. At
-// least one always survives, however large the first category becomes.
-export function openingGroups(groups, budget = FIRST_PAINT_CARDS) {
-  const opening = [];
-  let cards = 0;
-  for (const g of groups) {
-    if (opening.length && cards + g.pairs.length > budget) break;
-    opening.push(g);
-    cards += g.pairs.length;
-  }
-  return opening;
-}
-
-const OPENING = openingGroups(GROUPS);
-
 // The daily anchor: the site's purpose is daily exposure, so every visitor
 // sees the same deterministic pick on the same day, with zero storage and
 // zero fetches. UTC days-since-epoch keeps the pick identical across
@@ -108,20 +74,11 @@ export function todaysPair(day = dayNow()) {
 export default function Home({ day: stamped = null }) {
   const buildDay = stamped ?? dayNow();
   const [day, setDay] = useState(buildDay);
-  // The catalog opens at the prerendered length and completes itself once
-  // hydration has matched. Both state changes happen in the one effect, so
-  // React batches them into a single re-render.
-  const [whole, setWhole] = useState(false);
-  useEffect(() => {
-    setDay(dayNow());
-    setWhole(true);
-  }, []);
+  useEffect(() => setDay(dayNow()), []);
 
   const now = dayStart(buildDay);
   const today = todaysPair(day);
   const fresh = LIVE_PUZZLES.filter((p) => isNewPuzzle(p, now));
-  const groups = whole ? GROUPS : OPENING;
-  const rendered = new Set(groups.map((g) => g.key));
   return (
     <SiteShell newCount={fresh.length}>
       <div className="wrap">
@@ -179,23 +136,14 @@ export default function Home({ day: stamped = null }) {
           )}
 
           <h2 className="eyebrow">the pairs · {LIVE_PUZZLES.length} live</h2>
-          {/* Every category is always in the strip, at full width, so it cannot
-              reflow when the rest of the catalog arrives. A chip whose section
-              is not on the page yet points at that category's own page, which
-              is fully prerendered and needs no JavaScript, so the link works
-              for a reader who has none and for the moment before hydration. */}
           <nav className="cat-strip" aria-label="Jump to a category">
             {GROUPS.map((g) => (
-              <a
-                key={g.key}
-                className="chip"
-                href={rendered.has(g.key) ? `#cat-${g.key}` : `/category/${g.key}/`}
-              >
+              <a key={g.key} className="chip" href={`#cat-${g.key}`}>
                 {g.label} <b className="cat-count">{g.pairs.length}</b>
               </a>
             ))}
           </nav>
-          {groups.map((g) => (
+          {GROUPS.map((g) => (
             <section key={g.key} className="pairs-group" aria-labelledby={`cat-${g.key}`}>
               <h3 className="eyebrow cat-head" id={`cat-${g.key}`}>
                 {g.label}

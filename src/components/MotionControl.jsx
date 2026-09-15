@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { MOTION_LEVELS, applyAttr, getLevelKey, setLevel } from '../lib/motion.js';
+import { DEFAULT_LEVEL, MOTION_LEVELS, applyAttr, getLevelKey, setLevel } from '../lib/motion.js';
 
 function MotionGlyph() {
   return (
@@ -21,7 +21,7 @@ export default function MotionControl() {
   const [open, setOpen] = useState(false);
   // Start on the documented default so server-rendered and first client markup
   // agree, then adopt the reader's real preference once mounted.
-  const [levelKey, setLevelKey] = useState('very-slow');
+  const [levelKey, setLevelKey] = useState(DEFAULT_LEVEL);
   const wrapRef = useRef(null);
   const buttonRef = useRef(null);
 
@@ -49,7 +49,9 @@ export default function MotionControl() {
     };
   }, [open]);
 
-  const current = MOTION_LEVELS.find((l) => l.key === levelKey) || MOTION_LEVELS[1];
+  const current =
+    MOTION_LEVELS.find((l) => l.key === levelKey) ||
+    MOTION_LEVELS.find((l) => l.key === DEFAULT_LEVEL);
 
   const choose = (key) => {
     setLevel(key);

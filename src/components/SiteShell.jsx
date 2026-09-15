@@ -11,23 +11,29 @@ export function Wordmark() {
   );
 }
 
-export default function SiteShell({ children }) {
+export default function SiteShell({ children, newCount: given = null }) {
   // The header's new-puzzle count loads lazily in the browser so the
   // registry never joins SiteShell's shared chunk (it blew the 20KB
   // page budget when imported statically); the chunk it lives in is
   // already cached by every hydrated page.
-  const [newCount, setNewCount] = useState(0);
+  //
+  // A page that already holds the registry passes the count in instead. The
+  // homepage does, which is what lets the pill be prerendered: arriving in the
+  // markup rather than after a dynamic import, it cannot reflow the header.
+  const [loaded, setLoaded] = useState(0);
+  const newCount = given ?? loaded;
   useEffect(() => {
+    if (given !== null) return undefined;
     let alive = true;
     import('../data/puzzles.js')
       .then(({ LIVE_PUZZLES, isNewPuzzle }) => {
-        if (alive) setNewCount(LIVE_PUZZLES.filter((p) => isNewPuzzle(p)).length);
+        if (alive) setLoaded(LIVE_PUZZLES.filter((p) => isNewPuzzle(p)).length);
       })
       .catch(() => {});
     return () => {
       alive = false;
     };
-  }, []);
+  }, [given]);
   return (
     <>
       <header className="site-header">

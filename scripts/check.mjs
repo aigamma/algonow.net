@@ -279,7 +279,22 @@ if (!existsSync('dist/assets')) {
     else if (a.startsWith('puzzles-')) budget(`registry chunk ${a}`, size, 48 * 1024);
     else if (a.endsWith('.js')) budget(`chunk ${a}`, size, 20 * 1024);
   }
-  budget('html index.html', gz('dist/index.html'), 2 * 1024);
+  // The homepage carries its own prerendered markup, so it is not a 2KB shell
+  // any more: it trades ~10KB gz of HTML for not waiting on ~80KB gz of
+  // JavaScript before anything paints. That is a good trade once, and it gets
+  // worse every week the catalog grows, at roughly 0.6KB gz per ten pairs. The
+  // ceiling is deliberately close so that crossing it starts a conversation
+  // about paginating the catalog rather than becoming a habit of raising the
+  // number. Puzzle pages are still SPA shells and still owe 2KB.
+  const homeHtml = readFileSync('dist/index.html', 'utf8');
+  budget('html index.html', gz('dist/index.html'), 16 * 1024);
+  if (!/<div id="root" data-day="\d+">\s*<header/.test(homeHtml)) {
+    fail('html index.html: homepage is not prerendered (empty #root or missing day stamp)');
+  } else if (!homeHtml.includes('<h1>')) {
+    fail('html index.html: prerendered homepage carries no <h1>, so it has no LCP text');
+  } else {
+    ok('html index.html: prerendered with a day stamp and an h1');
+  }
   for (const p of Object.values(PUZZLES)) {
     budget(`html ${p.slug}`, gz(`dist/${p.slug}/index.html`), 2 * 1024);
   }

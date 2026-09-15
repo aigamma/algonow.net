@@ -1,7 +1,9 @@
+import { useEffect, useState } from 'react';
 import SiteShell from '../components/SiteShell.jsx';
 import HeroDemo from '../viz/HeroDemo.jsx';
 import { LIVE_PUZZLES, ROADMAP, pairTitle, puzzlePath, isNewPuzzle } from '../data/puzzles.js';
 import { CATEGORIES } from '../data/atlas-categories.js';
+import { dayNow, dayStart } from '../lib/day.js';
 
 function PairTitle({ algorithm, heuristic }) {
   return (
@@ -13,13 +15,13 @@ function PairTitle({ algorithm, heuristic }) {
   );
 }
 
-function PairCard({ p }) {
+function PairCard({ p, now }) {
   return (
     <a className="pair-card" href={puzzlePath(p)}>
       <span className="pc-number">
         <span>
           puzzle {String(p.number).padStart(2, '0')}
-          {isNewPuzzle(p) && <span className="pc-new">new</span>}
+          {isNewPuzzle(p, now) && <span className="pc-new">new</span>}
         </span>
         <span>▶ ~{p.listenMinutes} min</span>
       </span>
@@ -47,15 +49,38 @@ const GROUPS = CATEGORIES.map((c) => ({
 // sees the same deterministic pick on the same day, with zero storage and
 // zero fetches. UTC days-since-epoch keeps the pick identical across
 // timezones and across visitors.
-export function todaysPair(date = new Date()) {
-  const day = Math.floor(date.getTime() / 86400000);
+export function todaysPair(day = dayNow()) {
   return LIVE_PUZZLES[day % LIVE_PUZZLES.length];
 }
 
-export default function Home() {
-  const today = todaysPair();
+// `stamped` is the day the served markup was rendered for, handed down from
+// the root element by main.jsx. The first client render has to reproduce that
+// markup exactly or hydration throws it away, so the page opens on the stamped
+// day and only then looks at the clock.
+//
+// The two date-driven things on this page correct differently, on purpose.
+// The daily pair is the site's whole premise, so it adopts the reader's real
+// day one effect after hydration: that swaps text inside a card whose box is
+// already laid out, measured at 0.0004 CLS on a five day stale build.
+//
+// The new-this-week section does not correct, because it is structure rather
+// than text. Letting it appear or vanish after hydration moves every section
+// below it: measured at 0.1209 desktop CLS, over the 0.1 threshold, on top of
+// being a worse thing to watch happen. It is a build-time fact instead, and
+// the next deploy replaces it. A batch of about ten ships every week and the
+// deploy rides along with it, so "the batch this build knows about" and "the
+// batch still inside its seven day window" are the same set except in the day
+// or so before a deploy lands, where a badge lingers rather than flickering.
+export default function Home({ day: stamped = null }) {
+  const buildDay = stamped ?? dayNow();
+  const [day, setDay] = useState(buildDay);
+  useEffect(() => setDay(dayNow()), []);
+
+  const now = dayStart(buildDay);
+  const today = todaysPair(day);
+  const fresh = LIVE_PUZZLES.filter((p) => isNewPuzzle(p, now));
   return (
-    <SiteShell>
+    <SiteShell newCount={fresh.length}>
       <div className="wrap">
         <section className="home-hero">
           <div>
@@ -89,7 +114,7 @@ export default function Home() {
             <span className="pc-number">
               <span>
                 puzzle {String(today.number).padStart(2, '0')} · today
-                {isNewPuzzle(today) && <span className="pc-new">new</span>}
+                {isNewPuzzle(today, now) && <span className="pc-new">new</span>}
               </span>
               <span>▶ Listen · ~{today.listenMinutes} min</span>
             </span>
@@ -97,14 +122,14 @@ export default function Home() {
             <p className="pc-domain">{today.oneLiner}</p>
           </a>
 
-          {LIVE_PUZZLES.some((p) => isNewPuzzle(p)) && (
+          {fresh.length > 0 && (
             <>
               <h2 className="eyebrow nav-new-target" id="new">
                 new this week
               </h2>
               <div className="pairs-grid">
-                {LIVE_PUZZLES.filter((p) => isNewPuzzle(p)).map((p) => (
-                  <PairCard key={p.slug} p={p} />
+                {fresh.map((p) => (
+                  <PairCard key={p.slug} p={p} now={now} />
                 ))}
               </div>
             </>
@@ -125,7 +150,7 @@ export default function Home() {
               </h3>
               <div className="pairs-grid">
                 {g.pairs.map((p) => (
-                  <PairCard key={p.slug} p={p} />
+                  <PairCard key={p.slug} p={p} now={now} />
                 ))}
               </div>
             </section>

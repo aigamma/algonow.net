@@ -254,8 +254,41 @@ code, kbd, pre { font-family: var(--font-mono); }
 .cat-count {
   color: var(--algo);
 }
+/* The catalog is eighteen category sections and a hundred and fourteen cards,
+   about thirty thousand pixels of document, and the reader sees roughly one
+   screen of it. Style, layout and paint for all of it used to happen before
+   the first frame, which is work spent on pixels nobody is looking at.
+   content-visibility lets the browser skip an off-screen section until it is
+   scrolled near, and contain-intrinsic-size reserves a height in the meantime,
+   with `auto` so a section that has rendered once remembers its real one.
+
+   Worth being precise about what this does and does not buy, because it was
+   added while chasing a specific number and did not move it. PageSpeed
+   Insights, mobile, still reports this page first-painting around 2.4s when
+   every byte is downloaded by 686ms and the main thread does 0.2s of work.
+   That stall tracks total document size and nothing else: on the same host and
+   the same stylesheet, /category/ at 86 elements paints at 281ms, /problem/ at
+   2043 elements paints at 2361ms, and a copy of THIS page cut to eight of its
+   eighteen sections paints at 220ms and scores 100 on a slower runner than any
+   of the failing runs. Skipping the rendering of those sections does not help,
+   because their reserved height keeps the document just as tall. The remedy is
+   a shorter page, which is a design decision, not a stylesheet one. This rule
+   stays because skipping work for content nobody is looking at is right on its
+   own terms, not because it fixed the score. */
 .pairs-group {
   margin-top: 1.6rem;
+  content-visibility: auto;
+  /* The reserved height is the measured median section at this width, because
+     the grid reflows from three columns to one and a single number would be
+     wrong at both ends. `auto` means a section that has been rendered once
+     remembers its real height, so these only govern the first pass. */
+  contain-intrinsic-size: auto 31rem;
+}
+@media (max-width: 1100px) {
+  .pairs-group { contain-intrinsic-size: auto 42rem; }
+}
+@media (max-width: 760px) {
+  .pairs-group { contain-intrinsic-size: auto 75rem; }
 }
 .cat-head {
   scroll-margin-top: 84px;

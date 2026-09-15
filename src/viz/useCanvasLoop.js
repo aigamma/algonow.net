@@ -5,6 +5,7 @@ import { getLevel, isStill, subscribe, PACE_KEY } from '../lib/motion.js';
 // two modules.
 export { holdTicks, isStill } from '../lib/motion.js';
 
+
 // Deterministic RNG so every visitor watches the same run and still readers
 // see the same final state the animation would reach.
 export function mulberry32(seed) {
@@ -44,10 +45,21 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
     // Size the store from the RENDERED box times devicePixelRatio and
     // scale the context, so one logical unit maps to >= 1 device
     // pixel and text and lines stay sharp at every zoom level.
-    const fit = () => {
-      const cssW = canvas.getBoundingClientRect().width || width;
+    //
+    // The rendered width comes from the ResizeObserver entry rather than from
+    // getBoundingClientRect. Both give the same number; only one of them costs
+    // a forced synchronous layout. Reading the box out of the effect meant the
+    // read landed right after the page's own JavaScript had run, which made it
+    // a Layout inside a late script task, and Lighthouse's Speed Index is
+    // 1.4 * observed + 0.4 * (weighted end time of script tasks containing a
+    // Layout). On PSI's mobile profile the real page was visually done at
+    // 1076ms while that pessimistic term sat at 5984ms, which is what held
+    // Speed Index at 3.9s and the score at 98. An observer callback already
+    // runs after layout, so taking the width from the entry forces nothing.
+    let fitted = false;
+    const fitTo = (cssW) => {
       const dpr = Math.min(window.devicePixelRatio || 1, 3);
-      const scale = (cssW / width) * dpr;
+      const scale = ((cssW || width) / width) * dpr;
       const pw = Math.max(1, Math.round(width * scale));
       const ph = Math.max(1, Math.round(height * scale));
       if (canvas.width !== pw || canvas.height !== ph) {
@@ -55,8 +67,10 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
         canvas.height = ph;
       }
       ctx.setTransform(scale, 0, 0, scale, 0, 0);
+      fitted = true;
     };
-    fit();
+    const widthOf = (entry) =>
+      entry?.contentRect?.width ?? entry?.contentBoxSize?.[0]?.inlineSize ?? width;
 
     // A slower preference stretches every step. The floor keeps a pathological
     // setting from starving the interval. The pace is stamped onto the state so
@@ -70,10 +84,11 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
     if (isStill()) {
       let guard = 0;
       while (tick(state) !== false && guard < maxTicks) guard += 1;
-      draw(ctx, state, width, height);
-      // Stay crisp if the column reflows (window resize, zoom).
-      const roStill = new ResizeObserver(() => {
-        fit();
+      // The observer delivers once as soon as it starts observing, so the
+      // first fit and the first draw both ride that callback. It also keeps
+      // the figure crisp if the column reflows (window resize, zoom).
+      const roStill = new ResizeObserver((entries) => {
+        fitTo(widthOf(entries[0]));
         draw(ctx, state, width, height);
       });
       roStill.observe(canvas);
@@ -85,7 +100,11 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
     let running = true;
     let visible = true;
 
-    const paint = () => draw(ctx, state, width, height);
+    // Nothing is drawn until the observer has reported a size, because the
+    // context transform comes from it. That is one frame, not a wait.
+    const paint = () => {
+      if (fitted) draw(ctx, state, width, height);
+    };
 
     const step = () => {
       if (!running || !visible || document.hidden) return;
@@ -95,7 +114,6 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
     };
 
     timer = setInterval(step, pace);
-    paint();
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -105,10 +123,11 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
     );
     io.observe(canvas);
 
-    // Re-fit the backing store when the layout changes size, so the
-    // figure never sits upscaled and soft after a reflow.
-    const ro = new ResizeObserver(() => {
-      fit();
+    // Fits the backing store the first time the observer reports, and again
+    // whenever the layout changes size, so the figure never sits upscaled and
+    // soft after a reflow.
+    const ro = new ResizeObserver((entries) => {
+      fitTo(widthOf(entries[0]));
       paint();
     });
     ro.observe(canvas);

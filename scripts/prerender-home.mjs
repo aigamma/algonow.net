@@ -69,18 +69,44 @@ try {
   );
 
   const html = readFileSync(PAGE, 'utf8');
-  if (!html.includes(ROOT_TAG)) {
+
+  // Vite modulepreloads the whole module graph, which is right for a page that
+  // cannot paint without it and wrong for this one now. Measured on a
+  // throttled phone profile, ~82KB of preloaded JavaScript shared the pipe with
+  // the render-blocking stylesheet and pushed it from arriving ~40ms after the
+  // HTML to arriving 717ms after it, delaying a paint that no longer needed a
+  // single byte of that JavaScript. Dropping to fetchpriority=low keeps the
+  // early discovery and the parallelism, and just lets the stylesheet go first.
+  // Puzzle pages are still client-rendered and keep their preloads at full
+  // priority, which is why this is done here and not in the Vite config.
+  //
+  // Deleting the preload links outright was measured too, and is worse: the
+  // stylesheet lands 62ms sooner but the chunks are not discovered until
+  // main.js has been fetched and parsed, which pushed hydration out past two
+  // seconds and cost more Speed Index than the paint gained. Observed on the
+  // throttled phone profile: preloads at low priority gave FCP 1983ms and
+  // Speed Index 2278ms, no preloads at all gave 2000ms and 2423ms.
+  const preloads = (html.match(/<link rel="modulepreload"[^>]*>/g) || []).length;
+  const deprioritized = html.replace(
+    /<link rel="modulepreload"/g,
+    '<link rel="modulepreload" fetchpriority="low"',
+  );
+
+  if (!deprioritized.includes(ROOT_TAG)) {
     fail(`prerender home: ${PAGE} has no ${ROOT_TAG} to fill`);
   } else if (!markup.includes('<h1>')) {
     fail('prerender home: rendered markup carries no <h1>, refusing to ship it');
   } else {
-    const filled = html.replace(
+    const filled = deprioritized.replace(
       ROOT_TAG,
       `<div id="root" data-day="${day}">${markup}</div>`,
     );
     writeFileSync(PAGE, filled);
     const gz = (gzipSync(Buffer.from(filled)).length / 1024).toFixed(1);
-    ok(`prerender home: day ${day}, ${markup.length} bytes of markup, ${gz}KB gz page`);
+    ok(
+      `prerender home: day ${day}, ${markup.length} bytes of markup, ` +
+        `${preloads} preloads yielded to the stylesheet, ${gz}KB gz page`,
+    );
   }
 } finally {
   rmSync(BUNDLE, { force: true });

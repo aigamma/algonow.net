@@ -67,8 +67,12 @@ export default function MotionControl() {
         onClick={() => setOpen((o) => !o)}
       >
         <MotionGlyph />
-        <span className="motion-trigger-label">motion: {current.label}</span>
-        <span className="motion-trigger-short" aria-hidden="true">motion</span>
+        {/* The level is the button's name as much as the word is, so it stays in
+            the accessibility tree at every width. Narrow headers hide it visually
+            rather than with display:none, which would leave the button unnamed. */}
+        <span className="motion-trigger-label">
+          motion<span className="motion-trigger-level">: {current.label}</span>
+        </span>
       </button>
 
       {open && (

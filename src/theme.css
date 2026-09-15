@@ -13,7 +13,12 @@
   --line-soft: #1b2334;
   --ink: #e9edf6;
   --ink-dim: #9aa5bd;
-  --ink-faint: #6b7690;
+  /* The three ink steps are the same blue-grey ramp. --ink-faint is the
+     dimmest text the site ever prints, so it sets the floor: it must clear
+     4.5:1 on the LIGHTEST surface it lands on (--panel-2), not just on
+     --bg. #6b7690 cleared --bg at 4.28 but sat at 3.97 on --panel and 3.71
+     on --panel-2, which failed AA on every card and code comment. */
+  --ink-faint: #828fa9;
 
   --algo: #5da2ff;
   --algo-rgb: 93, 162, 255;
@@ -437,10 +442,23 @@ code, kbd, pre { font-family: var(--font-mono); }
   margin-bottom: 1.4rem;
 }
 
+/* Bench pairs are queued, not built, so they have to read as quieter than a
+   live card. That dimming is done with the ink ramp and a dashed edge, never
+   with opacity: a blanket opacity drags every text run inside the card under
+   4.5:1 (ink-faint lands at 2.50, ink-dim at 3.01), and no opacity that dims
+   enough to be worth having stays legible. Axe misses it because it skips
+   opacity-blended subtrees, which makes it a silent failure, not an absent
+   one. Withholding the semantic blue and amber is the point rather than a
+   side effect: those two colors mean there is a lesson here, and there is
+   not one here yet. */
 .pair-card.pc-bench {
-  opacity: 0.55;
+  background: transparent;
+  border-style: dashed;
   cursor: default;
 }
+.pair-card.pc-bench h3 .t-algo,
+.pair-card.pc-bench h3 .t-heur { color: var(--ink-dim); }
+.pair-card.pc-bench .pc-domain { color: var(--ink-faint); }
 .pair-card.pc-bench:hover { border-color: var(--line-soft); transform: none; }
 
 .doctrine {
@@ -1416,7 +1434,6 @@ code, kbd, pre { font-family: var(--font-mono); }
   color: var(--ink);
   border-color: rgba(var(--algo-rgb), 0.55);
 }
-.motion-trigger-short { display: none; }
 
 .motion-panel {
   position: absolute;
@@ -1477,8 +1494,19 @@ code, kbd, pre { font-family: var(--font-mono); }
 
 @media (max-width: 760px) {
   .site-header-right { gap: 0.7rem; }
-  .motion-trigger-label { display: none; }
-  .motion-trigger-short { display: inline; }
+  /* Narrow headers show just the word, but the level stays in the
+     accessibility tree so the button keeps a full name. display:none
+     here would strip the name and leave an unlabelled button. */
+  .motion-trigger-level {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 800px) {

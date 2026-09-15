@@ -175,7 +175,23 @@ test('SiteShell and the motion control render with no browser present', async (t
     ]);
     const html = renderToStaticMarkup(React.createElement(mod.default, null, null));
     assert.match(html, /motion-trigger/, 'the motion control is in the header');
-    assert.match(html, /motion: calm/, 'it opens on the calm default');
+    // The trigger's accessible name is its own text, so assert on the text with
+    // the tags stripped rather than on one literal span. The markup this
+    // replaced kept the level in a display:none twin and an aria-hidden short
+    // label, so under 760px the button reached the accessibility tree with no
+    // name at all: an axe button-name failure and a malformed agent tree.
+    const opens = html.indexOf('<button type="button" class="motion-trigger"');
+    const trigger = html.slice(opens, html.indexOf('</button>', opens));
+    assert.strictEqual(
+      trigger.replace(/<[^>]+>/g, '').trim(),
+      'motion: calm',
+      'it opens on the calm default, and the level is part of the button name',
+    );
+    assert.strictEqual(
+      trigger.split('aria-hidden="true"').length - 1,
+      1,
+      'only the glyph is hidden, so the button keeps its name at every width',
+    );
     assert.match(html, /aria-expanded="false"/, 'the panel starts closed');
     assert.match(html, /<nav class="site-nav"/, 'the rest of the header still renders');
     assert.match(html, /<span class="wm-tld">\.net<\/span>/, 'the wordmark ends in a static amber .net');

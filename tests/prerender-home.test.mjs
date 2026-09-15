@@ -12,6 +12,16 @@ import path from 'node:path';
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { LIVE_PUZZLES } from '../src/data/puzzles.js';
+import { CATEGORIES } from '../src/data/atlas-categories.js';
+
+// The same grouping Home builds, rebuilt here rather than exported, so the test
+// would notice if the page quietly started grouping by something else.
+const homeGroups = () =>
+  CATEGORIES.map((c) => ({
+    key: c.key,
+    label: c.label,
+    pairs: LIVE_PUZZLES.filter((p) => p.category === c.key),
+  })).filter((g) => g.pairs.length > 0);
 
 let nonce = 0;
 
@@ -43,6 +53,10 @@ async function loadHome(t) {
     import(pathToFileURL(outfile).href),
   ]);
   return {
+    // Home.jsx is JSX, so its plain exports come off the bundle rather than
+    // from a second import node could not resolve.
+    FIRST_PAINT_CARDS: mod.FIRST_PAINT_CARDS,
+    openingGroups: mod.openingGroups,
     render: (day) =>
       renderToString(
         React.createElement(React.StrictMode, null, React.createElement(mod.default, { day })),
@@ -80,17 +94,54 @@ test('the prerendered homepage is a function of its stamped day, not of the cloc
   }
 });
 
-test('the prerendered homepage carries the whole catalog and an LCP heading', async (t) => {
+test('the prerendered homepage opens with a heading and a bounded slice of catalog', async (t) => {
   const home = await loadHome(t);
   if (!home) return;
   try {
     const html = home.render(DAY);
     assert.match(html, /<h1>/, 'the hero heading is the largest paint, so it must be in the HTML');
-    for (const p of LIVE_PUZZLES) {
+
+    // The slice is what keeps first paint fast on a slow phone. Assert the
+    // contract, not a byte count: dist/index.html's gzip ceiling in check.mjs
+    // is what watches the actual size, and this watches the rule that produces
+    // it. The count is taken from the groups rather than from the HTML because
+    // the today card, the bench cards, and the new-this-week grid all render
+    // pair cards of their own and none of them are the catalog.
+    const groups = homeGroups();
+    const opening = home.openingGroups(groups);
+    const openingCards = opening.reduce((n, g) => n + g.pairs.length, 0);
+    assert.ok(opening.length >= 1, 'at least one category always opens inline');
+    assert.ok(
+      openingCards <= home.FIRST_PAINT_CARDS || opening.length === 1,
+      `the opening slice carries ${openingCards} cards, past the ${home.FIRST_PAINT_CARDS} budget`,
+    );
+    if (LIVE_PUZZLES.length > home.FIRST_PAINT_CARDS) {
       assert.ok(
-        html.includes(`href="/${p.slug}/"`),
-        `${p.slug} is missing from the prerendered homepage`,
+        opening.length < groups.length,
+        'a catalog past the budget must not all be prerendered inline',
       );
+    }
+    for (const p of opening.flatMap((g) => g.pairs)) {
+      assert.ok(html.includes(`href="/${p.slug}/"`), `${p.slug} should be in the opening slice`);
+    }
+  } finally {
+    home.cleanup();
+  }
+});
+
+// Nothing may be orphaned by the split: a category the HTML does not render
+// still has to be reachable without JavaScript, which is what the strip's
+// fallback to the prerendered /category/ page is for.
+test('every category is reachable from the prerendered homepage', async (t) => {
+  const home = await loadHome(t);
+  if (!home) return;
+  try {
+    const html = home.render(DAY);
+    const groups = homeGroups();
+    const inline = new Set(home.openingGroups(groups).map((g) => g.key));
+    for (const g of groups) {
+      const target = inline.has(g.key) ? `id="cat-${g.key}"` : `href="/category/${g.key}/"`;
+      assert.ok(html.includes(target), `category ${g.key} has no way in (${target})`);
     }
   } finally {
     home.cleanup();

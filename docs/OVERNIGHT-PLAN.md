@@ -3649,6 +3649,34 @@ commit, Fable trailer on every commit, check green before each push.
       coincide, 30 -> 18, <= 736 ticks; stepMs 40, holdTicks
       rests. Preserved narration: Aoede + Algieba.
 
+- [x] F114. Bowyer-Watson × bad-triangle cavity retriangulation.
+      Puzzle 120, geometry (problemSlug delaunay-triangulation),
+      added 2026-09-26. Solution
+      bowyer_watson_cavity_retriangulation.py (1s, prints OK): exact
+      integer orientation and in-circle determinants on random
+      integer points. FIVE ORACLES: (1) the 40-point output EQUALS
+      the brute-force set of empty-circumcircle triples (67
+      triangles) and every triangle is empty against every point on
+      every instance; (2) Euler: 187 / 385 / 780 triangles at n =
+      100 / 200 / 400 = 2n-2-h with h from an independent hull
+      (Andrew's monotone chain), edges 3n-3-h; (3) the boundary IS
+      the hull, edge for edge; (4) Lawson's flip algorithm, written
+      separately, gives the identical triangle set on all four
+      instances; (5) COST: in-circle tests 10,000 / 40,000 / 160,000
+      (naive cavity scan = n^2, said plainly) vs Lawson locate+flip
+      16,213 / 58,221 / 231,242 vs rebuild-after-each-insertion
+      338,150 / 2,585,800 / 20,219,600 (126x). THE TRAP MEASURED:
+      super-triangle at 1x the spread drops 5 hull edges on 200
+      points, 3x drops 4, 10x drops 3, 1000x drops none. Cards:
+      self, Delaunay flip algorithm, Fortune's algorithm,
+      Divide-and-conquer Delaunay. neverUse: rebuilding after every
+      point. Figure: one insertion's cavity and fan, cite Bowyer
+      1981 DOI 10.1093/comjnl/24.2.162 and Watson 1981. Viz
+      BowyerWatsonViz: 24 points inserted one by one (red cavity,
+      amber fan, blue mesh, green hull), act 2 the tight
+      super-triangle with the lost hull edges in red; stepMs 45,
+      holdTicks rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

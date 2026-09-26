@@ -2303,15 +2303,35 @@ export const PUZZLES = {
     vite: 'hopcrofts-minimization-partition-refinement',
     html: 'hopcrofts-minimization-partition-refinement/index.html',
   },
+  '/bowyer-watson-cavity-retriangulation/': {
+    slug: 'bowyer-watson-cavity-retriangulation',
+    added: '2026-09-26',
+    problemSlug: 'delaunay-triangulation',
+    number: 120,
+    category: 'geometry',
+    algorithm: 'Bowyer-Watson',
+    heuristic: 'Bad-triangle cavity retriangulation',
+    domain: 'Delaunay triangulation',
+    oneLiner:
+      'Insert one point at a time: every triangle whose circumcircle swallows it is bad, the bad ones form a star-shaped cavity, and fanning the cavity rim to the point leaves every circle empty again.',
+    description:
+      'Bowyer-Watson with bad-triangle cavity retriangulation: the 40-point output equals the brute-force empty-circumcircle triple set, Euler counts and the hull boundary exact on every instance, Lawson\'s flips identical, 160,000 in-circle tests against 20,219,600 rebuilding, and the super-triangle trap measured.',
+    listenMinutes: 8,
+    time: 'O(n²) naive, O(n log n) expected',
+    space: 'O(n) triangles',
+    baseline: 'Lawson edge flips',
+    vite: 'bowyer-watson-cavity-retriangulation',
+    html: 'bowyer-watson-cavity-retriangulation/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Bowyer-Watson', heuristic: 'Bad-triangle cavity retriangulation', domain: 'Delaunay triangulation' },
   { algorithm: 'Reed-Solomon', heuristic: 'Berlekamp-Massey decoding', domain: 'Burst error correction' },
   { algorithm: 'Contraction hierarchies', heuristic: 'Node-importance contraction order', domain: 'Continental road routing' },
+  { algorithm: 'Bron-Kerbosch', heuristic: 'Tomita pivoting', domain: 'Maximal clique listing' },
 ];
 
 

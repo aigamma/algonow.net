@@ -2463,15 +2463,35 @@ export const PUZZLES = {
     vite: 'q-learning-epsilon-greedy',
     html: 'q-learning-epsilon-greedy/index.html',
   },
+  '/adaboost-exponential-reweighting/': {
+    slug: 'adaboost-exponential-reweighting',
+    added: '2026-09-26',
+    problemSlug: 'classification',
+    number: 128,
+    category: 'ml-ai',
+    algorithm: 'AdaBoost',
+    heuristic: 'Exponential reweighting',
+    domain: 'Boosted classification',
+    oneLiner:
+      'Fit one weak stump, give it a vote, then multiply up the weight of every point it got wrong so the next stump is fitted to the mistakes. Two hundred rounds later the vote of coin-flip learners is a classifier, with a bound that holds every round.',
+    description:
+      'AdaBoost with exponential reweighting on a disk-versus-ring boundary: decision stumps at 63.7% alone voting to 96.7% held out; the training error under the Freund-Schapire product-of-Z bound at all 200 rounds and zero from round 95; the reweighting ablated (63.7%, one stump refitted) and bagging measured (64.0%); the two exact identities behind the bound checked to 1e-15; the weight pile-up on flipped labels measured (34% on 10% of the points).',
+    listenMinutes: 8,
+    time: 'T rounds x O(n) per feature',
+    space: 'n weights + T stumps',
+    baseline: 'A single decision stump',
+    vite: 'adaboost-exponential-reweighting',
+    html: 'adaboost-exponential-reweighting/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'AdaBoost', heuristic: 'Exponential reweighting', domain: 'Boosted classification' },
   { algorithm: 'DBSCAN', heuristic: 'Density-reachability', domain: 'Arbitrary-shape clustering' },
   { algorithm: 'Perceptron', heuristic: 'Mistake-driven updates', domain: 'Linear classification' },
+  { algorithm: 'First fit decreasing', heuristic: 'Descending size order', domain: 'Bin packing' },
 ];
 
 

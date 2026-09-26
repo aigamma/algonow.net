@@ -3866,6 +3866,35 @@ commit, Fable trailer on every commit, check green before each push.
       (green once it reaches the goal), fall bars; stepMs 50, holdTicks
       rests. Preserved narration: Aoede + Algieba.
 
+- [x] F122. AdaBoost × exponential reweighting. Puzzle 128, ml-ai
+      (problemSlug classification), added 2026-09-26. Solution
+      adaboost_exponential_reweighting.py (0.3s, prints OK): decision
+      stumps on a disk-versus-ring boundary in the unit square, 400
+      training points, 1,000 held out, 200 rounds. FIVE ORACLES: (1)
+      EXACT IDENTITIES every round: the refitted stump's weighted
+      error on the new weights is 1/2 (worst 2e-15) and Z = 2
+      sqrt(e(1-e)) (worst 1e-15); (2) the Freund-Schapire bound
+      (training error <= product of Z) at all 200 rounds: bound 0.954
+      / 0.656 / 0.277 / 0.151 / 0.070 at rounds 1 / 10 / 50 / 100 /
+      200, training error zero from round 95, held-out still rising
+      after (0.963 -> 0.967); (3) held out: AdaBoost 0.967 vs single
+      stump 0.637; (4) ABLATION uniform weights refits the same stump
+      200 times (0.637, asserted identical) and the RIVAL bagged
+      stumps 0.640 (bias, not variance); (5) label noise: with 10% of
+      labels flipped, 34% of the weight rests on the 40 flipped points
+      by round 200 and held-out falls to 0.895 (0.913 at round 20).
+      Cards: self, Gradient boosting, Random forest, Decision tree.
+      neverUse: bagging as the way to make stumps strong (64.0%).
+      Figure: the bound, the training error, and the held-out error
+      over 200 rounds with the round-95 zero marked, cite
+      Freund-Schapire JCSS 1997 DOI 10.1006/jcss.1997.1504. Viz
+      AdaBoostViz: 200 points, one stump per tick, weights as point
+      radius with the ten heaviest ringed amber, margin-shaded decision
+      region, the bound and training error curves; NODE-VERIFIED 8
+      cycles: bound held every round, zero training error in all 8
+      within 120 rounds; stepMs 140, holdTicks rests. Preserved
+      narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

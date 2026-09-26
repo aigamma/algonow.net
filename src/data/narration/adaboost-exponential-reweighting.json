@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:adaboost-exponential-reweighting",
+  "source_path": "src/content/adaboost-exponential-reweighting.narration.js",
+  "source_sha256": "f5379068b61b58bd9a77a24e23d285872b713643334bb2d2776944bd3c9f3084",
+  "source_characters": 10387,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "907531f4dac0467fbf674fee5d80952b0e6090505c8bd751486111ab86ddeeab",
+  "generated_at": "2026-09-26T23:28:53.747Z",
+  "generated_characters": 20774,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4337,
+      "utf8_bytes": 4344,
+      "sha256": "fde43abdd08582a27b5464562e232f71e089980e1b015f3fbab869ec8feb5810"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4891,
+      "utf8_bytes": 4893,
+      "sha256": "a3a9282e8df67acf373f97f1b9c8ec2eee112189d50133349a75f695e1b52f54"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1159,
+      "utf8_bytes": 1161,
+      "sha256": "93ac94c8c096ab15fd674f02c600c559225ffede371e07da0ed4e91102caa904"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "adaboost-exponential-reweighting.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "adaboost-exponential-reweighting.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1165,
+      "sha256": "68f7a50ba8070b0e6685040dee3087f3e539ee386185114d635519abde0ec6f4"
+    },
+    {
+      "id": "adaboost-exponential-reweighting.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1062,
+      "sha256": "fa8c8e8db4763510d6571d1f672772300dc2ee72cb18193307ce2e426b58fc55"
+    },
+    {
+      "id": "adaboost-exponential-reweighting.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1986,
+      "sha256": "64019fe627e35f7dc33712addef116f96183948a9cf5bfcdb441bb91c89bc219"
+    },
+    {
+      "id": "adaboost-exponential-reweighting.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 848,
+      "sha256": "68f0bb4b0fafa3e3a8c6432f19b0433aef5a2cdd2c4392c4e48f5734418fa338"
+    },
+    {
+      "id": "adaboost-exponential-reweighting.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1099,
+      "sha256": "e44c001bb9a3f07399083ac44421b09dc6a53d93afc3ff4801a86441ceebe465"
+    },
+    {
+      "id": "adaboost-exponential-reweighting.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 614,
+      "sha256": "e6eeceeaa175032b2f1f98fbede0fd9ac1c879cf54f4c47a381974ca4fcb978d"
+    },
+    {
+      "id": "adaboost-exponential-reweighting.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1005,
+      "sha256": "ba10146e096b93a287926f21da2179479b4afd40d26e12641a6aa5caff9fa0ee"
+    },
+    {
+      "id": "adaboost-exponential-reweighting.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 721,
+      "sha256": "f5831bf592a785223289333d9fa38d5a53d7e97266acbbb81a710f0db27e6738"
+    },
+    {
+      "id": "adaboost-exponential-reweighting.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 594,
+      "sha256": "25251b4593ee89deb7082bc93a6722fb3946c184bc086a4dacbe1227123cbd3d"
+    },
+    {
+      "id": "adaboost-exponential-reweighting.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1161,
+      "sha256": "93ac94c8c096ab15fd674f02c600c559225ffede371e07da0ed4e91102caa904"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/adaboost-exponential-reweighting/907531f4dac0467fbf67/aoede-cd0e4ab4fa8f3c25.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2692268,
+      "sha256": "cd0e4ab4fa8f3c25b01424541c0514fb1682dc2414ce9b66386400135230e76f",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "fde43abdd08582a27b5464562e232f71e089980e1b015f3fbab869ec8feb5810",
+          "bytes": 1114944,
+          "sha256": "25f4e185cab685ed2ebe37cb4cac30275fea6e04a83e29cfce0a07e31abc9069"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "a3a9282e8df67acf373f97f1b9c8ec2eee112189d50133349a75f695e1b52f54",
+          "bytes": 1296192,
+          "sha256": "ad30505213b2be9d316a53f5689fd6c9cbe2c9e4607a36d5439743ad6ad1e904"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "93ac94c8c096ab15fd674f02c600c559225ffede371e07da0ed4e91102caa904",
+          "bytes": 280896,
+          "sha256": "9fa1f4f7a0346f6e30fd46dfe26b3bc65df256a1628281a3f5b726974b3a9687"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/adaboost-exponential-reweighting/907531f4dac0467fbf67/algieba-f52b242577c4f5ae.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2713100,
+      "sha256": "f52b242577c4f5ae4ee1a84caf1fef594b47b16af01335294921bf8b758ef94d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "fde43abdd08582a27b5464562e232f71e089980e1b015f3fbab869ec8feb5810",
+          "bytes": 1156224,
+          "sha256": "df94bf3a70c65a735b4d6dd70c55f96095e705a274bdf6179626fcda43cf63af"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "a3a9282e8df67acf373f97f1b9c8ec2eee112189d50133349a75f695e1b52f54",
+          "bytes": 1270176,
+          "sha256": "4430e0971df6c648ed077110a98568a5f1c194eb365e7f22dee5959e79e4df6e"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "93ac94c8c096ab15fd674f02c600c559225ffede371e07da0ed4e91102caa904",
+          "bytes": 286464,
+          "sha256": "9604718fafc00267e2c24dae3c1596beb0d39d4056e24658acff010027ccbae9"
+        }
+      ]
+    }
+  }
+}

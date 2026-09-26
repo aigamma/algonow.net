@@ -1,0 +1,54 @@
+// The spoken lesson for puzzle one hundred twenty eight, written for the ear.
+
+export const narration = [
+  {
+    section: 'puzzle',
+    text:
+      'Puzzle one hundred twenty eight: AdaBoost, paired with exponential reweighting, for boosted classification. Here is the puzzle. Points in the unit square, labeled positive inside a disk and negative outside it. No single axis-aligned threshold can trace a circle: the best decision stump, one feature and one cutoff, gets sixty three point seven percent of the held-out points right. Four hundred training points, a thousand held out. The method: two hundred rounds. Each round fits one stump to the weighted training set and gives it a vote proportional to the log of how much better than a coin flip it did. The heuristic is what happens between rounds: multiply every point’s weight by the exponential of minus the vote, times plus one if the stump got the point right and minus one if it got it wrong, and renormalize. The last stump’s mistakes grow, its successes shrink, and the next stump is fitted to what the vote still gets wrong. On this page, two exact identities are checked every round, the training error is held under the Freund and Schapire bound at every round, and the reweighting is removed to see what it was worth. It was worth everything.',
+  },
+  {
+    section: 'origins',
+    text:
+      'Michael Kearns and Leslie Valiant asked in nineteen eighty eight whether a learner that is only slightly better than chance could be turned into one that is nearly always right. Robert Schapire answered yes in nineteen ninety, in The Strength of Weak Learnability, with the first boosting construction. Yoav Freund and Schapire gave the practical form in nineteen ninety five, published in full in nineteen ninety seven: AdaBoost, adaptive boosting, with the exponential reweighting and the bound this page checks. It earned them the Gödel Prize in two thousand three. Schapire, Freund, Bartlett, and Lee explained in nineteen ninety eight why the test error keeps falling after the training error reaches zero: the margins keep growing. Friedman, Hastie, and Tibshirani showed in two thousand that AdaBoost is stagewise fitting of the exponential loss, which opened the door to gradient boosting a year later. And Viola and Jones built the first real time face detector in two thousand one out of exactly this: AdaBoost over thousands of tiny rectangle stumps.',
+  },
+  {
+    section: 'pair',
+    text:
+      'The algorithm owns the vote and the bound. Each round, fit the stump with the least weighted error; a sweep along each feature’s sorted order prices every threshold at once. Its vote is one half the log of one minus the error, over the error: positive as long as the stump beats a coin, and larger the better it is. The final classifier is the sign of the weighted vote. The guarantee: the training error is at most the product, over rounds, of Z, where Z is twice the square root of the error times one minus the error. That is always below one for a stump better than chance, so every useful round shrinks the bound geometrically. Measured: the bound fell from point nine five to point six six to point two eight to point one five to point zero seven, at rounds one, ten, fifty, one hundred, and two hundred. The training error sat under it every round, reached zero at round ninety five, and the held-out accuracy kept rising afterward, to ninety six point seven percent. The heuristic supplies the focus. Multiply each weight by the exponential of minus the vote times the agreement, and renormalize. Two exact consequences, checked every round to fifteen decimal places. The stump just fitted has weighted error exactly one half on the new weights, so it has been made useless, and the next round must find something new. And the normalizer is exactly twice the square root of the error times one minus the error, which is why the bound is a product. Remove the reweighting and every round refits the same stump: sixty three point seven percent, identical to a single stump. Keep it: ninety six point seven. The price: the exponential piles weight onto whatever the vote keeps getting wrong, including labels that are simply wrong. With ten percent of the labels flipped, thirty four percent of the weight ended up on the forty flipped points, and the held-out accuracy fell to eighty nine point five percent, down from ninety one point three at round twenty, before the pile-up.',
+  },
+  {
+    section: 'picture',
+    text:
+      'A committee of specialists, hired one at a time. Each new hire is chosen by an exam whose questions are weighted by how badly the current committee does on them: the questions everyone gets right barely count, and the ones the committee keeps missing count for most of the grade. The hire who scores best on that exam gets a vote in proportion to how much better than a coin flip they scored. Then the exam is reweighted again, so that the newest hire scores exactly fifty percent on it: their strengths are now spent, and the next hire has to bring something different. After a hundred hires, questions no single specialist could answer are answered by the vote. The danger is a question with a wrong answer key. It never gets answered right, so its weight grows and grows, and the last hires are chosen for their talent at matching the wrong key.',
+  },
+  {
+    section: 'run',
+    text:
+      'Here is the run. Start with equal weights, one over four hundred each. Fit the best stump: the feature, the threshold, and the polarity with the least weighted error. Give it its vote. Reweight: every point the stump got wrong is multiplied up, every point it got right is multiplied down, by the same factor, and the weights are renormalized. Repeat two hundred times. Predict by the sign of the weighted vote. On this page, round one: training error thirty five percent, bound point nine five, held-out accuracy sixty three point seven. Round ten: training error nineteen point eight percent, bound point six six, held-out seventy seven point four. Round fifty: training error one point eight percent, bound point two eight, held-out ninety five point three. Round one hundred: training error half a percent, bound point one five, held-out ninety six point three. Round two hundred: training error zero, bound point zero seven, held-out ninety six point seven. The training error first touched zero at round ninety five, and the held-out accuracy went on improving for a hundred rounds after that.',
+  },
+  {
+    section: 'signals',
+    text:
+      'The signals that this pair fits. First: a weak learner that is cheap and reliably better than chance. Stumps are the classic: one comparison each, sixty three percent alone, and there are always more of them. Second: bias is the problem, not variance. If the base learner is too simple to trace the boundary, averaging copies of it will not help; on this page, bagging two hundred stumps gave sixty four percent. Boosting makes the copies different. Third: clean labels. The exponential loss treats every persistent mistake as the most important point in the set, and a flipped label is a mistake that never stops.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'Now the rivals. Gradient boosting: the same stagewise idea for any differentiable loss. Each stage fits the negative gradient of the loss on the current ensemble, and AdaBoost is the special case of the exponential loss. It costs more knobs, a learning rate, a tree depth, subsampling, and it earns its keep on regression, ranking, and any problem where the exponential loss is the wrong loss. Random forest: many deep trees on bootstrap samples with random feature subsets, averaged. It attacks variance, runs in parallel, and shrugs at label noise. It cannot make a weak learner strong: the same recipe on stumps gave sixty four percent here. Reach for it with a strong base learner, noisy labels, or parallel hardware. And a single decision tree, split by information gain: one deep tree traces the disk by itself in a staircase, and you can read it. It overfits alone, which is what the ensembles exist to fix. Reach for it when one explainable model matters more than the last few points of accuracy.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'The honest weaknesses of the hero. It is a noise magnet: with a tenth of the labels flipped, a third of the total weight sat on those forty points by the last round, and the held-out accuracy was lower at round two hundred than at round twenty. More rounds made it worse, because the exponential loss cannot tell a hard point from a wrong one. It is sequential: two hundred rounds, each depending on the last, where a forest grows its trees all at once. The exponential loss is the wrong loss for probabilities and for outliers, which is why LogitBoost and gradient boosting with robust losses exist. And stumps draw staircases: the boundary on this page is a circle, and the vote approximates it with axis-aligned steps.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'And the negative example: bagging as the way to make stumps strong. It is the obvious thing to try: fit two hundred stumps on two hundred bootstrap resamples, and let them vote. Measured: sixty four percent, indistinguishable from one stump at sixty three point seven, against ninety six point seven for the same two hundred stumps under the reweighting. Averaging attacks variance. A stump’s error is bias, and averaging many copies of the same bias returns the same bias. The heuristic that makes boosting work is exactly the thing bagging refuses to do: make each round depend on the last.',
+  },
+  {
+    section: 'code',
+    text:
+      'The code on this page is the whole boosting loop and its referees in one file. A stump fitter that sorts each feature once and sweeps every threshold with running sums, so a round costs one pass per feature. The boosting loop, with the reweighting switchable off for the ablation. A bagging baseline that draws bootstrap resamples as multiplicity weights. A data generator with an optional fraction of flipped labels. The self test asserts, every round: the refitted stump’s weighted error on the new weights is one half, the normalizer is twice the square root of the error times one minus the error, and the training error sits under the product of the normalizers. Then: the ensemble above ninety percent held out and more than ten points above bagging; the ablation identical to a single stump; the single stump and bagging both under eighty percent; and under flipped labels, more than thirty percent of the weight on the flipped points, with the accuracy below the clean run. When it prints O K, the reweighting has been shown to be the whole difference between a coin toss with a memory and a classifier. The file would fail before it would lie to you.',
+  },
+];

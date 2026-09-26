@@ -314,9 +314,33 @@ if (!existsSync('dist/assets')) {
       const preserved = Object.values(PUZZLES).filter(
         (p) => p.slug === 'kalman-covariance-correction' || p.number >= PRESERVED_NARRATION_REQUIRED_FROM,
       );
+      // The origin lives wherever Vite hoisted the media config: inside the
+      // page chunk while one page used it, in a shared chunk once two did.
+      // Walk the page chunk's static and dynamic imports and require the
+      // host somewhere in that closure.
+      const chunkText = new Map();
+      const textOf = (name) => {
+        if (!chunkText.has(name)) {
+          chunkText.set(name, existsSync(`dist/assets/${name}`) ? readFileSync(`dist/assets/${name}`, 'utf8') : '');
+        }
+        return chunkText.get(name);
+      };
+      const closureHasHost = (entry) => {
+        const seen = new Set();
+        const stack = [entry];
+        while (stack.length) {
+          const name = stack.pop();
+          if (seen.has(name)) continue;
+          seen.add(name);
+          const text = textOf(name);
+          if (text.includes(host)) return true;
+          for (const m of text.matchAll(/["']\.\/([A-Za-z0-9_.-]+\.js)["']/g)) stack.push(m[1]);
+        }
+        return false;
+      };
       const blind = preserved.filter((p) => {
         const chunk = assets.find((a) => a.startsWith(`${p.slug}-`) && a.endsWith('.js'));
-        return !chunk || !readFileSync(`dist/assets/${chunk}`, 'utf8').includes(host);
+        return !chunk || !closureHasHost(chunk);
       });
       if (blind.length) {
         fail(`media origin ${host} missing from built page chunk(s): ${blind.map((p) => p.slug).join(', ')}`);

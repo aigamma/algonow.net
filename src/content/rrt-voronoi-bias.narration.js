@@ -1,0 +1,54 @@
+// The spoken lesson for puzzle one hundred fifteen, written for the ear.
+
+export const narration = [
+  {
+    section: 'puzzle',
+    text:
+      'Puzzle one hundred fifteen: the rapidly exploring random tree, paired with Voronoi biased sampling, for motion planning. Here is the puzzle. A robot lives in continuous space with obstacles in it: an open field, a concave bug trap, a corridor two units wide: and it needs a collision free path from start to goal. Grids only approximate that world, and greedy walking toward the goal dies at the first concavity: on this page it dies at step fourteen, measured. The method is three lines. Sample a random point in the world. Find the tree node nearest to it. Extend that node one fixed step toward the sample. That is the whole algorithm, and the heuristic hides inside it: because a node is chosen exactly when the dart lands in its Voronoi cell, nodes facing big unexplored voids get extended most, and the tree rushes into open space instead of diffusing. The referees are strict. Every edge is proven collision free by exact segment geometry and cross checked by dense sampling. A star on a unit grid certifies each world solvable and prices every path. And the heuristic is isolated by ablation: remove the bias and success collapses from twelve of twelve to zero of twelve.',
+  },
+  {
+    section: 'origins',
+    text:
+      'Steven LaValle, nineteen ninety eight, in a technical report from Iowa State that reshaped robotics: rapidly exploring random trees, a new tool for path planning. Two years later, with James Kuffner, the kinodynamic framework followed in the International Journal of Robotics Research. The named insight is the one this page ablates: the innocent loop of uniform sample, nearest node, fixed step makes each node extend with probability proportional to the area of its Voronoi region, so the frontier nodes bordering the largest voids grow fastest and the tree sprints rather than wanders. Nobody codes the bias. The geometry supplies it. The descendants run real robots. R R T Connect grows two trees, one from each end, and became the workhorse of manipulation planning. R R T star, from Karaman and Frazzoli in twenty eleven, adds rewiring and reaches the optimal path in the limit. And the DARPA era autonomous cars carried closed loop variants of this tree through city traffic.',
+  },
+  {
+    section: 'pair',
+    text:
+      'The algorithm owns the tree and its certificates. Nodes live in continuous space, and each is joined to its parent by an edge that is proven collision free: exact segment against rectangle geometry at build time, the Liang Barsky clipping test, with an independent dense sampling cross check agreeing on every edge of every run. That exactness was earned the hard way: two earlier drafts checked edges by sampling, at one unit and then at a quarter unit, and each was caught grazing a corner by a finer referee. A segment can always slip between samples. Only exact geometry ends a resolution war. When a node lands within the goal radius, walking the parent chain back yields the path, which is re verified edge by edge and then measured against the A star grid referee. The heuristic supplies the emergent steering. Sample uniformly, extend the nearest node. A node’s chance of being nearest to a random point is the area of its Voronoi cell, so frontier nodes with huge empty cells are chosen constantly and interior nodes almost never. The ablation isolates it: the same loop extending a random node in a random direction went zero for twelve on the bug trap with nineteen percent coverage, where the biased tree went twelve for twelve with eighty one percent. Same code. One line different. The entire capability gone.',
+  },
+  {
+    section: 'picture',
+    text:
+      'Ink spreading through a maze shaped sponge, two ways. Drop ink that diffuses: every droplet wanders out from wherever droplets already are, so the blot thickens around its own center and barely reaches the far rooms of the maze. That is the ablated tree: nineteen percent of the sponge inside the budget. Now the R R T trick. Throw darts at a map of the whole sponge, and each time, grow the blot from the point of ink nearest the dart. Darts mostly land in the vast un inked territory, so the blot’s frontier, not its thick center, does almost all the growing, streaming down corridors and around corners toward wherever is emptiest. Same ink, same sponge: eighty one percent covered, every room found. The dart thrower never sees the walls and never plans a route. Being pulled toward emptiness is, by itself, a search strategy.',
+  },
+  {
+    section: 'run',
+    text:
+      'Here is the run. Sample: a uniform random point, with a five percent chance of aiming at the goal instead. Nearest: the tree node closest to the sample, which is implicitly the node whose Voronoi cell the sample landed in. Extend: one fixed step from that node toward the sample, the new edge proven free by exact geometry. Repeat until a node lands within the goal radius, then walk the parents back and re verify. On the open field, twelve of twelve runs reached the goal in two hundred eighty three iterations on average. On the bug trap, twelve of twelve in six hundred eleven. On the narrow gap, ten of twelve in seven hundred one, inside a budget of three thousand iterations. The A star referee certifies all three worlds solvable, with optimal grid lengths of one hundred twelve, one hundred nine, and eighty two, and the R R T paths landed at one point two nine, one point four four, and one point two eight times those optima: one point three six on average. Feasible fast, optimal never. That last part is R R T star’s job.',
+  },
+  {
+    section: 'signals',
+    text:
+      'The signals that this pair fits. First: continuous, high dimensional configuration spaces. Robot arms, cars with steering constraints, molecules: a unit grid over a two dimensional world is ten thousand cells, and the same resolution for a six joint arm is ten to the twenty fourth. Sampling never builds the grid, and that is the entire reason the tree exists. Second: concave clutter. Bug traps and cul de sacs kill greedy local reasoning: dead at step fourteen here: while global random exploration walks out of them twelve times in twelve. Third: feasible first deadlines. When any valid path now beats the best path later, you want an anytime planner: one that has a usable answer early and improves it if time remains. That is the shape real robots need, and it is the shape this tree has.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'Now the rivals. R R T star, from Karaman and Frazzoli, keeps the same sampling loop but rewires: every new node reconsiders the wiring of its neighborhood, and the path cost converges to the optimum as samples accumulate. You pay for it with more nearest neighbor work per iteration, and you get the anytime optimal promise this page’s plain tree cannot make: its paths sit at one point three six times optimal and never improve. R R T Connect grows two trees, one from the start and one from the goal, greedily extending each toward the other, and often finds a path in a fraction of one tree’s iterations: it is the manipulation planning workhorse. The greedy connect step inherits some trap sensitivity, and the design assumes the goal configuration is known exactly, which for an arm reaching a pose it usually is. And A star search, this site’s first puzzle and this page’s referee: on a discretization it is complete, optimal, and deterministic, everything sampling gives up. Its bill is the grid, and the grid is exponential in dimension.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'The honest weaknesses of the hero. Feasible, not optimal: the raw tree never improves a path it has found, and one point four four times optimal in the trap is a real detour. Probabilistically complete, not certainly: the two unit gap dropped success to ten of twelve inside the budget, because uniform samples rarely land inside a thin corridor: the known weakness that bridge test sampling and informed sampling variants exist to close, and the page concedes the row in print rather than hiding it. And the nearest neighbor search dominates runtime as the tree grows: every iteration scans every node in the naive version, so real planners pair the loop with a k d tree, which is this site’s own puzzle one hundred five. The probabilistic roadmap is the other classic answer to the same problem: sample milestones everywhere first, connect neighbors, and answer many queries from one map. It wins when the map is reused; the tree wins when you need one path now in a world you have never seen.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'And the negative example: greedy straight at the goal walking, shipped as a planner. It is the instinct every navigation system starts with: step toward the goal, and when blocked, you must be close, so push on. This page walked it into the bug trap and it died at step fourteen: inside the concavity, every straight line step is blocked, and no amount of local reasoning, wall sliding, jitter, or potential fields reliably escapes a pocket whose exit points away from the goal. This is the local minimum disease of every descent flavored navigator, and it is why the field went global and random: the tree that cannot see the goal at all, except through a five percent bias, walked out of the same trap twelve times in twelve, because being pulled toward emptiness is immune to pockets. If your planner’s failure story is that it gets stuck near concave obstacles, no tuning fixes the story. The architecture does.',
+  },
+  {
+    section: 'code',
+    text:
+      'The code on this page is the whole argument. The exact segment against rectangle test, with its own unit tests for corner grazes and clean misses. The tree grower with one flag: the flag that switches between the Voronoi biased loop and the ablated random walk. The A star referee on a unit grid. The greedy walker. The self test asserts: every tree edge and every path edge exact checked and independently confirmed by dense sampling at a tenth of a unit, on every run of every world: A star certifying all three worlds solvable, with R R T paths inside one to two point two times the grid optimum: the ablation collapse, twelve of twelve against zero of twelve, with coverage eighty one percent against nineteen: greedy dead in the trap at step fourteen: and the narrow row’s measured cost, ten of twelve with iterations more than half again the open field’s. When it prints O K, three lines of loop have solved three worlds, and the line that mattered has been removed and put back so you can see exactly where the power lives. The file would fail before it would lie to you.',
+  },
+];

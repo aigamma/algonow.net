@@ -2203,14 +2203,35 @@ export const PUZZLES = {
     vite: 'work-stealing-random-victims',
     html: 'work-stealing-random-victims/index.html',
   },
+  '/rrt-voronoi-bias/': {
+    slug: 'rrt-voronoi-bias',
+    added: '2026-09-26',
+    problemSlug: 'motion-planning',
+    number: 115,
+    category: 'robotics-control',
+    algorithm: 'Rapidly-exploring random tree',
+    heuristic: 'Voronoi-biased sampling',
+    domain: 'Motion planning',
+    oneLiner:
+      'Three lines of loop: sample a random point, find the nearest tree node, step toward it. Nobody codes the exploration bias: a node grows as often as a dart lands in its Voronoi cell, so the frontier rushes into the void.',
+    description:
+      'The rapidly-exploring random tree with Voronoi-biased sampling: 12/12, 12/12, 10/12 across three worlds against an A* referee (paths 1.36x grid-optimal), greedy dead in the bug trap at step 14, and the ablation measured: bias removed, 0/12 at 19% coverage.',
+    listenMinutes: 8,
+    time: 'O(n) per sample naive',
+    space: 'O(n) tree',
+    baseline: 'A* on a grid',
+    vite: 'rrt-voronoi-bias',
+    html: 'rrt-voronoi-bias/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Rapidly-exploring random tree', heuristic: 'Voronoi-biased sampling', domain: 'Motion planning' },
   { algorithm: 'Paxos', heuristic: 'Proposer-acceptor quorums', domain: 'Distributed consensus' },
+  { algorithm: 'Christofides', heuristic: 'Matching plus Euler tour', domain: 'Metric TSP approximation' },
+  { algorithm: "Knuth's Algorithm X", heuristic: 'Dancing links', domain: 'Exact cover' },
 ];
 
 

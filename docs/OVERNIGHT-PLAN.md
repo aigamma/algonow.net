@@ -3500,6 +3500,34 @@ commit, Fable trailer on every commit, check green before each push.
       random within 1.25x of fixed with aggregate within 1.1x,
       central >1.5x random, steals bounded, ticks bounded.
 
+- [x] F109. Rapidly-exploring random tree × Voronoi-biased
+      sampling. Puzzle 115, robotics-control (problemSlug
+      motion-planning), added 2026-09-26: the first unit under
+      rule 4 (preserved Aoede + Algieba narration mandatory). The
+      content page and solution were salvaged from the interrupted
+      2026-08-29 session (commit 9e9d67b, unreviewed); this session
+      re-executed the solution (1.1s, prints OK), reviewed every
+      claim against the printed table, and authored the narration,
+      RrtViz, entry, registry, and manifest fresh. FIVE ORACLES:
+      (1) COLLISION EXACTNESS: every tree edge and path edge
+      Liang-Barsky exact at build, cross-checked by 0.1-unit dense
+      sampling (two earlier drafts lost the resolution war at 1.0
+      and 0.25: kept in the file as lore); (2) A* ON A UNIT GRID
+      certifies all three worlds solvable (112/109/82) and prices
+      the paths: RRT 1.29x/1.44x/1.28x, 1.36x mean, inside
+      [1.0, 2.2]; (3) THE ABLATION: same loop, bias removed (random
+      node, random direction): bug trap 12/12 at 81% coverage vs
+      0/12 at 19%; (4) greedy straight-at-goal dead in the trap at
+      step 14; (5) the honest narrow-gap row: 10/12 with mean
+      iterations > 1.5x the open field's (701 vs 283). Cards: self,
+      RRT*, RRT-Connect, A* search (live). neverUse: greedy
+      walking. Figure: the tree wrapping the trap + the measured
+      table, cite LaValle-Kuffner IJRR 2001 DOI
+      10.1177/02783640122067453. Viz RrtViz: one seed, two panels
+      (biased tree vs the diffusion ablation) racing through the
+      bug trap, amber dart = the sample, green = the found path;
+      stepMs 40, holdTicks rest, still-mode final frame.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

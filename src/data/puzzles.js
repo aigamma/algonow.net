@@ -2223,15 +2223,35 @@ export const PUZZLES = {
     vite: 'rrt-voronoi-bias',
     html: 'rrt-voronoi-bias/index.html',
   },
+  '/paxos-proposer-acceptor-quorums/': {
+    slug: 'paxos-proposer-acceptor-quorums',
+    added: '2026-09-26',
+    problemSlug: 'distributed-consensus',
+    number: 116,
+    category: 'distributed-systems',
+    algorithm: 'Paxos',
+    heuristic: 'Proposer-acceptor quorums',
+    domain: 'Distributed consensus',
+    oneLiner:
+      'Two phases addressed to everyone, and nothing counts until a majority answers: any two majorities share an acceptor, that acceptor remembers, and once a value is chosen every later ballot is forced to choose it again.',
+    description:
+      'Paxos with proposer-acceptor quorums: safety proved by exhaustive model checking (1,439,849 states, one value ever chosen), both ablations caught within 731 states, 40/40 decisions with two of five acceptors crashed, and two-phase commit measured blocking 5/5 on a coordinator crash.',
+    listenMinutes: 8,
+    time: '2 round trips, O(n) msgs each',
+    space: '3 numbers per acceptor',
+    baseline: 'Two-phase commit',
+    vite: 'paxos-proposer-acceptor-quorums',
+    html: 'paxos-proposer-acceptor-quorums/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Paxos', heuristic: 'Proposer-acceptor quorums', domain: 'Distributed consensus' },
   { algorithm: 'Christofides', heuristic: 'Matching plus Euler tour', domain: 'Metric TSP approximation' },
   { algorithm: "Knuth's Algorithm X", heuristic: 'Dancing links', domain: 'Exact cover' },
+  { algorithm: "Hopcroft's minimization", heuristic: 'Partition refinement', domain: 'DFA minimization' },
 ];
 
 

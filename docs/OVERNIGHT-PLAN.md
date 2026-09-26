@@ -3528,6 +3528,36 @@ commit, Fable trailer on every commit, check green before each push.
       bug trap, amber dart = the sample, green = the found path;
       stepMs 40, holdTicks rest, still-mode final frame.
 
+- [x] F110. Paxos × proposer-acceptor quorums. Puzzle 116,
+      distributed-systems (problemSlug distributed-consensus),
+      added 2026-09-26. Solution paxos_proposer_acceptor_quorums.py
+      (15s, prints OK): a pure step function plus a state-hashed DFS
+      that delivers every message in every order with every drop.
+      FIVE ORACLES: (1) SAFETY BY EXHAUSTION on 3 acceptors and 2
+      dueling proposers: 1,439,849 reachable states with drops and
+      160,523 with pure reordering, at most one value EVER chosen
+      (the state carries the ever-chosen set: a snapshot forgets
+      history once a higher ballot overwrites an acceptor) and only
+      proposed values chosen; (2) THE ABLATIONS model-checked the
+      same way: quorum = half finds two chosen values at 453 states,
+      accept-without-prepare at 731; (3) LIVENESS on 5 acceptors and
+      3 dueling proposers under random delay and reordering, 40
+      runs: 40/40 in 11 ticks and 3.3 ballots with backoff vs 40/40
+      in 29 ticks and 10.0 ballots without (AUTHOR CORRECTION: the
+      first draft asserted a livelock without backoff; the run
+      refused it because the network's own jitter desynchronizes
+      the duelers, and the page says a synchronous network would
+      not); (4) crashes: 2 of 5 acceptors down 40/40 decided, 3 of
+      5 down 0/40; (5) two-phase commit with a coordinator crash
+      after the votes: 5/5 participants blocked. Cards: self, Raft
+      (live), Multi-Paxos, PBFT. neverUse: 2PC as consensus. Figure:
+      two overlapping majorities of five with a2 carrying (1, A),
+      cite Lamport TOCS 1998 DOI 10.1145/279227.279229. Viz
+      PaxosViz: three scripted acts (lone proposer; the duel where
+      the shared acceptor forces A forward; the half-quorum ablation
+      choosing two values), quorums re-drawn per cycle; stepMs 45,
+      holdTicks rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

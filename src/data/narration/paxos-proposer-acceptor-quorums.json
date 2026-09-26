@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:paxos-proposer-acceptor-quorums",
+  "source_path": "src/content/paxos-proposer-acceptor-quorums.narration.js",
+  "source_sha256": "b212b04fe5af1feecc7c76cc32dcf29fdad78c76d236689dfed62a1af75d8e5a",
+  "source_characters": 11024,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "c9b9f2c63dcab36400acd4ef60f3c2fa123dbf7ba4668dba6ffd78af39cf7475",
+  "generated_at": "2026-09-26T20:47:57.090Z",
+  "generated_characters": 22048,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4621,
+      "utf8_bytes": 4627,
+      "sha256": "d29f9179f02383c6ba6a882c861bd84d1b2011b9fbdf2ae12f4419f043ad745b"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4163,
+      "utf8_bytes": 4171,
+      "sha256": "d84f72671692b34ada9dc26589bb6cc693b1ab757ee80a1396b444ce36c4855a"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2240,
+      "utf8_bytes": 2240,
+      "sha256": "fb07188970cefb0366e634fc8a2b4910da9a2887d194d89303efb957d0efc420"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "paxos-proposer-acceptor-quorums.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "paxos-proposer-acceptor-quorums.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1087,
+      "sha256": "e581693b6321a15b649473675900925760eb6e48979b75d885ddc525abe67d51"
+    },
+    {
+      "id": "paxos-proposer-acceptor-quorums.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1074,
+      "sha256": "dbfd9ff5d76cdc494a2b2e2b7202287fa305cf7f1c5c6ce245b2785abee75245"
+    },
+    {
+      "id": "paxos-proposer-acceptor-quorums.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1362,
+      "sha256": "9b17f49d1a4c8c3e26b0620fa76e850ca41b1f2e4ad8f2cf140e9bde6bb54e65"
+    },
+    {
+      "id": "paxos-proposer-acceptor-quorums.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 971,
+      "sha256": "7088dd70964602b60ee59a2dd1242a445ea1cae6125d3bec4b89daa238a1e4f1"
+    },
+    {
+      "id": "paxos-proposer-acceptor-quorums.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1129,
+      "sha256": "fbbf65acf8beacbcd15975ef2cf67783730ae80290ca9b1bb18ee862e694e26c"
+    },
+    {
+      "id": "paxos-proposer-acceptor-quorums.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 941,
+      "sha256": "44e55f03b063b3981598e0dd874c64c4546b320910d78a9300dcadb0148919d6"
+    },
+    {
+      "id": "paxos-proposer-acceptor-quorums.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1082,
+      "sha256": "df5b8074ef3c26f4b90aabe193b054a4a7100450b3e24446b80c952853586d31"
+    },
+    {
+      "id": "paxos-proposer-acceptor-quorums.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1011,
+      "sha256": "efbe1eb19a3ac9eca3d94958524c2c116f965227405f78ca7cdf5f8a091b2d25"
+    },
+    {
+      "id": "paxos-proposer-acceptor-quorums.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 913,
+      "sha256": "d07d6fd747d6060d7032d84772fce75a2d561e50d9bbc86504db31df71dfda37"
+    },
+    {
+      "id": "paxos-proposer-acceptor-quorums.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1325,
+      "sha256": "7bb73145b7781192fb46da841c17bfa0df42cf62b8710532aefb6add62b1ea2f"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/paxos-proposer-acceptor-quorums/c9b9f2c63dcab36400ac/aoede-39e8b2f8389c291b.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2748908,
+      "sha256": "39e8b2f8389c291b0657c0660606dcd4bfcadde546b107d253b12cf0f75f8a10",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d29f9179f02383c6ba6a882c861bd84d1b2011b9fbdf2ae12f4419f043ad745b",
+          "bytes": 1113696,
+          "sha256": "4d90954ace3bafc3d45032d659fafb27a0f08fb2b73a7586315992918879eb2f"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "d84f72671692b34ada9dc26589bb6cc693b1ab757ee80a1396b444ce36c4855a",
+          "bytes": 1105632,
+          "sha256": "2cea1ff321cbae0de265967622144ac6709983beb1fd0aca8109d0df851b4d08"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "fb07188970cefb0366e634fc8a2b4910da9a2887d194d89303efb957d0efc420",
+          "bytes": 529344,
+          "sha256": "e3150cacef23cf7c9128b9d04ccfd04d8ab93eeab9100edc4edb2e8f9c6f332d"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/paxos-proposer-acceptor-quorums/c9b9f2c63dcab36400ac/algieba-0e4f5f1117cba2de.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2890700,
+      "sha256": "0e4f5f1117cba2de321bcc9eb612ef59383086397a5cb2038b8fd74a12019160",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d29f9179f02383c6ba6a882c861bd84d1b2011b9fbdf2ae12f4419f043ad745b",
+          "bytes": 1171776,
+          "sha256": "5e5bb4acbaee14255a8ad55ad4a6c843c1be18c322025169bea9c78fd5120815"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "d84f72671692b34ada9dc26589bb6cc693b1ab757ee80a1396b444ce36c4855a",
+          "bytes": 1154496,
+          "sha256": "7dc61b1301b46070ee43c07a469a66a2d5f4ccf9f6cf2ceea2e8967155465786"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "fb07188970cefb0366e634fc8a2b4910da9a2887d194d89303efb957d0efc420",
+          "bytes": 564192,
+          "sha256": "2af94dbb822c870dbea04ce70d386f1d8976f3f035e03f664690bbfa2d0ba507"
+        }
+      ]
+    }
+  }
+}

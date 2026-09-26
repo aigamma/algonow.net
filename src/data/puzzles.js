@@ -2363,15 +2363,35 @@ export const PUZZLES = {
     vite: 'contraction-hierarchies-importance-order',
     html: 'contraction-hierarchies-importance-order/index.html',
   },
+  '/bron-kerbosch-tomita-pivoting/': {
+    slug: 'bron-kerbosch-tomita-pivoting',
+    added: '2026-09-26',
+    problemSlug: 'clique-finding',
+    number: 123,
+    category: 'graphs',
+    algorithm: 'Bron-Kerbosch',
+    heuristic: 'Tomita pivoting',
+    domain: 'Maximal clique listing',
+    oneLiner:
+      'Three sets: the clique so far, the candidates, and the already-reported. Pick the candidate that covers the most others as the pivot and branch only outside its circle: every maximal clique once, at the provably optimal rate.',
+    description:
+      'Bron-Kerbosch with Tomita pivoting: equal to brute-force subset enumeration on twelve small graphs, every clique on four large graphs verified maximal and unique, 4,427 calls against 19,487 on G(60, 0.5), and on Moon-Moser graphs exactly (3^(k+1)-1)/2 pivoted calls against 4^k without the pivot.',
+    listenMinutes: 8,
+    time: 'O(3^(n/3)) worst case',
+    space: 'O(n) recursion depth',
+    baseline: 'Bron-Kerbosch without a pivot',
+    vite: 'bron-kerbosch-tomita-pivoting',
+    html: 'bron-kerbosch-tomita-pivoting/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Bron-Kerbosch', heuristic: 'Tomita pivoting', domain: 'Maximal clique listing' },
   { algorithm: 'Myers diff algorithm', heuristic: 'Shortest-edit-script search', domain: 'Text diffing' },
   { algorithm: 'HNSW', heuristic: 'Navigable small-world layers', domain: 'Vector similarity search' },
+  { algorithm: 'Backpropagation', heuristic: 'Stochastic gradient descent', domain: 'Neural network training' },
 ];
 
 

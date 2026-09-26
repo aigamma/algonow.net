@@ -3733,6 +3733,34 @@ commit, Fable trailer on every commit, check green before each push.
       Dijkstra; stepMs 50, holdTicks rests. Preserved narration:
       Aoede + Algieba.
 
+- [x] F117. Bron-Kerbosch × Tomita pivoting. Puzzle 123, graphs
+      (problemSlug clique-finding), added 2026-09-26. Solution
+      bron_kerbosch_tomita_pivoting.py (3.6s, prints OK). FIVE
+      ORACLES: (1) twelve small graphs (10-14 vertices, densities
+      0.3-0.6) equal to brute-force subset enumeration under all
+      three variants; (2) G(60,.3) 427 cliques, G(60,.5) 1,870,
+      G(60,.7) 14,479, G(120,.5) 42,009: every reported set a
+      clique, maximal, unique; variants agree; (3) MOON-MOSER
+      (parts of three, 3^k cliques): pivoted calls EXACTLY
+      (3^(k+1)-1)/2 (121 / 364 / 1,093 / 3,280 for k = 4..7) and
+      unpivoted EXACTLY 4^k (256 / 1,024 / 4,096), gap widening
+      2.1x / 2.8x / 3.7x (AUTHOR CORRECTION: the first draft
+      asserted a tenfold gap at k = 6; the run said 3.7x and the
+      exact laws replaced the guess); (4) COST on random graphs:
+      no pivot 1,672 / 19,487 / 693,973 / 574,935 vs Tomita 847 /
+      4,427 / 35,170 / 100,994 vs degeneracy+pivot 944 / 4,574 /
+      35,769 / 103,156; (5) depth-one candidate sets bounded by the
+      degeneracy d = 13 / 23 / 35 / 50. Cards: self, degeneracy
+      ordering (Eppstein-Loffler-Strash, algoName Bron-Kerbosch),
+      Max-clique branch and bound, Backtracking search (live).
+      neverUse: enumerating every vertex subset (2^60 = 1.15e18).
+      Figure: R, P split by the pivot's neighborhood, X, cite Tomita
+      TCS 2006 DOI 10.1016/j.tcs.2006.06.015 and Bron-Kerbosch CACM
+      1973. Viz BronKerboschViz: one 14-vertex graph searched twice
+      (plain, then pivoted), one call per tick with R green, P blue,
+      X grey, pivot amber, call counters; stepMs 45, holdTicks rests.
+      Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

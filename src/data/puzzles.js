@@ -2283,15 +2283,35 @@ export const PUZZLES = {
     vite: 'knuths-algorithm-x-dancing-links',
     html: 'knuths-algorithm-x-dancing-links/index.html',
   },
+  '/hopcrofts-minimization-partition-refinement/': {
+    slug: 'hopcrofts-minimization-partition-refinement',
+    added: '2026-09-26',
+    problemSlug: 'automaton-minimization',
+    number: 119,
+    category: 'languages-compilers',
+    algorithm: 'Hopcroft\'s minimization',
+    heuristic: 'Partition refinement',
+    domain: 'DFA minimization',
+    oneLiner:
+      'Split blocks of states through their inverse transitions from a queue of splitters, and after every split queue only the smaller half: a state re-enters the queue at most log n times, and the quadratic rounds become n log n.',
+    description:
+      'Hopcroft\'s minimization with partition refinement: 20,105 transitions examined on 4,800 states under a bound of 352,190 with the ratio flat across five sizes, Moore\'s partition identical on every instance, 2,048 vs 2,095,104 on the chain machine, and the both-halves ablation at 9.4x.',
+    listenMinutes: 8,
+    time: 'O(k n log n)',
+    space: 'O(k n) inverse edges',
+    baseline: 'Moore\'s rounds, O(k n · rounds)',
+    vite: 'hopcrofts-minimization-partition-refinement',
+    html: 'hopcrofts-minimization-partition-refinement/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Hopcroft's minimization", heuristic: 'Partition refinement', domain: 'DFA minimization' },
   { algorithm: 'Bowyer-Watson', heuristic: 'Bad-triangle cavity retriangulation', domain: 'Delaunay triangulation' },
   { algorithm: 'Reed-Solomon', heuristic: 'Berlekamp-Massey decoding', domain: 'Burst error correction' },
+  { algorithm: 'Contraction hierarchies', heuristic: 'Node-importance contraction order', domain: 'Continental road routing' },
 ];
 
 

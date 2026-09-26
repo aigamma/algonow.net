@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net hopcrofts-minimization-partition-refinement preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-26T21:48:38.187Z",
+  "publication_sha256": "256d73ded68a5a9a9e43c85e3b4b7347fbe041beaf981bb29baceaec9cbff703",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5726008,
+  "objects": [
+    {
+      "stable_id": "puzzle:hopcrofts-minimization-partition-refinement",
+      "slug": "hopcrofts-minimization-partition-refinement",
+      "track_id": "algieba",
+      "source_sha256": "ae68c705a3290b30c4cde2935ede823aee06149e33e913574645f47d76a65ca8",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "acddfba2b8f5ba3b498e77f96f03f8cbabcb5cf6189969571658dcab82eadfb9",
+      "object_key": "narration/v1/puzzles/hopcrofts-minimization-partition-refinement/acddfba2b8f5ba3b498e/algieba-d8253c003b16a913.mp3",
+      "bytes": 2981900,
+      "sha256": "d8253c003b16a913332c0a30c081041e07e8a6a1b169f464fc420ffe013d4959",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:hopcrofts-minimization-partition-refinement",
+      "slug": "hopcrofts-minimization-partition-refinement",
+      "track_id": "aoede",
+      "source_sha256": "ae68c705a3290b30c4cde2935ede823aee06149e33e913574645f47d76a65ca8",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "acddfba2b8f5ba3b498e77f96f03f8cbabcb5cf6189969571658dcab82eadfb9",
+      "object_key": "narration/v1/puzzles/hopcrofts-minimization-partition-refinement/acddfba2b8f5ba3b498e/aoede-6ca41816877b9ef4.mp3",
+      "bytes": 2744108,
+      "sha256": "6ca41816877b9ef4fe33ca8a8efd52602978bf0fa07023513fab36ac25d00ca8",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

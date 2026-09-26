@@ -3615,6 +3615,40 @@ commit, Fable trailer on every commit, check green before each push.
       nodes, 1,051 ticks; stepMs 30, holdTicks rest. Preserved
       narration: Aoede + Algieba.
 
+- [x] F113. Hopcroft's minimization × partition refinement. Puzzle
+      119, languages-compilers (problemSlug automaton-minimization),
+      added 2026-09-26. Solution
+      hopcrofts_minimization_partition_refinement.py (5s, prints
+      OK): random 3-letter machines with half their states
+      duplicated (language-preserving, every state reachable), 300
+      to 4,800 states. SIX ORACLES: (1) Moore's independent rounds
+      give the identical partition; (2) product-construction
+      language equivalence of every quotient; (3) table filling
+      finds every remaining pair distinguishable, Brzozowski's
+      double reversal agrees on the count (20 small machines: its
+      subset constructions blow up on big ones, measured as a
+      >600s hang before it was restricted); (4) COST LAW: Hopcroft
+      1,215 / 2,504 / 4,999 / 10,305 / 20,105 examinations under
+      2 k n log2 n with the ratio flat 0.11 to 0.16; both-halves
+      ablation 7,804 ... 189,898 (9.4x); Moore 3,600 ... 57,600 in
+      4 rounds (random machines are shallow: the honest row); (5)
+      the 12-state bloated divisible-by-three machine collapses to
+      3, checked on every value to 300; (6) MOORE'S WORST CASE on
+      chain machines: 256 / 512 / 1,024 states: Hopcroft 512 /
+      1,024 / 2,048 vs Moore 130,560 / 523,264 / 2,095,104 in
+      n-1 rounds. Cards: self, Moore's minimization, Brzozowski
+      minimization, Subset construction (live). neverUse: table
+      filling as a minimizer at scale (n(n-1)/2 pairs: 5,118,400 at
+      4,800). Figure: splitter, straddling block, smaller piece
+      queued, cite Hopcroft 1971 DOI
+      10.1016/B978-0-12-417750-5.50022-1. Viz HopcroftViz: one
+      30-state machine (18 base + 12 duplicates) minimized twice:
+      act 1 Moore's rounds recoloring the grid; act 2 Hopcroft's
+      splitters with amber splitter ring, blue pre-image ring,
+      smaller-half queue line; NODE-VERIFIED 8 cycles: partitions
+      coincide, 30 -> 18, <= 736 ticks; stepMs 40, holdTicks
+      rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:hopcrofts-minimization-partition-refinement",
+  "source_path": "src/content/hopcrofts-minimization-partition-refinement.narration.js",
+  "source_sha256": "ae68c705a3290b30c4cde2935ede823aee06149e33e913574645f47d76a65ca8",
+  "source_characters": 11051,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "acddfba2b8f5ba3b498e77f96f03f8cbabcb5cf6189969571658dcab82eadfb9",
+  "generated_at": "2026-09-26T21:47:40.038Z",
+  "generated_characters": 22102,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4911,
+      "utf8_bytes": 4927,
+      "sha256": "b42733439c09426a809b2819849ea4b3b8f8eb72b2e7d44dbeb017a2466b850f"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4179,
+      "utf8_bytes": 4193,
+      "sha256": "d3a702d215c84f94e9ec4c8c4eb6ce47856e4893d4fffd35ae6355dd99500643"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1961,
+      "utf8_bytes": 1969,
+      "sha256": "0e17b040bce3c9f8a2b9394729dd4300b592f6ac18ecbe5beac04f71d967cac8"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "hopcrofts-minimization-partition-refinement.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "hopcrofts-minimization-partition-refinement.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1230,
+      "sha256": "6c8d0293d351a1f6972e42712cb559744505215ec16aa87e654b9cda640a28f0"
+    },
+    {
+      "id": "hopcrofts-minimization-partition-refinement.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1100,
+      "sha256": "fbb214ccb33da8d428208b28d5ee8a786256d24bc313ec1bafcb3c48db0c805b"
+    },
+    {
+      "id": "hopcrofts-minimization-partition-refinement.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1519,
+      "sha256": "b0481cd5464252be11e38bdaecaa340a140013321b690e0b5745f725ace422b8"
+    },
+    {
+      "id": "hopcrofts-minimization-partition-refinement.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 945,
+      "sha256": "b3689ae89b32ab35f45509875ad5e02e93e3b70c6c2e01a0ef282ab47fd45907"
+    },
+    {
+      "id": "hopcrofts-minimization-partition-refinement.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1352,
+      "sha256": "57e4a1bd018f15b888ded8cfba0da993fa9a6e5a726cf0dcff16fa823edcb303"
+    },
+    {
+      "id": "hopcrofts-minimization-partition-refinement.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 829,
+      "sha256": "75e9a109d77cafce3996db0dc946c1e1922ecbbae0a08b55f510268a618a6432"
+    },
+    {
+      "id": "hopcrofts-minimization-partition-refinement.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1216,
+      "sha256": "2ae8bb6fb501f2113f535bec25f1f868e532e80e13785110af7602013c95ed11"
+    },
+    {
+      "id": "hopcrofts-minimization-partition-refinement.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 788,
+      "sha256": "e194dd4f41b5075636e9f21b1c80b3149987ab6b253b003fd0a104e0f8f7cf20"
+    },
+    {
+      "id": "hopcrofts-minimization-partition-refinement.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 831,
+      "sha256": "0204f8586ab361d0592adec363b506b3208c310a29c8bab1b2dad67f9c8d3aaf"
+    },
+    {
+      "id": "hopcrofts-minimization-partition-refinement.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1136,
+      "sha256": "c4ae25529c7be295d7d60b54dff18248841a783733870af14953904da85e1f72"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/hopcrofts-minimization-partition-refinement/acddfba2b8f5ba3b498e/aoede-6ca41816877b9ef4.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2744108,
+      "sha256": "6ca41816877b9ef4fe33ca8a8efd52602978bf0fa07023513fab36ac25d00ca8",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b42733439c09426a809b2819849ea4b3b8f8eb72b2e7d44dbeb017a2466b850f",
+          "bytes": 1208832,
+          "sha256": "3b0f66eccab7aa4a117d5b8c46fc7dd60b415d0728bde77058246dff36a55a6b"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "d3a702d215c84f94e9ec4c8c4eb6ce47856e4893d4fffd35ae6355dd99500643",
+          "bytes": 1038336,
+          "sha256": "a2e18d247ddc2301d6a1d4d521f2f4db5633ae89a3be107b8722957b66df2dc4"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "0e17b040bce3c9f8a2b9394729dd4300b592f6ac18ecbe5beac04f71d967cac8",
+          "bytes": 496704,
+          "sha256": "f7ffecb8e78d8c1f2042c7d85010d49f4e9be086e15c95cf5b891422bb41f903"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/hopcrofts-minimization-partition-refinement/acddfba2b8f5ba3b498e/algieba-d8253c003b16a913.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2981900,
+      "sha256": "d8253c003b16a913332c0a30c081041e07e8a6a1b169f464fc420ffe013d4959",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b42733439c09426a809b2819849ea4b3b8f8eb72b2e7d44dbeb017a2466b850f",
+          "bytes": 1331136,
+          "sha256": "832fc29c8d091b58a920f596d6e89bdb5747574381e6247a3e0ced85d2a4e573"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "d3a702d215c84f94e9ec4c8c4eb6ce47856e4893d4fffd35ae6355dd99500643",
+          "bytes": 1150176,
+          "sha256": "8e8f0fca0da96656371da42c46838d7b669159556d9f11b23637d74911eca6dc"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "0e17b040bce3c9f8a2b9394729dd4300b592f6ac18ecbe5beac04f71d967cac8",
+          "bytes": 500352,
+          "sha256": "c248c565baac3f30a00f7ce30f60772c77f08aeefe42424f60930ae728849855"
+        }
+      ]
+    }
+  }
+}

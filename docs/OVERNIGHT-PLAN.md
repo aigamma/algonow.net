@@ -3954,6 +3954,34 @@ commit, Fable trailer on every commit, check green before each push.
       under the bound in all 9; stepMs 220, holdTicks rests. Preserved
       narration: Aoede + Algieba.
 
+- [x] F125. First fit decreasing × descending size order. Puzzle 131,
+      optimization-or (problemSlug bin-packing), added 2026-09-26.
+      Solution first_fit_decreasing_descending_size_order.py (2.2s,
+      prints OK): 200 random 12-item instances (sizes uniform in
+      [0.05, 0.95]) against the exact optimum by subset DP (3^12
+      submask steps each), Johnson's constructed family, and 2,000
+      items against the ceil-of-sum bound. FIVE ORACLES: (1) FFD <=
+      11/9 OPT + 6/9 and >= OPT on every instance; optimal on 200 of
+      200 (1,445 bins = the optimum's 1,445), worst excess 0; (2)
+      ABLATIONS on the same instances: arrival-order first fit optimal
+      on 138 (1,508 bins, worst excess 2, worse than FFD on 62), next
+      fit on 33 (1,683, worst excess 3); (3) Johnson's family (30
+      items: 1/2+e, 1/4+2e, 1/4+e, 1/4-2e): OPT 9 with the packing
+      verified bin by bin, FFD 11 = 11/9 exactly, next fit 13; (4)
+      scale: 2,000 items, FFD 1,025 bins vs lower bound 1,011 (1.38%
+      above), arrival order 1,062, next fit 1,356; (5) the max-tree
+      first fit reproduces the scan's packing exactly with 44,000 node
+      touches vs 1,038,021 bin checks (4.2%). Cards: self, Best fit
+      decreasing, Next fit, Branch and bound. neverUse: the exact
+      subset DP as the packer (3^2000). Figure: Johnson's family, 9
+      optimal bins beside 11 FFD bins, cite Johnson et al. SICOMP 1974
+      DOI 10.1137/0203025 and Dosa 2007. Viz FirstFitViz: the same 24
+      items packed twice, one item per tick, arrival order beside
+      largest-first, amber item being placed, bins vs the lower bound;
+      NODE-VERIFIED 12 cycles: valid packings in all 12, sorted wins
+      9 and ties 3; stepMs 260, holdTicks rests. Preserved narration:
+      Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

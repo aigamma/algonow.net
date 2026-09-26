@@ -2523,15 +2523,35 @@ export const PUZZLES = {
     vite: 'perceptron-mistake-driven-updates',
     html: 'perceptron-mistake-driven-updates/index.html',
   },
+  '/first-fit-decreasing-descending-size-order/': {
+    slug: 'first-fit-decreasing-descending-size-order',
+    added: '2026-09-26',
+    problemSlug: 'bin-packing',
+    number: 131,
+    category: 'optimization-or',
+    algorithm: 'First fit decreasing',
+    heuristic: 'Descending size order',
+    domain: 'Bin packing',
+    oneLiner:
+      'Sort the items largest first, then drop each into the first bin with room. The big items claim bins before anything blocks them and the small ones fill the gaps: optimal on two hundred of two hundred small instances, and never worse than eleven ninths.',
+    description:
+      'First fit decreasing with descending size order: optimal on 200 of 200 random 12-item instances against an exact subset dynamic program where arrival-order first fit is optimal on 138 and next fit on 33; Dosa\'s tight 11/9 OPT + 6/9 held everywhere and hit exactly on Johnson\'s constructed family (11 bins vs 9, the optimal packing verified bin by bin); 2,000 items packed 1.38% above the ceil-of-sum lower bound with a max-tree finding each first fit in 4.2% of the linear scan\'s bin checks.',
+    listenMinutes: 8,
+    time: 'O(n log n) with a max-tree',
+    space: 'one capacity per bin',
+    baseline: 'First fit in arrival order',
+    vite: 'first-fit-decreasing-descending-size-order',
+    html: 'first-fit-decreasing-descending-size-order/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'First fit decreasing', heuristic: 'Descending size order', domain: 'Bin packing' },
   { algorithm: "Banker's algorithm", heuristic: 'Safe-state check', domain: 'Deadlock avoidance' },
   { algorithm: 'Gaussian elimination', heuristic: 'Partial pivoting', domain: 'Linear systems' },
+  { algorithm: "Grover's search", heuristic: 'Amplitude amplification', domain: 'Unstructured search' },
 ];
 
 

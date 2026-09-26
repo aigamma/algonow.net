@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:first-fit-decreasing-descending-size-order",
+  "source_path": "src/content/first-fit-decreasing-descending-size-order.narration.js",
+  "source_sha256": "542596ba2a0bd99a0ab9160d83d9777df05bbdfab888306e33398199b5870194",
+  "source_characters": 9218,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "8c58d6e8c6f7b46a171828b1f3c54595d64a5b5a106553a5a0b5822acd55a505",
+  "generated_at": "2026-09-26T23:45:06.544Z",
+  "generated_characters": 18436,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4358,
+      "utf8_bytes": 4370,
+      "sha256": "06d2eb871bbc63a2c01a1355b6420b37fe2517683ff39ee6df5cc5ce73fb8583"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4860,
+      "utf8_bytes": 4876,
+      "sha256": "a11b93e072d8e265c073ba869660875f1c701cf3a8ae7a5b4057fe925ac99346"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "first-fit-decreasing-descending-size-order.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "first-fit-decreasing-descending-size-order.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 841,
+      "sha256": "742a4efca5892a822a9c29d7b4100704391ebe5b1e8a2cf52b564bcf11d751a1"
+    },
+    {
+      "id": "first-fit-decreasing-descending-size-order.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1025,
+      "sha256": "f56178286074fb488ce5abc7f15d5a9a5b740a1b7242653af50bd11e19e82072"
+    },
+    {
+      "id": "first-fit-decreasing-descending-size-order.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1636,
+      "sha256": "089f3c81d1dcf4d075c8b38b2a1f067beb3dc6a0e6ba6c1650aaf2aad9b0fe9f"
+    },
+    {
+      "id": "first-fit-decreasing-descending-size-order.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 735,
+      "sha256": "3f5493769fab0956dc0d32c438b722261cb5e16bbd2562ecb7fa65c6d11bf6eb"
+    },
+    {
+      "id": "first-fit-decreasing-descending-size-order.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1001,
+      "sha256": "6ed940154732344d48ecaec309495ae0a97f658541a9d09c1bdd7e899815e001"
+    },
+    {
+      "id": "first-fit-decreasing-descending-size-order.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 486,
+      "sha256": "0886ba5f04d98010caae7f17432604f6a068fa16cdc9e41796770c15301495e7"
+    },
+    {
+      "id": "first-fit-decreasing-descending-size-order.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1010,
+      "sha256": "22413e93ae723bcff40b642477fe1d2bd98f28610b16aa7b59cc6b491cc873d9"
+    },
+    {
+      "id": "first-fit-decreasing-descending-size-order.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 463,
+      "sha256": "947dfbd2f0f7465dd295fc4025d3fcbdf8a06fee40751e0684c118f4c5d8705f"
+    },
+    {
+      "id": "first-fit-decreasing-descending-size-order.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 728,
+      "sha256": "7aaeddc8554f412a3510f200ac7aaf23234400e8c2f00904c902ab6d2b0feb28"
+    },
+    {
+      "id": "first-fit-decreasing-descending-size-order.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1178,
+      "sha256": "c2652e724d611bf403e1c58ddad13daa023121a3ad7df90629e78a36adb4620e"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/first-fit-decreasing-descending-size-order/8c58d6e8c6f7b46a1718/aoede-60d9c0f2628fad12.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2355020,
+      "sha256": "60d9c0f2628fad12f7e4fdf0a4df2a0612cb13882e018b8321d5df37cdbdfb1a",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "06d2eb871bbc63a2c01a1355b6420b37fe2517683ff39ee6df5cc5ce73fb8583",
+          "bytes": 1123392,
+          "sha256": "061a1b78d010c04a52455bbc600eeec23fe40c2c1fc6b58500e7b67a844d8b52"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "a11b93e072d8e265c073ba869660875f1c701cf3a8ae7a5b4057fe925ac99346",
+          "bytes": 1231392,
+          "sha256": "f03c72018ad632a59962b968f02077d741d8a1c75a534f5d9ab1e4162eafb4d5"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/first-fit-decreasing-descending-size-order/8c58d6e8c6f7b46a1718/algieba-712f3009dee73226.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2480108,
+      "sha256": "712f3009dee73226cb26519ec65c266250a8d70f7c63e200fd4921c0b3be73a9",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "06d2eb871bbc63a2c01a1355b6420b37fe2517683ff39ee6df5cc5ce73fb8583",
+          "bytes": 1203456,
+          "sha256": "db3dde96ea6ca8e3237b83494b0b43bf97272b3068aa4a05517c6a14b2d6db37"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "a11b93e072d8e265c073ba869660875f1c701cf3a8ae7a5b4057fe925ac99346",
+          "bytes": 1276416,
+          "sha256": "42d7db666714404138f17d60421c8cbc3521886a8614359ed454652960f90b74"
+        }
+      ]
+    }
+  }
+}

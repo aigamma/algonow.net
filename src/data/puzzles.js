@@ -2443,15 +2443,35 @@ export const PUZZLES = {
     vite: 'backpropagation-stochastic-gradient-descent',
     html: 'backpropagation-stochastic-gradient-descent/index.html',
   },
+  '/q-learning-epsilon-greedy/': {
+    slug: 'q-learning-epsilon-greedy',
+    added: '2026-09-26',
+    problemSlug: 'reinforcement-learning',
+    number: 127,
+    category: 'ml-ai',
+    algorithm: 'Q-learning',
+    heuristic: 'Epsilon-greedy exploration',
+    domain: 'Reinforcement learning',
+    oneLiner:
+      'After every step, move the table entry toward the reward plus the best entry at the next cell, whatever you do next; then do the best-known thing nine times in ten and something random the tenth, so no entry stays a guess.',
+    description:
+      'Q-learning with epsilon-greedy exploration on the cliff walk: the learned table walks value iteration\'s 13-step route exactly with V(start) of -13.00 after 2,000 episodes and 706 falls; SARSA settles on the 17-step safe route with 114 falls; epsilon 0 from zeros finds the optimum by optimism, from -100 it locks into 15 steps; epsilon 0.5 falls 11,717 times.',
+    listenMinutes: 8,
+    time: 'one table update per step',
+    space: '|S| x |A| table',
+    baseline: 'Value iteration on the known map',
+    vite: 'q-learning-epsilon-greedy',
+    html: 'q-learning-epsilon-greedy/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Q-learning', heuristic: 'Epsilon-greedy exploration', domain: 'Reinforcement learning' },
   { algorithm: 'AdaBoost', heuristic: 'Exponential reweighting', domain: 'Boosted classification' },
   { algorithm: 'DBSCAN', heuristic: 'Density-reachability', domain: 'Arbitrary-shape clustering' },
+  { algorithm: 'Perceptron', heuristic: 'Mistake-driven updates', domain: 'Linear classification' },
 ];
 
 

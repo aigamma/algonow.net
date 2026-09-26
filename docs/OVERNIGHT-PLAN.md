@@ -3838,6 +3838,34 @@ commit, Fable trailer on every commit, check green before each push.
       green verdict line; stepMs 40, holdTicks rests. Preserved
       narration: Aoede + Algieba.
 
+- [x] F121. Q-learning × epsilon-greedy exploration. Puzzle 127,
+      ml-ai (problemSlug reinforcement-learning), added 2026-09-26.
+      Solution q_learning_epsilon_greedy.py (0.6s, prints OK): Sutton
+      and Barto's cliff walk (4 x 12, cliff cost 100, step cost 1),
+      2,000 episodes, alpha 0.5, gamma 1; referee: value iteration on
+      the known map (optimal route 13 steps, V*(start) = -13). FIVE
+      ORACLES: (1) the learned greedy route is 13 steps and matches
+      the optimal action on every cell of it, V(start) -13.00 exactly,
+      first optimal at episode 43; (2) 706 cliff falls while learning;
+      (3) ABLATIONS: epsilon 0 from a ZERO table still finds the 13
+      (11 falls: each cliff-entering action tried exactly once, because
+      zeros are optimistic when every reward is negative; AUTHOR
+      CORRECTION: the draft asserted pure greedy fails and the run
+      refused it), epsilon 0 from a table of -100 locks into 15 steps
+      and never finds the 13, epsilon 0.5 finds it at episode 18 with
+      11,717 falls; (4) SARSA with the same epsilon learns the 17-step
+      top route with 114 falls (Example 6.6, measured); (5) the
+      referee's own route asserted at 13. Cards: self, SARSA, Value
+      iteration, Monte Carlo control. neverUse: greedy-only learning
+      from a realistic (pessimistic) table. Figure: the grid with the
+      13-step edge (blue), the 15-step lock-in (dashed), the 17-step
+      SARSA route (amber), cite Watkins-Dayan Machine Learning 1992
+      DOI 10.1007/BF00992698. Viz QLearningViz: Q-learning and SARSA
+      learning side by side, one episode per tick, value-shaded cells,
+      red cliff flash on falls, greedy route redrawn each episode
+      (green once it reaches the goal), fall bars; stepMs 50, holdTicks
+      rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

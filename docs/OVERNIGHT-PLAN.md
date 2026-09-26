@@ -3704,6 +3704,35 @@ commit, Fable trailer on every commit, check green before each push.
       exactly 12/12, 4 errors refused 12/12; stepMs 45, holdTicks
       rests. Preserved narration: Aoede + Algieba.
 
+- [x] F116. Contraction hierarchies × node-importance contraction
+      order. Puzzle 122, graphs (problemSlug road-routing), added
+      2026-09-26. Solution
+      contraction_hierarchies_importance_order.py (6.5s, prints
+      OK): a 40 x 40 grid road network (1,600 nodes, 2,857 edges,
+      weights 1-20, 18% of edges removed), contraction with bounded
+      witness searches, lazy priority (2 x edge difference +
+      contracted neighbors), upward bidirectional query, recursive
+      unpacking. FIVE ORACLES: (1) 200/200 exact Dijkstra distances
+      under all three orders; (2) every unpacked path walks
+      original edges and re-sums; (3) ABLATIONS: random order
+      10,427 shortcuts and 210 settled/query; importance order
+      without witness search 29,135 shortcuts and 127 settled; (4)
+      RIVALS on the same queries: Dijkstra 837 settled,
+      bidirectional 528; (5) SHAPE: importance order 76 settled
+      (9.1% of Dijkstra, 14.4% of bidirectional), 2,883 shortcuts
+      (1.01x the edges), 352,120 witness settles of preprocessing.
+      Cards: self, Bidirectional Dijkstra, A* search (ALT), Hub
+      labeling. neverUse: all-pairs by Floyd-Warshall on a road
+      network (n^3: 4.1e9 here, 8e21 continental). Figure: a
+      contraction with its shortcut and a climbing query, cite
+      Geisberger-Sanders-Schultes-Delling WEA 2008 DOI
+      10.1007/978-3-540-68552-4_24. Viz ContractionViz: an 8 x 8
+      grid contracted node by node with amber shortcuts appearing,
+      then a query climbing from both ends (blue/amber dots) and
+      the green unpacked path, with the settled count against plain
+      Dijkstra; stepMs 50, holdTicks rests. Preserved narration:
+      Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -1,0 +1,54 @@
+// The spoken lesson for puzzle one hundred twenty two, written for the ear.
+
+export const narration = [
+  {
+    section: 'puzzle',
+    text:
+      'Puzzle one hundred twenty two: contraction hierarchies, paired with a node importance contraction order, for continental road routing. Here is the puzzle. A road network with thousands of nodes, and a stream of point to point queries from a navigation app. Dijkstra settles most of the map every time. The map never changes, and preprocessing is allowed, once. The method contracts the nodes one by one. To remove a node, look at every pair of its remaining neighbors, and if the only shortest path between them ran through the node, add a shortcut edge between them with that length. Every node gets a rank, its contraction time. A query then runs a bidirectional search that only ever climbs to higher ranks: forward from the source, backward from the target, meeting at the top. The heuristic is the order. Contract unimportant nodes first, where importance is estimated by the edge difference, shortcuts added minus edges removed, plus the number of neighbors already contracted. On this page, two hundred random queries return the exact Dijkstra distance under every order tried, every path unpacks onto original edges, and the order is priced: importance order settles seventy six nodes per query where Dijkstra settles eight hundred thirty seven.',
+  },
+  {
+    section: 'origins',
+    text:
+      'Robert Geisberger, Peter Sanders, Dominik Schultes, and Daniel Delling, two thousand eight, at Karlsruhe, in a paper called Contraction Hierarchies: Faster and Simpler Hierarchical Routing in Road Networks. It distilled a decade of speedup technique research: highway hierarchies, reach, transit node routing: into one idea simple enough to implement in a weekend and fast enough to answer continental queries in microseconds. The insight is that a road network has a natural hierarchy, driveways below streets below highways, that a good contraction order recovers that hierarchy automatically, and that once every node has a rank, a shortest path climbs and then descends, so a bidirectional search that only ever climbs explores almost nothing. Open source routing engines, and most of the routing behind the maps on your phone, run a descendant of it.',
+  },
+  {
+    section: 'pair',
+    text:
+      'The algorithm owns the contraction and the climbing query. Contracting a node: for each pair of its remaining neighbors, run a small witness search for a path between them that avoids the node and is no longer than the path through it. If no such path exists, add the shortcut with that length, and remember the node so the shortcut can be unpacked later. Every node gets a rank, and the upward graph keeps only the edges that lead to higher ranked nodes. A query runs Dijkstra upward from the source and upward from the target, takes the best meeting node, and unpacks the shortcuts recursively. Refereed on two hundred random queries against plain Dijkstra: two hundred exact distances under all three orders tried, and every unpacked path walks original edges and re sums to the distance. The heuristic supplies the order. Contract cheap nodes first, where cheap means a small edge difference plus few contracted neighbors, recomputed lazily when a node reaches the top of the queue. The order decides everything measured here. Importance order added two thousand eight hundred eighty three shortcuts for two thousand eight hundred fifty seven edges, almost exactly one to one, and settles seventy six nodes per query. A random order added ten thousand four hundred shortcuts and settles two hundred ten. And the witness search is the order’s partner: importance order without it added twenty nine thousand shortcuts, ten times the edges, a hierarchy buried under edges that were never needed.',
+  },
+  {
+    section: 'picture',
+    text:
+      'Folding a paper map so that only the highways stay on top. Each fold hides one town. Before hiding it, the cartographer checks every pair of roads that met there, and if that town was the only quick way between two of its neighbors, draws a direct line between them with the town’s travel time written on it. Hide the dead end hamlets first, because folding them costs almost nothing and reveals nothing. Hide the interstate interchanges last, because everything routes through them. A traveler asking for a route climbs: from the origin, take roads only toward more important places; from the destination, the same, backwards; where the two climbs meet is on the highway, and the route is read off by unfolding the shortcut lines back into the towns they hid. The whole map is never unfolded again.',
+  },
+  {
+    section: 'run',
+    text:
+      'Here is the run, on a forty by forty grid road network with random travel times and nearly a fifth of its edges removed: sixteen hundred nodes, two thousand eight hundred fifty seven edges. Priority: edge difference plus contracted neighbors for every node, in a heap, updated lazily. Contract the cheapest: for each neighbor pair, a bounded witness search, and a shortcut only where the node was the only way through. Rank the node and keep its upward edges. Then two hundred random queries. Plain Dijkstra settled eight hundred thirty seven nodes per query on average. Bidirectional Dijkstra, five hundred twenty eight. The hierarchy under importance order: seventy six, with two thousand eight hundred eighty three shortcuts and three hundred fifty two thousand witness settles of preprocessing, paid once. Under a random order: two hundred ten settled, ten thousand four hundred shortcuts, two point seven million witness settles. Under importance order without the witness search: one hundred twenty seven settled and twenty nine thousand shortcuts. Every distance equal to Dijkstra’s, every path unpacked and re summed.',
+  },
+  {
+    section: 'signals',
+    text:
+      'The signals that this pair fits. First: many queries on one static graph. Maps, transit networks, any graph where a preprocessing pass of a few hundred thousand small searches is paid once and seventy six settles per query is paid forever after. Second: a natural hierarchy. Road networks route through a few important nodes, so the shortcuts stay near the edge count, one point zero one times here; random graphs and dense social graphs do not have that shape and contract badly. Third: exactness required. Unlike landmark guided A star with loose bounds, or heuristics that trade accuracy for speed, every answer here is the true shortest distance, and the self test checks each one.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'Now the rivals. Bidirectional Dijkstra: search from both ends and stop when the frontiers cross. No preprocessing, exact, and weights that can change between queries. It halved the work here, five hundred twenty eight settled against eight hundred thirty seven, which is the whole win available without a hierarchy; the hierarchy settles seventy six, one seventh of that, because climbing only toward higher ranks discards the neighborhoods both plain searches must wade through. Reach for it when the graph changes often or there are too few queries to amortize preprocessing. A star with landmarks, the A L T technique: precompute distances to a few landmarks and use triangle inequality lower bounds to steer the search. Exact, goal directed, and tolerant of some weight changes, with bounds that are loose on road networks compared to a hierarchy and a landmark selection that is its own art. And hub labeling: precompute, for every node, a label of hub distances such that any two labels share a hub on the shortest path; a query is a merge of two sorted lists, microseconds with no graph search at all. The labels cost gigabytes on continental graphs, and they are built from a contraction hierarchy in the first place.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'The honest weaknesses of the hero. It is static. A changed edge weight, traffic on one road, invalidates every shortcut that ran through it, which is why customizable variants exist that separate the topology from the weights. The order is a heuristic with real teeth: on this page a random order tripled the shortcuts and the query work, and skipping the witness search made the hierarchy ten times heavier, so a careless implementation can be worse than no hierarchy. Graphs without a hierarchy, grids with uniform weights or dense social networks, contract badly, because no node is much more important than another. And the preprocessing bill, three hundred fifty two thousand witness settles here for sixteen hundred nodes, is paid before the first query is answered: a graph queried once should not be contracted at all.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'And the negative example: all pairs distances by Floyd Warshall for a road network. The tempting shortcut: precompute every distance once, and then every query is a table lookup. Floyd Warshall is a live unit on this site, and it runs in n cubed. For this page’s sixteen hundred node grid that is over four billion relaxations to fill a table of two and a half million entries, already a hundred times the hierarchy’s preprocessing. A continental network has about twenty million nodes: eight times ten to the twenty first relaxations, and a table with four hundred trillion entries. The hierarchy stores one point zero one times the edge count and answers in seventy six settles, because it precomputes structure, not answers. When the graph is large and the queries are sparse in the space of all pairs, the table is not slow. It is unbuildable.',
+  },
+  {
+    section: 'code',
+    text:
+      'The code on this page is the hierarchy and its referees. A grid road network generator with a spanning tree for connectivity and random removals. Plain Dijkstra and bidirectional Dijkstra, counting settled nodes. The hierarchy class: bounded witness searches, shortcut simulation for priorities, lazy heap updates, contraction with via node bookkeeping, the upward query, and recursive unpacking. Three hierarchies are built: importance order with witnesses, random order, and importance order without witnesses. The self test asserts, on two hundred random queries: every hierarchy distance equal to Dijkstra’s under all three orders; every unpacked path walking original edges and summing to the distance; importance order settling under five percent of the graph and under a quarter of bidirectional Dijkstra; shortcuts under one and a half times the edges; and both ablations needing more than one point six times the shortcuts. When it prints O K, the technique behind the routing on your phone has been checked against the truth two hundred times and its one heuristic has been removed and put back so you can see what it buys. The file would fail before it would lie to you.',
+  },
+];

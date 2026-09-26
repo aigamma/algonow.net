@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:contraction-hierarchies-importance-order",
+  "source_path": "src/content/contraction-hierarchies-importance-order.narration.js",
+  "source_sha256": "57fe2fc43cf70dfcc4e8ad32f49e61138fc01f7fc672e3bab441937f243c7155",
+  "source_characters": 10435,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "bfc7e15dcae57168a16cb77c5def74ad6048c50b6ab23ff6dac632f9fdad73ec",
+  "generated_at": "2026-09-26T22:18:44.075Z",
+  "generated_characters": 20870,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4536,
+      "utf8_bytes": 4540,
+      "sha256": "7e6de6c48fe8f78d02ccfba4b8542e9642ac5676250ad88bf6eb6381340cc8d8"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4718,
+      "utf8_bytes": 4724,
+      "sha256": "a0155643c0719b2ee47ac2fc2c8e0068118cebdf66fc5c0f22365974a3fbe997"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1181,
+      "utf8_bytes": 1183,
+      "sha256": "158512029f4ebc23548d3b9c5c1f32c80eba3df0f903e26a7f19ee4d9d4b0428"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "contraction-hierarchies-importance-order.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "contraction-hierarchies-importance-order.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1253,
+      "sha256": "d11ad76b9b3c8141ea33feebc1dc40353bf7ffe9b2beea3e273ac8cbc379c1ef"
+    },
+    {
+      "id": "contraction-hierarchies-importance-order.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 855,
+      "sha256": "fce7325d5425defa6712e795c044bb85d1dc20024504ecded26a6de6b799eba0"
+    },
+    {
+      "id": "contraction-hierarchies-importance-order.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1498,
+      "sha256": "b2916149cff94c2814321f703dff166ee890ea4b09c9df5cf47dad855700033a"
+    },
+    {
+      "id": "contraction-hierarchies-importance-order.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 801,
+      "sha256": "0c35ae21270244a243c66f377bb37ccf4b614e6d0094f5d9ca8044b76ca345fa"
+    },
+    {
+      "id": "contraction-hierarchies-importance-order.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1127,
+      "sha256": "faed91cf8d949af0c6212345b7c8324dde7d54560e99b93c8fb82b16d56197a0"
+    },
+    {
+      "id": "contraction-hierarchies-importance-order.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 685,
+      "sha256": "88575b06270889b83f380c6cd85704076a7c4135c6b70c9259c3d4e92413e17a"
+    },
+    {
+      "id": "contraction-hierarchies-importance-order.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1225,
+      "sha256": "781f5c19095ba03a44a8a54b49353225ecce4a857bfd3413b00f3beb7dba3385"
+    },
+    {
+      "id": "contraction-hierarchies-importance-order.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 826,
+      "sha256": "00640cd48cf19c44653ffd32edfc8d07b8ca38610f65a08d3ce96e982ba57eed"
+    },
+    {
+      "id": "contraction-hierarchies-importance-order.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 851,
+      "sha256": "5359d05a3b88af5938a3573a3568c14a906d84371dad07dac8c1a2a78f89300f"
+    },
+    {
+      "id": "contraction-hierarchies-importance-order.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1183,
+      "sha256": "158512029f4ebc23548d3b9c5c1f32c80eba3df0f903e26a7f19ee4d9d4b0428"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/contraction-hierarchies-importance-order/bfc7e15dcae57168a16c/aoede-ac3a2e9d7b03e1e3.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2615756,
+      "sha256": "ac3a2e9d7b03e1e3769de363364cbe1ef7e8493ebb8b374e610eef7db7b8a2d8",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "7e6de6c48fe8f78d02ccfba4b8542e9642ac5676250ad88bf6eb6381340cc8d8",
+          "bytes": 1109856,
+          "sha256": "b114756d842293f38dac3b375028da5ac691b1c5e1bfe3c87e31ed00052698dd"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "a0155643c0719b2ee47ac2fc2c8e0068118cebdf66fc5c0f22365974a3fbe997",
+          "bytes": 1232352,
+          "sha256": "a07c330e8afac8d6b048e45d8764b433638ff7f6e993740e3db75e09da0f2bd3"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "158512029f4ebc23548d3b9c5c1f32c80eba3df0f903e26a7f19ee4d9d4b0428",
+          "bytes": 273312,
+          "sha256": "f55fbf33e8a6ded3fa39b091667fcddbb3e1484619644fdffaa3e2dc9928ef4b"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/contraction-hierarchies-importance-order/bfc7e15dcae57168a16c/algieba-8756f404cd84d049.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2704940,
+      "sha256": "8756f404cd84d049b7f52fc2fd29d11ac4e274fd254e5ea7365658110017b69d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "7e6de6c48fe8f78d02ccfba4b8542e9642ac5676250ad88bf6eb6381340cc8d8",
+          "bytes": 1143072,
+          "sha256": "21b7d6923ba9fcfd19d87bfd2dee711e5a5debd0fc5b5d663695381805f3d72b"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "a0155643c0719b2ee47ac2fc2c8e0068118cebdf66fc5c0f22365974a3fbe997",
+          "bytes": 1239936,
+          "sha256": "d9049668983cafea112cae1dc883ed818ec8b1bce41a8586f5800da889c97b7a"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "158512029f4ebc23548d3b9c5c1f32c80eba3df0f903e26a7f19ee4d9d4b0428",
+          "bytes": 321696,
+          "sha256": "0192a4eb0ef5ba3cfee9dea0c22e95ac0658b2619c9c4a742e98fb9cea8376d7"
+        }
+      ]
+    }
+  }
+}

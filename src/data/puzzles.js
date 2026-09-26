@@ -2343,15 +2343,35 @@ export const PUZZLES = {
     vite: 'reed-solomon-berlekamp-massey',
     html: 'reed-solomon-berlekamp-massey/index.html',
   },
+  '/contraction-hierarchies-importance-order/': {
+    slug: 'contraction-hierarchies-importance-order',
+    added: '2026-09-26',
+    problemSlug: 'road-routing',
+    number: 122,
+    category: 'graphs',
+    algorithm: 'Contraction hierarchies',
+    heuristic: 'Node-importance contraction order',
+    domain: 'Continental road routing',
+    oneLiner:
+      'Contract the unimportant nodes first, keep a shortcut only where a node was the only way through, then answer every query by climbing the ranks from both ends: exact distances at a tenth of Dijkstra\'s work.',
+    description:
+      'Contraction hierarchies with a node-importance contraction order: 200/200 exact distances with every path unpacked onto original edges, 76 settled nodes per query against Dijkstra\'s 837 and bidirectional\'s 528, shortcuts at 1.01x the edges, and the order ablated (random 3.6x, no witness search 10.1x).',
+    listenMinutes: 8,
+    time: 'preprocess once; query climbs only',
+    space: 'shortcuts ~ edges (1.01x here)',
+    baseline: 'Bidirectional Dijkstra',
+    vite: 'contraction-hierarchies-importance-order',
+    html: 'contraction-hierarchies-importance-order/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Contraction hierarchies', heuristic: 'Node-importance contraction order', domain: 'Continental road routing' },
   { algorithm: 'Bron-Kerbosch', heuristic: 'Tomita pivoting', domain: 'Maximal clique listing' },
   { algorithm: 'Myers diff algorithm', heuristic: 'Shortest-edit-script search', domain: 'Text diffing' },
+  { algorithm: 'HNSW', heuristic: 'Navigable small-world layers', domain: 'Vector similarity search' },
 ];
 
 

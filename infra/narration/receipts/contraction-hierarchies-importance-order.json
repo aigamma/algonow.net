@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net contraction-hierarchies-importance-order preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-26T22:19:40.308Z",
+  "publication_sha256": "256d8d1b94473c255a27b0ffa5b6b35f5bddba430c1113a2670061e6efb4b222",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5320696,
+  "objects": [
+    {
+      "stable_id": "puzzle:contraction-hierarchies-importance-order",
+      "slug": "contraction-hierarchies-importance-order",
+      "track_id": "algieba",
+      "source_sha256": "57fe2fc43cf70dfcc4e8ad32f49e61138fc01f7fc672e3bab441937f243c7155",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "bfc7e15dcae57168a16cb77c5def74ad6048c50b6ab23ff6dac632f9fdad73ec",
+      "object_key": "narration/v1/puzzles/contraction-hierarchies-importance-order/bfc7e15dcae57168a16c/algieba-8756f404cd84d049.mp3",
+      "bytes": 2704940,
+      "sha256": "8756f404cd84d049b7f52fc2fd29d11ac4e274fd254e5ea7365658110017b69d",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:contraction-hierarchies-importance-order",
+      "slug": "contraction-hierarchies-importance-order",
+      "track_id": "aoede",
+      "source_sha256": "57fe2fc43cf70dfcc4e8ad32f49e61138fc01f7fc672e3bab441937f243c7155",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "bfc7e15dcae57168a16cb77c5def74ad6048c50b6ab23ff6dac632f9fdad73ec",
+      "object_key": "narration/v1/puzzles/contraction-hierarchies-importance-order/bfc7e15dcae57168a16c/aoede-ac3a2e9d7b03e1e3.mp3",
+      "bytes": 2615756,
+      "sha256": "ac3a2e9d7b03e1e3769de363364cbe1ef7e8493ebb8b374e610eef7db7b8a2d8",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

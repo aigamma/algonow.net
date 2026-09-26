@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:reed-solomon-berlekamp-massey",
+  "source_path": "src/content/reed-solomon-berlekamp-massey.narration.js",
+  "source_sha256": "079d8bd6bb6fb16cee01ab457018d6774a4e6429035014e6ab84cda5e7046653",
+  "source_characters": 11079,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "f0d9fc36d6780f7a462172bbb6c093cbbc4124920273abdef3239733da045fc3",
+  "generated_at": "2026-09-26T22:08:36.364Z",
+  "generated_characters": 22158,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4920,
+      "utf8_bytes": 4932,
+      "sha256": "d17f79a2cafc8a351371c7cf023dce2ba7352d4ba1bfa6665d6671629cd04bb7"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4892,
+      "utf8_bytes": 4902,
+      "sha256": "41c3be614f66dbfa12a9dd060deba04b78dfae36fef49c3bb4da215d668095f6"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1267,
+      "utf8_bytes": 1275,
+      "sha256": "67e3f13fa07f427ade941de0855d1a43887923582ccefbfd0f412d858accc250"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "reed-solomon-berlekamp-massey.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "reed-solomon-berlekamp-massey.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1230,
+      "sha256": "29f56d0a0590a578466bffe9c6b01cdc245f776f9d0bef6d6ccf0989dcba43de"
+    },
+    {
+      "id": "reed-solomon-berlekamp-massey.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1042,
+      "sha256": "cf3c4192bc47c3b9be1d1a56217a4231ccdec7565c19d678211244cfd294efe9"
+    },
+    {
+      "id": "reed-solomon-berlekamp-massey.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1627,
+      "sha256": "6044d526baa0a29e3c94f814799358efd47bb95b8c8ba40cc870820914b32cea"
+    },
+    {
+      "id": "reed-solomon-berlekamp-massey.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 900,
+      "sha256": "1e8301f44c11027c7a78a6af566265f4eb567f8ebd5c1847fa18d3f14444845d"
+    },
+    {
+      "id": "reed-solomon-berlekamp-massey.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1204,
+      "sha256": "c60f241a2545fa472dfe0eedd996c7f96afdb2cd4d10721760bd0e3adccd355b"
+    },
+    {
+      "id": "reed-solomon-berlekamp-massey.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 807,
+      "sha256": "8025b7fc115e140c5db766fe26428b3f8c15887885cdf92422a15305501167e0"
+    },
+    {
+      "id": "reed-solomon-berlekamp-massey.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1225,
+      "sha256": "4ec8f94143dd604a3c2c830d3374228427dcf394ee1d6463b8f89cf9edc5ffc5"
+    },
+    {
+      "id": "reed-solomon-berlekamp-massey.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 860,
+      "sha256": "c66c704a7d996f6a8aa848986f46603f3ecde9a431e85492afd540266b0196d7"
+    },
+    {
+      "id": "reed-solomon-berlekamp-massey.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 796,
+      "sha256": "2c5e31843e1dd3cf3bb46dc01e2796762407352814d143bdf2b8d29b710a256d"
+    },
+    {
+      "id": "reed-solomon-berlekamp-massey.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1275,
+      "sha256": "67e3f13fa07f427ade941de0855d1a43887923582ccefbfd0f412d858accc250"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/reed-solomon-berlekamp-massey/f0d9fc36d6780f7a4621/aoede-0bac5e399d456f91.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2873900,
+      "sha256": "0bac5e399d456f91655d379580f31c2268583e464dd69c91373849b36926302f",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d17f79a2cafc8a351371c7cf023dce2ba7352d4ba1bfa6665d6671629cd04bb7",
+          "bytes": 1254432,
+          "sha256": "c60849d172903631908f95ad9fe5d8378313b7556d925b85723003bed17e69fa"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "41c3be614f66dbfa12a9dd060deba04b78dfae36fef49c3bb4da215d668095f6",
+          "bytes": 1310016,
+          "sha256": "51c28dcf1aa65dd739dbcaa0e4c21584b67dae00457d2fd847b6f80d011c8453"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "67e3f13fa07f427ade941de0855d1a43887923582ccefbfd0f412d858accc250",
+          "bytes": 309216,
+          "sha256": "6cdb3293dab55943d57dd1f4cd04aeb1c0aa10d9ff696cdd72dbb65ae4e75286"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/reed-solomon-berlekamp-massey/f0d9fc36d6780f7a4621/algieba-afffc475ea5a4417.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2964620,
+      "sha256": "afffc475ea5a4417e98c216b81e5b4391b9aff2a55deb61cd90f658da3f8130d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d17f79a2cafc8a351371c7cf023dce2ba7352d4ba1bfa6665d6671629cd04bb7",
+          "bytes": 1310592,
+          "sha256": "9bcdac298b06b9015aa80102b7b74bf481097e534529f692bc4cdbd35f893954"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "41c3be614f66dbfa12a9dd060deba04b78dfae36fef49c3bb4da215d668095f6",
+          "bytes": 1346496,
+          "sha256": "2ae18546f438dbfe1ea95479f84ab2aa2a85cdce6375d6438217dab76e353094"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "67e3f13fa07f427ade941de0855d1a43887923582ccefbfd0f412d858accc250",
+          "bytes": 307296,
+          "sha256": "6adc1fa801473decdcead6398d9304177e2dc211af543500055a692808b48bbb"
+        }
+      ]
+    }
+  }
+}

@@ -2323,15 +2323,35 @@ export const PUZZLES = {
     vite: 'bowyer-watson-cavity-retriangulation',
     html: 'bowyer-watson-cavity-retriangulation/index.html',
   },
+  '/reed-solomon-berlekamp-massey/': {
+    slug: 'reed-solomon-berlekamp-massey',
+    added: '2026-09-26',
+    problemSlug: 'error-correcting-codes',
+    number: 121,
+    category: 'compression-coding',
+    algorithm: 'Reed-Solomon',
+    heuristic: 'Berlekamp-Massey decoding',
+    domain: 'Burst error correction',
+    oneLiner:
+      'The message is a polynomial, the parity is its remainder at 32 roots, and the syndromes obey a hidden recurrence: synthesize the shortest shift register that explains them and its roots point at the damaged bytes.',
+    description:
+      'Reed-Solomon with Berlekamp-Massey decoding on RS(255, 223): 48/48 exact recoveries with every located position matched, an independent PGZ decoder agreeing on every locator at 8,322 vs 258 multiplications, 17 errors refused 40/40 with zero miscorrections, and 128-bit bursts repaired 12/12.',
+    listenMinutes: 8,
+    time: 'O(t²) locator, O(n t) decode',
+    space: 'O(t) shift register',
+    baseline: 'Peterson-Gorenstein-Zierler, O(t⁴)',
+    vite: 'reed-solomon-berlekamp-massey',
+    html: 'reed-solomon-berlekamp-massey/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Reed-Solomon', heuristic: 'Berlekamp-Massey decoding', domain: 'Burst error correction' },
   { algorithm: 'Contraction hierarchies', heuristic: 'Node-importance contraction order', domain: 'Continental road routing' },
   { algorithm: 'Bron-Kerbosch', heuristic: 'Tomita pivoting', domain: 'Maximal clique listing' },
+  { algorithm: 'Myers diff algorithm', heuristic: 'Shortest-edit-script search', domain: 'Text diffing' },
 ];
 
 

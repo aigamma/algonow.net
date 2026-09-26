@@ -3677,6 +3677,33 @@ commit, Fable trailer on every commit, check green before each push.
       super-triangle with the lost hull edges in red; stepMs 45,
       holdTicks rests. Preserved narration: Aoede + Algieba.
 
+- [x] F115. Reed-Solomon × Berlekamp-Massey decoding. Puzzle 121,
+      compression-coding (problemSlug error-correcting-codes), added
+      2026-09-26. Solution reed_solomon_berlekamp_massey.py (0.3s,
+      prints OK): GF(256) over 0x11d with a multiplication counter,
+      RS(255, 223), t = 16, generator roots alpha^0..alpha^31
+      (checked), systematic encoding, syndromes, BM, Chien, Forney,
+      and an independent PGZ decoder (Gaussian elimination over the
+      field, retried at each smaller e). FIVE ORACLES: (1) 48/48
+      exact recoveries with 0..16 random byte errors and every
+      located position equal to the injected one; (2) BM and PGZ
+      agree on the locator polynomial 48/48; (3) 17 errors: 40
+      decoding failures, 0 miscorrections (the bound measured from
+      the far side); (4) bursts of 16 bytes with every bit flipped
+      (128 bit errors) corrected 12/12, bursts of 17 rejected 12/12;
+      (5) COST: BM 258 vs PGZ 8,322 multiplications per locator,
+      brute force over error patterns priced at 3.02e63 candidates.
+      Cards: self, Hamming code, LDPC codes, CRC (live). neverUse:
+      searching error patterns until the syndromes vanish. Figure:
+      the decoding chain, cite Reed-Solomon J. SIAM 1960 DOI
+      10.1137/0108018 and Massey IEEE IT 1969 DOI
+      10.1109/TIT.1969.1054260. Viz ReedSolomonViz: RS(15, 9) over
+      GF(16) drawn end to end (corruption, syndromes, the BM trace
+      with L growing, the Chien sweep, Forney repair), act 2 four
+      errors refused; NODE-VERIFIED 12 cycles: 3 errors repaired
+      exactly 12/12, 4 errors refused 12/12; stepMs 45, holdTicks
+      rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

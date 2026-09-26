@@ -3784,6 +3784,33 @@ commit, Fable trailer on every commit, check green before each push.
       frontiers with snakes and the green script; stepMs 40,
       holdTicks rests. Preserved narration: Aoede + Algieba.
 
+- [x] F119. HNSW × navigable small-world layers. Puzzle 125,
+      data-retrieval (problemSlug nearest-neighbor-search), added
+      2026-09-26. Solution hnsw_navigable_small_world_layers.py (25s,
+      prints OK): a pure-Python HNSW (M = 8, ef = 48, diversity
+      selection, geometric levels) on random 16-dimensional Gaussian
+      points, 100 queries, exact brute force as the referee. FIVE
+      ORACLES: (1) recall@10 0.997 / 0.992 / 0.987 at 1,000 / 2,000 /
+      4,000 points; (2) ABLATIONS on 2,000: ef = 1 recall 0.843 at
+      187 distances; nearest-M lists 0.955 at 417; single flat layer
+      0.993 at 463 vs 487 (THE HONEST ROW: parity at this size,
+      asserted as parity, because the layers buy a log-N entry at
+      millions, not thousands; the first draft asserted the flat
+      graph costs more and the run refused it); (3) COST: the
+      fraction of brute force falls 40.8% > 24.4% > 13.6% with the
+      index doubling; (4) k-d tree exact at 2,000 of 2,000 distances
+      (the curse, measured); (5) layer sizes strictly decreasing
+      ([4000, 520, 71, 16, 2, 1]) and degrees under cap. Build
+      8,719,487 distances for 4,000 points. Cards: self, K-d tree
+      (live), Locality-sensitive hashing, IVF-PQ. neverUse: a k-d tree
+      for embedding search. Figure: three stacked layers with the
+      greedy descent, cite Malkov-Yashunin TPAMI 2020 DOI
+      10.1109/TPAMI.2018.2889473. Viz HnswViz: 160 points in the
+      plane, act 1 the build, act 2 the query's amber descent, blue
+      beam, green answer vs exact rings, distance count vs brute
+      force; stepMs 45, holdTicks rests. Preserved narration: Aoede +
+      Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

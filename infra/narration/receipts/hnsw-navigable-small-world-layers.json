@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net hnsw-navigable-small-world-layers preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-26T22:53:05.349Z",
+  "publication_sha256": "63ac801ac55f23e1028bde6e05bd74ed564a2fce46483d42f3d907c7a22362b2",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5639800,
+  "objects": [
+    {
+      "stable_id": "puzzle:hnsw-navigable-small-world-layers",
+      "slug": "hnsw-navigable-small-world-layers",
+      "track_id": "algieba",
+      "source_sha256": "71f8e081d78dfdaa5db5647e9d0e349fc15ce11ecca628c143a89377c27d04f3",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "e413fcae8b29ed59abd4820d6ce93ffc07f89c0bc46ec295406a1c3cc99efb84",
+      "object_key": "narration/v1/puzzles/hnsw-navigable-small-world-layers/e413fcae8b29ed59abd4/algieba-408a8790837961e6.mp3",
+      "bytes": 2915948,
+      "sha256": "408a8790837961e67889f8c314cd29763712ea7fa363f29289f0a9b598a6926d",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:hnsw-navigable-small-world-layers",
+      "slug": "hnsw-navigable-small-world-layers",
+      "track_id": "aoede",
+      "source_sha256": "71f8e081d78dfdaa5db5647e9d0e349fc15ce11ecca628c143a89377c27d04f3",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "e413fcae8b29ed59abd4820d6ce93ffc07f89c0bc46ec295406a1c3cc99efb84",
+      "object_key": "narration/v1/puzzles/hnsw-navigable-small-world-layers/e413fcae8b29ed59abd4/aoede-1c564d184ebeb11f.mp3",
+      "bytes": 2723852,
+      "sha256": "1c564d184ebeb11f9ddcd23e3179573de163ae62ad81e9d3fe21da69cb76d80d",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

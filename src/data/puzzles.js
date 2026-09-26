@@ -2403,15 +2403,35 @@ export const PUZZLES = {
     vite: 'myers-diff-shortest-edit-script',
     html: 'myers-diff-shortest-edit-script/index.html',
   },
+  '/hnsw-navigable-small-world-layers/': {
+    slug: 'hnsw-navigable-small-world-layers',
+    added: '2026-09-26',
+    problemSlug: 'nearest-neighbor-search',
+    number: 125,
+    category: 'data-retrieval',
+    algorithm: 'HNSW',
+    heuristic: 'Navigable small-world layers',
+    domain: 'Vector similarity search',
+    oneLiner:
+      'Every point links to a diverse handful of neighbors; one in M also lives a layer up. Hop greedily down the sparse layers, beam-search the bottom, and answer in a fraction of the scan, with the recall measured.',
+    description:
+      'HNSW with navigable small-world layers: recall@10 of 0.997, 0.992, 0.987 at 1,000, 2,000, 4,000 sixteen-dimensional points against exact brute force while the work falls from 40.8% to 13.6% of the scan; the beam and diversity rule ablated; the flat-graph parity stated; the k-d tree visiting every point.',
+    listenMinutes: 8,
+    time: '~log N hops + ef beam',
+    space: '2M links per point',
+    baseline: 'Brute-force scan',
+    vite: 'hnsw-navigable-small-world-layers',
+    html: 'hnsw-navigable-small-world-layers/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'HNSW', heuristic: 'Navigable small-world layers', domain: 'Vector similarity search' },
   { algorithm: 'Backpropagation', heuristic: 'Stochastic gradient descent', domain: 'Neural network training' },
   { algorithm: 'Q-learning', heuristic: 'Epsilon-greedy exploration', domain: 'Reinforcement learning' },
+  { algorithm: 'AdaBoost', heuristic: 'Exponential reweighting', domain: 'Boosted classification' },
 ];
 
 

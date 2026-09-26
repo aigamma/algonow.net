@@ -3811,6 +3811,33 @@ commit, Fable trailer on every commit, check green before each push.
       force; stepMs 45, holdTicks rests. Preserved narration: Aoede +
       Algieba.
 
+- [x] F120. Backpropagation × stochastic gradient descent. Puzzle 126,
+      ml-ai (problemSlug neural-network-training), added 2026-09-26.
+      Solution backpropagation_stochastic_gradient_descent.py (8s,
+      prints OK): a 2-16-16-1 tanh network (337 parameters,
+      cross-entropy) on two rings (300 train / 100 held out). FIVE
+      ORACLES: (1) GRADIENT CHECK: every backpropagated partial within
+      1e-5 of central finite differences on six random networks (worst
+      2.73e-6 over 59 parameters each; the 1e-6 draft tolerance sat
+      under the double-precision floor and was raised with the reason
+      recorded); (2) COST LAW counted in multiply-adds: forward 304,
+      backward 880 (2.9x), finite differences 204,896 (233x the
+      backward pass); (3) THE RACE to training loss 0.08 from the same
+      weights: full batch 112,200 gradient evaluations / 374 passes,
+      minibatch 16 6,000 / 20, minibatch 4 1,800 / 6, all 1.000 held
+      out; (4) the linear model (no hidden layer) stalls at 0.590;
+      (5) learning rate 8.0 diverges at pass 2. Cards: self, Gradient
+      descent (live, Polyak momentum), Automatic differentiation,
+      Perceptron. neverUse: finite differences as the training
+      gradient (233x). Figure: the layer stack with forward (blue) and
+      backward delta (amber) arrows and the counted costs, cite
+      Rumelhart-Hinton-Williams Nature 1986 DOI 10.1038/323533a0. Viz
+      BackpropViz: two decision surfaces trained from the same weights
+      on the same gradient budget, minibatch SGD (amber, one update per
+      tick) vs full batch (one update per 300 points), loss counters,
+      green verdict line; stepMs 40, holdTicks rests. Preserved
+      narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:backpropagation-stochastic-gradient-descent",
+  "source_path": "src/content/backpropagation-stochastic-gradient-descent.narration.js",
+  "source_sha256": "4741fad77e6dd2e072a9bd7d40da854355420a8289be38c35445c3c713394af0",
+  "source_characters": 10662,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "ae4b5b92e588fb196646756b1aad3c0abfb42e869bcb7d8ad09cb7c9be9811fc",
+  "generated_at": "2026-09-26T23:13:21.139Z",
+  "generated_characters": 21324,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4952,
+      "utf8_bytes": 4973,
+      "sha256": "f8aa2b1aa5bfd60e641255e7e85c88e63767aa2c41a5ca223ae5bff0b770badb"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4571,
+      "utf8_bytes": 4579,
+      "sha256": "0678b3edb958f5986f15fe16d6fc0f32c633f98494616dfebbd21af21b035799"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1139,
+      "utf8_bytes": 1139,
+      "sha256": "fa4817fa236dbd7bbfc1c62291515dc908638e7192f61fdac7843643c039d2a9"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "backpropagation-stochastic-gradient-descent.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "backpropagation-stochastic-gradient-descent.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1118,
+      "sha256": "9ae8dfc815e7413c789aa91d85a5493024bced080e1c1258a8581df32901f849"
+    },
+    {
+      "id": "backpropagation-stochastic-gradient-descent.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1023,
+      "sha256": "58da6a9e29ffc35138e07d77b550d4b8b64a88b07728a7ac9335757fcd6d9a42"
+    },
+    {
+      "id": "backpropagation-stochastic-gradient-descent.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1834,
+      "sha256": "aab3f3d0dd86718eba415713dd13f85f208f0333cb81ab17e7190cf4bbd68aa3"
+    },
+    {
+      "id": "backpropagation-stochastic-gradient-descent.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 865,
+      "sha256": "e12bff5d3740214ccc28b5fbc97064fbd9f0650b7e7dd7df08cac39663b535d8"
+    },
+    {
+      "id": "backpropagation-stochastic-gradient-descent.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1152,
+      "sha256": "39f55bef25ea3ec83c102d4fc3a9be758230949c3ec55081b12dfa734b0d2e22"
+    },
+    {
+      "id": "backpropagation-stochastic-gradient-descent.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 699,
+      "sha256": "141ccb74e5adfaa8ef4599ca0a993de8dfe5617e046b999b298fcefe073590cd"
+    },
+    {
+      "id": "backpropagation-stochastic-gradient-descent.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1135,
+      "sha256": "6fa4e523a8a80ea38fddfa73bc600cfa7a800017cb3af1488dfd8cac69f296d6"
+    },
+    {
+      "id": "backpropagation-stochastic-gradient-descent.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 788,
+      "sha256": "68d5ae48008329fba416034255412205b28a6ad2b8e6d6fe4db2a38006cb1f2e"
+    },
+    {
+      "id": "backpropagation-stochastic-gradient-descent.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 795,
+      "sha256": "7d73657cf2e1b87dc738b28b617b75d0faed83c4da6cf088b7354787321332de"
+    },
+    {
+      "id": "backpropagation-stochastic-gradient-descent.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1139,
+      "sha256": "fa4817fa236dbd7bbfc1c62291515dc908638e7192f61fdac7843643c039d2a9"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/backpropagation-stochastic-gradient-descent/ae4b5b92e588fb196646/aoede-18d722fca05cfa10.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2622860,
+      "sha256": "18d722fca05cfa106ee23d43832cf9bfc66544f76c6c37621ffb7a56070eddce",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "f8aa2b1aa5bfd60e641255e7e85c88e63767aa2c41a5ca223ae5bff0b770badb",
+          "bytes": 1211136,
+          "sha256": "cf6abb06377d080fc725f03f95e39f92cd4e314d5b7b30b46b31c96b8eeaf135"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "0678b3edb958f5986f15fe16d6fc0f32c633f98494616dfebbd21af21b035799",
+          "bytes": 1156416,
+          "sha256": "417473ad1877ce6f5bbcabfbc720ce0c687bb193c04c80f0a06267765a382a71"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "fa4817fa236dbd7bbfc1c62291515dc908638e7192f61fdac7843643c039d2a9",
+          "bytes": 255072,
+          "sha256": "8407c2dcd28349dfa9996c640e5b6f89d11c264e2914244e393a8be3b6cd918f"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/backpropagation-stochastic-gradient-descent/ae4b5b92e588fb196646/algieba-1dc05c1bf68ee953.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2838476,
+      "sha256": "1dc05c1bf68ee95338cf01c5327434e0a6c23404e595c5654b421e1151d84aeb",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "f8aa2b1aa5bfd60e641255e7e85c88e63767aa2c41a5ca223ae5bff0b770badb",
+          "bytes": 1317792,
+          "sha256": "cde948077a838a32ad8c3a70229d09dcec308ced8cd740abf1566ff3a926d7e1"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "0678b3edb958f5986f15fe16d6fc0f32c633f98494616dfebbd21af21b035799",
+          "bytes": 1240704,
+          "sha256": "38d47091cfe23ee9776843aad51085d21c2f093a7baf90abfb1c07b47352433b"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "fa4817fa236dbd7bbfc1c62291515dc908638e7192f61fdac7843643c039d2a9",
+          "bytes": 279744,
+          "sha256": "b40fe39a12252f2429fa1a22d1e5f83a32214a7e50d0e168d00694b68a12b7ab"
+        }
+      ]
+    }
+  }
+}

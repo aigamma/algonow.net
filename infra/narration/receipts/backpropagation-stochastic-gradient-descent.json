@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net backpropagation-stochastic-gradient-descent preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-26T23:14:20.227Z",
+  "publication_sha256": "543f2a7aeea3d64910d7def6541343b38b16d1c769f45473b0bd4282354e3a0f",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5461336,
+  "objects": [
+    {
+      "stable_id": "puzzle:backpropagation-stochastic-gradient-descent",
+      "slug": "backpropagation-stochastic-gradient-descent",
+      "track_id": "algieba",
+      "source_sha256": "4741fad77e6dd2e072a9bd7d40da854355420a8289be38c35445c3c713394af0",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "ae4b5b92e588fb196646756b1aad3c0abfb42e869bcb7d8ad09cb7c9be9811fc",
+      "object_key": "narration/v1/puzzles/backpropagation-stochastic-gradient-descent/ae4b5b92e588fb196646/algieba-1dc05c1bf68ee953.mp3",
+      "bytes": 2838476,
+      "sha256": "1dc05c1bf68ee95338cf01c5327434e0a6c23404e595c5654b421e1151d84aeb",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:backpropagation-stochastic-gradient-descent",
+      "slug": "backpropagation-stochastic-gradient-descent",
+      "track_id": "aoede",
+      "source_sha256": "4741fad77e6dd2e072a9bd7d40da854355420a8289be38c35445c3c713394af0",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "ae4b5b92e588fb196646756b1aad3c0abfb42e869bcb7d8ad09cb7c9be9811fc",
+      "object_key": "narration/v1/puzzles/backpropagation-stochastic-gradient-descent/ae4b5b92e588fb196646/aoede-18d722fca05cfa10.mp3",
+      "bytes": 2622860,
+      "sha256": "18d722fca05cfa106ee23d43832cf9bfc66544f76c6c37621ffb7a56070eddce",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

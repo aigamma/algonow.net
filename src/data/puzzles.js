@@ -2423,15 +2423,35 @@ export const PUZZLES = {
     vite: 'hnsw-navigable-small-world-layers',
     html: 'hnsw-navigable-small-world-layers/index.html',
   },
+  '/backpropagation-stochastic-gradient-descent/': {
+    slug: 'backpropagation-stochastic-gradient-descent',
+    added: '2026-09-26',
+    problemSlug: 'neural-network-training',
+    number: 126,
+    category: 'ml-ai',
+    algorithm: 'Backpropagation',
+    heuristic: 'Stochastic gradient descent',
+    domain: 'Neural network training',
+    oneLiner:
+      'One forward pass, one backward pass through the chain rule, and every weight\'s gradient is priced at three forward passes. Spend it sixteen points at a time and the target arrives in five percent of the full-batch budget.',
+    description:
+      'Backpropagation with stochastic gradient descent: every partial derivative checked against central finite differences to 2.7e-6 on six random networks; the backward pass counted at 2.9 forward passes and finite differences at 233 backward passes; minibatch 16 reaching the target loss in 6,000 gradient evaluations against 112,200 for full batch, both at 100% held out; the linear model stalling at 59%; learning rate 8.0 diverging.',
+    listenMinutes: 8,
+    time: '~3 forward passes per gradient',
+    space: 'one activation per unit',
+    baseline: 'Full-batch gradient descent',
+    vite: 'backpropagation-stochastic-gradient-descent',
+    html: 'backpropagation-stochastic-gradient-descent/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Backpropagation', heuristic: 'Stochastic gradient descent', domain: 'Neural network training' },
   { algorithm: 'Q-learning', heuristic: 'Epsilon-greedy exploration', domain: 'Reinforcement learning' },
   { algorithm: 'AdaBoost', heuristic: 'Exponential reweighting', domain: 'Boosted classification' },
+  { algorithm: 'DBSCAN', heuristic: 'Density-reachability', domain: 'Arbitrary-shape clustering' },
 ];
 
 

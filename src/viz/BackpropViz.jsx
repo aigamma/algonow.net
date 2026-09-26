@@ -15,7 +15,7 @@ const SEED = 20260926;
 const NPTS = 300;
 const BATCH = 16;
 const LR = 0.1;
-const MAX_TICKS = 420;
+const MAX_TICKS = 600;
 
 function rings(rand) {
   const X = [];

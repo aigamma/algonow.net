@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:christofides-matching-euler-tour",
+  "source_path": "src/content/christofides-matching-euler-tour.narration.js",
+  "source_sha256": "93dc50a43c20cb208a5c44bafe796170227cbaf9b62b1fe6039d4f918b07b368",
+  "source_characters": 10316,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "fb03e30d04bb141afdbd5a95474bac5d747bfee546d1c498f21d8629d1a50420",
+  "generated_at": "2026-09-26T21:01:03.360Z",
+  "generated_characters": 20632,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4299,
+      "utf8_bytes": 4308,
+      "sha256": "f48ff1bbbf54f02a6d41290948c8b7e40eb01f681dae07154f85a23bf1996088"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4900,
+      "utf8_bytes": 4914,
+      "sha256": "1f036756e519590b2ef104410320c240519bb4f5930a6412e9426b9230f36ee7"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1117,
+      "utf8_bytes": 1121,
+      "sha256": "db8d81161dd878233fbb96b4ec9826614697275b599e6566c5eae289e43161a7"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "christofides-matching-euler-tour.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "christofides-matching-euler-tour.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1095,
+      "sha256": "3443b0f419ebbd62dee452dcca977decf27880900b45dd0a8e3fc56a9854bff3"
+    },
+    {
+      "id": "christofides-matching-euler-tour.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 986,
+      "sha256": "80eeed99c49c45334418995abf5e7336e8c3104b8cb7557e2deb999f2f6fd8d1"
+    },
+    {
+      "id": "christofides-matching-euler-tour.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1226,
+      "sha256": "7173f5b5c138357c77b2cb9b479157f12e006de4728e909fa4791816ff325bf4"
+    },
+    {
+      "id": "christofides-matching-euler-tour.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 868,
+      "sha256": "5066581687968d92ac4ab68fc59f83b72ecd6c9cc4af2a4a4557ff7054257ba4"
+    },
+    {
+      "id": "christofides-matching-euler-tour.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1115,
+      "sha256": "a5015455d0ffcc52cd5915c7e25693daf842d4047f66f0019b4a2656de253375"
+    },
+    {
+      "id": "christofides-matching-euler-tour.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 785,
+      "sha256": "779e6fbebb55d94c4bfcf828d3425000f9781eca385e17b3ee9295cd07a1cf4d"
+    },
+    {
+      "id": "christofides-matching-euler-tour.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1060,
+      "sha256": "14cd5eca4dfe9879544fcaf153223f4fa813d194dd73c3f147172af79840cec6"
+    },
+    {
+      "id": "christofides-matching-euler-tour.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1050,
+      "sha256": "6be573dedbb865ac57af66ae60bfc5dc590e71814e2ed88a54fcffa7f093c607"
+    },
+    {
+      "id": "christofides-matching-euler-tour.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 894,
+      "sha256": "370326eeefbab4a572c3288151ef6df043e79a265f1abb27e2a241dc4dbbaf4b"
+    },
+    {
+      "id": "christofides-matching-euler-tour.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1121,
+      "sha256": "db8d81161dd878233fbb96b4ec9826614697275b599e6566c5eae289e43161a7"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/christofides-matching-euler-tour/fb03e30d04bb141afdbd/aoede-7987dc1d3c3b799a.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2753420,
+      "sha256": "7987dc1d3c3b799a134011c54dfae7d4f01e2af2e966dc5faae6730c1eeac65e",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "f48ff1bbbf54f02a6d41290948c8b7e40eb01f681dae07154f85a23bf1996088",
+          "bytes": 1129152,
+          "sha256": "b6fe764dfab6763d3d95d920d2a95c8834365ec3037d3c4a49fa62d4228aeb4d"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "1f036756e519590b2ef104410320c240519bb4f5930a6412e9426b9230f36ee7",
+          "bytes": 1343616,
+          "sha256": "6f4d6b2d65a2432a282462c832dd6ae43aaf04679d8ea5ad4d67ddf21fefb639"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "db8d81161dd878233fbb96b4ec9826614697275b599e6566c5eae289e43161a7",
+          "bytes": 280416,
+          "sha256": "de17266592df65de4bf11b1186182a94beb22bc759ca113f4ca82eedb6b9545e"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/christofides-matching-euler-tour/fb03e30d04bb141afdbd/algieba-93e8a35fae013266.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2867276,
+      "sha256": "93e8a35fae013266516e631ff8d2627ef386122c00d4dd9199a7db9d7670ef00",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "f48ff1bbbf54f02a6d41290948c8b7e40eb01f681dae07154f85a23bf1996088",
+          "bytes": 1190784,
+          "sha256": "1ecdccb19061f0100b535b2f506a31b520a5cdf8145379103d6350d6d0261227"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "1f036756e519590b2ef104410320c240519bb4f5930a6412e9426b9230f36ee7",
+          "bytes": 1383264,
+          "sha256": "350fdccbefc0e35467c645cb1f7f238ffb474ce00c62ed49b55ce2aedc1d0f24"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "db8d81161dd878233fbb96b4ec9826614697275b599e6566c5eae289e43161a7",
+          "bytes": 292992,
+          "sha256": "c5be50049ab6b26f5dc0af71534649ebccdae749b6025cd6ccdadb7485a398f1"
+        }
+      ]
+    }
+  }
+}

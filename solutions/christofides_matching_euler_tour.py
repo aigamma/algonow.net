@@ -260,6 +260,7 @@ if __name__ == '__main__':
         theorem.append((parts['mst'] / opt, parts['matching'] / opt, parts['odd']))
 
     def mean(xs):
+        xs = list(xs)
         return sum(xs) / len(xs)
 
     m = {k: mean(v) for k, v in rows.items()}

@@ -3558,6 +3558,34 @@ commit, Fable trailer on every commit, check green before each push.
       choosing two values), quorums re-drawn per cycle; stepMs 45,
       holdTicks rests. Preserved narration: Aoede + Algieba.
 
+- [x] F111. Christofides × matching plus Euler tour. Puzzle 117,
+      optimization-or (problemSlug traveling-salesman), added
+      2026-09-26. Solution christofides_matching_euler_tour.py
+      (<1s, prints OK): six random Euclidean instances of 13
+      cities, every ratio against an independent Held-Karp exact
+      optimum. FIVE ORACLES: (1) the exact optimum per instance;
+      (2) the subset-DP matching cross-checked against brute-force
+      enumeration of every perfect matching; (3) Hierholzer's walk
+      asserted to use every edge once and close, the shortcut a
+      permutation no longer than the walk; (4) THE THEOREM
+      NUMERICALLY: MST <= OPT (mean 0.796), matching <= OPT/2
+      (0.339), Christofides <= 1.5 OPT (1.066 mean, 1.133 worst),
+      double-tree <= 2 OPT (1.199, 1.315); (5) rivals on the same
+      instances: nearest neighbor 1.133/1.449, 2-opt from random
+      1.008/1.048 (HONEST ROW: beats Christofides on the mean on
+      friendly instances, promises nothing), Christofides + 2-opt
+      1.000 on all six. Cards: self, Double-tree TSP, 2-opt,
+      Held-Karp (live). neverUse: exact Held-Karp on a route-sized
+      instance ((n-1)2^(n-1) states: 49,152 at 13, ~15.6e9 at 30,
+      ~2.8e16 at 50). Figure: tree + odd-city matching + shortcut
+      tour, cite Christofides GSIA 388 (1976) / Oper. Res. Forum
+      2022 DOI 10.1007/s43069-021-00101-z. Viz ChristofidesViz:
+      three acts on 12 random cities (Prim grows the tree; odd
+      cities ringed and matched; Euler walk traced then shortcut)
+      with the ledger pricing tree, matching, and tour against an
+      in-model Held-Karp optimum and the double-tree; stepMs 60,
+      holdTicks rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

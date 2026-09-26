@@ -1,0 +1,54 @@
+// The spoken lesson for puzzle one hundred seventeen, written for the ear.
+
+export const narration = [
+  {
+    section: 'puzzle',
+    text:
+      'Puzzle one hundred seventeen: the Christofides algorithm, paired with matching plus Euler tour, for metric traveling salesman approximation. Here is the puzzle. Cities with distances that obey the triangle inequality: a detour through a third city is never shorter than going direct: and a salesman who must visit every one and come home. The exact answer costs two to the n. The question is what you can promise in polynomial time. The method: build a minimum spanning tree. Collect the cities where the tree has odd degree: there is always an even number of them. Add a minimum weight perfect matching on exactly those cities. Now every degree is even, so an Euler tour exists: walk every edge once and return. Shortcut every repeated city, and the walk becomes a tour. The tree costs at most an optimal tour. The matching costs at most half of one. So the tour costs at most one and a half times the optimum, and on this page that promise is measured against the exact optimum, instance by instance: one point zero six six on average, one point one three three at worst, far inside the bound.',
+  },
+  {
+    section: 'origins',
+    text:
+      'Nicos Christofides, nineteen seventy six, in a Carnegie Mellon technical report that a journal rejected and that has since been cited thousands of times: a three halves approximation for the metric traveling salesman problem. Anatoliy Serdyukov found the same algorithm independently in nineteen seventy eight. The bound was so good that nobody improved it for forty four years: Karlin, Klein, and Oveis Gharan finally shaved off an amount around ten to the minus thirty six in twenty twenty one, which tells you how sharp the original argument was. The pieces are older than the whole. Euler’s bridges of Königsberg, from seventeen thirty six, explain why even degrees give a closed walk that uses every edge once. And Edmonds’ blossom algorithm, from nineteen sixty five, makes the minimum weight perfect matching computable in polynomial time: the ingredient that separates Christofides from the plain double tree shortcut, which fixes parity by paying for the whole tree twice.',
+  },
+  {
+    section: 'pair',
+    text:
+      'The algorithm owns the construction and its certificates. Prim grows the minimum spanning tree, and the tree costs at most any tour, because deleting one edge from a tour leaves a spanning path. The odd degree cities are collected. The matching is added. Hierholzer walks an Euler tour of the multigraph, and the self test asserts that every edge was used exactly once and that the walk closed. The shortcut visits each city once, and by the triangle inequality it is never longer than the walk: asserted on every instance. Against the exact referee, the tours landed at one point zero six six times optimal on average and one point one three three at worst. The heuristic supplies the cheap repair of odd degrees. The double tree fixes parity by doubling every tree edge, at a cost of two trees and a bound of two. Christofides pairs up only the odd cities, and the argument is the whole page: an optimal tour, restricted to the odd cities, is a cycle on an even number of vertices, so it splits into two perfect matchings, and the cheaper one costs at most half the optimum: measured at point three three nine on average. Tree plus matching is at most one and a half optimal tours, every degree is even, and the walk exists.',
+  },
+  {
+    section: 'picture',
+    text:
+      'A snowplow must clear every street of a town and return to the depot. A street may be plowed twice, but never left unplowed. Plowing every street exactly once and coming home is possible only if every intersection has an even number of streets, because you leave as often as you arrive. Christofides is the dispatcher’s trick applied to a different problem. Start with the cheapest network that reaches every intersection at all: the spanning tree. Notice which intersections are odd. Pave the cheapest set of new roads that pairs those odd corners up. Now the plow can drive every road once and come home. The salesman’s tour is that plow route with the repeat visits skipped: shortcuts that, on a map obeying the triangle inequality, can only make the route shorter. The whole bill is the tree, which no tour beats, plus the pairing, which no tour beats half of.',
+  },
+  {
+    section: 'run',
+    text:
+      'Here is the run, on six random instances of thirteen cities, each refereed by the exact Held Karp optimum. Tree: Prim’s minimum spanning tree, costing point seven nine six of the optimum on average. Odd cities: four, six, six, six, six, and eight of them across the six instances: even counts, always. Matching: the minimum weight perfect matching on the odd cities, costing point three three nine of the optimum on average, under the theorem’s half. Euler walk: every degree even, every edge walked once. Shortcut: skip the repeats. The tours came in at one point zero six six times optimal on average, one point one three three at worst, against a proven one point five. The double tree shortcut, paying the tree twice, came in at one point one nine nine and one point three one five. Nearest neighbor, with no guarantee at all, at one point one three three and one point four four nine. Two opt from a random tour: one point zero zero eight and one point zero four eight, better on average here, promising nothing anywhere. And Christofides polished by two opt reached the exact optimum on all six instances.',
+  },
+  {
+    section: 'signals',
+    text:
+      'The signals that this pair fits. First: metric distances. Road miles, flight times, Euclidean plans: the triangle inequality is what makes the shortcut free and the bound real. Without it, no polynomial approximation ratio exists at all, unless P equals N P. Second: a promise is worth more than an average. Contracts, service agreements, and theorems want the worst case bounded. Two opt averaged one point zero zero eight on this page and promises nothing on the next instance; Christofides promises one point five on every instance that will ever exist. Third: a starting tour for polish. Christofides plus two opt reached the exact optimum on all six instances: the guarantee as an opening position, the local search as the finish. That layering is how practical solvers are built.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'Now the rivals. The double tree shortcut is Christofides without the matching: double every tree edge, walk the Euler tour, skip repeats. Simpler code, the same triangle inequality argument, and a bound of two instead of one and a half: measured here at one point one nine nine on average and one point three one five at worst. Reach for it to teach the shortcut argument, or when a factor of two is fine and no matching library is at hand. Two opt uncrosses two edges whenever that helps, and keeps going until nothing helps. From a random start it averaged one point zero zero eight here, and from the Christofides tour it reached the optimum every time. Its local optimum can be arbitrarily bad in theory; the one point zero four eight worst on this page is the luck of Euclidean instances, not a promise. Every practical solver layers it on top of a constructed tour: the polish, not the promise. And Held Karp, this site’s live unit and this page’s referee: the true optimum by dynamic programming over subsets, at a cost that doubles with every city.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'The honest weaknesses of the hero. A guarantee is not an average. Plain two opt from a random tour beat Christofides on the mean here, one point zero zero eight against one point zero six six, because random Euclidean instances are friendly. The construction earns its keep on the adversarial instances that local search can say nothing about, and on this page it is honest about which kind of instance it faced. Second: the matching is the expensive part. At scale it needs Edmonds’ blossom algorithm, cubic time and a few hundred lines; this page uses an exact dynamic program over subsets of the odd cities, fine for thirteen cities and hopeless for a hundred. Third: the whole argument dies without the triangle inequality. Drop it, and the shortcut can lengthen the walk, and in fact no polynomial approximation ratio exists for general distances. Fourth: one and a half is the promise, not the typical result, and for forty four years nobody could tighten it; the twenty twenty one improvement is invisible at any instance size you will meet.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'And the negative example: exact Held Karp on a delivery route sized instance. The instinct is reasonable. The exact answer exists, the code is twenty lines, and it ran in a blink on this page’s thirteen cities. The state count is n minus one times two to the n minus one: forty nine thousand one hundred fifty two states at thirteen cities, about fifteen billion at thirty, about twenty eight quadrillion at fifty. A day’s deliveries for one van would need more memory than exists. The cost does not creep; it doubles with every city, and no constant factor, no faster language, no cluster moves the wall by more than a handful of cities. This is exactly the instance class Christofides was invented for: a tour in polynomial time with a bound you can sign, then two opt to polish it, which on this page reached the optimum. When the input grows, the exact method is not slow. It is absent.',
+  },
+  {
+    section: 'code',
+    text:
+      'The code on this page is the construction with a referee at every joint. Prim’s tree. The odd degree cities. A minimum weight perfect matching by dynamic programming over subsets, cross checked against brute force enumeration of every perfect matching. Hierholzer’s Euler walk, which asserts that every edge was used once and that the walk closed. The shortcut, which asserts a permutation of the cities no longer than the walk. Beside them, the rivals: nearest neighbor, the double tree, two opt, and an independent Held Karp dynamic program for the exact optimum. The self test asserts, on all six instances: tree at most the optimum, matching at most half of it, Christofides at most one and a half, double tree at most two, every rival at least the optimum, Christofides better than the double tree and nearest neighbor on the mean, and the two opt polish never worse than its start. When it prints O K, a nineteen seventy six theorem has been checked numerically against the true optimum six times over, and the rival that beat its average has been named in print. The file would fail before it would lie to you.',
+  },
+];

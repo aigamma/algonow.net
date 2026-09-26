@@ -2243,15 +2243,35 @@ export const PUZZLES = {
     vite: 'paxos-proposer-acceptor-quorums',
     html: 'paxos-proposer-acceptor-quorums/index.html',
   },
+  '/christofides-matching-euler-tour/': {
+    slug: 'christofides-matching-euler-tour',
+    added: '2026-09-26',
+    problemSlug: 'traveling-salesman',
+    number: 117,
+    category: 'optimization-or',
+    algorithm: 'Christofides',
+    heuristic: 'Matching plus Euler tour',
+    domain: 'Metric TSP approximation',
+    oneLiner:
+      'Tree, then pair up the odd corners as cheaply as possible, then walk every edge once and skip the repeats: a tour at most one and a half times optimal, promised in 1976 and unbeaten for forty-four years.',
+    description:
+      'Christofides with matching plus Euler tour: tours measured against the exact Held-Karp optimum on six instances (1.066 mean, 1.133 worst under a proven 1.5), the theorem asserted numerically (tree 0.796, matching 0.339), the double-tree at 1.199, and 2-opt polish reaching the optimum.',
+    listenMinutes: 8,
+    time: 'O(n³) with blossom matching',
+    space: 'O(n²)',
+    baseline: 'Double-tree shortcut (2-approx)',
+    vite: 'christofides-matching-euler-tour',
+    html: 'christofides-matching-euler-tour/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Christofides', heuristic: 'Matching plus Euler tour', domain: 'Metric TSP approximation' },
   { algorithm: "Knuth's Algorithm X", heuristic: 'Dancing links', domain: 'Exact cover' },
   { algorithm: "Hopcroft's minimization", heuristic: 'Partition refinement', domain: 'DFA minimization' },
+  { algorithm: 'Bowyer-Watson', heuristic: 'Bad-triangle cavity retriangulation', domain: 'Delaunay triangulation' },
 ];
 
 

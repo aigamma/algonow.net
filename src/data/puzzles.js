@@ -2483,15 +2483,35 @@ export const PUZZLES = {
     vite: 'adaboost-exponential-reweighting',
     html: 'adaboost-exponential-reweighting/index.html',
   },
+  '/dbscan-density-reachability/': {
+    slug: 'dbscan-density-reachability',
+    added: '2026-09-26',
+    problemSlug: 'clustering',
+    number: 129,
+    category: 'ml-ai',
+    algorithm: 'DBSCAN',
+    heuristic: 'Density-reachability',
+    domain: 'Arbitrary-shape clustering',
+    oneLiner:
+      'A point with enough neighbors within epsilon is core; a cluster is whatever chains of core points can reach, and a stray point with no chain to join is noise. Crescents come out whole because membership follows density, never distance to a center.',
+    description:
+      'DBSCAN with density-reachability on two crescents, a blob, and uniform noise: 3 clusters and 73 noise points equal to the brute-force definition on every core, border, and noise point; ARI 0.901 against the truth where k-means scores 0.372; the eps-grid index at 14.9% of brute force; both dials ablated (minPts 1: 61 clusters, eps 0.5: crescents merge, eps 0.08: 15 fragments); order-dependent borders counted.',
+    listenMinutes: 8,
+    time: 'n neighborhood queries',
+    space: 'labels + eps-grid',
+    baseline: 'k-means, k = 3',
+    vite: 'dbscan-density-reachability',
+    html: 'dbscan-density-reachability/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'DBSCAN', heuristic: 'Density-reachability', domain: 'Arbitrary-shape clustering' },
   { algorithm: 'Perceptron', heuristic: 'Mistake-driven updates', domain: 'Linear classification' },
   { algorithm: 'First fit decreasing', heuristic: 'Descending size order', domain: 'Bin packing' },
+  { algorithm: "Banker's algorithm", heuristic: 'Safe-state check', domain: 'Deadlock avoidance' },
 ];
 
 

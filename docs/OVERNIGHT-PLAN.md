@@ -3895,6 +3895,35 @@ commit, Fable trailer on every commit, check green before each push.
       within 120 rounds; stepMs 140, holdTicks rests. Preserved
       narration: Aoede + Algieba.
 
+- [x] F123. DBSCAN × density-reachability. Puzzle 129, ml-ai
+      (problemSlug clustering), added 2026-09-26. Solution
+      dbscan_density_reachability.py (0.2s, prints OK): two crescents
+      (200 + 200), a blob (100), uniform noise (100), eps 0.2, minPts
+      5, eps-grid index. FIVE ORACLES: (1) THE DEFINITION by brute
+      force (179,700 distances, union-find over core pairs): core
+      masks equal, components equal, every border in a cluster owning
+      a core neighbor, every noise point with no core neighbor; 521
+      cores, 6 borders, 0 order-dependent borders; (2) 3 clusters, 73
+      noise, ARI 0.901 vs k-means (k = 3, k-means++, best of 20) 0.372;
+      (3) ABLATIONS: minPts 1 -> 61 clusters, 0 noise, ARI 0.861,
+      crescents NOT merged (AUTHOR CORRECTION: the draft expected noise
+      to bridge them and the run refused it: the gap exceeds eps), eps
+      0.5 -> crescents merge (majority labels coincide, asserted) with
+      5 clusters from stray noise, ARI 0.347 (AUTHOR CORRECTION: the
+      draft asserted fewer than 3 clusters and the run gave 5), eps
+      0.08 -> 15 clusters, 143 noise, ARI 0.314; (4) the index: 26,800
+      distances, 14.9% of brute force; (5) border ambiguity counted.
+      Cards: self, K-means (live), OPTICS, HDBSCAN. neverUse: k-means
+      on crescents (0.372). Figure: the scene with the eps circle and
+      the gap, cite Ester-Kriegel-Sander-Xu KDD 1996 and Schubert et
+      al. TODS 2017 DOI 10.1145/3068335. Viz DbscanViz: 320 points
+      scanned one labeled point per step, amber eps circle as the
+      density test, cores filled, borders hollow, noise red crosses,
+      distance counter vs brute force; NODE-VERIFIED 8 cycles: cores
+      and components equal to brute-force union-find, crescents
+      separated, in all 8; stepMs 45, holdTicks rests. Preserved
+      narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

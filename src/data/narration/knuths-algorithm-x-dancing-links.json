@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:knuths-algorithm-x-dancing-links",
+  "source_path": "src/content/knuths-algorithm-x-dancing-links.narration.js",
+  "source_sha256": "65f8cbceb3adf137f96eb1f32964798ac84c07c4a4cbcd65e23236d68db04724",
+  "source_characters": 10655,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "f26ac124c321a56f6d850b605f99f4be96de5f60a67594f6a91724a5a060019a",
+  "generated_at": "2026-09-26T21:37:19.437Z",
+  "generated_characters": 21310,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4750,
+      "utf8_bytes": 4760,
+      "sha256": "10e8235ff2b349204d628738f7dc7b1a5860cd6c679c4449010b0b0cae8c8fc3"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4660,
+      "utf8_bytes": 4666,
+      "sha256": "430cea8e9ac59b9ebd07bbb3f688eb1983e592e267d51a65a67eb5cc25180386"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1245,
+      "utf8_bytes": 1247,
+      "sha256": "e231fa23c7ebc63c03a710a92b70fda4717e64add2accb010079dd3cd19c5c19"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "knuths-algorithm-x-dancing-links.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "knuths-algorithm-x-dancing-links.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1179,
+      "sha256": "31eebd66cd47f89b50d24c1beac039a91833bae4bd4c3e99d9059eafbbdf34d6"
+    },
+    {
+      "id": "knuths-algorithm-x-dancing-links.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1045,
+      "sha256": "acec69bd2541fa5a663a058a8d74581973805de603e0c80e8ccb60b0287a7c31"
+    },
+    {
+      "id": "knuths-algorithm-x-dancing-links.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1482,
+      "sha256": "1639a74ce20459eac56803809c950df891dc0b509bae8418c66da1af0ad9020b"
+    },
+    {
+      "id": "knuths-algorithm-x-dancing-links.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 921,
+      "sha256": "81372373359a262c8fe3d3c721804e2dfe70bc3dd22c5c5fcc431dbd54642bcc"
+    },
+    {
+      "id": "knuths-algorithm-x-dancing-links.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1131,
+      "sha256": "bc224e97e800f0d9bed7bf128427881a38a2f17b1cbbe053a1e86616a53f42ea"
+    },
+    {
+      "id": "knuths-algorithm-x-dancing-links.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 801,
+      "sha256": "2f221f7daac3d6949d3b9b66e06cff300cc0334f465180e30cf2ee9f92dc5ba9"
+    },
+    {
+      "id": "knuths-algorithm-x-dancing-links.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1032,
+      "sha256": "539019b8c4d5b42cf1752d9282ab095e6a4c4c4c663ec7f9c89dfd35dae061c4"
+    },
+    {
+      "id": "knuths-algorithm-x-dancing-links.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 852,
+      "sha256": "f739f96badaffee2526044c3bf723f14a82186d0ec0f808ff1c1bf7f4ecd5baf"
+    },
+    {
+      "id": "knuths-algorithm-x-dancing-links.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 840,
+      "sha256": "00aba98bb3d62abdcd272ee8889b656633463b757b777caff5b977edf21937e3"
+    },
+    {
+      "id": "knuths-algorithm-x-dancing-links.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1247,
+      "sha256": "e231fa23c7ebc63c03a710a92b70fda4717e64add2accb010079dd3cd19c5c19"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/knuths-algorithm-x-dancing-links/f26ac124c321a56f6d85/aoede-d03751de8ff7391e.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2729900,
+      "sha256": "d03751de8ff7391e06148e2e89f55c0e5eebe0c108bfd52adb7b78e5a7541d47",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "10e8235ff2b349204d628738f7dc7b1a5860cd6c679c4449010b0b0cae8c8fc3",
+          "bytes": 1233696,
+          "sha256": "49d9ba7c404d4097efef352c3a93eba367018a6f42622fe4b7655d94c9954566"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "430cea8e9ac59b9ebd07bbb3f688eb1983e592e267d51a65a67eb5cc25180386",
+          "bytes": 1191264,
+          "sha256": "69fee82830f9de3cc0e001ac9fc4a9f6a999ce7e8de7f0be618dc4571add3c57"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "e231fa23c7ebc63c03a710a92b70fda4717e64add2accb010079dd3cd19c5c19",
+          "bytes": 304704,
+          "sha256": "042f8f55bace3e8f85c112c29a6d84a5ecef3c1c954414f8731f2d9e156395b7"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/knuths-algorithm-x-dancing-links/f26ac124c321a56f6d85/algieba-6df6c80d474b7c99.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2913260,
+      "sha256": "6df6c80d474b7c99f66e4419650cd835a39253fa207a1c49e4deedd84bc324af",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "10e8235ff2b349204d628738f7dc7b1a5860cd6c679c4449010b0b0cae8c8fc3",
+          "bytes": 1299456,
+          "sha256": "f125f6ac04332fc1c4d9565396caf51c30fbed68cdf638cdd61fa5b150fc3478"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "430cea8e9ac59b9ebd07bbb3f688eb1983e592e267d51a65a67eb5cc25180386",
+          "bytes": 1294272,
+          "sha256": "18ad82d560a9903afcc7249bebe9bda7a7b722d0e310e8c9beca7b22574013fe"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "e231fa23c7ebc63c03a710a92b70fda4717e64add2accb010079dd3cd19c5c19",
+          "bytes": 319296,
+          "sha256": "e7e7ce9d288c8fd3990973e7fa01c4198485c30babf1bc32ecc6261ae601ae8f"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net knuths-algorithm-x-dancing-links preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-26T21:38:20.641Z",
+  "publication_sha256": "3337a479375ef93e3889835fb7c0a30551dce537b28a2880ed3974330efad5c2",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5643160,
+  "objects": [
+    {
+      "stable_id": "puzzle:knuths-algorithm-x-dancing-links",
+      "slug": "knuths-algorithm-x-dancing-links",
+      "track_id": "algieba",
+      "source_sha256": "65f8cbceb3adf137f96eb1f32964798ac84c07c4a4cbcd65e23236d68db04724",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "f26ac124c321a56f6d850b605f99f4be96de5f60a67594f6a91724a5a060019a",
+      "object_key": "narration/v1/puzzles/knuths-algorithm-x-dancing-links/f26ac124c321a56f6d85/algieba-6df6c80d474b7c99.mp3",
+      "bytes": 2913260,
+      "sha256": "6df6c80d474b7c99f66e4419650cd835a39253fa207a1c49e4deedd84bc324af",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:knuths-algorithm-x-dancing-links",
+      "slug": "knuths-algorithm-x-dancing-links",
+      "track_id": "aoede",
+      "source_sha256": "65f8cbceb3adf137f96eb1f32964798ac84c07c4a4cbcd65e23236d68db04724",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "f26ac124c321a56f6d850b605f99f4be96de5f60a67594f6a91724a5a060019a",
+      "object_key": "narration/v1/puzzles/knuths-algorithm-x-dancing-links/f26ac124c321a56f6d85/aoede-d03751de8ff7391e.mp3",
+      "bytes": 2729900,
+      "sha256": "d03751de8ff7391e06148e2e89f55c0e5eebe0c108bfd52adb7b78e5a7541d47",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

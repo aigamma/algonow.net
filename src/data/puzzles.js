@@ -2263,15 +2263,35 @@ export const PUZZLES = {
     vite: 'christofides-matching-euler-tour',
     html: 'christofides-matching-euler-tour/index.html',
   },
+  '/knuths-algorithm-x-dancing-links/': {
+    slug: 'knuths-algorithm-x-dancing-links',
+    added: '2026-09-26',
+    problemSlug: 'exact-cover',
+    number: 118,
+    category: 'search-constraints-games',
+    algorithm: 'Knuth\'s Algorithm X',
+    heuristic: 'Dancing links',
+    domain: 'Exact cover',
+    oneLiner:
+      'Pick the column with the fewest rows, try each row, cover and recurse, then let the links dance back: undo for the price of do, and one engine for queens, sudoku, and every exactly-once puzzle.',
+    description:
+      'Knuth\'s Algorithm X with dancing links: 92 and 724 queens solutions refereed by an independent counter, a unique sudoku in 2,740 nodes where first-column branching is unfinished at 200,000, every link restored after every search, and the undo measured at 31.8x cheaper than copying at 561 rows.',
+    listenMinutes: 8,
+    time: 'O(1) per link undo',
+    space: '4 pointers per matrix 1',
+    baseline: 'Backtracking with copied state',
+    vite: 'knuths-algorithm-x-dancing-links',
+    html: 'knuths-algorithm-x-dancing-links/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Knuth's Algorithm X", heuristic: 'Dancing links', domain: 'Exact cover' },
   { algorithm: "Hopcroft's minimization", heuristic: 'Partition refinement', domain: 'DFA minimization' },
   { algorithm: 'Bowyer-Watson', heuristic: 'Bad-triangle cavity retriangulation', domain: 'Delaunay triangulation' },
+  { algorithm: 'Reed-Solomon', heuristic: 'Berlekamp-Massey decoding', domain: 'Burst error correction' },
 ];
 
 

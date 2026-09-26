@@ -3586,6 +3586,35 @@ commit, Fable trailer on every commit, check green before each push.
       in-model Held-Karp optimum and the double-tree; stepMs 60,
       holdTicks rests. Preserved narration: Aoede + Algieba.
 
+- [x] F112. Knuth's Algorithm X × dancing links. Puzzle 118,
+      search-constraints-games (problemSlug exact-cover), added
+      2026-09-26. Solution knuths_algorithm_x_dancing_links.py
+      (2.7s, prints OK). FIVE ORACLES: (1) queens counts 92 and 724
+      equal to an independent backtracking counter and the
+      published sequence; (2) the sudoku unique and equal to an
+      independent cell-by-cell solver (49,558 nodes vs DLX 2,740);
+      (3) pentominoes on 3 x 20: 8 tilings = the published 2 x 4
+      orientations, each covering all 60 cells once (4 x 15 gave
+      1,472 = 4 x 368 in a 38s profile: too slow for the self-test,
+      so 3 x 20 ships); (4) STRUCTURE RESTORED: every link compared
+      against a snapshot after every search; (5) ABLATIONS: first-
+      column branching 2,056 / 35,538 nodes on the queens and
+      UNFINISHED at a 200,000-node cap on the sudoku; the copying
+      backtracker with the same rule at 1.06x / 1.37x / 31.8x the
+      undo work across 64 / 100 / 561 rows (AUTHOR CORRECTION: the
+      first draft asserted a tenfold gap on 8-queens; the run
+      showed parity on the toy and the gap growing with the
+      matrix, which is the truer lesson). Cards: self, Backtracking
+      search (live), DPLL (live), N-queens. neverUse: first-column
+      branching. Figure: the two-write unlink and relink, cite
+      Knuth Dancing Links 2000 arXiv cs/0011047. Viz DlxViz: eight
+      queens as exact cover replayed from a precomputed trace, two
+      boards racing (smallest column vs first column), queens
+      placed and torn down node by node, column sizes shown;
+      NODE-VERIFIED 6 cycles: 92/92 both ways, 1,198 vs 2,056
+      nodes, 1,051 ticks; stepMs 30, holdTicks rest. Preserved
+      narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

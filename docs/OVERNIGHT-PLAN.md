@@ -3982,6 +3982,40 @@ commit, Fable trailer on every commit, check green before each push.
       9 and ties 3; stepMs 260, holdTicks rests. Preserved narration:
       Aoede + Algieba.
 
+- [x] F126. Banker's algorithm × safe-state check. Puzzle 132,
+      distributed-systems (problemSlug deadlock-detection, the atlas
+      problem page carrying "Deadlock avoidance"), added 2026-09-26.
+      Solution bankers_algorithm_safe_state_check.py (9s, prints OK).
+      FIVE ORACLES: (1) the greedy safe-state check vs exhaustion over
+      every completion order on 400 random states (3 to 7 processes, 1
+      to 3 resource types): 400 / 400 agree, greedy order replayed and
+      verified, 2,429 vs 458,880 need checks (0.53%); (2) the textbook
+      state (Silberschatz): safe order P1 P3 P4 P0 P2, P1 (1,0,2)
+      granted, P4 (3,3,0) wait, P0 (0,2,0) unsafe; (3) 200 simulated
+      workloads (5 x 3, declared maxima with actual demands drawn below
+      them): banker 200 / 200 finished, grant-if-available 99 / 200
+      with 101 deadlocks. AUTHOR CORRECTION: the draft had every
+      process claim its full declared maximum, which made the naive
+      granter deadlock 200 / 200 and no unsafe state escape, a
+      tautology rather than a measurement; the demands now fall below
+      the declarations; (4) the price of caution measured as refusals
+      (2,824 total, 14.1 per workload; a scheduling-step comparison
+      that came out identical by construction was removed); (5) 128 of
+      286 unsafe sampled states finish under a naive granter. Cards:
+      self, Wait-die deadlock prevention, Distributed deadlock
+      detection, Ostrich algorithm. neverUse: granting whatever is free
+      (101 / 200 deadlocks). Figure: the textbook state with allocation
+      bars inside declared maxima, the finishing order, the three
+      verdicts, cite Dijkstra EWD 123 (1965) and Habermann CACM 1969
+      DOI 10.1145/363156.363162. Viz BankersViz: the same request
+      stream through the banker and a naive granter side by side, one
+      request per tick, allocation bars inside actual need inside
+      declared max, amber finishing order from the check, red refusal
+      flash, deadlock declared when nobody can move; NODE-VERIFIED 30
+      cycles: the banker finished in all 30, the naive granter
+      deadlocked in 13; stepMs 200, holdTicks rests. Preserved
+      narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

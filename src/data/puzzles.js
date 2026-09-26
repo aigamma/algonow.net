@@ -2543,15 +2543,35 @@ export const PUZZLES = {
     vite: 'first-fit-decreasing-descending-size-order',
     html: 'first-fit-decreasing-descending-size-order/index.html',
   },
+  '/bankers-algorithm-safe-state-check/': {
+    slug: 'bankers-algorithm-safe-state-check',
+    added: '2026-09-26',
+    problemSlug: 'deadlock-detection',
+    number: 132,
+    category: 'distributed-systems',
+    algorithm: 'Banker\'s algorithm',
+    heuristic: 'Safe-state check',
+    domain: 'Deadlock avoidance',
+    oneLiner:
+      'Grant a request only if some order still lets every process finish within its declared maximum, and decide that greedily: finish whoever fits the free pool, add their holdings back, repeat. Deadlock cannot happen; the price is a wait.',
+    description:
+      'Banker\'s algorithm with the greedy safe-state check: the check\'s verdict equal to an exhaustive search over every completion order on 400 of 400 random states at 0.53% of the work; the textbook five-process state decided verdict for verdict (safe order P1 P3 P4 P0 P2; granted, wait, unsafe); 200 of 200 simulated workloads finished under the banker at 14.1 refusals per workload where granting whatever is free deadlocked in 101; and 128 of 286 unsafe states finishing under a naive granter, because unsafe means no guarantee, not doom.',
+    listenMinutes: 8,
+    time: 'O(n^2 m) per request',
+    space: 'allocation, need, and free vectors',
+    baseline: 'Grant whatever is free',
+    vite: 'bankers-algorithm-safe-state-check',
+    html: 'bankers-algorithm-safe-state-check/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Banker's algorithm", heuristic: 'Safe-state check', domain: 'Deadlock avoidance' },
   { algorithm: 'Gaussian elimination', heuristic: 'Partial pivoting', domain: 'Linear systems' },
   { algorithm: "Grover's search", heuristic: 'Amplitude amplification', domain: 'Unstructured search' },
+  { algorithm: 'Binomial options pricing', heuristic: 'Cox-Ross-Rubinstein lattice', domain: 'Option pricing' },
 ];
 
 

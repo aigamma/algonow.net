@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:bankers-algorithm-safe-state-check",
+  "source_path": "src/content/bankers-algorithm-safe-state-check.narration.js",
+  "source_sha256": "c05a9062e10b15d3c9bb4e9597166cba9a8f1fdc03d5cd54e544e06b29b26641",
+  "source_characters": 9470,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "f69daf7595db23ce7ad57be4888485280d4a328b7efad30ae897f7fb493e8253",
+  "generated_at": "2026-09-26T23:53:55.697Z",
+  "generated_characters": 18940,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4737,
+      "utf8_bytes": 4753,
+      "sha256": "1b7e6fd30966deceeb6f4bd56dcb6a40a95662269ce625fdec38024eacc7caa3"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4733,
+      "utf8_bytes": 4741,
+      "sha256": "d5e6162e6a93d0e24cb42601daaebbe68a3d68df3d912e4071bda04198da9c5d"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "bankers-algorithm-safe-state-check.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "bankers-algorithm-safe-state-check.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1197,
+      "sha256": "bd41008387be0be5ca349bfb832c25f36e6b55302e77a74c491634568195a6e5"
+    },
+    {
+      "id": "bankers-algorithm-safe-state-check.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1043,
+      "sha256": "f10f1e40ae10279972c1fb4206017ca1d3a0933e7407eba66c353d03884dbe82"
+    },
+    {
+      "id": "bankers-algorithm-safe-state-check.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1587,
+      "sha256": "97b985cf5435a380ca8f5ce02e612f8d16c5625ebcc874d0183805670750a92b"
+    },
+    {
+      "id": "bankers-algorithm-safe-state-check.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 793,
+      "sha256": "84e17d6b4e2eb185ea7914197c9336e5eb1b6956ecac3c35c9d086a19303b91c"
+    },
+    {
+      "id": "bankers-algorithm-safe-state-check.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1152,
+      "sha256": "9d81e82c30fe70e5f2cbff5ae5c68e1552c5f640f8f87c0c360d91b3af72d755"
+    },
+    {
+      "id": "bankers-algorithm-safe-state-check.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 469,
+      "sha256": "1d1536af04997d6bbe4af40f3f36ff611ee8b4f9cddf2569c0cdc41e48c075b5"
+    },
+    {
+      "id": "bankers-algorithm-safe-state-check.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 901,
+      "sha256": "b39c6e3547c758abcc67a8987d3e83c500728adaaed8ec5bb9989790a68cca2d"
+    },
+    {
+      "id": "bankers-algorithm-safe-state-check.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 519,
+      "sha256": "7ba4f460bdc06aa4ec390a368c198f95f65182d8900a7029a72e654128ae4239"
+    },
+    {
+      "id": "bankers-algorithm-safe-state-check.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 570,
+      "sha256": "da89a5441c44a0b473e62013dd06ecd571e121d7e8bbba1882d1461d53a9e73a"
+    },
+    {
+      "id": "bankers-algorithm-safe-state-check.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1120,
+      "sha256": "145abe0482fb32cf6c7b8cbc1df31919990f228263135c8b7ae1c0c4ae53bf64"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/bankers-algorithm-safe-state-check/f69daf7595db23ce7ad5/aoede-b29bb8424bc70afb.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2460524,
+      "sha256": "b29bb8424bc70afb582f751c605f2487bfd158cae00644f4bbaae9b440f1ebc7",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "1b7e6fd30966deceeb6f4bd56dcb6a40a95662269ce625fdec38024eacc7caa3",
+          "bytes": 1151424,
+          "sha256": "6e7f3b40ea8322f478d33fa9c3f246139aac6b3cca03c66f5951700de7ad1820"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "d5e6162e6a93d0e24cb42601daaebbe68a3d68df3d912e4071bda04198da9c5d",
+          "bytes": 1308864,
+          "sha256": "de9a514769de1b09a98cfaf1e088aaa795071e316da19c40a2ad95517b63631e"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/bankers-algorithm-safe-state-check/f69daf7595db23ce7ad5/algieba-cf105342bba32806.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2588684,
+      "sha256": "cf105342bba32806fbe26525dab4d15a930f2f34571fa4ce2fc727d309f172fe",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "1b7e6fd30966deceeb6f4bd56dcb6a40a95662269ce625fdec38024eacc7caa3",
+          "bytes": 1249152,
+          "sha256": "0fd6fd6cd2b40aefe3e3c3afb7f0fc450dfe3a51b41c4094fb1f8dcf9eefd7fb"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "d5e6162e6a93d0e24cb42601daaebbe68a3d68df3d912e4071bda04198da9c5d",
+          "bytes": 1339296,
+          "sha256": "fddaa64a50f7b94401a4cbb6e64909cf079c82ddb521550eecec9d8ed262674d"
+        }
+      ]
+    }
+  }
+}

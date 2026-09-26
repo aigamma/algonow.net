@@ -3761,6 +3761,29 @@ commit, Fable trailer on every commit, check green before each push.
       X grey, pivot amber, call counters; stepMs 45, holdTicks rests.
       Preserved narration: Aoede + Algieba.
 
+- [x] F118. Myers diff algorithm × shortest-edit-script search.
+      Puzzle 124, strings (problemSlug text-diffing), added
+      2026-09-26. Solution myers_diff_shortest_edit_script.py (1s,
+      prints OK). FIVE ORACLES: (1) 120 random pairs: Myers D equal
+      to a separately written insert/delete edit-graph DP; (2) every
+      script replays A into B with exactly D edits; (3) D = N + M -
+      2 LCS with LCS from a third program; (4) COST LAW: fixed 8
+      edits at 250 / 500 / 1,000 / 2,000 lines: frontier 42 / 39 /
+      41 / 42 points vs table 62,000 / 252,000 / 1,000,000 /
+      3,996,000 (ratio to (N+M)D at most 0.01, table 95,143x the
+      frontier at 2,000); fixed 1,000 lines at 4 / 16 / 64 / 256
+      edits: frontier 12 / 142 / 2,117 / 30,020 vs table ~1,000,000
+      flat; (5) rivals: Hunt-Szymanski matches 1,827 ... 103,071
+      (small vocabulary = many matches); kitten to sitting 5 vs
+      Levenshtein 3. Cards: self, Wagner-Fischer (live), Longest
+      common subsequence (Hunt-Szymanski), Patience diff. neverUse:
+      Levenshtein as a diff. Figure: the edit graph with frontiers
+      and the green path, cite Myers Algorithmica 1986 DOI
+      10.1007/BF01840446. Viz MyersDiffViz: two 9-character
+      sequences, act 1 the table filling cell by cell, act 2 the
+      frontiers with snakes and the green script; stepMs 40,
+      holdTicks rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

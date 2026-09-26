@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:myers-diff-shortest-edit-script",
+  "source_path": "src/content/myers-diff-shortest-edit-script.narration.js",
+  "source_sha256": "c196249f850aeee79f031de95802dad53c2af0c595f9708f296cc4d174a29098",
+  "source_characters": 10089,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "166743b73aeb231d02ebe0a1d7c6b09e876181553eb9f4c221c90f71372f9091",
+  "generated_at": "2026-09-26T22:39:48.878Z",
+  "generated_characters": 20178,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4544,
+      "utf8_bytes": 4550,
+      "sha256": "5c105a03c9861ffa7fded0b765c9057dfe6eedc038696d6787132eb21ee2723b"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4347,
+      "utf8_bytes": 4357,
+      "sha256": "1e5a59a62e15b6171be0512cdcb3d3534f1ab61d6a2f3235b225c08a59e757d3"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1198,
+      "utf8_bytes": 1204,
+      "sha256": "4b0b2b2d51dfef4153562525e4801e6ba2f9623db63427cf7e78187728765939"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "myers-diff-shortest-edit-script.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "myers-diff-shortest-edit-script.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1198,
+      "sha256": "e696667243ed037ce37355f9dd4a71e83bebb92428b59913cff29963312a9d27"
+    },
+    {
+      "id": "myers-diff-shortest-edit-script.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 957,
+      "sha256": "8ee8ed11517fbd84a688d8991af13420f741c13fcc0ab01700ae9aec542b5aab"
+    },
+    {
+      "id": "myers-diff-shortest-edit-script.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1399,
+      "sha256": "41b4476e54f1cda94af5908c7e3c62749cd7a6da58cbe8d220f19cfdf1fe07ee"
+    },
+    {
+      "id": "myers-diff-shortest-edit-script.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 863,
+      "sha256": "fdc6e40590d30c50dd1ca3e8d5a202a1d5c13f02976a52ff56f6fccbf459b73b"
+    },
+    {
+      "id": "myers-diff-shortest-edit-script.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1166,
+      "sha256": "33f9c73df1e9fb07aabeae74525cc86604cea65c358deefb5bfe4e4067d43f9e"
+    },
+    {
+      "id": "myers-diff-shortest-edit-script.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 665,
+      "sha256": "bc85064b2f1ddb50457946e7834151c48eca03bb046826c101cb49dae9b202e2"
+    },
+    {
+      "id": "myers-diff-shortest-edit-script.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1092,
+      "sha256": "d7114297e7924c9df4e662080bcd7e963ff4247731946f242f0a0417a67a08c8"
+    },
+    {
+      "id": "myers-diff-shortest-edit-script.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 734,
+      "sha256": "7f6fee24124ffd16804da02ca4a21a3bc90279341d2aa2a898c90689fef9281c"
+    },
+    {
+      "id": "myers-diff-shortest-edit-script.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 690,
+      "sha256": "d4148eb93209a01fd468eb7c9a989d8286cf983af7c3380389c185e1b7ea2f5f"
+    },
+    {
+      "id": "myers-diff-shortest-edit-script.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1204,
+      "sha256": "4b0b2b2d51dfef4153562525e4801e6ba2f9623db63427cf7e78187728765939"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/myers-diff-shortest-edit-script/166743b73aeb231d02eb/aoede-34f1bbef406c4797.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2550956,
+      "sha256": "34f1bbef406c479711e61c1d3da0d3319ad689f2ae8bfcdaa3f584b36782a0bd",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5c105a03c9861ffa7fded0b765c9057dfe6eedc038696d6787132eb21ee2723b",
+          "bytes": 1134624,
+          "sha256": "13a5072b488b6ad3f8acb7a99b1bf63ea50c727bfbd1a8aaa88e9e872ce597a7"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "1e5a59a62e15b6171be0512cdcb3d3534f1ab61d6a2f3235b225c08a59e757d3",
+          "bytes": 1141632,
+          "sha256": "a8c073df7d64c96d90a0ce4ba9a8b25563372dda69ebc16b63a3d9172eb474da"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "4b0b2b2d51dfef4153562525e4801e6ba2f9623db63427cf7e78187728765939",
+          "bytes": 274464,
+          "sha256": "43ca5040e4d9da13e44692c22f2a62a3546b4d62e6499ced02e4b48d1955615d"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/myers-diff-shortest-edit-script/166743b73aeb231d02eb/algieba-f4b341d72e0cbce5.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2627660,
+      "sha256": "f4b341d72e0cbce55f5b091ae7a9f5ebb0ad9a3359c7492d3c87d612140d5b3e",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5c105a03c9861ffa7fded0b765c9057dfe6eedc038696d6787132eb21ee2723b",
+          "bytes": 1192704,
+          "sha256": "8e15d5189338744fb6b41fede489bf457e06231453b8da36be5b6ea9369596c2"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "1e5a59a62e15b6171be0512cdcb3d3534f1ab61d6a2f3235b225c08a59e757d3",
+          "bytes": 1166304,
+          "sha256": "c20ee72506005905be85a8f26d976cc8db3e31d766dbc8af7bada24bdf9797fa"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "4b0b2b2d51dfef4153562525e4801e6ba2f9623db63427cf7e78187728765939",
+          "bytes": 268416,
+          "sha256": "cc8addf0a2d9c4a586a82d1b5c4ed2edec23396d51fe7d1de4ec286ba7c7de01"
+        }
+      ]
+    }
+  }
+}

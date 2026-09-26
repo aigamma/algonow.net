@@ -2383,15 +2383,35 @@ export const PUZZLES = {
     vite: 'bron-kerbosch-tomita-pivoting',
     html: 'bron-kerbosch-tomita-pivoting/index.html',
   },
+  '/myers-diff-shortest-edit-script/': {
+    slug: 'myers-diff-shortest-edit-script',
+    added: '2026-09-26',
+    problemSlug: 'text-diffing',
+    number: 124,
+    category: 'strings',
+    algorithm: 'Myers diff algorithm',
+    heuristic: 'Shortest-edit-script search',
+    domain: 'Text diffing',
+    oneLiner:
+      'Walk the edit graph one edit at a time, keeping only the furthest point on each diagonal and sliding along every match: the first frontier to reach the corner is the shortest diff, priced by the edits, not the file.',
+    description:
+      'The Myers diff algorithm with shortest-edit-script search: 120/120 random pairs equal to the edit-graph dynamic program with every script replaying exactly, 42 frontier points against 3,996,000 table cells for 8 edits on 2,000 lines, and the frontier growing with the edits while the table ignores them.',
+    listenMinutes: 8,
+    time: 'O((N + M) D)',
+    space: 'O(D²) frontiers',
+    baseline: 'Wagner-Fischer table, O(N M)',
+    vite: 'myers-diff-shortest-edit-script',
+    html: 'myers-diff-shortest-edit-script/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Myers diff algorithm', heuristic: 'Shortest-edit-script search', domain: 'Text diffing' },
   { algorithm: 'HNSW', heuristic: 'Navigable small-world layers', domain: 'Vector similarity search' },
   { algorithm: 'Backpropagation', heuristic: 'Stochastic gradient descent', domain: 'Neural network training' },
+  { algorithm: 'Q-learning', heuristic: 'Epsilon-greedy exploration', domain: 'Reinforcement learning' },
 ];
 
 

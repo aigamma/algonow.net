@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net myers-diff-shortest-edit-script preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-26T22:40:47.567Z",
+  "publication_sha256": "bc3eef1b211f2fc13695d5ba1c5ebc01738e98928d51d994339a347b7aae7853",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5178616,
+  "objects": [
+    {
+      "stable_id": "puzzle:myers-diff-shortest-edit-script",
+      "slug": "myers-diff-shortest-edit-script",
+      "track_id": "algieba",
+      "source_sha256": "c196249f850aeee79f031de95802dad53c2af0c595f9708f296cc4d174a29098",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "166743b73aeb231d02ebe0a1d7c6b09e876181553eb9f4c221c90f71372f9091",
+      "object_key": "narration/v1/puzzles/myers-diff-shortest-edit-script/166743b73aeb231d02eb/algieba-f4b341d72e0cbce5.mp3",
+      "bytes": 2627660,
+      "sha256": "f4b341d72e0cbce55f5b091ae7a9f5ebb0ad9a3359c7492d3c87d612140d5b3e",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:myers-diff-shortest-edit-script",
+      "slug": "myers-diff-shortest-edit-script",
+      "track_id": "aoede",
+      "source_sha256": "c196249f850aeee79f031de95802dad53c2af0c595f9708f296cc4d174a29098",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "166743b73aeb231d02ebe0a1d7c6b09e876181553eb9f4c221c90f71372f9091",
+      "object_key": "narration/v1/puzzles/myers-diff-shortest-edit-script/166743b73aeb231d02eb/aoede-34f1bbef406c4797.mp3",
+      "bytes": 2550956,
+      "sha256": "34f1bbef406c479711e61c1d3da0d3319ad689f2ae8bfcdaa3f584b36782a0bd",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

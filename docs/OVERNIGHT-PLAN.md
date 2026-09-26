@@ -3924,6 +3924,36 @@ commit, Fable trailer on every commit, check green before each push.
       separated, in all 8; stepMs 45, holdTicks rests. Preserved
       narration: Aoede + Algieba.
 
+- [x] F124. Perceptron × mistake-driven updates. Puzzle 130, ml-ai
+      (problemSlug classification), added 2026-09-26. Solution
+      perceptron_mistake_driven_updates.py (2.3s, prints OK): 200
+      points in the unit disk, two classes at gaps 0.4 / 0.2 / 0.1, 20
+      shuffles each; referee: the Novikoff bound (R/gamma)^2 with gamma
+      from an independent 54,000-direction max-margin sweep, R = sqrt
+      2. FIVE ORACLES: (1) every run converges with zero errors and a
+      mistake count under the bound (gamma 0.203 / 0.106 / 0.054,
+      bounds 49 / 179 / 698, worst mistakes 10 / 16 / 20, worst passes
+      3 / 4 / 4); (2) exact separation on the final pass; (3) the
+      margin law: counts and bounds both grow as the gap shrinks; (4)
+      ABLATION: updating on every example never converges (12 errors
+      after 200 passes where the mistake rule needed 2 passes and 6
+      updates); (5) FAILURES measured two ways: XOR by quadrant cycles
+      (20,868 mistakes / 200 passes, 92 of 200 wrong, averaged 91: no
+      line does better; AUTHOR CORRECTION: the draft claimed averaging
+      helps on XOR and the run showed parity, so the claim moved to
+      nearly separable data), and ten flipped labels (5,138 mistakes,
+      never converged, last line 7 wrong vs truth, averaged perceptron
+      0). Cards: self, Support vector machine, Logistic regression,
+      Passive-aggressive. neverUse: updating on every example. Figure:
+      the disk with the gap, the max-margin direction, the
+      perceptron's line, and the bound table, cite Novikoff 1962 and
+      Rosenblatt 1958 DOI 10.1037/h0042519. Viz PerceptronViz: 120
+      points, one mistake per tick with the amber ring on the point
+      that moved the line, mistakes-vs-bound bar, cycles through the
+      three gaps; NODE-VERIFIED 9 cycles: converged with zero errors
+      under the bound in all 9; stepMs 220, holdTicks rests. Preserved
+      narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

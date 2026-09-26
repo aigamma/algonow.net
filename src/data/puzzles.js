@@ -2503,15 +2503,35 @@ export const PUZZLES = {
     vite: 'dbscan-density-reachability',
     html: 'dbscan-density-reachability/index.html',
   },
+  '/perceptron-mistake-driven-updates/': {
+    slug: 'perceptron-mistake-driven-updates',
+    added: '2026-09-26',
+    problemSlug: 'classification',
+    number: 130,
+    category: 'ml-ai',
+    algorithm: 'Perceptron',
+    heuristic: 'Mistake-driven updates',
+    domain: 'Linear classification',
+    oneLiner:
+      'Sweep the points; on a mistake add the signed point to the weights, on a hit do nothing. The line is a sum of its mistakes, and Novikoff\'s theorem says how many there can be: sixty runs, sixty counts under the bound.',
+    description:
+      'The perceptron with mistake-driven updates on 200 points in the unit disk at three gaps: every one of 60 shuffled runs separates the data with mistake counts of at most 10 / 16 / 20 against Novikoff bounds of 49 / 179 / 698 computed from an independent max-margin sweep; the always-update ablation never converges (12 errors after 200 passes); XOR cycles forever; ten flipped labels leave the last line 7 wrong where the averaged perceptron is at 0.',
+    listenMinutes: 8,
+    time: 'O((R/gamma)^2) mistakes',
+    space: 'one weight vector',
+    baseline: 'Update on every example',
+    vite: 'perceptron-mistake-driven-updates',
+    html: 'perceptron-mistake-driven-updates/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Perceptron', heuristic: 'Mistake-driven updates', domain: 'Linear classification' },
   { algorithm: 'First fit decreasing', heuristic: 'Descending size order', domain: 'Bin packing' },
   { algorithm: "Banker's algorithm", heuristic: 'Safe-state check', domain: 'Deadlock avoidance' },
+  { algorithm: 'Gaussian elimination', heuristic: 'Partial pivoting', domain: 'Linear systems' },
 ];
 
 

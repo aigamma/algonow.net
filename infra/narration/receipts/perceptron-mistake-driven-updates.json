@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net perceptron-mistake-driven-updates preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-26T23:40:58.891Z",
+  "publication_sha256": "1d8ddd9ad06125e3cfac35e1a7e66e744c29003964f1f0c39e0ada4e5b321877",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5111320,
+  "objects": [
+    {
+      "stable_id": "puzzle:perceptron-mistake-driven-updates",
+      "slug": "perceptron-mistake-driven-updates",
+      "track_id": "algieba",
+      "source_sha256": "0011bfbec2d8a4deb78a23ac3b14dd4ca15753672bd8e77b6bdc9219d4952c34",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "40328ec1a257f30bf6467fb526a22c901306865cde368e9fa7d9506d56f72d0f",
+      "object_key": "narration/v1/puzzles/perceptron-mistake-driven-updates/40328ec1a257f30bf646/algieba-c4cdc6b4dbc9a7a4.mp3",
+      "bytes": 2658284,
+      "sha256": "c4cdc6b4dbc9a7a4ab2920ccc017f8299e061ecb36053debbd7368f7b33c8536",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:perceptron-mistake-driven-updates",
+      "slug": "perceptron-mistake-driven-updates",
+      "track_id": "aoede",
+      "source_sha256": "0011bfbec2d8a4deb78a23ac3b14dd4ca15753672bd8e77b6bdc9219d4952c34",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "40328ec1a257f30bf6467fb526a22c901306865cde368e9fa7d9506d56f72d0f",
+      "object_key": "narration/v1/puzzles/perceptron-mistake-driven-updates/40328ec1a257f30bf646/aoede-1b09f2daa1437a89.mp3",
+      "bytes": 2453036,
+      "sha256": "1b09f2daa1437a89187d7b70449e3d0e343115c691840c170adb73ab7e818988",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:perceptron-mistake-driven-updates",
+  "source_path": "src/content/perceptron-mistake-driven-updates.narration.js",
+  "source_sha256": "0011bfbec2d8a4deb78a23ac3b14dd4ca15753672bd8e77b6bdc9219d4952c34",
+  "source_characters": 9882,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "40328ec1a257f30bf6467fb526a22c901306865cde368e9fa7d9506d56f72d0f",
+  "generated_at": "2026-09-26T23:39:54.112Z",
+  "generated_characters": 19764,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4933,
+      "utf8_bytes": 4943,
+      "sha256": "a8f32ee92d3f0bc3cf2a1b332be8f9784ca1278d010f4f05b60001fab0810d1d"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4949,
+      "utf8_bytes": 4953,
+      "sha256": "7696719e193c2cb0eb8c14e9073538b08e35d88a6aa5d618da913a9e71059d3a"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "perceptron-mistake-driven-updates.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "perceptron-mistake-driven-updates.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1045,
+      "sha256": "89f7ed7dc024bd4abdc1c8c7b0aacb6fa5cc0f98b6d033a847b7ee6c66df58f3"
+    },
+    {
+      "id": "perceptron-mistake-driven-updates.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1026,
+      "sha256": "457b2dbc46d4391445e853d0a189651e350ab0ba5ba6f2efc87ca3ae56eac611"
+    },
+    {
+      "id": "perceptron-mistake-driven-updates.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1947,
+      "sha256": "b8778751f637287fefe0887f03a459a8471af9723f499f8dca33d154f611a794"
+    },
+    {
+      "id": "perceptron-mistake-driven-updates.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 792,
+      "sha256": "469adee1ea52b238a75acd81707a254830f81eec42f10a5fe2e1d7bff1ab2031"
+    },
+    {
+      "id": "perceptron-mistake-driven-updates.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1054,
+      "sha256": "7b52d25351eae5e6e9f3a756d0deeba3cdaa3d30b7eabbde710ed62a2c394684"
+    },
+    {
+      "id": "perceptron-mistake-driven-updates.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 504,
+      "sha256": "6afcd629dfe573b05a37f12ce622da40e06a9252578da34f0184b785ef652e8f"
+    },
+    {
+      "id": "perceptron-mistake-driven-updates.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1036,
+      "sha256": "7f7808acb1360845157cb9d811a6e1c49bbb7d5d163228c61ea1f47f09888e83"
+    },
+    {
+      "id": "perceptron-mistake-driven-updates.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 647,
+      "sha256": "b74caa22a88fe6b187363315a2452e34a48656ac7faf041704567ea4061e087f"
+    },
+    {
+      "id": "perceptron-mistake-driven-updates.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 636,
+      "sha256": "04347622f258c9698546d8e40f117d17388158534854852f77c8001e159377e3"
+    },
+    {
+      "id": "perceptron-mistake-driven-updates.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1066,
+      "sha256": "8509abf517843c4ef598b05d501a9349a388cdb5a8919b57e7bcb4ceac06e00a"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/perceptron-mistake-driven-updates/40328ec1a257f30bf646/aoede-1b09f2daa1437a89.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2453036,
+      "sha256": "1b09f2daa1437a89187d7b70449e3d0e343115c691840c170adb73ab7e818988",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "a8f32ee92d3f0bc3cf2a1b332be8f9784ca1278d010f4f05b60001fab0810d1d",
+          "bytes": 1199616,
+          "sha256": "c4b1cee7ca72ecdfa808b39d5f64d9d6c3c32285aa86211bd4fe1fa097e07c4b"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "7696719e193c2cb0eb8c14e9073538b08e35d88a6aa5d618da913a9e71059d3a",
+          "bytes": 1253184,
+          "sha256": "916afae61629568212b8205acd59c134bbebcf99a1c767d70675029bcab44a4c"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/perceptron-mistake-driven-updates/40328ec1a257f30bf646/algieba-c4cdc6b4dbc9a7a4.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2658284,
+      "sha256": "c4cdc6b4dbc9a7a4ab2920ccc017f8299e061ecb36053debbd7368f7b33c8536",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "a8f32ee92d3f0bc3cf2a1b332be8f9784ca1278d010f4f05b60001fab0810d1d",
+          "bytes": 1298496,
+          "sha256": "d992125dfb65a7da33adbc2e2080aefc1a52d4401cb8a0f064956320614a84c0"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "7696719e193c2cb0eb8c14e9073538b08e35d88a6aa5d618da913a9e71059d3a",
+          "bytes": 1359552,
+          "sha256": "d1aa069dfe6361bd6a3694a4a0dfab7861249fd006e5209bdca1d6744583eeab"
+        }
+      ]
+    }
+  }
+}

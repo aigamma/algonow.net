@@ -11,12 +11,13 @@
     "preview": "vite preview",
     "check": "node scripts/check.mjs && npm test",
     "test": "node --test \"tests/**/*.test.mjs\"",
-    "narration:plan": "node scripts/narration/generate-kalman-narration.mjs",
+    "narration:plan": "node scripts/narration/generate-puzzle-narration.mjs",
     "narration:test": "node --test tests/narration-adapter.test.mjs tests/narration-plan.test.mjs tests/narration-release.test.mjs tests/preserved-narration-player.test.mjs",
-    "narration:generate:kalman": "node scripts/narration/generate-kalman-narration.mjs",
-    "narration:publish:kalman": "node scripts/narration/publish-kalman-narration.mjs",
-    "narration:install:kalman": "node scripts/narration/install-kalman-narration.mjs",
-    "narration:verify:kalman": "node scripts/narration/verify-kalman-narration.mjs",
+    "narration:generate": "node scripts/narration/generate-puzzle-narration.mjs",
+    "narration:authorize": "node scripts/narration/authorize-release-objects.mjs",
+    "narration:publish": "node scripts/narration/publish-puzzle-narration.mjs",
+    "narration:install": "node scripts/narration/install-puzzle-narration.mjs",
+    "narration:verify": "node scripts/narration/verify-puzzle-narration.mjs",
     "verify:solutions": "python scripts/verify_solutions.py"
   },
   "dependencies": {

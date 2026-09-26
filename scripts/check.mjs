@@ -299,6 +299,33 @@ if (!existsSync('dist/assets')) {
     budget(`html ${p.slug}`, gz(`dist/${p.slug}/index.html`), 2 * 1024);
   }
 
+  // Preserved-narration pages refuse to render without the media origin, so a
+  // build made in a shell that lacks VITE_MEDIA_BASE_URL ships a page that
+  // throws on load while every source-level check stays green (the origin is
+  // inlined at build time; nothing reads it afterwards). The value lives in
+  // .env.production; this proves it reached the emitted page chunks.
+  {
+    const envText = existsSync('.env.production') ? readFileSync('.env.production', 'utf8') : '';
+    const origin = (envText.match(/^VITE_MEDIA_BASE_URL=(\S+)/m) || [])[1] || '';
+    const host = origin.replace(/^https:\/\//, '').replace(/\/+$/, '');
+    if (!/^[a-z0-9.-]+\.cloudfront\.net$/.test(host)) {
+      fail('.env.production must pin VITE_MEDIA_BASE_URL to the receipt-bound CloudFront origin');
+    } else {
+      const preserved = Object.values(PUZZLES).filter(
+        (p) => p.slug === 'kalman-covariance-correction' || p.number >= PRESERVED_NARRATION_REQUIRED_FROM,
+      );
+      const blind = preserved.filter((p) => {
+        const chunk = assets.find((a) => a.startsWith(`${p.slug}-`) && a.endsWith('.js'));
+        return !chunk || !readFileSync(`dist/assets/${chunk}`, 'utf8').includes(host);
+      });
+      if (blind.length) {
+        fail(`media origin ${host} missing from built page chunk(s): ${blind.map((p) => p.slug).join(', ')}`);
+      } else {
+        ok(`media origin ${host} inlined in all ${preserved.length} preserved-narration page chunk(s)`);
+      }
+    }
+  }
+
   const socialCardPath = `dist${SOCIAL_CARD.path}`;
   if (!existsSync(socialCardPath)) {
     fail(`social card missing: ${socialCardPath}`);

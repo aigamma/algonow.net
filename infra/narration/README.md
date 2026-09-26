@@ -2,6 +2,59 @@
 
 This directory binds the SpokenHistory preserved-audio design to the single AlgoNow pilot page at `/kalman-covariance-correction/`. Both tracks were generated, published, installed, deployed, and production-verified in commit `7dd6dee`. This is the reference implementation for every new Fable-authored page. Initial dual-track generation for those new pages has standing owner consent under CLAUDE.md rule 4. The legacy catalog backfill remains behind human listening review.
 
+## Every page after the pilot: the per-slug workflow
+
+The pilot tooling is now slug-parameterized (2026-09-26). The same scripts,
+gates, receipts, and verifier run for any page; only `--slug` changes. The
+pilot keeps its original manifest path, receipt path, and scope string, so
+its published artifacts stay byte-identical. A new page's receipt lands at
+`infra/narration/receipts/<slug>.json` and its manifest at
+`src/data/narration/<slug>.json` (created by the installer; no pending stub
+is needed).
+
+1. Author `src/content/<slug>.narration.js` (no raw numerals, arrows, URLs,
+   or underscores: the artifact gate refuses them).
+2. Credential-free plan and review hash:
+   `node scripts/narration/generate-puzzle-narration.mjs --slug <slug>`
+3. Paid generation under the standing new-page consent (rule 4), with the
+   exact pending ceiling from the plan:
+   `node scripts/narration/generate-puzzle-narration.mjs --slug <slug> --execute --project aigamma --max-usd <exact> --approved-plan-sha256 <hash>`
+4. Rotate the publisher role onto this release's two exact object ARNs (a
+   privileged session updates the IAM stack; the role never holds a wildcard
+   write):
+   `node scripts/narration/authorize-release-objects.mjs --slug <slug> --execute`
+5. Publish as the assumed least-privilege role (the broker ceremony below):
+   `AWS_PROFILE=algonow-narration-publisher node scripts/narration/publish-puzzle-narration.mjs --slug <slug> --execute --stack ... --region ... --bucket ... --distribution-id ... --distribution-domain ... --receipt infra/narration/receipts/<slug>.json`
+6. Install the receipt-bound manifest, then verify live:
+   `node scripts/narration/install-puzzle-narration.mjs --slug <slug> --execute ... --receipt infra/narration/receipts/<slug>.json`
+   `node scripts/narration/verify-puzzle-narration.mjs --slug <slug> --base-url https://<cdn-domain> ... --receipt infra/narration/receipts/<slug>.json`
+7. Wire `<slug>/main.jsx` exactly like the Kalman entry (manifest import,
+   `PreservedListenPlayer`, `narrationPlayer={narrationPlayer}`), then
+   `npm run build` and `npm run check`.
+
+`.env.production` pins `VITE_MEDIA_BASE_URL` to the receipt-bound CloudFront
+origin. Vite inlines it at build time and `scripts/check.mjs` proves the
+origin reached every preserved-narration page chunk in `dist`, because a
+build made without it ships a page that throws on load (found 2026-09-26:
+the local build lacked it while production carried it).
+
+### The broker ceremony
+
+The AWS root login session can neither assume a role nor mint a federated
+token (both are denied for root by AWS), so publication uses the temporary
+no-console broker user the roles stack already anticipates. With the
+privileged session: create `bootstrap/algonow-role-broker-<hex>` (path
+`/bootstrap/`), attach one inline policy allowing only `sts:AssumeRole` on
+`algonow-narration-publisher`, create one access key, store it as the
+`algonow-broker` profile, and point an `algonow-narration-publisher` profile
+at the role with `source_profile = algonow-broker`. Then update the
+`algonow-narration-bootstrap` stack's `BrokerArn` parameter to the new user
+(`authorize-release-objects.mjs --broker-arn <arn>` does this alongside the
+object rotation). Verify with `aws sts get-caller-identity --profile
+algonow-narration-publisher`: the ARN must be an `assumed-role`. Delete the
+access key and the user when the session's publications are done; the stack
+keeps a dangling principal until the next ceremony rotates it.
+
 ## What AlgoNow used before this pilot
 
 The existing Listen feature uses the browser Web Speech API through `src/lib/tts.js`. The visitor's browser and operating system choose and synthesize the voice locally. There is no audio provider request, API key, preserved MP3, or per-listen provider cost. That browser engine is the robotic playback the preserved-audio pilot is intended to replace on the test page.
@@ -52,7 +105,7 @@ Before planning, the artifact gate rejects raw numerals, URLs, arrows, repositor
 Run:
 
 ```powershell
-node scripts/narration/generate-kalman-narration.mjs
+node scripts/narration/generate-puzzle-narration.mjs
 ```
 
 This command performs no authentication and makes no network request. It writes the complete review artifact under ignored `build/narration/review/` and prints its deterministic summary.
@@ -83,7 +136,7 @@ The approved pilot command completed on 2026-08-31. It used all four planned fir
 The completed command required all four operator inputs in the same invocation:
 
 ```powershell
-node scripts/narration/generate-kalman-narration.mjs `
+node scripts/narration/generate-puzzle-narration.mjs `
   --execute `
   --project aigamma `
   --max-usd 0.600000 `
@@ -113,7 +166,7 @@ A timeout or network failure is marked `ambiguous`. A successful response that c
 After checking the exact attempt against provider activity, record whether it was billed and authorize only that request for resubmission:
 
 ```powershell
-node scripts/narration/generate-kalman-narration.mjs `
+node scripts/narration/generate-puzzle-narration.mjs `
   --project aigamma `
   --approved-plan-sha256 68825c26abf5d55bc02dcfeb100250d4488516a9a80a88b634879403065a85b4 `
   --reconcile-attempt <exact-64-character-attempt-id> `
@@ -136,7 +189,7 @@ Commit `7dd6dee` completed the guarded publication path for the Kalman pilot. It
 The tooling is inert by default. It was added without publishing in commit `83f84e4`, then executed for the exact pilot release in commit `7dd6dee`. A publication dry run is available only after both validated local MP3s and `manifest-entry.json` exist:
 
 ```powershell
-node scripts/narration/publish-kalman-narration.mjs
+node scripts/narration/publish-puzzle-narration.mjs
 ```
 
 Before an execute run, deploy `infra/media-cdn/template.yaml` with termination protection, record its exact outputs, and use a least-privilege short-lived AWS role or federated session. The publisher rejects AWS root credentials and direct IAM-user credentials. It discovers the installed AWS CLI from `AWS_PATH`, `C:\Program Files\Amazon\AWSCLIV2\aws.exe`, or the command path, in that order. An optional explicit `--aws-path` has highest priority.
@@ -144,7 +197,7 @@ Before an execute run, deploy `infra/media-cdn/template.yaml` with termination p
 An execute run requires every target value and the tracked receipt path in the same command:
 
 ```powershell
-node scripts/narration/publish-kalman-narration.mjs `
+node scripts/narration/publish-puzzle-narration.mjs `
   --execute `
   --stack <exact-stack-name> `
   --region <exact-aws-region> `
@@ -163,7 +216,7 @@ The tracked receipt includes public stack and CloudFront identifiers, source, re
 After reviewing the receipt, dry-run the atomic manifest installation with the exact same target values:
 
 ```powershell
-node scripts/narration/install-kalman-narration.mjs `
+node scripts/narration/install-puzzle-narration.mjs `
   --stack <exact-stack-name> `
   --region <exact-aws-region> `
   --bucket <exact-private-bucket-output> `
@@ -174,10 +227,10 @@ node scripts/narration/install-kalman-narration.mjs `
 
 Add `--execute` only after the dry run is correct. The installer validates the complete receipt and release before its first mutation, recursively removes `local_file`, rejects every unapproved field or private value, and writes the one public manifest atomically. A repeated run validates the already-installed current manifest and makes no change.
 
-Offline verification uses the same target and receipt arguments with `scripts/narration/verify-kalman-narration.mjs`. Live verification adds the one receipt-bound base URL:
+Offline verification uses the same target and receipt arguments with `scripts/narration/verify-puzzle-narration.mjs`. Live verification adds the one receipt-bound base URL:
 
 ```powershell
-node scripts/narration/verify-kalman-narration.mjs `
+node scripts/narration/verify-puzzle-narration.mjs `
   --base-url https://<exact-cloudfront-domain> `
   --stack <exact-stack-name> `
   --region <exact-aws-region> `

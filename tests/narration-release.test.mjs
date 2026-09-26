@@ -26,16 +26,16 @@ import {
   parsePublicationArguments,
   publishKalmanNarration,
   publishObjectConditionally,
-} from '../scripts/narration/publish-kalman-narration.mjs';
+} from '../scripts/narration/publish-puzzle-narration.mjs';
 import {
   installKalmanNarration,
   parseInstallationArguments,
-} from '../scripts/narration/install-kalman-narration.mjs';
+} from '../scripts/narration/install-puzzle-narration.mjs';
 import {
   bindLiveBaseUrl,
   parseVerificationArguments,
   verifyKalmanNarration,
-} from '../scripts/narration/verify-kalman-narration.mjs';
+} from '../scripts/narration/verify-puzzle-narration.mjs';
 import { releaseOutputDirectory } from '../scripts/narration/puzzle-narration-pipeline.mjs';
 
 const TEST_ACCOUNT = '123456789012';

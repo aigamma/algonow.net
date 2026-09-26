@@ -3,12 +3,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import {
-  DEFAULT_RECEIPT_PATH,
   PILOT_SLUG,
   ROOT,
   assert,
   assertPublicManifest,
+  assertSlug,
   buildPilotPlan,
+  buildPlanForSlug,
+  defaultReceiptPath,
   loadLocalRelease,
   loadPublicationReceipt,
   loadPublicManifest,
@@ -20,18 +22,20 @@ const MODULE_PATH = fileURLToPath(import.meta.url);
 
 export function parseInstallationArguments(argv) {
   const options = {
+    slug: PILOT_SLUG,
     execute: false,
     stack: '',
     region: '',
     bucket: '',
     distributionId: '',
     distributionDomain: '',
-    receiptPath: DEFAULT_RECEIPT_PATH,
+    receiptPath: '',
   };
   const explicit = new Set();
   for (let index = 0; index < argv.length; index += 1) {
     const argument = argv[index];
     if (argument === '--execute') options.execute = true;
+    else if (argument === '--slug') options.slug = assertSlug(argv[++index] || '');
     else if (argument === '--stack') {
       options.stack = argv[++index] || '';
       explicit.add('stack');
@@ -64,6 +68,7 @@ export function parseInstallationArguments(argv) {
   for (const [field, flag] of Object.entries(flags)) {
     assert(explicit.has(field), `${flag} is required for receipt-bound installation`);
   }
+  if (!explicit.has('receiptPath')) options.receiptPath = defaultReceiptPath(options.slug);
   assert(options.receiptPath, '--receipt requires a repository-relative path');
   if (options.execute) assert(explicit.has('receiptPath'), '--receipt is required with --execute');
   normalizePublicationTarget(options);
@@ -77,11 +82,11 @@ export function buildInstallationPlan({
   bucket,
   distributionId,
   distributionDomain,
-  receiptPath = DEFAULT_RECEIPT_PATH,
+  plan = buildPilotPlan(),
+  receiptPath = defaultReceiptPath(plan.slug),
 } = {}) {
   const target = normalizePublicationTarget({ stack, region, bucket, distributionId, distributionDomain });
-  const plan = buildPilotPlan();
-  const current = loadPublicManifest({ root, plan, allowPending: true });
+  const current = loadPublicManifest({ root, plan, allowPending: true, allowMissing: true });
   let manifest;
   let sourceType;
   if (current.manifest.status === 'pending') {
@@ -94,12 +99,13 @@ export function buildInstallationPlan({
   assertPublicManifest(manifest, plan);
   const receipt = loadPublicationReceipt({
     root,
+    plan,
     receiptPath,
     manifest,
     target,
   });
   const updatedText = `${JSON.stringify(manifest, null, 2)}\n`;
-  const originalText = fs.readFileSync(current.filePath, 'utf8');
+  const originalText = current.missing ? '' : fs.readFileSync(current.filePath, 'utf8');
   return {
     target,
     manifest,
@@ -111,29 +117,34 @@ export function buildInstallationPlan({
   };
 }
 
-export function installKalmanNarration({
+export function installPuzzleNarration({
   root = ROOT,
   execute = false,
+  plan = buildPilotPlan(),
   ...options
 } = {}) {
-  const plan = buildInstallationPlan({ root, ...options });
-  if (execute && plan.changed) {
-    writeFileAtomic(plan.filePath, plan.updatedText, { encoding: 'utf8' });
+  const installation = buildInstallationPlan({ root, plan, ...options });
+  if (execute && installation.changed) {
+    writeFileAtomic(installation.filePath, installation.updatedText, { encoding: 'utf8' });
   }
   return {
     mode: execute ? 'execute' : 'dry-run',
-    slug: PILOT_SLUG,
-    sourceType: plan.sourceType,
-    changedCount: plan.changed ? 1 : 0,
-    unchangedCount: plan.changed ? 0 : 1,
+    slug: plan.slug,
+    sourceType: installation.sourceType,
+    changedCount: installation.changed ? 1 : 0,
+    unchangedCount: installation.changed ? 0 : 1,
     receiptValidated: true,
-    filePath: path.relative(root, plan.filePath).replaceAll('\\', '/'),
+    filePath: path.relative(root, installation.filePath).replaceAll('\\', '/'),
   };
 }
 
-export function main(argv = process.argv.slice(2)) {
-  const options = parseInstallationArguments(argv);
-  const result = installKalmanNarration(options);
+// The pilot's name survives for the offline test suite and the runbook.
+export const installKalmanNarration = installPuzzleNarration;
+
+export async function main(argv = process.argv.slice(2)) {
+  const { slug, ...options } = parseInstallationArguments(argv);
+  const plan = await buildPlanForSlug(slug);
+  const result = installPuzzleNarration({ ...options, plan });
   console.log(JSON.stringify({
     mode: result.mode,
     slug: result.slug,
@@ -149,10 +160,8 @@ export function main(argv = process.argv.slice(2)) {
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(MODULE_PATH)) {
-  try {
-    main();
-  } catch (error) {
+  main().catch((error) => {
     console.error(error.message);
     process.exitCode = 1;
-  }
+  });
 }

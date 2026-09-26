@@ -4,7 +4,12 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { narration } from '../../src/content/kalman-covariance-correction.narration.js';
+import {
+  ROOT as CONTRACT_ROOT,
+  assertSlug,
+  buildPlanForSlug,
+  publicManifestPath,
+} from './release-contract.mjs';
 import {
   APPROVED_BILLING_PROJECT,
   GOOGLE_REQUEST_TIMEOUT_MS,
@@ -15,12 +20,10 @@ import {
   MAX_TRANSIENT_SYNTHESIS_ATTEMPTS,
   MIN_REQUEST_INTERVAL_MS,
   PILOT_SLUG,
-  PILOT_SOURCE_PATH,
   PLAYBACK_POLICY,
   TRANSIENT_RETRY_BASE_DELAY_MS,
   acquireGenerationLock,
   assertFfmpegAvailable,
-  buildPuzzleNarrationPlan,
   classifyPuzzleNarration,
   createNarrationAttemptJournal,
   createRequestRateGate,
@@ -32,17 +35,12 @@ import {
   writeReviewArtifact,
 } from './puzzle-narration-pipeline.mjs';
 
-export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
-export const PUBLIC_MANIFEST_PATH = path.join(
-  ROOT,
-  'src',
-  'data',
-  'narration',
-  'kalman-covariance-correction.json'
-);
+export const ROOT = CONTRACT_ROOT;
+export const PUBLIC_MANIFEST_PATH = path.join(ROOT, publicManifestPath(PILOT_SLUG));
 
 export function parseGenerationArguments(argv) {
   const options = {
+    slug: PILOT_SLUG,
     execute: false,
     project: '',
     maxUsd: '',
@@ -56,6 +54,7 @@ export function parseGenerationArguments(argv) {
   for (let index = 0; index < argv.length; index += 1) {
     const argument = argv[index];
     if (argument === '--execute') options.execute = true;
+    else if (argument === '--slug') options.slug = assertSlug(argv[++index] || '');
     else if (argument === '--project') options.project = argv[++index] || '';
     else if (argument === '--max-usd') options.maxUsd = argv[++index] || '';
     else if (argument === '--approved-plan-sha256') {
@@ -261,26 +260,23 @@ export function createFreshTokenSynthesizer({
 }
 
 export function buildPilotPlan() {
-  return buildPuzzleNarrationPlan({
-    slug: PILOT_SLUG,
-    narration,
-    sourcePath: PILOT_SOURCE_PATH,
-  });
+  return buildPlanForSlug(PILOT_SLUG);
 }
 
-function loadPublishedManifest() {
-  if (!fs.existsSync(PUBLIC_MANIFEST_PATH)) return null;
+function loadPublishedManifest(slug) {
+  const manifestPath = path.join(ROOT, publicManifestPath(slug));
+  if (!fs.existsSync(manifestPath)) return null;
   try {
-    return JSON.parse(fs.readFileSync(PUBLIC_MANIFEST_PATH, 'utf8'));
+    return JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
   } catch (error) {
-    throw new Error(`Pilot public narration manifest is invalid: ${error.message}`);
+    throw new Error(`${slug}: public narration manifest is invalid: ${error.message}`);
   }
 }
 
 function buildReport({ plan, state, artifact, outputPath, mode, attemptSummary }) {
   return {
     mode,
-    selection: `slug:${PILOT_SLUG}`,
+    selection: `slug:${plan.slug}`,
     implementation_contract: IMPLEMENTATION_CONTRACT,
     billing_project: APPROVED_BILLING_PROJECT,
     review_artifact: path.relative(ROOT, outputPath).replaceAll('\\', '/'),
@@ -329,9 +325,9 @@ function buildReport({ plan, state, artifact, outputPath, mode, attemptSummary }
 
 export async function main(argv = process.argv.slice(2)) {
   const options = parseGenerationArguments(argv);
-  const plan = buildPilotPlan();
+  const plan = await buildPlanForSlug(options.slug);
   const { artifact, outputPath } = writeReviewArtifact(ROOT, plan);
-  const publishedManifest = loadPublishedManifest();
+  const publishedManifest = loadPublishedManifest(plan.slug);
   let state = classifyPuzzleNarration({ root: ROOT, plan, publishedManifest });
   let attemptSummary = summarizeNarrationAttemptJournal({ root: ROOT, plan });
   const mode = options.execute
@@ -354,7 +350,7 @@ export async function main(argv = process.argv.slice(2)) {
     );
   }
 
-  const generationLock = acquireGenerationLock({ root: ROOT, selection: PILOT_SLUG });
+  const generationLock = acquireGenerationLock({ root: ROOT, selection: plan.slug });
   try {
     if (options.reconcileAttemptId) {
       const reconciled = reconcileNarrationAttempt({
@@ -388,7 +384,7 @@ export async function main(argv = process.argv.slice(2)) {
       );
     }
     if (state.classification === 'published-current' || state.classification === 'local-complete') {
-      console.log(`${PILOT_SLUG}: no generation is pending`);
+      console.log(`${plan.slug}: no generation is pending`);
       return;
     }
 
@@ -403,7 +399,7 @@ export async function main(argv = process.argv.slice(2)) {
       requestRateGate,
       attemptJournal,
     });
-    console.log(`${PILOT_SLUG}: local-complete`);
+    console.log(`${plan.slug}: local-complete`);
   } finally {
     generationLock.release();
   }

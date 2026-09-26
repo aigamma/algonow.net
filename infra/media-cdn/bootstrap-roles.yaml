@@ -7,6 +7,15 @@ Parameters:
     Description: ARN of the temporary no-console IAM user allowed to assume the operator roles.
     AllowedPattern: '^arn:aws:iam::[0-9]{12}:user/bootstrap/algonow-role-broker-[a-z0-9-]+$'
 
+  ReleaseObjectArns:
+    Type: CommaDelimitedList
+    Description: >-
+      Exact S3 object ARNs of the one reviewed release the publisher role may
+      create right now (both voices of one page). Rotated per page by
+      scripts/narration/authorize-release-objects.mjs so the role never holds
+      a wildcard write. Defaults to the pilot's two objects.
+    Default: 'arn:aws:s3:::algonow-net-media-prod-*/narration/v1/puzzles/kalman-covariance-correction/3e987b927c5f7958cb3f/aoede-c39dd3d548d70421.mp3,arn:aws:s3:::algonow-net-media-prod-*/narration/v1/puzzles/kalman-covariance-correction/3e987b927c5f7958cb3f/algieba-d6348a408d01758f.mp3'
+
 Resources:
   MediaCloudFormationServiceRole:
     Type: AWS::IAM::Role
@@ -198,6 +207,12 @@ Resources:
                 Resource:
                   - 'arn:aws:s3:::algonow-net-media-prod-*/narration/v1/puzzles/kalman-covariance-correction/3e987b927c5f7958cb3f/aoede-c39dd3d548d70421.mp3'
                   - 'arn:aws:s3:::algonow-net-media-prod-*/narration/v1/puzzles/kalman-covariance-correction/3e987b927c5f7958cb3f/algieba-d6348a408d01758f.mp3'
+              - Sid: PublishOnlyReviewedReleaseObjects
+                Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                Resource: !Ref ReleaseObjectArns
               - Sid: InspectMediaDistribution
                 Effect: Allow
                 Action:

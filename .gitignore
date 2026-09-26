@@ -15,3 +15,7 @@ __pycache__/
 # Dry-run output of scripts/embed-atlas.mjs: derived data, regenerate at will.
 build/
 .private/
+
+# The production media origin is a public CDN hostname, not a secret: it must
+# ride with the repository so every build inlines it (see infra/narration).
+!.env.production

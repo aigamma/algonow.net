@@ -8,7 +8,7 @@ import { narration as kalmanNarration } from '../src/content/kalman-covariance-c
 import {
   createFreshTokenSynthesizer,
   parseGenerationArguments,
-} from '../scripts/narration/generate-kalman-narration.mjs';
+} from '../scripts/narration/generate-puzzle-narration.mjs';
 import {
   APPROVED_BILLING_PROJECT,
   IMPLEMENTATION_CONTRACT,
@@ -259,6 +259,7 @@ test('guarded local generation sends identical text to Aoede and Algieba', async
 
 test('paid argument parsing requires execution, project, exact ceiling, and reviewed hash', () => {
   assert.deepEqual(parseGenerationArguments([]), {
+    slug: PILOT_SLUG,
     execute: false,
     project: '',
     maxUsd: '',

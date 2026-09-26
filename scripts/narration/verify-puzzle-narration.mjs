@@ -4,14 +4,16 @@ import { fileURLToPath } from 'node:url';
 import {
   CACHE_CONTROL,
   CONTENT_TYPE,
-  DEFAULT_RECEIPT_PATH,
   EXPECTED_DOMAIN_NAME,
   PILOT_SLUG,
   ROOT,
   TRACK_IDS,
   assert,
   assertPublicManifest,
+  assertSlug,
   buildPilotPlan,
+  buildPlanForSlug,
+  defaultReceiptPath,
   loadPublicationReceipt,
   loadPublicManifest,
   normalizePublicationTarget,
@@ -23,18 +25,20 @@ const FETCH_TIMEOUT_MS = 30_000;
 
 export function parseVerificationArguments(argv) {
   const options = {
+    slug: PILOT_SLUG,
     baseUrl: '',
     stack: '',
     region: '',
     bucket: '',
     distributionId: '',
     distributionDomain: '',
-    receiptPath: DEFAULT_RECEIPT_PATH,
+    receiptPath: '',
   };
   const explicit = new Set();
   for (let index = 0; index < argv.length; index += 1) {
     const argument = argv[index];
     if (argument === '--base-url') options.baseUrl = (argv[++index] || '').trim();
+    else if (argument === '--slug') options.slug = assertSlug(argv[++index] || '');
     else if (argument === '--stack') {
       options.stack = argv[++index] || '';
       explicit.add('stack');
@@ -50,9 +54,12 @@ export function parseVerificationArguments(argv) {
     } else if (argument === '--distribution-domain') {
       options.distributionDomain = argv[++index] || '';
       explicit.add('distributionDomain');
-    } else if (argument === '--receipt') options.receiptPath = argv[++index] || '';
-    else throw new Error(`Unknown argument: ${argument}`);
+    } else if (argument === '--receipt') {
+      options.receiptPath = argv[++index] || '';
+      explicit.add('receiptPath');
+    } else throw new Error(`Unknown argument: ${argument}`);
   }
+  if (!explicit.has('receiptPath')) options.receiptPath = defaultReceiptPath(options.slug);
   const flags = {
     stack: '--stack',
     region: '--region',
@@ -154,7 +161,7 @@ async function verifyCdnTrack({ baseUrl, target, trackId, track, fetchImpl }) {
   assert(direct.status === 403, `${trackId}: anonymous direct-origin access is not denied`);
 }
 
-export async function verifyKalmanNarration({
+export async function verifyPuzzleNarration({
   root = ROOT,
   baseUrl = '',
   stack,
@@ -162,14 +169,14 @@ export async function verifyKalmanNarration({
   bucket,
   distributionId,
   distributionDomain,
-  receiptPath = DEFAULT_RECEIPT_PATH,
+  plan = buildPilotPlan(),
+  receiptPath = defaultReceiptPath(plan.slug),
   fetchImpl = fetch,
 } = {}) {
   const target = normalizePublicationTarget({ stack, region, bucket, distributionId, distributionDomain });
-  const plan = buildPilotPlan();
   const { manifest } = loadPublicManifest({ root, plan });
   assertPublicManifest(manifest, plan);
-  const receipt = loadPublicationReceipt({ root, receiptPath, manifest, target });
+  const receipt = loadPublicationReceipt({ root, plan, receiptPath, manifest, target });
   let verifiedBaseUrl = '';
   if (baseUrl) {
     verifiedBaseUrl = bindLiveBaseUrl(baseUrl, receipt);
@@ -184,7 +191,7 @@ export async function verifyKalmanNarration({
     }
   }
   return {
-    slug: PILOT_SLUG,
+    slug: plan.slug,
     manifestCount: 1,
     trackCount: TRACK_IDS.length,
     receiptValidated: true,
@@ -193,9 +200,13 @@ export async function verifyKalmanNarration({
   };
 }
 
+// The pilot's name survives for the offline test suite and the runbook.
+export const verifyKalmanNarration = verifyPuzzleNarration;
+
 export async function main(argv = process.argv.slice(2)) {
-  const options = parseVerificationArguments(argv);
-  const result = await verifyKalmanNarration(options);
+  const { slug, ...options } = parseVerificationArguments(argv);
+  const plan = await buildPlanForSlug(slug);
+  const result = await verifyPuzzleNarration({ ...options, plan });
   console.log(JSON.stringify({
     slug: result.slug,
     manifests: result.manifestCount,

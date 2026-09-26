@@ -7,7 +7,6 @@ import { fileURLToPath } from 'node:url';
 import {
   CACHE_CONTROL,
   CONTENT_TYPE,
-  DEFAULT_RECEIPT_PATH,
   EXPECTED_CACHE_POLICY_ID,
   EXPECTED_DOMAIN_NAME,
   EXPECTED_ENVIRONMENT,
@@ -16,7 +15,11 @@ import {
   ROOT,
   TRACK_IDS,
   assert,
+  assertSlug,
+  buildPilotPlan,
+  buildPlanForSlug,
   buildPublicationReceipt,
+  defaultReceiptPath,
   loadLocalRelease,
   normalizePublicationTarget,
   readJsonFile,
@@ -32,19 +35,21 @@ const FETCH_TIMEOUT_MS = 30_000;
 
 export function parsePublicationArguments(argv) {
   const options = {
+    slug: PILOT_SLUG,
     execute: false,
     stack: '',
     region: '',
     bucket: '',
     distributionId: '',
     distributionDomain: '',
-    receiptPath: DEFAULT_RECEIPT_PATH,
+    receiptPath: '',
     awsPath: '',
   };
   const explicit = new Set();
   for (let index = 0; index < argv.length; index += 1) {
     const argument = argv[index];
     if (argument === '--execute') options.execute = true;
+    else if (argument === '--slug') options.slug = assertSlug(argv[++index] || '');
     else if (argument === '--stack') {
       options.stack = argv[++index] || '';
       explicit.add('stack');
@@ -71,6 +76,7 @@ export function parsePublicationArguments(argv) {
     }
   }
 
+  if (!explicit.has('receiptPath')) options.receiptPath = defaultReceiptPath(options.slug);
   assert(options.receiptPath, '--receipt requires a repository-relative path');
   const targetFields = ['stack', 'region', 'bucket', 'distributionId', 'distributionDomain'];
   const hasPartialTarget = targetFields.some((field) => explicit.has(field));
@@ -450,8 +456,8 @@ export async function attestPublicationTarget({
   };
 }
 
-export function buildPublicationPlan({ root = ROOT } = {}) {
-  const release = loadLocalRelease({ root });
+export function buildPublicationPlan({ root = ROOT, plan = buildPilotPlan() } = {}) {
+  const release = loadLocalRelease({ root, plan });
   const objects = TRACK_IDS.map((trackId) => {
     const track = release.tracks[trackId];
     return {
@@ -465,6 +471,8 @@ export function buildPublicationPlan({ root = ROOT } = {}) {
     };
   }).sort((left, right) => left.objectKey.localeCompare(right.objectKey, 'en'));
   return {
+    slug: plan.slug,
+    plan,
     pageCount: 1,
     releaseCount: 1,
     objectCount: objects.length,
@@ -557,7 +565,7 @@ export function publishObjectConditionally({
   return { trackId: object.trackId, result: 'verified-existing' };
 }
 
-export async function publishKalmanNarration({
+export async function publishPuzzleNarration({
   root = ROOT,
   execute = false,
   stack = '',
@@ -565,13 +573,14 @@ export async function publishKalmanNarration({
   bucket = '',
   distributionId = '',
   distributionDomain = '',
-  receiptPath = DEFAULT_RECEIPT_PATH,
+  plan: narrationPlan = buildPilotPlan(),
+  receiptPath = defaultReceiptPath(narrationPlan.slug),
   awsPath = '',
   runner = (args) => runAwsCli(args, { awsPath }),
   fetchImpl = fetch,
   publishedAt,
 } = {}) {
-  const plan = buildPublicationPlan({ root });
+  const plan = buildPublicationPlan({ root, plan: narrationPlan });
   if (!execute) return { mode: 'dry-run', plan, receipt: null, receiptPath: null };
 
   const target = normalizePublicationTarget({ stack, region, bucket, distributionId, distributionDomain });
@@ -591,11 +600,12 @@ export async function publishKalmanNarration({
     target,
     resultsByTrack,
     publishedAt,
+    plan: narrationPlan,
   });
   const absoluteReceiptPath = resolveWithinRoot(root, receiptPath, 'Publication receipt path');
   if (fs.existsSync(absoluteReceiptPath)) {
     const existing = readJsonFile(absoluteReceiptPath, 'Existing publication receipt');
-    validatePublicationReceipt(existing, { manifest: plan.manifest, target });
+    validatePublicationReceipt(existing, { manifest: plan.manifest, target, plan: narrationPlan });
     assert(
       existing.publication_sha256 === receipt.publication_sha256,
       'Existing publication receipt describes a different release'
@@ -621,12 +631,16 @@ export async function publishKalmanNarration({
   };
 }
 
+// The pilot's name survives for the offline test suite and the runbook.
+export const publishKalmanNarration = publishPuzzleNarration;
+
 export async function main(argv = process.argv.slice(2)) {
-  const options = parsePublicationArguments(argv);
-  const result = await publishKalmanNarration(options);
+  const { slug, ...options } = parsePublicationArguments(argv);
+  const plan = await buildPlanForSlug(slug);
+  const result = await publishPuzzleNarration({ ...options, plan });
   console.log(JSON.stringify({
     mode: result.mode,
-    slug: PILOT_SLUG,
+    slug: result.plan.slug,
     releases: result.plan.releaseCount,
     objects: result.plan.objectCount,
     total_bytes: result.plan.totalBytes,

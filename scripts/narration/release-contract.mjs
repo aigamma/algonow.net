@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { narration } from '../../src/content/kalman-covariance-correction.narration.js';
 import {
@@ -23,6 +23,62 @@ export const ROOT = path.resolve(path.dirname(MODULE_PATH), '..', '..');
 export const PUBLIC_MANIFEST_PATH = 'src/data/narration/kalman-covariance-correction.json';
 export const DEFAULT_RECEIPT_PATH = 'infra/narration/publication-receipt.json';
 export const PUBLICATION_SCOPE = 'algonow.net kalman covariance correction narration pilot';
+const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+// Every page after the pilot follows the pilot's contract with its own
+// manifest, receipt, and scope string. The pilot keeps its original paths so
+// the published receipt and manifest stay byte-identical.
+export function assertSlug(slug) {
+  if (!SLUG_PATTERN.test(slug || '')) {
+    throw new Error('Puzzle slug must contain only lowercase letters, numbers, and single hyphens');
+  }
+  return slug;
+}
+
+export function publicManifestPath(slug) {
+  return `src/data/narration/${assertSlug(slug)}.json`;
+}
+
+export function defaultReceiptPath(slug) {
+  assertSlug(slug);
+  return slug === PILOT_SLUG ? DEFAULT_RECEIPT_PATH : `infra/narration/receipts/${slug}.json`;
+}
+
+export function publicationScope(slug) {
+  assertSlug(slug);
+  return slug === PILOT_SLUG ? PUBLICATION_SCOPE : `algonow.net ${slug} preserved narration release`;
+}
+
+export function slugOfManifest(manifest) {
+  const match = String(manifest?.content_id || '').match(/^puzzle:([a-z0-9-]+)$/);
+  if (!match) throw new Error('Public narration manifest content ID is invalid');
+  return assertSlug(match[1]);
+}
+
+// Loads the canonical authored narration array for any live or in-progress
+// page. The pilot keeps a static import (buildPilotPlan) so the offline test
+// suite needs no dynamic module loading.
+export async function loadNarrationModule(slug, { root = ROOT } = {}) {
+  assertSlug(slug);
+  const sourcePath = path.join(root, 'src', 'content', `${slug}.narration.js`);
+  assert(fs.existsSync(sourcePath), `${slug}: canonical narration source is missing`);
+  const module = await import(pathToFileURL(sourcePath).href);
+  assert(
+    Array.isArray(module.narration) && module.narration.length,
+    `${slug}: narration export is not a nonempty array`
+  );
+  return module.narration;
+}
+
+export async function buildPlanForSlug(slug, { root = ROOT } = {}) {
+  if (slug === PILOT_SLUG) return buildPilotPlan();
+  const narration = await loadNarrationModule(slug, { root });
+  return buildPuzzleNarrationPlan({
+    slug,
+    narration,
+    sourcePath: `src/content/${slug}.narration.js`,
+  });
+}
 export const EXPECTED_DOMAIN_NAME = 'algonow.net';
 export const EXPECTED_ENVIRONMENT = 'production';
 export const EXPECTED_CACHE_POLICY_ID = 'b2884449-e4de-46a7-ac36-70bc7f1ddd6d';
@@ -408,7 +464,7 @@ export function assertPublicManifest(manifest, plan = buildPilotPlan(), label = 
   return manifest;
 }
 
-export function assertPendingPublicManifest(manifest, label = 'Pending narration manifest') {
+export function assertPendingPublicManifest(manifest, label = 'Pending narration manifest', plan = buildPilotPlan()) {
   const fields = new Set([
     'schema_version',
     'status',
@@ -421,8 +477,8 @@ export function assertPendingPublicManifest(manifest, label = 'Pending narration
   assertExactKeySet(manifest, fields, label);
   assert(manifest.schema_version === 1, `${label}: schema version mismatch`);
   assert(manifest.status === 'pending', `${label}: status must be pending`);
-  assert(manifest.content_id === `puzzle:${PILOT_SLUG}`, `${label}: content ID mismatch`);
-  assert(manifest.source_path === PILOT_SOURCE_PATH, `${label}: source path mismatch`);
+  assert(manifest.content_id === plan.contentId, `${label}: content ID mismatch`);
+  assert(manifest.source_path === plan.sourcePath, `${label}: source path mismatch`);
   assert(manifest.default_voice === 'aoede', `${label}: default voice mismatch`);
   assert(manifest.default_rate === 1.25, `${label}: default rate mismatch`);
   assertExactKeySet(manifest.tracks, new Set(), `${label}.tracks`);
@@ -498,7 +554,7 @@ export function receiptObjectsForManifest(manifest, resultsByTrack = {}) {
     const track = manifest.tracks[trackId];
     return {
       stable_id: manifest.content_id,
-      slug: PILOT_SLUG,
+      slug: slugOfManifest(manifest),
       track_id: trackId,
       source_sha256: manifest.source_sha256,
       recipe_sha256: manifest.recipe_sha256,
@@ -522,9 +578,10 @@ export function buildPublicationReceipt({
   target,
   resultsByTrack,
   publishedAt = new Date().toISOString(),
+  plan = buildPilotPlan(),
 } = {}) {
   const normalizedTarget = normalizePublicationTarget(target);
-  assertPublicManifest(manifest);
+  assertPublicManifest(manifest, plan);
   assertNoPrivateData(manifest, {
     label: 'Public narration manifest',
     privateValues: [normalizedTarget.bucket],
@@ -538,7 +595,7 @@ export function buildPublicationReceipt({
   }
   return {
     schema_version: 1,
-    scope: PUBLICATION_SCOPE,
+    scope: publicationScope(plan.slug),
     cloudformation_stack: normalizedTarget.stack,
     aws_region: normalizedTarget.region,
     cloudfront_distribution_id: normalizedTarget.distributionId,
@@ -561,9 +618,10 @@ export function validatePublicationReceipt(receipt, {
   manifest,
   target,
   label = 'Publication receipt',
+  plan = buildPilotPlan(),
 } = {}) {
   const normalizedTarget = normalizePublicationTarget(target);
-  assertPublicManifest(manifest);
+  assertPublicManifest(manifest, plan);
   assertNoPrivateData(manifest, {
     label: 'Public narration manifest',
     privateValues: [normalizedTarget.bucket],
@@ -574,7 +632,7 @@ export function validatePublicationReceipt(receipt, {
     privateValues: [normalizedTarget.bucket],
   });
   assert(receipt.schema_version === 1, `${label}: schema version mismatch`);
-  assert(receipt.scope === PUBLICATION_SCOPE, `${label}: scope mismatch`);
+  assert(receipt.scope === publicationScope(plan.slug), `${label}: scope mismatch`);
   assert(receipt.cloudformation_stack === normalizedTarget.stack, `${label}: stack mismatch`);
   assert(receipt.aws_region === normalizedTarget.region, `${label}: region mismatch`);
   assert(
@@ -627,36 +685,68 @@ export function validatePublicationReceipt(receipt, {
 
 export function loadPublicationReceipt({
   root = ROOT,
-  receiptPath = DEFAULT_RECEIPT_PATH,
+  plan = buildPilotPlan(),
+  receiptPath = defaultReceiptPath(plan.slug),
   manifest,
   target,
 } = {}) {
   const absolutePath = resolveWithinRoot(root, receiptPath, 'Publication receipt path');
   assert(fs.existsSync(absolutePath), `Publication receipt is missing: ${receiptPath}`);
   const receipt = readJsonFile(absolutePath, 'Publication receipt');
-  return validatePublicationReceipt(receipt, { manifest, target });
+  return validatePublicationReceipt(receipt, { manifest, target, plan });
 }
 
-export function loadPublicManifest({ root = ROOT, plan = buildPilotPlan(), allowPending = false } = {}) {
-  const filePath = resolveWithinRoot(root, PUBLIC_MANIFEST_PATH, 'Public narration manifest path');
-  assert(fs.existsSync(filePath), 'Public narration manifest is missing');
+export function pendingPublicManifest(plan) {
+  return {
+    schema_version: 1,
+    status: 'pending',
+    content_id: plan.contentId,
+    source_path: plan.sourcePath,
+    default_voice: PLAYBACK_POLICY.default_voice,
+    default_rate: PLAYBACK_POLICY.default_rate,
+    tracks: {},
+  };
+}
+
+export function loadPublicManifest({
+  root = ROOT,
+  plan = buildPilotPlan(),
+  allowPending = false,
+  allowMissing = false,
+} = {}) {
+  const filePath = resolveWithinRoot(root, publicManifestPath(plan.slug), 'Public narration manifest path');
+  if (!fs.existsSync(filePath)) {
+    // A page that has never installed a manifest is in the same state as a
+    // page whose manifest is still pending: nothing public exists yet.
+    assert(allowMissing && allowPending, 'Public narration manifest is missing');
+    return { manifest: pendingPublicManifest(plan), filePath, missing: true };
+  }
   const manifest = readJsonFile(filePath, 'Public narration manifest');
   if (manifest.status === 'pending') {
     assert(allowPending, 'Public narration manifest is still pending');
-    assertPendingPublicManifest(manifest);
+    assertPendingPublicManifest(manifest, 'Pending narration manifest', plan);
   } else {
     assertPublicManifest(manifest, plan);
   }
-  return { manifest, filePath };
+  return { manifest, filePath, missing: false };
 }
 
-export function installPublicManifest({ root = ROOT, manifest, execute = false } = {}) {
-  const plan = buildPilotPlan();
+export function installPublicManifest({
+  root = ROOT,
+  manifest,
+  execute = false,
+  plan = buildPilotPlan(),
+} = {}) {
   assertPublicManifest(manifest, plan);
-  const { manifest: current, filePath } = loadPublicManifest({ root, plan, allowPending: true });
+  const { manifest: current, filePath, missing } = loadPublicManifest({
+    root,
+    plan,
+    allowPending: true,
+    allowMissing: true,
+  });
   if (current.status !== 'pending') assertPublicManifest(current, plan);
   const updatedText = `${JSON.stringify(manifest, null, 2)}\n`;
-  const currentText = fs.readFileSync(filePath, 'utf8');
+  const currentText = missing ? '' : fs.readFileSync(filePath, 'utf8');
   const changed = currentText !== updatedText;
   if (execute && changed) writeFileAtomic(filePath, updatedText, { encoding: 'utf8' });
   return { changed, filePath };

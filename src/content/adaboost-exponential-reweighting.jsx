@@ -156,7 +156,7 @@ export const content = {
   ),
 
   problem: 'Boosted classification',
-  problemSlug: 'boosted-classification',
+  problemSlug: 'classification',
   rivals: [
     {
       name: 'AdaBoost × exponential reweighting',

@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:betweenness-centrality-brandes-accumulation",
+  "source_path": "src/content/betweenness-centrality-brandes-accumulation.narration.js",
+  "source_sha256": "bcceace9996cfd2adba0ffb97885faa2fbbb31ee3c087d20422772ad45b720fa",
+  "source_characters": 9483,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "a87a7343407227f2939222c802bf0ae96a2392608505c52af06bf3ad8de7c044",
+  "generated_at": "2026-09-27T01:12:46.645Z",
+  "generated_characters": 18966,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4923,
+      "utf8_bytes": 4937,
+      "sha256": "dd1e021a0b9ee8e743359183c66e65487a925bbecce948576f3dee100720fe38"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4560,
+      "utf8_bytes": 4574,
+      "sha256": "8fefe630574aa2aa2bf049060b281e1a3c0602051e7e06211054ddd304184967"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "betweenness-centrality-brandes-accumulation.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "betweenness-centrality-brandes-accumulation.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1115,
+      "sha256": "40356fdf7737709b7f46900ac73c9440336308fcfe7e73bd0bbdc68958267980"
+    },
+    {
+      "id": "betweenness-centrality-brandes-accumulation.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 944,
+      "sha256": "4caf01597226cefec1d360de541fa3e7a20c39f0ec4ba501bc7fd051e8f19f67"
+    },
+    {
+      "id": "betweenness-centrality-brandes-accumulation.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1948,
+      "sha256": "060b5f9803485ff8200609418f9c58b1b3015662e0563cbc9545de042d7ef90c"
+    },
+    {
+      "id": "betweenness-centrality-brandes-accumulation.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 797,
+      "sha256": "30902a026f1a28b56ab4b0ecc1565fce538c1505d6a6f66bd18ff880e8b4a8ac"
+    },
+    {
+      "id": "betweenness-centrality-brandes-accumulation.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 985,
+      "sha256": "e4e7f78dc47ee98a80b2e29afefb0aa484bb553af58d96be785254358a356420"
+    },
+    {
+      "id": "betweenness-centrality-brandes-accumulation.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 511,
+      "sha256": "ebcfd87c981ff2aa02612a783db306a3044e7e7e25771a79721344776ff1b075"
+    },
+    {
+      "id": "betweenness-centrality-brandes-accumulation.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 896,
+      "sha256": "38f017e46694cf5bcaa89530fde01740e2567ea41a2e9c997743c845e30187ea"
+    },
+    {
+      "id": "betweenness-centrality-brandes-accumulation.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 494,
+      "sha256": "cdc1ad701103d91e592cbdf4655648fda0db7403a22758b9074bf750bdf0178e"
+    },
+    {
+      "id": "betweenness-centrality-brandes-accumulation.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 677,
+      "sha256": "8ce8688b990bc964312e127a29cd5ab74f2d5654af856b2fe82b697458497867"
+    },
+    {
+      "id": "betweenness-centrality-brandes-accumulation.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1001,
+      "sha256": "79e98245dfcc355b4ae02fd1066a9a21f2d997cb10b5d4248513fa71e879e8ce"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/betweenness-centrality-brandes-accumulation/a87a7343407227f29392/aoede-8d3210fa1722c418.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2357036,
+      "sha256": "8d3210fa1722c418efdf28d71a7b231af93fc4f097082e2b2f1521ffa9eea515",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "dd1e021a0b9ee8e743359183c66e65487a925bbecce948576f3dee100720fe38",
+          "bytes": 1204224,
+          "sha256": "39c544e62d793ccc5d8132ecdec88a50aadd293fc4e8607fa449a7b5a99390b3"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "8fefe630574aa2aa2bf049060b281e1a3c0602051e7e06211054ddd304184967",
+          "bytes": 1152576,
+          "sha256": "0be9fafed59923d192f6405950c62699d8aa1bfee4b1da4ff80d9510bea4a511"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/betweenness-centrality-brandes-accumulation/a87a7343407227f29392/algieba-365c7a435788d53c.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2530604,
+      "sha256": "365c7a435788d53cbb5f5c8149485d7f059086e62c20875ea5be6f63b4f22150",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "dd1e021a0b9ee8e743359183c66e65487a925bbecce948576f3dee100720fe38",
+          "bytes": 1284672,
+          "sha256": "ddd51b0f0cda0f3979cd7c028ae549ee9f249f1ba2e29a4eb20c692304b93a62"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "8fefe630574aa2aa2bf049060b281e1a3c0602051e7e06211054ddd304184967",
+          "bytes": 1245696,
+          "sha256": "759beda4de38c2c1a83f364b4c21b6595a79a0d92f0067d78a467dd55cc29426"
+        }
+      ]
+    }
+  }
+}

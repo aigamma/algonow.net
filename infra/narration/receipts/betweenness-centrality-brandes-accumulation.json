@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net betweenness-centrality-brandes-accumulation preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T01:13:45.658Z",
+  "publication_sha256": "0e49b903426f964cab1d8a929f070d8d5bdb131f4d2e6197ab7f9d9ad167429e",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4887640,
+  "objects": [
+    {
+      "stable_id": "puzzle:betweenness-centrality-brandes-accumulation",
+      "slug": "betweenness-centrality-brandes-accumulation",
+      "track_id": "algieba",
+      "source_sha256": "bcceace9996cfd2adba0ffb97885faa2fbbb31ee3c087d20422772ad45b720fa",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "a87a7343407227f2939222c802bf0ae96a2392608505c52af06bf3ad8de7c044",
+      "object_key": "narration/v1/puzzles/betweenness-centrality-brandes-accumulation/a87a7343407227f29392/algieba-365c7a435788d53c.mp3",
+      "bytes": 2530604,
+      "sha256": "365c7a435788d53cbb5f5c8149485d7f059086e62c20875ea5be6f63b4f22150",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:betweenness-centrality-brandes-accumulation",
+      "slug": "betweenness-centrality-brandes-accumulation",
+      "track_id": "aoede",
+      "source_sha256": "bcceace9996cfd2adba0ffb97885faa2fbbb31ee3c087d20422772ad45b720fa",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "a87a7343407227f2939222c802bf0ae96a2392608505c52af06bf3ad8de7c044",
+      "object_key": "narration/v1/puzzles/betweenness-centrality-brandes-accumulation/a87a7343407227f29392/aoede-8d3210fa1722c418.mp3",
+      "bytes": 2357036,
+      "sha256": "8d3210fa1722c418efdf28d71a7b231af93fc4f097082e2b2f1521ffa9eea515",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

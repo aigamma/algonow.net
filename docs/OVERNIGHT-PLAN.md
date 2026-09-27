@@ -4281,6 +4281,34 @@ commit, Fable trailer on every commit, check green before each push.
       per word monotone; stepMs 700, holdTicks rests. Preserved
       narration: Aoede + Algieba.
 
+- [x] F136. Betweenness centrality × Brandes accumulation. Puzzle
+      142, graphs (problemSlug link-analysis, the atlas problem page
+      carrying "Node importance"), added 2026-09-26. Solution
+      betweenness_centrality_brandes_accumulation.py (0.8s, prints OK).
+      FIVE ORACLES: (1) the definition by all-pairs BFS distances and
+      path counts with a triple test: worst disagreement 8.5e-14 on
+      five random graphs of 40 vertices; (2) closed forms exact on a
+      path (i (n-1-i)), a star ((n-1)(n-2)/2 at the center), a complete
+      graph (all 0), and a cycle of 12; (3) operation counts: Brandes
+      28,298 / 112,988 / 455,625 vs the definition 106,200 / 856,800 /
+      6,883,200 at n = 60 / 120 / 240 with m = 3n (ratios 3.8 / 7.6 /
+      15.1); (4) the 10 x 10 grid: 48,620 = C(18, 9) corner-to-corner
+      shortest paths enumerated by a recursive walker, matched by sigma
+      from one BFS in 360 edge visits; (5) two communities of 15 with
+      hubs joined by one bridge: betweenness ranks the bridge endpoints
+      first by 10.7x, degree ranks them third behind the hubs. Cards:
+      self, Degree centrality, Closeness centrality, PageRank.
+      neverUse: enumerating the shortest paths. Figure: a small BFS
+      tree with sigma and delta labels and the measured numbers, cite
+      Brandes J. Math. Sociology 2001 DOI 10.1080/0022250X.2001.9990249
+      and Freeman 1977. Viz BrandesViz: two communities of 8 with a
+      bridge, one source per tick with distance and sigma labels, the
+      accumulation's edges in amber, node size as betweenness so far,
+      the bridge green at the end and the total checked against the
+      definition; NODE-VERIFIED 8 cycles: agreement within 2e-14 and
+      the bridge endpoints first in all 8; stepMs 700, holdTicks rests.
+      Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

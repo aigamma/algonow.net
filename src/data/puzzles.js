@@ -2743,15 +2743,35 @@ export const PUZZLES = {
     vite: 'byte-pair-encoding-frequency-merge-vocabulary',
     html: 'byte-pair-encoding-frequency-merge-vocabulary/index.html',
   },
+  '/betweenness-centrality-brandes-accumulation/': {
+    slug: 'betweenness-centrality-brandes-accumulation',
+    added: '2026-09-26',
+    problemSlug: 'link-analysis',
+    number: 142,
+    category: 'graphs',
+    algorithm: 'Betweenness centrality',
+    heuristic: 'Brandes accumulation',
+    domain: 'Node importance',
+    oneLiner:
+      'One breadth-first search per source counts the shortest paths to every vertex; one pass back hands each vertex\'s dependency to its predecessors in proportion to those counts. Every path counted, none listed, and the bridge stands out where degree cannot see it.',
+    description:
+      'Betweenness centrality by Brandes accumulation: agreement with the definition (all-pairs distances and path counts, a triple test per pair) to 9e-14 on random graphs and exactly on path, star, complete-graph, and cycle closed forms; operation counts 3.8x, 7.6x, and 15.1x below the definition at 60, 120, and 240 vertices; the 48,620 shortest paths across a 10 x 10 grid enumerated one by one and matched by one search in 360 edge visits; the bridge between two communities ranked first by 10.7x where degree centrality ranks it third.',
+    listenMinutes: 8,
+    time: 'O(VE)',
+    space: 'O(V + E) per source',
+    baseline: 'The definition (all pairs)',
+    vite: 'betweenness-centrality-brandes-accumulation',
+    html: 'betweenness-centrality-brandes-accumulation/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Betweenness centrality', heuristic: 'Brandes accumulation', domain: 'Node importance' },
   { algorithm: 'Gossip protocol', heuristic: 'Random-peer anti-entropy', domain: 'Epidemic dissemination' },
   { algorithm: 'Parallel prefix sum', heuristic: 'Blelloch scan', domain: 'Data-parallel primitive' },
+  { algorithm: 'RANSAC', heuristic: 'Random consensus sampling', domain: 'Robust model fitting' },
 ];
 
 

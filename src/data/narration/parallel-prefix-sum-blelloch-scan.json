@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:parallel-prefix-sum-blelloch-scan",
+  "source_path": "src/content/parallel-prefix-sum-blelloch-scan.narration.js",
+  "source_sha256": "23fb750bce15414422e2ba20469baf378810b4b904131fa5da9defc2c087aaf6",
+  "source_characters": 9242,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "fe5f76d63016d17395b8affa4b8c76e6a68d65d5f8b88dd9ae601baab8be0432",
+  "generated_at": "2026-09-27T01:24:39.979Z",
+  "generated_characters": 18484,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4850,
+      "utf8_bytes": 4862,
+      "sha256": "5a5534e5f985b0e9df88e00cb23c66c51cf0933ea2b090e1f5ce3e49508ca039"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4392,
+      "utf8_bytes": 4404,
+      "sha256": "eb6e74f8b326db859e3b3df4a02a4ab2819f81d4c45cea82b24ea4329564af15"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "parallel-prefix-sum-blelloch-scan.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "parallel-prefix-sum-blelloch-scan.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1209,
+      "sha256": "e05e9421183e9c1f49c6436e7faa49b31f6af4fba9de755029d9c2be85c56ef1"
+    },
+    {
+      "id": "parallel-prefix-sum-blelloch-scan.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 979,
+      "sha256": "468dae783c821fb3559379a6c3d5362a0661a6db3c41e2d10b19b85e653485c6"
+    },
+    {
+      "id": "parallel-prefix-sum-blelloch-scan.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1739,
+      "sha256": "d9d2177ac8c330b37b240f403db4e5687221078e1761759f7aa7f60f9adbcfdc"
+    },
+    {
+      "id": "parallel-prefix-sum-blelloch-scan.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 802,
+      "sha256": "963f0e11301076048d4c048a41bcd8fec69bba6e3f291937d69dfeb21c0f52dc"
+    },
+    {
+      "id": "parallel-prefix-sum-blelloch-scan.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 946,
+      "sha256": "c0530c036a8d90a79c655eb86adca9d5ca2b045b9972183282503f5693360013"
+    },
+    {
+      "id": "parallel-prefix-sum-blelloch-scan.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 547,
+      "sha256": "1bdf1293a7c0da493414a6ffaef9365fb8f49326130edd0917f7aeb18b09b188"
+    },
+    {
+      "id": "parallel-prefix-sum-blelloch-scan.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 680,
+      "sha256": "aeb5e1deb5575efaa5c9928a0b9aacaf4ff7afdc26892eab3f7c0bc036ba8896"
+    },
+    {
+      "id": "parallel-prefix-sum-blelloch-scan.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 436,
+      "sha256": "40a15509901f8214d5e6737154a228829dc06bf3bd1d91b9be2fa3e6811463a5"
+    },
+    {
+      "id": "parallel-prefix-sum-blelloch-scan.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 706,
+      "sha256": "348a91922aa38ed4f5f59779162b9f166f0cca157c701a2c90404a6e72b097a4"
+    },
+    {
+      "id": "parallel-prefix-sum-blelloch-scan.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1079,
+      "sha256": "2786826bc7dd515a809f4d6d7518367d37dd5ff7df0e502d31957fd399dff5eb"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/parallel-prefix-sum-blelloch-scan/fe5f76d63016d17395b8/aoede-b34822f75819929f.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2437484,
+      "sha256": "b34822f75819929fcaadcfa6ad74e47dcd71a80dae1c429a9940ffef45aadff4",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5a5534e5f985b0e9df88e00cb23c66c51cf0933ea2b090e1f5ce3e49508ca039",
+          "bytes": 1235616,
+          "sha256": "c4b48dc16968427829bddc3ee1482f2525653db607805977fdfa186fdbe128d7"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "eb6e74f8b326db859e3b3df4a02a4ab2819f81d4c45cea82b24ea4329564af15",
+          "bytes": 1201632,
+          "sha256": "52b3c2abbf17b14367163a8bd94c877ef9c39681153b052d60a7f73ce11bc38b"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/parallel-prefix-sum-blelloch-scan/fe5f76d63016d17395b8/algieba-81a3552678c3520d.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2592428,
+      "sha256": "81a3552678c3520d788afaaa1991e2d4e16a8873831c967e527df4e2cbbd9ac4",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5a5534e5f985b0e9df88e00cb23c66c51cf0933ea2b090e1f5ce3e49508ca039",
+          "bytes": 1388256,
+          "sha256": "ca67ab6405fb7310b6c4fd3ac5f37bac091494dbbbd0260f54c91ffb9e4f6e1b"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "eb6e74f8b326db859e3b3df4a02a4ab2819f81d4c45cea82b24ea4329564af15",
+          "bytes": 1203936,
+          "sha256": "f41dfd84a4536d6a260ca737e35ae344f2cc9614c91aec34b8e346e63958781e"
+        }
+      ]
+    }
+  }
+}

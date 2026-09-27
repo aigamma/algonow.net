@@ -4333,6 +4333,38 @@ commit, Fable trailer on every commit, check green before each push.
       near the estimate), the ring at one node per round; stepMs 350,
       holdTicks rests. Preserved narration: Aoede + Algieba.
 
+- [x] F138. Parallel prefix sum × Blelloch scan. Puzzle 144,
+      distributed-systems (problemSlug parallel-scan-reduce, the atlas
+      problem page carrying "Data-parallel primitive"), added
+      2026-09-26. Solution parallel_prefix_sum_blelloch_scan.py (0.1s,
+      prints OK): a simulated PRAM that records each level's writes,
+      applies them in lockstep, and counts work (operation
+      applications; a bare copy is a move) and depth. FIVE ORACLES:
+      (1) sequential, Hillis-Steele, and Blelloch agree on 256 integers
+      under addition and maximum and on 256 two-by-two matrices under
+      multiplication; the exclusive scan equals the inclusive shifted;
+      a swapped-operand scan differs on the matrices; (2) work exactly
+      2(n - 1): 510 / 2,046 / 8,190 / 32,766 at n = 256 / 1,024 / 4,096
+      / 16,384 (the draft counted the down-sweep's copies as work and
+      got 3(n - 1); the counter now counts operation applications);
+      (3) depth exactly 2 log2 n: 16 / 20 / 24 / 28; Hillis-Steele
+      1,793 / 9,217 / 45,057 / 212,993 at depth 8 / 10 / 12 / 14;
+      sequential n - 1 at depth n - 1; naive n(n - 1)/2 (32,640 and
+      523,776 at 256 and 1,024, not run above); (4) exclusive to
+      inclusive in one level; (5) compaction (315 multiples of three
+      kept in order, 2,361 work / 21 depth) and a ten-pass radix sort
+      (51,160 / 410) on 1,024 elements match filter and sorted. Cards:
+      self, Hillis-Steele scan (algoName Parallel prefix sum),
+      Kogge-Stone adder. neverUse: every prefix by its own chain.
+      Figure: eight values through the two sweeps with the tree edges,
+      cite Blelloch IEEE TC 1989 DOI 10.1109/12.42122, Hillis-Steele
+      CACM 1986, Harris-Sengupta-Owens 2007. Viz ScanViz: 16 values one
+      level per tick, alternating Blelloch (up-sweep, root, down-sweep)
+      and Hillis-Steele, with work and depth counters; NODE-VERIFIED 8
+      cycles: both scans exact with the closed-form work (30 and 49)
+      and depth (8 and 4); stepMs 900, holdTicks rests. Preserved
+      narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -2783,15 +2783,35 @@ export const PUZZLES = {
     vite: 'gossip-protocol-random-peer-anti-entropy',
     html: 'gossip-protocol-random-peer-anti-entropy/index.html',
   },
+  '/parallel-prefix-sum-blelloch-scan/': {
+    slug: 'parallel-prefix-sum-blelloch-scan',
+    added: '2026-09-26',
+    problemSlug: 'parallel-scan-reduce',
+    number: 144,
+    category: 'distributed-systems',
+    algorithm: 'Parallel prefix sum',
+    heuristic: 'Blelloch scan',
+    domain: 'Data-parallel primitive',
+    oneLiner:
+      'Sweep up a tree of partial sums, clear the root, sweep back down handing each node its left total: every running sum in twice log n levels for twice n operations, exact under any associative operation, commutative or not.',
+    description:
+      'The parallel prefix sum by Blelloch scan on a simulated parallel machine: exact against the sequential scan under addition, maximum, and non-commutative 2 x 2 matrix multiplication (a scan with swapped operands shown to differ); work counted at exactly 2(n - 1) and depth at 2 log2 n from 256 to 16,384 elements, against Hillis-Steele\'s n log2 n - n + 1 at log2 n, the sequential chain\'s n - 1 at depth n - 1, and the naive per-prefix plan\'s n(n - 1)/2; stream compaction and a radix sort built from it matching filter and sort.',
+    listenMinutes: 8,
+    time: '2(n - 1) work, 2 log2 n depth',
+    space: 'in place',
+    baseline: 'The sequential scan',
+    vite: 'parallel-prefix-sum-blelloch-scan',
+    html: 'parallel-prefix-sum-blelloch-scan/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Parallel prefix sum', heuristic: 'Blelloch scan', domain: 'Data-parallel primitive' },
   { algorithm: 'RANSAC', heuristic: 'Random consensus sampling', domain: 'Robust model fitting' },
   { algorithm: 'Douglas-Peucker', heuristic: 'Max-deviation recursion', domain: 'Polyline simplification' },
+  { algorithm: 'Chinese remainder theorem', heuristic: "Garner's algorithm", domain: 'Modular reconstruction' },
 ];
 
 

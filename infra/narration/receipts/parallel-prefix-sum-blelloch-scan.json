@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net parallel-prefix-sum-blelloch-scan preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T01:25:35.525Z",
+  "publication_sha256": "8f8eab06955ef4c1bda1923833298d54c7f4ba195244553848c138cdb6249ed6",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5029912,
+  "objects": [
+    {
+      "stable_id": "puzzle:parallel-prefix-sum-blelloch-scan",
+      "slug": "parallel-prefix-sum-blelloch-scan",
+      "track_id": "algieba",
+      "source_sha256": "23fb750bce15414422e2ba20469baf378810b4b904131fa5da9defc2c087aaf6",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "fe5f76d63016d17395b8affa4b8c76e6a68d65d5f8b88dd9ae601baab8be0432",
+      "object_key": "narration/v1/puzzles/parallel-prefix-sum-blelloch-scan/fe5f76d63016d17395b8/algieba-81a3552678c3520d.mp3",
+      "bytes": 2592428,
+      "sha256": "81a3552678c3520d788afaaa1991e2d4e16a8873831c967e527df4e2cbbd9ac4",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:parallel-prefix-sum-blelloch-scan",
+      "slug": "parallel-prefix-sum-blelloch-scan",
+      "track_id": "aoede",
+      "source_sha256": "23fb750bce15414422e2ba20469baf378810b4b904131fa5da9defc2c087aaf6",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "fe5f76d63016d17395b8affa4b8c76e6a68d65d5f8b88dd9ae601baab8be0432",
+      "object_key": "narration/v1/puzzles/parallel-prefix-sum-blelloch-scan/fe5f76d63016d17395b8/aoede-b34822f75819929f.mp3",
+      "bytes": 2437484,
+      "sha256": "b34822f75819929fcaadcfa6ad74e47dcd71a80dae1c429a9940ffef45aadff4",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

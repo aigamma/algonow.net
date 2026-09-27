@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net binomial-options-pricing-cox-ross-rubinstein-lattice preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T00:16:32.732Z",
+  "publication_sha256": "a9197e61bf592b83721f1acf7e81db7da6b9d17cb1fac2841a46ce1697eb24ee",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5563000,
+  "objects": [
+    {
+      "stable_id": "puzzle:binomial-options-pricing-cox-ross-rubinstein-lattice",
+      "slug": "binomial-options-pricing-cox-ross-rubinstein-lattice",
+      "track_id": "algieba",
+      "source_sha256": "c1ea8eb249efdbd395eef4bf220040685a62ea7122495dd8e0f4cfd05718e917",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "21318e9bb8be3024bde33789ab60e0b1f28201213b78993a930199cf25a8b1f6",
+      "object_key": "narration/v1/puzzles/binomial-options-pricing-cox-ross-rubinstein-lattice/21318e9bb8be3024bde3/algieba-da8a0cb88a2ef115.mp3",
+      "bytes": 2856140,
+      "sha256": "da8a0cb88a2ef1158cbfdc377ca690db84a7f2f2d080982de603486c0372dfe8",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:binomial-options-pricing-cox-ross-rubinstein-lattice",
+      "slug": "binomial-options-pricing-cox-ross-rubinstein-lattice",
+      "track_id": "aoede",
+      "source_sha256": "c1ea8eb249efdbd395eef4bf220040685a62ea7122495dd8e0f4cfd05718e917",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "21318e9bb8be3024bde33789ab60e0b1f28201213b78993a930199cf25a8b1f6",
+      "object_key": "narration/v1/puzzles/binomial-options-pricing-cox-ross-rubinstein-lattice/21318e9bb8be3024bde3/aoede-cf10742db56d02d0.mp3",
+      "bytes": 2706860,
+      "sha256": "cf10742db56d02d09a390ee11713470e452dd5a6416ea9b49305f4c87a950efa",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

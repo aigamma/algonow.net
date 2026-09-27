@@ -2603,15 +2603,35 @@ export const PUZZLES = {
     vite: 'grovers-search-amplitude-amplification',
     html: 'grovers-search-amplitude-amplification/index.html',
   },
+  '/binomial-options-pricing-cox-ross-rubinstein-lattice/': {
+    slug: 'binomial-options-pricing-cox-ross-rubinstein-lattice',
+    added: '2026-09-26',
+    problemSlug: 'option-pricing',
+    number: 135,
+    category: 'optimization-or',
+    algorithm: 'Binomial options pricing',
+    heuristic: 'Cox-Ross-Rubinstein lattice',
+    domain: 'Option pricing',
+    oneLiner:
+      'Let the stock climb or drop one rung per step, price the contract at maturity, and roll back the discounted fair-bet average, taking the exercise value where it is larger. The CRR rungs match the volatility and put the whole tree on one grid.',
+    description:
+      'Binomial options pricing on the Cox-Ross-Rubinstein lattice: the European call converging on Black-Scholes (10.4506) to 0.0020 at 1,000 steps with delta matched to four places; put-call parity and the martingale identity inside the tree to 2e-12; the American put at 6.0896 against a 4,000-step reference (premium 0.52 over the European 5.5715, which Black-Scholes would misprice); the grid and the recombination counted at 16 steps (CRR 17 maturity prices and 33 in the whole tree, Jarrow-Rudd 17 and 153, refitted factors 65,536), with the draft\'s recombination claim corrected by the count.',
+    listenMinutes: 8,
+    time: 'O(N^2) nodes',
+    space: 'one column of N + 1 values',
+    baseline: 'Black-Scholes closed form',
+    vite: 'binomial-options-pricing-cox-ross-rubinstein-lattice',
+    html: 'binomial-options-pricing-cox-ross-rubinstein-lattice/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Binomial options pricing', heuristic: 'Cox-Ross-Rubinstein lattice', domain: 'Option pricing' },
   { algorithm: 'Discrete event simulation', heuristic: 'Event-queue advance', domain: 'Systems modeling' },
   { algorithm: 'Automatic differentiation', heuristic: 'Reverse mode', domain: 'Gradient computation' },
+  { algorithm: 'Monte Carlo localization', heuristic: 'Particle filter', domain: 'Robot localization' },
 ];
 
 

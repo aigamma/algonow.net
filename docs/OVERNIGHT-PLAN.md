@@ -4074,6 +4074,40 @@ commit, Fable trailer on every commit, check green before each push.
       closed form and above 0.95 at t* in all 8; stepMs 420, holdTicks
       rests. Preserved narration: Aoede + Algieba.
 
+- [x] F129. Binomial options pricing × Cox-Ross-Rubinstein lattice.
+      Puzzle 135, optimization-or (problemSlug option-pricing), added
+      2026-09-26. Solution
+      binomial_options_pricing_cox_ross_rubinstein_lattice.py (2s,
+      prints OK): S 100, K 100, r 5%, sigma 20%, T 1. SIX ORACLES: (1)
+      Black-Scholes (call 10.4506, delta 0.6368): CRR error 0.1972 /
+      0.0399 / 0.0200 / 0.0040 / 0.0020 at N = 10 / 50 / 100 / 500 /
+      1,000, delta 0.6368; Jarrow-Rudd 10.4522; (2) put-call parity
+      inside the tree 2.2e-12; (3) martingale 2.2e-12, variance of log
+      returns 0.04000 = sigma^2 T; (4) counts at N = 16: maturity
+      prices CRR 17, Jarrow-Rudd 17, refitted-per-step 65,536; whole
+      tree CRR 33, Jarrow-Rudd 153. AUTHOR CORRECTION: the draft
+      claimed u d = 1 is what makes the tree recombine and asserted 2^N
+      leaves for u d != 1; the count gave N + 1 (any constant factors
+      recombine), so the page now states that u d = 1 buys the shared
+      grid and that refitting per step is what breaks recombination;
+      (5) American put 6.0896 vs European 5.5715 (Black-Scholes
+      5.5735), premium 0.5181, reference N = 4,000 6.0902, boundary
+      81.16 -> 99.37 (compared across quarters of the horizon because
+      the lattice's discrete grid zigzags step to step), American call
+      = European exactly; (6) p leaves (0, 1) below N = 5 at r = 40%.
+      Cards: self, Black-Scholes, Monte Carlo option pricing,
+      Longstaff-Schwartz. neverUse: Black-Scholes for an American put
+      (5.5735 vs 6.0896). Figure: a four-step lattice with the put
+      payoffs and the convergence numbers, cite Cox-Ross-Rubinstein
+      JFE 1979 DOI 10.1016/0304-405X(79)90015-1 and Black-Scholes 1973.
+      Viz BinomialViz: an 8-step lattice rolled back one step per tick
+      (amber payoffs, blue continuation, red early exercise, green
+      root) beside the CRR price for N = 2..60 against the Black-Scholes
+      line, cycling European call / American put / European put;
+      NODE-VERIFIED: the viz's pricer matches the Python solution at N
+      = 1,000 and Black-Scholes for all three contracts; stepMs 700,
+      holdTicks rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

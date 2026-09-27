@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:binomial-options-pricing-cox-ross-rubinstein-lattice",
+  "source_path": "src/content/binomial-options-pricing-cox-ross-rubinstein-lattice.narration.js",
+  "source_sha256": "c1ea8eb249efdbd395eef4bf220040685a62ea7122495dd8e0f4cfd05718e917",
+  "source_characters": 10772,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "21318e9bb8be3024bde33789ab60e0b1f28201213b78993a930199cf25a8b1f6",
+  "generated_at": "2026-09-27T00:15:37.349Z",
+  "generated_characters": 21544,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4694,
+      "utf8_bytes": 4702,
+      "sha256": "5a0519dd8315014b6216889d68b6781ac783419b00d322c6e5b4ac63d2991cea"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4657,
+      "utf8_bytes": 4663,
+      "sha256": "8e25a5c46ad56453bc0ae99993b27ce0e68d5143215d4211e0442a21b268f2cc"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 923,
+      "utf8_bytes": 923,
+      "sha256": "22d90e42f8de719f716d76ddf8ce26f85005a09b3521eb95c4ff4b3f55a5ec82"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 498,
+      "utf8_bytes": 498,
+      "sha256": "903713aaadaecd8bdb768ca9310816c505b1071b2dd3c001ab1edb7fdf2d1723"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "binomial-options-pricing-cox-ross-rubinstein-lattice.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "binomial-options-pricing-cox-ross-rubinstein-lattice.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1498,
+      "sha256": "f2d0d590885bcb926a35dfcd76b274443e5d96459cc9e7387cf95cbc7ed34f4b"
+    },
+    {
+      "id": "binomial-options-pricing-cox-ross-rubinstein-lattice.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1021,
+      "sha256": "c6e6d47f3bbab0539fb350c5bdb4f5f2293c5705d4ffa17cfe4a2dbc1a43ec47"
+    },
+    {
+      "id": "binomial-options-pricing-cox-ross-rubinstein-lattice.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2052,
+      "sha256": "9700bb4f2b3bcb6ba569c644220e7212d42964fb0155a4350a753d647ba2e435"
+    },
+    {
+      "id": "binomial-options-pricing-cox-ross-rubinstein-lattice.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 854,
+      "sha256": "f9f3fc4bc8482063211a3748fc9f047aaa6c55e32e12138d395259121c58d988"
+    },
+    {
+      "id": "binomial-options-pricing-cox-ross-rubinstein-lattice.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1133,
+      "sha256": "5e46fb8eed3d6b661f4a988906acc4aa40c31e64ace8802d123e6b913a1e5ab1"
+    },
+    {
+      "id": "binomial-options-pricing-cox-ross-rubinstein-lattice.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 527,
+      "sha256": "587e0efd4ab4686d303786679c7b39e428577b38ad0383478d79c13e9a271fba"
+    },
+    {
+      "id": "binomial-options-pricing-cox-ross-rubinstein-lattice.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1055,
+      "sha256": "bc302d1eeb1a79c24ae94a58e5ffd269fdcb7088b0ee20c2a7f2e2c1aef9f698"
+    },
+    {
+      "id": "binomial-options-pricing-cox-ross-rubinstein-lattice.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 488,
+      "sha256": "79cc7598cf1b8f661dc314ea27e375b1567afb18b3f7473f3650cd979969b753"
+    },
+    {
+      "id": "binomial-options-pricing-cox-ross-rubinstein-lattice.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 594,
+      "sha256": "1cb1a82c5bc84160d650eb9aed5cc6c6553fe686c9109b398ddb4bac87108403"
+    },
+    {
+      "id": "binomial-options-pricing-cox-ross-rubinstein-lattice.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1421,
+      "sha256": "604ecfc50779da293855d49e3b66486a762841de04bdadcd7db0428afe9bab88"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/binomial-options-pricing-cox-ross-rubinstein-lattice/21318e9bb8be3024bde3/aoede-cf10742db56d02d0.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2706860,
+      "sha256": "cf10742db56d02d09a390ee11713470e452dd5a6416ea9b49305f4c87a950efa",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5a0519dd8315014b6216889d68b6781ac783419b00d322c6e5b4ac63d2991cea",
+          "bytes": 1147392,
+          "sha256": "7f2f5f9fcce6b65fca5572059f138bb609ac35b2d032c086dbc7ab3f538409d6"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "8e25a5c46ad56453bc0ae99993b27ce0e68d5143215d4211e0442a21b268f2cc",
+          "bytes": 1218912,
+          "sha256": "9c788723f4127e41e60cb5db0fa17c70de08f3ca1b5b957aaed1d7f38c6fd59a"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "22d90e42f8de719f716d76ddf8ce26f85005a09b3521eb95c4ff4b3f55a5ec82",
+          "bytes": 228096,
+          "sha256": "caa55f5948ae487a8e524f204296bee709af860c56d0a121167348ad9100effa"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "903713aaadaecd8bdb768ca9310816c505b1071b2dd3c001ab1edb7fdf2d1723",
+          "bytes": 112224,
+          "sha256": "7f8270dcbbeb6571554b9cb0dfe8eb205be2525e4eadea74ab8681335e0cdb45"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/binomial-options-pricing-cox-ross-rubinstein-lattice/21318e9bb8be3024bde3/algieba-da8a0cb88a2ef115.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2856140,
+      "sha256": "da8a0cb88a2ef1158cbfdc377ca690db84a7f2f2d080982de603486c0372dfe8",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5a0519dd8315014b6216889d68b6781ac783419b00d322c6e5b4ac63d2991cea",
+          "bytes": 1225344,
+          "sha256": "7e8c9164b7365301c39ec01e97ab7a1c9c294052aca017fe68ecf8c87acdca41"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "8e25a5c46ad56453bc0ae99993b27ce0e68d5143215d4211e0442a21b268f2cc",
+          "bytes": 1269792,
+          "sha256": "42a47b06e28f3d95238a4184fa1f7ac504e02431cff0f6c4b40b6a6d24368813"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "22d90e42f8de719f716d76ddf8ce26f85005a09b3521eb95c4ff4b3f55a5ec82",
+          "bytes": 230496,
+          "sha256": "a460aea98f161b5dcb0c836e72dd49e242f56b6a9b7d20f31831c8f17d765661"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "903713aaadaecd8bdb768ca9310816c505b1071b2dd3c001ab1edb7fdf2d1723",
+          "bytes": 130272,
+          "sha256": "6564169ceebf917ac438114da473ea56802e562586e033f80bc310a1bf4e8918"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:association-rule-mining-apriori-candidate-pruning",
+  "source_path": "src/content/association-rule-mining-apriori-candidate-pruning.narration.js",
+  "source_sha256": "2277be958674335636127dfae634c57586601b8f1344222a353e0baf36936696",
+  "source_characters": 10149,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "f1e71a8d0388104f5f3b53077a0c9327dd19674431ea9b565b93dda9f2531fca",
+  "generated_at": "2026-09-27T02:16:41.411Z",
+  "generated_characters": 20298,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4551,
+      "utf8_bytes": 4562,
+      "sha256": "6a08afa1f9e45a9f03c0ae01963544a744ce1bbb809ef92b9fb7fd8b81a8b0f6"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4192,
+      "utf8_bytes": 4206,
+      "sha256": "03d1922dc7fc653a5eeda9fbc164a72af8608572324b1fa8eec26afeb71eeaf3"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1406,
+      "utf8_bytes": 1408,
+      "sha256": "d31de440d7c2ff6d8f6d2617f2ea9df81574b0f7e1ae50ef8c169d240a470d8d"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "association-rule-mining-apriori-candidate-pruning.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "association-rule-mining-apriori-candidate-pruning.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1217,
+      "sha256": "143b4c7db3ee8afba163c8878bfc6c802a51e0df98daeb19c108a01fff154bcf"
+    },
+    {
+      "id": "association-rule-mining-apriori-candidate-pruning.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1167,
+      "sha256": "5fce642dcd3daafae18a1163ecddaa2b9230d03fa4f069780456d5a3e804126b"
+    },
+    {
+      "id": "association-rule-mining-apriori-candidate-pruning.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2047,
+      "sha256": "1513ccea53f6be1ed5d96fc773866e5719df8329f65ca9be5dc9be806048d878"
+    },
+    {
+      "id": "association-rule-mining-apriori-candidate-pruning.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 690,
+      "sha256": "9759c16f2c4cb8ea27e83697e57677120942eaea74573b8f33ff32f1037ca0ea"
+    },
+    {
+      "id": "association-rule-mining-apriori-candidate-pruning.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 929,
+      "sha256": "9c5ecc59f657e30c90a5f11f9c0cd8d3aef047e41541fc3064e9082ab4df01d9"
+    },
+    {
+      "id": "association-rule-mining-apriori-candidate-pruning.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 481,
+      "sha256": "b92d9e7734dddb8b678c9dcd549a2b2b98bb936542066244ad69e6c23457cf21"
+    },
+    {
+      "id": "association-rule-mining-apriori-candidate-pruning.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 779,
+      "sha256": "b70c2f8188db79ee28744ec30f4364f1db3826f3651c060d181f5cd79d030001"
+    },
+    {
+      "id": "association-rule-mining-apriori-candidate-pruning.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 582,
+      "sha256": "de89a95d6d610ac923ae8cdbe78f68fafb4f7b82f45fe5cc7852dbaaae448871"
+    },
+    {
+      "id": "association-rule-mining-apriori-candidate-pruning.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 733,
+      "sha256": "4e54df717d57d688c590a6737420940b9b24633ec14ae8d2b015d3c19b20cf06"
+    },
+    {
+      "id": "association-rule-mining-apriori-candidate-pruning.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1408,
+      "sha256": "d31de440d7c2ff6d8f6d2617f2ea9df81574b0f7e1ae50ef8c169d240a470d8d"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/association-rule-mining-apriori-candidate-pruning/f1e71a8d0388104f5f3b/aoede-0e483b62b5f2693c.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2524844,
+      "sha256": "0e483b62b5f2693c9e2a197f2b1531cd26defcde98d907626d6c8cf00b30f7dc",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "6a08afa1f9e45a9f03c0ae01963544a744ce1bbb809ef92b9fb7fd8b81a8b0f6",
+          "bytes": 1138656,
+          "sha256": "e406db9599c359378b5fa97c9b7dfbcdf9af8737c6def28f5b187fcad592a467"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "03d1922dc7fc653a5eeda9fbc164a72af8608572324b1fa8eec26afeb71eeaf3",
+          "bytes": 1034016,
+          "sha256": "5891d1b7a42d280d9708466192273774c4c50e615ebc0fa55fbac00aaab55075"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "d31de440d7c2ff6d8f6d2617f2ea9df81574b0f7e1ae50ef8c169d240a470d8d",
+          "bytes": 351936,
+          "sha256": "909ad21f15c2f0df1c0e7e7934d306f8ef9a09ed2a7da6d66a1e50a15725bdb8"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/association-rule-mining-apriori-candidate-pruning/f1e71a8d0388104f5f3b/algieba-2b737e53a1da6ba2.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2664428,
+      "sha256": "2b737e53a1da6ba2e3629acf38b85c3b11d8c890f1ed51c2af0036efaddeb76e",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "6a08afa1f9e45a9f03c0ae01963544a744ce1bbb809ef92b9fb7fd8b81a8b0f6",
+          "bytes": 1168032,
+          "sha256": "d702159a8351fa4d65c23be7da53c229cfcfac889d053203eccc71af62b882d9"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "03d1922dc7fc653a5eeda9fbc164a72af8608572324b1fa8eec26afeb71eeaf3",
+          "bytes": 1145184,
+          "sha256": "d38f738e9bcd7f206156da1bafc5d1f6fede58fb16b3f9e8a2f9ea8757d73703"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "d31de440d7c2ff6d8f6d2617f2ea9df81574b0f7e1ae50ef8c169d240a470d8d",
+          "bytes": 350976,
+          "sha256": "c7b20cdc697f58ac96b4897b32810b9cacb3775ae7c4be3510d814fc0502d378"
+        }
+      ]
+    }
+  }
+}

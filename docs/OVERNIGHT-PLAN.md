@@ -4573,6 +4573,44 @@ commit, Fable trailer on every commit, check green before each push.
       unsmoothed right 27 of 60 and zeroed in 60 of 60; stepMs 360,
       holdTicks rests. Preserved narration: Aoede + Algieba.
 
+- [x] F145. Association rule mining × Apriori candidate pruning.
+      Puzzle 151, ml-ai (problemSlug association-rules, the atlas
+      problem page carrying "Market-basket analysis"), added
+      2026-09-26. Solution
+      association_rule_mining_apriori_candidate_pruning.py (9s, prints
+      OK): 5,000 baskets over 200 items (7.6 per basket), 25 planted
+      itemsets of size 2 to 5 at 3 to 8%, 2 to 4 noise items, item 0
+      in 70%; minimum support 2% (100 baskets). FIVE ORACLES: (1)
+      exhaustive subset counting (4,103,439 subsets up to size 5) and
+      Apriori agree at every size: 393 frequent sets (63 / 143 / 122 /
+      53 / 12), 25 of 25 planted; (2) the prune per level, join ->
+      after prune, tests pruned / unpruned: size 2 1,953 -> 1,953,
+      9,765,000 both; size 3 1,914 -> 124, 620,000 / 9,570,000; size 4
+      82 -> 53, 265,000 / 410,000; size 5 12 -> 12; totals 10,710,000 /
+      19,805,000 over 5 scans, levels 3+ 945,000 / 10,040,000; brute
+      force over all 2- and 3-subsets 6,666,500,000 (not run) (AUTHOR
+      NOTE: at 1% support noise made nearly every item frequent and
+      level 2 was 90M of 168M tests, so the threshold is 2% and the
+      saving is asserted at levels 3+, at least 4x); (3) 1,438 rules
+      at confidence 0.6, planted rules lift 6.5 to 21.9, 194 rules ->
+      item 0 at confidence 0.64 to 0.78 and lift 0.91 to 1.11; (4)
+      sweep 1 / 2 / 3 / 5%: 951 / 393 / 375 / 187 frequent sets, 21,210
+      / 2,342 / 2,272 / 1,921 candidates, 105,050,000 / 10,710,000 /
+      10,360,000 / 8,605,000 tests; (5) Eclat: the same 393 sets,
+      2,832,439 tid-set elements touched. Cards: self, FP-growth,
+      ECLAT (all algoName). neverUse: enumerating the catalog's
+      itemsets. Figure: per-level bars of joined, pruned, and frequent
+      counts on a log scale with the tests per level, cite Agrawal-
+      Imielinski-Swami SIGMOD 1993 DOI 10.1145/170035.170072,
+      Agrawal-Srikant VLDB 1994, Han-Pei-Yin SIGMOD 2000. Viz
+      AprioriViz: 10 items, 40 baskets, 3 planted itemsets, minimum
+      support 6, one level per two ticks (join and prune, then count)
+      with pruned candidates struck in red and frequent ones in green,
+      containment tests counted against the unpruned join;
+      NODE-VERIFIED 30 cycles: mined sets equal exhaustive counting in
+      every cycle (mean 13.3 candidates pruned); stepMs 1000,
+      holdTicks rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

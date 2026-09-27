@@ -2923,15 +2923,35 @@ export const PUZZLES = {
     vite: 'naive-bayes-laplace-smoothing',
     html: 'naive-bayes-laplace-smoothing/index.html',
   },
+  '/association-rule-mining-apriori-candidate-pruning/': {
+    slug: 'association-rule-mining-apriori-candidate-pruning',
+    added: '2026-09-26',
+    problemSlug: 'association-rules',
+    number: 151,
+    category: 'ml-ai',
+    algorithm: 'Association rule mining',
+    heuristic: 'Apriori candidate pruning',
+    domain: 'Market-basket analysis',
+    oneLiner:
+      'Count itemsets level by level and never count a candidate whose subset was infrequent: the lattice above an infrequent set is never visited, and the frequent sets come out exact, with rules checked by lift rather than confidence alone.',
+    description:
+      'Association rule mining by Apriori candidate pruning on 5,000 baskets over 200 items with 25 planted itemsets, held to exhaustive subset counting: 393 frequent itemsets identical at every size, all 25 planted sets recovered; the prune counted per level (size 3: 124 of 1,914 candidates counted, 620,000 tests instead of 9,570,000; levels 3 and up 945,000 against 10,040,000; the unprunable pair level at 9,765,000); the support threshold\'s cliff (951 sets and 105 million tests at 1%, 393 and 10.7 million at 2%); 1,438 rules with the planted ones at lift 6.5 to 21.9 and 194 rules pointing at the ubiquitous item at lift about 1; and Eclat agreeing from 2,832,439 tid-set elements.',
+    listenMinutes: 9,
+    time: 'one scan per level; candidates x baskets tests',
+    space: 'frequent sets per level',
+    baseline: 'Exhaustive subset counting',
+    vite: 'association-rule-mining-apriori-candidate-pruning',
+    html: 'association-rule-mining-apriori-candidate-pruning/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Association rule mining', heuristic: 'Apriori candidate pruning', domain: 'Market-basket analysis' },
   { algorithm: 'Dynamic time warping', heuristic: 'Elastic alignment', domain: 'Series similarity' },
   { algorithm: 'Hough transform', heuristic: 'Parameter-space voting', domain: 'Line detection' },
+  { algorithm: 'Otsu thresholding', heuristic: 'Between-class variance', domain: 'Image binarization' },
 ];
 
 

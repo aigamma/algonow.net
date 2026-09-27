@@ -2963,15 +2963,35 @@ export const PUZZLES = {
     vite: 'dynamic-time-warping-elastic-alignment',
     html: 'dynamic-time-warping-elastic-alignment/index.html',
   },
+  '/hough-transform-parameter-space-voting/': {
+    slug: 'hough-transform-parameter-space-voting',
+    added: '2026-09-26',
+    problemSlug: 'shape-detection',
+    number: 153,
+    category: 'signal-graphics',
+    algorithm: 'Hough transform',
+    heuristic: 'Parameter-space voting',
+    domain: 'Line detection',
+    oneLiner:
+      'Let every edge point vote for every line through it, in a bounded (rho, theta) table where a line\'s points meet in one cell and clutter spreads thin: the lines are the tallest peaks, however many there are, and no point ever has to be called an outlier.',
+    description:
+      'The Hough transform by parameter-space voting on three planted lines of 40 noisy edge points among 200 clutter points, held to the planted (rho, theta): all three lines are the three tallest peaks within 2 px and 2 degrees (101 / 100 / 86 summed votes against 50 for the tallest clutter peak), still found under 800 clutter points (122 against 91); the accumulator\'s grain measured both ways (2 x 2 bins gather more, 4-degree bins lose a line between bins, 1 x 2 localizes exactly); sequential RANSAC recovering 3 of 3 at 168,400 residual evaluations against 57,600 votes; and one least-squares line through everything fitting 6 of 320 points.',
+    listenMinutes: 9,
+    time: 'points x theta steps votes',
+    space: 'rho steps x theta steps cells',
+    baseline: 'Sequential RANSAC',
+    vite: 'hough-transform-parameter-space-voting',
+    html: 'hough-transform-parameter-space-voting/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Hough transform', heuristic: 'Parameter-space voting', domain: 'Line detection' },
   { algorithm: 'Otsu thresholding', heuristic: 'Between-class variance', domain: 'Image binarization' },
   { algorithm: 'Register allocation', heuristic: 'Graph coloring', domain: 'Compiler backend' },
+  { algorithm: 'Binary decision diagram', heuristic: 'Reduced ordered canonical form', domain: 'Boolean function representation' },
 ];
 
 

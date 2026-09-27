@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net hough-transform-parameter-space-voting preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T02:34:17.018Z",
+  "publication_sha256": "609fdd96590f13569f03d0a929c60e5e5f09db331caa2c31f11875e483e76756",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5241400,
+  "objects": [
+    {
+      "stable_id": "puzzle:hough-transform-parameter-space-voting",
+      "slug": "hough-transform-parameter-space-voting",
+      "track_id": "algieba",
+      "source_sha256": "fabc757b0f396996c36dfea43028c355c3bdccc25727c095764bdac69666e8ab",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "71869b5da5e732ec0875047fe69a569831cef5b89fe3ae851c6b629587c3d793",
+      "object_key": "narration/v1/puzzles/hough-transform-parameter-space-voting/71869b5da5e732ec0875/algieba-4299f9328f7f0125.mp3",
+      "bytes": 2672108,
+      "sha256": "4299f9328f7f01256da3484d65bd930f87cb48268a69c2fde491b602bbc39912",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:hough-transform-parameter-space-voting",
+      "slug": "hough-transform-parameter-space-voting",
+      "track_id": "aoede",
+      "source_sha256": "fabc757b0f396996c36dfea43028c355c3bdccc25727c095764bdac69666e8ab",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "71869b5da5e732ec0875047fe69a569831cef5b89fe3ae851c6b629587c3d793",
+      "object_key": "narration/v1/puzzles/hough-transform-parameter-space-voting/71869b5da5e732ec0875/aoede-abb1c071e4f2ef08.mp3",
+      "bytes": 2569292,
+      "sha256": "abb1c071e4f2ef08202cc5a7c7776eecca4b63034d10ed99c30540c006627837",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

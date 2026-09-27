@@ -4225,6 +4225,33 @@ commit, Fable trailer on every commit, check green before each push.
       stepMs 520, holdTicks rests. Preserved narration: Aoede +
       Algieba.
 
+- [x] F134. Conjugate gradient × Jacobi preconditioner. Puzzle 140,
+      numerical (problemSlug linear-systems), added 2026-09-26.
+      Solution conjugate_gradient_jacobi_preconditioner.py (1.8s,
+      prints OK): the 5-point Laplacian on n x n grids with cell
+      coefficients (harmonic-mean edges), CG with an optional
+      preconditioner, steepest descent, dense elimination, the
+      closed-form condition number and the classical bound. FIVE
+      ORACLES: (1) 64 unknowns: CG vs elimination 4.9e-14, terminated
+      in 31 iterations (N = 64); (2) residuals 9.7e-9 / 8.2e-9 /
+      9.2e-9 at n = 16 / 32 / 64; (3) kappa 116 / 441 / 1,712, bounds
+      103 / 201 / 396, iterations 51 / 101 / 199 (x1.98, x1.97 per
+      doubling of n); (4) Jacobi on the uniform 32 x 32 grid: 101 vs
+      101 (nothing to fix, stated); on the 10^4 coefficient jump: plain
+      1,082 iterations, Jacobi 103; (5) steepest descent on the uniform
+      32 x 32 grid: 3,417 iterations vs CG 101. Cards: self, Gaussian
+      elimination (live), Gauss-Seidel, GMRES. neverUse: steepest
+      descent on an ill-conditioned system. Figure: the valley with the
+      gray zigzag and the blue two-step path plus the measured counts,
+      cite Hestenes-Stiefel 1952 DOI 10.6028/jres.049.044 and Shewchuk
+      1994. Viz CgViz: the 16 x 16 Poisson residual field one iteration
+      per tick with a log-residual chart, alternating CG vs steepest
+      descent on the uniform grid and Jacobi CG vs plain CG on the
+      jump; NODE-VERIFIED 6 cycles: the hero converged below 1e-8 with
+      the recomputed residual agreeing and beat its rival in all 6;
+      stepMs 90, holdTicks rests. Preserved narration: Aoede +
+      Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

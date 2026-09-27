@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net conjugate-gradient-jacobi-preconditioner preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T01:00:55.009Z",
+  "publication_sha256": "5a5936a7a951933bef3e90080da9f9a633db54c8edfd172711916034b41fe609",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5270488,
+  "objects": [
+    {
+      "stable_id": "puzzle:conjugate-gradient-jacobi-preconditioner",
+      "slug": "conjugate-gradient-jacobi-preconditioner",
+      "track_id": "algieba",
+      "source_sha256": "cc574caa1e83b54f956a22705bea44da7442d5c1b150ca120ac34f3dd078b1e4",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "74b11b831bf32517c591094b75cf186e916259df6be5d56216262780768bebb2",
+      "object_key": "narration/v1/puzzles/conjugate-gradient-jacobi-preconditioner/74b11b831bf32517c591/algieba-401c09d9449c10d8.mp3",
+      "bytes": 2690348,
+      "sha256": "401c09d9449c10d8d49407eca1804e1f35d15c86ca122ea9a241dc2b05a91f4b",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:conjugate-gradient-jacobi-preconditioner",
+      "slug": "conjugate-gradient-jacobi-preconditioner",
+      "track_id": "aoede",
+      "source_sha256": "cc574caa1e83b54f956a22705bea44da7442d5c1b150ca120ac34f3dd078b1e4",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "74b11b831bf32517c591094b75cf186e916259df6be5d56216262780768bebb2",
+      "object_key": "narration/v1/puzzles/conjugate-gradient-jacobi-preconditioner/74b11b831bf32517c591/aoede-22145c5e58baa970.mp3",
+      "bytes": 2580140,
+      "sha256": "22145c5e58baa9703702248ba9ba0090a599af8cef5ff346fdbca47e0696b3b9",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

@@ -2703,15 +2703,35 @@ export const PUZZLES = {
     vite: 'cuckoo-hashing-two-table-eviction-kicks',
     html: 'cuckoo-hashing-two-table-eviction-kicks/index.html',
   },
+  '/conjugate-gradient-jacobi-preconditioner/': {
+    slug: 'conjugate-gradient-jacobi-preconditioner',
+    added: '2026-09-26',
+    problemSlug: 'linear-systems',
+    number: 140,
+    category: 'numerical',
+    algorithm: 'Conjugate gradient',
+    heuristic: 'Jacobi preconditioner',
+    domain: 'SPD sparse systems',
+    oneLiner:
+      'Search directions conjugate to every earlier one, so no step undoes another and the answer arrives in about the square root of the condition number of matrix-vector products; divide by the diagonal first and a ten-thousandfold coefficient jump costs nothing extra.',
+    description:
+      'Conjugate gradient with the Jacobi preconditioner on the 2-D Poisson equation: Gaussian elimination matched to 5e-14 on 64 unknowns with termination in 31 steps; 51 / 101 / 199 iterations to a residual of 1e-8 on 256 / 1,024 / 4,096 unknowns, under the sqrt(kappa) bounds 103 / 201 / 396 from the closed-form condition numbers and doubling with n; Jacobi changing the uniform grid by exactly 0 iterations and cutting a 10^4 coefficient jump from 1,082 to 103; steepest descent at 3,417 where CG needs 101.',
+    listenMinutes: 8,
+    time: '~sqrt(kappa) matrix-vector products',
+    space: 'four vectors',
+    baseline: 'Plain conjugate gradient',
+    vite: 'conjugate-gradient-jacobi-preconditioner',
+    html: 'conjugate-gradient-jacobi-preconditioner/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Conjugate gradient', heuristic: 'Jacobi preconditioner', domain: 'SPD sparse systems' },
   { algorithm: 'Byte pair encoding', heuristic: 'Frequency-merge vocabulary', domain: 'Subword tokenization' },
   { algorithm: 'Betweenness centrality', heuristic: 'Brandes accumulation', domain: 'Node importance' },
+  { algorithm: 'Gossip protocol', heuristic: 'Random-peer anti-entropy', domain: 'Epidemic dissemination' },
 ];
 
 

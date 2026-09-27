@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net gaussian-elimination-partial-pivoting preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T00:03:26.302Z",
+  "publication_sha256": "bf7a6605b890859490f69759c582942de593f6e6211ed61a71a09365da429e5b",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4941208,
+  "objects": [
+    {
+      "stable_id": "puzzle:gaussian-elimination-partial-pivoting",
+      "slug": "gaussian-elimination-partial-pivoting",
+      "track_id": "algieba",
+      "source_sha256": "08a34694420cb51150f1f7731708d0c8a4fc028b9de091864a36df392b414d1e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "222b6827370a9171f2066f300f9d993f8d21bfa786031602470998d546c789d1",
+      "object_key": "narration/v1/puzzles/gaussian-elimination-partial-pivoting/222b6827370a9171f206/algieba-2d62f2e7c6ed9456.mp3",
+      "bytes": 2582156,
+      "sha256": "2d62f2e7c6ed94561b23c885e71aa2fa1e9c0f8976d49fbb5f893b06eb7907ee",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:gaussian-elimination-partial-pivoting",
+      "slug": "gaussian-elimination-partial-pivoting",
+      "track_id": "aoede",
+      "source_sha256": "08a34694420cb51150f1f7731708d0c8a4fc028b9de091864a36df392b414d1e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "222b6827370a9171f2066f300f9d993f8d21bfa786031602470998d546c789d1",
+      "object_key": "narration/v1/puzzles/gaussian-elimination-partial-pivoting/222b6827370a9171f206/aoede-2aa855012abe15ca.mp3",
+      "bytes": 2359052,
+      "sha256": "2aa855012abe15ca48d50d24b204bd42bb684eba01bc3372adce568cbc6b5213",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

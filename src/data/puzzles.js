@@ -2563,15 +2563,35 @@ export const PUZZLES = {
     vite: 'bankers-algorithm-safe-state-check',
     html: 'bankers-algorithm-safe-state-check/index.html',
   },
+  '/gaussian-elimination-partial-pivoting/': {
+    slug: 'gaussian-elimination-partial-pivoting',
+    added: '2026-09-26',
+    problemSlug: 'linear-systems',
+    number: 133,
+    category: 'numerical',
+    algorithm: 'Gaussian elimination',
+    heuristic: 'Partial pivoting',
+    domain: 'Linear systems',
+    oneLiner:
+      'Cancel each column below the diagonal with multiples of one row, and before each column swap up the row with the largest entry so no multiplier exceeds one. The residual sits at the precision of the arithmetic, and the one matrix that beats it is built and measured.',
+    description:
+      'Gaussian elimination with partial pivoting: agreement with exact rational arithmetic to 1e-14 on 30 integer systems; the relative residual at 1.3e-16 on random 80 x 80 systems against 2.0e-14 without pivoting; the classic 2 x 2 with epsilon 1e-17 solved as (1, 1) where no pivoting returns (0, 1) and dies on a zero pivot; Wilkinson\'s order-24 matrix driving the growth to exactly 2^23 where complete pivoting holds 2 and random matrices stay under 8; the n^3/3 count growing 8x per doubling.',
+    listenMinutes: 8,
+    time: 'n^3/3 multiply-adds + O(n^2) compares',
+    space: 'the matrix, in place',
+    baseline: 'Elimination with no pivoting',
+    vite: 'gaussian-elimination-partial-pivoting',
+    html: 'gaussian-elimination-partial-pivoting/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Gaussian elimination', heuristic: 'Partial pivoting', domain: 'Linear systems' },
   { algorithm: "Grover's search", heuristic: 'Amplitude amplification', domain: 'Unstructured search' },
   { algorithm: 'Binomial options pricing', heuristic: 'Cox-Ross-Rubinstein lattice', domain: 'Option pricing' },
+  { algorithm: 'Discrete event simulation', heuristic: 'Event-queue advance', domain: 'Systems modeling' },
 ];
 
 

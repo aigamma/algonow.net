@@ -4016,6 +4016,36 @@ commit, Fable trailer on every commit, check green before each push.
       deadlocked in 13; stepMs 200, holdTicks rests. Preserved
       narration: Aoede + Algieba.
 
+- [x] F127. Gaussian elimination × partial pivoting. Puzzle 133,
+      numerical (problemSlug linear-systems), added 2026-09-26.
+      Solution gaussian_elimination_partial_pivoting.py (0.9s, prints
+      OK): one elimination routine with none / partial / complete
+      pivoting, counting multiply-adds, pivot comparisons, and the
+      growth factor. FIVE ORACLES: (1) exact rational elimination on 30
+      integer 6 x 6 systems: worst relative disagreement 1.0e-14; (2)
+      the relative residual on 10 random 80 x 80 systems: partial
+      1.3e-16, complete 7.5e-17, none 2.0e-14; no pivoting dies on a
+      zero pivot that partial pivoting solves; (3) the classic 2 x 2
+      with eps 1e-17: none returns (0, 1), partial (1, 1) to 1e-15;
+      (4) Wilkinson's order-24 matrix: growth exactly 2^23 = 8,388,608
+      under partial pivoting, 2 under complete; random 80 x 80 growth
+      at most 8.0; (5) the count: 21,320 / 170,640 / 1,365,280
+      multiply-adds at n = 40 / 80 / 160 (x8.0, x8.0); pivot searches
+      at n = 160: partial 12,880 vs complete 1,378,160. Cards: self, LU
+      decomposition, Cholesky decomposition, Conjugate gradient.
+      neverUse: Cramer's rule (24! per determinant at n = 24 vs about
+      4,600 multiply-adds). Figure: the 2 x 2 both ways and a
+      log-scale growth chart, cite Wilkinson JACM 1961 DOI
+      10.1145/321075.321076 and Trefethen-Schreiber 1990. Viz
+      GaussianViz: the same 8 x 8 system eliminated twice, one column
+      per tick, no pivoting beside partial pivoting, a tiny or zero
+      entry planted at the top left on alternate scenes, log-magnitude
+      cells, amber pivot row, growth and multiplier counters, final
+      residuals; NODE-VERIFIED 10 cycles: partial pivoting multipliers
+      <= 1 and residual < 1e-12 in all 10, no pivoting failed on the
+      zero and reached multipliers of 1e4 on the tiny; stepMs 650,
+      holdTicks rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

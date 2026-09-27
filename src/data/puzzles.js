@@ -3043,6 +3043,26 @@ export const PUZZLES = {
     vite: 'binary-decision-diagram-reduced-ordered-canonical-form',
     html: 'binary-decision-diagram-reduced-ordered-canonical-form/index.html',
   },
+  '/garbage-collection-mark-and-sweep/': {
+    slug: 'garbage-collection-mark-and-sweep',
+    added: '2026-09-26',
+    problemSlug: 'garbage-collection',
+    number: 157,
+    category: 'distributed-systems',
+    algorithm: 'Garbage collection',
+    heuristic: 'Mark and sweep',
+    domain: 'Automatic memory management',
+    oneLiner:
+      'When the heap fills, mark everything reachable from the roots by following pointers, then sweep the whole heap and free the rest: exact on cycles by definition, paid for in a sweep of the heap and in the holes it leaves.',
+    description:
+      'Garbage collection by mark and sweep on a 20,000-slot heap under a 60,000-step workload of small linked objects with cycles, held to an independent traversal from the roots: 14 collections each keeping exactly the reachable set with no dangling pointer and 0 objects leaked; reference counting exhausting the same heap at step 7,839 with 4,912 cyclic objects it can never free, and an arena at allocation 4,385; mark costed at the live objects (295 to 2,294) and sweep at the heap (about 4,300) per collection against Cheney\'s copying collector (live-proportional, fails above half the heap); and fragmentation measured as 13,640 free slots in 1,294 holes whose largest is 55, failing a 512-slot request that the compacting collector serves from one block.',
+    listenMinutes: 9,
+    time: 'mark: live objects; sweep: heap size',
+    space: 'a mark bit per object and a mark stack',
+    baseline: 'Reference counting',
+    vite: 'garbage-collection-mark-and-sweep',
+    html: 'garbage-collection-mark-and-sweep/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
@@ -3050,8 +3070,8 @@ export const PUZZLES = {
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
   { algorithm: 'Register allocation', heuristic: 'Graph coloring', domain: 'Compiler backend' },
-  { algorithm: 'Garbage collection', heuristic: 'Mark and sweep', domain: 'Automatic memory management' },
   { algorithm: 'TCP congestion control', heuristic: 'AIMD slow start', domain: 'Congestion avoidance' },
+  { algorithm: 'Barnes-Hut', heuristic: 'Octree center-of-mass approximation', domain: 'N-body simulation' },
 ];
 
 

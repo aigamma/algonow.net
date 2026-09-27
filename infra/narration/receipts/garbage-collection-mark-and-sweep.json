@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net garbage-collection-mark-and-sweep preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T03:04:28.731Z",
+  "publication_sha256": "c6b51004de8fe51d9d064d3723b49e632632ea9342fdeb21787ec1f939d340c3",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5629816,
+  "objects": [
+    {
+      "stable_id": "puzzle:garbage-collection-mark-and-sweep",
+      "slug": "garbage-collection-mark-and-sweep",
+      "track_id": "algieba",
+      "source_sha256": "6fce0c1d02373071285b11decfb67f1c8757161197b3a5bd25dd48e1b1952e4e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "e96ec964f4b87beff1999f25c39ed213dcea8492ef89ad6e2216efd0fb1ea4dc",
+      "object_key": "narration/v1/puzzles/garbage-collection-mark-and-sweep/e96ec964f4b87beff199/algieba-bb64a36760e2e6cc.mp3",
+      "bytes": 2849900,
+      "sha256": "bb64a36760e2e6cc5b53c42dab7ae515f032f24ca8a3d1661d45dc570c2f47c6",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:garbage-collection-mark-and-sweep",
+      "slug": "garbage-collection-mark-and-sweep",
+      "track_id": "aoede",
+      "source_sha256": "6fce0c1d02373071285b11decfb67f1c8757161197b3a5bd25dd48e1b1952e4e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "e96ec964f4b87beff1999f25c39ed213dcea8492ef89ad6e2216efd0fb1ea4dc",
+      "object_key": "narration/v1/puzzles/garbage-collection-mark-and-sweep/e96ec964f4b87beff199/aoede-019c3257249f3c7b.mp3",
+      "bytes": 2779916,
+      "sha256": "019c3257249f3c7b91972eb8f861b5ed2ed153b90525e65043db46afb53b07a5",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

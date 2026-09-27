@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:garbage-collection-mark-and-sweep",
+  "source_path": "src/content/garbage-collection-mark-and-sweep.narration.js",
+  "source_sha256": "6fce0c1d02373071285b11decfb67f1c8757161197b3a5bd25dd48e1b1952e4e",
+  "source_characters": 11124,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "e96ec964f4b87beff1999f25c39ed213dcea8492ef89ad6e2216efd0fb1ea4dc",
+  "generated_at": "2026-09-27T03:03:30.299Z",
+  "generated_characters": 22248,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4480,
+      "utf8_bytes": 4488,
+      "sha256": "2acc5bc165306744f368b15628bc1e2cdb6f6df97d39bb2f915b3b976961a0e4"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4866,
+      "utf8_bytes": 4870,
+      "sha256": "01dcfdd6d9e771229bb4a9f575e17743efb859e4eb832b2fc728fe6014d69402"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1778,
+      "utf8_bytes": 1782,
+      "sha256": "d985d90bc2bc908efd6dceceb7e85538ac70e8c7225e8c18fbc753ac8175ab80"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "garbage-collection-mark-and-sweep.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "garbage-collection-mark-and-sweep.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1205,
+      "sha256": "08bd0a41dba57378009355d7f50c6ddd8ed6a4542e45272412031ac51e3d559c"
+    },
+    {
+      "id": "garbage-collection-mark-and-sweep.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1172,
+      "sha256": "85ce205da32a2ab7a8c19bbed02ebe4a6441ee72ce4c98a5693279503b048974"
+    },
+    {
+      "id": "garbage-collection-mark-and-sweep.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1980,
+      "sha256": "5134a3e27569a6e03fe2311f7434bcf13a3125608057402dd4f7353355d40eae"
+    },
+    {
+      "id": "garbage-collection-mark-and-sweep.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 782,
+      "sha256": "027abcc5ffe0e864db0ab2dd28c929e376d122e6efb8434458904179633aad42"
+    },
+    {
+      "id": "garbage-collection-mark-and-sweep.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 951,
+      "sha256": "b11cc4e3729c872394e67c81a60fe91409e7831e51073d73c9020030da4e5aec"
+    },
+    {
+      "id": "garbage-collection-mark-and-sweep.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 432,
+      "sha256": "527961d8957ac40299a9466d1b7205e14dabe4d99a2d0a6a0c42a5d54dfb135c"
+    },
+    {
+      "id": "garbage-collection-mark-and-sweep.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1305,
+      "sha256": "ffee94d1f31428ce61fddd67f77c41a94d8d5eadd9bdb174009689169d961ba0"
+    },
+    {
+      "id": "garbage-collection-mark-and-sweep.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 573,
+      "sha256": "8498b81e2be809ef45ed367dbd05eb8b0406e39e85f4be41b993c93ccd36dbe1"
+    },
+    {
+      "id": "garbage-collection-mark-and-sweep.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 815,
+      "sha256": "eb3eea248b56027e40f68e08a8ba601624c8b01ac4af0e50117b77907b56bdeb"
+    },
+    {
+      "id": "garbage-collection-mark-and-sweep.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1782,
+      "sha256": "d985d90bc2bc908efd6dceceb7e85538ac70e8c7225e8c18fbc753ac8175ab80"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/garbage-collection-mark-and-sweep/e96ec964f4b87beff199/aoede-019c3257249f3c7b.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2779916,
+      "sha256": "019c3257249f3c7b91972eb8f861b5ed2ed153b90525e65043db46afb53b07a5",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2acc5bc165306744f368b15628bc1e2cdb6f6df97d39bb2f915b3b976961a0e4",
+          "bytes": 1087296,
+          "sha256": "a6f50c3f90d54abbf10d7429f259b11b768ecb04e48b1e9b414bf65a54bfb9a7"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "01dcfdd6d9e771229bb4a9f575e17743efb859e4eb832b2fc728fe6014d69402",
+          "bytes": 1264512,
+          "sha256": "89c8517a153c40f30e20d32f006545e183c0b827f1c90eb51692b649d5ff87d7"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "d985d90bc2bc908efd6dceceb7e85538ac70e8c7225e8c18fbc753ac8175ab80",
+          "bytes": 427872,
+          "sha256": "c81ae344211b0c04f2459866ec1ab447bca8fa678a863327e662978094324159"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/garbage-collection-mark-and-sweep/e96ec964f4b87beff199/algieba-bb64a36760e2e6cc.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2849900,
+      "sha256": "bb64a36760e2e6cc5b53c42dab7ae515f032f24ca8a3d1661d45dc570c2f47c6",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2acc5bc165306744f368b15628bc1e2cdb6f6df97d39bb2f915b3b976961a0e4",
+          "bytes": 1159584,
+          "sha256": "ee4d9bf42685d06c9361c17f4efb337ce42bb861254a69dd9cd1e28e09a2cc03"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "01dcfdd6d9e771229bb4a9f575e17743efb859e4eb832b2fc728fe6014d69402",
+          "bytes": 1263936,
+          "sha256": "165c34e3cd9ba7190dc2f734c512bfced5d311c6b2cfddc5463162b4ed5162e6"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "d985d90bc2bc908efd6dceceb7e85538ac70e8c7225e8c18fbc753ac8175ab80",
+          "bytes": 426144,
+          "sha256": "8d68d19cd76e932d5b116733747b84d9b2c6e437601418f77643ee9e2e211b45"
+        }
+      ]
+    }
+  }
+}

@@ -4801,6 +4801,48 @@ commit, Fable trailer on every commit, check green before each push.
       stepMs 700, holdTicks rests. Preserved narration: Aoede +
       Algieba.
 
+- [x] F151. Garbage collection × Mark and sweep. Puzzle 157,
+      distributed-systems (problemSlug garbage-collection, the atlas
+      problem page carrying "Automatic memory management"), added
+      2026-09-26. Solution garbage_collection_mark_and_sweep.py (4s,
+      prints OK): a 20,000-slot first-fit heap; the workload allocates
+      1 to 8 slot objects with 0 to 2 pointers to recent objects, keeps
+      a rolling root set of 40, and builds a two-object cycle 15% of
+      steps. FIVE ORACLES: (1) 14 collections over 60,000 steps, each
+      keeping exactly the set reachable by an independent breadth-
+      first traversal, no dangling pointer; (2) reference counting on
+      the same program: out of heap at step 7,839 holding 4,912
+      unreachable objects (4,980 allocated, 68 reachable); mark and
+      sweep 0 unreachable after a final collection (AUTHOR
+      CORRECTION: the draft counted uncollected garbage as leaked);
+      an arena that never frees fails at allocation 4,385; (3) cost
+      with 6 / 28 / 50% live (measured right after a collection): mark
+      295 / 1,292 / 2,294 and sweep 4,268 / 4,272 / 4,390 per
+      collection over 10 / 13 / 18 collections; Cheney's copying
+      collector 290 / 1,291 copied per collection over 20 / 41
+      collections and failing at 50% live (half the heap); (4)
+      fragmentation as a phase change: a pointer-free long-lived
+      object pinned every 25 steps (2,400 objects, 5,986 slots), then
+      one 512-slot request: mark and sweep has 13,640 free slots in
+      1,294 holes, the largest 55, and fails; copying has 3,640 in one
+      block and succeeds (AUTHOR CORRECTION: the draft interleaved
+      64-slot requests and none ever failed, since freed big objects
+      leave holes their own size); (5) the arena and reference
+      counting as negative examples. Cards: self, Reference counting,
+      Cheney's algorithm, Generational garbage collection (all
+      algoName). neverUse: an arena that never frees. Figure: a heap
+      strip before and after one collection with roots, pointers, a
+      reachable and an unreachable cycle, and the measured costs, cite
+      McCarthy CACM 1960 DOI 10.1145/367177.367199, Cheney CACM 1970,
+      Jones-Lins 1996. Viz GcViz: a 120-slot heap strip under a
+      mutator with 6 roots and 20% cycles, mark and sweep on separate
+      ticks with a reference-counting strip below that stops at its
+      first failed allocation; NODE-VERIFIED 10 programs of 400 steps:
+      every sweep leaves exactly the reachable set with no dangling
+      pointer and the counting heap fails or leaks in every program;
+      stepMs 140, holdTicks rests. Preserved narration: Aoede +
+      Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

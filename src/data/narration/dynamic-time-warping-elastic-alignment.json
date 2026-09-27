@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:dynamic-time-warping-elastic-alignment",
+  "source_path": "src/content/dynamic-time-warping-elastic-alignment.narration.js",
+  "source_sha256": "ffc6ba153f5631c002b99e7074570aaa6e3d9bb4f33d4887dea27fbd92ceaf8c",
+  "source_characters": 10088,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "81c143579026920e4bbbafe528239363e7db532c7ff97d92f8f9ddedabe27f1c",
+  "generated_at": "2026-09-27T02:26:42.756Z",
+  "generated_characters": 20176,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4473,
+      "utf8_bytes": 4477,
+      "sha256": "ea820b6ad7c676ce4f9c1b59cc5ac85b9696cfb262013d36789c1005030f52e8"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4341,
+      "utf8_bytes": 4347,
+      "sha256": "9ade136278f5bfd494bf1febb97bf9736afcd1685f9107a72836936c55e5b6f2"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1274,
+      "utf8_bytes": 1276,
+      "sha256": "57d460fe7118b2e22cde4814ac6af79a027596fc2258cb26790a26a7e108b656"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "dynamic-time-warping-elastic-alignment.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "dynamic-time-warping-elastic-alignment.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1242,
+      "sha256": "506bb652321466db0061be7117353ea9d6dadc5599d69f515f7f5fe560f1d029"
+    },
+    {
+      "id": "dynamic-time-warping-elastic-alignment.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1115,
+      "sha256": "0dd97663818f4dbc61327c598637c167e4cf32c20884ecde0946b6c1e6a50604"
+    },
+    {
+      "id": "dynamic-time-warping-elastic-alignment.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1989,
+      "sha256": "afd95e618021e4633289de1489d433739521147b9548f817d70e606dec338690"
+    },
+    {
+      "id": "dynamic-time-warping-elastic-alignment.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 733,
+      "sha256": "fcf44d3395a29de85d20a5bc7bbfca4ca310c3c42f1bf36ccbc56517c5d144a1"
+    },
+    {
+      "id": "dynamic-time-warping-elastic-alignment.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 905,
+      "sha256": "a8147b6147a5e969041113e53d85267dfebf57abb0fcad78bccf0d282890d5bd"
+    },
+    {
+      "id": "dynamic-time-warping-elastic-alignment.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 447,
+      "sha256": "1d521f6f91065cb0cf2bea76c2ebf51d801cd75d8ee41ae897c0858ed69c5bf2"
+    },
+    {
+      "id": "dynamic-time-warping-elastic-alignment.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 965,
+      "sha256": "07d4ca7090f1a1c4473b5dbb48925e555c93c0dd4eb4517255162e4a24e65863"
+    },
+    {
+      "id": "dynamic-time-warping-elastic-alignment.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 503,
+      "sha256": "e4471d4f8f0a41f26a1d0e91721d4d2a3745402a8432e1c9fe7bfd77cb97a340"
+    },
+    {
+      "id": "dynamic-time-warping-elastic-alignment.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 782,
+      "sha256": "b0745e3eb8c46a6e4835a0316e0470d79cd3826cf71ea3af7cc9adac9c08099e"
+    },
+    {
+      "id": "dynamic-time-warping-elastic-alignment.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1276,
+      "sha256": "57d460fe7118b2e22cde4814ac6af79a027596fc2258cb26790a26a7e108b656"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/dynamic-time-warping-elastic-alignment/81c143579026920e4bbb/aoede-f98d2aee10e08813.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2534540,
+      "sha256": "f98d2aee10e08813d0590128cd66bf612849f551fdf0b89c1c64ae27fe6ce695",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "ea820b6ad7c676ce4f9c1b59cc5ac85b9696cfb262013d36789c1005030f52e8",
+          "bytes": 1102944,
+          "sha256": "8c9c0aa45d450ff1eec972468d3a7a581348459c099ab2bb0f64a9151f722108"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "9ade136278f5bfd494bf1febb97bf9736afcd1685f9107a72836936c55e5b6f2",
+          "bytes": 1163904,
+          "sha256": "e686aa7dcf421e32eacafd7e4eac2674b5050c371fe4a20065b99ffa503a3ef1"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "57d460fe7118b2e22cde4814ac6af79a027596fc2258cb26790a26a7e108b656",
+          "bytes": 267456,
+          "sha256": "019f7aba6fe03cb46d85e32807a0877319f83865fd2bf5948c3108c63fb8f01f"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/dynamic-time-warping-elastic-alignment/81c143579026920e4bbb/algieba-bc3de268d94546a4.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2627180,
+      "sha256": "bc3de268d94546a4741aefac0cf9903a5eaf31f5f1f3bc6e901cf13c6999a549",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "ea820b6ad7c676ce4f9c1b59cc5ac85b9696cfb262013d36789c1005030f52e8",
+          "bytes": 1189824,
+          "sha256": "bacac498ce9f9020281fde9931880b59330327573740e8cca347310623ca4ecc"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "9ade136278f5bfd494bf1febb97bf9736afcd1685f9107a72836936c55e5b6f2",
+          "bytes": 1171104,
+          "sha256": "5a20a8faaa7f32bb59904dcc9abb3a07ff8cd925cf11f5c36bea6423cff0c7d7"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "57d460fe7118b2e22cde4814ac6af79a027596fc2258cb26790a26a7e108b656",
+          "bytes": 266016,
+          "sha256": "aa9cb145e5eed8d27fde42789c25ce731082062c4b73e17c284056222d48152c"
+        }
+      ]
+    }
+  }
+}

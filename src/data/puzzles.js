@@ -2943,15 +2943,35 @@ export const PUZZLES = {
     vite: 'association-rule-mining-apriori-candidate-pruning',
     html: 'association-rule-mining-apriori-candidate-pruning/index.html',
   },
+  '/dynamic-time-warping-elastic-alignment/': {
+    slug: 'dynamic-time-warping-elastic-alignment',
+    added: '2026-09-26',
+    problemSlug: 'series-similarity',
+    number: 152,
+    category: 'ml-ai',
+    algorithm: 'Dynamic time warping',
+    heuristic: 'Elastic alignment',
+    domain: 'Series similarity',
+    oneLiner:
+      'Find the cheapest monotone path through the grid of sample pairs, letting time stretch and compress inside a band, so that shape is compared while tempo is forgiven: the warp recovered, the classes told apart, and the search made affordable by a lower bound.',
+    description:
+      'Dynamic time warping by elastic alignment on 100-sample series under random smooth time warps, held to a known time map and to a six-shape classification: the recovered path within 2.05 samples of the true warp with DTW at 0.387 against Euclidean 4.134; 1-NN accuracy 99.2% against 83.3%; the Sakoe-Chiba band measured both ways (5% too tight at 90%, 10% at a fifth of the cells with no loss); LB_Keogh never above the true distance on 1,800 pairs and the pruned search exact at 358 of 3,600 full computations; and the pathological unbounded path measured, a spike matching a 60-wide plateau at distance 0.00, capped at 21 samples and 6.24 by the band.',
+    listenMinutes: 9,
+    time: 'n m cells, or n w with a band',
+    space: 'n m, or two rows',
+    baseline: 'Euclidean distance',
+    vite: 'dynamic-time-warping-elastic-alignment',
+    html: 'dynamic-time-warping-elastic-alignment/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Dynamic time warping', heuristic: 'Elastic alignment', domain: 'Series similarity' },
   { algorithm: 'Hough transform', heuristic: 'Parameter-space voting', domain: 'Line detection' },
   { algorithm: 'Otsu thresholding', heuristic: 'Between-class variance', domain: 'Image binarization' },
+  { algorithm: 'Register allocation', heuristic: 'Graph coloring', domain: 'Compiler backend' },
 ];
 
 

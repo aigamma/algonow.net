@@ -4611,6 +4611,42 @@ commit, Fable trailer on every commit, check green before each push.
       every cycle (mean 13.3 candidates pruned); stepMs 1000,
       holdTicks rests. Preserved narration: Aoede + Algieba.
 
+- [x] F146. Dynamic time warping × Elastic alignment. Puzzle 152,
+      ml-ai (problemSlug series-similarity, the atlas problem page
+      carrying "Series similarity"), added 2026-09-26. Solution
+      dynamic_time_warping_elastic_alignment.py (10s, prints OK):
+      100-sample series from six shapes (peak, two peaks, plateau,
+      ramp, two cycles, triangle) under random smooth time warps (log
+      speed random walk, sigma 0.15, about 14 samples off the identity
+      at most) with noise 0.05. FIVE ORACLES: (1) against a known time
+      map: path within 2.05 samples on average (max 9), DTW 0.387 vs
+      Euclidean 4.134 (AUTHOR NOTE: the draft's warps were too mild
+      and Euclidean scored 98.3%, so the warp generator was
+      strengthened, measured at 86.7% Euclidean in a probe); (2) 1-NN
+      over six shapes, 60 train / 120 test: DTW (band 10) 99.2%,
+      Euclidean 83.3%; (3) band 5% / 10% / 20% / none: 1,070 / 1,990 /
+      3,680 / 10,000 cells, 90.0 / 100 / 100 / 100% on a 30-series
+      subset; (4) LB_Keogh 0 violations in 1,800 bounds; pruned 1-NN
+      search agrees on 60 of 60 queries with 358 full DTWs of 3,600;
+      (5) flat series a level apart: DTW 9.99 = Euclidean 9.99; spike
+      vs 60-wide plateau: unbounded distance 0.00 with one sample
+      matched to 60, band 10 distance 6.24 with at most 21. Cards:
+      self, FastDTW, Matrix profile, Longest common subsequence (all
+      algoName). neverUse: unbounded warping. Figure: a 16 x 16 cost
+      grid computed inline for a peak and the same peak five samples
+      early, band shaded, path in green, the Euclidean diagonal in
+      red, the two series with matched pairs, cite Sakoe-Chiba IEEE
+      TASSP 1978 DOI 10.1109/TASSP.1978.1163055, Keogh-Ratanamahatana
+      KAIS 2005, Rakthanmanon et al. KDD 2012. Viz DtwViz: two
+      60-sample series (a shape and its random warp with noise), the
+      grid filled 6 rows per tick inside a band of 8, the path traced
+      back and checked against the generator's true warp, the
+      Euclidean diagonal in red; NODE-VERIFIED 20 cycles: DTW below
+      Euclidean and the path within 6 samples of the true warp in
+      every cycle (mean 2.06; a plateau leaves the alignment free
+      along its flat top); stepMs 380, holdTicks rests. Preserved
+      narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

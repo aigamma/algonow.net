@@ -2883,15 +2883,35 @@ export const PUZZLES = {
     vite: 'locality-sensitive-hashing-random-hyperplane-hashes',
     html: 'locality-sensitive-hashing-random-hyperplane-hashes/index.html',
   },
+  '/decision-tree-information-gain-splits/': {
+    slug: 'decision-tree-information-gain-splits',
+    added: '2026-09-26',
+    problemSlug: 'classification',
+    number: 149,
+    category: 'ml-ai',
+    algorithm: 'Decision tree',
+    heuristic: 'Information gain splits',
+    domain: 'Interpretable classification',
+    oneLiner:
+      'Ask, at every node, the question whose answer drops the label entropy most, split, and recurse: a flowchart that recovers the hidden rule\'s own thresholds, fits the noise if grown too far, and is read back to six leaves by pruning.',
+    description:
+      'The decision tree by information gain splits on 2,000 examples from a hidden tree rule with 10% label noise, held to the rule: the root recovered at the rule\'s threshold and 88.4% test accuracy against the 89.3% Bayes ceiling; entropy, Gini, and misclassification within half a point of each other and random splits 22 points behind; the identifier trap sprung with multiway splits (2,000 leaves, 57.1%, the majority rate) and defused by gain ratio (89.2%) and by binary splits (89.0%); the depth sweep from 74.8% at one question to 100% train / 81.2% test unpruned, pruned back to six leaves at 89.0%; a random forest at 88.7%, naive Bayes 75.3%, logistic regression 73.5%.',
+    listenMinutes: 9,
+    time: 'O(d n log n) per level',
+    space: 'O(leaves)',
+    baseline: 'A decision stump',
+    vite: 'decision-tree-information-gain-splits',
+    html: 'decision-tree-information-gain-splits/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Decision tree', heuristic: 'Information gain splits', domain: 'Interpretable classification' },
   { algorithm: 'Naive Bayes', heuristic: 'Laplace smoothing', domain: 'Probabilistic classification' },
   { algorithm: 'Association rule mining', heuristic: 'Apriori candidate pruning', domain: 'Market-basket analysis' },
+  { algorithm: 'Dynamic time warping', heuristic: 'Elastic alignment', domain: 'Series similarity' },
 ];
 
 

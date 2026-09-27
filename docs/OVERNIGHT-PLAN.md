@@ -4496,6 +4496,45 @@ commit, Fable trailer on every commit, check green before each push.
       stepMs 1100, holdTicks rests. Preserved narration: Aoede +
       Algieba.
 
+- [x] F143. Decision tree × Information gain splits. Puzzle 149,
+      ml-ai (problemSlug classification, the atlas problem page
+      carrying "Interpretable classification"), added 2026-09-26.
+      Solution decision_tree_information_gain_splits.py (9s, prints
+      OK): six uniform features and a four-value category, hidden rule
+      x1 > 0.6 ? (x2 > 0.2) : (c in {A, B} and x3 > 0.7), 10% labels
+      flipped; 2,000 train, 500 validation, 2,000 test; Bayes rate
+      89.3%, majority 57.0%. FIVE ORACLES: (1) depth 6, min leaf 5:
+      root x1 at 0.600, test 88.4%, 27 leaves; (2) criteria at depth
+      6: entropy 88.4% (27 leaves), Gini 88.9% (14), misclassification
+      88.7% (6), random 66.5% (39); (3) the identifier trap with
+      multiway splits: plain gain roots on the id (2,000 leaves), test
+      57.1%; gain ratio with Quinlan's average-gain rule roots on x1,
+      89.2%; binary one-vs-rest gain also roots on x1, 89.0% (AUTHOR
+      NOTE: the draft expected the trap under binary splits and it
+      did not occur; the draft's first rule, x2 > 0.3 and x3 > 0.5,
+      gave the root a gain ratio of 0.095 vs the id's 0.090 and gain
+      ratio picked the id, so the rule was sharpened to 0.2 and 0.7
+      for a 0.204 vs 0.090 margin); (4) depth 1 / 2 / 4 / 6 / 10 /
+      none (min leaf 1): train 76.8 / 83.3 / 90.1 / 91.1 / 95.0 / 100%,
+      test 74.8 / 81.5 / 88.6 / 87.8 / 84.2 / 81.2%, leaves 2 / 4 / 15
+      / 43 / 122 / 230; reduced-error pruning 230 -> 6 leaves, 81.2 ->
+      89.0%; (5) random forest (30 trees, 3 features per split) 88.7%,
+      Gaussian naive Bayes 75.3%, logistic regression (300 epochs)
+      73.5%. Cards: self, Random forest, Naive Bayes, Logistic
+      regression (all algoName). neverUse: multiway information gain
+      with an identifier in play. Figure: the six-leaf pruned tree as
+      boxes beside the depth sweep with the Bayes ceiling and the trap
+      marked, cite Quinlan Machine Learning 1986 DOI
+      10.1007/BF00116251, Quinlan C4.5 1993, Breiman et al. CART 1984.
+      Viz TreeViz: 300 points in the unit square under a random
+      three-threshold rule with 10% flips, one split per tick (the
+      impurest leaf at the largest-gain threshold), regions shaded by
+      majority, training and held-out accuracy tracked to 24 leaves;
+      NODE-VERIFIED 12 cycles: every cycle reaches at least 80%
+      held-out (mean best 88.4% at 4 to 6 leaves) and ends with
+      training above held-out (mean final 84.5%); stepMs 650,
+      holdTicks rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

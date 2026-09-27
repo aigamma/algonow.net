@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net decision-tree-information-gain-splits preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T02:03:42.547Z",
+  "publication_sha256": "ccb55f729e447c0096b381c9c127b74a53c1a2dd88c1afc80f20b1f5b279d45f",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5571256,
+  "objects": [
+    {
+      "stable_id": "puzzle:decision-tree-information-gain-splits",
+      "slug": "decision-tree-information-gain-splits",
+      "track_id": "algieba",
+      "source_sha256": "6efe7f2ff29c0542adb75c1f78e0a9e3e5d9439aeb49cebf328e2e13e00fce84",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "126593020ea6b06dc36787400dc93ec0880a6aed57be33536ba0a1f519057cc9",
+      "object_key": "narration/v1/puzzles/decision-tree-information-gain-splits/126593020ea6b06dc367/algieba-fdf6e75e17085079.mp3",
+      "bytes": 2859116,
+      "sha256": "fdf6e75e170850791570d444b1f3b33156f019d3392bf2c1e6915bd0d0b30b21",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:decision-tree-information-gain-splits",
+      "slug": "decision-tree-information-gain-splits",
+      "track_id": "aoede",
+      "source_sha256": "6efe7f2ff29c0542adb75c1f78e0a9e3e5d9439aeb49cebf328e2e13e00fce84",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "126593020ea6b06dc36787400dc93ec0880a6aed57be33536ba0a1f519057cc9",
+      "object_key": "narration/v1/puzzles/decision-tree-information-gain-splits/126593020ea6b06dc367/aoede-4f610135e6c3cbe7.mp3",
+      "bytes": 2712140,
+      "sha256": "4f610135e6c3cbe7435bf62d80c3d94377ceaa95489179dccb52a6630f9e48a8",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

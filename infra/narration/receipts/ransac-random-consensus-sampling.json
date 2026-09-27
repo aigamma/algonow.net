@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net ransac-random-consensus-sampling preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T01:35:29.281Z",
+  "publication_sha256": "2da8c4a54c6377e00ad41dd22ad68eb30fdf95a3c4e8236fded7ebefb3c5beb0",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5262520,
+  "objects": [
+    {
+      "stable_id": "puzzle:ransac-random-consensus-sampling",
+      "slug": "ransac-random-consensus-sampling",
+      "track_id": "algieba",
+      "source_sha256": "62fb5fca515be8a7671e93ef3828fed8f87c13465aa7577665f9417eb7ef029f",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "696a3c81e80f81a71cd5bf8e5e5979de7c77698117de5058f41ac0bb29a803e8",
+      "object_key": "narration/v1/puzzles/ransac-random-consensus-sampling/696a3c81e80f81a71cd5/algieba-f9c6708cfe017428.mp3",
+      "bytes": 2665196,
+      "sha256": "f9c6708cfe0174285e415c082ec5a407b3a525d258c9f45b7393eb1999ae9668",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:ransac-random-consensus-sampling",
+      "slug": "ransac-random-consensus-sampling",
+      "track_id": "aoede",
+      "source_sha256": "62fb5fca515be8a7671e93ef3828fed8f87c13465aa7577665f9417eb7ef029f",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "696a3c81e80f81a71cd5bf8e5e5979de7c77698117de5058f41ac0bb29a803e8",
+      "object_key": "narration/v1/puzzles/ransac-random-consensus-sampling/696a3c81e80f81a71cd5/aoede-6c6035ef351aea87.mp3",
+      "bytes": 2597324,
+      "sha256": "6c6035ef351aea87a862432c9cdc28eb1d6f0874c8ac99337c24e941f755d2b7",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

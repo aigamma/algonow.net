@@ -734,6 +734,9 @@
   "Bootstrap confidence interval": { "aka": ["BCa bootstrap"] },
   "Holm-Bonferroni": { "aka": ["Holm correction"] },
   "Robust regression": { "aka": ["M-estimation", "Huber regression"] },
+  "Theil-Sen estimator": { "aka": ["Theil-Sen regression", "Sen's slope estimator"] },
+  "Imai-Iri algorithm": { "aka": ["Imai-Iri optimal simplification", "Imai-Iri polygonal approximation"] },
+  "Radial distance simplification": { "aka": ["Radial distance", "Radial distance filter"] },
 
   "DPLL": { "aka": ["Davis-Putnam-Logemann-Loveland"] },
   "CDCL": { "aka": ["Conflict-driven clause learning"] },

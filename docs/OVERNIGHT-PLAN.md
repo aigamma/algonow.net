@@ -4365,6 +4365,40 @@ commit, Fable trailer on every commit, check green before each push.
       and depth (8 and 4); stepMs 900, holdTicks rests. Preserved
       narration: Aoede + Algieba.
 
+- [x] F139. RANSAC × Random consensus sampling. Puzzle 145,
+      signal-graphics (problemSlug robust-fitting, the atlas problem
+      page carrying "Robust model fitting"), added 2026-09-26.
+      Solution ransac_random_consensus_sampling.py (about 30s, prints
+      OK): 200 points, 60% within noise 0.3 of y = 0.7x + 3, 40%
+      uniform scatter; referee the generating line and the true inlier
+      set. FIVE ORACLES: (1) 31 draws (p = 0.999999) at 40% outliers:
+      200 of 200 trials within 0.05 slope / 0.3 intercept (worst 0.023
+      / 0.083), consensus-vs-truth Jaccard worst 0.896 (AUTHOR
+      CORRECTION: the draft demanded every-trial success of the 99%
+      draw count and one trial in 200 failed, as a 99% guarantee
+      allows; and asked Jaccard 0.95 when the threshold admits about
+      5% of the outliers); (2) the draw-count law: 11 draws 98.1% of
+      2,000 trials, 3 draws 68.2%; (3) the sweep 20 / 40 / 60 / 80%
+      outliers -> 5 / 11 / 27 / 113 draws -> 98.2 / 98.4 / 98.6 /
+      97.0% (the draft said 3 draws at 20%; the formula gives 5); (4)
+      threshold 0.05 / 1.0 / 5.0 -> slope error 0.034 / 0.008 / 0.062;
+      (5) rivals, mean slope error at 20 / 40 / 60%: RANSAC 0.004 /
+      0.004 / 0.008, least squares 0.145 / 0.260 / 0.415, Theil-Sen
+      0.006 / 0.020 / 0.108, Huber (IRLS) 0.009 / 0.023 / 0.052
+      (AUTHOR CORRECTION: the draft asserted Huber fails at 60%; it
+      degrades, so the ranking is asserted). Cards: self, Huber
+      regression (algoName), Theil-Sen estimator, Hough transform
+      (algoName). neverUse: least squares on everything. Figure: one
+      draw with its band, a bad draw through an outlier, the pulled
+      least-squares line, cite Fischler-Bolles CACM 1981 DOI
+      10.1145/358669.358692, Torr-Zisserman 2000, Chum-Matas 2005. Viz
+      RansacViz: 200 points, one draw per tick with the sample ringed
+      and the band shaded, best consensus in green, least squares in
+      red, refit at the end; NODE-VERIFIED 10 cycles: refit within
+      0.05 of the true slope every cycle with least squares off by
+      more; stepMs 380, holdTicks rests. Preserved narration: Aoede +
+      Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

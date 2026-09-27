@@ -8,6 +8,7 @@
 {"a": "Iteratively reweighted least squares", "h": null, "d": "Generalized linear models", "t": 2},
 {"a": "Quantile regression", "h": "Pinball loss", "d": "Conditional-quantile regression", "t": 2},
 {"a": "Robust regression", "h": "Huber M-estimation", "d": "Outlier-resistant regression", "t": 2},
+{"a": "Theil-Sen estimator", "h": "Median of pairwise slopes", "d": "Outlier-resistant regression", "t": 2},
 {"a": "Student t-test", "h": null, "d": "Mean comparison", "t": 1},
 {"a": "Welch t-test", "h": "Unequal-variance correction", "d": "Mean comparison", "t": 2},
 {"a": "ANOVA", "h": "F-ratio decomposition", "d": "Multi-group comparison", "t": 2},

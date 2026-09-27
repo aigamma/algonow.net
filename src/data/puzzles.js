@@ -2803,15 +2803,35 @@ export const PUZZLES = {
     vite: 'parallel-prefix-sum-blelloch-scan',
     html: 'parallel-prefix-sum-blelloch-scan/index.html',
   },
+  '/ransac-random-consensus-sampling/': {
+    slug: 'ransac-random-consensus-sampling',
+    added: '2026-09-26',
+    problemSlug: 'robust-fitting',
+    number: 145,
+    category: 'signal-graphics',
+    algorithm: 'RANSAC',
+    heuristic: 'Random consensus sampling',
+    domain: 'Robust model fitting',
+    oneLiner:
+      'Fit the model to the smallest sample that determines it, let every point vote on it within a threshold, keep the largest consensus over enough random draws that one is surely clean, and refit to the voters alone: the outliers never enter the answer.',
+    description:
+      'RANSAC by random consensus sampling on 200 points with 40% gross outliers, measured against the generating line and the true inlier set: 31 draws recover the line in 200 of 200 trials (worst slope error 0.023); the draw-count law verified (11 draws succeed 98.1% of 2,000 trials, 3 draws 68.2%; 5 / 11 / 27 / 113 draws at 20 to 80% outliers, all at or above 97%); the threshold ablated (0.05 starves the vote, 5.0 admits outliers); and at 60% outliers RANSAC 0.008 against Huber 0.052, Theil-Sen 0.108, and least squares 0.415.',
+    listenMinutes: 8,
+    time: 'N draws x n residuals, N = log(1 - p) / log(1 - w^s)',
+    space: 'O(n)',
+    baseline: 'Ordinary least squares',
+    vite: 'ransac-random-consensus-sampling',
+    html: 'ransac-random-consensus-sampling/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'RANSAC', heuristic: 'Random consensus sampling', domain: 'Robust model fitting' },
   { algorithm: 'Douglas-Peucker', heuristic: 'Max-deviation recursion', domain: 'Polyline simplification' },
   { algorithm: 'Chinese remainder theorem', heuristic: "Garner's algorithm", domain: 'Modular reconstruction' },
+  { algorithm: 'Locality-sensitive hashing', heuristic: 'Random hyperplane hashes', domain: 'Approximate nearest neighbors' },
 ];
 
 

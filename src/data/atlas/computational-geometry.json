@@ -55,6 +55,8 @@
 {"a": "Separating axis theorem", "h": null, "d": "Convex collision detection", "t": 2},
 {"a": "Douglas-Peucker", "h": "Max-deviation recursion", "d": "Polyline simplification", "t": 1},
 {"a": "Visvalingam-Whyatt", "h": "Least-area point removal", "d": "Polyline simplification", "t": 2},
+{"a": "Imai-Iri algorithm", "h": "Shortest path over tolerant chords", "d": "Polyline simplification", "t": 3},
+{"a": "Radial distance simplification", "h": "Distance-to-last-kept filter", "d": "Polyline simplification", "t": 3},
 {"a": "Bresenham's line algorithm", "h": null, "d": "Raster line drawing", "t": 1},
 {"a": "Xiaolin Wu's line algorithm", "h": "Coverage antialiasing", "d": "Smooth line drawing", "t": 3},
 {"a": "Midpoint circle algorithm", "h": null, "d": "Raster circle drawing", "t": 2},

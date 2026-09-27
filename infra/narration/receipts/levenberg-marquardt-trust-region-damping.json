@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net levenberg-marquardt-trust-region-damping preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T03:26:41.894Z",
+  "publication_sha256": "b64c661adc420bdca32a13adc458830f4c925a890fadc143f334df2557a4ebea",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5225848,
+  "objects": [
+    {
+      "stable_id": "puzzle:levenberg-marquardt-trust-region-damping",
+      "slug": "levenberg-marquardt-trust-region-damping",
+      "track_id": "algieba",
+      "source_sha256": "2235c340c044863f56adb3b0dbfe769c71ddc82126aba8a02e956536ef799e9f",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "bf3ffce176098467c5768bc0fc28bbb60e8c24202d1e5aa6fa83544b804319b8",
+      "object_key": "narration/v1/puzzles/levenberg-marquardt-trust-region-damping/bf3ffce176098467c576/algieba-7ad504bd09689b73.mp3",
+      "bytes": 2642924,
+      "sha256": "7ad504bd09689b73076e47941590f0dbcddcc44a55830d7bb8f1de32ce4999d0",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:levenberg-marquardt-trust-region-damping",
+      "slug": "levenberg-marquardt-trust-region-damping",
+      "track_id": "aoede",
+      "source_sha256": "2235c340c044863f56adb3b0dbfe769c71ddc82126aba8a02e956536ef799e9f",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "bf3ffce176098467c5768bc0fc28bbb60e8c24202d1e5aa6fa83544b804319b8",
+      "object_key": "narration/v1/puzzles/levenberg-marquardt-trust-region-damping/bf3ffce176098467c576/aoede-77c37ac2c3b4044f.mp3",
+      "bytes": 2582924,
+      "sha256": "77c37ac2c3b4044f8937016d52c0179933eada75ab375358c84b76e8de872bd3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

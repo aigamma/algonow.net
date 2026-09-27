@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:levenberg-marquardt-trust-region-damping",
+  "source_path": "src/content/levenberg-marquardt-trust-region-damping.narration.js",
+  "source_sha256": "2235c340c044863f56adb3b0dbfe769c71ddc82126aba8a02e956536ef799e9f",
+  "source_characters": 10507,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "bf3ffce176098467c5768bc0fc28bbb60e8c24202d1e5aa6fa83544b804319b8",
+  "generated_at": "2026-09-27T03:25:43.976Z",
+  "generated_characters": 21014,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4284,
+      "utf8_bytes": 4293,
+      "sha256": "658bbad3d07325e0f0301f809fdf954d95608f8e0e4d4f3a2530b0ce9974cc47"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4587,
+      "utf8_bytes": 4599,
+      "sha256": "80b7611c41525f5dc2bb45ff807160fc9c447ec98d5706fb692ea9e3cdaca505"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1636,
+      "utf8_bytes": 1640,
+      "sha256": "1b8ca5f28e7c70c9ba0240e66c344e922dd4b43f91774bad083f55bc2a1d86b4"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "levenberg-marquardt-trust-region-damping.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "levenberg-marquardt-trust-region-damping.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1345,
+      "sha256": "f8a1764735d7f1f9c4405efd5175e6c701652245860e83c037241b90e75098fb"
+    },
+    {
+      "id": "levenberg-marquardt-trust-region-damping.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1040,
+      "sha256": "e04fe7d683bbab8bc4f7b7fef5dc684e6209e468e676bd12112398a09337ae1d"
+    },
+    {
+      "id": "levenberg-marquardt-trust-region-damping.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1777,
+      "sha256": "4874567c28c2c8eabc8fa5e3e66a68d2fc2a959bd401e215eaac21cf76232d02"
+    },
+    {
+      "id": "levenberg-marquardt-trust-region-damping.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 768,
+      "sha256": "bce7bea31317a0a95e19a05acb20895eedd109f7cb0e974172ae820615356b0f"
+    },
+    {
+      "id": "levenberg-marquardt-trust-region-damping.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 863,
+      "sha256": "1202fbdb89c4de5b0539d6b039d98c419684d43c01ab467d1dc0be2836ab131e"
+    },
+    {
+      "id": "levenberg-marquardt-trust-region-damping.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 471,
+      "sha256": "19dab246f773303a97f4d8422c5917a479d5679543edbf925a123c05ac10cd62"
+    },
+    {
+      "id": "levenberg-marquardt-trust-region-damping.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1047,
+      "sha256": "effb367d4ad92db863ed409e9883e3cc32265d84299bd4a8429efa972e557752"
+    },
+    {
+      "id": "levenberg-marquardt-trust-region-damping.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 553,
+      "sha256": "ce020b15d15833ec33d5cfd4d708fd4c2a405ed2246449f31de52921c9ede9bb"
+    },
+    {
+      "id": "levenberg-marquardt-trust-region-damping.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 885,
+      "sha256": "6f41f0b1a445a95a8cf66798337daa646a6b5613472a241b9153c287a2f8d9b9"
+    },
+    {
+      "id": "levenberg-marquardt-trust-region-damping.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1640,
+      "sha256": "1b8ca5f28e7c70c9ba0240e66c344e922dd4b43f91774bad083f55bc2a1d86b4"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/levenberg-marquardt-trust-region-damping/bf3ffce176098467c576/aoede-77c37ac2c3b4044f.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2582924,
+      "sha256": "77c37ac2c3b4044f8937016d52c0179933eada75ab375358c84b76e8de872bd3",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "658bbad3d07325e0f0301f809fdf954d95608f8e0e4d4f3a2530b0ce9974cc47",
+          "bytes": 1059072,
+          "sha256": "713089a6bff7dba72364af3d75a584c5b86a1e46ed35769ecb4041fe5a29cb18"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "80b7611c41525f5dc2bb45ff807160fc9c447ec98d5706fb692ea9e3cdaca505",
+          "bytes": 1142592,
+          "sha256": "54fafddd5a0cc98b0d6c228cd43004bb6b729e81386be1ee6bc3cf42c43d312b"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "1b8ca5f28e7c70c9ba0240e66c344e922dd4b43f91774bad083f55bc2a1d86b4",
+          "bytes": 381024,
+          "sha256": "04d9c6fd53b5f626c1c73f7e15d1e43789ccf807772c4d2ade962dba5747f17b"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/levenberg-marquardt-trust-region-damping/bf3ffce176098467c576/algieba-7ad504bd09689b73.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2642924,
+      "sha256": "7ad504bd09689b73076e47941590f0dbcddcc44a55830d7bb8f1de32ce4999d0",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "658bbad3d07325e0f0301f809fdf954d95608f8e0e4d4f3a2530b0ce9974cc47",
+          "bytes": 1080672,
+          "sha256": "e8b84e42044c659878ac0f1256dec7c1269e299a2f665263ff8cd01aa5eb7115"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "80b7611c41525f5dc2bb45ff807160fc9c447ec98d5706fb692ea9e3cdaca505",
+          "bytes": 1183104,
+          "sha256": "6ee1382cce9d70befe127fe1da8cd9f4a26c70d0f30531cbbcc9c88e3596d50d"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "1b8ca5f28e7c70c9ba0240e66c344e922dd4b43f91774bad083f55bc2a1d86b4",
+          "bytes": 378912,
+          "sha256": "e155d203549ce4c30b7362c65b95240c5086e35fc2c26623052a412fe647a941"
+        }
+      ]
+    }
+  }
+}

@@ -3103,6 +3103,26 @@ export const PUZZLES = {
     vite: 'barnes-hut-octree-center-of-mass-approximation',
     html: 'barnes-hut-octree-center-of-mass-approximation/index.html',
   },
+  '/levenberg-marquardt-trust-region-damping/': {
+    slug: 'levenberg-marquardt-trust-region-damping',
+    added: '2026-09-26',
+    problemSlug: 'nonlinear-least-squares',
+    number: 160,
+    category: 'numerical',
+    algorithm: 'Levenberg-Marquardt',
+    heuristic: 'Trust-region damping',
+    domain: 'Nonlinear least squares',
+    oneLiner:
+      'Solve the Gauss-Newton normal equations with lambda added to the diagonal, raising lambda tenfold after a rejected step and lowering it after an accepted one: a gradient step when the linear model lies, the full Newton step when it tells the truth, and the superlinear finish of Newton from starts where Newton alone diverges.',
+    description:
+      'Levenberg-Marquardt with trust-region damping on the double-exponential fit, held to the residual floor at the known true parameters: 98 of 100 far starts within 1% of the floor in 9.2 iterations on average, against 29 for undamped Gauss-Newton (71 diverged) and 81 for gradient descent at 2,936 iterations; the damping traced on one run (lambda 1e-2 to 1e-6 over 8 accepted and 3 rejected steps); parameter-error ratios of 2.3e-2, 3.5e-2, 7.0e-3 per step near the solution against 0.9999 for gradient descent; and the condition number of the normal matrix cut from 3.6e5 to 1.5e4 by lambda = 1.',
+    listenMinutes: 9,
+    time: 'one n x n solve per trial step',
+    space: 'the Jacobian, m x n',
+    baseline: 'Undamped Gauss-Newton',
+    vite: 'levenberg-marquardt-trust-region-damping',
+    html: 'levenberg-marquardt-trust-region-damping/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
@@ -3110,8 +3130,8 @@ export const PUZZLES = {
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
   { algorithm: 'Register allocation', heuristic: 'Graph coloring', domain: 'Compiler backend' },
-  { algorithm: 'Levenberg-Marquardt', heuristic: 'Trust-region damping', domain: 'Nonlinear least squares' },
   { algorithm: 'Nelder-Mead', heuristic: 'Reflect-expand-contract simplex', domain: 'Derivative-free optimization' },
+  { algorithm: 'Fibonacci heap', heuristic: 'Lazy consolidation with marking', domain: 'Amortized-optimal priority queue' },
 ];
 
 

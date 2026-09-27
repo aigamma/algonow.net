@@ -4916,6 +4916,41 @@ commit, Fable trailer on every commit, check green before each push.
       199, median 0.8 to 1.1%); stepMs 500, holdTicks rests. Preserved
       narration: Aoede + Algieba.
 
+- [x] F154. Levenberg-Marquardt × Trust-region damping. Puzzle 160,
+      numerical (problemSlug nonlinear-least-squares, the atlas
+      problem page carrying "Nonlinear least squares"), added
+      2026-09-26. Solution levenberg_marquardt_trust_region_damping.py
+      (31s, prints OK): y = a exp(-b t) + c exp(-d t) on 60 points in
+      [0, 3], noise 0.02, truth (3, 1, 2, 5), floor 0.02077 (0.02027
+      refined); a saturating exp so rejected trials cannot raise. FIVE
+      ORACLES: (1) 100 starts in [0.2, 8]^4: LM 98 within 1% of the
+      floor (mean 9.2 iterations), Gauss-Newton 29 with 71 diverged,
+      gradient descent with backtracking 81 at mean 2,936 iterations
+      (cap 5,000); (2) the trace from (6, 0.3, 0.5, 2): 8 accepted
+      steps in 8 iterations, 3 rejected, lambda 1e-2 down to 1e-6,
+      final cost 0.02027; (3) parameter-error ratios over the last
+      accepted steps 2.28e-2 / 3.49e-2 / 7.00e-3, measured modulo the
+      swap symmetry (a, b, c, d) <-> (c, d, a, b), gradient descent
+      0.9999 after 3,000 steps (AUTHOR CORRECTION: the draft replayed
+      the method past convergence and wandered along the flat valley;
+      the rate is read from the run's accepted iterates); (4)
+      cond(J^T J) at the far start 3.6e5; with lambda 0.01 / 1 / 100:
+      1.0e5 / 1.5e4 / 1.1e4; (5) Gauss-Newton and gradient descent as
+      the negative examples. Cards: self, Gauss-Newton, Trust-region
+      method, BFGS (all algoName). neverUse: gradient descent on a
+      least-squares valley. Figure: the damping dial over the traced
+      run's eleven trials (schematic, measured counts) beside the
+      success bars, cite Levenberg QAM 1944 DOI 10.1090/qam/10666,
+      Marquardt SIAM 1963, More 1978. Viz LmViz: a two-parameter fit y
+      = a exp(-b t) on 30 noisy points over the (a, b) cost surface,
+      LM, undamped Gauss-Newton, and gradient descent from the same
+      random start, one iteration per tick with lambda shown;
+      NODE-VERIFIED 20 starts: LM within 5% of the floor in every
+      start; gradient descent behind it in 13 of 20 and Gauss-Newton
+      failing in 2 of 20, reported not required (the two-parameter
+      surface is mild); stepMs 400, holdTicks rests. Preserved
+      narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

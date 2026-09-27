@@ -3123,6 +3123,26 @@ export const PUZZLES = {
     vite: 'levenberg-marquardt-trust-region-damping',
     html: 'levenberg-marquardt-trust-region-damping/index.html',
   },
+  '/nelder-mead-reflect-expand-contract-simplex/': {
+    slug: 'nelder-mead-reflect-expand-contract-simplex',
+    added: '2026-09-26',
+    problemSlug: 'continuous-optimization',
+    number: 161,
+    category: 'numerical',
+    algorithm: 'Nelder-Mead',
+    heuristic: 'Reflect-expand-contract simplex',
+    domain: 'Derivative-free optimization',
+    oneLiner:
+      'Keep n + 1 points sorted by value and replace the worst each iteration by reflecting it through the centroid of the others, expanding when the reflection is the new best, contracting when it is poor, and shrinking everything toward the best when nothing helps: a minimizer built from comparisons alone, which is why it survives noise that destroys finite-difference gradients.',
+    description:
+      'Nelder-Mead with the reflect-expand-contract simplex on three referees with known minima: 50 of 50 random starts on Rosenbrock below 1e-8 at 208 evaluations against BFGS 111 with the analytic gradient and coordinate descent 0 of 50; 1,139 reflections, 374 expansions, 3,869 contractions, and 9 shrinks over the runs; 0.016 from the center of a quadratic under evaluation noise 1e-3 where finite-difference BFGS ends 2.34 away; McKinnon\'s stall at the origin reproduced (135 inside contractions, no reflection) and escaped by a restart; and evaluations climbing 146 to 5,718 to 81,689 for n = 2, 16, 32 against BFGS 29, 117, 216.',
+    listenMinutes: 9,
+    time: 'one to n + 1 evaluations per iteration',
+    space: 'n + 1 points',
+    baseline: 'Coordinate descent with golden-section line searches',
+    vite: 'nelder-mead-reflect-expand-contract-simplex',
+    html: 'nelder-mead-reflect-expand-contract-simplex/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
@@ -3130,8 +3150,8 @@ export const PUZZLES = {
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
   { algorithm: 'Register allocation', heuristic: 'Graph coloring', domain: 'Compiler backend' },
-  { algorithm: 'Nelder-Mead', heuristic: 'Reflect-expand-contract simplex', domain: 'Derivative-free optimization' },
   { algorithm: 'Fibonacci heap', heuristic: 'Lazy consolidation with marking', domain: 'Amortized-optimal priority queue' },
+  { algorithm: 'Holt-Winters', heuristic: 'Triple seasonal smoothing', domain: 'Seasonal forecasting' },
 ];
 
 

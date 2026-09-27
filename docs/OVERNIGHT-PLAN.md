@@ -4951,6 +4951,43 @@ commit, Fable trailer on every commit, check green before each push.
       surface is mild); stepMs 400, holdTicks rests. Preserved
       narration: Aoede + Algieba.
 
+- [x] F155. Nelder-Mead × Reflect-expand-contract simplex. Puzzle 161,
+      numerical (problemSlug continuous-optimization, the atlas
+      problem page carrying "Continuous optimization"), added
+      2026-09-26. Solution nelder_mead_reflect_expand_contract_simplex.py
+      (8s, prints OK): FIVE ORACLES against known minima: (1)
+      Rosenbrock from 50 starts in [-2, 2]^2, target below 1e-8:
+      Nelder-Mead 50 of 50 at 208 evaluations, BFGS with the analytic
+      gradient 50 of 50 at 111 function-plus-gradient calls, coordinate
+      descent with golden-section lines 0 of 50 in 200 sweeps; moves
+      1,139 reflect / 374 expand / 3,869 contract / 9 shrink; (2) a
+      quadratic with evaluation noise 1e-3 from (3, 3, 3): Nelder-Mead
+      0.016 from the center (3,000 evaluations, the cap),
+      finite-difference BFGS (h 1e-6) 2.34 away, exact BFGS on the
+      clean function 2.8e-16; (3) McKinnon's counterexample (theta 6,
+      tau 2, phi 60) from his simplex: 135 inside contractions, 0
+      reflections, stall at the origin with value 0 in 273
+      evaluations; a restart reaches (0, -0.5), value -0.25; (4) a
+      quadratic with condition number 100 to 1e-6: n = 2 / 4 / 8 / 16
+      / 32 costs 146 / 407 / 1,297 / 5,718 / 81,689 against BFGS 29 /
+      38 / 68 / 117 / 216, growth 39x vs 4x from n = 2 to 16 (AUTHOR
+      CORRECTION: the draft expected n = 32 to fail inside 200,000
+      evaluations; it converged at 81,689, so the dimension penalty is
+      reported as cost, 378x, not failure); (5) finite-difference
+      gradients on the noisy function as the negative example. Cards:
+      self, Powell's method, CMA-ES, BFGS (all algoName). neverUse:
+      finite-difference gradients on a noisy objective. Figure: the
+      four moves on one triangle (W, c, R, E, Co, Ci, dashed shrink)
+      beside evaluations against dimension on a log scale, cite
+      Nelder and Mead, The Computer Journal 1965 DOI
+      10.1093/comjnl/7.4.308, McKinnon SIAM J. Optim. 1998, Lagarias
+      et al. 1998. Viz NelderMeadViz: the simplex on Rosenbrock's
+      banana from a random start, one move per tick named and counted,
+      trail of best vertices, distance to (1, 1); NODE-VERIFIED 20
+      starts: 20 of 20 within 1e-3 of (1, 1) inside 160 iterations,
+      mean 152 evaluations; stepMs 220, holdTicks rests. Preserved
+      narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

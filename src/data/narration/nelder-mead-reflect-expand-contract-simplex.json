@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:nelder-mead-reflect-expand-contract-simplex",
+  "source_path": "src/content/nelder-mead-reflect-expand-contract-simplex.narration.js",
+  "source_sha256": "93a98b33ee76b1423aa0d7e9819c53dd9d0b86c7dba8caeb84761f4ec4ed32b4",
+  "source_characters": 10472,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "6f44f75d5e202132af0abc6264d2f4229d4f16a739328062c16ec03688ab0c40",
+  "generated_at": "2026-09-27T03:40:36.561Z",
+  "generated_characters": 20944,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4800,
+      "utf8_bytes": 4812,
+      "sha256": "ac54f6532d6cd8399f638b31470edd85501087bd79c1da4fc2c38d00a762da92"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4021,
+      "utf8_bytes": 4027,
+      "sha256": "523006f37a02b2d294f3473b4a62422e244572cbfa88c9cf0a61874255c84158"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 996,
+      "utf8_bytes": 1002,
+      "sha256": "cf49a0a19c9326d84c79849ef18904c2f13c0462a57c57e5f36255f88b55fb94"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 655,
+      "utf8_bytes": 655,
+      "sha256": "bb21d64a40b602113371dc71c1643a80928adbd45f3896e5eb017c5a56832412"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "nelder-mead-reflect-expand-contract-simplex.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "nelder-mead-reflect-expand-contract-simplex.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1346,
+      "sha256": "df3ab82cd8653acc69f4582c41b3227e2c45ad2a90eb5475b08b556c20754ee7"
+    },
+    {
+      "id": "nelder-mead-reflect-expand-contract-simplex.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1237,
+      "sha256": "cb783f03d19baa008279f360fb44becb2cadd17fd0851a32ecc521df9edb4661"
+    },
+    {
+      "id": "nelder-mead-reflect-expand-contract-simplex.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1475,
+      "sha256": "06972cda5ffd92f626ff67aaaa14fe71e87baea64a342bd9a9e50f6cc5b4fc49"
+    },
+    {
+      "id": "nelder-mead-reflect-expand-contract-simplex.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 621,
+      "sha256": "ac08d9548e133ecb3f19facd67ce601a6d47a475205a3c2af67a152a661186ca"
+    },
+    {
+      "id": "nelder-mead-reflect-expand-contract-simplex.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 927,
+      "sha256": "dbb6ed441f1b9f6b916ad44c68e4053f5c34728a5b7c0e7a17a51257e60575ae"
+    },
+    {
+      "id": "nelder-mead-reflect-expand-contract-simplex.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 368,
+      "sha256": "ebc425830238aebd40f5116b7714c039d1c3e0de6873b70bbea022ac54dac206"
+    },
+    {
+      "id": "nelder-mead-reflect-expand-contract-simplex.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1198,
+      "sha256": "3a134cdd49711b246888dd99db7c28911d834f70bc896d82af396a70c1133385"
+    },
+    {
+      "id": "nelder-mead-reflect-expand-contract-simplex.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 740,
+      "sha256": "1a03859e522e823434b2bc0bd8e028e1aa1ea0a5eacc30c718c180fb1f1bb243"
+    },
+    {
+      "id": "nelder-mead-reflect-expand-contract-simplex.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 784,
+      "sha256": "e5a8ca973e08b60539c3266cb65905d1d79ecf760115da61439c9bcc71489f3b"
+    },
+    {
+      "id": "nelder-mead-reflect-expand-contract-simplex.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1657,
+      "sha256": "94576ebce24da8452732eb23acb99e189d37de1c826c505642be9f437bc8a993"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/nelder-mead-reflect-expand-contract-simplex/6f44f75d5e202132af0a/aoede-b0a1bb42b113216c.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2630540,
+      "sha256": "b0a1bb42b113216cf506f04b4e7a7b5c3c191a6c84a3ab38b4cdf48b745d109d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "ac54f6532d6cd8399f638b31470edd85501087bd79c1da4fc2c38d00a762da92",
+          "bytes": 1182432,
+          "sha256": "976fc084af704e77451787c9078f64c16357ef873e7f7bd1f7c391b48872c801"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "523006f37a02b2d294f3473b4a62422e244572cbfa88c9cf0a61874255c84158",
+          "bytes": 1031904,
+          "sha256": "aaeecc11ab030f03f769a4e1f0e1ab98dedce61fb16878b7606e2827c8bf7d90"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "cf49a0a19c9326d84c79849ef18904c2f13c0462a57c57e5f36255f88b55fb94",
+          "bytes": 271104,
+          "sha256": "4f01a39dc37163124b73c4d46c3cbe542b5e7f1ae5f809c813bb683f4865ef8a"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "bb21d64a40b602113371dc71c1643a80928adbd45f3896e5eb017c5a56832412",
+          "bytes": 144864,
+          "sha256": "2f899200660006cb6389cd15207a3d8a31b1d3cfaa7921fef9a3e0cf20cc4429"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/nelder-mead-reflect-expand-contract-simplex/6f44f75d5e202132af0a/algieba-b4fdef63c0d15002.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2829644,
+      "sha256": "b4fdef63c0d15002cb27efe3eba38f2cf75369d4bdb1021514be56baec9d3fd8",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "ac54f6532d6cd8399f638b31470edd85501087bd79c1da4fc2c38d00a762da92",
+          "bytes": 1299456,
+          "sha256": "611eda8cdb2321682c145d6d3ccabf92e82939a88541a7c285e1dcc17dad3d11"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "523006f37a02b2d294f3473b4a62422e244572cbfa88c9cf0a61874255c84158",
+          "bytes": 1101504,
+          "sha256": "b84e7d06bcc0fb00bea665b59a84763d49a30fe7b239ee1f1dc689fe138e4c3e"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "cf49a0a19c9326d84c79849ef18904c2f13c0462a57c57e5f36255f88b55fb94",
+          "bytes": 273504,
+          "sha256": "82959e09c35ee809073b7090f3920c7af95c299b0c021ba4d50ab362116bb977"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "bb21d64a40b602113371dc71c1643a80928adbd45f3896e5eb017c5a56832412",
+          "bytes": 154944,
+          "sha256": "1bb6126a0e487079f35e7da3dd55f49945c265d0c32bdd92be11123d3b3a92c6"
+        }
+      ]
+    }
+  }
+}

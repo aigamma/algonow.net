@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net nelder-mead-reflect-expand-contract-simplex preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T03:41:32.740Z",
+  "publication_sha256": "2c480e2bd0743caa4d2f6fdaef41a04d850c7e4f9cf93399dd8ff036fd4a97ad",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5460184,
+  "objects": [
+    {
+      "stable_id": "puzzle:nelder-mead-reflect-expand-contract-simplex",
+      "slug": "nelder-mead-reflect-expand-contract-simplex",
+      "track_id": "algieba",
+      "source_sha256": "93a98b33ee76b1423aa0d7e9819c53dd9d0b86c7dba8caeb84761f4ec4ed32b4",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "6f44f75d5e202132af0abc6264d2f4229d4f16a739328062c16ec03688ab0c40",
+      "object_key": "narration/v1/puzzles/nelder-mead-reflect-expand-contract-simplex/6f44f75d5e202132af0a/algieba-b4fdef63c0d15002.mp3",
+      "bytes": 2829644,
+      "sha256": "b4fdef63c0d15002cb27efe3eba38f2cf75369d4bdb1021514be56baec9d3fd8",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:nelder-mead-reflect-expand-contract-simplex",
+      "slug": "nelder-mead-reflect-expand-contract-simplex",
+      "track_id": "aoede",
+      "source_sha256": "93a98b33ee76b1423aa0d7e9819c53dd9d0b86c7dba8caeb84761f4ec4ed32b4",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "6f44f75d5e202132af0abc6264d2f4229d4f16a739328062c16ec03688ab0c40",
+      "object_key": "narration/v1/puzzles/nelder-mead-reflect-expand-contract-simplex/6f44f75d5e202132af0a/aoede-b0a1bb42b113216c.mp3",
+      "bytes": 2630540,
+      "sha256": "b0a1bb42b113216cf506f04b4e7a7b5c3c191a6c84a3ab38b4cdf48b745d109d",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

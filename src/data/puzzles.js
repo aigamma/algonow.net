@@ -2683,15 +2683,35 @@ export const PUZZLES = {
     vite: 'monte-carlo-localization-particle-filter',
     html: 'monte-carlo-localization-particle-filter/index.html',
   },
+  '/cuckoo-hashing-two-table-eviction-kicks/': {
+    slug: 'cuckoo-hashing-two-table-eviction-kicks',
+    added: '2026-09-26',
+    problemSlug: 'hash-collision-resolution',
+    number: 139,
+    category: 'data-structures',
+    algorithm: 'Cuckoo hashing',
+    heuristic: 'Two-table eviction kicks',
+    domain: 'Worst-case-constant lookup',
+    oneLiner:
+      'Every key lives in one of two slots, so a lookup is two probes, always; insertion earns that by kicking the occupant to its other slot, chain after chain, until one lands in an empty slot. Below half full the chains are short, and past it the cliff is real.',
+    description:
+      'Cuckoo hashing with two-table eviction kicks under churn: the invariant held after every 1,000 of 20,000 operations and 40,000 lookups agreeing with a set with a worst probe count of exactly 2, where separate chaining\'s worst is 4 and linear probing\'s 14 at load 0.45 (318 and 521 at 0.9); insertion measured at 0.10 to 0.77 kicks per key from load 0.1 to 0.49 with no rehash; the cliff past 0.5 measured to the load where ten fresh function pairs in a row failed; and the no-kick table refusing at load 0.075.',
+    listenMinutes: 8,
+    time: '2 probes per lookup, expected O(1) insert',
+    space: 'two tables, under half full',
+    baseline: 'Two choices without displacement',
+    vite: 'cuckoo-hashing-two-table-eviction-kicks',
+    html: 'cuckoo-hashing-two-table-eviction-kicks/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Cuckoo hashing', heuristic: 'Two-table eviction kicks', domain: 'Worst-case-constant lookup' },
   { algorithm: 'Conjugate gradient', heuristic: 'Jacobi preconditioner', domain: 'SPD sparse systems' },
   { algorithm: 'Byte pair encoding', heuristic: 'Frequency-merge vocabulary', domain: 'Subword tokenization' },
+  { algorithm: 'Betweenness centrality', heuristic: 'Brandes accumulation', domain: 'Node importance' },
 ];
 
 

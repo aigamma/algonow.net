@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net cuckoo-hashing-two-table-eviction-kicks preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T00:53:06.479Z",
+  "publication_sha256": "c83a5e2f267a6967acc5c80e0834d02465b66159aeefb5c97582afc0c50078b2",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4753528,
+  "objects": [
+    {
+      "stable_id": "puzzle:cuckoo-hashing-two-table-eviction-kicks",
+      "slug": "cuckoo-hashing-two-table-eviction-kicks",
+      "track_id": "algieba",
+      "source_sha256": "844947384c3d057f5d1e0ba5893c227dc1fa1d11b7cb352f8a16918a68d23f32",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "21d41c1ee8483a0980af2bae4f3a29aa02e7388a21ce8e357647a7be742e3955",
+      "object_key": "narration/v1/puzzles/cuckoo-hashing-two-table-eviction-kicks/21d41c1ee8483a0980af/algieba-80d54ab02f3be032.mp3",
+      "bytes": 2437964,
+      "sha256": "80d54ab02f3be032c64b21016908e7d1e43bd75b11e1a7b83da2e7ea30766e82",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:cuckoo-hashing-two-table-eviction-kicks",
+      "slug": "cuckoo-hashing-two-table-eviction-kicks",
+      "track_id": "aoede",
+      "source_sha256": "844947384c3d057f5d1e0ba5893c227dc1fa1d11b7cb352f8a16918a68d23f32",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "21d41c1ee8483a0980af2bae4f3a29aa02e7388a21ce8e357647a7be742e3955",
+      "object_key": "narration/v1/puzzles/cuckoo-hashing-two-table-eviction-kicks/21d41c1ee8483a0980af/aoede-497e6e94594086e2.mp3",
+      "bytes": 2315564,
+      "sha256": "497e6e94594086e2c1362eb4a5f4ff936fdd1663b3b7d681e66cd5a34e1cc2f9",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

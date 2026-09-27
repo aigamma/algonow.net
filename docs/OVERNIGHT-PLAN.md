@@ -4193,6 +4193,38 @@ commit, Fable trailer on every commit, check green before each push.
       10; stepMs 160, holdTicks rests. Preserved narration: Aoede +
       Algieba.
 
+- [x] F133. Cuckoo hashing × two-table eviction kicks. Puzzle 139,
+      data-structures (problemSlug hash-collision-resolution, the atlas
+      problem page carrying "Worst-case-constant lookup"), added
+      2026-09-26. Solution cuckoo_hashing_two_table_eviction_kicks.py
+      (0.3s, prints OK): two tables of 10,000, random 30-bit keys.
+      FIVE ORACLES: (1) the invariant after every 1,000 of 20,000
+      inserts/deletes, 40,000 lookups agreeing with a Python set, worst
+      probe exactly 2 (final load 0.395, 0 rehashes); (2) at load 0.45:
+      cuckoo 1.33 / 2 hit and 2.00 / 2 miss, chaining 1.22 / 4 and
+      1.09 / 4, linear probing 1.41 / 14 and 2.14 / 23, and at load 0.9
+      linear probing 5.4 / 318 and 52.8 / 521; (3) kicks per insert /
+      longest chain / rehashes at loads 0.1 .. 0.49: 0.097/3/0,
+      0.188/7/0, 0.305/9/0, 0.464/15/0, 0.575/25/0, 0.771/67/0; (4)
+      the cliff: rehashes 0 / 1 / 4 by loads 0.45 / 0.50 / 0.52, gave
+      up at 0.534 after ten fresh function pairs in a row failed (14
+      rehashes in all). AUTHOR NOTE: the first draft let rehashing
+      retry without limit and hung past the cliff for ten minutes,
+      which is the cliff demonstrating itself; the bound makes it a
+      measurement; (5) no kicks: refused at load 0.075. Cards: self,
+      Hash table with chaining, Open addressing, Robin Hood hashing.
+      neverUse: two choices without displacement. Figure: a three-key
+      kick chain across the two tables with the measured numbers, cite
+      Pagh-Rodler J. Algorithms 2004 DOI 10.1016/j.jalgor.2003.12.002
+      and Fotakis et al. STACS 2003. Viz CuckooHashingViz (the file
+      CuckooViz.jsx belongs to puzzle 64's cuckoo filter and was
+      restored after an accidental overwrite): two tables of 20 slots,
+      one key per tick toward load 0.525, the amber kick chain, a red
+      rehash flash, the lookup probe count; NODE-VERIFIED 12 cycles:
+      invariant held and every lookup within 2 probes in all 12;
+      stepMs 520, holdTicks rests. Preserved narration: Aoede +
+      Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

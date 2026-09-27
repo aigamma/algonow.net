@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:cuckoo-hashing-two-table-eviction-kicks",
+  "source_path": "src/content/cuckoo-hashing-two-table-eviction-kicks.narration.js",
+  "source_sha256": "844947384c3d057f5d1e0ba5893c227dc1fa1d11b7cb352f8a16918a68d23f32",
+  "source_characters": 8902,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "21d41c1ee8483a0980af2bae4f3a29aa02e7388a21ce8e357647a7be742e3955",
+  "generated_at": "2026-09-27T00:52:11.227Z",
+  "generated_characters": 17804,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4548,
+      "utf8_bytes": 4558,
+      "sha256": "4a2a49ebbfe7e31dce0825f5cef2ce08f096ef4d12ec9b78bd23ff5ca550b354"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4354,
+      "utf8_bytes": 4360,
+      "sha256": "decf883573415a9c4abbccf9fa1506d3dbcaf97beab5fd0f924416847e7b2af4"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "cuckoo-hashing-two-table-eviction-kicks.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "cuckoo-hashing-two-table-eviction-kicks.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1077,
+      "sha256": "d1c78b17fdc414c065a19ae4c75181767d8e1cc2050b9039b2c7304e3cfaf9a9"
+    },
+    {
+      "id": "cuckoo-hashing-two-table-eviction-kicks.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1014,
+      "sha256": "d28ca653b64005433b3b7985d4ab66047fad8f05993e76c03c81d9092c231116"
+    },
+    {
+      "id": "cuckoo-hashing-two-table-eviction-kicks.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1603,
+      "sha256": "800b88f240ee8738467c3d5ad60cfd89c4bd33b8c26b82fc4e87e4d3695cbec3"
+    },
+    {
+      "id": "cuckoo-hashing-two-table-eviction-kicks.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 731,
+      "sha256": "b227310485b4090e993282d451e8633717eb8ad0e54885195f185371aa7a859c"
+    },
+    {
+      "id": "cuckoo-hashing-two-table-eviction-kicks.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 965,
+      "sha256": "6c296282da9ed06db6a8540b5db95c2571ce80a487f42a6f67e3bc8cba83d998"
+    },
+    {
+      "id": "cuckoo-hashing-two-table-eviction-kicks.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 421,
+      "sha256": "4905cec5eec26bb53ec814eb2d9490fcc67b32b74ae85388b990065f3842e746"
+    },
+    {
+      "id": "cuckoo-hashing-two-table-eviction-kicks.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1046,
+      "sha256": "b50ebb9dc169652482ce4023c5d0fc5dfc0a834142435ffdb0737b6425fadee4"
+    },
+    {
+      "id": "cuckoo-hashing-two-table-eviction-kicks.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 499,
+      "sha256": "b1a449e63ecd962124a8b5c1c1749b75687638d28394a2565d193d5d0e7edaf6"
+    },
+    {
+      "id": "cuckoo-hashing-two-table-eviction-kicks.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 574,
+      "sha256": "ad70ada1e4057d76f21d152a0fab3809c93a5689bf7d021acd314e856151f40d"
+    },
+    {
+      "id": "cuckoo-hashing-two-table-eviction-kicks.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 845,
+      "sha256": "7b2ab5a3b0fb6115482e4cd69e2e1b88059cae4f47efd1d9cf254d0f5ba7dbb4"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/cuckoo-hashing-two-table-eviction-kicks/21d41c1ee8483a0980af/aoede-497e6e94594086e2.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2315564,
+      "sha256": "497e6e94594086e2c1362eb4a5f4ff936fdd1663b3b7d681e66cd5a34e1cc2f9",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "4a2a49ebbfe7e31dce0825f5cef2ce08f096ef4d12ec9b78bd23ff5ca550b354",
+          "bytes": 1193472,
+          "sha256": "449e8d58758a6e4c5844561d3094d4e4b00269fa44fb258699e0ca0733cd29ad"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "decf883573415a9c4abbccf9fa1506d3dbcaf97beab5fd0f924416847e7b2af4",
+          "bytes": 1121856,
+          "sha256": "e999bfd6614e16d4f0a24ac697d6a5c0ccf5cb30223a8e7391c0960f4250052c"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/cuckoo-hashing-two-table-eviction-kicks/21d41c1ee8483a0980af/algieba-80d54ab02f3be032.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2437964,
+      "sha256": "80d54ab02f3be032c64b21016908e7d1e43bd75b11e1a7b83da2e7ea30766e82",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "4a2a49ebbfe7e31dce0825f5cef2ce08f096ef4d12ec9b78bd23ff5ca550b354",
+          "bytes": 1213632,
+          "sha256": "5bfa7b4b40a441f1d4d3c35f01fef537d168d8359bc3416e3461bef63bdc772e"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "decf883573415a9c4abbccf9fa1506d3dbcaf97beab5fd0f924416847e7b2af4",
+          "bytes": 1224096,
+          "sha256": "54cd4423d50e3235fb1d4af257747cd3dc0f4230372435830f9b5ef94c98cdbc"
+        }
+      ]
+    }
+  }
+}

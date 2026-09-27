@@ -4135,6 +4135,37 @@ commit, Fable trailer on every commit, check green before each push.
       count, the slot clock at 120 slots, in all 8; stepMs 120,
       holdTicks rests. Preserved narration: Aoede + Algieba.
 
+- [x] F131. Automatic differentiation × reverse mode. Puzzle 137,
+      numerical (problemSlug automatic-differentiation, the atlas
+      problem page carrying "Gradient computation"), added 2026-09-26.
+      Solution automatic_differentiation_reverse_mode.py (2s, prints
+      OK): a tape-based reverse mode, forward-mode dual numbers, and
+      plain numbers through one tanh-network loss, every elementary
+      operation counted. FIVE ORACLES: (1) closed forms: both modes to
+      8.9e-16; (2) the 501-parameter network: reverse vs forward mode
+      2.7e-16, reverse vs central differences 7.0e-11; (3) the cost
+      law: evaluation 247 / 7,703 / 85,223 ops at n = 17 / 501 / 5,401,
+      reverse 709 / 22,789 / 254,469 (2.87x / 2.96x / 2.99x), forward
+      mode 4,199 / 3,859,203 / not run (460 million; the first draft
+      ran it and took 80 seconds), finite differences 8,398 /
+      7,718,406 / not run, tape 288 / 8,228 / 90,648 nodes; (4) one
+      input, 500 outputs: forward mode 1,500 ops in one pass, reverse
+      627,750 in 500 sweeps, identical to 1e-12; (5) the tape counted.
+      Cards: self, Forward-mode AD (algoName Automatic
+      differentiation), Numerical differentiation, Backpropagation
+      (live). neverUse: reverse mode for a tall Jacobian. Figure: the
+      small graph with forward values and reverse adjoints beside the
+      operation-count bars, cite Linnainmaa BIT 1976 DOI
+      10.1007/BF01931367, Baur-Strassen 1983, Griewank-Walther 2008.
+      Viz AutodiffViz: scene A animates the forward pass and the
+      reverse sweep on f = sin(x) exp(y) + x^2/y with the adjoints
+      checked against the closed form; scene B pushes a dual number
+      along a one-input six-output chain and counts what reverse mode
+      would cost; NODE-VERIFIED: adjoints equal the closed form to
+      0.0 and the chain derivative matches finite differences to
+      2e-11; stepMs 600, holdTicks rests. Preserved narration: Aoede +
+      Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

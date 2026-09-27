@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net automatic-differentiation-reverse-mode preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T00:41:59.927Z",
+  "publication_sha256": "563eaa071fc29a857d23433ba6f765c8255396eb990838edd38aa54b96824a8d",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5232952,
+  "objects": [
+    {
+      "stable_id": "puzzle:automatic-differentiation-reverse-mode",
+      "slug": "automatic-differentiation-reverse-mode",
+      "track_id": "algieba",
+      "source_sha256": "729017cca397c7559bd605a82ea29c03af0da6b2c2fa2a9c931e7b061f7c5b33",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "f0385085bafb6d068fef4b0ab71f7122e9d3819a7c4c345f304a45e37cb99d42",
+      "object_key": "narration/v1/puzzles/automatic-differentiation-reverse-mode/f0385085bafb6d068fef/algieba-d7867a645a2c2a25.mp3",
+      "bytes": 2671916,
+      "sha256": "d7867a645a2c2a254ceacf25301b76b6f3951a025b18e14850557f423c0f6b80",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:automatic-differentiation-reverse-mode",
+      "slug": "automatic-differentiation-reverse-mode",
+      "track_id": "aoede",
+      "source_sha256": "729017cca397c7559bd605a82ea29c03af0da6b2c2fa2a9c931e7b061f7c5b33",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "f0385085bafb6d068fef4b0ab71f7122e9d3819a7c4c345f304a45e37cb99d42",
+      "object_key": "narration/v1/puzzles/automatic-differentiation-reverse-mode/f0385085bafb6d068fef/aoede-d4342c80e3949139.mp3",
+      "bytes": 2561036,
+      "sha256": "d4342c80e39491395588e8983500ecbaef1ab9f0a65fdbf5b9899292ae9a15d1",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

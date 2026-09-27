@@ -2643,15 +2643,35 @@ export const PUZZLES = {
     vite: 'discrete-event-simulation-event-queue-advance',
     html: 'discrete-event-simulation-event-queue-advance/index.html',
   },
+  '/automatic-differentiation-reverse-mode/': {
+    slug: 'automatic-differentiation-reverse-mode',
+    added: '2026-09-26',
+    problemSlug: 'automatic-differentiation',
+    number: 137,
+    category: 'numerical',
+    algorithm: 'Automatic differentiation',
+    heuristic: 'Reverse mode',
+    domain: 'Gradient computation',
+    oneLiner:
+      'Run the program once, recording every operation and its local derivatives on a tape; then sweep the tape backwards so each node hands its adjoint to its parents. All n partials for three evaluations\' worth of work, exact to rounding, whatever n is.',
+    description:
+      'Automatic differentiation in reverse mode: both modes matching closed-form gradients to 9e-16 and each other to 3e-16 where central finite differences reach 7e-11; the reverse sweep counted at 2.87x, 2.96x, and 2.99x one loss evaluation for networks of 17, 501, and 5,401 parameters, where forward mode costs n evaluations and finite differences 2n; the tape counted; and the direction flipped for one input and 500 outputs, where forward mode\'s 1,500 operations beat reverse mode\'s 627,750.',
+    listenMinutes: 8,
+    time: '~3 evaluations for the whole gradient',
+    space: 'a tape of every intermediate',
+    baseline: 'Forward-mode AD',
+    vite: 'automatic-differentiation-reverse-mode',
+    html: 'automatic-differentiation-reverse-mode/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Automatic differentiation', heuristic: 'Reverse mode', domain: 'Gradient computation' },
   { algorithm: 'Monte Carlo localization', heuristic: 'Particle filter', domain: 'Robot localization' },
   { algorithm: 'Cuckoo hashing', heuristic: 'Two-table eviction kicks', domain: 'Worst-case-constant lookup' },
+  { algorithm: 'Conjugate gradient', heuristic: 'Jacobi preconditioner', domain: 'SPD sparse systems' },
 ];
 
 

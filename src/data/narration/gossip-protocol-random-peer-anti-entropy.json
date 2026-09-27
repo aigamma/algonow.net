@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:gossip-protocol-random-peer-anti-entropy",
+  "source_path": "src/content/gossip-protocol-random-peer-anti-entropy.narration.js",
+  "source_sha256": "3ff9d9f6bb8b462fcc380c7236aa652d8506f09dd001e73937ebe7fb63697b3e",
+  "source_characters": 8687,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "78f910cf60830df3f25e0737b5b04da1c787f1347b9b2fe6a80f91113596c473",
+  "generated_at": "2026-09-27T01:18:18.863Z",
+  "generated_characters": 17374,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4429,
+      "utf8_bytes": 4432,
+      "sha256": "7667041e6876c8d2fc9179fd1031e701bd805563ab5c6ee4070ef2daf886281b"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4258,
+      "utf8_bytes": 4260,
+      "sha256": "f8d119e5e71b79587af9a547d1106e65bae61b592998835b788984ef57657fd3"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "gossip-protocol-random-peer-anti-entropy.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "gossip-protocol-random-peer-anti-entropy.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 953,
+      "sha256": "fdfcdf32d3c8241a78c74ba8f28864b9f395cd3d2d526a01acada9572a3058ca"
+    },
+    {
+      "id": "gossip-protocol-random-peer-anti-entropy.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 967,
+      "sha256": "31cb86f8334ecb9ac02f788978579a518df6883845e1d0c5393de281990c059b"
+    },
+    {
+      "id": "gossip-protocol-random-peer-anti-entropy.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1606,
+      "sha256": "3b1e398caa76e44e54b03d620b09f37453baeec0760b85f66be9c4869d060dad"
+    },
+    {
+      "id": "gossip-protocol-random-peer-anti-entropy.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 773,
+      "sha256": "29344c083688a62bc5f6f5f6bd2f1c1fa4e8756ea0dd70e3e46bded2374e2f67"
+    },
+    {
+      "id": "gossip-protocol-random-peer-anti-entropy.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 752,
+      "sha256": "87d4576086cf30c5665cc014deec43695d7f85919ffbc7a2f2eb974a20b6bd0e"
+    },
+    {
+      "id": "gossip-protocol-random-peer-anti-entropy.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 511,
+      "sha256": "83e1a09646730f750f4f7dad71fe93cb9d6c208fb9e3696b6c6491b1ed7496ef"
+    },
+    {
+      "id": "gossip-protocol-random-peer-anti-entropy.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 942,
+      "sha256": "0aed1d7a028c529795a06f62688aa25efa880fcb8e27b8e58d79cee45cdad3a7"
+    },
+    {
+      "id": "gossip-protocol-random-peer-anti-entropy.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 474,
+      "sha256": "477111eccc2f1f55b3542db7f8dd007221f27a2de9a471c8f23b7c5f4dc9a4e6"
+    },
+    {
+      "id": "gossip-protocol-random-peer-anti-entropy.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 622,
+      "sha256": "b761d09e7a41ffcd18e0969ed67784506bfb83512c152e9e774b276d86d5f371"
+    },
+    {
+      "id": "gossip-protocol-random-peer-anti-entropy.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 949,
+      "sha256": "aa311661a72c83ea39918a1b3bea8822ff1d4f9613ff24284676122c0242d6ac"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/gossip-protocol-random-peer-anti-entropy/78f910cf60830df3f25e/aoede-f4ada633a1156a11.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2259884,
+      "sha256": "f4ada633a1156a112a5a68dd785838fe77715b5321d171bb0204c438ed8944dd",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "7667041e6876c8d2fc9179fd1031e701bd805563ab5c6ee4070ef2daf886281b",
+          "bytes": 1131456,
+          "sha256": "a6e447f391d1661edac32358ecf610af13526330c685fdb2f29bbc04da89ba41"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "f8d119e5e71b79587af9a547d1106e65bae61b592998835b788984ef57657fd3",
+          "bytes": 1128192,
+          "sha256": "a87c957c2270f70d5e09c73fa8ad4bfd156820836076423f767ab7a6f3cb00b9"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/gossip-protocol-random-peer-anti-entropy/78f910cf60830df3f25e/algieba-bbb36fe1b5b57a6c.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2324972,
+      "sha256": "bbb36fe1b5b57a6c85a461b3c5b50bcd54bf19f051ed5df8a67dbf252bedd399",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "7667041e6876c8d2fc9179fd1031e701bd805563ab5c6ee4070ef2daf886281b",
+          "bytes": 1185792,
+          "sha256": "e6eea496ef952030b4209e5d8e5742ffb17821fa3fb3616cb429142d0dce3dbb"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "f8d119e5e71b79587af9a547d1106e65bae61b592998835b788984ef57657fd3",
+          "bytes": 1138944,
+          "sha256": "5b36d31757f18be3b7bec25629f615f6b05e01029d4af2c10ed3bc4cb817e9cd"
+        }
+      ]
+    }
+  }
+}

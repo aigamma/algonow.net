@@ -2763,15 +2763,35 @@ export const PUZZLES = {
     vite: 'betweenness-centrality-brandes-accumulation',
     html: 'betweenness-centrality-brandes-accumulation/index.html',
   },
+  '/gossip-protocol-random-peer-anti-entropy/': {
+    slug: 'gossip-protocol-random-peer-anti-entropy',
+    added: '2026-09-26',
+    problemSlug: 'broadcast-dissemination',
+    number: 143,
+    category: 'distributed-systems',
+    algorithm: 'Gossip protocol',
+    heuristic: 'Random-peer anti-entropy',
+    domain: 'Epidemic dissemination',
+    oneLiner:
+      'Every round, every node reconciles with one uniformly random peer: the spread doubles while few know and finishes the stragglers by luck, in about log N rounds, with no coordinator and through crashes. Fix the peer and it takes N rounds; drop the reconciliation and some nodes never hear.',
+    description:
+      'Gossip with random-peer anti-entropy on 1,024 nodes: push complete in 100 of 100 trials in 18.1 rounds mean (max 24) against the estimate log2 N + ln N = 16.9, at 8,193 messages; pull 13.8 rounds and push-pull 9.2; rumor mongering leaving 5.0% uninformed; a fixed peer taking exactly 1,023 rounds; with 30% of the nodes dead, gossip reaching every live node in 23.8 rounds while a fan-out-4 tree broadcast misses 70.3%.',
+    listenMinutes: 8,
+    time: 'O(log N) rounds, one message per node per round',
+    space: 'one peer contact per node',
+    baseline: 'A spanning-tree broadcast',
+    vite: 'gossip-protocol-random-peer-anti-entropy',
+    html: 'gossip-protocol-random-peer-anti-entropy/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Gossip protocol', heuristic: 'Random-peer anti-entropy', domain: 'Epidemic dissemination' },
   { algorithm: 'Parallel prefix sum', heuristic: 'Blelloch scan', domain: 'Data-parallel primitive' },
   { algorithm: 'RANSAC', heuristic: 'Random consensus sampling', domain: 'Robust model fitting' },
+  { algorithm: 'Douglas-Peucker', heuristic: 'Max-deviation recursion', domain: 'Polyline simplification' },
 ];
 
 

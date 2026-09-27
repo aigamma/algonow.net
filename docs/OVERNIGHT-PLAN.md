@@ -4309,6 +4309,30 @@ commit, Fable trailer on every commit, check green before each push.
       the bridge endpoints first in all 8; stepMs 700, holdTicks rests.
       Preserved narration: Aoede + Algieba.
 
+- [x] F137. Gossip protocol × random-peer anti-entropy. Puzzle 143,
+      distributed-systems (problemSlug broadcast-dissemination, the
+      atlas problem page carrying "Epidemic dissemination"), added
+      2026-09-26. Solution gossip_protocol_random_peer_anti_entropy.py
+      (0.7s, prints OK): N = 1,024, 100 trials per protocol. FIVE
+      ORACLES: (1) push: 100 / 100 complete, 18.1 rounds mean, max 24,
+      8,193 messages, vs the estimate log2 N + ln N = 16.9; (2) pull
+      13.8 rounds (10,357 messages), push-pull 9.2 (9,441); (3) rumor
+      mongering with stop probability 1/2: 25.2 rounds, 5.0% of nodes
+      never informed; (4) fixed peer (ring): exactly 1,023 rounds; (5)
+      30% dead (307 nodes): push gossip reaches every live node in 20 /
+      20 trials, 23.8 rounds mean; a fan-out-4 spanning-tree broadcast
+      misses 70.3% of the live nodes. Cards: self, Plumtree,
+      Anti-entropy repair, Gossip-based membership. neverUse: a
+      spanning-tree broadcast without repair. Figure: fraction
+      informed by round for push, push-pull, and the ring, with the
+      crash numbers, cite Demers et al. PODC 1987 DOI
+      10.1145/41840.41841, Karp et al. FOCS 2000, Pittel 1987. Viz
+      GossipViz: 48 nodes on a ring, one round per tick, random-peer
+      push (amber chords) beside the fixed-peer ring; NODE-VERIFIED 20
+      cycles: random push complete within 30 rounds in all 20 (mean
+      near the estimate), the ring at one node per round; stepMs 350,
+      holdTicks rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

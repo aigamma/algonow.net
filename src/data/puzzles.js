@@ -2623,15 +2623,35 @@ export const PUZZLES = {
     vite: 'binomial-options-pricing-cox-ross-rubinstein-lattice',
     html: 'binomial-options-pricing-cox-ross-rubinstein-lattice/index.html',
   },
+  '/discrete-event-simulation-event-queue-advance/': {
+    slug: 'discrete-event-simulation-event-queue-advance',
+    added: '2026-09-26',
+    problemSlug: 'queueing-performance',
+    number: 136,
+    category: 'probabilistic',
+    algorithm: 'Discrete event simulation',
+    heuristic: 'Event-queue advance',
+    domain: 'Systems modeling',
+    oneLiner:
+      'Keep a calendar of pending events and jump the clock to the earliest, handling it and scheduling what it causes; nothing is computed for the empty time between. A queue simulated this way lands within a percent and a half of its exact formulas at sixty times fewer steps than a ticking clock.',
+    description:
+      'Discrete event simulation with event-queue advance on a single-server queue: 400,000 events for 200,000 customers with zero order violations, landing within 1.5% of the exact M/M/1 mean count, time, and idle fraction and 0.2% of Pollaczek-Khinchine for deterministic service, with Little\'s law holding inside the run to four decimals; the fixed-increment ablation measured at 62x the steps for 3.3% error at a 0.01 slot and 16.2% error at 0.1 because events in one slot are merged and reordered.',
+    listenMinutes: 8,
+    time: 'O(events x log calendar)',
+    space: 'the calendar plus the state',
+    baseline: 'Fixed-increment time advance',
+    vite: 'discrete-event-simulation-event-queue-advance',
+    html: 'discrete-event-simulation-event-queue-advance/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Discrete event simulation', heuristic: 'Event-queue advance', domain: 'Systems modeling' },
   { algorithm: 'Automatic differentiation', heuristic: 'Reverse mode', domain: 'Gradient computation' },
   { algorithm: 'Monte Carlo localization', heuristic: 'Particle filter', domain: 'Robot localization' },
+  { algorithm: 'Cuckoo hashing', heuristic: 'Two-table eviction kicks', domain: 'Worst-case-constant lookup' },
 ];
 
 

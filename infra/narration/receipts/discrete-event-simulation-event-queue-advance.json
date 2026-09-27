@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net discrete-event-simulation-event-queue-advance preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T00:23:49.862Z",
+  "publication_sha256": "79e639cf122a941c6e9cc57760ffa223e98774da27a892872459207732f47887",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4961656,
+  "objects": [
+    {
+      "stable_id": "puzzle:discrete-event-simulation-event-queue-advance",
+      "slug": "discrete-event-simulation-event-queue-advance",
+      "track_id": "algieba",
+      "source_sha256": "6c747030615945cc6ad8bb6ccbb50e0e16cb1e5c7d4d38cfb06b07098e7de496",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "1cf7e451907744364d6b0cc89c60c3a55c0836d3ef8c112337106527d1654a28",
+      "object_key": "narration/v1/puzzles/discrete-event-simulation-event-queue-advance/1cf7e451907744364d6b/algieba-7ddff0708b4183df.mp3",
+      "bytes": 2514572,
+      "sha256": "7ddff0708b4183dfc6d9f2b4a14908a3d7a804f2a7fec66ea040e657fef91d56",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:discrete-event-simulation-event-queue-advance",
+      "slug": "discrete-event-simulation-event-queue-advance",
+      "track_id": "aoede",
+      "source_sha256": "6c747030615945cc6ad8bb6ccbb50e0e16cb1e5c7d4d38cfb06b07098e7de496",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "1cf7e451907744364d6b0cc89c60c3a55c0836d3ef8c112337106527d1654a28",
+      "object_key": "narration/v1/puzzles/discrete-event-simulation-event-queue-advance/1cf7e451907744364d6b/aoede-a9d3761923f9d0b9.mp3",
+      "bytes": 2447084,
+      "sha256": "a9d3761923f9d0b953ea660cf1414a79ba533ef1af59f88e2062ca76401cba68",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

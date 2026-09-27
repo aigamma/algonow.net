@@ -4108,6 +4108,33 @@ commit, Fable trailer on every commit, check green before each push.
       = 1,000 and Black-Scholes for all three contracts; stepMs 700,
       holdTicks rests. Preserved narration: Aoede + Algieba.
 
+- [x] F130. Discrete event simulation × event-queue advance. Puzzle
+      136, probabilistic (problemSlug queueing-performance, the atlas
+      problem page carrying "Systems modeling"), added 2026-09-26.
+      Solution discrete_event_simulation_event_queue_advance.py (0.4s,
+      prints OK): a single-server FIFO queue, arrivals at 0.8, service
+      at 1. FIVE ORACLES: (1) the exact M/M/1 formulas over 200,000
+      customers: L 3.940 (4), W 4.935 (5), idle 0.202 (0.2); (2)
+      Little's law inside the run: lambda W = 3.940 = L; (3) the
+      calendar: 400,000 events, zero order violations, 250,547 time
+      units; (4) fixed-increment ablation on 25,000 units: dt 0.1 ->
+      250,000 steps, L 4.647 (16.2% off); dt 0.01 -> 2,500,000 steps,
+      L 3.867 (3.3% off), 62x the calendar's 40,000 (the draft's
+      accumulated clock drifted past the horizon by a step and the
+      slot ends are now computed); (5) M/D/1 with one line changed: L
+      2.395 (Pollaczek-Khinchine 2.4), W 2.996 (3.0). Cards: self,
+      Markov chain simulation, Mean value analysis, Jackson network
+      analysis. neverUse: fixed-increment time advance for sparse
+      events. Figure: the two timelines with the merged-slot detail
+      and the measured counts, cite Gordon AFIPS 1961 DOI
+      10.1145/1460764.1460768, Little 1961, Brown CACM 1988. Viz
+      DesViz: the same pre-drawn customers through an event calendar
+      and a 0.5-unit slot clock, step functions of the count, amber
+      clock markers, step and running-mean counters; NODE-VERIFIED 8
+      cycles: calendar events in time order and bounded by the customer
+      count, the slot clock at 120 slots, in all 8; stepMs 120,
+      holdTicks rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

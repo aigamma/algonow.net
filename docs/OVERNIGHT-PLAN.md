@@ -4727,6 +4727,45 @@ commit, Fable trailer on every commit, check green before each push.
       accuracy at least 95% in every image (mean 98.7%); stepMs 90,
       holdTicks rests. Preserved narration: Aoede + Algieba.
 
+- [x] F149. IDA* × Manhattan distance. Puzzle 155, graphs
+      (problemSlug puzzle-state-search, the atlas problem page
+      carrying "Memory-bound puzzle search"), added 2026-09-26.
+      Solution ida_star_manhattan_distance.py (23s, prints OK). FIVE
+      ORACLES: (1) breadth-first search over all 181,440 reachable
+      8-puzzle states (deepest 31); misplaced tiles, Manhattan, and
+      linear conflict never exceed the true distance on any state
+      (AUTHOR CORRECTION: the draft counted linear conflict by
+      conflicting pairs and broke admissibility on 7 states; the
+      tiles-removed form via longest in-order subsequence is exact);
+      100 random states (mean optimal 21.7, max 29): IDA* equals the
+      exhaustive distance under every heuristic; (2) mean nodes: zero
+      heuristic 398,551 on the 36 instances of length at most 20
+      (Manhattan 689 on the same), misplaced 130,771, Manhattan 3,043,
+      linear conflict 1,495; A* with Manhattan 2,310 nodes and 2,311
+      states at peak vs IDA*'s path of at most 30; (3) a 29-move
+      instance: bounds 17 to 29 by 2, nodes per iteration 5 / 18 / 84
+      / 335 / 1,843 / 8,225 / 402, the last complete iteration 75% and
+      the final one 4% (AUTHOR CORRECTION: the draft said the last
+      iteration dominates); (4) four 15-puzzle instances scrambled by
+      36 moves (lengths 28 / 26 / 28 / 28): IDA* = A*, nodes 14,378 /
+      10,205 / 15,165 / 1,976 vs 19,920 / 9,336 / 14,705 / 1,922,
+      stored 29 / 27 / 29 / 29 vs 19,921 / 9,337 / 14,706 / 1,923; (5)
+      breadth-first search: 181,440 states for the 8-puzzle, the
+      15-puzzle's 10,461,394,944,000 counted not run. Cards: self, A*,
+      Recursive best-first search, SMA* (all algoName). neverUse:
+      breadth-first search on the 15-puzzle. Figure: the iteration
+      profile as log-scale bars beside the memory comparison, cite
+      Korf AIJ 1985 DOI 10.1016/0004-3702(85)90084-0,
+      Hansson-Mayer-Yung 1992, Culberson-Schaeffer 1998. Viz IdaViz:
+      an 8-puzzle scrambled by 40 moves, IDA* as an explicit-stack
+      depth-first search stepped 25 nodes per tick with the bound
+      table, the path depth as memory, and the optimum checked by a
+      breadth-first search in the scene; NODE-VERIFIED 20 scrambles:
+      the found length equals the breadth-first distance in every
+      cycle, bounds rising by 2, memory at most the length plus one;
+      stepMs 120, holdTicks rests. Preserved narration: Aoede +
+      Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

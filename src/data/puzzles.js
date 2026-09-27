@@ -3003,6 +3003,26 @@ export const PUZZLES = {
     vite: 'otsu-thresholding-between-class-variance',
     html: 'otsu-thresholding-between-class-variance/index.html',
   },
+  '/ida-star-manhattan-distance/': {
+    slug: 'ida-star-manhattan-distance',
+    added: '2026-09-26',
+    problemSlug: 'puzzle-state-search',
+    number: 155,
+    category: 'graphs',
+    algorithm: 'IDA*',
+    heuristic: 'Manhattan distance',
+    domain: 'Memory-bound puzzle search',
+    oneLiner:
+      'Search depth-first under a bound on g plus h, raise the bound to the smallest value that was cut, and restart: optimal answers with a path\'s worth of memory, where the Manhattan distance is the cut that keeps each bounded search short.',
+    description:
+      'IDA* with the Manhattan distance on sliding-tile puzzles, held to breadth-first distances for all 181,440 reachable 8-puzzle states: optimal on 100 of 100 random states under every heuristic, with none of the three heuristics exceeding the truth on any state; 3,043 nodes with Manhattan against 130,771 with misplaced tiles and 398,551 uninformed, 1,495 with linear conflict; at most 30 states in memory where A* stores 2,311 for 2,310 nodes; the iteration profile of a 29-move instance (5 to 8,225 nodes per bound, the last complete iteration 75%); and four 15-puzzle instances matching A* with 29 states stored against up to 19,921.',
+    listenMinutes: 9,
+    time: 'sum of bounded depth-first searches',
+    space: 'one path',
+    baseline: 'A* with the same heuristic',
+    vite: 'ida-star-manhattan-distance',
+    html: 'ida-star-manhattan-distance/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
@@ -3011,7 +3031,7 @@ export const PUZZLES = {
 export const ROADMAP = [
   { algorithm: 'Register allocation', heuristic: 'Graph coloring', domain: 'Compiler backend' },
   { algorithm: 'Binary decision diagram', heuristic: 'Reduced ordered canonical form', domain: 'Boolean function representation' },
-  { algorithm: 'IDA*', heuristic: 'Manhattan distance', domain: 'Memory-bound puzzle search' },
+  { algorithm: 'Garbage collection', heuristic: 'Mark and sweep', domain: 'Automatic memory management' },
 ];
 
 

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net ida-star-manhattan-distance preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T02:50:01.926Z",
+  "publication_sha256": "2951a8f38dd84ba433809f9b911fae2b0dcc818bd0924cc9e975a0b2fda2276a",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5742904,
+  "objects": [
+    {
+      "stable_id": "puzzle:ida-star-manhattan-distance",
+      "slug": "ida-star-manhattan-distance",
+      "track_id": "algieba",
+      "source_sha256": "1dd6613456faf2084f32717f12019398edced3323e9890237e81089ad751ba17",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "b07898f562d624b4f0a7defc8a32be8f8dec82bcf82a42229e7868802dda0f5c",
+      "object_key": "narration/v1/puzzles/ida-star-manhattan-distance/b07898f562d624b4f0a7/algieba-0a01297cc007aa98.mp3",
+      "bytes": 2962700,
+      "sha256": "0a01297cc007aa989c5e191514b55e27cabcaf4e6926d55c63d20cd0d297414a",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:ida-star-manhattan-distance",
+      "slug": "ida-star-manhattan-distance",
+      "track_id": "aoede",
+      "source_sha256": "1dd6613456faf2084f32717f12019398edced3323e9890237e81089ad751ba17",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "b07898f562d624b4f0a7defc8a32be8f8dec82bcf82a42229e7868802dda0f5c",
+      "object_key": "narration/v1/puzzles/ida-star-manhattan-distance/b07898f562d624b4f0a7/aoede-39d06e84e00599f7.mp3",
+      "bytes": 2780204,
+      "sha256": "39d06e84e00599f767499fd27a23698714ee2f47f6964be5ea27dbd261661421",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

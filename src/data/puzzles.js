@@ -2663,15 +2663,35 @@ export const PUZZLES = {
     vite: 'automatic-differentiation-reverse-mode',
     html: 'automatic-differentiation-reverse-mode/index.html',
   },
+  '/monte-carlo-localization-particle-filter/': {
+    slug: 'monte-carlo-localization-particle-filter',
+    added: '2026-09-26',
+    problemSlug: 'robot-localization',
+    number: 138,
+    category: 'robotics-control',
+    algorithm: 'Monte Carlo localization',
+    heuristic: 'Particle filter',
+    domain: 'Robot localization',
+    oneLiner:
+      'Carry the robot\'s belief as a thousand guessed positions: move them all, weight each by how well it explains the sensor, and resample so the likely ones multiply. The cloud lands two centimeters from the exact Bayes filter, and a few random guesses let it survive a kidnapping.',
+    description:
+      'Monte Carlo localization with a particle filter on a 100 m loop with four doors: 1,000 particles converging from a uniform prior by step 6 to a steady error of 0.39 m, tracking the exact 2,000-cell Bayes filter to 0.02 m; the particle count turned down to failure (50 particles: 14.04 m); resampling removed (effective sample size 1.0, error doubled); the robot kidnapped at step 120, where the plain filter never recovers and 2% random particles recover it in 18 steps.',
+    listenMinutes: 8,
+    time: 'N likelihoods per step',
+    space: 'N particles',
+    baseline: 'Markov localization (the grid)',
+    vite: 'monte-carlo-localization-particle-filter',
+    html: 'monte-carlo-localization-particle-filter/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Monte Carlo localization', heuristic: 'Particle filter', domain: 'Robot localization' },
   { algorithm: 'Cuckoo hashing', heuristic: 'Two-table eviction kicks', domain: 'Worst-case-constant lookup' },
   { algorithm: 'Conjugate gradient', heuristic: 'Jacobi preconditioner', domain: 'SPD sparse systems' },
+  { algorithm: 'Byte pair encoding', heuristic: 'Frequency-merge vocabulary', domain: 'Subword tokenization' },
 ];
 
 

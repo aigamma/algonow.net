@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:monte-carlo-localization-particle-filter",
+  "source_path": "src/content/monte-carlo-localization-particle-filter.narration.js",
+  "source_sha256": "35b8fefe414a1c75aed0657acd0217198654fc78eb33214a57f69bc26986c5dc",
+  "source_characters": 9393,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "95525c8f51c7790facef018310ed76d5c3ecc4932cc9daefbae848972f6f20b8",
+  "generated_at": "2026-09-27T00:46:18.053Z",
+  "generated_characters": 18786,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4606,
+      "utf8_bytes": 4620,
+      "sha256": "67f6a01780a1f866a40ea64b9904f29f632ce9e3f48d031c1ecad9180539297a"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4787,
+      "utf8_bytes": 4793,
+      "sha256": "d2a61ec3bd7bcb2afba8be46e35124cff86162eb0a030eb8a27bd35956986b5a"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "monte-carlo-localization-particle-filter.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "monte-carlo-localization-particle-filter.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1211,
+      "sha256": "0299c7f0a8733591a8933198478b390c2c5c65a8a2cdc87e2ce1db7b8df08b70"
+    },
+    {
+      "id": "monte-carlo-localization-particle-filter.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 986,
+      "sha256": "3eb7e5bf1f760a545ffebd9a439761a3633d3e8392d84a3a316cd4f019acabdb"
+    },
+    {
+      "id": "monte-carlo-localization-particle-filter.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1503,
+      "sha256": "d9e0e3e5c1f783e9eb1a390065f53bd86438f58de0fb9f1facc94124df0a9a04"
+    },
+    {
+      "id": "monte-carlo-localization-particle-filter.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 787,
+      "sha256": "9ab0dc1cd196767a4229e0879af6e886fea8a1711017815f86e106acd03ba5d2"
+    },
+    {
+      "id": "monte-carlo-localization-particle-filter.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 963,
+      "sha256": "9a6516012d627a56f0c3f0045a7ea1715853afc9f23325c9b4a02a38a0880c8f"
+    },
+    {
+      "id": "monte-carlo-localization-particle-filter.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 585,
+      "sha256": "943e64079cde6005db2d85b078e3beb6c1e6eaaf7597c69b5f6ee3cd13f8916d"
+    },
+    {
+      "id": "monte-carlo-localization-particle-filter.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1000,
+      "sha256": "c7bf1dd392ce81bf953939751c56e7da36fba0aead14e4390637d52c7b7629dc"
+    },
+    {
+      "id": "monte-carlo-localization-particle-filter.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 558,
+      "sha256": "bb6492264fcc1218272edaf6aad4ccd5f400e764cb3ba7a3266866ba0d2f53ac"
+    },
+    {
+      "id": "monte-carlo-localization-particle-filter.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 655,
+      "sha256": "2c9ec62fac0c09dc50b801b3f93a18379b279260cddd8d543f2d9a01878ad615"
+    },
+    {
+      "id": "monte-carlo-localization-particle-filter.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1022,
+      "sha256": "abee2a676c7462a0900a72cb3bdbc681f05b1d431ba40806832d731fb495ed7f"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/monte-carlo-localization-particle-filter/95525c8f51c7790facef/aoede-0622f99517d9712f.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2349356,
+      "sha256": "0622f99517d9712f5556b1f8b9d91412a8e86df10ad979a590063fb939e470a2",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "67f6a01780a1f866a40ea64b9904f29f632ce9e3f48d031c1ecad9180539297a",
+          "bytes": 1128864,
+          "sha256": "27c9fe3d57120b2904b9935f8638fd3f3e1458705cdfeba6dd923138ff70ff76"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "d2a61ec3bd7bcb2afba8be46e35124cff86162eb0a030eb8a27bd35956986b5a",
+          "bytes": 1220256,
+          "sha256": "33c109938fbc13e33e00586e38c5fe2a698b2242d6658e88391d76de3030b95a"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/monte-carlo-localization-particle-filter/95525c8f51c7790facef/algieba-34c12832e7874d58.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2476844,
+      "sha256": "34c12832e7874d58f7074365032bc412848ffd220e802d6c296237798ca7c0d3",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "67f6a01780a1f866a40ea64b9904f29f632ce9e3f48d031c1ecad9180539297a",
+          "bytes": 1174272,
+          "sha256": "c4c1029f2df0334c1334806f9bdc8dfb850b8a4a59742505d2b346fa7a090394"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "d2a61ec3bd7bcb2afba8be46e35124cff86162eb0a030eb8a27bd35956986b5a",
+          "bytes": 1302336,
+          "sha256": "3c21b14d12ff0777fc252fb6bf2cc31e71281d5c2e3e89c6ee8d8871ff372645"
+        }
+      ]
+    }
+  }
+}

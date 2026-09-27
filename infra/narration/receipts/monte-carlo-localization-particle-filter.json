@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net monte-carlo-localization-particle-filter preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T00:47:23.988Z",
+  "publication_sha256": "ea17acbb2f99af77ae30957f4061432ad0b35f28a08f2fb054bf9dd8dc195561",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4826200,
+  "objects": [
+    {
+      "stable_id": "puzzle:monte-carlo-localization-particle-filter",
+      "slug": "monte-carlo-localization-particle-filter",
+      "track_id": "algieba",
+      "source_sha256": "35b8fefe414a1c75aed0657acd0217198654fc78eb33214a57f69bc26986c5dc",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "95525c8f51c7790facef018310ed76d5c3ecc4932cc9daefbae848972f6f20b8",
+      "object_key": "narration/v1/puzzles/monte-carlo-localization-particle-filter/95525c8f51c7790facef/algieba-34c12832e7874d58.mp3",
+      "bytes": 2476844,
+      "sha256": "34c12832e7874d58f7074365032bc412848ffd220e802d6c296237798ca7c0d3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:monte-carlo-localization-particle-filter",
+      "slug": "monte-carlo-localization-particle-filter",
+      "track_id": "aoede",
+      "source_sha256": "35b8fefe414a1c75aed0657acd0217198654fc78eb33214a57f69bc26986c5dc",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "95525c8f51c7790facef018310ed76d5c3ecc4932cc9daefbae848972f6f20b8",
+      "object_key": "narration/v1/puzzles/monte-carlo-localization-particle-filter/95525c8f51c7790facef/aoede-0622f99517d9712f.mp3",
+      "bytes": 2349356,
+      "sha256": "0622f99517d9712f5556b1f8b9d91412a8e86df10ad979a590063fb939e470a2",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

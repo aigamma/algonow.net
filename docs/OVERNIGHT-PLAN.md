@@ -4166,6 +4166,33 @@ commit, Fable trailer on every commit, check green before each push.
       2e-11; stepMs 600, holdTicks rests. Preserved narration: Aoede +
       Algieba.
 
+- [x] F132. Monte Carlo localization × particle filter. Puzzle 138,
+      robotics-control (problemSlug robot-localization), added
+      2026-09-26. Solution monte_carlo_localization_particle_filter.py
+      (4s, prints OK): a 100 m loop with doors at 10, 30, 37, 70; 2 m
+      steps (odometry sd 0.3), nearest-door sensor (sd 1), uniform
+      prior, 200 steps; referee: the exact Bayes filter on a 2,000-cell
+      circular grid. FIVE ORACLES: (1) the grid converges by step 6 to
+      0.39 m; the 1,000-particle filter converges by step 6 to 0.39 m
+      and tracks the grid mean to 0.02 m (min ESS 182); (2)
+      convergence before step 80; (3) particle count: 50 -> 14.04 m,
+      200 -> 0.40, 1,000 -> 0.39, 5,000 -> 0.39 (3 trials each); (4)
+      no resampling: ESS collapses to 1.0, error 0.78 m; (5) kidnapped
+      at step 120 to 85 m: plain filter never recovers (tail 41.9 m),
+      augmented (2% random particles) recovers in 18 steps (tail 0.4).
+      Cards: self, Kalman filter (the live pilot), Markov localization,
+      Extended Kalman filter. neverUse: importance weighting without
+      resampling. Figure: predict / weight / resample rows on the
+      unrolled corridor, cite Dellaert-Fox-Burgard-Thrun ICRA 1999 DOI
+      10.1109/ROBOT.1999.772544, Gordon-Salmond-Smith 1993, Thrun-
+      Burgard-Fox 2005. Viz MclViz: 400 particles on the unrolled loop,
+      one step per tick, weight-scaled dots, the truth in green, the
+      cloud histogram with the weighted mean, a kidnapping at step 60
+      with 2% random particles; NODE-VERIFIED 10 cycles: under 2 m
+      before the kidnapping and under 3 m after re-localizing, in all
+      10; stepMs 160, holdTicks rests. Preserved narration: Aoede +
+      Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

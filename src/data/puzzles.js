@@ -2903,15 +2903,35 @@ export const PUZZLES = {
     vite: 'decision-tree-information-gain-splits',
     html: 'decision-tree-information-gain-splits/index.html',
   },
+  '/naive-bayes-laplace-smoothing/': {
+    slug: 'naive-bayes-laplace-smoothing',
+    added: '2026-09-26',
+    problemSlug: 'classification',
+    number: 150,
+    category: 'ml-ai',
+    algorithm: 'Naive Bayes',
+    heuristic: 'Laplace smoothing',
+    domain: 'Probabilistic classification',
+    oneLiner:
+      'Multiply the class prior by every word\'s likelihood as if the words were independent, in logs, with one imaginary count added to every word so that a never-seen word costs a penalty instead of the verdict: counting beats fitting when labels are scarce.',
+    description:
+      'Naive Bayes with Laplace smoothing on 1,000 training documents over a 5,000-word vocabulary, held to the distributions that generated them: 90.2% against the exact classifier\'s 95.6%; the smoothing sweep with both cliffs (alpha 0 zeroes a class in 96% of documents and scores 50.2%, the majority rate; alpha 1 the best of eight; alpha 100 scores 60%); the independence lie caught as inflated confidence (0.930 at accuracy 0.902, 0.963 when every count is doubled); the learning curve against logistic regression (89.1% vs 82.8% at 50 documents, 90.2% vs 90.9% at 1,000); and raw probability products measured to underflow on 68% of 176-word and 100% of 419-word documents.',
+    listenMinutes: 9,
+    time: 'one counting pass; V log-probabilities per class',
+    space: 'V counts per class',
+    baseline: 'The majority class',
+    vite: 'naive-bayes-laplace-smoothing',
+    html: 'naive-bayes-laplace-smoothing/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Naive Bayes', heuristic: 'Laplace smoothing', domain: 'Probabilistic classification' },
   { algorithm: 'Association rule mining', heuristic: 'Apriori candidate pruning', domain: 'Market-basket analysis' },
   { algorithm: 'Dynamic time warping', heuristic: 'Elastic alignment', domain: 'Series similarity' },
+  { algorithm: 'Hough transform', heuristic: 'Parameter-space voting', domain: 'Line detection' },
 ];
 
 

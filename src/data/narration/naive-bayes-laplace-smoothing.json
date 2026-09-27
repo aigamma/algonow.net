@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:naive-bayes-laplace-smoothing",
+  "source_path": "src/content/naive-bayes-laplace-smoothing.narration.js",
+  "source_sha256": "6adc23a839f67a33642500587fcc39a3da7bbbbb05b15d7e455deb7d32a4b6e4",
+  "source_characters": 11196,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "b505569371d03f444d05f28150433c167ba6d53dca2cbed5a6e338212896dd89",
+  "generated_at": "2026-09-27T02:10:16.503Z",
+  "generated_characters": 22392,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4866,
+      "utf8_bytes": 4880,
+      "sha256": "91d3fdf0ae5963fee17525c35a29612eeea50040e09315ffd954294e63331070"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4642,
+      "utf8_bytes": 4646,
+      "sha256": "992373711e8411e9c2efdefcc3a51b17096a2c2ea41242dba18ff515da7f5e50"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1044,
+      "utf8_bytes": 1044,
+      "sha256": "b65597011260030e2243ffbd1a4707207a71b226741ff66d76abc7f98e487280"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 644,
+      "utf8_bytes": 644,
+      "sha256": "93753c1e4d02b7ef3f3798a17fc7a90150a8aa5400d3bd66edcd8fd5110a248e"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "naive-bayes-laplace-smoothing.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "naive-bayes-laplace-smoothing.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1304,
+      "sha256": "47f116ab859dfbaac628534ae0b949a318b97f9dbea0eca941f2f15e6f8eefdf"
+    },
+    {
+      "id": "naive-bayes-laplace-smoothing.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1183,
+      "sha256": "2da418a53883af81c00c26863c42f41749d91103d3240e104b6c39c86dc052ba"
+    },
+    {
+      "id": "naive-bayes-laplace-smoothing.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2262,
+      "sha256": "cbdaeb35793628f9167819074042d478aac3fa0b8fd01fee7bb0f46f72caa786"
+    },
+    {
+      "id": "naive-bayes-laplace-smoothing.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 670,
+      "sha256": "111c6f2c646124859cb443115427f11bc4b6571b815f57090cc8403ec31296b1"
+    },
+    {
+      "id": "naive-bayes-laplace-smoothing.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1041,
+      "sha256": "883253003df25cbef531214fa50697a304f5877308a3e8559873bcea61758078"
+    },
+    {
+      "id": "naive-bayes-laplace-smoothing.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 424,
+      "sha256": "88062b42b8f1b2117f38dff00f23d354b953a21ad76f9e27fa3d3484a54cdab2"
+    },
+    {
+      "id": "naive-bayes-laplace-smoothing.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1156,
+      "sha256": "1f878d235de5af9c3cf3c4c6062e972e758eca24e7b37f8441499d6922384429"
+    },
+    {
+      "id": "naive-bayes-laplace-smoothing.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 468,
+      "sha256": "85bd47b707c6649f66f9c77ecb6c9038c691bdea866c9f73bfb8616106a4f3fc"
+    },
+    {
+      "id": "naive-bayes-laplace-smoothing.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 875,
+      "sha256": "99e4aaf886eba27b5e0f8033b610cdf37234e8c0e6d6be4dbcb9bcd4bd227e5b"
+    },
+    {
+      "id": "naive-bayes-laplace-smoothing.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1688,
+      "sha256": "84dae58d6941f5dbb49aad607977895a9a56702e96a90f606a174915eceef933"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/naive-bayes-laplace-smoothing/b505569371d03f444d05/aoede-f55f8e941e72d53f.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2888300,
+      "sha256": "f55f8e941e72d53f547b5714a01de376f1866791b23c81c9adfbaf179687a329",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "91d3fdf0ae5963fee17525c35a29612eeea50040e09315ffd954294e63331070",
+          "bytes": 1211232,
+          "sha256": "a1a27cf0dbf603f2868e92396a7518b9781f7746345fd84aeba1b933da5616ff"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "992373711e8411e9c2efdefcc3a51b17096a2c2ea41242dba18ff515da7f5e50",
+          "bytes": 1253952,
+          "sha256": "0c505818128560a7efc10f4f56bb1e5031b6d5de72f0ab7d4a7d463db019493c"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "b65597011260030e2243ffbd1a4707207a71b226741ff66d76abc7f98e487280",
+          "bytes": 270816,
+          "sha256": "624028d74667f84c5722980ff3617aedcb76ea5a8a842439668ef24af603eba9"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "93753c1e4d02b7ef3f3798a17fc7a90150a8aa5400d3bd66edcd8fd5110a248e",
+          "bytes": 152064,
+          "sha256": "dd28771083ddb8e5f633fdc6aca9eb5cc1d3dfe43a9096f7cdd0c084d3747ac2"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/naive-bayes-laplace-smoothing/b505569371d03f444d05/algieba-fc30855b0d877279.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2975372,
+      "sha256": "fc30855b0d8772793c741bf3f909e96b278bf05ef2ffdbeba65b99817d67f254",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "91d3fdf0ae5963fee17525c35a29612eeea50040e09315ffd954294e63331070",
+          "bytes": 1301472,
+          "sha256": "2550f03aa5036dc2103393783d0a412c69632c003e2deb504e735f3eaf2fd5e2"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "992373711e8411e9c2efdefcc3a51b17096a2c2ea41242dba18ff515da7f5e50",
+          "bytes": 1252032,
+          "sha256": "a6f8359a722a65137011f905919fa3be956fb576a5484c2b7e23001c2317df2c"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "b65597011260030e2243ffbd1a4707207a71b226741ff66d76abc7f98e487280",
+          "bytes": 275136,
+          "sha256": "92723b4034dbfcf4cc1b1df642d21efb2c4aa03c92fa54067ef8ff10295f40d9"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "93753c1e4d02b7ef3f3798a17fc7a90150a8aa5400d3bd66edcd8fd5110a248e",
+          "bytes": 146496,
+          "sha256": "3e3e97700d58163ff68d311e298e180d367d5df5c5e1e00a7c561b251079fa87"
+        }
+      ]
+    }
+  }
+}

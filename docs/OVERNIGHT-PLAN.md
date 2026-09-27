@@ -4535,6 +4535,44 @@ commit, Fable trailer on every commit, check green before each push.
       training above held-out (mean final 84.5%); stepMs 650,
       holdTicks rests. Preserved narration: Aoede + Algieba.
 
+- [x] F144. Naive Bayes × Laplace smoothing. Puzzle 150, ml-ai
+      (problemSlug classification, the atlas problem page carrying
+      "Probabilistic classification"), added 2026-09-26. Solution
+      naive_bayes_laplace_smoothing.py (1s, prints OK): two Zipfian
+      (exponent 1.1) word distributions over V = 5,000 with 200 topic
+      words boosted 3x per class, documents of about 40 words; 1,000
+      train, 2,000 test; referee the exact classifier (95.6%), majority
+      50.9%. FIVE ORACLES: (1) multinomial NB alpha 1: 90.2%, 1,512 of
+      5,000 words seen in both classes (AUTHOR CORRECTION: the draft
+      asked for 2 points from the ceiling on V = 1,000 where every
+      word was seen; V was raised so unseen words are the normal
+      case); (2) sweep alpha 0 / 0.01 / 0.1 / 0.3 / 1 / 3 / 10 / 100 ->
+      50.2 (96.0% of documents with a zeroed class) / 75.9 / 84.1 /
+      87.4 / 90.2 / 88.9 / 82.0 / 60.0%; (3) calibration: confidence
+      0.930 at accuracy 0.902; counts doubled: 0.963 at 0.904 (3 of
+      2,000 decisions flip because the prior is not doubled); (4)
+      learning curve 20 / 50 / 200 / 500 / 1,000: NB alpha 1 57.3 /
+      89.1 / 87.8 / 87.9 / 90.2%, NB alpha 0.1 72.5 / 81.5 / 81.2 /
+      83.8 / 84.1%, logistic (40 sparse epochs) 69.8 / 82.8 / 88.8 /
+      88.6 / 90.9%; (5) raw products: none of the 40-word documents
+      underflow (smallest winning product 1.2e-188), 68% of 249 merged
+      176-word documents and 100% of 99 merged 419-word documents tie
+      at (0.0, 0.0) (AUTHOR CORRECTION: the draft claimed underflow on
+      the 40-word documents); 7-NN by cosine 70.7% on 300 test
+      documents. Cards: self, Logistic regression, k-nearest
+      neighbors, Support vector machine (all algoName). neverUse: raw
+      probability products. Figure: accuracy vs alpha on a log axis
+      with the alpha 0 point and the ceiling, beside the learning
+      curve, cite Laplace 1774, Maron JACM 1961 DOI
+      10.1145/321075.321084, Ng-Jordan NeurIPS 2001, Domingos-Pazzani
+      1997. Viz NaiveBayesViz: a 60-word vocabulary with 150 training
+      tokens per class, a 30-word document arriving one word per tick,
+      two log-odds needles (Laplace smoothed in blue, unsmoothed in
+      amber) with the unsmoothed one pinned by the first word unseen
+      in a class; NODE-VERIFIED 60 documents: smoothed right 53 of 60,
+      unsmoothed right 27 of 60 and zeroed in 60 of 60; stepMs 360,
+      holdTicks rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

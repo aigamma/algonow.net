@@ -4766,6 +4766,41 @@ commit, Fable trailer on every commit, check green before each push.
       stepMs 120, holdTicks rests. Preserved narration: Aoede +
       Algieba.
 
+- [x] F150. Binary decision diagram × Reduced ordered canonical
+      form. Puzzle 156, languages-compilers (problemSlug
+      logic-minimization, the atlas problem page carrying "Boolean
+      function representation"), added 2026-09-26. Solution
+      binary_decision_diagram_reduced_ordered_canonical_form.py (1s,
+      prints OK): a hash-consed BDD with memoized apply, evaluate,
+      count, size. FIVE ORACLES: (1) 200 random 8-variable formulas
+      rebuilt by De Morgan and re-association: the same node 200 of
+      200; 185 one-literal flips changed the function and never shared
+      a node; every diagram equals its 256-row truth table and counts
+      exactly; 2,848 nodes in the shared table; (2) x1 x2 + ... + x15
+      x16: 16 nodes interleaved vs 510 (2^9 - 2) odd-first, equal
+      evaluations; (3) ripple-carry adders 4 / 8 / 12 / 16 bits: carry
+      11 / 23 / 35 / 47 (3n - 1), largest sum 12 / 24 / 36 / 48, table
+      71 / 285 / 643 / 1,145 (AUTHOR NOTE: the draft guessed a smaller
+      table; the counts are linear, which is the claim); 6-bit
+      ripple-carry vs carry-lookahead identical by pointer for every
+      output after 1,398 apply steps and equal to integer addition on
+      all 4,096 inputs; (4) counts exact on every formula; (5) DPLL on
+      the Tseitin miter (113 variables, 333 clauses): unsatisfiable
+      after 8,190 decisions and 99,698 unit propagations; the
+      20-variable function's truth table 1,048,576 rows (989,527 ones)
+      vs 20 nodes. Cards: self, CDCL, Quine-McCluskey, And-inverter
+      graph rewriting (all algoName). neverUse: the truth table past a
+      dozen variables. Figure: the six-node chain and the fourteen-node
+      tree for three pairs under the two orders, cite Bryant IEEE TC
+      1986 DOI 10.1109/TC.1986.1676819, Burch et al. LICS 1990, Rudell
+      ICCAD 1993. Viz BddViz: x1 x2 + x3 x4 + x5 x6 built as two
+      hash-consed diagrams under the interleaved and odd-first orders,
+      revealed one level per tick, then eight random inputs walking
+      both with the paths in green; NODE-VERIFIED 10 cycles: 6 vs 14
+      nodes every cycle and all walks agreeing with the formula;
+      stepMs 700, holdTicks rests. Preserved narration: Aoede +
+      Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

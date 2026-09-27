@@ -3023,6 +3023,26 @@ export const PUZZLES = {
     vite: 'ida-star-manhattan-distance',
     html: 'ida-star-manhattan-distance/index.html',
   },
+  '/binary-decision-diagram-reduced-ordered-canonical-form/': {
+    slug: 'binary-decision-diagram-reduced-ordered-canonical-form',
+    added: '2026-09-26',
+    problemSlug: 'logic-minimization',
+    number: 156,
+    category: 'languages-compilers',
+    algorithm: 'Binary decision diagram',
+    heuristic: 'Reduced ordered canonical form',
+    domain: 'Boolean function representation',
+    oneLiner:
+      'Test one variable per node in a fixed order, merge every identical subgraph, and drop every test whose branches agree: one diagram per function, so equivalence is a pointer comparison, satisfiability a glance at the root, and counting a single pass.',
+    description:
+      'The binary decision diagram in reduced ordered canonical form, held to truth tables and exhaustive checks: 200 random formulas rebuilt by De Morgan reduce to the same node 200 of 200 times while 185 function-changing flips never share one, with every diagram exact on all 256 inputs and every count exact; the variable order measured at 16 nodes against 510 for the same function; ripple-carry adders at 3n - 1 nodes; two 6-bit adder designs identical by pointer and equal to integer addition on all 4,096 inputs, the same fact costing a DPLL solver 8,190 decisions; and a million-row truth table against a 20-node diagram.',
+    listenMinutes: 9,
+    time: 'apply in |f| x |g|',
+    space: 'nodes of the diagram, order-dependent',
+    baseline: 'The truth table',
+    vite: 'binary-decision-diagram-reduced-ordered-canonical-form',
+    html: 'binary-decision-diagram-reduced-ordered-canonical-form/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
@@ -3030,8 +3050,8 @@ export const PUZZLES = {
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
   { algorithm: 'Register allocation', heuristic: 'Graph coloring', domain: 'Compiler backend' },
-  { algorithm: 'Binary decision diagram', heuristic: 'Reduced ordered canonical form', domain: 'Boolean function representation' },
   { algorithm: 'Garbage collection', heuristic: 'Mark and sweep', domain: 'Automatic memory management' },
+  { algorithm: 'TCP congestion control', heuristic: 'AIMD slow start', domain: 'Congestion avoidance' },
 ];
 
 

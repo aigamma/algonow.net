@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net binary-decision-diagram-reduced-ordered-canonical-form preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T02:57:16.337Z",
+  "publication_sha256": "563981ec07a23a8e2f02a56877852d56b8c9a2430a28e36b8dd974012a9d54ca",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5576152,
+  "objects": [
+    {
+      "stable_id": "puzzle:binary-decision-diagram-reduced-ordered-canonical-form",
+      "slug": "binary-decision-diagram-reduced-ordered-canonical-form",
+      "track_id": "algieba",
+      "source_sha256": "9b8e69841f02851bbee582f1bd409191e0b82f06669a7008687a43f48bf6b0b7",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "00405a0110fb01e0952750c9d4c7017a324b53e95a2c655089bd5408dfad9b7b",
+      "object_key": "narration/v1/puzzles/binary-decision-diagram-reduced-ordered-canonical-form/00405a0110fb01e09527/algieba-5619cec6a2cc11e2.mp3",
+      "bytes": 2858732,
+      "sha256": "5619cec6a2cc11e274a75d916762169014b5f1b6a26d1ebdf6b5f097930fc170",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:binary-decision-diagram-reduced-ordered-canonical-form",
+      "slug": "binary-decision-diagram-reduced-ordered-canonical-form",
+      "track_id": "aoede",
+      "source_sha256": "9b8e69841f02851bbee582f1bd409191e0b82f06669a7008687a43f48bf6b0b7",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "00405a0110fb01e0952750c9d4c7017a324b53e95a2c655089bd5408dfad9b7b",
+      "object_key": "narration/v1/puzzles/binary-decision-diagram-reduced-ordered-canonical-form/00405a0110fb01e09527/aoede-5f485e92e9fa2ffa.mp3",
+      "bytes": 2717420,
+      "sha256": "5f485e92e9fa2ffac9ce8ba6c8b36d87cc1e86ac7fa26a6c75e23df6e00d06b8",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

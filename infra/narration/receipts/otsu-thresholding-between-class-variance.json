@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net otsu-thresholding-between-class-variance preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T02:43:50.140Z",
+  "publication_sha256": "a8685abd54ee7119a02ce1895ad19e81e4e60c1e5d96e46e105fad7bbdfc1be1",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5303512,
+  "objects": [
+    {
+      "stable_id": "puzzle:otsu-thresholding-between-class-variance",
+      "slug": "otsu-thresholding-between-class-variance",
+      "track_id": "algieba",
+      "source_sha256": "8308de29523e77a6b9051970c77ae4feba2eebfc047cb8d50daede7f18c372b4",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "71dd8e9f5dc0662b0c9537210cef5050bb95ca178e324e2084d00cd1f7b76cfe",
+      "object_key": "narration/v1/puzzles/otsu-thresholding-between-class-variance/71dd8e9f5dc0662b0c95/algieba-fb9b3e3bce93e072.mp3",
+      "bytes": 2748716,
+      "sha256": "fb9b3e3bce93e072462aeee6fe0a025b648e08884d710bc5807961f5114b64c9",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:otsu-thresholding-between-class-variance",
+      "slug": "otsu-thresholding-between-class-variance",
+      "track_id": "aoede",
+      "source_sha256": "8308de29523e77a6b9051970c77ae4feba2eebfc047cb8d50daede7f18c372b4",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "71dd8e9f5dc0662b0c9537210cef5050bb95ca178e324e2084d00cd1f7b76cfe",
+      "object_key": "narration/v1/puzzles/otsu-thresholding-between-class-variance/71dd8e9f5dc0662b0c95/aoede-e9539afd4f0343dd.mp3",
+      "bytes": 2554796,
+      "sha256": "e9539afd4f0343dde4d84d93054bdfb95ebb7480952990c6526f97aaac9e7d69",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

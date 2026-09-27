@@ -4685,6 +4685,48 @@ commit, Fable trailer on every commit, check green before each push.
       within 4 deg / 4 px (the bin widths) in at least 95%; stepMs
       420, holdTicks rests. Preserved narration: Aoede + Algieba.
 
+- [x] F148. Otsu thresholding × Between-class variance. Puzzle 154,
+      signal-graphics (problemSlug image-segmentation, the atlas
+      problem page carrying "Image binarization"), added 2026-09-26.
+      Solution otsu_thresholding_between_class_variance.py (0.3s,
+      prints OK): 128 x 128 images of round objects on a background
+      from a known mask, background N(80, 15), objects N(160, 20).
+      FIVE ORACLES: (1) within + between = total at every threshold to
+      9.1e-13; Otsu 121 vs Bayes 115 (error floor 1.11%); mask
+      accuracy 98.45% vs the Bayes mask 98.75%; (2) cost: one pass
+      18,728 operations (histogram + 2,344 on 256 bins) vs naive
+      recomputation 7,798,784, same threshold; (3) illumination ramp of
+      140 levels at 26% objects: global Otsu 69.1% (t 103), best global
+      83.6%, Sauvola window 15 86.4% / window 41 94.3% (polarity
+      inverted), top-hat (separable opening 41) then Otsu at 72: 97.8%
+      (AUTHOR CORRECTION: the draft ran Sauvola with document defaults
+      on bright blobs without inverting and scored 67%); (4) class
+      imbalance on overlapping classes N(100, 18) vs N(150, 22), at
+      51.4 / 20.3 / 7.6% objects: Bayes 123 / 134 / 142 at 89.6 / 92.9
+      / 96.4%; Otsu 127 / 121 / 109 at 89.0 / 88.8 / 72.9%;
+      Kittler-Illingworth 227 / 146 / 152 at 48.6 / 90.7 / 95.9%; mean
+      threshold 125 / 110 / 103 at 89.5 / 76.8 / 61.2%; fixed 128 at
+      88.9 / 92.0 / 93.3% (AUTHOR CORRECTION: the draft expected a
+      smooth drift on well-separated classes where every threshold
+      scored within a point; the failures are sharp and opposite on
+      overlapping classes, and a 1 to 5% class-mass guard does not
+      rescue the minimum-error criterion's tail minimum); (5) the
+      mean threshold and a fixed 128 as negative examples. Cards:
+      self, Adaptive thresholding, Kittler-Illingworth thresholding
+      (the atlas entry added with 153), k-means (all algoName).
+      neverUse: a global threshold under uneven light. Figure: a
+      two-hill histogram with the between-class variance curve
+      computed inline, Otsu's 121 and the Bayes 115 marked, cite Otsu
+      IEEE SMC 1979 DOI 10.1109/TSMC.1979.4310076,
+      Kittler-Illingworth 1986, Sauvola-Pietikainen 2000. Viz OtsuViz:
+      a 64 x 64 noisy blob image with the mask known, the threshold
+      sweeping 4 levels per tick over the histogram with the
+      between-class variance plotted and the mask at the current
+      threshold shown with errors in amber; NODE-VERIFIED 20 images:
+      the sweep lands on the argmax, the identity holds to 1e-6, mask
+      accuracy at least 95% in every image (mean 98.7%); stepMs 90,
+      holdTicks rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

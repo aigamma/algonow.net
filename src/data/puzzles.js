@@ -2983,15 +2983,35 @@ export const PUZZLES = {
     vite: 'hough-transform-parameter-space-voting',
     html: 'hough-transform-parameter-space-voting/index.html',
   },
+  '/otsu-thresholding-between-class-variance/': {
+    slug: 'otsu-thresholding-between-class-variance',
+    added: '2026-09-26',
+    problemSlug: 'image-segmentation',
+    number: 154,
+    category: 'signal-graphics',
+    algorithm: 'Otsu thresholding',
+    heuristic: 'Between-class variance',
+    domain: 'Image binarization',
+    oneLiner:
+      'Try all 256 thresholds in one pass over the histogram and keep the one that pushes the two class means farthest apart, which is exactly the one that makes each class tightest: a parameter-free cut that is exact, free, and global, with the two regimes where it breaks measured.',
+    description:
+      'Otsu thresholding by between-class variance on synthetic images with a known mask, held to the within-plus-between-equals-total identity (to 9e-13 at every threshold), to the Bayes threshold of the known class Gaussians (121 vs 115, 98.45% of pixels against 98.75%), and to a naive twin (the same threshold at 416x the operations); the two failures measured, an illumination ramp that defeats every global threshold (83.6% at best, recovered to 94.3% by Sauvola and 97.8% by a top-hat correction) and rare objects on overlapping classes (72.9% where the minimum-error criterion holds 95.9%), with that rival\'s own cliff on balanced classes (48.6%).',
+    listenMinutes: 9,
+    time: 'one histogram pass + 256 bins',
+    space: '256 bins',
+    baseline: 'The mean gray level',
+    vite: 'otsu-thresholding-between-class-variance',
+    html: 'otsu-thresholding-between-class-variance/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Otsu thresholding', heuristic: 'Between-class variance', domain: 'Image binarization' },
   { algorithm: 'Register allocation', heuristic: 'Graph coloring', domain: 'Compiler backend' },
   { algorithm: 'Binary decision diagram', heuristic: 'Reduced ordered canonical form', domain: 'Boolean function representation' },
+  { algorithm: 'IDA*', heuristic: 'Manhattan distance', domain: 'Memory-bound puzzle search' },
 ];
 
 

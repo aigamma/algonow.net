@@ -3063,6 +3063,26 @@ export const PUZZLES = {
     vite: 'garbage-collection-mark-and-sweep',
     html: 'garbage-collection-mark-and-sweep/index.html',
   },
+  '/tcp-congestion-control-aimd-slow-start/': {
+    slug: 'tcp-congestion-control-aimd-slow-start',
+    added: '2026-09-26',
+    problemSlug: 'congestion-control',
+    number: 158,
+    category: 'distributed-systems',
+    algorithm: 'TCP congestion control',
+    heuristic: 'AIMD slow start',
+    domain: 'Congestion avoidance',
+    oneLiner:
+      'Double the window until the first loss, then add one per round trip and halve on every loss: from one bit of feedback, competing senders converge to equal shares, because increases move parallel to the fairness line and halvings move toward the origin.',
+    description:
+      'TCP congestion control by AIMD with slow start on a fluid model of a shared bottleneck, held to Jain\'s fairness index, the link utilization, and the Chiu-Jain phase-plane invariants checked on every step: two senders from windows 1 and 40 fair by round trip 5 and at 1.000 at rest; one sender at 81% utilization with a sawtooth between 55 and 110; slow start reaching the capacity in 7 round trips against 99 for additive-only; AIAD (0.870) and MIMD (0.854) never converging; a sender that ignores loss taking 99.5% of the link; and round-trip times 1 and 4 splitting it 88% to 12%.',
+    listenMinutes: 9,
+    time: 'one update per round trip',
+    space: 'a window and a threshold per sender',
+    baseline: 'A fixed window',
+    vite: 'tcp-congestion-control-aimd-slow-start',
+    html: 'tcp-congestion-control-aimd-slow-start/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
@@ -3070,8 +3090,8 @@ export const PUZZLES = {
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
   { algorithm: 'Register allocation', heuristic: 'Graph coloring', domain: 'Compiler backend' },
-  { algorithm: 'TCP congestion control', heuristic: 'AIMD slow start', domain: 'Congestion avoidance' },
   { algorithm: 'Barnes-Hut', heuristic: 'Octree center-of-mass approximation', domain: 'N-body simulation' },
+  { algorithm: 'Levenberg-Marquardt', heuristic: 'Trust-region damping', domain: 'Nonlinear least squares' },
 ];
 
 

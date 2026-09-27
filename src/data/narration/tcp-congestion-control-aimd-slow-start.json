@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:tcp-congestion-control-aimd-slow-start",
+  "source_path": "src/content/tcp-congestion-control-aimd-slow-start.narration.js",
+  "source_sha256": "327145455f10d5e7bdf8fbba9a63b024d00fe0a35ea336bf9a705f5a61c5d01a",
+  "source_characters": 10518,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "b9a71b91ffe7c887b18f50fdde2d22da181e6c2586e71ac54a7c956256049e2f",
+  "generated_at": "2026-09-27T03:08:28.780Z",
+  "generated_characters": 21036,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4521,
+      "utf8_bytes": 4531,
+      "sha256": "0c8a04e62d1c7d2166d06a0cc4fda3d5755c0be7309128e9a2b2adc9cc668b7a"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4398,
+      "utf8_bytes": 4404,
+      "sha256": "40b61a570ad97f742a1de1a1394118b567759cbe33ef63c3045f989312a7f61c"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1599,
+      "utf8_bytes": 1603,
+      "sha256": "96514f034b1f8111af35f3e81b0c21862a0911cf323a9695dc0f48ab15cc575c"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "tcp-congestion-control-aimd-slow-start.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "tcp-congestion-control-aimd-slow-start.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1315,
+      "sha256": "1c8f81dcfaab7540cc45b01282804a5029bd25a65fd205650a3355c6d52dd7db"
+    },
+    {
+      "id": "tcp-congestion-control-aimd-slow-start.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1207,
+      "sha256": "fb2cb01e35c9533919f10989d3e1d70dce67afafd0d2df08eecbb194c1607282"
+    },
+    {
+      "id": "tcp-congestion-control-aimd-slow-start.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1878,
+      "sha256": "36db2add8b3b397ffc50c9a0d4a197f1dff6850ec649d9d5c19752aef29db068"
+    },
+    {
+      "id": "tcp-congestion-control-aimd-slow-start.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 677,
+      "sha256": "29df664d9234a2f006659d879d8689d01189d2a3e729f1386bfd8ba97aca1f3a"
+    },
+    {
+      "id": "tcp-congestion-control-aimd-slow-start.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 906,
+      "sha256": "8fc12ff4dec006f16fddf98d69463c9a5065177af1d90b5b6af0d7493f4f18ec"
+    },
+    {
+      "id": "tcp-congestion-control-aimd-slow-start.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 427,
+      "sha256": "baab898399bf11e03c6fbdb9ca2da4a724c85a55a9213de5b6cf6a038552f691"
+    },
+    {
+      "id": "tcp-congestion-control-aimd-slow-start.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1027,
+      "sha256": "95ec9e9bfcf705e56bff4428ebf5842c0b34f0a4bb3eead7d2114bdbc70eef00"
+    },
+    {
+      "id": "tcp-congestion-control-aimd-slow-start.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 562,
+      "sha256": "aec6338cdfe86876653c4810c413e08f44a5a6894ce4cf58217b25143c95a9a4"
+    },
+    {
+      "id": "tcp-congestion-control-aimd-slow-start.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 793,
+      "sha256": "423f47dfc705f3340000300c00949e6c0a6029fbeab0518f576d56a8b2d82613"
+    },
+    {
+      "id": "tcp-congestion-control-aimd-slow-start.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1603,
+      "sha256": "96514f034b1f8111af35f3e81b0c21862a0911cf323a9695dc0f48ab15cc575c"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/tcp-congestion-control-aimd-slow-start/b9a71b91ffe7c887b18f/aoede-0a9c7bf47b9cc5bc.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2551628,
+      "sha256": "0a9c7bf47b9cc5bc94c081852f34298988223eeb6bd71e6949420d345b64797a",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "0c8a04e62d1c7d2166d06a0cc4fda3d5755c0be7309128e9a2b2adc9cc668b7a",
+          "bytes": 1112544,
+          "sha256": "4b85e81ecb9d194c09e2472a85c05884d2b975c403ad750d212f465472d84e62"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "40b61a570ad97f742a1de1a1394118b567759cbe33ef63c3045f989312a7f61c",
+          "bytes": 1094592,
+          "sha256": "33fe3a57bef6f074cb116b09fb8a3491080ca14dc3bc3a0c4b0bda8cf9e3fb30"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "96514f034b1f8111af35f3e81b0c21862a0911cf323a9695dc0f48ab15cc575c",
+          "bytes": 344256,
+          "sha256": "8fac97e08aeaab501058d60783976aaf5c9aeefa496669608c1f3e4a22fe6db9"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/tcp-congestion-control-aimd-slow-start/b9a71b91ffe7c887b18f/algieba-3d7b0aa17da95be6.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2669708,
+      "sha256": "3d7b0aa17da95be6e42ce03aa86e21903f672443fbd6dc23c30c9fc518a4d82c",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "0c8a04e62d1c7d2166d06a0cc4fda3d5755c0be7309128e9a2b2adc9cc668b7a",
+          "bytes": 1159104,
+          "sha256": "a12caa71b7f73e395882ab9dc10c2ca1377f85ab88a3cffe9d5815241ad6e179"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "40b61a570ad97f742a1de1a1394118b567759cbe33ef63c3045f989312a7f61c",
+          "bytes": 1164096,
+          "sha256": "912ad3ce264a58d5bf44502497a323a72327fe99cd488d3e1c45b125bb628dd0"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "96514f034b1f8111af35f3e81b0c21862a0911cf323a9695dc0f48ab15cc575c",
+          "bytes": 346272,
+          "sha256": "0fe2f4a4f257fac81facee68da6ef6ecf35dce0a52c556f1b8a27b2367121ec8"
+        }
+      ]
+    }
+  }
+}

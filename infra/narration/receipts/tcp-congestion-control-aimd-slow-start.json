@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net tcp-congestion-control-aimd-slow-start preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T03:09:23.173Z",
+  "publication_sha256": "46dfbe86c9a7fbc12e10fde01bcd71cf567aa39f635804b40271f335bfc00bbc",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5221336,
+  "objects": [
+    {
+      "stable_id": "puzzle:tcp-congestion-control-aimd-slow-start",
+      "slug": "tcp-congestion-control-aimd-slow-start",
+      "track_id": "algieba",
+      "source_sha256": "327145455f10d5e7bdf8fbba9a63b024d00fe0a35ea336bf9a705f5a61c5d01a",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "b9a71b91ffe7c887b18f50fdde2d22da181e6c2586e71ac54a7c956256049e2f",
+      "object_key": "narration/v1/puzzles/tcp-congestion-control-aimd-slow-start/b9a71b91ffe7c887b18f/algieba-3d7b0aa17da95be6.mp3",
+      "bytes": 2669708,
+      "sha256": "3d7b0aa17da95be6e42ce03aa86e21903f672443fbd6dc23c30c9fc518a4d82c",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:tcp-congestion-control-aimd-slow-start",
+      "slug": "tcp-congestion-control-aimd-slow-start",
+      "track_id": "aoede",
+      "source_sha256": "327145455f10d5e7bdf8fbba9a63b024d00fe0a35ea336bf9a705f5a61c5d01a",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "b9a71b91ffe7c887b18f50fdde2d22da181e6c2586e71ac54a7c956256049e2f",
+      "object_key": "narration/v1/puzzles/tcp-congestion-control-aimd-slow-start/b9a71b91ffe7c887b18f/aoede-0a9c7bf47b9cc5bc.mp3",
+      "bytes": 2551628,
+      "sha256": "0a9c7bf47b9cc5bc94c081852f34298988223eeb6bd71e6949420d345b64797a",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

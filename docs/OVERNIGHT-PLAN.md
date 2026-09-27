@@ -4843,6 +4843,38 @@ commit, Fable trailer on every commit, check green before each push.
       stepMs 140, holdTicks rests. Preserved narration: Aoede +
       Algieba.
 
+- [x] F152. TCP congestion control × AIMD slow start. Puzzle 158,
+      distributed-systems (problemSlug congestion-control, the atlas
+      problem page carrying "Congestion avoidance"), added 2026-09-26.
+      Solution tcp_congestion_control_aimd_slow_start.py (0.04s,
+      prints OK): a fluid bottleneck of 100 packets per round trip
+      with a 50-packet queue, one round trip per tick, loss shared in
+      proportion to the offered windows. FIVE ORACLES: (1) two AIMD
+      senders from windows 1 and 40: Jain above 0.98 by round trip 5
+      and held 20 rounds; late shares 4,312 vs 4,361 window-rounds;
+      the window ratio preserved on every joint halving and
+      non-increasing on 187 joint additive steps; (2) one sender:
+      81.0% utilization over rounds 50 to 200, sawtooth 55 to 110
+      with a drop every 56 round trips (AUTHOR CORRECTION: the draft
+      asserted 85% and measured 81%, the sawtooth's three quarters of
+      the peak plus the queue); (3) slow start reaches 100 from 1 in 7
+      round trips, additive-only start in 99; (4) rounds 150+: AIMD
+      Jain 1.000 at 85.1% utilization, AIAD (+1, -5) 0.870 at 100%,
+      MIMD (x1.2, /2) 0.854 at 99.3%; (5) a fixed window of 200 takes
+      99.5% of the packets from an AIMD sender; round-trip times 1
+      and 4 split 88.2% / 11.8%. Cards: self, TCP CUBIC, TCP Vegas,
+      BBR (all algoName). neverUse: a sender that ignores loss.
+      Figure: the two sawteeth from 1 and 40 beside the phase plane
+      with the fairness and overload lines, computed inline with the
+      same fluid model, cite Jacobson-Karels SIGCOMM 1988 DOI
+      10.1145/52324.52356, Chiu-Jain 1989, RFC 5681. Viz AimdViz: two
+      senders with random starting windows on the same bottleneck, one
+      round trip per tick, the window chart with loss events marked
+      beside the phase plane path; NODE-VERIFIED 20 pairs: Jain above
+      0.95 at the end and above 0.9 throughout the last 60 rounds in
+      every pair, the halving ratio invariant holding; stepMs 130,
+      holdTicks rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

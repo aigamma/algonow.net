@@ -2583,15 +2583,35 @@ export const PUZZLES = {
     vite: 'gaussian-elimination-partial-pivoting',
     html: 'gaussian-elimination-partial-pivoting/index.html',
   },
+  '/grovers-search-amplitude-amplification/': {
+    slug: 'grovers-search-amplitude-amplification',
+    added: '2026-09-26',
+    problemSlug: 'quantum-search',
+    number: 134,
+    category: 'quantum-unconventional',
+    algorithm: 'Grover\'s search',
+    heuristic: 'Amplitude amplification',
+    domain: 'Unstructured search',
+    oneLiner:
+      'Flip the sign of the marked amplitude, reflect everything about the mean, and repeat: each round rotates the state a fixed angle toward the target, so fifty oracle calls find one item in four thousand where a scan needs two thousand, and the geometry says exactly when to stop.',
+    description:
+      'Grover\'s search with amplitude amplification on an exactly simulated state vector: the marked probability matching sin^2((2t + 1) theta) to 2e-15 at every round; one item in 4,096 found in 50 oracle calls at probability 0.9999 against a measured classical scan of 2,112; the overshoot at 100 rounds (0.0009), four marked items in 25 rounds, the wrong schedule (0.0002), the BBHT schedule for an unknown count (51.9 calls); the square-root law measured from 256 to 16,384 items; both halves of the round ablated exactly.',
+    listenMinutes: 8,
+    time: '~(pi/4) sqrt(N/k) oracle calls',
+    space: 'n = log2 N qubits',
+    baseline: 'Classical random scan',
+    vite: 'grovers-search-amplitude-amplification',
+    html: 'grovers-search-amplitude-amplification/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: "Grover's search", heuristic: 'Amplitude amplification', domain: 'Unstructured search' },
   { algorithm: 'Binomial options pricing', heuristic: 'Cox-Ross-Rubinstein lattice', domain: 'Option pricing' },
   { algorithm: 'Discrete event simulation', heuristic: 'Event-queue advance', domain: 'Systems modeling' },
+  { algorithm: 'Automatic differentiation', heuristic: 'Reverse mode', domain: 'Gradient computation' },
 ];
 
 

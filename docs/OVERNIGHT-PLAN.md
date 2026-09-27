@@ -4046,6 +4046,34 @@ commit, Fable trailer on every commit, check green before each push.
       zero and reached multipliers of 1e4 on the tiny; stepMs 650,
       holdTicks rests. Preserved narration: Aoede + Algieba.
 
+- [x] F128. Grover's search × amplitude amplification. Puzzle 134,
+      quantum-unconventional (problemSlug quantum-search, the atlas
+      problem page carrying "Unstructured search"), added 2026-09-26.
+      Solution grovers_search_amplitude_amplification.py (40s, prints
+      OK): exact real state-vector simulation, N = 4,096. FIVE ORACLES:
+      (1) the closed form sin^2((2t + 1) theta) matched to 2e-15 at
+      every round for k = 1 and k = 4; (2) t* = 50 with probability
+      0.9999 and 2,000 / 2,000 measurement hits vs a classical scan
+      measured at 2,112 calls (expected 2,048.5; the draft's tolerance
+      of 60 sat under the sampling error of about 26 and was widened to
+      120); the square-root law t* = 12, 17, 25, 35, 50, 71, 100 from N
+      = 256 to 16,384 (ratios 1.40 to 1.47); (3) overshoot: 0.0009 at
+      2t*, back above 0.99 at 3t*; (4) k = 4: t* = 25 at 0.9995, the
+      k = 1 schedule on k = 4 at 0.0002, BBHT for unknown k at 51.9
+      calls mean over 2,000 runs (sqrt(N/k) = 32); (5) ablations exact:
+      the oracle alone stays at 1/N, the diffusion alone fixes the
+      uniform state. Cards: self, Linear search, Quantum walk search,
+      Binary search. neverUse: Grover on data that has structure
+      (binary search 12 queries vs 50). Figure: the rotation picture
+      and the t* bars, cite Grover STOC 1996 DOI 10.1145/237814.237866
+      and BBHT 1998. Viz GroverViz: 64 amplitudes as bars, one Grover
+      round per two ticks (oracle flip, then reflection about the
+      dashed mean), the marked probability plotted against the closed
+      form and run past the optimum, alternating one and two marked
+      items; NODE-VERIFIED 8 cycles: simulation within 1e-12 of the
+      closed form and above 0.95 at t* in all 8; stepMs 420, holdTicks
+      rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

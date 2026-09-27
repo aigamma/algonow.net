@@ -4399,6 +4399,38 @@ commit, Fable trailer on every commit, check green before each push.
       more; stepMs 380, holdTicks rests. Preserved narration: Aoede +
       Algieba.
 
+- [x] F140. Douglas-Peucker × Max-deviation recursion. Puzzle 146,
+      geometry (problemSlug polyline-simplification, the atlas problem
+      page carrying "Polyline simplification"), added 2026-09-26.
+      Solution douglas_peucker_max_deviation_recursion.py (about 4s,
+      prints OK): a 2,000-point noisy spiral track. FIVE ORACLES: (1)
+      the guarantee point by point at eps 0.05 / 0.2 / 1.0 / 5.0:
+      1,669 / 836 / 79 / 28 vertices, max error 0.050 / 0.199 / 0.995
+      / 4.577, evaluations 23,916 / 22,631 / 15,812 / 12,499; (2) the
+      Imai-Iri optimum on a 200-point subsample: 157 vs 153 at eps
+      0.2 (1.03x), 66 vs 60 at eps 1.0 (1.10x); (3) same 79 vertices:
+      Douglas-Peucker 0.995, uniform decimation 1.960, radial distance
+      3.387 (AUTHOR CORRECTION: the draft demanded more than 2x from
+      both and decimation came in at 1.96, so the bar is 1.5x for
+      decimation and 2x for radial); (4) the sweep strictly
+      decreasing; (5) cost at eps 0 on 400 points: track 3,609
+      evaluations, decaying zigzag (-1)^i 100 0.9^i 79,401 of 79,800
+      (AUTHOR CORRECTION: the draft's convex exponential split in the
+      middle at 3,202). Cards: self, Visvalingam-Whyatt (algoName),
+      Imai-Iri optimal simplification, Radial distance. neverUse:
+      uniform decimation. Figure: fourteen points, the first chord and
+      band, the farthest point's perpendicular, the four-vertex result,
+      cite Douglas-Peucker Canadian Cartographer 1973 DOI
+      10.3138/FM57-6770-U75U-7727, Ramer 1972, Hershberger-Snoeyink
+      1992. Viz DouglasPeuckerViz: a 160-point track, one chord per
+      tick (split at the farthest point or settle), band shaded, kept
+      vertices in blue, settled chords in green, the true max error
+      recomputed against every point each frame; NODE-VERIFIED 8
+      cycles: every point within the 6 px tolerance at the end of
+      every cycle (14 to 21 vertices, about 750 to 810 evaluations);
+      stepMs 320, holdTicks rests. Preserved narration: Aoede +
+      Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

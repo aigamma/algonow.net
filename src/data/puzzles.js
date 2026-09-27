@@ -2823,15 +2823,35 @@ export const PUZZLES = {
     vite: 'ransac-random-consensus-sampling',
     html: 'ransac-random-consensus-sampling/index.html',
   },
+  '/douglas-peucker-max-deviation-recursion/': {
+    slug: 'douglas-peucker-max-deviation-recursion',
+    added: '2026-09-26',
+    problemSlug: 'polyline-simplification',
+    number: 146,
+    category: 'geometry',
+    algorithm: 'Douglas-Peucker',
+    heuristic: 'Max-deviation recursion',
+    domain: 'Polyline simplification',
+    oneLiner:
+      'Keep the endpoints, find the point farthest from the chord, and if it is outside the tolerance keep it and recurse on both halves: every vertex kept is one the guarantee demanded, and every point dropped lies within tolerance of the line.',
+    description:
+      'Douglas-Peucker by max-deviation recursion on a 2,000-point track, checked point by point: every original point within tolerance at four tolerances (1,669 / 836 / 79 / 28 vertices at 0.05 / 0.2 / 1.0 / 5.0); within 1.03x to 1.10x of the Imai-Iri minimum-vertex optimum on a 200-point subsample; at the same 79 vertices uniform decimation errs by 1.960 and radial distance by 3.387 against 0.995; and the cost counted at 3,609 evaluations on 400 track points against 79,401 of 79,800 on a decaying zigzag built to defeat the recursion.',
+    listenMinutes: 8,
+    time: 'O(n log n) typical, O(n^2) worst',
+    space: 'O(n)',
+    baseline: 'Uniform decimation',
+    vite: 'douglas-peucker-max-deviation-recursion',
+    html: 'douglas-peucker-max-deviation-recursion/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Douglas-Peucker', heuristic: 'Max-deviation recursion', domain: 'Polyline simplification' },
   { algorithm: 'Chinese remainder theorem', heuristic: "Garner's algorithm", domain: 'Modular reconstruction' },
   { algorithm: 'Locality-sensitive hashing', heuristic: 'Random hyperplane hashes', domain: 'Approximate nearest neighbors' },
+  { algorithm: 'Decision tree', heuristic: 'Information gain splits', domain: 'Interpretable classification' },
 ];
 
 

@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:douglas-peucker-max-deviation-recursion",
+  "source_path": "src/content/douglas-peucker-max-deviation-recursion.narration.js",
+  "source_sha256": "920247d11d054f4523e86e3f114c3e6c58956604171634c2b60c5c0ad2663d1d",
+  "source_characters": 10654,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "2b2c10e2742c0a37270d566d148cd967486c2bdf6e577bddce26e36cf9c3c5bb",
+  "generated_at": "2026-09-27T01:41:26.731Z",
+  "generated_characters": 21308,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4325,
+      "utf8_bytes": 4329,
+      "sha256": "c3f0dc513b10593dc49c424cf132c3cab0126a634733f1e5ff393e25e97439f4"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4298,
+      "utf8_bytes": 4308,
+      "sha256": "91dbfa6430e0910205bb4c19228ddf0356c33df8eb1744f4348c3e519a6783e8"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2031,
+      "utf8_bytes": 2031,
+      "sha256": "e5deccb6d2f86aa8bfd5d5894fe2fa542bc543938cc77988d98d8ab6a490cec0"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "douglas-peucker-max-deviation-recursion.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "douglas-peucker-max-deviation-recursion.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1079,
+      "sha256": "02518fb67098bb009be6561706e80de83d094e8609c78de9a44ab52e435059aa"
+    },
+    {
+      "id": "douglas-peucker-max-deviation-recursion.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1071,
+      "sha256": "bee7f65dfb6d9a67d11da17fed2c36076f51c2a08de5aa90936492d16aba47ea"
+    },
+    {
+      "id": "douglas-peucker-max-deviation-recursion.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2048,
+      "sha256": "9714bbb8930345abc70a4813dce9e2c54a59c3fbb7382b703f0910f6cb240fbf"
+    },
+    {
+      "id": "douglas-peucker-max-deviation-recursion.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 698,
+      "sha256": "333993a8a122c899c752299d9b60376e1b9b976e458f221042aa1f17342bf7e4"
+    },
+    {
+      "id": "douglas-peucker-max-deviation-recursion.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1300,
+      "sha256": "b25243c1e09a6833704c0c6cdca74b6a570d377d93e36643148c0c583114869e"
+    },
+    {
+      "id": "douglas-peucker-max-deviation-recursion.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 431,
+      "sha256": "3dfa6696673bf9ffd9cc95510c0658e1abee2237f46240cd87f63d8bf3e088ff"
+    },
+    {
+      "id": "douglas-peucker-max-deviation-recursion.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1281,
+      "sha256": "c29adff562f0a604a9033a539814c20cc19791ff0f8fdf893a880ec1167c784b"
+    },
+    {
+      "id": "douglas-peucker-max-deviation-recursion.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 588,
+      "sha256": "29d3c35a67824270f91d0baf58efe619543cb82beb385dbf3532d53af1df0820"
+    },
+    {
+      "id": "douglas-peucker-max-deviation-recursion.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 790,
+      "sha256": "816e07376f92cdae90387c5a0a4706fda0e98ea36496c37919e5ef7b572f4b8a"
+    },
+    {
+      "id": "douglas-peucker-max-deviation-recursion.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1239,
+      "sha256": "fd9aa09de3a1e10eab26b8d1612d45aac332e0087f73690c25f1283181ab4785"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/douglas-peucker-max-deviation-recursion/2b2c10e2742c0a37270d/aoede-f8b61f871311a1a1.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2631596,
+      "sha256": "f8b61f871311a1a13a73f49af5100331bea00d4be78958e7fb059e69a3a5256d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "c3f0dc513b10593dc49c424cf132c3cab0126a634733f1e5ff393e25e97439f4",
+          "bytes": 1064352,
+          "sha256": "bfbd489de934e007a0e3f8ab119030a35fca843abd2b3457e8cf5bf193bbdfdb"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "91dbfa6430e0910205bb4c19228ddf0356c33df8eb1744f4348c3e519a6783e8",
+          "bytes": 1100736,
+          "sha256": "5178f1680973e1d3e60095a62b5e87afefa925b2f1fb5f91f1df1d5dcb4a38d1"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "e5deccb6d2f86aa8bfd5d5894fe2fa542bc543938cc77988d98d8ab6a490cec0",
+          "bytes": 466272,
+          "sha256": "004d00b67b5754cc5e3218a7cbeabd94a6aa099fbb0b230c8b44c3fc04a7af26"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/douglas-peucker-max-deviation-recursion/2b2c10e2742c0a37270d/algieba-9fc47f21c0accb9e.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2751692,
+      "sha256": "9fc47f21c0accb9e380e2cc90993d4e3487bfee146a0f35dea48eccb3f8e8686",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "c3f0dc513b10593dc49c424cf132c3cab0126a634733f1e5ff393e25e97439f4",
+          "bytes": 1127904,
+          "sha256": "cbf444479aea2d92d84d6139a989189157db603a67cf5e6089a6e413465b16b5"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "91dbfa6430e0910205bb4c19228ddf0356c33df8eb1744f4348c3e519a6783e8",
+          "bytes": 1115616,
+          "sha256": "314a3406de7095906d31967ba63fc268d4c4f72ec1edabd3cca9243a73aa99fd"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "e5deccb6d2f86aa8bfd5d5894fe2fa542bc543938cc77988d98d8ab6a490cec0",
+          "bytes": 507936,
+          "sha256": "704d3254399f217ca797151a4a178b88e152f03a069ac5988c4e9084b5d96bb8"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net douglas-peucker-max-deviation-recursion preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T01:42:22.074Z",
+  "publication_sha256": "29738ec190ce5d3579b83dd6343e7433555572b4426159d741035b035ddaba52",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5383288,
+  "objects": [
+    {
+      "stable_id": "puzzle:douglas-peucker-max-deviation-recursion",
+      "slug": "douglas-peucker-max-deviation-recursion",
+      "track_id": "algieba",
+      "source_sha256": "920247d11d054f4523e86e3f114c3e6c58956604171634c2b60c5c0ad2663d1d",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "2b2c10e2742c0a37270d566d148cd967486c2bdf6e577bddce26e36cf9c3c5bb",
+      "object_key": "narration/v1/puzzles/douglas-peucker-max-deviation-recursion/2b2c10e2742c0a37270d/algieba-9fc47f21c0accb9e.mp3",
+      "bytes": 2751692,
+      "sha256": "9fc47f21c0accb9e380e2cc90993d4e3487bfee146a0f35dea48eccb3f8e8686",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:douglas-peucker-max-deviation-recursion",
+      "slug": "douglas-peucker-max-deviation-recursion",
+      "track_id": "aoede",
+      "source_sha256": "920247d11d054f4523e86e3f114c3e6c58956604171634c2b60c5c0ad2663d1d",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "2b2c10e2742c0a37270d566d148cd967486c2bdf6e577bddce26e36cf9c3c5bb",
+      "object_key": "narration/v1/puzzles/douglas-peucker-max-deviation-recursion/2b2c10e2742c0a37270d/aoede-f8b61f871311a1a1.mp3",
+      "bytes": 2631596,
+      "sha256": "f8b61f871311a1a13a73f49af5100331bea00d4be78958e7fb059e69a3a5256d",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

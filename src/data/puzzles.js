@@ -2843,15 +2843,35 @@ export const PUZZLES = {
     vite: 'douglas-peucker-max-deviation-recursion',
     html: 'douglas-peucker-max-deviation-recursion/index.html',
   },
+  '/chinese-remainder-theorem-garners-algorithm/': {
+    slug: 'chinese-remainder-theorem-garners-algorithm',
+    added: '2026-09-26',
+    problemSlug: 'modular-arithmetic',
+    number: 147,
+    category: 'crypto-number-theory',
+    algorithm: 'Chinese remainder theorem',
+    heuristic: 'Garner\'s algorithm',
+    domain: 'Modular reconstruction',
+    oneLiner:
+      'Rebuild an integer from its residues as mixed-radix digits, one small inverse per modulus, so nothing exceeds one modulus until the final assembly: the theorem\'s guarantee at a word\'s width instead of the big product\'s.',
+    description:
+      'The Chinese remainder theorem by Garner\'s algorithm, held to the original integer: 2,000 random values below a 100-bit product rebuilt exactly by the mixed-radix ladder and by the direct formula; uniqueness exhaustive on 1,155 residue tuples and broken by non-coprime moduli (0 and 30 under 6 and 10); on ten 64-bit moduli Garner\'s largest intermediate 64 bits against the direct formula\'s 704; a 640-bit product from ten 64-bit residue products; RSA-512 decryption by CRT at 25% of the multiplications; and the textbook sieve at 2,181,053 additions where Garner spends 20 operations.',
+    listenMinutes: 8,
+    time: 'k(k - 1)/2 small multiplies, one assembly',
+    space: 'k digits, k(k - 1)/2 precomputed inverses',
+    baseline: 'The direct CRT formula',
+    vite: 'chinese-remainder-theorem-garners-algorithm',
+    html: 'chinese-remainder-theorem-garners-algorithm/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Chinese remainder theorem', heuristic: "Garner's algorithm", domain: 'Modular reconstruction' },
   { algorithm: 'Locality-sensitive hashing', heuristic: 'Random hyperplane hashes', domain: 'Approximate nearest neighbors' },
   { algorithm: 'Decision tree', heuristic: 'Information gain splits', domain: 'Interpretable classification' },
+  { algorithm: 'Naive Bayes', heuristic: 'Laplace smoothing', domain: 'Probabilistic classification' },
 ];
 
 

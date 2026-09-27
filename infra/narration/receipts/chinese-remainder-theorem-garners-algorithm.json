@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net chinese-remainder-theorem-garners-algorithm preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T01:48:19.026Z",
+  "publication_sha256": "7943a7f0ca5b1d8230b7c651c3db32eefe73fc6aeee9f5db011c0435aac76553",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5575864,
+  "objects": [
+    {
+      "stable_id": "puzzle:chinese-remainder-theorem-garners-algorithm",
+      "slug": "chinese-remainder-theorem-garners-algorithm",
+      "track_id": "algieba",
+      "source_sha256": "e467e0c146a97af932be747073a3ffd278e248476b9b50147ef4c399e6f9a76b",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "f44cb0ba624c25cf13a9255c8e184cc8a9704889c1faccb805991323d5c35539",
+      "object_key": "narration/v1/puzzles/chinese-remainder-theorem-garners-algorithm/f44cb0ba624c25cf13a9/algieba-63795c515a9411af.mp3",
+      "bytes": 2862572,
+      "sha256": "63795c515a9411af39cffab46b30d9f2e35ab5c854bef80038cc7bd31509fc27",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:chinese-remainder-theorem-garners-algorithm",
+      "slug": "chinese-remainder-theorem-garners-algorithm",
+      "track_id": "aoede",
+      "source_sha256": "e467e0c146a97af932be747073a3ffd278e248476b9b50147ef4c399e6f9a76b",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "f44cb0ba624c25cf13a9255c8e184cc8a9704889c1faccb805991323d5c35539",
+      "object_key": "narration/v1/puzzles/chinese-remainder-theorem-garners-algorithm/f44cb0ba624c25cf13a9/aoede-51b0ff9bd227e78d.mp3",
+      "bytes": 2713292,
+      "sha256": "51b0ff9bd227e78d6d434677511df3b9d7f6ef82e98a7e79598004bddc4d64f9",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

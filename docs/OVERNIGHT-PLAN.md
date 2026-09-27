@@ -4431,6 +4431,38 @@ commit, Fable trailer on every commit, check green before each push.
       stepMs 320, holdTicks rests. Preserved narration: Aoede +
       Algieba.
 
+- [x] F141. Chinese remainder theorem × Garner's algorithm. Puzzle
+      147, crypto-number-theory (problemSlug modular-arithmetic, the
+      atlas problem page carrying "Modular reconstruction"), added
+      2026-09-26. Solution chinese_remainder_theorem_garners_algorithm.py
+      (0.2s, prints OK). SIX ORACLES: (1) 2,000 random integers below
+      M = 1000003 x 1000033 x 1000037 x 1000039 x 1000081 (100 bits)
+      rebuilt exactly by Garner and by the direct formula, every
+      residue rechecked; (2) uniqueness exhaustive: 1,155 distinct
+      tuples below 3 x 5 x 7 x 11; (3) operand sizes on ten 64-bit
+      primes (640-bit M): Garner's largest intermediate 64 bits in 90
+      small operations, the direct formula's 704 bits in 30 big
+      operations; (4a) a 319-bit x 320-bit product as ten 64-bit
+      residue products reassembled, equal to the integer product;
+      (4b) RSA-512: plain exponentiation 756 full-size multiplications,
+      CRT 388 + 375 half-size (about 191 full, 25%), same message;
+      (5) moduli 6 and 10: 0 and 30 share residues; (6) the sieve
+      (add the running product until the next residue fits): exact on
+      the small moduli exhaustively, 2,181,053 additions (0.11s) on the
+      million-sized moduli vs Garner's 20 operations. Cards: self,
+      Direct CRT formula, Extended Euclidean algorithm (algoName),
+      Montgomery multiplication (algoName). neverUse: the sieve.
+      Figure: 551 through 7, 11, 13 as three dials, Garner's ladder
+      (digits 5, 1, 7) beside the direct formula's 8,559 mod 1,001,
+      cite Garner IRE TEC 1959 DOI 10.1109/TEC.1959.5219515, Knuth
+      TAOCP 2 section 4.3.2, Quisquater-Couvreur 1982. Viz CrtViz: a
+      hidden integer below 1,001 on three dials, Garner one digit per
+      tick with the candidate set on a number line shrinking 1,001 ->
+      143 -> 13 -> 1, beside a brute-force scan at 40 integers per
+      tick; NODE-VERIFIED 20 cycles: Garner equals the target and the
+      scan finds the same value in every cycle; stepMs 420, holdTicks
+      rests. Preserved narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

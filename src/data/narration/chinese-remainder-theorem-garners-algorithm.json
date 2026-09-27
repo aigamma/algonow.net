@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:chinese-remainder-theorem-garners-algorithm",
+  "source_path": "src/content/chinese-remainder-theorem-garners-algorithm.narration.js",
+  "source_sha256": "e467e0c146a97af932be747073a3ffd278e248476b9b50147ef4c399e6f9a76b",
+  "source_characters": 10962,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "f44cb0ba624c25cf13a9255c8e184cc8a9704889c1faccb805991323d5c35539",
+  "generated_at": "2026-09-27T01:47:19.869Z",
+  "generated_characters": 21924,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4788,
+      "utf8_bytes": 4800,
+      "sha256": "b0b1db3b41ff57080076920852f02a3009aa8accfc08c52fb038c4d2046608de"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4831,
+      "utf8_bytes": 4848,
+      "sha256": "5fce431fbe351477695d05dbdc7368475f70669670e91f383937d433dd7f8a16"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1343,
+      "utf8_bytes": 1351,
+      "sha256": "38a63d2c0069b9340f6fd39d0e5491c1d4a6760711b0924ebbd8a6df4fe8b42b"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "chinese-remainder-theorem-garners-algorithm.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "chinese-remainder-theorem-garners-algorithm.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1277,
+      "sha256": "db67ac95c0053d0aa5d50630de03304452c35196f406104b4bbe135e896d8dc6"
+    },
+    {
+      "id": "chinese-remainder-theorem-garners-algorithm.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1337,
+      "sha256": "972b0a46d2b47fb637a9d6df9fafe02674f0a03cf7f4f34078dbbd9b86cd49ff"
+    },
+    {
+      "id": "chinese-remainder-theorem-garners-algorithm.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2055,
+      "sha256": "30103c989dc3a3410b5b6ce930d59c765c0837e7092f2b7e6978fa5a31674196"
+    },
+    {
+      "id": "chinese-remainder-theorem-garners-algorithm.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 766,
+      "sha256": "47367ff08d867b7df51500d197e85115c734cda6dbc3bd8391155be8d4be2470"
+    },
+    {
+      "id": "chinese-remainder-theorem-garners-algorithm.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1027,
+      "sha256": "bb9a6b953cb2bdac2ebea86e666b01c5abcb5d66458ea2d288ca75300ee6e776"
+    },
+    {
+      "id": "chinese-remainder-theorem-garners-algorithm.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 532,
+      "sha256": "b390398d538e8a405a5cfbec0a49c44118ce1841c127731155f34a4c8b6104c2"
+    },
+    {
+      "id": "chinese-remainder-theorem-garners-algorithm.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1152,
+      "sha256": "6b788635869aca32be025fec24a7b655b545d57f7ce04dced889fcc086be1b4a"
+    },
+    {
+      "id": "chinese-remainder-theorem-garners-algorithm.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 569,
+      "sha256": "884011471edcf82916b186122f6513e5abcb2d2c8c65660a2b466deb378cc052"
+    },
+    {
+      "id": "chinese-remainder-theorem-garners-algorithm.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 790,
+      "sha256": "76cd1c43d6d26cb7e86875b4916908e04712a2bfc33189e3e10312e346d8f441"
+    },
+    {
+      "id": "chinese-remainder-theorem-garners-algorithm.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1351,
+      "sha256": "38a63d2c0069b9340f6fd39d0e5491c1d4a6760711b0924ebbd8a6df4fe8b42b"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/chinese-remainder-theorem-garners-algorithm/f44cb0ba624c25cf13a9/aoede-51b0ff9bd227e78d.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2713292,
+      "sha256": "51b0ff9bd227e78d6d434677511df3b9d7f6ef82e98a7e79598004bddc4d64f9",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b0b1db3b41ff57080076920852f02a3009aa8accfc08c52fb038c4d2046608de",
+          "bytes": 1168512,
+          "sha256": "8629eacee6e37b625f2b5f69eb63745a615cfe39f512e9b891cb3255c592c3c3"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "5fce431fbe351477695d05dbdc7368475f70669670e91f383937d433dd7f8a16",
+          "bytes": 1263552,
+          "sha256": "d9022aaebfbf77d0c8c5326658a70ecd1e375b2bf1d3ec26cd2f36a2745083d2"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "38a63d2c0069b9340f6fd39d0e5491c1d4a6760711b0924ebbd8a6df4fe8b42b",
+          "bytes": 280992,
+          "sha256": "90402aa1b607c63b860c51479ef382b86d752512e4424f8850335160360cf979"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/chinese-remainder-theorem-garners-algorithm/f44cb0ba624c25cf13a9/algieba-63795c515a9411af.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2862572,
+      "sha256": "63795c515a9411af39cffab46b30d9f2e35ab5c854bef80038cc7bd31509fc27",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b0b1db3b41ff57080076920852f02a3009aa8accfc08c52fb038c4d2046608de",
+          "bytes": 1212672,
+          "sha256": "3554f0d78109c2fa54b9783ff0670d6c14c8eef98884cda96d22ae1f00e0a931"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "5fce431fbe351477695d05dbdc7368475f70669670e91f383937d433dd7f8a16",
+          "bytes": 1373952,
+          "sha256": "d22f38e96b785546ebd1f2f942961979209ecd02ad82c32b1798293b5d8e66a1"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "38a63d2c0069b9340f6fd39d0e5491c1d4a6760711b0924ebbd8a6df4fe8b42b",
+          "bytes": 275712,
+          "sha256": "a48bf41d23ca63e62d387be3c354069ad728b956c3470855994ef7f068051db0"
+        }
+      ]
+    }
+  }
+}

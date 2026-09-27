@@ -2723,15 +2723,35 @@ export const PUZZLES = {
     vite: 'conjugate-gradient-jacobi-preconditioner',
     html: 'conjugate-gradient-jacobi-preconditioner/index.html',
   },
+  '/byte-pair-encoding-frequency-merge-vocabulary/': {
+    slug: 'byte-pair-encoding-frequency-merge-vocabulary',
+    added: '2026-09-26',
+    problemSlug: 'tokenization',
+    number: 141,
+    category: 'data-retrieval',
+    algorithm: 'Byte pair encoding',
+    heuristic: 'Frequency-merge vocabulary',
+    domain: 'Subword tokenization',
+    oneLiner:
+      'Start from bytes, merge the most frequent adjacent pair into a new token, and repeat: the vocabulary becomes the corpus\'s own common fragments, every string still encodes exactly, and held-out text falls from four and a half tokens per word to under two.',
+    description:
+      'Byte pair encoding with a frequency-merge vocabulary: byte-exact round trips at 0, 50, 200, and 467 merges on training, held-out, and never-seen-character text; the learner\'s incremental pair counts equal to a full recount for 60 merges and the vocabulary exactly 256 + k; tokens per word falling from 4.46 to 1.00 on the training text and 4.60 to 1.76 held out; 200 random merges at 3.22 held out against frequency\'s 2.13; a word-level vocabulary leaving 36.6% of held-out words unencodable.',
+    listenMinutes: 8,
+    time: 'one pair count per merge',
+    space: '256 + k tokens and a merge table',
+    baseline: 'Raw bytes (zero merges)',
+    vite: 'byte-pair-encoding-frequency-merge-vocabulary',
+    html: 'byte-pair-encoding-frequency-merge-vocabulary/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Byte pair encoding', heuristic: 'Frequency-merge vocabulary', domain: 'Subword tokenization' },
   { algorithm: 'Betweenness centrality', heuristic: 'Brandes accumulation', domain: 'Node importance' },
   { algorithm: 'Gossip protocol', heuristic: 'Random-peer anti-entropy', domain: 'Epidemic dissemination' },
+  { algorithm: 'Parallel prefix sum', heuristic: 'Blelloch scan', domain: 'Data-parallel primitive' },
 ];
 
 

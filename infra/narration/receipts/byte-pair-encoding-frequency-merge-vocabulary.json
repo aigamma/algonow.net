@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net byte-pair-encoding-frequency-merge-vocabulary preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T01:08:21.354Z",
+  "publication_sha256": "8a2d57d20fb9126a069c4aa91b068a02305250f9d1964a4aea99d66cb13f72cf",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4839160,
+  "objects": [
+    {
+      "stable_id": "puzzle:byte-pair-encoding-frequency-merge-vocabulary",
+      "slug": "byte-pair-encoding-frequency-merge-vocabulary",
+      "track_id": "algieba",
+      "source_sha256": "1a93e021e951b0fb2e9c6e17562958a78ff3c3cc18dc11e48f49f1ba0ee98218",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "156e003078bb200c8053e44f4a51352c5152b4772264643f920cd73b55b4d161",
+      "object_key": "narration/v1/puzzles/byte-pair-encoding-frequency-merge-vocabulary/156e003078bb200c8053/algieba-0a3b44942cc9f618.mp3",
+      "bytes": 2454956,
+      "sha256": "0a3b44942cc9f6185a50b9810d630656a81e5559e3a03acb2f206c4e5717e098",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:byte-pair-encoding-frequency-merge-vocabulary",
+      "slug": "byte-pair-encoding-frequency-merge-vocabulary",
+      "track_id": "aoede",
+      "source_sha256": "1a93e021e951b0fb2e9c6e17562958a78ff3c3cc18dc11e48f49f1ba0ee98218",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "156e003078bb200c8053e44f4a51352c5152b4772264643f920cd73b55b4d161",
+      "object_key": "narration/v1/puzzles/byte-pair-encoding-frequency-merge-vocabulary/156e003078bb200c8053/aoede-96c71b647fa6e4be.mp3",
+      "bytes": 2384204,
+      "sha256": "96c71b647fa6e4be846d5a8af65fbfa5588b7bea24199e7b21bfc792a091b0c0",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

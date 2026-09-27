@@ -4252,6 +4252,35 @@ commit, Fable trailer on every commit, check green before each push.
       stepMs 90, holdTicks rests. Preserved narration: Aoede +
       Algieba.
 
+- [x] F135. Byte pair encoding × frequency-merge vocabulary. Puzzle
+      141, data-retrieval (problemSlug tokenization, the atlas problem
+      page carrying "Subword tokenization"), added 2026-09-26.
+      Solution byte_pair_encoding_frequency_merge_vocabulary.py (0.2s,
+      prints OK): a byte-level BPE with incremental pair counts, an
+      embedded 441-word training text and a 101-word held-out text.
+      SIX ORACLES: (1) round trips byte-exact at 0 / 50 / 200 / 467
+      merges on training, held-out, and a French-Japanese-emoji string;
+      (2) incremental counts equal to a full recount for 60 merges,
+      every merge a most-frequent pair; (3) vocabulary exactly 256 +
+      k; (4) tokens per word 4.46 / 2.74 / 1.67 / 1.00 training and
+      4.60 / 2.99 / 2.13 / 1.76 held out (the draft asked for 500
+      merges; the corpus ran out of pairs at 467, so the exhaustion
+      point is measured instead: every training word one token); (5)
+      200 random merges: 2.86 training, 3.22 held out vs 2.13; (6) a
+      209-word word-level vocabulary leaves 37 of 101 held-out words
+      (36.6%) unencodable; BPE encodes all, 71% as one token. First
+      merges: he, the, in, er, an, ed, and, to. Cards: self,
+      WordPiece, SentencePiece. neverUse: a word-level vocabulary.
+      Figure: "ledger" as bytes then tokens, and the tokens-per-word
+      curves, cite Sennrich-Haddow-Birch ACL 2016 DOI
+      10.18653/v1/P16-1162, Gage 1994, Radford et al. 2019. Viz
+      BpeViz: a 24-word text merged one most-frequent pair per tick
+      with the merged token in amber, tokens per word on the training
+      text and a held-out sentence; NODE-VERIFIED: round trips exact
+      after every merge, vocabulary = base + merges, training tokens
+      per word monotone; stepMs 700, holdTicks rests. Preserved
+      narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

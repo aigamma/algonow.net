@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net fibonacci-heap-lazy-consolidation-with-marking preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T04:14:05.375Z",
+  "publication_sha256": "4f765f228d53fad757b7b9f5fb9d06ecd7ce644e5d03869ef7a3b25101489167",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5929432,
+  "objects": [
+    {
+      "stable_id": "puzzle:fibonacci-heap-lazy-consolidation-with-marking",
+      "slug": "fibonacci-heap-lazy-consolidation-with-marking",
+      "track_id": "algieba",
+      "source_sha256": "ebe1a2e741910938bd60745490778c86ecf0e7534be085d96bbdeacb8b69fce7",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "5ae04ea4d878bf3be46a65f94612aad247cb888f0d57e35c22c0673177c5c79b",
+      "object_key": "narration/v1/puzzles/fibonacci-heap-lazy-consolidation-with-marking/5ae04ea4d878bf3be46a/algieba-b95ae6daed2af99d.mp3",
+      "bytes": 3050732,
+      "sha256": "b95ae6daed2af99dba30c9fb6616fd15922d361aa7b6cc3de1d8dab4d2703467",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:fibonacci-heap-lazy-consolidation-with-marking",
+      "slug": "fibonacci-heap-lazy-consolidation-with-marking",
+      "track_id": "aoede",
+      "source_sha256": "ebe1a2e741910938bd60745490778c86ecf0e7534be085d96bbdeacb8b69fce7",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "5ae04ea4d878bf3be46a65f94612aad247cb888f0d57e35c22c0673177c5c79b",
+      "object_key": "narration/v1/puzzles/fibonacci-heap-lazy-consolidation-with-marking/5ae04ea4d878bf3be46a/aoede-3b047a28b9ea28bc.mp3",
+      "bytes": 2878700,
+      "sha256": "3b047a28b9ea28bc2637546d0431003c6f9d91e4f1d86d2260e93e46f9079816",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

@@ -5032,6 +5032,49 @@ commit, Fable trailer on every commit, check green before each push.
       reported; stepMs 650, holdTicks rests. Preserved narration: Aoede
       + Algieba.
 
+- [x] F157. Fibonacci heap × Lazy consolidation with marking. Puzzle
+      163, data-structures (problemSlug priority-queue, the atlas problem
+      page carrying "Priority queue"), added 2026-09-27. Solution
+      fibonacci_heap_lazy_consolidation_with_marking.py (6s, prints OK):
+      the heap with circular lists, marks, and counters (links, cuts,
+      cascading cuts, marks, root scans) plus a cascade-off switch; a
+      node-by-node Fibonacci-property checker; a binary heap with a
+      position map; a two-pass pairing heap; four Dijkstra drivers
+      against an array Dijkstra. FIVE ORACLES: (1) 60,000 random
+      operations (26,916 inserts, 21,041 decrease-keys, 12,043
+      delete-mins): 0 mismatches against a sorted reference for all
+      three heaps; (2) the final heap of 14,873 nodes: 0 property
+      violations, max degree 13 against the bound 19; the adversary that
+      strips grandchildren (30 rounds, 8,192 nodes): with marks 0
+      violations and max degree 13, without marks 16 violations and max
+      degree 17; (3) accounting: 0.274 cuts per decrease-key (bound 2;
+      933 cascading cuts, 4,678 marks), 5.3 links per delete-min against
+      log2 n 14.7, actual work 212,721 against the amortized total
+      1,026,348; (4) Dijkstra, distances exact on all three graphs:
+      complete n = 1,000 (499,500 edges) Fibonacci 24,692 steps 0.13 s,
+      binary 11,359 0.12 s, pairing 26,368 0.13 s, lazy heapq 11,925
+      0.11 s; sparse n = 3,000 m = 11,994: 82,208 / 33,524 / 57,375 /
+      10,721; the cascade graph w(u, v) = 2(v - u) - 1 with a
+      decrease-key on every edge: 6,914 steps 0.09 s / 7,317 0.11 s /
+      998,002 0.19 s / 999,001 0.43 s; (5) the lazy heap on the cascade
+      graph as the negative example. Honest: the hero ties or loses on
+      wall time to the binary heap on the random graphs and the binary
+      heap's decrease-key is within a fifth of it on the cascade graph
+      (a small decrease rarely sifts far); the page says so. Cards:
+      self, Binary heap, Pairing heap, Binomial heap (all algoName).
+      neverUse: the lazy binary heap when keys are lowered on every
+      edge. Figure: a cascading cut on a six-node tree before and after,
+      beside bars of cuts per decrease-key vs 2 and links per delete-min
+      vs log2 n, cite Fredman and Tarjan JACM 1987 DOI
+      10.1145/28869.28874, Fredman et al. 1986, Vuillemin 1978. Viz
+      FibHeapViz: a random workload of 90 operations, one per tick, the
+      forest drawn with the minimum ringed and marked nodes amber,
+      counters, and the invariants (heap order, Fibonacci property, min
+      pointer) checked every tick; NODE-VERIFIED 20 cycles x 90
+      operations: every invariant held on every tick, cascading cuts
+      occurred; stepMs 700, holdTicks rests. Preserved narration: Aoede +
+      Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

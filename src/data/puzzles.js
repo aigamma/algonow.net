@@ -3163,13 +3163,32 @@ export const PUZZLES = {
     vite: 'register-allocation-graph-coloring',
     html: 'register-allocation-graph-coloring/index.html',
   },
+  '/fibonacci-heap-lazy-consolidation-with-marking/': {
+    slug: 'fibonacci-heap-lazy-consolidation-with-marking',
+    added: '2026-09-27',
+    problemSlug: 'priority-queue',
+    number: 163,
+    category: 'data-structures',
+    algorithm: 'Fibonacci heap',
+    heuristic: 'Lazy consolidation with marking',
+    domain: 'Amortized-optimal priority queue',
+    oneLiner:
+      'Keep a forest of heap-ordered trees in a lazy root list: insert splices a one-node tree, decrease-key cuts a node loose, and only delete-min tidies by linking equal-degree roots; a node that loses a second child is cut too, which keeps every tree fat enough that the maximum degree stays logarithmic and decrease-key costs a constant, amortized.',
+    description:
+      'The Fibonacci heap with lazy consolidation and marking, held to a sorted reference on 60,000 random operations (0 mismatches, as for a binary heap with a position map and a pairing heap), the Fibonacci property checked at every node (max degree 13 against the bound 19), the amortized accounting measured (0.274 cuts per decrease-key against the bound of 2, 5.3 links per delete-min against log2 n = 14.7, actual work 212,721 against an amortized total of 1,026,348), the marks shown load-bearing by an adversary that breaks the property without them (16 violations, max degree 17 against 13), and Dijkstra on three graphs against an array oracle: 6,914 primitive steps for 499,500 decrease-keys on the cascade graph against 998,002 for the pairing heap and 999,001 for the lazy heap, and honest wall-clock ties or losses to the binary heap elsewhere.',
+    listenMinutes: 10,
+    time: 'O(1) insert and decrease-key, O(log n) delete-min, amortized',
+    space: 'four pointers, a degree, and a mark per node',
+    baseline: 'Binary heap with a position map',
+    vite: 'fibonacci-heap-lazy-consolidation-with-marking',
+    html: 'fibonacci-heap-lazy-consolidation-with-marking/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Fibonacci heap', heuristic: 'Lazy consolidation with marking', domain: 'Amortized-optimal priority queue' },
   { algorithm: 'Holt-Winters', heuristic: 'Triple seasonal smoothing', domain: 'Seasonal forecasting' },
 ];
 

@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:fibonacci-heap-lazy-consolidation-with-marking",
+  "source_path": "src/content/fibonacci-heap-lazy-consolidation-with-marking.narration.js",
+  "source_sha256": "ebe1a2e741910938bd60745490778c86ecf0e7534be085d96bbdeacb8b69fce7",
+  "source_characters": 11378,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "5ae04ea4d878bf3be46a65f94612aad247cb888f0d57e35c22c0673177c5c79b",
+  "generated_at": "2026-09-27T04:13:08.668Z",
+  "generated_characters": 22756,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4933,
+      "utf8_bytes": 4941,
+      "sha256": "b61999e6e2469e6b957ff84af3f92ac38115b27046b13779829447612bdab263"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4288,
+      "utf8_bytes": 4292,
+      "sha256": "fe6790508048633421c401b70588452fb8f6cb0c549b29b528f0aebd47c2e2d5"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2157,
+      "utf8_bytes": 2159,
+      "sha256": "03483cb5a0546d17532338f44d94ce1cd473250efef0f26187a084536bbee091"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "fibonacci-heap-lazy-consolidation-with-marking.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "fibonacci-heap-lazy-consolidation-with-marking.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1515,
+      "sha256": "ffc3aa8b0e55eccf954e7ea7f2e935dfc479d805a2a25d5b519f2c08245ae0ae"
+    },
+    {
+      "id": "fibonacci-heap-lazy-consolidation-with-marking.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1435,
+      "sha256": "0bffa21ce6205ccc91434fd3a883daaebf15117d2ab05b33a1caaf57ab842987"
+    },
+    {
+      "id": "fibonacci-heap-lazy-consolidation-with-marking.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1860,
+      "sha256": "e91571bd833d733b4cb177e07f08bbaaf1be8c57a87e1d1f460fd3563eb1d4ef"
+    },
+    {
+      "id": "fibonacci-heap-lazy-consolidation-with-marking.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 669,
+      "sha256": "1640b6d59aa461ec1da4ff1fa7529546f5c18203a8ab4dad2684f2881fda94e5"
+    },
+    {
+      "id": "fibonacci-heap-lazy-consolidation-with-marking.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 956,
+      "sha256": "fd912fb6d3b5a3c0f56eb59f374a313eda714199de4720c6cc0d6d25ccc007b1"
+    },
+    {
+      "id": "fibonacci-heap-lazy-consolidation-with-marking.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 435,
+      "sha256": "5e4bb105a5608dad19ac3b098937e61f1202fc5c2961b6399184e38cd723d6ef"
+    },
+    {
+      "id": "fibonacci-heap-lazy-consolidation-with-marking.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1351,
+      "sha256": "4649d5991019b686312d8bed3fd5264070d1d4470703f9309794b79a113aab30"
+    },
+    {
+      "id": "fibonacci-heap-lazy-consolidation-with-marking.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 871,
+      "sha256": "c1b6e03cb21981ea9248ebd76bd4cc3b5408d8e76005848c874d36007884ed39"
+    },
+    {
+      "id": "fibonacci-heap-lazy-consolidation-with-marking.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 902,
+      "sha256": "b714e81c531cb3ea8fe168c8f6f3d1b211a0f17e8bea82968474443709906743"
+    },
+    {
+      "id": "fibonacci-heap-lazy-consolidation-with-marking.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1255,
+      "sha256": "6f2e3ad5f8e79854831c69febbd02f0ff328fcd45fa878a11dee15ffc12881df"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/fibonacci-heap-lazy-consolidation-with-marking/5ae04ea4d878bf3be46a/aoede-3b047a28b9ea28bc.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2878700,
+      "sha256": "3b047a28b9ea28bc2637546d0431003c6f9d91e4f1d86d2260e93e46f9079816",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b61999e6e2469e6b957ff84af3f92ac38115b27046b13779829447612bdab263",
+          "bytes": 1231104,
+          "sha256": "b4b54cb95951a16b11353e6bcfb16f96cd9b70a769c8740eb0d64c0e682ff420"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "fe6790508048633421c401b70588452fb8f6cb0c549b29b528f0aebd47c2e2d5",
+          "bytes": 1100256,
+          "sha256": "1335b18880361d7fec9641155acf6b55b180ad44eb46c649f8e06df2f9b4997c"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "03483cb5a0546d17532338f44d94ce1cd473250efef0f26187a084536bbee091",
+          "bytes": 547104,
+          "sha256": "a17ad2586c58c4ee9d39f4ecb47d6b97687da25f415603c4e195aa16ad4876f5"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/fibonacci-heap-lazy-consolidation-with-marking/5ae04ea4d878bf3be46a/algieba-b95ae6daed2af99d.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3050732,
+      "sha256": "b95ae6daed2af99dba30c9fb6616fd15922d361aa7b6cc3de1d8dab4d2703467",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b61999e6e2469e6b957ff84af3f92ac38115b27046b13779829447612bdab263",
+          "bytes": 1273344,
+          "sha256": "6bd93eec735b6ff83fe3febf5ca047a7391b323ab40f4e0b5d3e3fd292b3d5e5"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "fe6790508048633421c401b70588452fb8f6cb0c549b29b528f0aebd47c2e2d5",
+          "bytes": 1224096,
+          "sha256": "297606811532dd324ede47eac12beb6f7d92dc7553af21b023801916c1f9df01"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "03483cb5a0546d17532338f44d94ce1cd473250efef0f26187a084536bbee091",
+          "bytes": 553056,
+          "sha256": "37a83ebff0c230c7296fa7481bb6a931f200d0fbddf4404b5200eb46152b6fcd"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,54 @@
+// The spoken lesson for puzzle one hundred fifty nine, written for the ear.
+
+export const narration = [
+  {
+    section: 'puzzle',
+    text:
+      'Puzzle one hundred fifty nine: Barnes-Hut, paired with the octree center of mass approximation, for N body simulation. Here is the puzzle. N masses attract each other by an inverse square law, and every step of a simulation needs the force on every body. Direct summation costs N times N minus one over two pair interactions per step: half a million for a thousand bodies, half a trillion for a million. The bodies here sit in a few clumps inside a unit cube, with softening so that close pairs stay finite. The method is Barnes-Hut. Put the bodies in an octree, each cell split into eight until every cell holds one body, and record every cell’s total mass and center of mass. Compute the force on a body by walking the tree from the root. The heuristic is the opening criterion: if a cell’s size divided by its distance is below theta, treat the whole cell as one point mass at its center of mass; otherwise open it and look at its children. Far groups collapse into single interactions, and the cost falls toward N log N. On this page every force is checked against direct summation, the trade of theta is measured at five settings, the growth is counted, and a short integration checks the physics.',
+  },
+  {
+    section: 'origins',
+    text:
+      'Josh Barnes and Piet Hut published the tree code in nineteen eighty six, in Nature, under the title A Hierarchical Order N log N Force Calculation Algorithm, replacing the pairwise sum that had limited galaxy simulations to a few thousand stars with an adaptive octree and a single tunable, the opening angle. Appel had proposed a similar hierarchy in nineteen eighty five. Greengard and Rokhlin took the idea to its limit in nineteen eighty seven with the fast multipole method, which expands far fields to higher order and reaches linear time with guaranteed error bounds. Hernquist in nineteen eighty seven, and Salmon and Warren in nineteen ninety four, made the tree code parallel and gave it better opening criteria. Springel’s GADGET, in two thousand one and two thousand five, combined a tree with a mesh and ran the Millennium simulation’s ten billion particles. The same tree drives molecular dynamics, smoothed particle hydrodynamics, and the force directed graph layouts in every visualization library, where the bodies are nodes pushing each other apart.',
+  },
+  {
+    section: 'pair',
+    text:
+      'The algorithm owns the tree and its bookkeeping. Every body in exactly one leaf, every cell’s mass the sum of its bodies’ and its center of mass their mass weighted mean, checked on every cell to a billionth, so that a cell can stand in for its contents wherever the heuristic allows. The referee is direct summation. With theta at zero the walk opens every cell and returns the direct forces to a few parts in a quadrillion, which proves the tree contains the same physics before any approximation is made. The algorithm also owns the physics check: a three hundred body cluster integrated for forty leapfrog steps with tree forces drifts in energy by two parts in a thousand against one part in a thousand with direct forces, and its trajectories stay within two thousandths of the direct ones. The heuristic supplies the opening angle, the one number that trades accuracy for cost, and the page measures the trade at five settings. At theta of one half, the value most codes ship with, a body interacts with one hundred ninety six cells instead of nine hundred ninety nine bodies, and its force is wrong by six tenths of a percent in the median, five percent at worst. At three tenths the error is twelve hundredths of a percent for three hundred forty two interactions. At two, the walk barely opens anything, twenty eight interactions, and the median error is seventeen percent. The collapse is what a center of mass can do: the monopole of a far cell is exact to first order in the cell’s size over its distance, and the quadrupole error it leaves is what theta bounds. The price the heuristic cannot hide is symmetry. The force of A on B is computed from a different tree walk than B on A, so momentum drifts, two and a half thousandths over forty steps against nothing at all for direct forces.',
+  },
+  {
+    section: 'picture',
+    text:
+      'A census taker who must learn how strongly every town pulls on every other, where pull fades with the square of distance. Town by town, pair by pair, is a lifetime. Instead, draw the map in a grid of squares, each split into four until every square holds one town, and write on every square its total population and where that population balances. For a given town, look at a square: if it is small compared with how far away it is, its whole population pulls as one lump from the balance point, one calculation; if it is large and near, open it and look at its four quarters. Distant provinces collapse into single lumps, the neighborhood is examined house by house, and the rule for small compared with far is the only thing to decide.',
+  },
+  {
+    section: 'run',
+    text:
+      'Here is the run. Build: insert each body, splitting a cell with two bodies into eight children, until every leaf holds one. Summarize: bottom up, each cell’s mass and center of mass from its children. Walk: for a body, start at the root; if the cell is a leaf, add its pull; otherwise, if the cell’s size over its distance is below theta, add the pull of its center of mass; otherwise recurse into the children. Integrate: leapfrog with the tree forces, rebuilding the tree every step. Check against direct summation on a sample, and watch energy and momentum. On this page the count is measured across two hundred fifty, five hundred, one thousand, and two thousand bodies at theta of one half: twenty five thousand, seventy seven thousand, two hundred nine thousand, and five hundred forty thousand interactions, against sixty two thousand, two hundred fifty thousand, one million, and four million for direct summation counted per body. The tree grew twenty two fold for an eight fold increase in bodies; direct summation grew sixty four fold.',
+  },
+  {
+    section: 'signals',
+    text:
+      'The signals that this pair fits. First: long range pairwise forces on many bodies. Gravity, electrostatics, graph layout; anything where every pair matters but far pairs matter smoothly. Second: clustered, uneven distributions. The adaptive tree follows the bodies, where a fixed grid would waste its cells on empty space. Third: a few percent of force error is acceptable. Simulations already carry integration and softening error of that size.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'Now the rivals. The fast multipole method: higher order expansions with a provable error bound, and cell to cell translations that make the cost linear. It is far more code with a large constant, and it wins over the tree only at high accuracy or very large N. Reach for it with millions of bodies and tight accuracy targets, in electrostatics and integral equations. Particle mesh Ewald: the long range part on a grid by fast Fourier transform, N log N with a small constant, and periodic boundaries for free. A fixed grid resolves clumps poorly, and it needs periodicity or a large box. Reach for it in molecular dynamics in periodic boxes and in cosmology on near uniform fields. And leapfrog integration, the other half of any simulation: the symplectic integrator this page uses, with energy drift bounded over long runs, time reversible, one force evaluation per step. It has a fixed step, so close encounters need shorter steps or softening, as here. Reach for it with any force method.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'The honest weaknesses of the hero: no error bound, no symmetry, and a constant that bites. Theta trades cost for error empirically, with a worst case ten times the median, five percent at one half. The forces are not antisymmetric, so momentum drifts where direct summation holds it to rounding. Dense clumps open many cells, which is why the count grew twenty two fold rather than the eleven fold of N log N here. And the tree is rebuilt every step.',
+  },
+  {
+    section: 'tradeoffs',
+    text:
+      'And the negative example: direct summation at a million bodies. The pairwise sum is exact, simple, and antisymmetric, and it is the wrong tool the moment N is large: half a trillion pair interactions per step at a million bodies, which is not run on this page because a Python implementation would take a season per step. The tree at the measured ratios needs between two hundred fifty and four hundred ninety million, an extrapolation, but a thousand times fewer at the low end. The measurement on this page is the growth: from two hundred fifty to two thousand bodies the direct count rose sixty four fold and the tree’s twenty two fold, and every further doubling widens the gap by two. The exactness is real, and it is worth a few percent of force error many thousands of times over.',
+  },
+  {
+    section: 'code',
+    text:
+      'The code on this page is an octree, a tree walk, direct summation, a leapfrog integrator, and the referees. The cluster generator scatters bodies in Gaussian clumps inside the unit cube. The tree inserts bodies by octant, splitting as needed, and summarizes mass and center of mass bottom up. The walk applies the opening criterion with a counter on every interaction. Direct summation loops over pairs, antisymmetrically. The checker walks every cell and recomputes its mass and center of mass from the bodies below it. The self test asserts: one thousand bodies in one thousand leaves with every cell exact to a billionth; theta zero within a billionth of direct summation at exactly nine hundred ninety nine thousand interactions; median errors increasing with theta, under one percent at one half with the worst under ten, and theta two more than three times worse; the tree’s count growing between eight and thirty fold across the eight fold range of N while direct summation grows more than sixty fold, with the tree under a quarter of the body interactions at two thousand; energy drift under two percent for both integrations; and momentum drift under a billionth for direct forces and under a hundredth for tree forces. Two corrections are recorded in the file: the draft asserted a fourfold saving over direct pairs at two thousand bodies and measured three point seven, so the comparison is made per body interaction, and it asked for a momentum drift under a thousandth and measured two and a half. When it prints O K, the approximation has been held to the exact sum it replaces. The file would fail before it would lie to you.',
+  },
+];

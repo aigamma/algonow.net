@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net barnes-hut-octree-center-of-mass-approximation preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T03:17:05.812Z",
+  "publication_sha256": "a82ffeefef2bf82a5169eac8a10fd82c04fd8d8caf434bbb42a672b9efa60b0b",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5284216,
+  "objects": [
+    {
+      "stable_id": "puzzle:barnes-hut-octree-center-of-mass-approximation",
+      "slug": "barnes-hut-octree-center-of-mass-approximation",
+      "track_id": "algieba",
+      "source_sha256": "9ad975a3c5afa591cc9fbadce6497898f53c3a0fb2e0c523d6d8c83ad5e69a18",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "2fd7c4185e05d735b5ac5f07b8e1dcd17ba76a73d485e03c9ead980fc2a5df9b",
+      "object_key": "narration/v1/puzzles/barnes-hut-octree-center-of-mass-approximation/2fd7c4185e05d735b5ac/algieba-b5609940279fbceb.mp3",
+      "bytes": 2685260,
+      "sha256": "b5609940279fbceb5d04be5afa48ee10693069dcf69bbdec246ddaedf653a86f",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:barnes-hut-octree-center-of-mass-approximation",
+      "slug": "barnes-hut-octree-center-of-mass-approximation",
+      "track_id": "aoede",
+      "source_sha256": "9ad975a3c5afa591cc9fbadce6497898f53c3a0fb2e0c523d6d8c83ad5e69a18",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "2fd7c4185e05d735b5ac5f07b8e1dcd17ba76a73d485e03c9ead980fc2a5df9b",
+      "object_key": "narration/v1/puzzles/barnes-hut-octree-center-of-mass-approximation/2fd7c4185e05d735b5ac/aoede-2dac478a2182310a.mp3",
+      "bytes": 2598956,
+      "sha256": "2dac478a2182310a3e47dec9e70ef616e2cd3159daa1eaa92afe7fe9a9608d6e",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

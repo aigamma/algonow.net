@@ -4875,6 +4875,47 @@ commit, Fable trailer on every commit, check green before each push.
       every pair, the halving ratio invariant holding; stepMs 130,
       holdTicks rests. Preserved narration: Aoede + Algieba.
 
+- [x] F153. Barnes-Hut × Octree center-of-mass approximation. Puzzle
+      159, numerical (problemSlug n-body, the atlas problem page
+      carrying "N-body simulation"), added 2026-09-26. Solution
+      barnes_hut_octree_center_of_mass_approximation.py (3s, prints
+      OK): bodies in five Gaussian clumps in the unit cube, Plummer
+      softening 0.05, an octree with per-cell mass and center of mass,
+      the monopole walk with size / distance < theta. FIVE ORACLES:
+      (1) 1,000 bodies: theta 0 opens every cell and matches direct
+      summation to 2.5e-15 at 999,000 interactions; theta 0.3 / 0.5 /
+      0.7 / 1.0 / 2.0: 341,842 / 195,766 / 130,172 / 76,431 / 28,023
+      interactions, median relative error 1.2e-3 / 6.0e-3 / 1.6e-2 /
+      3.8e-2 / 1.7e-1, worst 1.3e-2 / 5.2e-2 / 9.4e-2 / 2.7e-1 / 1.21;
+      (2) theta 0.5 at N = 250 / 500 / 1,000 / 2,000: 24,929 / 77,200 /
+      209,303 / 539,758 interactions vs 31,125 / 124,750 / 499,500 /
+      1,999,000 pairs (62,250 to 3,998,000 body-interactions); ratio
+      to N log2 N 12.5 / 17.2 / 21.0 / 24.6; the tree grows 21.7x and
+      direct 64x (AUTHOR CORRECTIONS: the draft asserted a flat ratio
+      to N log N, which drifts as the clumps densify, and a fourfold
+      saving over direct pairs at 2,000, measured 3.7x by pairs and
+      7.4x by body-interactions); (3) 300 bodies, 40 leapfrog steps of
+      0.005: energy drift 2.15e-3 (tree) vs 1.26e-3 (direct), momentum
+      drift 2.5e-3 vs 5.8e-17, positions within 2.1e-3 (AUTHOR
+      CORRECTION: the draft asked for momentum drift under 1e-3); (4)
+      every cell's mass and center of mass equal its bodies' to 1e-9,
+      every body in one leaf; (5) a million bodies: direct
+      499,999,500,000 pairs (not run), the tree 250 to 490 million at
+      the measured ratios (an extrapolation). Cards: self, Fast
+      multipole method, Particle mesh Ewald, Leapfrog integration (all
+      algoName). neverUse: direct summation at a million bodies.
+      Figure: a quadtree walk with accepted and opened cells computed
+      inline beside the interactions-vs-error curve, cite Barnes-Hut
+      Nature 1986 DOI 10.1038/324446a0, Greengard-Rokhlin JCP 1987,
+      Springel MNRAS 2005. Viz BarnesHutViz: 200 bodies in clumps in a
+      quadtree, one body per tick with the accepted cells shaded and
+      opened cells outlined, the direct and tree force arrows, the
+      interaction count and relative error; NODE-VERIFIED 10 clusters
+      of 40 bodies each: median error under 3% and fewer than 70% of
+      the direct interactions in every cluster (about 55 to 63 of
+      199, median 0.8 to 1.1%); stepMs 500, holdTicks rests. Preserved
+      narration: Aoede + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

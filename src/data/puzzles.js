@@ -3083,6 +3083,26 @@ export const PUZZLES = {
     vite: 'tcp-congestion-control-aimd-slow-start',
     html: 'tcp-congestion-control-aimd-slow-start/index.html',
   },
+  '/barnes-hut-octree-center-of-mass-approximation/': {
+    slug: 'barnes-hut-octree-center-of-mass-approximation',
+    added: '2026-09-26',
+    problemSlug: 'n-body',
+    number: 159,
+    category: 'numerical',
+    algorithm: 'Barnes-Hut',
+    heuristic: 'Octree center-of-mass approximation',
+    domain: 'N-body simulation',
+    oneLiner:
+      'Put the bodies in an octree with every cell\'s mass and center of mass, and let a far cell pull as one point when its size over its distance is below theta: a fifth of the pair interactions for a fraction of a percent of force error, with the trade measured at five angles.',
+    description:
+      'Barnes-Hut with the octree center-of-mass approximation, held to direct summation over every pair: theta 0 reproduces the direct forces to 2.5e-15; theta 0.3 / 0.5 / 0.7 / 1.0 / 2.0 costs 341,842 / 195,766 / 130,172 / 76,431 / 28,023 interactions on 1,000 bodies for median errors of 1.2e-3 / 6.0e-3 / 1.6e-2 / 3.8e-2 / 1.7e-1; the count grows 21.7x across an 8x range of N where direct summation grows 64x; every cell\'s mass and center of mass exact to 1e-9; and a 40-step leapfrog integration drifting in energy by 2.2e-3 and in momentum by 2.5e-3, the tree\'s forces not being antisymmetric.',
+    listenMinutes: 9,
+    time: 'about N log N interactions per step',
+    space: 'an octree of O(N) cells',
+    baseline: 'Direct summation',
+    vite: 'barnes-hut-octree-center-of-mass-approximation',
+    html: 'barnes-hut-octree-center-of-mass-approximation/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
@@ -3090,8 +3110,8 @@ export const PUZZLES = {
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
   { algorithm: 'Register allocation', heuristic: 'Graph coloring', domain: 'Compiler backend' },
-  { algorithm: 'Barnes-Hut', heuristic: 'Octree center-of-mass approximation', domain: 'N-body simulation' },
   { algorithm: 'Levenberg-Marquardt', heuristic: 'Trust-region damping', domain: 'Nonlinear least squares' },
+  { algorithm: 'Nelder-Mead', heuristic: 'Reflect-expand-contract simplex', domain: 'Derivative-free optimization' },
 ];
 
 

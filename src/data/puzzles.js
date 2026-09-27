@@ -2863,15 +2863,35 @@ export const PUZZLES = {
     vite: 'chinese-remainder-theorem-garners-algorithm',
     html: 'chinese-remainder-theorem-garners-algorithm/index.html',
   },
+  '/locality-sensitive-hashing-random-hyperplane-hashes/': {
+    slug: 'locality-sensitive-hashing-random-hyperplane-hashes',
+    added: '2026-09-26',
+    problemSlug: 'nearest-neighbor-search',
+    number: 148,
+    category: 'data-retrieval',
+    algorithm: 'Locality-sensitive hashing',
+    heuristic: 'Random hyperplane hashes',
+    domain: 'Approximate nearest neighbors',
+    oneLiner:
+      'Hash each vector by which side of k random hyperplanes it falls on, so near vectors share codes and far ones rarely do, then look in L tables and rerank only the candidates: sublinear search with a miss rate the formula predicts.',
+    description:
+      'Locality-sensitive hashing by random hyperplane hashes on 2,000 clustered unit vectors in 32 dimensions, held to brute force: the collision law theta/pi measured within 0.6 points at five exact angles; the amplification 1 - (1 - p^k)^L measured within 1 point at two; the search at k = 10, L = 20 finding the true neighbor in 100 of 100 queries at 337 dot products against 2,000; the ablations (one bit examines half the data, twenty bits in one table recalls 0.03); random projection to 8 dimensions at recall 0.73; and a k-d tree in 32 dimensions visiting 1,676 of 2,000 points, the curse of dimensionality counted.',
+    listenMinutes: 8,
+    time: 'k L hash dots + candidates per query',
+    space: 'L tables of n codes',
+    baseline: 'Brute force',
+    vite: 'locality-sensitive-hashing-random-hyperplane-hashes',
+    html: 'locality-sensitive-hashing-random-hyperplane-hashes/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Locality-sensitive hashing', heuristic: 'Random hyperplane hashes', domain: 'Approximate nearest neighbors' },
   { algorithm: 'Decision tree', heuristic: 'Information gain splits', domain: 'Interpretable classification' },
   { algorithm: 'Naive Bayes', heuristic: 'Laplace smoothing', domain: 'Probabilistic classification' },
+  { algorithm: 'Association rule mining', heuristic: 'Apriori candidate pruning', domain: 'Market-basket analysis' },
 ];
 
 

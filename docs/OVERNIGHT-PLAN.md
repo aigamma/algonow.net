@@ -4463,6 +4463,39 @@ commit, Fable trailer on every commit, check green before each push.
       scan finds the same value in every cycle; stepMs 420, holdTicks
       rests. Preserved narration: Aoede + Algieba.
 
+- [x] F142. Locality-sensitive hashing × Random hyperplane hashes.
+      Puzzle 148, data-retrieval (problemSlug nearest-neighbor-search,
+      the atlas problem page carrying "Approximate nearest neighbors"),
+      added 2026-09-26. Solution
+      locality_sensitive_hashing_random_hyperplane_hashes.py (3s,
+      prints OK): 2,000 unit vectors in 32 dims around 25 centers
+      (noise 0.08), 100 queries, true neighbor at 24.2 degrees on
+      average. FIVE ORACLES: (1) the collision law at exact 15 / 30 /
+      60 / 90 / 120 degrees: separated by 8.19 / 17.03 / 33.37 / 50.32 /
+      66.51% of 20,000 hyperplanes vs theta/pi 8.33 / 16.67 / 33.33 /
+      50.00 / 66.67; (2) amplification at k = 10, L = 20 over 500
+      fresh hyperplane sets: 30 degrees 0.962 vs formula 0.970, 80
+      degrees 0.060 vs 0.055; (3) the sweep (k, L) -> recall@1,
+      candidates, dots per query: (6, 4) 0.89 / 220 / 244; (10, 10)
+      0.88 / 98 / 198; (10, 20) 1.00 / 137 / 337; (12, 24) 0.96 / 91 /
+      379; (4) ablations (1, 1) 0.84 / 1,044 candidates; (20, 1) 0.03 /
+      1; (5) rivals: brute force 2,000 dots; random projection to 8
+      dims + rerank 100: recall 0.73 at about 608 dot-equivalents; k-d
+      tree (leaf 8, plane pruning) exact on all 100 queries visiting
+      1,676 of 2,000. Cards: self, Random projection (algoName), HNSW
+      (algoName), Multi-probe LSH (algoName). neverUse: a k-d tree in
+      32 dimensions. Figure: the hyperplane picture beside the
+      amplification curves (one bit, ten bits, twenty tables) with the
+      two measured points, cite Charikar STOC 2002 DOI
+      10.1145/509907.509965, Indyk-Motwani STOC 1998, Andoni-Indyk
+      CACM 2008. Viz LshViz: 120 unit vectors in the plane in 8
+      clusters, one table of 6 random lines per tick (4 tables), the
+      query's sector joining the candidates, exact rerank at the end
+      checked against brute force; NODE-VERIFIED 40 cycles: 40 of 40
+      true neighbors found with 44.5 of 120 candidates on average;
+      stepMs 1100, holdTicks rests. Preserved narration: Aoede +
+      Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net locality-sensitive-hashing-random-hyperplane-hashes preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T01:54:05.505Z",
+  "publication_sha256": "8c1cf4ecd472fd78e21287afdad57861d7290a6d0dfe1e04d7fcff64b65745ab",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5456920,
+  "objects": [
+    {
+      "stable_id": "puzzle:locality-sensitive-hashing-random-hyperplane-hashes",
+      "slug": "locality-sensitive-hashing-random-hyperplane-hashes",
+      "track_id": "algieba",
+      "source_sha256": "e3d09e31abba08bf1eb15e129b2cce0f34ac6305f3c6c3dea933600093497524",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "229b4a1f118ff820441e7d12e5aec1fafe37e00f82eb5f39542538cc05376bb8",
+      "object_key": "narration/v1/puzzles/locality-sensitive-hashing-random-hyperplane-hashes/229b4a1f118ff820441e/algieba-283e073d4192a360.mp3",
+      "bytes": 2770892,
+      "sha256": "283e073d4192a36066ab2526e1cc9a3d055caca6d8541cb0bfb2a83e0aed01cf",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:locality-sensitive-hashing-random-hyperplane-hashes",
+      "slug": "locality-sensitive-hashing-random-hyperplane-hashes",
+      "track_id": "aoede",
+      "source_sha256": "e3d09e31abba08bf1eb15e129b2cce0f34ac6305f3c6c3dea933600093497524",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "229b4a1f118ff820441e7d12e5aec1fafe37e00f82eb5f39542538cc05376bb8",
+      "object_key": "narration/v1/puzzles/locality-sensitive-hashing-random-hyperplane-hashes/229b4a1f118ff820441e/aoede-7f1149831649e387.mp3",
+      "bytes": 2686028,
+      "sha256": "7f1149831649e38768adfe6a5176437116d6d5aca2a1aee44c5c1704789500b6",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

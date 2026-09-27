@@ -3143,13 +3143,32 @@ export const PUZZLES = {
     vite: 'nelder-mead-reflect-expand-contract-simplex',
     html: 'nelder-mead-reflect-expand-contract-simplex/index.html',
   },
+  '/register-allocation-graph-coloring/': {
+    slug: 'register-allocation-graph-coloring',
+    added: '2026-09-26',
+    problemSlug: 'compiler-backend',
+    number: 162,
+    category: 'languages-compilers',
+    algorithm: 'Register allocation',
+    heuristic: 'Graph coloring',
+    domain: 'Compiler backend',
+    oneLiner:
+      'Build the interference graph, one node per value and an edge between any two live at once, then simplify it by pushing every node with fewer than K neighbors and, when stuck, the node with the smallest spill cost per degree; pop the stack handing out registers, spill what finds none, rewrite, and repeat: the values sent to memory are the ones touched rarely, outside the loops, and in the way of many others.',
+    description:
+      'Register allocation by graph coloring with Chaitin\'s simplify-select and a loop-weighted cost / degree spill choice, on 30 random structured programs of 48 to 354 values at register pressure 12 to 25, every allocation checked by two oracles (no interference edge inside one register; an identical trace on K physical registers): dynamic loads and stores at K = 4 / 8 / 12 / 16 of 22,890 / 7,918 / 1,998 / 294 against linear scan 28,051 / 18,453 / 15,485 / 10,946, degree-only spilling 28,488 / 15,248 / 5,911 / 994, and everything in memory 41,250; the chromatic number equal to the clique number on all 30 graphs with simplify-select matching it on 30 of 30; and the quadratic price measured on 6,787 values (1,033,679 edges, 4.5 s against 4 ms for linear scan).',
+    listenMinutes: 10,
+    time: 'quadratic in values per spill round',
+    space: 'the interference graph',
+    baseline: 'Every value in memory (the unoptimized compiler)',
+    vite: 'register-allocation-graph-coloring',
+    html: 'register-allocation-graph-coloring/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Register allocation', heuristic: 'Graph coloring', domain: 'Compiler backend' },
   { algorithm: 'Fibonacci heap', heuristic: 'Lazy consolidation with marking', domain: 'Amortized-optimal priority queue' },
   { algorithm: 'Holt-Winters', heuristic: 'Triple seasonal smoothing', domain: 'Seasonal forecasting' },
 ];

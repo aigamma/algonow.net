@@ -4988,6 +4988,50 @@ commit, Fable trailer on every commit, check green before each push.
       mean 152 evaluations; stepMs 220, holdTicks rests. Preserved
       narration: Aoede + Algieba.
 
+- [x] F156. Register allocation × Graph coloring. Puzzle 162,
+      languages-compilers (problemSlug compiler-backend, the atlas
+      problem page carrying "Compiler backend"), added 2026-09-26.
+      Solution register_allocation_graph_coloring.py (170s, prints OK):
+      a small compiler backend (random structured programs with if/else
+      and counted loops nested two deep, liveness to a fixed point,
+      Chaitin's interference rule, simplify-select with Briggs's
+      optimistic coloring, a spill rewriter through never-spilled
+      temporaries, Poletto-Sarkar linear scan, an interpreter on virtual
+      or K physical registers, Bron-Kerbosch maximum clique and a DSatur
+      branch and bound). FOUR ORACLES: (1) every allocation by every
+      method at K = 4 / 8 / 12 / 16 valid two ways, no interference edge
+      inside one register and an identical trace of computed values on
+      K physical registers, 30 of 30 each; (2) dynamic loads + stores on
+      30 programs of 48 to 354 values (pressure 12 to 25, median 17):
+      coloring 22,890 / 7,918 / 1,998 / 294, linear scan 28,051 / 18,453
+      / 15,485 / 10,946, degree-only spill choice 28,488 / 15,248 / 5,911
+      / 994, every value in memory 41,250; spilled values at K = 8:
+      coloring 1,026, linear scan 813, degree-only 478 (the hero spills
+      more values and moves less data); linear scan intervals hold a
+      register on 33.6% of dead positions; (3) chromatic number = clique
+      number on 30 of 30 graphs, simplify-select and DSatur both exactly
+      chi on 30 of 30, 0.03 s; (4) one program of 6,787 values and
+      1,033,679 edges: graph build 1.67 s + simplify-select 2.81 s vs
+      linear scan 4 ms (AUTHOR CORRECTION: the first generator drew
+      operands uniformly from every earlier value, so almost everything
+      lived to the end and every method spilled nearly everything;
+      operands now favor recent values, 80% from the last six). Cards:
+      self (algoName Register allocation), Register allocation × Linear
+      scan (same algo page), Greedy graph coloring × DSatur,
+      Backtracking coloring × Brélaz selection. neverUse: spilling by
+      degree alone (3x at K = 12, 3.4x at K = 16). Figure: six live
+      ranges with a loop band at K = 3, A spilled at cost/degree 0.5
+      while D the loop-carried value at 5.0 stays, beside log-scale
+      bars of the traffic at K = 8 / 12 / 16, cite Chaitin SIGPLAN 1982
+      DOI 10.1145/800230.806984, Chaitin et al. 1981, Briggs Cooper
+      Torczon TOPLAS 1994, Poletto Sarkar TOPLAS 1999. Viz RegAllocViz:
+      14 live ranges over 40 positions with a loop band (accesses x10),
+      K = 4, one simplify push or select pop per tick, the stack and the
+      candidates named, spilled ranges red; NODE-VERIFIED 20 cycles: 20
+      of 20 valid allocations, spill counts against the pressure bound
+      reported; stepMs 650, holdTicks rests. Preserved narration: Aoede
+      + Algieba.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

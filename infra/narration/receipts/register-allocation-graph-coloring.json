@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net register-allocation-graph-coloring preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T04:05:17.293Z",
+  "publication_sha256": "2f4e8f25b24a902fedb480bd55ca91810b13b0fab2359b599b793590046c10ca",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6399832,
+  "objects": [
+    {
+      "stable_id": "puzzle:register-allocation-graph-coloring",
+      "slug": "register-allocation-graph-coloring",
+      "track_id": "algieba",
+      "source_sha256": "c078a79bb358e0628abe9c0c6747112e547021dd70bb48a2d739b8dce449ceb0",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "42d8e395e8f5445157a1ab4fec7b6073a43a16be4f2ea1e8e0c9095862cca05b",
+      "object_key": "narration/v1/puzzles/register-allocation-graph-coloring/42d8e395e8f5445157a1/algieba-da260a0e4cea8d74.mp3",
+      "bytes": 3311276,
+      "sha256": "da260a0e4cea8d7403c4c02c69e711395b2e5a985d539a613c2ee4b60f4a19ce",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:register-allocation-graph-coloring",
+      "slug": "register-allocation-graph-coloring",
+      "track_id": "aoede",
+      "source_sha256": "c078a79bb358e0628abe9c0c6747112e547021dd70bb48a2d739b8dce449ceb0",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "42d8e395e8f5445157a1ab4fec7b6073a43a16be4f2ea1e8e0c9095862cca05b",
+      "object_key": "narration/v1/puzzles/register-allocation-graph-coloring/42d8e395e8f5445157a1/aoede-834747600f345f36.mp3",
+      "bytes": 3088556,
+      "sha256": "834747600f345f36e53143089932ef50951d6ab670202868668e3ef9a1256fae",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

@@ -3323,13 +3323,33 @@ export const PUZZLES = {
     vite: 'black-scholes-closed-form-european-pricing',
     html: 'black-scholes-closed-form-european-pricing/index.html',
   },
+  '/maintaining-arc-consistency-ac3-propagation/': {
+    slug: 'maintaining-arc-consistency-ac3-propagation',
+    added: '2026-10-10',
+    problemSlug: 'constraint-satisfaction',
+    number: 171,
+    category: 'search-constraints-games',
+    algorithm: 'Maintaining arc consistency',
+    heuristic: 'AC-3 propagation',
+    domain: 'Constraint satisfaction',
+    oneLiner:
+      'After every assignment, run a queue of arcs: delete from a variable every value with no supporting partner left in a neighbor, and whenever a domain shrinks requeue every arc into it; stop at a fixpoint or a wipeout, then branch only on what survives, so a dead end is found where it is created instead of twenty levels deeper.',
+    description:
+      'Maintaining arc consistency with AC-3 on random binary CSPs (25 variables, domain 6, density 0.3) across the phase transition, every solution checked constraint by constraint and every finishing solver agreeing: at tightness 0.44 MAC with MRV refutes an instance in 6 nodes against 93 for forward checking and 9 for MAC with a static order while chronological backtracking exhausts 200,000 nodes on 9 of 12 instances; at 0.30, 33 against 102 and 184,620 (11 unfinished); the propagation is the cost (11,484 constraint checks against 2,231); AC-3 proven on 40 exhaustively enumerated instances (every survivor supported, idempotent, no solution value removed) and under its e d^3 bound; AC-3 alone solving the easy Sudoku with no search and MAC taking 291 nodes to forward checking\'s 498 on a hard one.',
+    listenMinutes: 10,
+    time: 'O(e d^3) propagation per search node',
+    space: 'a domain per variable per level',
+    baseline: 'Forward checking',
+    vite: 'maintaining-arc-consistency-ac3-propagation',
+    html: 'maintaining-arc-consistency-ac3-propagation/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Maintaining arc consistency', heuristic: 'AC-3 propagation', domain: 'Constraint satisfaction' },
+  { algorithm: 'Open addressing', heuristic: 'Linear probing', domain: 'Cache-friendly hashing' },
 ];
 
 

@@ -5380,6 +5380,53 @@ commit, Fable trailer on every commit, check green before each push.
       200, holdTicks rests. Preserved narration: Aoede + Algieba. Added
       2026-10-10.
 
+- [x] F165. Maintaining arc consistency × AC-3 propagation. Puzzle 171,
+      search-constraints-games (problemSlug constraint-satisfaction, the
+      atlas problem page carrying "Constraint satisfaction"; sibling
+      live lesson backtracking-mrv). Solution
+      maintaining_arc_consistency_ac3_propagation.py (8.8s, prints OK):
+      a binary CSP class with allowed-pair sets and a check counter,
+      revise and AC-3 with a seen set, an arc-consistency checker, one
+      Solver class (modes bt / fc / mac, orders static / mrv, node
+      budget), the model-B random generator, exhaustive enumeration, and
+      a Sudoku-to-CSP builder with Norvig's easy and hard puzzles.
+      ORACLES: (1) 40 small instances (7 variables, domain 4): six
+      solver variants agree with enumeration on every one; AC-3 leaves
+      every survivor supported, is idempotent, never removes a solution
+      value; one AC-3 run 1,670 checks against the 2 e d^3 bound 35,856
+      (e = 83); (2) the race, 25 variables, domain 6, density 0.3, 12
+      instances per tightness, budget 200,000, per-instance averages of
+      nodes / checks: t 0.30 (12/12 sat) BT 184,620 / 443,326 (11
+      unfinished), FC+MRV 102 / 1,686, MAC static 41 / 10,457, MAC+MRV
+      33 / 7,227; t 0.36 (8/12) BT 200,004 (12 unf), FC 295 / 5,518, MAC
+      static 72 / 39,560, MAC+MRV 40 / 20,319; t 0.40 (0/12) BT 200,004
+      (12 unf), FC 386 / 7,148, MAC static 91 / 61,207, MAC+MRV 26 /
+      20,206; t 0.44 BT 171,781 (9 unf), FC 93 / 2,231, MAC static 9 /
+      15,377, MAC+MRV 6 / 11,484; t 0.48 BT 163,807 (8 unf), FC 46 /
+      1,255, MAC static 4 / 9,673, MAC+MRV 3 / 8,540; t 0.54 BT 118,314
+      (4 unf), FC 29 / 861, MAC 0 / 2,857; (3) Sudoku: AC-3 alone solves
+      the easy puzzle (11,356 checks); hard puzzle FC+MRV 498 nodes /
+      16,178 checks, MAC+MRV 291 / 168,988; (4) unsatisfiable instance 0
+      at 0.44: MAC refutes in 4 nodes, chronological backtracking
+      exhausts 200,000. Honest: MAC loses the constraint-check column at
+      every tightness (two to five times FC) and the hard Sudoku costs
+      10x the checks; two author corrections recorded (MAC expected to
+      win checks; MRV inside plain backtracking is meaningless and was
+      replaced by MAC with a static order). Cards: self, Forward
+      checking, Backtracking search (live lesson badge via
+      backtracking-mrv), Min-conflicts (all algoName). neverUse:
+      chronological backtracking without propagation at the transition.
+      Figure: log-scale nodes and checks per instance against tightness
+      for four solvers with the satisfiable share shaded; cite Mackworth
+      AIJ 1977 DOI 10.1016/0004-3702(77)90007-8, Sabin and Freuder ECAI
+      1994, Mackworth and Freuder 1985. Viz Ac3Viz: AC-3 on a seeded
+      8-variable, 4-value network, one arc revision per tick, pruned
+      values struck red, requeued arcs counted, ending arc consistent or
+      wiped out, the consistency property checked at the end;
+      NODE-VERIFIED 24 cycles (up to 85 revisions), 0 breaks; stepMs
+      650, holdTicks rests. Preserved narration: Aoede + Algieba. Added
+      2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

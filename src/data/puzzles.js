@@ -3127,6 +3127,24 @@ export const PUZZLES = {
     vite: 'kernel-density-estimation-silverman-bandwidth',
     html: 'kernel-density-estimation-silverman-bandwidth/index.html',
   },
+  '/gray-code-generation-reflected-binary/': {
+    slug: 'gray-code-generation-reflected-binary',
+    added: '2026-10-10',
+    problemSlug: 'subset-enumeration',
+    number: 180,
+    category: 'dp-combinatorics',
+    algorithm: 'Gray code generation',
+    heuristic: 'Reflected binary',
+    domain: 'Subset enumeration',
+    oneLiner:
+      'List every n-bit string so that neighbors differ in exactly one bit by taking the shorter list with a leading zero and then its mirror image with a leading one: the seam is one flip like every other step, the recursion collapses to g(i) = i XOR (i >> 1) with the ruler sequence naming the flipped bit, and a walk through all subsets changes one element at a time.',
+    listenMinutes: 10,
+    time: 'O(1) per code; O(2^n) for the walk',
+    space: 'O(n) beyond the output',
+    baseline: 'Binary counting over the power set',
+    vite: 'gray-code-generation-reflected-binary',
+    html: 'gray-code-generation-reflected-binary/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

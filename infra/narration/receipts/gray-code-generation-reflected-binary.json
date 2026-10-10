@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net gray-code-generation-reflected-binary preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-10T23:18:10.761Z",
+  "publication_sha256": "921a529af1a492c473e38e9c70e15a6c7703ebb981c8693195931a1ce3aaf181",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6023512,
+  "objects": [
+    {
+      "stable_id": "puzzle:gray-code-generation-reflected-binary",
+      "slug": "gray-code-generation-reflected-binary",
+      "track_id": "algieba",
+      "source_sha256": "44dce0d07d56e0068ee88088439bec477110c0b5db829ef1b26bc255d3ce277f",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "97b586b7eba317fa87e18408e102ff7516d3c6457b47e65dc79b11770a5114e4",
+      "object_key": "narration/v1/puzzles/gray-code-generation-reflected-binary/97b586b7eba317fa87e1/algieba-1116cb904a2a6c8f.mp3",
+      "bytes": 3042476,
+      "sha256": "1116cb904a2a6c8f43c3868fd69d6c1ec6587cdd7624d414354209624d020a60",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:gray-code-generation-reflected-binary",
+      "slug": "gray-code-generation-reflected-binary",
+      "track_id": "aoede",
+      "source_sha256": "44dce0d07d56e0068ee88088439bec477110c0b5db829ef1b26bc255d3ce277f",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "97b586b7eba317fa87e18408e102ff7516d3c6457b47e65dc79b11770a5114e4",
+      "object_key": "narration/v1/puzzles/gray-code-generation-reflected-binary/97b586b7eba317fa87e1/aoede-fc51a36eb41b945a.mp3",
+      "bytes": 2981036,
+      "sha256": "fc51a36eb41b945a5cf2d459c9ddb561800602ce43a5f5096a333630855897ad",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

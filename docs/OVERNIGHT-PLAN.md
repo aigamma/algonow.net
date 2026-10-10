@@ -5770,6 +5770,59 @@ commit, Fable trailer on every commit, check green before each push.
       thread re-ran the solution, the viz check, the narration plan, and
       the static checks before accepting it. Added 2026-10-10.
 
+- [x] F174. Gray code generation × Reflected binary. Puzzle 180,
+      dp-combinatorics (problemSlug subset-enumeration, the atlas
+      problem page carrying "Subset enumeration"). Solution
+      gray_code_generation_reflected_binary.py (1.4s, prints OK): the
+      recursive mirror construction, the closed form g(i) = i XOR (i >>
+      1) and its prefix-XOR inverse, the trailing-zero ruler sequence, a
+      misaligned-sensor encoder model enumerating every mixed reading of
+      a transition, three subset-sum enumerations over 20 numbers (Gray
+      walk with an incremental sum, binary counting with incremental
+      updates, recomputation), binary-counting flip statistics, a
+      lexicographic-by-size listing, and Steinhaus-Johnson-Trotter
+      against lexicographic next-permutation. ORACLES: (1) the reflected
+      list equals the closed form and the inverse recovers every index
+      on all 131,070 codes for n = 1 to 16; (2) every neighbor pair at
+      Hamming distance 1, the closing pair too, all codes distinct, the
+      flipped bit at step i equal to trailing-zeros(i) at every step;
+      (3) the 8-bit encoder over 256 transitions: natural binary worst
+      misread 127 positions (mean of per-transition worst errors 3.50;
+      the rollover 127 to 128 readable as any of 256 values), Gray worst
+      0 (every reading one of the two positions the shaft is between);
+      (4) 2^20 subset sums: Gray 1,048,575 element operations (1.000 per
+      step, 0.17 s), binary incremental 2,097,130 (1.99998 per step,
+      0.18 s), recompute 20,971,520 (20 per step, 0.77 s), every
+      Gray-order sum equal to the direct sum; (5) binary counting flips
+      per step (mean, worst) n = 4: 1.73333, 4; n = 8: 1.96863, 8; n =
+      12: 1.99707, 12; n = 16: 1.99976, 16, exactly (2^(n+1) - n -
+      2)/(2^n - 1); lexicographic listing by size at n = 12 changes 2.66
+      elements per step, worst 12; Steinhaus-Johnson-Trotter produces
+      all 720 permutations of six items by adjacent swaps where
+      lexicographic next-permutation changes 2.62 positions per step.
+      Honest: the reflected code is unbalanced (bit zero flips half the
+      time), unsorted, and enumerates all sizes at once, said in the
+      weakness; two author corrections recorded (binary counting flips
+      just under two bits per step, not log n; the encoder's worst
+      misread is 127, half the dial, not 255). Cards: self, Powerset
+      enumeration, Combinatorial Gray flip, Steinhaus-Johnson-Trotter
+      (all algoName, pages present). neverUse: a natural binary absolute
+      encoder. Figure: the reflected lists for one to four bits with
+      mirrored halves colored, beside the per-transition worst misread
+      of an 8-bit binary encoder (computed inline) against Gray's zero
+      line; cite Gray US Patent 2,632,058 (1953), Gilbert BSTJ 1958 DOI
+      10.1002/j.1538-7305.1958.tb03887.x, Knuth TAOCP 4A 7.2.1.1. Viz
+      GrayCodeViz: two encoder dials (3, 4, or 5 bits by cycle)
+      advancing one position per tick, Gray beside natural binary,
+      changed bits highlighted, possible readings and worst misread
+      counted, the one-flip, distinctness, and closed-cycle invariants
+      checked every tick; NODE-VERIFIED 20 cycles, 0 breaks; stepMs 700,
+      holdTicks rests. Preserved narration: Aoede + Algieba. Authored by
+      a fork agent of this Fable 5.1 session at the owner's explicit
+      request for parallel authoring; the main thread re-ran the
+      solution, the viz check, the narration plan, and the static checks
+      before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

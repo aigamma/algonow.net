@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:differential-privacy-laplace-mechanism",
+  "source_path": "src/content/differential-privacy-laplace-mechanism.narration.js",
+  "source_sha256": "c0cda238a84883b18642d691a368be939d13958dadf85059da1b0da20f525d2e",
+  "source_characters": 12078,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "4d56223d9123e6b1f528fe14d044d6322f55d93c1af2ff5909021dbe81773e75",
+  "generated_at": "2026-10-10T22:53:42.490Z",
+  "generated_characters": 24156,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4839,
+      "utf8_bytes": 4853,
+      "sha256": "76df4cdc50bfeacf86bba5467958f3e4f3da0e5aafedacf2def30f414d2e06f0"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4685,
+      "utf8_bytes": 4693,
+      "sha256": "5db9266eba461ad2be5aa005824b800613479fc0162e2f7b16424e0b88466dbf"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1779,
+      "utf8_bytes": 1781,
+      "sha256": "adea184e2db4f97ff4403f22e9410d0122394c479aa0cfe7290c565c866b6900"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 775,
+      "utf8_bytes": 785,
+      "sha256": "86847aeb93c77b0d035591815ee82696de71cd5ac071fd8d02fdcfc2aa3cdd49"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "differential-privacy-laplace-mechanism.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "differential-privacy-laplace-mechanism.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1467,
+      "sha256": "e67adab7c486ceddc67a6816eea8948234e6066e9580177e3caba381cb6ac365"
+    },
+    {
+      "id": "differential-privacy-laplace-mechanism.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1220,
+      "sha256": "ccf3d89d197cd40b012cb515bf559d83927d700de8e2f675863f949bcb09ee57"
+    },
+    {
+      "id": "differential-privacy-laplace-mechanism.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2035,
+      "sha256": "927109703e60209b0b23718741edc5063b63764df23ecc37670aec10b0ecc888"
+    },
+    {
+      "id": "differential-privacy-laplace-mechanism.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 624,
+      "sha256": "797d7c4b53718381518ae51271a9cbdc84c029a2da9433197f203c133da497be"
+    },
+    {
+      "id": "differential-privacy-laplace-mechanism.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1009,
+      "sha256": "5c7e8aa9297caa316062b40468eed0aa0d66a06a1cec12422c3e8c4651bfd273"
+    },
+    {
+      "id": "differential-privacy-laplace-mechanism.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 425,
+      "sha256": "5ba9fd1bc78e73993c39dd7ea26ffc4ffcf5db98fcd2f3d7fccbcafb3dd08a58"
+    },
+    {
+      "id": "differential-privacy-laplace-mechanism.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1893,
+      "sha256": "0b6c594f8203629582a79e6aff4e4c75c931069272cbf2c0267c7354840621f8"
+    },
+    {
+      "id": "differential-privacy-laplace-mechanism.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 732,
+      "sha256": "d3484cd014fc7712e9e8e50c1eb7ee62f9bd1c3b89e88e1a31db7104f7d7fae4"
+    },
+    {
+      "id": "differential-privacy-laplace-mechanism.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 794,
+      "sha256": "50ff440a144777d8e0963ec63e13c337c1a02ff509b9b6f436bd9ac7aa1a7320"
+    },
+    {
+      "id": "differential-privacy-laplace-mechanism.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1770,
+      "sha256": "d57d1be5233ffb261da24d2760f747c60418f9db21389f5c6e4c5fab690e7b85"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/differential-privacy-laplace-mechanism/4d56223d9123e6b1f528/aoede-4f8d26963fb3bfe2.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2976236,
+      "sha256": "4f8d26963fb3bfe213a0bff247bfc0c2f4b46b0bb8164c3d500b6681df420fca",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "76df4cdc50bfeacf86bba5467958f3e4f3da0e5aafedacf2def30f414d2e06f0",
+          "bytes": 1193376,
+          "sha256": "b0da7d3ead02982c536d26bae76f035b7b172edc253eddeee578a3267a989967"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "5db9266eba461ad2be5aa005824b800613479fc0162e2f7b16424e0b88466dbf",
+          "bytes": 1161504,
+          "sha256": "8ba26493a2e37a9a00f15f52490f3b288930c3a3ef326cc00428710d82fcce43"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "adea184e2db4f97ff4403f22e9410d0122394c479aa0cfe7290c565c866b6900",
+          "bytes": 445536,
+          "sha256": "9b1638d1e3a57b4ff38c5335e94c286cb3c111ec6947553c8d627a8e90774ce2"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "86847aeb93c77b0d035591815ee82696de71cd5ac071fd8d02fdcfc2aa3cdd49",
+          "bytes": 175584,
+          "sha256": "574ff26651989beeada134dc17716617db202d8529b146ffeb87125296c4a1ad"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/differential-privacy-laplace-mechanism/4d56223d9123e6b1f528/algieba-96c23b155888786b.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3127916,
+      "sha256": "96c23b155888786bbb66e6aadb9b89d55eae56e17e28c6f399766afacd0174c1",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "76df4cdc50bfeacf86bba5467958f3e4f3da0e5aafedacf2def30f414d2e06f0",
+          "bytes": 1265664,
+          "sha256": "1496e46f834abeb4e82b217a11fd6770e95cf13be78ba163556f1e8bc53513e4"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "5db9266eba461ad2be5aa005824b800613479fc0162e2f7b16424e0b88466dbf",
+          "bytes": 1232256,
+          "sha256": "c15aa77a266b56f12d6896d0efd9e54654b3fe95759722db07b346b90a72adf3"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "adea184e2db4f97ff4403f22e9410d0122394c479aa0cfe7290c565c866b6900",
+          "bytes": 451296,
+          "sha256": "e4da1688a0fd7a623f4a7b8bdfa024319a7866bd44899d7458b8bbf7a78e7001"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "86847aeb93c77b0d035591815ee82696de71cd5ac071fd8d02fdcfc2aa3cdd49",
+          "bytes": 178464,
+          "sha256": "bf38941271c20775b0497c082231574be66827e3318bbc54ee7748912cb1067d"
+        }
+      ]
+    }
+  }
+}

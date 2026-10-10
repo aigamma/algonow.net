@@ -3073,6 +3073,24 @@ export const PUZZLES = {
     vite: 'mm1-analysis-birth-death-balance-equations',
     html: 'mm1-analysis-birth-death-balance-equations/index.html',
   },
+  '/differential-privacy-laplace-mechanism/': {
+    slug: 'differential-privacy-laplace-mechanism',
+    added: '2026-10-10',
+    problemSlug: 'differential-privacy',
+    number: 177,
+    category: 'crypto-number-theory',
+    algorithm: 'Differential privacy',
+    heuristic: 'Laplace mechanism',
+    domain: 'Private data release',
+    oneLiner:
+      'Add Laplace noise with scale equal to the most one record can change the answer, divided by epsilon: the output densities for any two databases differing in one record then stay within a factor of e to the epsilon everywhere, which is the definition of differential privacy, and the price is a mean absolute error of exactly that scale, with budgets that add across releases.',
+    listenMinutes: 10,
+    time: 'one Laplace draw per release',
+    space: 'O(1) beyond the query',
+    baseline: 'Exact release',
+    vite: 'differential-privacy-laplace-mechanism',
+    html: 'differential-privacy-laplace-mechanism/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

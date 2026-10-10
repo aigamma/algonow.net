@@ -5616,6 +5616,54 @@ commit, Fable trailer on every commit, check green before each push.
       narration plan, and the static checks before accepting it. Added
       2026-10-10.
 
+- [x] F171. Differential privacy × Laplace mechanism. Puzzle 177,
+      crypto-number-theory (problemSlug differential-privacy, the atlas
+      problem page carrying "Private data release"). Solution
+      differential_privacy_laplace_mechanism.py (1.3s, prints OK): an
+      inverse-transform Laplace sampler and density, a 1,000-record
+      database (sensitive bit, bounded value) and its neighbor, count /
+      sum / mean / median queries, a local-sensitivity scan over every
+      record and both extreme replacements, the Gaussian scale formula,
+      randomized response, and a two-database attacker. ORACLES: (1) the
+      guarantee at epsilon 1: 200,000 releases per neighbor, 10 bins
+      with 2,000+ draws, worst empirical ratio 2.785 vs e^epsilon 2.718
+      (inside the 10% margin), exact density ratio on a grid peaks at
+      2.718282 and never above; (2) utility at epsilon 0.1 / 0.5 / 1 /
+      2: MAE 9.994 / 1.986 / 1.004 / 0.503 vs b = 10 / 2 / 1 / 0.5,
+      variance 199.21 / 7.89 / 2.00 / 0.51 vs 2 b^2 = 200 / 8 / 2 / 0.5;
+      (3) sensitivity, measured vs global: count 1.000 / 1, sum 99.986 /
+      100, mean 0.100 / 0.100, median 0.116 / 100; (4) composition: ten
+      releases at epsilon 0.1, adversary log-likelihood ratio max 1.0000
+      (bound 1.0), mean 0.0481, 99th percentile 0.8000 over 100,000
+      trials; (5) the race (MAE one count / MAE fifty counts under one
+      budget / attacker success over 100,000 trials): Laplace epsilon 1:
+      1.00 / 50.1 / 0.698 (ceiling 0.731, exact best test 0.697);
+      Laplace epsilon 0.1: 10.00 / - / 0.526; Gaussian (1, 1e-5): 3.86 /
+      27.3 / 0.544; randomized response epsilon 1 local: 24.4 / - /
+      0.731 per person; uncalibrated noise std 0.3: 0.24 / - / 0.952;
+      exact release: 0 / 0 / 1.000. Honest: the median's global
+      sensitivity (100) dwarfs its local change (0.116), so the Laplace
+      scale is useless for it; the Gaussian wins the fifty-count batch;
+      author correction recorded (the draft expected Laplace to win the
+      batch too). Cards: self, Gaussian mechanism (algoName Differential
+      privacy), Randomized response, K-anonymity (all resolving).
+      neverUse: exact or uncalibrated release under a differencing
+      attack. Figure: the two Laplace densities one unit apart with the
+      ratio e marked, beside MAE vs epsilon for Laplace and Gaussian
+      with measured points; cite Dwork, McSherry, Nissim, Smith TCC 2006
+      DOI 10.1007/11681878_14, Dwork and Roth 2014. Viz
+      LaplaceMechanismViz: epsilon 0.5 / 1 / 2 by cycle, 1,500 releases
+      per neighbor per tick for 60 ticks into two histograms with the
+      exact densities, the bin-by-bin ratio against e^epsilon, and a
+      running attacker success against the ceiling; invariant: exact
+      ratio never above e^epsilon and populated-bin ratios within a 30%
+      margin; NODE-VERIFIED 20 cycles x 60 ticks, 0 breaks; stepMs 220,
+      holdTicks rests. Preserved narration: Aoede + Algieba. Authored by
+      a fork agent of this Fable 5.1 session at the owner's explicit
+      request for parallel authoring; the main thread re-ran the
+      solution, the viz check, the narration plan, and the static checks
+      before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

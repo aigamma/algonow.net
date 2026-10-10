@@ -6079,6 +6079,69 @@ commit, Fable trailer on every commit, check green before each push.
       cycles, 0 breaks; stepMs 450, holdTicks rests. Preserved
       narration: Aoede + Algieba. Added 2026-10-10.
 
+- [x] F180. Ski rental × Break-even deterministic rule. Puzzle 186,
+      optimization-or (problemSlug optimal-stopping, the atlas problem
+      page carrying "Rent-or-buy decisions"; sibling live lesson
+      secretary-one-over-e, puzzle 108). Solution
+      ski_rental_break_even_deterministic_rule.py (0.5s, prints OK): a
+      cost function for any buy-day threshold, the clairvoyant min(T,
+      B), a worst-case scorer over every season length, the
+      Karlin-Manasse-McGeoch-Owicki distribution and its expected ratio,
+      an expected-cost evaluator for a known season distribution, and a
+      geometric season generator, all in exact Fractions. ORACLES: (1)
+      for B in {2, 3, 5, 10, 20, 50, 100}, every threshold k in 1..3B
+      against every T in 1..3B: k = B is the unique best with ratio
+      exactly 2 - 1/B (1.5, 1.6667, 1.8, 1.9, 1.95, 1.98, 1.99); k < B
+      scores 1 + (B - 1)/k, k > B scores (k - 1 + B)/B, both neighbours
+      exactly 2, k = 1 scores B, k = 2B scores 3 - 1/B (2.9 at B = 10);
+      (2) the randomized rule's worst expected ratio equals 1/(1 - (1 -
+      1/B)^B) exactly: 1.3333, 1.4874, 1.5353, 1.5774 at B = 2, 5, 10,
+      100 against the limit e/(e - 1) = 1.5820 (within 0.006 at B =
+      100), every season length equalized (all ratios equal),
+      20,000-trial Monte Carlo at B = 10 within four standard errors
+      (worst sampled 1.538 +/- 0.015); (3) stochastic seasons at B = 10:
+      geometric mean 5: Bayes never buys 5.000, break-even 5.671,
+      randomized 6.852, buy day one 10, clairvoyant 4.463; geometric
+      mean 20: Bayes buys day 1 for 10.000, break-even 13.698,
+      randomized 12.322, never buy 19.999, clairvoyant 8.025; half 3-day
+      half 40-day: Bayes day 4 for 8.000, break-even 11.000, randomized
+      9.980, clairvoyant 6.500; (4) negative examples at B = 10: buy on
+      day one ratio 10 on a one-day season, never buy ratio 3 at 30 days
+      and unbounded, threshold 2B ratio 2.90. Honest: a coin beats the
+      hero (1.5353 against 1.9), a trusted distribution beats both,
+      break-even beats the randomized rule at mean 5 and loses at mean
+      20. Two author corrections recorded: the draft claimed randomized
+      beats break-even on every distribution (mean 5 refutes it), and
+      wrote the 2B ratio as 4 - 1/B and the early thresholds as a flat 2
+      (enumeration: 3 - 1/B and 1 + (B - 1)/k). Cards: self (algoName
+      Ski rental), Ski rental x Randomized exponential threshold
+      (algoName Ski rental), Secretary problem x 1/e stopping rule
+      (algoName Secretary problem, puzzle 108 named in when),
+      Multiplicative weights update (algoName); all four pages verified
+      in dist/algo. neverUse: tuning the threshold to a forecast when
+      the future is adversarial (buy day one ratio B, never buy
+      unbounded, both Bayes-optimal for some distribution). Figure:
+      worst-case ratio against buy-day threshold at B = 10 with the
+      unique minimum at k = B, beside cost against season length for the
+      clairvoyant, break-even, randomized expectation, buy day one, and
+      never buy; cite Karlin, Manasse, Rudolph, Sleator, Algorithmica
+      1988, DOI 10.1007/BF01762111, and Karlin, Manasse, McGeoch,
+      Owicki, Algorithmica 1994. Viz SkiRentalViz: one season per cycle,
+      one day per tick, seeded price 6..12 and hidden season length,
+      four rules paying day by day (break-even, randomized with a seeded
+      KMMO draw, buy day one, never buy) against the clairvoyant line
+      and the (2 - 1/B) bound; invariants every day: break-even cost <=
+      (2 - 1/B) x min(d, B) and the randomized expectation = ratio x
+      min(d, B) (equalizing); NODE-VERIFIED 20 cycles, 12.35 ticks per
+      cycle, max 32, 0 breaks; stepMs 450, holdTicks rests. Preserved
+      narration: Aoede + Algieba (plan 14,062 source characters,
+      0.843720 USD, approval
+      3b821d47c0fc629b272dffcba24cef43484633eaea4a45ffa7d10b14d2dabdbd).
+      Authored by a fork agent of this Fable 5.1 session at the owner's
+      explicit request for parallel authoring; the main thread re-ran
+      the solution, the viz check, the narration plan, and the static
+      checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

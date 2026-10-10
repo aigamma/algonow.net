@@ -1,0 +1,484 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:ski-rental-break-even-deterministic-rule",
+  "source_path": "src/content/ski-rental-break-even-deterministic-rule.narration.js",
+  "source_sha256": "ce3bd8c9da37804c88bac124ffb16dd547824ec822f03d459d2bed4e9f352709",
+  "source_characters": 14062,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "fbb20f4247813cf25d307810d8a69df3ccf18ed67e63092a5fd3bae16ff3c166",
+  "generated_at": "2026-10-10T23:43:16.184Z",
+  "generated_characters": 28124,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 3105,
+      "utf8_bytes": 3107,
+      "sha256": "6b7f86b38ef1e6660cbda8e5b09942defa4c7ae74dd525becd749d70b9c61a2c"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4606,
+      "utf8_bytes": 4614,
+      "sha256": "7baf2aa489073295715ef1ddbcb5e6d2f1309fa8c1a1989bf0f84d5050222fd8"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 3994,
+      "utf8_bytes": 3996,
+      "sha256": "7de361d5574c833d21c603c5be38aaaf85261f28df45c33f38dc10cca282f2c7"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 848,
+      "utf8_bytes": 850,
+      "sha256": "8cdbc5e323249c085ea6a80262166bfb4997c33c8891bb898fab4916294c3565"
+    },
+    {
+      "id": "request-005",
+      "index": 5,
+      "characters": 380,
+      "utf8_bytes": 382,
+      "sha256": "0b550d5dad579c08f6c5dae46815f1cf09109776ed1d55b55fc22da01e9c7005"
+    },
+    {
+      "id": "request-006",
+      "index": 6,
+      "characters": 1129,
+      "utf8_bytes": 1133,
+      "sha256": "78e84066978212fbbf53ec82995e57f87949f1f67979dce8e9d3cc91e4b4aebf"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "ski-rental-break-even-deterministic-rule.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "ski-rental-break-even-deterministic-rule.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1419,
+      "sha256": "890bbb6d3898232fd4822d9296d76f88c4e24d85060c99514c79fd31e517dc3e"
+    },
+    {
+      "id": "ski-rental-break-even-deterministic-rule.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1559,
+      "sha256": "04d44b41249c943c6b348505fedd6727be0f9f89fe33d99c9b343797912b95ac"
+    },
+    {
+      "id": "ski-rental-break-even-deterministic-rule.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2181,
+      "sha256": "3a0f562c34c8b16162d6b9b1c02766ad8cd29b32d6a07e8976b217a1d9a0c4bd"
+    },
+    {
+      "id": "ski-rental-break-even-deterministic-rule.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 629,
+      "sha256": "cc2e26c528872d8a5eb1cbe424e2d26f7a8941dc9ae3b93ff6e59645b9d94223"
+    },
+    {
+      "id": "ski-rental-break-even-deterministic-rule.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1244,
+      "sha256": "c71c8476f843e0267ff853c0d3468744252c19a87454d21bd4fcd39d9a1d5fab"
+    },
+    {
+      "id": "ski-rental-break-even-deterministic-rule.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 552,
+      "sha256": "0c63dd8625d3d43ab8642a4f000ce13bfe344f09c58cfc2b3d53ac33255c78c6"
+    },
+    {
+      "id": "ski-rental-break-even-deterministic-rule.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2358,
+      "sha256": "db3eb7b8890df4a116d62e1042b3fb2faa2955bedcbaaa0b47746b8dc943f705"
+    },
+    {
+      "id": "ski-rental-break-even-deterministic-rule.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 702,
+      "sha256": "38725e374eeab94c424b84d090b7a86d8ce31fc2fd5f79b6ae374541175c8de4"
+    },
+    {
+      "id": "ski-rental-break-even-deterministic-rule.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 930,
+      "sha256": "fb74e0e96a8a96b3074863df114fa62b416c51c161eb07e4c04c8df0f67cc8c9"
+    },
+    {
+      "id": "ski-rental-break-even-deterministic-rule.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2365,
+      "sha256": "fe4692f4653b6f02912a03edd694d31321b233bf7861f146f36e63ad7c2c19e2"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/ski-rental-break-even-deterministic-rule/fbb20f4247813cf25d30/aoede-c9052dab4ece2cae.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3541580,
+      "sha256": "c9052dab4ece2caecd66395934b627972ad95660cc697b56676107926a4d6bba",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "6b7f86b38ef1e6660cbda8e5b09942defa4c7ae74dd525becd749d70b9c61a2c",
+          "bytes": 757824,
+          "sha256": "11be2afd19b698a33046e6f4570b033e6a86af736dd512e2dc8c7a72ae213570"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "7baf2aa489073295715ef1ddbcb5e6d2f1309fa8c1a1989bf0f84d5050222fd8",
+          "bytes": 1245696,
+          "sha256": "052b3528f4556f63ee7121a3076123c22c502d5d6c3cdd22e5d3fdd08eb42a41"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "7de361d5574c833d21c603c5be38aaaf85261f28df45c33f38dc10cca282f2c7",
+          "bytes": 973632,
+          "sha256": "0a99d729aeb276432d9fc46e0d004de43b9f70142c1c63752f7c749102d19b45"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "8cdbc5e323249c085ea6a80262166bfb4997c33c8891bb898fab4916294c3565",
+          "bytes": 203424,
+          "sha256": "14e52d62bc3ca91d87f4fc3a296713609a106d6498f5bb312131ea5fa43ac4f4"
+        },
+        {
+          "request_index": 5,
+          "request_sha256": "0b550d5dad579c08f6c5dae46815f1cf09109776ed1d55b55fc22da01e9c7005",
+          "bytes": 99744,
+          "sha256": "36114271ace7c1251ac199ed6bd5d58a14dbdf652423f1b242dde2497509c2eb"
+        },
+        {
+          "request_index": 6,
+          "request_sha256": "78e84066978212fbbf53ec82995e57f87949f1f67979dce8e9d3cc91e4b4aebf",
+          "bytes": 261024,
+          "sha256": "486f0f86b671eb22f72f92c8a485a7facf6860d729d4daa2d54cc7447ad58851"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/ski-rental-break-even-deterministic-rule/fbb20f4247813cf25d30/algieba-c3b7db9dca9ecae6.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3696716,
+      "sha256": "c3b7db9dca9ecae6ccd9f066e4615e16352e0aed2da90b9f3f6e9e8967042ca7",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "6b7f86b38ef1e6660cbda8e5b09942defa4c7ae74dd525becd749d70b9c61a2c",
+          "bytes": 790944,
+          "sha256": "cc1545b17ea2edaf4f494a36099d4a188c928f65fb610df52e71813868eddcfb"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "7baf2aa489073295715ef1ddbcb5e6d2f1309fa8c1a1989bf0f84d5050222fd8",
+          "bytes": 1326144,
+          "sha256": "05437a96db2899d0a783bedc78d33bb1d7705a6102b62570446e12e7b80b0bc8"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "7de361d5574c833d21c603c5be38aaaf85261f28df45c33f38dc10cca282f2c7",
+          "bytes": 1024512,
+          "sha256": "fbf81b5ef2d842004ca8f386aa51ae0f2768daee217887741a764beedf584fe9"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "8cdbc5e323249c085ea6a80262166bfb4997c33c8891bb898fab4916294c3565",
+          "bytes": 208704,
+          "sha256": "6a5e76fea9575a11267b32f9a85b56ec36833f487a41ad3333a4f5e48c179d9e"
+        },
+        {
+          "request_index": 5,
+          "request_sha256": "0b550d5dad579c08f6c5dae46815f1cf09109776ed1d55b55fc22da01e9c7005",
+          "bytes": 91104,
+          "sha256": "0fcb2023e4227ba0a1bed81273b9f8d04aa5eb531006db7e0b0e128da6339da5"
+        },
+        {
+          "request_index": 6,
+          "request_sha256": "78e84066978212fbbf53ec82995e57f87949f1f67979dce8e9d3cc91e4b4aebf",
+          "bytes": 255072,
+          "sha256": "e0ce4159dd7df56a0d0e998389e49c70fba4fd00bc0629477bb594bceeb8a4c3"
+        }
+      ]
+    }
+  }
+}

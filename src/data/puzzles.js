@@ -3235,6 +3235,24 @@ export const PUZZLES = {
     vite: 'matrix-exponentiation-binary-exponentiation',
     html: 'matrix-exponentiation-binary-exponentiation/index.html',
   },
+  '/ski-rental-break-even-deterministic-rule/': {
+    slug: 'ski-rental-break-even-deterministic-rule',
+    added: '2026-10-10',
+    problemSlug: 'optimal-stopping',
+    number: 186,
+    category: 'optimization-or',
+    algorithm: 'Ski rental',
+    heuristic: 'Break-even deterministic rule',
+    domain: 'Rent-or-buy decisions',
+    oneLiner:
+      'Rent for 1 a day or buy for B with the season length unknown: rent until the rent paid would equal the price, then buy on day B. Whatever day the season ends you pay at most 2 − 1/B times the clairvoyant, and no deterministic rule does better; a coin gets e/(e − 1), a trusted forecast gets more and risks everything.',
+    listenMinutes: 12,
+    time: 'O(1) per day: one counter against B',
+    space: 'O(1): one number',
+    baseline: 'Buy on day one / never buy',
+    vite: 'ski-rental-break-even-deterministic-rule',
+    html: 'ski-rental-break-even-deterministic-rule/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

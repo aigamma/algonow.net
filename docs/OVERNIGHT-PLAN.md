@@ -5512,6 +5512,55 @@ commit, Fable trailer on every commit, check green before each push.
       holdTicks rests. Preserved narration: Aoede + Algieba. Added
       2026-10-10.
 
+- [x] F169. Nim solving × Nimber XOR. Puzzle 175,
+      search-constraints-games (problemSlug combinatorial-games, the
+      atlas problem page carrying "Combinatorial game"). Solution
+      nim_solving_nimber_xor.py (1.2s, prints OK): nim-sum and Bouton's
+      move with inspection counts, exhaustive backward-induction solvers
+      for normal and misere play over canonical sorted positions, Grundy
+      numbers by mex for the subtraction game {1, 3, 4}, two-heap sums
+      and Nim-plus-subtraction sums valued directly from their own
+      options, four players (XOR, random, greedy largest heap, cautious
+      one-from-largest) plus a memoized solver, and plain and memoized
+      minimax node counters. ORACLES: (1) 1,531 canonical positions (816
+      with three heaps up to 15, 715 with four heaps up to 9) labeled by
+      the full solve, every label equal to "nim-sum is zero", Bouton's
+      move from all 1,407 N-positions reaching a P-position; (2)
+      Sprague-Grundy: subtraction game Grundy numbers 0, 1, 0, 1, 2, 3,
+      2, ... period 7; 961 two-heap sums and 273 mixed sums equal the
+      XOR of their components; (3) misere: 783 positions match the rule
+      (XOR while some heap is at least two, flipped when every heap is
+      at most one); (4) the race over 2,000 random starts of three to
+      five heaps of one to twenty: XOR first from nonzero nim-sum 2,000
+      / 2,000 and second from zero 2,000 / 2,000 against random, greedy,
+      cautious, and the memoized solver (57,844 positions memoized); XOR
+      work 1,323,559 heap inspections over 16,000 games (82.7 per game);
+      opponents against each other as first mover from nonzero starts:
+      random vs random 1,032 / 2,000, greedy vs random 1,255 / 2,000,
+      cautious vs random 897 / 2,000; (5) plain minimax nodes on (n, n,
+      n) for n = 1 to 6: 6, 24, 106, 480, 2,186, 9,968 against memoized
+      positions 4, 7, 11, 16, 22, 29 and three XOR operations. Honest:
+      the greedy mover is a slight edge over random, not a strategy
+      (author correction recorded: the draft expected it to win most
+      games). Cards: self, Minimax (live lesson badge), Retrograde
+      analysis, Sprague-Grundy theorem (all algoName). neverUse:
+      searching the game tree for a position with a closed form. Figure:
+      heaps 7, 10, 12 in binary with the nim-sum 6 and Bouton's
+      reduction of 12 to 10, beside log-scale bars of plain minimax
+      nodes against memoized positions and the three XOR operations;
+      cite Bouton, Annals of Mathematics 1901, DOI 10.2307/1967631;
+      Sprague 1935; Grundy 1939. Viz NimViz: the XOR player (first, from
+      a seeded nonzero position of four heaps up to fifteen) against a
+      random mover, one move per tick, counters and binary digits drawn
+      with the nim-sum under the columns, the invariant that the nim-sum
+      is zero after every XOR move and that the XOR player takes the
+      last counter; NODE-VERIFIED 20 cycles (up to 12 moves), 0 breaks;
+      stepMs 800, holdTicks rests. Preserved narration: Aoede + Algieba.
+      Authored by a fork agent of this Fable 5.1 session at the owner's
+      explicit request for parallel authoring; the main thread re-ran
+      the solution, the viz check, the narration plan, and the static
+      checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

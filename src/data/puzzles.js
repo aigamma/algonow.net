@@ -3037,6 +3037,24 @@ export const PUZZLES = {
     vite: 'shunting-yard-operator-stack',
     html: 'shunting-yard-operator-stack/index.html',
   },
+  '/nim-solving-nimber-xor/': {
+    slug: 'nim-solving-nimber-xor',
+    added: '2026-10-10',
+    problemSlug: 'combinatorial-games',
+    number: 175,
+    category: 'search-constraints-games',
+    algorithm: 'Nim solving',
+    heuristic: 'Nimber XOR',
+    domain: 'Combinatorial game',
+    oneLiner:
+      'Write each heap in binary and XOR them: the player to move is lost exactly when the result is zero, and from any nonzero result one heap can be reduced to make it zero again, so perfect play costs one XOR instead of a game tree; by the Sprague-Grundy theorem the same number values every impartial game and adds across independent components.',
+    listenMinutes: 10,
+    time: 'one XOR per heap; the Grundy values of other games by mex',
+    space: 'O(1) beyond the heaps',
+    baseline: 'Minimax over the game tree',
+    vite: 'nim-solving-nimber-xor',
+    html: 'nim-solving-nimber-xor/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

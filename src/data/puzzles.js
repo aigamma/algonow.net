@@ -3181,6 +3181,24 @@ export const PUZZLES = {
     vite: 'monte-carlo-integration-uniform-sampling',
     html: 'monte-carlo-integration-uniform-sampling/index.html',
   },
+  '/round-robin-scheduling-time-quantum/': {
+    slug: 'round-robin-scheduling-time-quantum',
+    added: '2026-10-10',
+    problemSlug: 'cpu-scheduling',
+    number: 183,
+    category: 'optimization-or',
+    algorithm: 'Round-robin scheduling',
+    heuristic: 'Time quantum',
+    domain: 'CPU scheduling',
+    oneLiner:
+      'Keep a FIFO ready queue and let the head run for one quantum before it goes to the back: every job gets a turn within one lap of the queue, so a short job never waits out a long one, and the quantum\'s length is the dial between responsiveness and the cost of switching, with no knowledge of any burst required.',
+    listenMinutes: 10,
+    time: 'O(1) per dispatch; one lap of the queue per turn',
+    space: 'the ready queue',
+    baseline: 'First-come first-served',
+    vite: 'round-robin-scheduling-time-quantum',
+    html: 'round-robin-scheduling-time-quantum/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

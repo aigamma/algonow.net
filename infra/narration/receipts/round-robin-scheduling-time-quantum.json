@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net round-robin-scheduling-time-quantum preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-10T23:30:25.681Z",
+  "publication_sha256": "f1532eae0991dfa9bb7e63cbb559d64b74a2cb667129321b60de02d94176f5b6",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6225496,
+  "objects": [
+    {
+      "stable_id": "puzzle:round-robin-scheduling-time-quantum",
+      "slug": "round-robin-scheduling-time-quantum",
+      "track_id": "algieba",
+      "source_sha256": "332ec4c4c33ed475d037fe821550589cea24458c5c0f6806b193897160709cbb",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "498138ab59779feb3ba0b18d1191f38c5e033348b41686eddd6751cb11adae65",
+      "object_key": "narration/v1/puzzles/round-robin-scheduling-time-quantum/498138ab59779feb3ba0/algieba-7d98e56ffda90d5b.mp3",
+      "bytes": 3175628,
+      "sha256": "7d98e56ffda90d5bdd5507442b9000fada2b03a3386c37bfcb1f764a28b3db53",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:round-robin-scheduling-time-quantum",
+      "slug": "round-robin-scheduling-time-quantum",
+      "track_id": "aoede",
+      "source_sha256": "332ec4c4c33ed475d037fe821550589cea24458c5c0f6806b193897160709cbb",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "498138ab59779feb3ba0b18d1191f38c5e033348b41686eddd6751cb11adae65",
+      "object_key": "narration/v1/puzzles/round-robin-scheduling-time-quantum/498138ab59779feb3ba0/aoede-32ceb7d120a4215b.mp3",
+      "bytes": 3049868,
+      "sha256": "32ceb7d120a4215be30a80d17e27ef72f181e223bdaf6207266831474474fc95",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

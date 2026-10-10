@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:round-robin-scheduling-time-quantum",
+  "source_path": "src/content/round-robin-scheduling-time-quantum.narration.js",
+  "source_sha256": "332ec4c4c33ed475d037fe821550589cea24458c5c0f6806b193897160709cbb",
+  "source_characters": 12007,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "498138ab59779feb3ba0b18d1191f38c5e033348b41686eddd6751cb11adae65",
+  "generated_at": "2026-10-10T23:29:16.629Z",
+  "generated_characters": 24014,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4587,
+      "utf8_bytes": 4600,
+      "sha256": "d9167808d46d7ab80590c77be8849838203fb3a0d2ef56c93ca64c40e3a06b94"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4443,
+      "utf8_bytes": 4447,
+      "sha256": "e9bc7229b5b60d7285aeb1bb99189fde15f79a7ad5c52cdb58a3cbeb9a8258d8"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2977,
+      "utf8_bytes": 2981,
+      "sha256": "4cf60291a2f448bb666f4efd60e57ad06a49979c394f93a4b0cd268674c16d4a"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "round-robin-scheduling-time-quantum.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "round-robin-scheduling-time-quantum.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1372,
+      "sha256": "3c52a3e89d248b4553136b1167aade30204b986216b0c0925a6d757732ad44b3"
+    },
+    {
+      "id": "round-robin-scheduling-time-quantum.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1240,
+      "sha256": "56e060fa7d04fa8996cee39280615424f4833cc8d24335df8ce4ba3c4e88db0c"
+    },
+    {
+      "id": "round-robin-scheduling-time-quantum.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1857,
+      "sha256": "b558283bda9e39a4f6b1e8822f70955640149a0af135b2dd30e21ae0acb12db8"
+    },
+    {
+      "id": "round-robin-scheduling-time-quantum.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 547,
+      "sha256": "786c9606b096753e5b947ad033c5dcbb34571a014fefef9ba60a7067550c6800"
+    },
+    {
+      "id": "round-robin-scheduling-time-quantum.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 766,
+      "sha256": "b5eea3254046367c6d4c6e0c385d67331ed76a5c36eec1375a07932491c8aef0"
+    },
+    {
+      "id": "round-robin-scheduling-time-quantum.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 365,
+      "sha256": "bd009a65de5640235656212b021965b3b07a0ba16b05f5f33b4234decf2bdf47"
+    },
+    {
+      "id": "round-robin-scheduling-time-quantum.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1996,
+      "sha256": "318a7d1bdf7411c392f4d2a1b4b9f9dce700d3755f44a81f099e305b03a9b3f8"
+    },
+    {
+      "id": "round-robin-scheduling-time-quantum.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 763,
+      "sha256": "e750dfb36acc1d790d05e7b46f4ec8f491c095a15d8eaf34e8d66b643502341d"
+    },
+    {
+      "id": "round-robin-scheduling-time-quantum.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 753,
+      "sha256": "774bc09f6c77f383217c721e7a2c0b6bf8283f6cd54795e05f0e03fe44938792"
+    },
+    {
+      "id": "round-robin-scheduling-time-quantum.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2226,
+      "sha256": "593440efa07bf38a43a5c14a74f9e53df326a7dad5d57deb622a51dcd5d14855"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/round-robin-scheduling-time-quantum/498138ab59779feb3ba0/aoede-32ceb7d120a4215b.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3049868,
+      "sha256": "32ceb7d120a4215be30a80d17e27ef72f181e223bdaf6207266831474474fc95",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d9167808d46d7ab80590c77be8849838203fb3a0d2ef56c93ca64c40e3a06b94",
+          "bytes": 1190784,
+          "sha256": "ae2b024317974a68dafafcb30249f2c917295ee4b86083783cdea4b55775d6e2"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "e9bc7229b5b60d7285aeb1bb99189fde15f79a7ad5c52cdb58a3cbeb9a8258d8",
+          "bytes": 1131264,
+          "sha256": "385eae5d71f0b37e4666da91414b8bf0b69c53e913c54badee368f4e3c270830"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "4cf60291a2f448bb666f4efd60e57ad06a49979c394f93a4b0cd268674c16d4a",
+          "bytes": 727584,
+          "sha256": "01abbafca0bf928032acef5646c17bf3b8dabd01a648589d27a7ed6ccfa90fa4"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/round-robin-scheduling-time-quantum/498138ab59779feb3ba0/algieba-7d98e56ffda90d5b.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3175628,
+      "sha256": "7d98e56ffda90d5bdd5507442b9000fada2b03a3386c37bfcb1f764a28b3db53",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d9167808d46d7ab80590c77be8849838203fb3a0d2ef56c93ca64c40e3a06b94",
+          "bytes": 1275744,
+          "sha256": "1cf59e9da61ab7b0be77682c7c3bc7e75be2ec67c7d5a6c178478c85e2b8618f"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "e9bc7229b5b60d7285aeb1bb99189fde15f79a7ad5c52cdb58a3cbeb9a8258d8",
+          "bytes": 1166976,
+          "sha256": "656fc12286397940721a64c386f4bcc0b01bf055b2c3468cf32531c78da34f7d"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "4cf60291a2f448bb666f4efd60e57ad06a49979c394f93a4b0cd268674c16d4a",
+          "bytes": 732672,
+          "sha256": "61a3a5a004b7f88398bb7d396d3a33907e9dafd22204c3912349d5095e0ca28c"
+        }
+      ]
+    }
+  }
+}

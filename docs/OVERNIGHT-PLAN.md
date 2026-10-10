@@ -5923,6 +5923,66 @@ commit, Fable trailer on every commit, check green before each push.
       re-ran the solution, the viz check, the narration plan, and the
       static checks before accepting it. Added 2026-10-10.
 
+- [x] F177. Round-robin scheduling × Time quantum. Puzzle 183,
+      optimization-or (problemSlug cpu-scheduling, the atlas problem
+      page carrying "CPU scheduling"; sibling live lessons
+      earliest-deadline-first and rate-monotonic-shorter-period).
+      Solution round_robin_scheduling_time_quantum.py (3.1s, prints OK):
+      an event-driven single-CPU simulator (FCFS, SJF, SRTF with
+      preemption on arrival, round-robin with a quantum, a three-level
+      feedback queue 4 / 8 / 16, switch cost charged on every change of
+      job), a legality and conservation checker, a fairness checker over
+      every pair of consecutive turns, an exhaustive permutation
+      referee, a dynamic program for the preemptive optimum, and a
+      60-job workload (interactive bursts 1 to 6, batch 20 to 80, 1,047
+      units of demand over 1,381 time units). ORACLES: (1) every
+      schedule legal (no overlap, nothing before arrival, segments
+      summing to bursts) and conserving (busy 1,047 under every policy;
+      makespan = busy + idle + switches); (2) SJF equal to the best of
+      5,040 orders on 200 of 200 instances of 7 jobs released together;
+      SRTF equal to the preemptive optimum on 100 of 100 staggered 4-job
+      instances, strictly better than SJF on 27; (3) the fairness bound
+      k (q + c) + c with every other job running at most once between
+      two turns of a job, on every gap of every quantum; (4) the sweep
+      at q = 1 / 2 / 4 / 8 / 16 / 32 / 64 / FCFS: interactive response
+      10.7 / 10.3 / 11.8 / 15.5 / 20.1 / 27.0 / 35.8 / 38.0, mean
+      turnaround 233.6 / 127.8 / 82.0 / 60.6 / 55.6 / 56.8 / 57.8 /
+      55.1, mean waiting 216.2 / 110.3 / 64.6 / 43.2 / 38.2 / 39.4 /
+      40.4 / 37.7, max wait 1,171 / 703 / 428 / 247 / 179 / 150 / 171 /
+      147, switches 956 / 471 / 247 / 140 / 99 / 78 / 65 / 59,
+      utilization 0.523 / 0.690 / 0.809 / 0.882 / 0.914 / 0.931 / 0.942
+      / 0.947; FCFS identical to q = infinity to the last digit; rivals:
+      SJF response 17.7, turnaround 40.1, waiting 22.7, max wait 113;
+      SRTF 1.4 / 31.7 / 14.2 / 127 (85 switches, 0.925); MLFQ 5.4 / 56.8
+      / 39.4 / 284 (122 switches, 0.896); (5) convoy of eight 2-unit
+      jobs behind an 80-unit job: FCFS mean interactive response 90.5,
+      round-robin q = 4 14.5; q = 1 with switch cost 2: utilization
+      0.338, turnaround 486.8 against 82.0. Honest: FCFS has the best
+      mean turnaround and max wait here, round-robin buys response with
+      turnaround and switches, MLFQ beats plain round-robin on both, and
+      the 80%-of-bursts rule picks q = 36 on this bimodal mix, which
+      responds like FCFS; three author corrections recorded (the
+      textbook gap bound needed the closing switch and the structural
+      every-other-job-once statement; the first workload was overloaded
+      threefold; the quantum rule of thumb). Cards: self, Shortest
+      processing time, Multilevel feedback queue, Completely fair
+      scheduler (all algoName, pages present). neverUse: a quantum
+      shorter than the context switch. Figure: response and turnaround
+      against the quantum on a log axis with FCFS at the edge, beside
+      utilization against the quantum; cite Corbato, Merwin-Daggett,
+      Daley AFIPS 1962 DOI 10.1145/1460833.1460871, Kleinrock 1964 and
+      1976, Silberschatz chapter 5. Viz RoundRobinViz: eight seeded jobs
+      scheduled one dispatch per tick with a growing Gantt strip, the
+      ready queue, and the quantum cycling 2 / 4 / 8 / infinity,
+      legality and the fairness rule checked every tick and conservation
+      at the end against an FCFS run of the same jobs; NODE-VERIFIED 20
+      cycles (up to 53 ticks), 0 breaks; stepMs 450, holdTicks rests.
+      Preserved narration: Aoede + Algieba. Authored by a fork agent of
+      this Fable 5.1 session at the owner's explicit request for
+      parallel authoring; the main thread re-ran the solution, the viz
+      check, the narration plan, and the static checks before accepting
+      it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

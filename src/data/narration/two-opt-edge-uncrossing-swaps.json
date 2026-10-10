@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:two-opt-edge-uncrossing-swaps",
+  "source_path": "src/content/two-opt-edge-uncrossing-swaps.narration.js",
+  "source_sha256": "68e5721b8eee4d61ab7418f63344439f3623735376986748802f9506bd73f023",
+  "source_characters": 11904,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "e7df43a7c9603b3ab6bbd37291335d59d2db2d79634ab2f4ea3f6faeeff13389",
+  "generated_at": "2026-10-10T23:52:08.421Z",
+  "generated_characters": 23808,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4749,
+      "utf8_bytes": 4755,
+      "sha256": "d17493a0968d48903d2668a970f7da1459f674f8e51fa41bc9f65918285b3423"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4619,
+      "utf8_bytes": 4623,
+      "sha256": "69a3794257ed77554a9212e4556dcb421e6975350b2a5f26f8c37a448b443f6f"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2536,
+      "utf8_bytes": 2536,
+      "sha256": "2802b053b92de7711f802bd13d39b61ed2660e9ecb6f8faa043d6c5d2f911ae6"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "two-opt-edge-uncrossing-swaps.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "two-opt-edge-uncrossing-swaps.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1410,
+      "sha256": "4f76c7bc6f9b799b8f9ff3d3ba7a41bcaffa826f0b6c2567f2a12393398533fa"
+    },
+    {
+      "id": "two-opt-edge-uncrossing-swaps.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1200,
+      "sha256": "b844df406564b555b0330bfb722dc7c6614091c285ec41dfd0f918ad49c511b4"
+    },
+    {
+      "id": "two-opt-edge-uncrossing-swaps.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2014,
+      "sha256": "418fa2832acf9e9349ca22264c95067de2e2b914b4b481e64b2866aaec243083"
+    },
+    {
+      "id": "two-opt-edge-uncrossing-swaps.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 597,
+      "sha256": "a601d4db1bb6989c225a1442e995be880669dacb72d3fd2cc15c6eaba11f785e"
+    },
+    {
+      "id": "two-opt-edge-uncrossing-swaps.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1056,
+      "sha256": "91f8ba0dd4bf7a1ee00225d43941c5c3ce3023f8041a2675d9cd8cc2f5409ec8"
+    },
+    {
+      "id": "two-opt-edge-uncrossing-swaps.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 607,
+      "sha256": "1360eb41a5235eebc82f6e1aab4baaf3a38fcda063a697c9d927e4ffb2a1ebaa"
+    },
+    {
+      "id": "two-opt-edge-uncrossing-swaps.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1615,
+      "sha256": "fc69523f01637cb42dc69d05b34cea2410102710d06771ee4d8155b9091af51f"
+    },
+    {
+      "id": "two-opt-edge-uncrossing-swaps.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 738,
+      "sha256": "593e42559eaef66087658c3eb55043f31849c7db0b15d16e00c531d70c2c36d0"
+    },
+    {
+      "id": "two-opt-edge-uncrossing-swaps.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 920,
+      "sha256": "59992522f10b797c968d21c52fda0e4793fee5804e399fddd1281aefba1ef0b7"
+    },
+    {
+      "id": "two-opt-edge-uncrossing-swaps.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1614,
+      "sha256": "d9b57ba1d3c59616a917cbfea5b392bee6d6088bbc3c183ce99633eb60b6c50a"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/two-opt-edge-uncrossing-swaps/e7df43a7c9603b3ab6bb/aoede-69b24907cbedbb3f.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2988620,
+      "sha256": "69b24907cbedbb3f8a80572bbc0a79970cae7e8336cd3791493f43318c146a43",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d17493a0968d48903d2668a970f7da1459f674f8e51fa41bc9f65918285b3423",
+          "bytes": 1240416,
+          "sha256": "7729c644ab6ce2a35aee16f3623b73a8d6e24a405ee4360df6161ffd55885499"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "69a3794257ed77554a9212e4556dcb421e6975350b2a5f26f8c37a448b443f6f",
+          "bytes": 1193952,
+          "sha256": "e0fb1c9879450612ddc20cea134ff8b460b2b2deaafed9ec789bcf69c908160a"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "2802b053b92de7711f802bd13d39b61ed2660e9ecb6f8faa043d6c5d2f911ae6",
+          "bytes": 554016,
+          "sha256": "a71c8dc934b4d5f81aebd9de756bc9dd91be7757da1f00f61f50e15319d3a2f1"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/two-opt-edge-uncrossing-swaps/e7df43a7c9603b3ab6bb/algieba-d9ad44fdb2374e84.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3113516,
+      "sha256": "d9ad44fdb2374e84520cbec2668b06665b61363c704134fce4862327f38a6dcd",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d17493a0968d48903d2668a970f7da1459f674f8e51fa41bc9f65918285b3423",
+          "bytes": 1263264,
+          "sha256": "9f9f57c074c0586344da8798e04d6bc6c259990c3ec4da695f0c0496978aaabd"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "69a3794257ed77554a9212e4556dcb421e6975350b2a5f26f8c37a448b443f6f",
+          "bytes": 1271904,
+          "sha256": "7508f4499d826e22ba3100533c3773b7e7a56cf3ac6b90b453e43db14dd059dc"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "2802b053b92de7711f802bd13d39b61ed2660e9ecb6f8faa043d6c5d2f911ae6",
+          "bytes": 578112,
+          "sha256": "fbf4daa63716ee9532017aed880dc995dc516037965e39a5eb215a33ef5e742a"
+        }
+      ]
+    }
+  }
+}

@@ -81,7 +81,7 @@ if (plan.status !== 0 || !fs.existsSync(planPath)) {
 for (const f of files) {
   const s = fs.readFileSync(f, 'utf8');
   if (s.includes('\u2014')) fail(`em dash in ${f}`);
-  if (/heartbeat/i.test(s)) fail(`banned word in ${f}`);
+  if (new RegExp('heart' + 'beat', 'i').test(s)) fail(`banned word in ${f}`);
 }
 const narr = fs.readFileSync(`src/content/${slug}.narration.js`, 'utf8');
 const narrText = narr.split(/\r?\n/).filter((l) => !l.trim().startsWith('//')).join('\n');

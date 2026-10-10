@@ -3271,6 +3271,24 @@ export const PUZZLES = {
     vite: 'reaching-definitions-forward-dataflow',
     html: 'reaching-definitions-forward-dataflow/index.html',
   },
+  '/two-opt-edge-uncrossing-swaps/': {
+    slug: 'two-opt-edge-uncrossing-swaps',
+    added: '2026-10-10',
+    problemSlug: 'traveling-salesman',
+    number: 188,
+    category: 'optimization-or',
+    algorithm: '2-opt',
+    heuristic: 'Edge-uncrossing swaps',
+    domain: 'Tour improvement',
+    oneLiner:
+      'Take any tour, find two edges whose swap (reconnect a to c and b to d, reversing the path between them) is shorter, apply it, and repeat until a full pass finds none: in the plane every crossing is such a swap, so the local optimum is crossing-free, each test costs four distance lookups, and sorted neighbor lists make a pass near-linear.',
+    listenMinutes: 10,
+    time: 'O(n²) per pass, O(nk) with neighbor lists, passes until one is clean',
+    space: 'the tour and a position array',
+    baseline: 'Nearest neighbor tour, unimproved',
+    vite: 'two-opt-edge-uncrossing-swaps',
+    html: 'two-opt-edge-uncrossing-swaps/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

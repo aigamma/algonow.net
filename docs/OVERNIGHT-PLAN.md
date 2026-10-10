@@ -6212,6 +6212,75 @@ commit, Fable trailer on every commit, check green before each push.
       re-ran the solution, the viz check, the narration plan, and the
       static checks before accepting it. Added 2026-10-10.
 
+- [x] F182. 2-opt × Edge-uncrossing swaps. Puzzle 188, optimization-or
+      (problemSlug traveling-salesman, the atlas problem page carrying
+      "Tour improvement"; sibling live lessons annealing-cooling 2,
+      held-karp-bitmask-states 81, christofides-matching-euler-tour
+      117). Solution two_opt_edge_uncrossing_swaps.py (13.3 s, prints
+      OK): distance matrix, nearest neighbor, segment-intersection
+      crossing counter, sorted neighbor lists, 2-opt (first- or
+      best-improvement, full scan or Johnson-McGeoch neighbor-list
+      candidates in both tour directions, shorter-side reversal), Or-opt
+      (runs of 1 to 3, both orientations), Held-Karp bitmask DP, brute
+      force. ORACLES: (1) Held-Karp equals brute force at n = 9; twenty
+      random instances at n = 16, exact gap over the optimum: nearest
+      neighbor mean 14.98% max 41.60% optimal 1/20; 2-opt from NN mean
+      1.85% max 8.31% optimal 13/20; 2-opt then Or-opt 0.00% optimal
+      20/20; 2-opt from random mean 4.12% max 17.93% optimal 8/20;
+      crossings over the 20 instances NN 30, random 491, every 2-opt
+      local optimum 0; Held-Karp total 3.5 s; (2) zero crossings at
+      every full-neighborhood local optimum at n = 100, 200, 400, 800,
+      1,600 (NN starts had 17 / 24 / 32 / 62 / 147 crossings, random
+      starts 1,026 / 5,068 / 18,278 / 69,376), every accepted delta
+      negative and the deltas summing to the length change, every tour a
+      permutation; (3) n = 400 (BHH estimate 14.25): NN 18.472 (1.296x),
+      79,800 lookups, 32 crossings; 2-opt full scan 16.241 (1.140x)
+      1,369,560 lookups 103 moves 46 ms 0 crossings; neighbor lists k=10
+      15.802, 185,618 lookups, 110 moves, 17 ms, 0 crossings; k=20
+      15.802, 186,230, 110 moves, 18 ms, 0; 2-opt then Or-opt 15.664
+      (1.099x) +3,824,750 lookups +41 moves 138 ms; random tour 203.411
+      (14.276x) 18,278 crossings; 2-opt from random 16.766 (1.177x)
+      2,223,069 lookups 2,334 moves 78 ms; n = 1,600: NN 36.930 (147
+      crossings); full scan 31.579 (1.108x) 40,919,705 lookups 523 moves
+      1,927 ms 0 crossings; k=10 31.254, 3,086,785 lookups, 5 crossings;
+      k=20 31.010, 2,951,243 lookups, 304 ms, 0 crossings; n = 800: full
+      22.225 / k=20 22.038 / Or-opt 21.623 / from random 23.156 in 5,700
+      moves; (4) first vs best improvement, n = 100, ten instances,
+      means: NN first 8.291 (79,192 lookups, 36 moves), NN best 8.171
+      (298,860, 19), random first 8.561 (112,941, 401), random best
+      8.362 (1,519,205, 103). Honest: AUTHOR CORRECTIONS recorded in the
+      file: the draft expected neighbor lists of ten to lose nothing
+      (they left 5 crossings at n = 1,600; twenty was clean at every
+      size for a seventh to a fourteenth of the lookups), expected first
+      and best improvement to tie (best is 1.4% / 2.3% shorter at 3.8x /
+      13.5x the lookups), and the neighbor-list scan landed on a shorter
+      local optimum than the full scan at every size (a different path,
+      not a bigger neighborhood). Cards: self (2-opt), Or-opt,
+      Lin-Kernighan, Simulated annealing (live lesson badge, puzzle 2)
+      (all algoName, all pages in dist/algo). neverUse: Held-Karp or any
+      exact search at n = 400 (0.18 s per 16-city instance, doubling per
+      city, 2^400 states). Figure: the uncrossing geometry (red removed
+      pair, amber added pair, the triangle inequality at the crossing
+      point X) beside a bar chart of the exact gaps at n = 16 with
+      optimal counts; cite Croes 1958 Operations Research DOI
+      10.1287/opre.6.6.791, Flood 1956, Johnson and McGeoch 1997. Viz
+      TwoOptViz: 2-opt from a seeded random tour of 13 cities, one swap
+      per two ticks (show the red removed pair and amber dashed added
+      pair, then apply), crossing pairs taken first then the remaining
+      improving swaps, the exact Held-Karp optimum computed in makeScene
+      as an amber tick on the length bar, invariant every swap:
+      permutation, strict descent by exactly the predicted delta, never
+      below the optimum, zero crossings at the local optimum;
+      NODE-VERIFIED 20 cycles x 30.4 ticks (max 54), 0 breaks, gaps 0%
+      to 7.4% across cycles; stepMs 280, holdTicks rests. Narration
+      11,761 chars, ten sections, plan $0.714240 sha256
+      22044e0781077700655c894d0d76170c225bf52c2934af716d9f7a710eb3b51f.
+      Meta description 187 chars. Preserved narration: Aoede + Algieba.
+      Authored by a fork agent of this Fable 5.1 session at the owner's
+      explicit request for parallel authoring; the main thread re-ran
+      the solution, the viz check, the narration plan, and the static
+      checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

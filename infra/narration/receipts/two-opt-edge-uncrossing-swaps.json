@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net two-opt-edge-uncrossing-swaps preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-10T23:53:19.061Z",
+  "publication_sha256": "5bdcf1eda14b684dc7d1ecdb416b812e80138689913c52a18b054082f092b7ab",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6102136,
+  "objects": [
+    {
+      "stable_id": "puzzle:two-opt-edge-uncrossing-swaps",
+      "slug": "two-opt-edge-uncrossing-swaps",
+      "track_id": "algieba",
+      "source_sha256": "68e5721b8eee4d61ab7418f63344439f3623735376986748802f9506bd73f023",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "e7df43a7c9603b3ab6bbd37291335d59d2db2d79634ab2f4ea3f6faeeff13389",
+      "object_key": "narration/v1/puzzles/two-opt-edge-uncrossing-swaps/e7df43a7c9603b3ab6bb/algieba-d9ad44fdb2374e84.mp3",
+      "bytes": 3113516,
+      "sha256": "d9ad44fdb2374e84520cbec2668b06665b61363c704134fce4862327f38a6dcd",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:two-opt-edge-uncrossing-swaps",
+      "slug": "two-opt-edge-uncrossing-swaps",
+      "track_id": "aoede",
+      "source_sha256": "68e5721b8eee4d61ab7418f63344439f3623735376986748802f9506bd73f023",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "e7df43a7c9603b3ab6bbd37291335d59d2db2d79634ab2f4ea3f6faeeff13389",
+      "object_key": "narration/v1/puzzles/two-opt-edge-uncrossing-swaps/e7df43a7c9603b3ab6bb/aoede-69b24907cbedbb3f.mp3",
+      "bytes": 2988620,
+      "sha256": "69b24907cbedbb3f8a80572bbc0a79970cae7e8336cd3791493f43318c146a43",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

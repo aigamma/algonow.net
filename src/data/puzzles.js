@@ -3283,13 +3283,33 @@ export const PUZZLES = {
     vite: 'greedy-graph-coloring-dsatur-saturation-ordering',
     html: 'greedy-graph-coloring-dsatur-saturation-ordering/index.html',
   },
+  '/bm25-ranking-saturating-term-frequency/': {
+    slug: 'bm25-ranking-saturating-term-frequency',
+    added: '2026-10-10',
+    problemSlug: 'document-ranking',
+    number: 169,
+    category: 'data-retrieval',
+    algorithm: 'BM25 ranking',
+    heuristic: 'Saturating term frequency',
+    domain: 'Document ranking',
+    oneLiner:
+      'Walk each query term\'s postings and add idf times a term frequency that saturates, tf (k1 + 1) / (tf + k1 (1 - b + b |d| / avgdl)), so the fifth occurrence of a word is worth far less than the first, two different query words beat one word twice, and a document ten times longer is not ten times more relevant.',
+    description:
+      'BM25 with a saturating term frequency on a generated corpus whose relevance is known by construction (3,000 documents from 40 overlapping topics plus 40 keyword-stuffed documents, 200 queries of two or three words): mean average precision 0.897 and precision at ten 0.992 against 0.706 for tf-idf summation, 0.874 for cosine, 0.822 for Dirichlet query likelihood, 0.788 for Boolean overlap, and 0.684 for raw counts; both ablations worse (0.855 without length normalization, 0.820 without saturation); the weight curve 1.000, 1.375, 1.774, 2.075, 2.187 at tf 1, 2, 5, 20, 200 against the ceiling 2.2; and a document repeating one query word 300 times at rank one on 67 of 200 queries under raw counts (5.9x the best genuine score) against none under BM25 (0.49x).',
+    listenMinutes: 10,
+    time: 'one postings walk per query term',
+    space: 'the inverted index plus a length per document',
+    baseline: 'tf-idf summation',
+    vite: 'bm25-ranking-saturating-term-frequency',
+    html: 'bm25-ranking-saturating-term-frequency/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'BM25 ranking', heuristic: 'Saturating term frequency', domain: 'Document ranking' },
+  { algorithm: 'Black-Scholes', heuristic: 'Closed-form European pricing', domain: 'Option pricing' },
 ];
 
 

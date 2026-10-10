@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:bm25-ranking-saturating-term-frequency",
+  "source_path": "src/content/bm25-ranking-saturating-term-frequency.narration.js",
+  "source_sha256": "1f96454b39cfbbfdabe7c19fc724772dec2389fbb0ef64409f7bdc6e50cd135c",
+  "source_characters": 12007,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "5e102a1419c4ae9dc19d7af845ba1bba2cc263165fac888ecf04bacfff2116d5",
+  "generated_at": "2026-10-10T21:58:05.690Z",
+  "generated_characters": 24014,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4614,
+      "utf8_bytes": 4619,
+      "sha256": "5137d152ff96266126deb7b93b987e84e421e621ac866c2b9dc7fb0cc4dc0932"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4469,
+      "utf8_bytes": 4473,
+      "sha256": "297027534b6f5eca6ad01ad4a23ca202fc5190daaa002a89e11c99adb81a64f6"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2924,
+      "utf8_bytes": 2928,
+      "sha256": "9825dd8a93f6dee9dea992630d816bd169926395196adfd7738484fa71013de4"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "bm25-ranking-saturating-term-frequency.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "bm25-ranking-saturating-term-frequency.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1443,
+      "sha256": "290cad08448b66fc7b58db100da14c022f6f953d2c9227d6d40b63f85ccb6893"
+    },
+    {
+      "id": "bm25-ranking-saturating-term-frequency.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1141,
+      "sha256": "0d109890fabef6ca735bcac472975f72e9f5dafb99f4bc8e74aad2efb5be6944"
+    },
+    {
+      "id": "bm25-ranking-saturating-term-frequency.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1904,
+      "sha256": "d945b487a9858cabce8c76f4ee9cf0f8515bff8894833560dbdecbfa71cecf0c"
+    },
+    {
+      "id": "bm25-ranking-saturating-term-frequency.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 576,
+      "sha256": "039efe083254bc122c0e074a6374ea00c44497131495b56b29be7f93f0dcbbee"
+    },
+    {
+      "id": "bm25-ranking-saturating-term-frequency.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 861,
+      "sha256": "2b9191995b1a4dfd196e489a50c63c965676cca1b19d254840348dd55e0f866e"
+    },
+    {
+      "id": "bm25-ranking-saturating-term-frequency.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 478,
+      "sha256": "ffce1adf5aad57310de310098c3b4958a652125de381f2d43b3f065513520b20"
+    },
+    {
+      "id": "bm25-ranking-saturating-term-frequency.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1773,
+      "sha256": "48085b69bdf394a6fe49f7389a152e6bc45883f2f4d002c582e634557a7f83ab"
+    },
+    {
+      "id": "bm25-ranking-saturating-term-frequency.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 775,
+      "sha256": "869bab1f1c1a96223c3183106dfdf49ecffe01a225da8618dc968533510fd930"
+    },
+    {
+      "id": "bm25-ranking-saturating-term-frequency.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 917,
+      "sha256": "ba15ecc0b9e76451102b88b648cd815f918348ee0f7fd0ee323b09b044486019"
+    },
+    {
+      "id": "bm25-ranking-saturating-term-frequency.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2009,
+      "sha256": "1ae0c6e0049a846a9891131e0a4fcb4430b3b18c21b8ea51281b1c6ab7ff1923"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/bm25-ranking-saturating-term-frequency/5e102a1419c4ae9dc19d/aoede-e74c4cd8f6929172.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2939468,
+      "sha256": "e74c4cd8f6929172d8e51823fe337a4c4115471613d55cd75329daca379bba83",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5137d152ff96266126deb7b93b987e84e421e621ac866c2b9dc7fb0cc4dc0932",
+          "bytes": 1139232,
+          "sha256": "5b88c46173a7c3583df48a84b367523252d680f0db673e69bf9f16b559672c5e"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "297027534b6f5eca6ad01ad4a23ca202fc5190daaa002a89e11c99adb81a64f6",
+          "bytes": 1149216,
+          "sha256": "17b4ad8cd2936b1ac3789f93486a67b48844867a4a77fc01f3e4f41b4e0edf0c"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "9825dd8a93f6dee9dea992630d816bd169926395196adfd7738484fa71013de4",
+          "bytes": 650784,
+          "sha256": "b29dd5fd8028f78b5ffc16874d24d4978423b639af5d6f1ded5e64660d16c9df"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/bm25-ranking-saturating-term-frequency/5e102a1419c4ae9dc19d/algieba-de39f775bcffcea7.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3154412,
+      "sha256": "de39f775bcffcea76565606cb1c2c2deda7f02966ee98ebc85489378087d1cd6",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5137d152ff96266126deb7b93b987e84e421e621ac866c2b9dc7fb0cc4dc0932",
+          "bytes": 1226496,
+          "sha256": "df29197acb79c906330a7ced357ef312d04ca7dd8d987a89bed1be636d51e143"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "297027534b6f5eca6ad01ad4a23ca202fc5190daaa002a89e11c99adb81a64f6",
+          "bytes": 1217664,
+          "sha256": "7a13f2e4df920156d5ff4dadca5371acc475c3227500039c7c9db32302d378c2"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "9825dd8a93f6dee9dea992630d816bd169926395196adfd7738484fa71013de4",
+          "bytes": 710016,
+          "sha256": "e1ebcfe5f6227a9469d86f13fced1ddf8544cbb800a59ab2dfe0646b1a34f43e"
+        }
+      ]
+    }
+  }
+}

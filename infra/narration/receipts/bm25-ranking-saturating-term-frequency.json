@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net bm25-ranking-saturating-term-frequency preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-10T21:59:45.094Z",
+  "publication_sha256": "05dbb62e6dd36eacbfc8d17020da9745b09410faec4b27b30bd99606799e5c35",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6093880,
+  "objects": [
+    {
+      "stable_id": "puzzle:bm25-ranking-saturating-term-frequency",
+      "slug": "bm25-ranking-saturating-term-frequency",
+      "track_id": "algieba",
+      "source_sha256": "1f96454b39cfbbfdabe7c19fc724772dec2389fbb0ef64409f7bdc6e50cd135c",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "5e102a1419c4ae9dc19d7af845ba1bba2cc263165fac888ecf04bacfff2116d5",
+      "object_key": "narration/v1/puzzles/bm25-ranking-saturating-term-frequency/5e102a1419c4ae9dc19d/algieba-de39f775bcffcea7.mp3",
+      "bytes": 3154412,
+      "sha256": "de39f775bcffcea76565606cb1c2c2deda7f02966ee98ebc85489378087d1cd6",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:bm25-ranking-saturating-term-frequency",
+      "slug": "bm25-ranking-saturating-term-frequency",
+      "track_id": "aoede",
+      "source_sha256": "1f96454b39cfbbfdabe7c19fc724772dec2389fbb0ef64409f7bdc6e50cd135c",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "5e102a1419c4ae9dc19d7af845ba1bba2cc263165fac888ecf04bacfff2116d5",
+      "object_key": "narration/v1/puzzles/bm25-ranking-saturating-term-frequency/5e102a1419c4ae9dc19d/aoede-e74c4cd8f6929172.mp3",
+      "bytes": 2939468,
+      "sha256": "e74c4cd8f6929172d8e51823fe337a4c4115471613d55cd75329daca379bba83",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

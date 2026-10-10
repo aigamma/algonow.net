@@ -5290,6 +5290,49 @@ commit, Fable trailer on every commit, check green before each push.
       holdTicks rests. Preserved narration: Aoede + Algieba. Added
       2026-10-10.
 
+- [x] F163. BM25 ranking × Saturating term frequency. Puzzle 169,
+      data-retrieval (problemSlug document-ranking, the atlas problem
+      page carrying "Document ranking"). Solution
+      bm25_ranking_saturating_term_frequency.py (0.8s, prints OK): a
+      generative corpus (40 topics with 40 focus words each drawn from a
+      shared vocabulary of 1,500, 55/45 focus-background mix, log-normal
+      lengths 20 to 2,000, 3,000 documents), 200 two-or-three-word
+      queries with relevance = generating topic, 40 one-word stuffed
+      documents (300 repeats among filler), an inverted index, and eight
+      rankers over the same 540 postings per query: BM25 (k1 1.2, b
+      0.75), BM25 b = 0, BM25 k1 = 1000, tf-idf summation, cosine over
+      tf-idf vectors, Dirichlet query likelihood (mu 2000), Boolean
+      overlap, raw tf. ORACLES: (1) MAP / P@10 / nDCG@10: BM25 0.897 /
+      0.992 / 0.992; b = 0 0.855 / 0.991 / 0.992; k1 = 1000 0.820 /
+      0.880 / 0.843; tf-idf 0.706 / 0.808 / 0.782; cosine 0.874 / 0.931
+      / 0.922; QL 0.822 / 0.952 / 0.943; Boolean 0.788 / 0.939 / 0.941;
+      raw tf 0.684 / 0.796 / 0.771; (2) saturation curve at average
+      length 1.000, 1.375, 1.774, 2.075, 2.187 for tf 1, 2, 5, 20, 200
+      against the ceiling 2.2 (99.4% at tf 200); the k1 = 1e9, b = 0
+      limit reproduces the raw-tf top ten on 496 of 496 single-term
+      queries; (3) ablations both no higher than the hero; (4) stuffed
+      documents at rank one, of 200 queries: BM25 0, b = 0 0, Boolean 0,
+      cosine 17, QL 22, tf-idf 67, raw tf 67, k1 = 1000 67; stuffed
+      score over the best genuine: BM25 0.49x, cosine 0.85x, raw tf
+      5.90x, tf-idf 5.69x, k1 = 1000 6.77x. Honest: cosine is close
+      behind (0.874) and QL is principled; a document holding all query
+      words at the ceiling still outranks a modest one (the weakness
+      section says so); author correction recorded (the first draft's
+      disjoint topics and all-word stuffing made the task too easy and
+      let stuffed documents win legitimately under BM25, so corpus and
+      attack were rebuilt). Cards: self, TF-IDF ranking, Vector space
+      model, Query likelihood model (all algoName). neverUse: a ranker
+      linear in the term count on a corpus anyone can write to. Figure:
+      weight curves (raw tf, BM25 at average and 3x length, the 2.2
+      ceiling) beside bars of queries topped by a stuffed document; cite
+      Okapi at TREC-3 1995, Robertson and Zaragoza FnTIR 2009 DOI
+      10.1561/1500000019. Viz Bm25Viz: a two-word query over nine seeded
+      documents with one stuffed, scored one posting per tick in two
+      columns (raw tf, BM25), each BM25 contribution checked against the
+      (k1 + 1) idf ceiling and the stuffed document never on top under
+      BM25; NODE-VERIFIED 20 cycles, 0 breaks; stepMs 650, holdTicks
+      rests. Preserved narration: Aoede + Algieba. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

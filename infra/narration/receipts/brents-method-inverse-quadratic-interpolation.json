@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net brents-method-inverse-quadratic-interpolation preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-10T21:47:40.436Z",
+  "publication_sha256": "f701bf5df835dca0c96ff2bbf45a0737b08c336ca79a65bdcaa5c362b5e768ca",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6171160,
+  "objects": [
+    {
+      "stable_id": "puzzle:brents-method-inverse-quadratic-interpolation",
+      "slug": "brents-method-inverse-quadratic-interpolation",
+      "track_id": "algieba",
+      "source_sha256": "01a4e3a013ae59512e63e1a4bc6700a5cf0fad9a1120fc584c72698f5b0c862d",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "42589139d61b1192903b06396a147b22131821c4c01c8150539620b4038d8f0a",
+      "object_key": "narration/v1/puzzles/brents-method-inverse-quadratic-interpolation/42589139d61b1192903b/algieba-07196e0f7b6fad53.mp3",
+      "bytes": 3152396,
+      "sha256": "07196e0f7b6fad53141abda3298fbc62c8af56e0aab0b9daafc76dc9cb04ba0a",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:brents-method-inverse-quadratic-interpolation",
+      "slug": "brents-method-inverse-quadratic-interpolation",
+      "track_id": "aoede",
+      "source_sha256": "01a4e3a013ae59512e63e1a4bc6700a5cf0fad9a1120fc584c72698f5b0c862d",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "42589139d61b1192903b06396a147b22131821c4c01c8150539620b4038d8f0a",
+      "object_key": "narration/v1/puzzles/brents-method-inverse-quadratic-interpolation/42589139d61b1192903b/aoede-4b839d5e6dfe689d.mp3",
+      "bytes": 3018764,
+      "sha256": "4b839d5e6dfe689d1685c9da78afdcac6d91c596faeb384af2689f0c986459f1",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

@@ -3223,13 +3223,33 @@ export const PUZZLES = {
     vite: 'avl-tree-height-balance-rotations',
     html: 'avl-tree-height-balance-rotations/index.html',
   },
+  '/counterfactual-regret-minimization-regret-matching-updates/': {
+    slug: 'counterfactual-regret-minimization-regret-matching-updates',
+    added: '2026-10-10',
+    problemSlug: 'extensive-form-solving',
+    number: 166,
+    category: 'search-constraints-games',
+    algorithm: 'Counterfactual regret minimization',
+    heuristic: 'Regret-matching updates',
+    domain: 'Imperfect-information equilibria',
+    oneLiner:
+      'Walk the whole game tree in self-play, and at every information set add, for each action, the gain it would have had over the strategy played, weighted by how likely the opponent and chance were to bring the game there; next iteration play each action in proportion to its positive regret: the average of everything played converges to a Nash equilibrium at the rate of one over the square root of the iterations, with no learning rate and no linear program.',
+    description:
+      'Counterfactual regret minimization with regret matching on Kuhn poker (12 information sets, exact value -1/18): after 10,000 iterations the average strategy has value -0.0555 and exploitability 0.0015 by an exact best-response referee, inside the measured regret bound 0.0059, and sits on Kuhn\'s closed-form family (a jack bet 0.216, a king bet 0.668 against 3 alpha = 0.648, a queen call 0.337 against 1/3); exploitability 0.0911, 0.0233, 0.0065, 0.0015 at 10, 100, 1,000, 10,000 iterations; rock-paper-scissors and biased pennies within 0.01 of their textbook answers; CFR+ 0.0049 and fictitious play 0.0068 at 1,000 iterations, outcome-sampling MCCFR 0.0450 at an equal budget of 58,000 nodes; determinized minimax exploitable for 0.167 a hand as the negative example.',
+    listenMinutes: 10,
+    time: 'one full tree walk per iteration; error falls as 1/sqrt(T)',
+    space: 'two numbers per action per information set',
+    baseline: 'Fictitious play',
+    vite: 'counterfactual-regret-minimization-regret-matching-updates',
+    html: 'counterfactual-regret-minimization-regret-matching-updates/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Counterfactual regret minimization', heuristic: 'Regret-matching updates', domain: 'Imperfect-information equilibria' },
+  { algorithm: 'Brent\'s method', heuristic: 'Inverse quadratic interpolation', domain: 'Robust root finding' },
 ];
 
 

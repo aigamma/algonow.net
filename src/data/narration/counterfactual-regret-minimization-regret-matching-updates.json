@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:counterfactual-regret-minimization-regret-matching-updates",
+  "source_path": "src/content/counterfactual-regret-minimization-regret-matching-updates.narration.js",
+  "source_sha256": "f11b7069f2f22eaec41fca4b711acdb491afeefa0af280c77d9087cf69391de5",
+  "source_characters": 12300,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "e3020665549c1c89ad38fa80ef267fd24a435fce9c5d485a59e0dd3aa0b9b828",
+  "generated_at": "2026-10-10T21:39:22.627Z",
+  "generated_characters": 24600,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4937,
+      "utf8_bytes": 4951,
+      "sha256": "93673f50fceba204a30df8b23a391f53cac2be72dc697149724aae4c49bf4365"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4588,
+      "utf8_bytes": 4606,
+      "sha256": "29ece78d051e9cf6142ddf8a0d5bcc98139ed34582b5360bb53569f403ddc003"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2775,
+      "utf8_bytes": 2781,
+      "sha256": "ca3f9657e3c3a537f849f910bed75984d9e6b2cb576a82d13524113512c3c26e"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "counterfactual-regret-minimization-regret-matching-updates.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "counterfactual-regret-minimization-regret-matching-updates.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1565,
+      "sha256": "557f6d1ee19f2d8b64b342c2db1e9cd0e3b874974941e82b9efee26bf43cf64a"
+    },
+    {
+      "id": "counterfactual-regret-minimization-regret-matching-updates.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1355,
+      "sha256": "5b9f77ecd762e13405befbed43fec3008910919684c2db03cb31fd2f26ba03f4"
+    },
+    {
+      "id": "counterfactual-regret-minimization-regret-matching-updates.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1900,
+      "sha256": "2a38e06777e4fabe8b747faf85444df633259a03170e38b49ba2a5b2219298d1"
+    },
+    {
+      "id": "counterfactual-regret-minimization-regret-matching-updates.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 610,
+      "sha256": "072975edf139b74e8733630710704470b85fec62e3e4699a26d3058f19de1679"
+    },
+    {
+      "id": "counterfactual-regret-minimization-regret-matching-updates.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1009,
+      "sha256": "5fc9021cd2469c35f115f033baf6b65ca898c3b1fed5957b3b83e848dc50704c"
+    },
+    {
+      "id": "counterfactual-regret-minimization-regret-matching-updates.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 525,
+      "sha256": "fe1478cd4418677c6d0304b363631120331b6515eff3563c09a78209099d3bbb"
+    },
+    {
+      "id": "counterfactual-regret-minimization-regret-matching-updates.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1771,
+      "sha256": "c00f121cd3825397d5a43ba5e04700b057df1c97436702b664fa2951c13ec994"
+    },
+    {
+      "id": "counterfactual-regret-minimization-regret-matching-updates.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 681,
+      "sha256": "af5c17b2fa989102ac62c558e2b13188081dd179f73ecf9bab4112b795bd0b95"
+    },
+    {
+      "id": "counterfactual-regret-minimization-regret-matching-updates.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 954,
+      "sha256": "444f7ebd7ce6303ee6348a497e9ec4a6a8072cea627b2eeaa8c51c0d6db9008d"
+    },
+    {
+      "id": "counterfactual-regret-minimization-regret-matching-updates.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1825,
+      "sha256": "df0d053dd8cad8c6c5b6eaef532a077e5456845cc9781b6084a99e6b013a0506"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/counterfactual-regret-minimization-regret-matching-updates/e3020665549c1c89ad38/aoede-fcd351f185fce3c4.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2987564,
+      "sha256": "fcd351f185fce3c4ed104df876e6ce829aa0040e24f53683924e209bf17eb9e6",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "93673f50fceba204a30df8b23a391f53cac2be72dc697149724aae4c49bf4365",
+          "bytes": 1183776,
+          "sha256": "7455ddf568c5c0e8ac8855806b815dc286f5220ac1396b2bbe5eda44934e90d7"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "29ece78d051e9cf6142ddf8a0d5bcc98139ed34582b5360bb53569f403ddc003",
+          "bytes": 1156416,
+          "sha256": "c1dda164a980e09d46028c75abd4852d0d6d025a0208359f49e1afc0b2440b64"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "ca3f9657e3c3a537f849f910bed75984d9e6b2cb576a82d13524113512c3c26e",
+          "bytes": 647136,
+          "sha256": "9b25b38d00dbfe2a235a01534263ebfc4f81cb1a8026b308567f4d2c99258afc"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/counterfactual-regret-minimization-regret-matching-updates/e3020665549c1c89ad38/algieba-c99ae89ad4cf59cd.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3150092,
+      "sha256": "c99ae89ad4cf59cd2a5ed371498a56ec3c1b06c5ff73cdc926217d577726c027",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "93673f50fceba204a30df8b23a391f53cac2be72dc697149724aae4c49bf4365",
+          "bytes": 1275456,
+          "sha256": "526b875905e909be3127aab6a2ee82521a4244f609fb6b353fa59f599bfc9b9f"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "29ece78d051e9cf6142ddf8a0d5bcc98139ed34582b5360bb53569f403ddc003",
+          "bytes": 1190016,
+          "sha256": "d0b959595901ddbfa07ed0f062cd01d74c6b14b1d365d1ff71bccf7566ccbfb6"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "ca3f9657e3c3a537f849f910bed75984d9e6b2cb576a82d13524113512c3c26e",
+          "bytes": 684384,
+          "sha256": "54624041346ef616c448132e6dad45a6488d7ab2d2b12cebac3bef7582b108e5"
+        }
+      ]
+    }
+  }
+}

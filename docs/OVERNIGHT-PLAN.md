@@ -5153,6 +5153,52 @@ commit, Fable trailer on every commit, check green before each push.
       32 ticks, 0 invariant breaks; stepMs 650, holdTicks rests.
       Preserved narration: Aoede + Algieba. Added 2026-10-10.
 
+- [x] F160. Counterfactual regret minimization × Regret-matching
+      updates. Puzzle 166, search-constraints-games (problemSlug
+      extensive-form-solving, the atlas problem page carrying
+      "Imperfect-information equilibria"). Solution
+      counterfactual_regret_minimization_regret_matching_updates.py
+      (1.2s, prints OK): a generic extensive-form engine (Kuhn poker and
+      a matrix-game class), vanilla CFR with three reach probabilities,
+      CFR+ (floored regrets, alternating updates, linear averaging),
+      outcome-sampling MCCFR with epsilon exploration, full-width
+      fictitious play with realization-weighted mixing, determinized
+      minimax (PIMC), an exact best-response traversal (decisions made
+      once per information set over all member histories), and
+      exploitability as the mean of the two best-response values.
+      ORACLES: (1) Kuhn's closed form: value -0.0555 against -1/18 after
+      10,000 iterations (580,000 nodes), alpha = P(bet | J) 0.216 in [0,
+      1/3], P(bet | K) 0.668 against 3 alpha 0.648, P(call | Q facing
+      bet) 0.337 against 1/3, P(bet | J after check) 0.336 against 1/3,
+      P(call | Q after check-bet) 0.554 against alpha + 1/3 = 0.549; (2)
+      exploitability 0.0015 under the measured regret bound (R0 + R1) /
+      T = 0.0059 and under the Zinkevich theorem bound 0.339; falling
+      0.0911 / 0.0233 / 0.0065 / 0.0015 at 10 / 100 / 1,000 / 10,000;
+      (3) rock-paper-scissors (0.333, 0.329, 0.338) exploitability
+      0.0058 and biased pennies P(heads) 0.405 against 2/5, value 0.200
+      against 1/5, both at 20,000 iterations; (4) the race at 1,000
+      iterations: CFR 0.0065 (58,000 nodes), CFR+ 0.0049 (116,000),
+      fictitious play 0.0068 (116,000), MCCFR 0.0450 at the same 58,000
+      nodes (5,368 sampled iterations; 0.1058 at 1,000); (5)
+      determinized minimax exploitable for 0.1667, both players losing
+      0.167 a hand to a best response. Honest: on Kuhn the CFR+ gain is
+      modest and the page says the speedups are a large-game story;
+      author correction recorded (MCCFR expected to win at equal node
+      budget, measured worse). Cards: self, CFR+, Monte Carlo CFR,
+      Fictitious play (all algoName). neverUse: determinized minimax on
+      a bluffing game (strategy fusion). Figure: log-log exploitability
+      curves for four methods with the 1/sqrt(T) slope, beside player
+      one's bet probabilities on the family line 3 alpha; cite Zinkevich
+      et al. NeurIPS 2007, Hart and Mas-Colell Econometrica 2000 DOI
+      10.1111/1468-0262.00153, Kuhn 1950. Viz CfrViz: live CFR on Kuhn
+      poker, 25 iterations per tick for 80 ticks from a seeded random
+      start, bars of the current and average strategies against the
+      family targets, and the exploitability curve on a log scale with
+      the 1/sqrt(T) slope, computed each tick by the exact best
+      response; NODE-VERIFIED 20 cycles x 80 ticks; stepMs 180,
+      holdTicks rests. Preserved narration: Aoede + Algieba. Added
+      2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

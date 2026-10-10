@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:brents-method-inverse-quadratic-interpolation",
+  "source_path": "src/content/brents-method-inverse-quadratic-interpolation.narration.js",
+  "source_sha256": "01a4e3a013ae59512e63e1a4bc6700a5cf0fad9a1120fc584c72698f5b0c862d",
+  "source_characters": 11993,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "42589139d61b1192903b06396a147b22131821c4c01c8150539620b4038d8f0a",
+  "generated_at": "2026-10-10T21:45:46.407Z",
+  "generated_characters": 23986,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4608,
+      "utf8_bytes": 4626,
+      "sha256": "2d8d3e28c8f171cfced86bb7a37aac1e418834eb23d4c7b039a1635035dc5d5f"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4366,
+      "utf8_bytes": 4378,
+      "sha256": "59a52ec37d93c44e6a4d849996fe124c6b7a613eb079c35f22b86119e51fd96c"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2386,
+      "utf8_bytes": 2398,
+      "sha256": "5348b8c9463b1359b1ac072e3d20209b4e10dc6f5854b1b0355248ab70aa3ad4"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 633,
+      "utf8_bytes": 635,
+      "sha256": "5022121bbf57d0b3c768e80f87d6c839fb7a6c5401dfab5c2554c354b3e86dc1"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "brents-method-inverse-quadratic-interpolation.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "brents-method-inverse-quadratic-interpolation.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1474,
+      "sha256": "d0bd4471c656b8d8e5264260e757d859c904bf6b06b3bc282d900cf85cd1c4fa"
+    },
+    {
+      "id": "brents-method-inverse-quadratic-interpolation.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1114,
+      "sha256": "94e64ec1ea4e3da24d46cc253bd1cfe00f8d95fda55ae5d451720e319fec77bd"
+    },
+    {
+      "id": "brents-method-inverse-quadratic-interpolation.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1907,
+      "sha256": "0b998f84d7a15660240e7dc21e1389ae1559fed3d0f77a7f24207e670f3a259a"
+    },
+    {
+      "id": "brents-method-inverse-quadratic-interpolation.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 573,
+      "sha256": "25a6069f466b745c72fc3aec427d17140bf738474673029ee927957781c04164"
+    },
+    {
+      "id": "brents-method-inverse-quadratic-interpolation.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 903,
+      "sha256": "330ae184d6caaf94c3327731e77302c635d119d41e4fdc44289c1e8ef3f900d6"
+    },
+    {
+      "id": "brents-method-inverse-quadratic-interpolation.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 504,
+      "sha256": "0eea211c196da81ca5db19ee9534f9febf67939616ce24a6311ea12d42ce13bc"
+    },
+    {
+      "id": "brents-method-inverse-quadratic-interpolation.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1817,
+      "sha256": "711c0d90b21b5fbb637d2209a04916fe4dd874021b61ca69ca912ea1aed217d3"
+    },
+    {
+      "id": "brents-method-inverse-quadratic-interpolation.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 571,
+      "sha256": "823ffdc21c760216250e922f5d8dc17b57afa65fc2ab5283f7a3226f65d1bce3"
+    },
+    {
+      "id": "brents-method-inverse-quadratic-interpolation.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 939,
+      "sha256": "a6f3a44589a5e4cc14bb111715b90303ec4c06fffb64a3058dd3ac91259ecca7"
+    },
+    {
+      "id": "brents-method-inverse-quadratic-interpolation.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2092,
+      "sha256": "a5ecdc6c3c4e61fae5f6c4d4e2fa0620feac60c2275e5350e9b26c356e70d460"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/brents-method-inverse-quadratic-interpolation/42589139d61b1192903b/aoede-4b839d5e6dfe689d.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3018764,
+      "sha256": "4b839d5e6dfe689d1685c9da78afdcac6d91c596faeb384af2689f0c986459f1",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2d8d3e28c8f171cfced86bb7a37aac1e418834eb23d4c7b039a1635035dc5d5f",
+          "bytes": 1181952,
+          "sha256": "e992bc02f00a2a9841e4e8d94a7c69e046d759aaeededc4cd688aba938103380"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "59a52ec37d93c44e6a4d849996fe124c6b7a613eb079c35f22b86119e51fd96c",
+          "bytes": 1119552,
+          "sha256": "8c49dddfb93fbbaac17f5ebe1b829e72d4b36c747c1f3e68e5c332f32dd2563b"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "5348b8c9463b1359b1ac072e3d20209b4e10dc6f5854b1b0355248ab70aa3ad4",
+          "bytes": 567552,
+          "sha256": "008e13bdea58ba8fd671441ea07debd3d56e6ace8fa900dcf2d86af921524866"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "5022121bbf57d0b3c768e80f87d6c839fb7a6c5401dfab5c2554c354b3e86dc1",
+          "bytes": 149472,
+          "sha256": "7d7839754d3d0e2196e41a5973146f58d67fc4ce2c8ec4f5617948d125e788f6"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/brents-method-inverse-quadratic-interpolation/42589139d61b1192903b/algieba-07196e0f7b6fad53.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3152396,
+      "sha256": "07196e0f7b6fad53141abda3298fbc62c8af56e0aab0b9daafc76dc9cb04ba0a",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2d8d3e28c8f171cfced86bb7a37aac1e418834eb23d4c7b039a1635035dc5d5f",
+          "bytes": 1212096,
+          "sha256": "bcba3217de000234bda3b2372acf6a11f1ee51a9b0f7d84e1dca56f599f29c50"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "59a52ec37d93c44e6a4d849996fe124c6b7a613eb079c35f22b86119e51fd96c",
+          "bytes": 1177344,
+          "sha256": "3a0432a76b0422bd3c61beb5857ab7a0e64b3dfbf8381b24f1895bc8755ea5c3"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "5348b8c9463b1359b1ac072e3d20209b4e10dc6f5854b1b0355248ab70aa3ad4",
+          "bytes": 613344,
+          "sha256": "7a9826cceacb5bce6c47fad178407497fb9bb306fd004c60cbe2104eb4f62b0d"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "5022121bbf57d0b3c768e80f87d6c839fb7a6c5401dfab5c2554c354b3e86dc1",
+          "bytes": 149376,
+          "sha256": "c9ee0725d1da2f7f4cda85ed802212c69c173c836f0a4b2500b54de296fe05b7"
+        }
+      ]
+    }
+  }
+}

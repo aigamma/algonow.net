@@ -1,15 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
-// Counterfactual regret minimization on Kuhn poker, live. Each tick runs a
-// batch of iterations: both players walk the whole tree, every information
-// set adds counterfactual regret for each action, and the next strategy is
-// regret matching over the positive regrets. The bars show the first
-// player's bet probabilities by card (amber: the strategy being played
-// now, blue: the average, which is the answer) against Kuhn's closed-form
-// family, and the second player's call probabilities facing a bet. The
-// curve is the exploitability of the average strategy, computed by an
-// exact best-response traversal, on a log scale with the 1/sqrt(T) slope.
+// CFR on Kuhn poker, live: a batch of iterations per tick, bars of the
+// current (amber) and average (blue) strategies against Kuhn's family, and
+// the exact best-response exploitability of the average on a log scale.
 const W = 640;
 const H = 300;
 const SEED = 20261010;
@@ -133,7 +127,6 @@ export function exploitability(st) {
 export function makeScene(seed) {
   const rand = mulberry32(seed);
   const st = { regret: new Map(), sum: new Map(), nodes: 0, t: 0 };
-  // a different starting point each cycle: small random initial regrets
   for (const [c0, c1] of DEALS) {
     for (const acts of ['', 'p', 'b', 'pb']) {
       const I = infoset(c0, c1, acts);
@@ -159,7 +152,7 @@ export function sceneTick(sc) {
   const alpha = average(st, 'J').b;
   const kBet = average(st, 'K').b;
   sc.ok = Number.isFinite(e) && e >= -1e-9;
-  sc.last = `iteration ${st.t.toLocaleString()}: exploitability ${e.toFixed(4)}; P(bet | J) ${alpha.toFixed(2)}, P(bet | K) ${kBet.toFixed(2)} (family: 3 alpha = ${(3 * alpha).toFixed(2)})`;
+  sc.last = `iteration ${st.t.toLocaleString()}: exploitability ${e.toFixed(4)}; P(bet|J) ${alpha.toFixed(2)}, P(bet|K) ${kBet.toFixed(2)} (3 alpha ${(3 * alpha).toFixed(2)})`;
   sc.tick += 1;
   return false;
 }
@@ -209,7 +202,7 @@ export default function CfrViz() {
         const st = sc.st;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`Kuhn poker, ${BATCH} CFR iterations per tick; amber: strategy now (regret matching), blue: the average; green ticks: Kuhn's family`, 12, 18);
+        ctx.fillText(`Kuhn poker, ${BATCH} iterations per tick; amber: strategy now, blue: the average; green ticks: Kuhn's family`, 12, 18);
         // left: bars
         const groups = [
           { title: 'player one, first decision: P(bet)', keys: ['J', 'Q', 'K'], target: (alpha) => [alpha, 0, 3 * alpha], y: 60 },
@@ -283,7 +276,7 @@ export default function CfrViz() {
         let line;
         if (s.done) {
           const e = sc.curve[sc.curve.length - 1][1];
-          line = `after ${st.t.toLocaleString()} iterations: exploitability ${e.toFixed(4)} (started ${sc.curve[0][1].toFixed(4)}); P(bet | J) ${alpha.toFixed(2)}, P(bet | K) ${average(st, 'K').b.toFixed(2)}, P(call | Q) ${average(st, 'Qb').b.toFixed(2)}; the file: 0.0015 at 10,000`;
+          line = `after ${st.t.toLocaleString()} iterations: exploitability ${e.toFixed(4)} (from ${sc.curve[0][1].toFixed(4)}); P(bet|J) ${alpha.toFixed(2)}, P(bet|K) ${average(st, 'K').b.toFixed(2)}, P(call|Q) ${average(st, 'Qb').b.toFixed(2)}; the file: 0.0015 at 10,000`;
           ctx.fillStyle = good;
         } else {
           line = sc.last;

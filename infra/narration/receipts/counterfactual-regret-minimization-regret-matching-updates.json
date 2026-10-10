@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net counterfactual-regret-minimization-regret-matching-updates preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-10T21:41:36.109Z",
+  "publication_sha256": "96233be22807769f209ebd80777a5f9ae5ee88bba5bbd69f8e68ddca9b53bbcf",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6137656,
+  "objects": [
+    {
+      "stable_id": "puzzle:counterfactual-regret-minimization-regret-matching-updates",
+      "slug": "counterfactual-regret-minimization-regret-matching-updates",
+      "track_id": "algieba",
+      "source_sha256": "f11b7069f2f22eaec41fca4b711acdb491afeefa0af280c77d9087cf69391de5",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "e3020665549c1c89ad38fa80ef267fd24a435fce9c5d485a59e0dd3aa0b9b828",
+      "object_key": "narration/v1/puzzles/counterfactual-regret-minimization-regret-matching-updates/e3020665549c1c89ad38/algieba-c99ae89ad4cf59cd.mp3",
+      "bytes": 3150092,
+      "sha256": "c99ae89ad4cf59cd2a5ed371498a56ec3c1b06c5ff73cdc926217d577726c027",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:counterfactual-regret-minimization-regret-matching-updates",
+      "slug": "counterfactual-regret-minimization-regret-matching-updates",
+      "track_id": "aoede",
+      "source_sha256": "f11b7069f2f22eaec41fca4b711acdb491afeefa0af280c77d9087cf69391de5",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "e3020665549c1c89ad38fa80ef267fd24a435fce9c5d485a59e0dd3aa0b9b828",
+      "object_key": "narration/v1/puzzles/counterfactual-regret-minimization-regret-matching-updates/e3020665549c1c89ad38/aoede-fcd351f185fce3c4.mp3",
+      "bytes": 2987564,
+      "sha256": "fcd351f185fce3c4ed104df876e6ce829aa0040e24f53683924e209bf17eb9e6",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

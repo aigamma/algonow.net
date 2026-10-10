@@ -17,13 +17,12 @@ export const content = {
       hand. Sergiu Hart and Andreu Mas-Colell (2000, Econometrica) proved
       that regret matching, playing each action in proportion to its
       positive regret, has vanishing regret and converges to correlated
-      equilibrium. Martin Zinkevich, Michael Johanson, Michael Bowling,
-      and Carmelo Piccione (<strong>2007</strong>, NeurIPS) showed that
-      regret decomposes across information sets when each is weighted by
-      counterfactual reach, which turned a theorem about matrix games into
-      an algorithm for sequential ones: CFR solved heads-up limit
-      hold&apos;em with 10<sup>12</sup> information sets (Bowling, Burch,
-      Johanson, and Tammelin, Science 2015, using CFR+). Marc Lanctot&apos;s
+      equilibrium. Martin Zinkevich, Michael Johanson, Michael Bowling, and Carmelo
+      Piccione (<strong>2007</strong>, NeurIPS) showed that regret decomposes
+      across information sets weighted by counterfactual reach, which made
+      CFR an algorithm for sequential games; it solved heads-up limit
+      hold&apos;em, 10<sup>12</sup> information sets (Bowling, Burch,
+      Johanson, and Tammelin, Science 2015, with CFR+). Marc Lanctot&apos;s
       Monte Carlo variants (2009) sample the tree; Noam Brown and Tuomas
       Sandholm&apos;s Libratus (2017) and Pluribus (2019) beat professional
       players at no-limit poker with CFR at the core; DeepStack (2017)
@@ -240,7 +239,7 @@ export const content = {
 
   contest: {
     instance:
-      'Kuhn poker (three cards, one bet; 12 information sets, 58 histories), exact value −1/18 for the first player; one currency: nodes touched; referee: an exact best-response traversal (exploitability in chips per hand, the average of what each player could gain by best-responding) and the closed-form equilibrium family',
+      'Kuhn poker (12 information sets, 58 histories), exact value −1/18 for the first player; one currency: nodes touched; referee: an exact best-response traversal (exploitability in chips per hand) and the closed-form equilibrium family',
     columns: ['iterations', 'nodes touched', 'exploitability', 'note'],
     rows: [
       {
@@ -272,14 +271,14 @@ export const content = {
       },
     ],
     source:
-      'python solutions/counterfactual_regret_minimization_regret_matching_updates.py prints this table and asserts: the average strategy value within 0.01 of -1/18, exploitability below 0.01 and at most (R0 + R1) / T, the per-player regret under the Zinkevich bound, the five closed-form equilibrium relations within 0.05, exploitability falling across 10, 100, 1,000, and 10,000 iterations; rock-paper-scissors uniform and biased pennies at 2/5 and value 1/5 within 0.01; CFR+ below CFR at 100 and 1,000 iterations; fictitious play above CFR at 1,000 and below its own value at 10; MCCFR above CFR at an equal node budget; determinized minimax exploitable for more than 0.1 and more than ten times CFR; and each player’s best response against it worth at least the game value.',
+      'python solutions/counterfactual_regret_minimization_regret_matching_updates.py prints this table and asserts: value within 0.01 of -1/18; exploitability below 0.01 and at most (R0 + R1) / T; regret under the Zinkevich bound; the five closed-form relations within 0.05; exploitability falling across 10, 100, 1,000, 10,000 iterations; rock-paper-scissors uniform and pennies at 2/5 and 1/5 within 0.01; CFR+ below CFR at 100 and 1,000; fictitious play above CFR at 1,000; MCCFR above CFR at an equal node budget; determinized minimax exploitable above 0.1 and ten times CFR.',
   },
 
   figure: (
     <Figure
       id="fig-cfr-kuhn"
       aspect="16 / 7"
-      caption="Left: exploitability of the average strategy on Kuhn poker against iterations, both axes logarithmic: CFR with regret matching (blue), CFR+ (green), fictitious play (amber), and outcome-sampling MCCFR (gray, by sampled iteration), with the 1/√T slope drawn for reference. Right: the computed average strategy for the first player on Kuhn's closed-form equilibrium family, bet probability by card at the first decision, with the family's constraint P(bet | K) = 3 P(bet | J) drawn as the line it must sit on."
+      caption="Left: exploitability of the average strategy on Kuhn poker against iterations, both axes logarithmic, for CFR, CFR+, fictitious play, and outcome-sampling MCCFR, with the 1/√T slope for reference. Right: the first player's bet probability by card at the first decision, on Kuhn's family constraint P(bet | K) = 3 P(bet | J)."
       cite={{
         text: 'M. Zinkevich, M. Johanson, M. Bowling, and C. Piccione, "Regret minimization in games with incomplete information," NeurIPS 2007. S. Hart and A. Mas-Colell, "A simple adaptive procedure leading to correlated equilibrium," Econometrica 68(5), 2000, DOI 10.1111/1468-0262.00153. H. W. Kuhn, "A simplified two-person poker," Contributions to the Theory of Games 1, 1950.',
         href: 'https://doi.org/10.1111/1468-0262.00153',
@@ -313,8 +312,6 @@ export const content = {
               {[0.1, 0.01, 0.001].map((e) => (
                 <text key={e} x={x0 - 44} y={Y(e) + 3} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{e}</text>
               ))}
-              <line x1={X(10)} y1={Y(0.3)} x2={X(10000)} y2={Y(0.3 / Math.sqrt(1000))} stroke="#9aa5bd" strokeOpacity="0.5" strokeDasharray="3 3" />
-              <text x={X(2000)} y={Y(0.3 / Math.sqrt(200)) - 6} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">1/√T</text>
               {series.map(([color, pts]) => (
                 <g key={color}>
                   <polyline points={pts.map(([t, e]) => `${X(t)},${Y(e)}`).join(' ')} fill="none" stroke={color} strokeWidth="2" />
@@ -322,10 +319,7 @@ export const content = {
                 </g>
               ))}
               <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">exploitability vs iterations, Kuhn poker (log-log)</text>
-              <text x={x0} y="36" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="10">CFR 0.0015 at 10,000</text>
-              <text x={x0 + 150} y="36" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">CFR+ 0.0049 at 1,000</text>
-              <text x={x0} y="50" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">fictitious play 0.0068</text>
-              <text x={x0 + 150} y="50" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">MCCFR 0.0450 (equal nodes)</text>
+              <text x={x0} y="36" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">blue CFR, green CFR+, amber fictitious play, gray MCCFR</text>
               <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">player one, first decision: P(bet)</text>
               {cards.map(([card, p, label], i) => (
                 <g key={card}>

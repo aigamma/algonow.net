@@ -1,53 +1,30 @@
 # Puzzle 166: Counterfactual regret minimization x Regret-matching updates
 # Imperfect-information equilibria: two players, hidden cards, bets and
-# bluffs; find a strategy that cannot be exploited, a Nash equilibrium of
-# the extensive-form game. The algorithm is self-play over the game tree:
-# both players follow their current strategies, every information set
-# (what a player knows at a decision) accumulates how much better each
-# action would have done than the strategy actually played, weighted by
-# the probability that the OTHER player and chance brought the game to
-# that decision (the counterfactual reach), and the time-averaged strategy
-# converges to an equilibrium. The heuristic is regret matching (Hart and
-# Mas-Colell 2000): the next strategy at an information set plays each
-# action in proportion to its positive cumulative regret, and uniformly
-# when no action has positive regret. The theorem (Zinkevich, Johanson,
-# Bowling, and Piccione 2007): the average overall regret of player i
-# after T iterations is at most Delta |I| sqrt(|A|) / sqrt(T), and in a
-# zero-sum game the average strategy profile is then a 2 R/T equilibrium.
+# bluffs; find a strategy that cannot be exploited (a Nash equilibrium of
+# the extensive-form game). The algorithm is self-play over the game tree:
+# every information set accumulates, per action, how much better that
+# action would have done than the strategy played, weighted by the
+# probability that the OTHER player and chance brought the game there
+# (the counterfactual reach). The heuristic is regret matching (Hart and
+# Mas-Colell 2000): play each action in proportion to its positive
+# cumulative regret, uniformly when none is positive. Zinkevich, Johanson,
+# Bowling, and Piccione (2007): average regret <= Delta |I| sqrt(|A|) /
+# sqrt(T), so the average strategy is a 2 R / T equilibrium.
 #
-# Referees:
-# (1) KUHN POKER (three cards, one bet): the exact game value is -1/18 for
-#     the first player (Kuhn 1950), and the equilibrium family is known in
-#     closed form: player one bets a jack with probability alpha in
-#     [0, 1/3] and a king with probability 3 alpha; player two, facing a
-#     bet, calls with a queen with probability 1/3, and after a check bets
-#     a jack with probability 1/3; player one, after check and bet, calls
-#     with a queen with probability alpha + 1/3. Every one of these is
-#     asserted against the computed average strategy;
-# (2) EXPLOITABILITY, computed exactly by a best-response traversal that
-#     aggregates values over all histories in each information set: the
-#     average strategy's exploitability must fall below a tolerance and
-#     must obey the regret theorem, exploitability <= (R_1 + R_2) / T,
-#     where R_i is the measured positive cumulative regret summed over
-#     player i's information sets;
-# (3) TWO MATRIX GAMES with closed-form equilibria: rock-paper-scissors
-#     (uniform, value 0) and a biased matching pennies with payoffs
-#     2, -1, -1, 1 (row plays heads with probability 2/5, value 1/5);
-# (4) THE RIVALS on the same Kuhn tree, one currency, nodes touched: CFR+
-#     (regrets floored at zero, alternating updates, linear averaging),
-#     outcome-sampling Monte Carlo CFR (one sampled path per iteration),
-#     and full-width fictitious play (best responses to the average
-#     strategy, mixed by realization weight);
-# (5) THE NEGATIVE EXAMPLE, measured: determinized minimax (perfect-
-#     information Monte Carlo): pretend the hidden card is known, solve
-#     each deal perfectly, average over the possible deals, and play the
-#     best action deterministically. Its exploitability is computed by the
-#     same best-response referee.
+# Referees: (1) Kuhn poker's exact value -1/18 and closed-form equilibrium
+# family (alpha in [0, 1/3]; king bet 3 alpha; queen call 1/3; jack bet
+# after check 1/3; queen call after check-bet alpha + 1/3); (2) exact
+# exploitability by a best-response traversal, under the measured regret
+# bound (R_1 + R_2) / T; (3) rock-paper-scissors (uniform) and biased
+# matching pennies (2, -1, -1, 1: heads 2/5, value 1/5); (4) the rivals on
+# the same tree in nodes touched: CFR+, outcome-sampling MCCFR, and
+# fictitious play (XFP); (5) determinized minimax (perfect-information
+# Monte Carlo), its exploitability measured.
 #
-# AUTHOR CORRECTION: the draft asserted that outcome-sampling MCCFR would
-# beat vanilla CFR at an equal budget of nodes touched. Measured on Kuhn
-# poker, the sampled method is noisier at every budget tried, so the page
-# reports it as the cheaper-per-iteration rival that pays in variance.
+# AUTHOR CORRECTION: the draft asserted MCCFR would beat vanilla CFR at an
+# equal node budget. Measured, the sampled method is noisier at every
+# budget tried; the page reports it as the cheaper-per-iteration rival that
+# pays in variance.
 import math
 import random
 
@@ -183,9 +160,8 @@ def game_value(game, sigma, h=None):
 
 
 def best_response_value(game, sigma, i):
-    """The value, for player i, of the best response to the other player's
-    strategy in sigma. A decision at an information set is made once, for
-    all histories in it, by the counterfactual-reach-weighted sum."""
+    """Best-response value for player i against sigma; each information set
+    decides once, by the counterfactual-reach-weighted sum over its histories."""
     cf = {}
     members = {}
 
@@ -302,9 +278,8 @@ class CFR:
 # ------------------------------------------------------------------ CFR+
 
 class CFRPlus(CFR):
-    """Tammelin 2014: regrets floored at zero after every update,
-    alternating updates (one player per pass), and the average strategy
-    weighted linearly by the iteration number."""
+    """Tammelin 2014: regrets floored at zero, alternating updates, linear
+    averaging."""
 
     def iterate(self):
         self.t += 1
@@ -340,9 +315,8 @@ class CFRPlus(CFR):
 # ------------------------------------------------- outcome-sampling MCCFR
 
 class OutcomeSamplingMCCFR(CFR):
-    """Lanctot et al. 2009: one sampled trajectory per iteration, the
-    traverser exploring with probability epsilon, regrets corrected by the
-    sampling probability so they stay unbiased."""
+    """Lanctot et al. 2009: one sampled trajectory per iteration, epsilon
+    exploration for the traverser, regrets divided by the sampling probability."""
 
     def __init__(self, game, rng, epsilon=0.6):
         super().__init__(game)
@@ -435,11 +409,9 @@ def own_reach(game, sigma, player):
 
 
 class FictitiousPlay:
-    """Full-width extensive-form fictitious play (Heinrich, Lanctot, and
-    Silver 2015): each iteration both players compute a best response to
-    the other's average strategy, and the average moves toward it by
-    1 / t in sequence form, which is realization-weighted mixing of the
-    behavioral strategies at each information set."""
+    """Extensive-form fictitious play (Heinrich, Lanctot, Silver 2015): best
+    responses to the average, mixed in by 1 / t in sequence form
+    (realization-weighted behavioral mixing)."""
 
     def __init__(self, game):
         self.game = game
@@ -478,11 +450,8 @@ class FictitiousPlay:
 # ---------------------------------------- determinized minimax (PIMC)
 
 def determinized_minimax_strategy(game):
-    """Perfect-information Monte Carlo: at each information set, for every
-    deal consistent with what the player knows, solve the deal as a
-    perfect-information game (both players see every card), average the
-    action values over the deals, and play the best action with
-    probability one."""
+    """Perfect-information Monte Carlo: solve each consistent deal with all
+    cards face up, average the action values, play the best one."""
 
     def pi_value(h, player):
         if game.is_terminal(h):
@@ -601,27 +570,24 @@ def main():
     assert pimc_expl > 0.1 and pimc_expl > 10 * trace[1000], (pimc_expl, trace[1000])
     assert br1_vs_pimc >= 1 / 18 - 1e-9 and br0_vs_pimc >= -1 / 18 - 1e-9
 
-    print('contest: Kuhn poker (three cards, one bet; 12 information sets, 58 histories), exact value -1/18 = -0.0556 for the first player; one currency: nodes touched; referee: an exact best-response traversal (exploitability) and the closed-form equilibrium family')
+    print('contest: Kuhn poker (12 information sets, 58 histories), exact value -1/18; currency: nodes touched; referee: exact best response (exploitability) and the closed-form family')
     print(f'vanilla CFR, {T:,} iterations ({cfr.nodes:,} nodes): value {value:+.4f}, exploitability {expl:.5f}; positive regret per iteration {r0 / T:.5f} + {r1 / T:.5f} = {bound:.5f} (the theorem bound {theorem:.3f})')
     print(f'  exploitability by iteration: ' + ', '.join(f'T={t}: {trace[t]:.4f}' for t in sorted(trace)))
-    print(f'  equilibrium family: alpha = P(bet | J) = {alpha:.3f}; P(bet | K) = {avg[("K", "")]["b"]:.3f} (3 alpha = {3 * alpha:.3f}); '
-          f'P(call | Q, facing bet) = {avg[("Q", "b")]["b"]:.3f} (1/3); P(bet | J, after check) = {avg[("J", "p")]["b"]:.3f} (1/3); '
-          f'P(call | Q, check-bet) = {avg[("Q", "pb")]["b"]:.3f} (alpha + 1/3 = {alpha + 1 / 3:.3f})')
-    print(f'rock-paper-scissors after 20,000 iterations: row {tuple(round(a[(0,)][k], 3) for k in range(3))}, exploitability {exploitability(rps, a):.4f}; '
-          f'biased pennies: P(heads) = {a2[(0,)][0]:.3f} (2/5), value {game_value(pennies, a2):.3f} (1/5)')
+    print(f'  family: alpha = P(bet|J) {alpha:.3f}; P(bet|K) {avg[("K", "")]["b"]:.3f} (3 alpha {3 * alpha:.3f}); P(call|Q,bet) {avg[("Q", "b")]["b"]:.3f} (1/3); '
+          f'P(bet|J,check) {avg[("J", "p")]["b"]:.3f} (1/3); P(call|Q,check-bet) {avg[("Q", "pb")]["b"]:.3f} (alpha + 1/3 = {alpha + 1 / 3:.3f})')
+    print(f'rock-paper-scissors, 20,000 iterations: row {tuple(round(a[(0,)][k], 3) for k in range(3))}, exploitability {exploitability(rps, a):.4f}; pennies: P(heads) {a2[(0,)][0]:.3f} (2/5), value {game_value(pennies, a2):.3f} (1/5)')
     print(f'{"method":>34} {"iterations":>10} {"nodes":>10} {"exploitability":>14}')
     print(f'{"CFR (regret matching)":>34} {1000:>10,} {int(1000 * nodes_per_cfr_iter):>10,} {trace[1000]:>14.4f}')
     print(f'{"CFR+":>34} {1000:>10,} {plus.nodes:>10,} {trace_plus[1000]:>14.4f}')
     print(f'{"outcome-sampling MCCFR":>34} {mc_iters:>10,} {mc.nodes:>10,} {mc_final:>14.4f}')
     print(f'{"fictitious play (XFP)":>34} {1000:>10,} {fp.nodes:>10,} {fp_trace[1000]:>14.4f}')
     print(f'{"determinized minimax (PIMC)":>34} {"-":>10} {"-":>10} {pimc_expl:>14.4f}')
-    print(f'  CFR+ by iteration: ' + ', '.join(f'T={t}: {trace_plus[t]:.4f}' for t in sorted(trace_plus)) + '; fictitious play: ' + ', '.join(f'T={t}: {fp_trace[t]:.4f}' for t in sorted(fp_trace))
+    print('  CFR+: ' + ', '.join(f'T={t}: {trace_plus[t]:.4f}' for t in sorted(trace_plus)) + '; fictitious play: ' + ', '.join(f'T={t}: {fp_trace[t]:.4f}' for t in sorted(fp_trace))
           + '; MCCFR: ' + ', '.join(f'T={t}: {mc_trace[t]:.4f}' for t in sorted(mc_trace)))
-    print(f'  determinized minimax plays every information set deterministically: player one loses {br1_vs_pimc:.3f} per hand to a best response (equilibrium: {1 / 18:.4f}), '
-          f'player two loses {br0_vs_pimc:.3f} (equilibrium: {-1 / 18:.4f}); player two best-responds to it with {br_vs_pimc}')
-    print(f'OK: CFR on Kuhn poker reaches value {value:+.4f} against the exact -0.0556 with exploitability {expl:.4f} after {T:,} iterations, '
-          f'inside the regret bound {bound:.4f}, matching the closed-form family (alpha {alpha:.2f}); CFR+ {trace_plus[1000]:.4f} against CFR {trace[1000]:.4f} at 1,000 iterations; '
-          f'fictitious play {fp_trace[1000]:.4f}; MCCFR {mc_final:.4f} at an equal node budget; determinized minimax exploitable for {pimc_expl:.3f} per hand')
+    print(f'  determinized minimax (deterministic at every information set): player one loses {br1_vs_pimc:.3f} per hand to a best response (equilibrium {1 / 18:.4f}), '
+          f'player two loses {br0_vs_pimc:.3f}; the best response to it: {br_vs_pimc}')
+    print(f'OK: CFR on Kuhn poker: value {value:+.4f} (exact -0.0556), exploitability {expl:.4f} after {T:,} iterations inside the regret bound {bound:.4f}, on the closed-form family (alpha {alpha:.2f}); '
+          f'at 1,000 iterations CFR {trace[1000]:.4f}, CFR+ {trace_plus[1000]:.4f}, fictitious play {fp_trace[1000]:.4f}; MCCFR {mc_final:.4f} at an equal node budget; determinized minimax exploitable for {pimc_expl:.3f}')
 
 
 if __name__ == '__main__':

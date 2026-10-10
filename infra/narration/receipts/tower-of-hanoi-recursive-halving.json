@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net tower-of-hanoi-recursive-halving preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-10T23:22:02.329Z",
+  "publication_sha256": "dedcd34d11a20271d26c898d7358b7816651d4de8e441ca9ac4026a28886e6e1",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5541304,
+  "objects": [
+    {
+      "stable_id": "puzzle:tower-of-hanoi-recursive-halving",
+      "slug": "tower-of-hanoi-recursive-halving",
+      "track_id": "algieba",
+      "source_sha256": "8529d893ec5ee5ba41621ec790b90f0a7affd1354c45f62a5fc36822f1941814",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "7bd1a8496d102010817871252a749f64d60d144e884179c503f66dbf196b476d",
+      "object_key": "narration/v1/puzzles/tower-of-hanoi-recursive-halving/7bd1a8496d1020108178/algieba-967a44a52c759751.mp3",
+      "bytes": 2865164,
+      "sha256": "967a44a52c759751b35391e6ca0bf5773a2dd3043c76643de375d30f346286f4",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:tower-of-hanoi-recursive-halving",
+      "slug": "tower-of-hanoi-recursive-halving",
+      "track_id": "aoede",
+      "source_sha256": "8529d893ec5ee5ba41621ec790b90f0a7affd1354c45f62a5fc36822f1941814",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "7bd1a8496d102010817871252a749f64d60d144e884179c503f66dbf196b476d",
+      "object_key": "narration/v1/puzzles/tower-of-hanoi-recursive-halving/7bd1a8496d1020108178/aoede-b90f7c5ed536be13.mp3",
+      "bytes": 2676140,
+      "sha256": "b90f7c5ed536be131160b62f4ad3500b9bdbc427f55ee702c67e3c1efe32dedf",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

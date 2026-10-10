@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:tower-of-hanoi-recursive-halving",
+  "source_path": "src/content/tower-of-hanoi-recursive-halving.narration.js",
+  "source_sha256": "8529d893ec5ee5ba41621ec790b90f0a7affd1354c45f62a5fc36822f1941814",
+  "source_characters": 10712,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "7bd1a8496d102010817871252a749f64d60d144e884179c503f66dbf196b476d",
+  "generated_at": "2026-10-10T23:20:55.304Z",
+  "generated_characters": 21424,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4688,
+      "utf8_bytes": 4692,
+      "sha256": "ea1bdb5b6ca0fec002d645d1179e6516447cf83cf9bf612b25682c8bb5221df8"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4246,
+      "utf8_bytes": 4251,
+      "sha256": "1895a90aa1d5326db71260d399ff14f12c431908308a6e7e594dd23f4cd700b7"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1778,
+      "utf8_bytes": 1782,
+      "sha256": "71144336ea2550cecd0a27df55a65a30bfe375fa9a1af66bc177f12e2ffdf786"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "tower-of-hanoi-recursive-halving.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "tower-of-hanoi-recursive-halving.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1379,
+      "sha256": "3fa7a48558e526aaeeb50446f3149061180b1bef4e21dba458da614a25aaef8e"
+    },
+    {
+      "id": "tower-of-hanoi-recursive-halving.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1036,
+      "sha256": "2240c34de6ee48e5b889b9c0d5829e039d50ab19f87bf0440f7edc054b860578"
+    },
+    {
+      "id": "tower-of-hanoi-recursive-halving.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1545,
+      "sha256": "72464b33aaf3caa0f8c7575b2b001181816b58f7a1d858015bb252a822303a05"
+    },
+    {
+      "id": "tower-of-hanoi-recursive-halving.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 599,
+      "sha256": "4b8b03983d7057cf1a71ced795c11c56f29b054a7360b5c18c12e08e15cf93e0"
+    },
+    {
+      "id": "tower-of-hanoi-recursive-halving.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 793,
+      "sha256": "e7431d9bbca4b6294eacab4bdefadabc1a27c622ff0af73378b3e7e95fcf94b3"
+    },
+    {
+      "id": "tower-of-hanoi-recursive-halving.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 431,
+      "sha256": "20451c6a1f95c1df6eeac2a30a4010a92b9eca2b17288452787ba52652806873"
+    },
+    {
+      "id": "tower-of-hanoi-recursive-halving.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1576,
+      "sha256": "3abbf74868ac30ec62900af223ef4d1b7d9112b6705b7e8de10288e4ece4d9ff"
+    },
+    {
+      "id": "tower-of-hanoi-recursive-halving.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 588,
+      "sha256": "067e2001025333fce264f8774cfb78034025198d60318d204b5635bd838949a1"
+    },
+    {
+      "id": "tower-of-hanoi-recursive-halving.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 853,
+      "sha256": "fe1724093b0fdc2da9137e011a66cb19a30f5478fca32f07159015752c68afa2"
+    },
+    {
+      "id": "tower-of-hanoi-recursive-halving.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1782,
+      "sha256": "71144336ea2550cecd0a27df55a65a30bfe375fa9a1af66bc177f12e2ffdf786"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/tower-of-hanoi-recursive-halving/7bd1a8496d1020108178/aoede-b90f7c5ed536be13.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2676140,
+      "sha256": "b90f7c5ed536be131160b62f4ad3500b9bdbc427f55ee702c67e3c1efe32dedf",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "ea1bdb5b6ca0fec002d645d1179e6516447cf83cf9bf612b25682c8bb5221df8",
+          "bytes": 1169472,
+          "sha256": "0f180b4ca6463d4fb5215ae156ed472bcb2c4db79e20ff3ee41ebf2a2f2edfc4"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "1895a90aa1d5326db71260d399ff14f12c431908308a6e7e594dd23f4cd700b7",
+          "bytes": 1075776,
+          "sha256": "a3284088db9603960e2a3d14a3cacb476a651df8ab498d41964c5a443189019d"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "71144336ea2550cecd0a27df55a65a30bfe375fa9a1af66bc177f12e2ffdf786",
+          "bytes": 430656,
+          "sha256": "62e36149225e97a6e039aca67fae8658e4aec6273d70e9ea64bc6abd4458d076"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/tower-of-hanoi-recursive-halving/7bd1a8496d1020108178/algieba-967a44a52c759751.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2865164,
+      "sha256": "967a44a52c759751b35391e6ca0bf5773a2dd3043c76643de375d30f346286f4",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "ea1bdb5b6ca0fec002d645d1179e6516447cf83cf9bf612b25682c8bb5221df8",
+          "bytes": 1230336,
+          "sha256": "5cc82a62732c8ceeae8db5d04c4b1cfcc4607afcbce216e7f09e70ad5cf7b730"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "1895a90aa1d5326db71260d399ff14f12c431908308a6e7e594dd23f4cd700b7",
+          "bytes": 1153056,
+          "sha256": "39399e0ba1fe764a39f7ff106c6fa7f47c81c47067c1c96ba2504fd2d21a431f"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "71144336ea2550cecd0a27df55a65a30bfe375fa9a1af66bc177f12e2ffdf786",
+          "bytes": 481536,
+          "sha256": "c21593a16db00ab151f6f85d8c4e7f188293d9ac08e985d7b0a3e45ca7342291"
+        }
+      ]
+    }
+  }
+}

@@ -5823,6 +5823,51 @@ commit, Fable trailer on every commit, check green before each push.
       solution, the viz check, the narration plan, and the static checks
       before accepting it. Added 2026-10-10.
 
+- [x] F175. Tower of Hanoi × Recursive halving. Puzzle 181,
+      search-constraints-games (problemSlug tower-of-hanoi, the atlas
+      problem page carrying "Disk-transfer puzzle"). Solution
+      tower_of_hanoi_recursive_halving.py (0.7s, prints OK): the
+      three-peg recursion, a legality replay on simulated pegs,
+      legal-move enumeration and breadth-first distances over tuples of
+      peg positions for three or four pegs, the iterative
+      smallest-disk-cycle rule with the parity-dependent direction, the
+      ruler and Gray-code checks, the Frame-Stewart recursion with its
+      recurrence-chosen split over explicit disk lists, and a random
+      legal walk with no immediate undo. ORACLES: (1) 2^n - 1 legal
+      moves and arrival for every n from 1 to 20 (1, 3, 7, 15, 31, ...,
+      65,535 at 16, 1,048,575 at 20); (2) breadth-first search over 3^n
+      states (3 to 6,561) for n = 1 to 8: optimum 1, 3, 7, 15, 31, 63,
+      127, 255, and the recursive state after move k at distance k; (3)
+      the iterative rule equal to the recursion move for move for n = 1
+      to 12; (4) disk at step k = 1 + trailing zeros of k, and the
+      odd-moved disks after k moves = Gray code of k, for every k below
+      4,096; (5) Frame-Stewart four-peg moves 1, 3, 5, 9, 13, 17, 25, 33
+      for n = 1 to 8, legal, equal to the recurrence and to the
+      breadth-first four-peg optimum over 4^n states (4 to 65,536); (6)
+      random legal walk, 20 trials each, cap 200,000: n = 3 mean 52 (10
+      to 191) against 7; n = 4 mean 364 (37 to 1,171) against 15; n = 5
+      mean 1,781 (366 to 7,940) against 31; n = 6 mean 5,780 (1,063 to
+      17,148) against 63. Honest: the exponential count is the floor,
+      not the method's fault, and the three-peg recursion is far from
+      optimal with four pegs; author correction recorded (the smallest
+      disk's direction depends on the parity of n, not always
+      clockwise). Cards: self, Frame-Stewart, Breadth-first search, Gray
+      code generation (all algoName). neverUse: a random legal walk or a
+      search that does not know the recursion. Figure: the 27-state
+      three-disk graph as a Sierpinski triangle with the 7-move optimal
+      path, beside log-scale moves by n for three pegs, four pegs, and
+      the random walk; cite Lucas 1883, Frame and Stewart AMM 1941 DOI
+      10.2307/2304268, Bousch 2014. Viz HanoiViz: the recursion one move
+      per tick on 4 to 7 disks with seeded source and target pegs, the
+      moved disk amber, the binary counter, the ruler bit, and the Gray
+      code beside the pegs, every move checked for legality and both
+      identities checked every tick; NODE-VERIFIED 20 cycles, 0 breaks;
+      stepMs 450, holdTicks rests. Preserved narration: Aoede + Algieba.
+      Authored by a fork agent of this Fable 5.1 session at the owner's
+      explicit request for parallel authoring; the main thread re-ran
+      the solution, the viz check, the narration plan, and the static
+      checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

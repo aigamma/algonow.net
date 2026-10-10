@@ -3145,6 +3145,24 @@ export const PUZZLES = {
     vite: 'gray-code-generation-reflected-binary',
     html: 'gray-code-generation-reflected-binary/index.html',
   },
+  '/tower-of-hanoi-recursive-halving/': {
+    slug: 'tower-of-hanoi-recursive-halving',
+    added: '2026-10-10',
+    problemSlug: 'tower-of-hanoi',
+    number: 181,
+    category: 'search-constraints-games',
+    algorithm: 'Tower of Hanoi',
+    heuristic: 'Recursive halving',
+    domain: 'Disk-transfer puzzle',
+    oneLiner:
+      'To move n disks, move the top n - 1 to the spare peg, move the largest disk once, and move the n - 1 back onto it: the plan is the instruction applied to itself, the count is 2^n - 1 and provably the fewest, and the same sequence falls out of an iterative rule, of binary counting, and of the Gray code.',
+    listenMinutes: 10,
+    time: '2^n - 1 moves, O(1) work per move',
+    space: 'O(n) recursion depth',
+    baseline: 'Breadth-first search over the state graph',
+    vite: 'tower-of-hanoi-recursive-halving',
+    html: 'tower-of-hanoi-recursive-halving/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

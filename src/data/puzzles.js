@@ -3203,13 +3203,33 @@ export const PUZZLES = {
     vite: 'holt-winters-triple-seasonal-smoothing',
     html: 'holt-winters-triple-seasonal-smoothing/index.html',
   },
+  '/avl-tree-height-balance-rotations/': {
+    slug: 'avl-tree-height-balance-rotations',
+    added: '2026-10-10',
+    problemSlug: 'ordered-dictionary',
+    number: 165,
+    category: 'data-structures',
+    algorithm: 'AVL tree',
+    heuristic: 'Height-balance rotations',
+    domain: 'Strictly balanced dictionary',
+    oneLiner:
+      'Store a height in every node, allow the two children of any node to differ in height by at most one, and repair a broken node on the way back up with a single or double rotation at the lowest place it breaks: the height stays under 1.44 log2 n for any arrival order, an insertion needs at most one rotation, and the sorted input that turns a plain tree into a list builds the perfectly balanced floor instead.',
+    description:
+      'The AVL tree with height-balance rotations on 20,000 keys against a Python set referee (in-order walk, every lookup, heights and balance factors audited at every node): height 17 under random arrival against the bound 20.3 and the floor 15, 4,732 single and 4,708 double rotations with never more than one per insertion, height 15 under sorted arrival at one rotation per insertion, 0.369 rotations per deletion; lookups at 14.11 node visits against 14.29 for a left-leaning red-black tree (height 21), 17.79 for a treap (height 33), and 18.03 for the plain tree (height 38); and the plain tree on sorted keys at height 4,000 and 2,053 visits per lookup as the negative example.',
+    listenMinutes: 10,
+    time: 'O(log n) worst case per operation',
+    space: 'one stored height per node',
+    baseline: 'Plain binary search tree',
+    vite: 'avl-tree-height-balance-rotations',
+    html: 'avl-tree-height-balance-rotations/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Quicksort', heuristic: 'Random pivot', domain: 'In-place comparison sorting' },
+  { algorithm: 'Counterfactual regret minimization', heuristic: 'Regret-matching updates', domain: 'Imperfect-information equilibria' },
 ];
 
 

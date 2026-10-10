@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:avl-tree-height-balance-rotations",
+  "source_path": "src/content/avl-tree-height-balance-rotations.narration.js",
+  "source_sha256": "1a9e7e51e071267fddd7d1ca62effc34c77155b3f4aea05c4ca5f153d8c50f7d",
+  "source_characters": 11347,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "fabae53a419454fd07965be4f5b049b690b12e07e42108f5b243d64881181631",
+  "generated_at": "2026-10-10T20:14:08.156Z",
+  "generated_characters": 22694,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4599,
+      "utf8_bytes": 4607,
+      "sha256": "caebeab4fc759b5d1a807ff8c4d388017c46092e71e45a67b607376a6476ad2e"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4959,
+      "utf8_bytes": 4965,
+      "sha256": "6658ab76fe68d2ebf5bdc7d696fd40a26eb24716f19523312b535c7541c020a7"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1789,
+      "utf8_bytes": 1791,
+      "sha256": "eebe052b7349dcbb39a6b9fc7fdcbb8ab339d5d5524b1516d3cdbfc10bf855ac"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "avl-tree-height-balance-rotations.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "avl-tree-height-balance-rotations.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1302,
+      "sha256": "ab2696d37c296ad944afaebde01884eee28b14544477ae6468c48311695ae10a"
+    },
+    {
+      "id": "avl-tree-height-balance-rotations.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1109,
+      "sha256": "e8c9832bdb1be8942b50970523af9d29a85132d8bb71efdbafd9a1d94e0d02aa"
+    },
+    {
+      "id": "avl-tree-height-balance-rotations.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1497,
+      "sha256": "ff41c5f4209039f4945844e786a64762f485d4b0bb410f9ace059c2c359b5164"
+    },
+    {
+      "id": "avl-tree-height-balance-rotations.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 566,
+      "sha256": "e33f4f0c5ff6fbe6c27298d4388931a22ec000cc272e28034223ffd6451a13a0"
+    },
+    {
+      "id": "avl-tree-height-balance-rotations.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1150,
+      "sha256": "92d47e07401887dda73bfa4be7387477fdc2deed7c9c9b672acfc74aab4893e6"
+    },
+    {
+      "id": "avl-tree-height-balance-rotations.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 517,
+      "sha256": "98d87c0c03b50c7483e746451d83d0f2d24aa1d639c5b2ec1f4ddec8e69f96e0"
+    },
+    {
+      "id": "avl-tree-height-balance-rotations.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1822,
+      "sha256": "6a08876095a2fd6d00b08e0590af80073645a75ab0fd52206af13abcfd8249c8"
+    },
+    {
+      "id": "avl-tree-height-balance-rotations.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 669,
+      "sha256": "f0fa2fa0f45ff3ae69a5d8de0a6e310e127c5c8efb980347052657d060efd968"
+    },
+    {
+      "id": "avl-tree-height-balance-rotations.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 797,
+      "sha256": "0c088a64ee5d15e50804a75756740d380e9292c2b1b6943685c308b3772f80ba"
+    },
+    {
+      "id": "avl-tree-height-balance-rotations.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1791,
+      "sha256": "eebe052b7349dcbb39a6b9fc7fdcbb8ab339d5d5524b1516d3cdbfc10bf855ac"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/avl-tree-height-balance-rotations/fabae53a419454fd0796/aoede-ade1ff2dd6daba27.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2906924,
+      "sha256": "ade1ff2dd6daba27c0045eea285bb673d2162a2a1674699bdf020d9c72b05d9a",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "caebeab4fc759b5d1a807ff8c4d388017c46092e71e45a67b607376a6476ad2e",
+          "bytes": 1196736,
+          "sha256": "6471d637dee99ac00983178039cc49078cd8fab3e35d4bfd7c3d5cba9ccf9dd1"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "6658ab76fe68d2ebf5bdc7d696fd40a26eb24716f19523312b535c7541c020a7",
+          "bytes": 1278336,
+          "sha256": "a7073b05b603bf4a3cfc3db155b5286f7a4412f3cc4ad4bc0877a4193c0ac47f"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "eebe052b7349dcbb39a6b9fc7fdcbb8ab339d5d5524b1516d3cdbfc10bf855ac",
+          "bytes": 431616,
+          "sha256": "e5f165136eac08b75cc283291a81257bc1eeb59a6226b6d816d7e1aeecdd9845"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/avl-tree-height-balance-rotations/fabae53a419454fd0796/algieba-18198d737e691322.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3072716,
+      "sha256": "18198d737e691322128b2db39810c32eb6a65a7f3491f1d3a37f8ee5100eb980",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "caebeab4fc759b5d1a807ff8c4d388017c46092e71e45a67b607376a6476ad2e",
+          "bytes": 1240992,
+          "sha256": "72312f0d7eaa56f2145d705a22808441872c9b1e6fc20f072f3f40fb861b331c"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "6658ab76fe68d2ebf5bdc7d696fd40a26eb24716f19523312b535c7541c020a7",
+          "bytes": 1364832,
+          "sha256": "a28f5e29334b765a28649a0140484e953278bdc39b6f50f54e5f572db5f134a6"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "eebe052b7349dcbb39a6b9fc7fdcbb8ab339d5d5524b1516d3cdbfc10bf855ac",
+          "bytes": 466656,
+          "sha256": "94a52853608f9d44e6553346beb9218289ae859b0cd715b0ad60457a6c49f987"
+        }
+      ]
+    }
+  }
+}

@@ -5112,6 +5112,47 @@ commit, Fable trailer on every commit, check green before each push.
       narration: Aoede + Algieba (11,565 characters, published
       2026-09-27T04:27:48Z, 0.693900 USD, live-verified 2026-10-10).
 
+- [x] F159. AVL tree × Height-balance rotations. Puzzle 165,
+      data-structures (problemSlug ordered-dictionary, the atlas problem
+      page carrying "Strictly balanced dictionary"). The bench swap:
+      Quicksort × Random pivot was queued at F158 but overlaps two live
+      lessons (quicksort-median-of-three and quickselect-random-pivot,
+      which already builds McIlroy's adversary and the random pivot), so
+      the queue moved to algorithms with no live unit yet. Solution
+      avl_tree_height_balance_rotations.py (1.8s, prints OK): the AVL
+      tree with per-call rebalancing counts and a full audit (search
+      order, stored heights, balance factors), a plain BST, a treap, and
+      Sedgewick's left-leaning red-black tree with its own rule audit,
+      one workload (20,000 inserts, 2,000 lookups half absent inside the
+      key range, 6,666 deletes, 6,666 reinserts) shadowed by a Python
+      set at every checkpoint. ORACLES: (1) the set referee on every
+      structure; (2) the height theorem at five sizes: height 17 at n =
+      20,000 under the bound 1.4405 log2(n + 2) - 0.328 = 20.3 and at or
+      above the floor 15; sorted arrival builds height 15; (3) at most
+      one rebalancing on each of 20,000 insertions (4,732 single, 4,708
+      double); deletions 0.369 rotations each, at most 3 rebalancings on
+      one; (4) the race: lookup visits AVL 14.11 / LLRB 14.29 / treap
+      17.79 / plain 18.03, heights 17 / 21 / 33 / 38, rotations per
+      insert 0.707 / 1.198 / 1.980 / 0, per delete 0.379 / 15.307 /
+      0.968 / 0; sorted arrival AVL 13.88 visits, LLRB 13.88, treap
+      19.66; (5) the plain tree on sorted keys: height 4,000 at n =
+      4,000, 2,053 visits per lookup. Honest: the plain tree is only 30%
+      worse on random lookups (the rule buys the worst case); the LLRB
+      delete cost is the variant's, and the card states the classic
+      three-rotation bound; author correction recorded (single and
+      double rotations nearly equal on random input, not rare). Cards:
+      self, Red-black tree, Treap (live lesson badge), Splay tree (all
+      algoName). neverUse: a plain BST on keys arriving in order.
+      Figure: the double rotation before and after, beside bars of
+      measured heights against the bound and the floor; cite
+      Adelson-Velsky and Landis 1962, Knuth TAOCP 3 6.2.3, Guibas and
+      Sedgewick FOCS 1978 DOI 10.1109/SFCS.1978.3. Viz AvlTreeViz: the
+      same keys (14 shuffled, 18 ascending) into an AVL tree and a plain
+      tree side by side, one per tick, the rotated node ringed red,
+      heights against the bound and the floor; NODE-VERIFIED 20 cycles x
+      32 ticks, 0 invariant breaks; stepMs 650, holdTicks rests.
+      Preserved narration: Aoede + Algieba. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net avl-tree-height-balance-rotations preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-10T21:35:55.653Z",
+  "publication_sha256": "d33e4e4137ea7f33a1d9ba11b6394084efb5bec126026d1ba8a006b8bcfc1918",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5979640,
+  "objects": [
+    {
+      "stable_id": "puzzle:avl-tree-height-balance-rotations",
+      "slug": "avl-tree-height-balance-rotations",
+      "track_id": "algieba",
+      "source_sha256": "1a9e7e51e071267fddd7d1ca62effc34c77155b3f4aea05c4ca5f153d8c50f7d",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "fabae53a419454fd07965be4f5b049b690b12e07e42108f5b243d64881181631",
+      "object_key": "narration/v1/puzzles/avl-tree-height-balance-rotations/fabae53a419454fd0796/algieba-18198d737e691322.mp3",
+      "bytes": 3072716,
+      "sha256": "18198d737e691322128b2db39810c32eb6a65a7f3491f1d3a37f8ee5100eb980",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:avl-tree-height-balance-rotations",
+      "slug": "avl-tree-height-balance-rotations",
+      "track_id": "aoede",
+      "source_sha256": "1a9e7e51e071267fddd7d1ca62effc34c77155b3f4aea05c4ca5f153d8c50f7d",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "fabae53a419454fd07965be4f5b049b690b12e07e42108f5b243d64881181631",
+      "object_key": "narration/v1/puzzles/avl-tree-height-balance-rotations/fabae53a419454fd0796/aoede-ade1ff2dd6daba27.mp3",
+      "bytes": 2906924,
+      "sha256": "ade1ff2dd6daba27c0045eea285bb673d2162a2a1674699bdf020d9c72b05d9a",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

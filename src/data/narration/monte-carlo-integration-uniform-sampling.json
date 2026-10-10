@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:monte-carlo-integration-uniform-sampling",
+  "source_path": "src/content/monte-carlo-integration-uniform-sampling.narration.js",
+  "source_sha256": "588ced15d6d0bfa8aceddef5f4715ee382d97112b481c91ffed6338340a86d0e",
+  "source_characters": 11337,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "efe6a0fc9f36d6624014c83fac3ba2c9f1daae9c21ff6e218356150d04cb6650",
+  "generated_at": "2026-10-10T23:24:55.146Z",
+  "generated_characters": 22674,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4847,
+      "utf8_bytes": 4851,
+      "sha256": "3eb9dd3815c4fc1fbd2f29c052f605357f97f028d4105b13f8a5dcd301b98e66"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4431,
+      "utf8_bytes": 4439,
+      "sha256": "f8c3e2260b9f7432d354dd1be3a5c041c460d8d4d45f50243db4eb134dba560b"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1293,
+      "utf8_bytes": 1293,
+      "sha256": "e04da92e54a304cb872cadefd426225803bb615f63e751ca81333d0d8f24991a"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 766,
+      "utf8_bytes": 766,
+      "sha256": "026e425ddbf0522ad0b0e1a438dea5e989d1c87e14d548afcb089a9d18c838d8"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "monte-carlo-integration-uniform-sampling.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "monte-carlo-integration-uniform-sampling.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1421,
+      "sha256": "2bac5e7d49ac28fa9ea8a0bf253d36783ecbc0e81d5d94d6f507326bb68791b3"
+    },
+    {
+      "id": "monte-carlo-integration-uniform-sampling.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1108,
+      "sha256": "7fb4361d0cdf5626d642b5949a01c32b963afe1608397b6345ce2fff14182887"
+    },
+    {
+      "id": "monte-carlo-integration-uniform-sampling.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1663,
+      "sha256": "867aec3a7d52d87e0af01b192e312dc1b0bb1807da466ac7f982064305e93fb4"
+    },
+    {
+      "id": "monte-carlo-integration-uniform-sampling.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 526,
+      "sha256": "5191221d883350159a122b5ee5d91d7fa1e184298b64f4f86fdbff6aeef2a4b6"
+    },
+    {
+      "id": "monte-carlo-integration-uniform-sampling.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 679,
+      "sha256": "2b587f203439cc80ae9145f67bf50d6a5e6a969183448d773184d701d1575065"
+    },
+    {
+      "id": "monte-carlo-integration-uniform-sampling.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 452,
+      "sha256": "8d12a37c7714e3b9b9110dcd50abf790dfa9a3bf994d0546dd51e9aa0960a489"
+    },
+    {
+      "id": "monte-carlo-integration-uniform-sampling.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1702,
+      "sha256": "d870aaa45c48c2a3ee95e3f4549ff847cad7e8eb75e464f32365eeea2f58bfd8"
+    },
+    {
+      "id": "monte-carlo-integration-uniform-sampling.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 855,
+      "sha256": "6eb256defaf561f8769d862337c4c11fa5a659d9ff2cbe385a593ffaea25269a"
+    },
+    {
+      "id": "monte-carlo-integration-uniform-sampling.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 741,
+      "sha256": "01f878fe7e4e47e7ff3e43e4eea7914107fa35b45f8b035b3e7c3afbb462220f"
+    },
+    {
+      "id": "monte-carlo-integration-uniform-sampling.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2059,
+      "sha256": "b99475b4abbb277e3f00f05d60222541e823b917324a4349b32dc189c830ccc4"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/monte-carlo-integration-uniform-sampling/efe6a0fc9f36d6624014/aoede-6ad06175f08ce98c.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2795564,
+      "sha256": "6ad06175f08ce98ca79f47bca3deb1749d723870517500981a3ab93c85831339",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "3eb9dd3815c4fc1fbd2f29c052f605357f97f028d4105b13f8a5dcd301b98e66",
+          "bytes": 1189536,
+          "sha256": "9f019498f98ea9fe707b4c917a5a5c505981f44fd04b0eaa4dd0efbf98ff9532"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "f8c3e2260b9f7432d354dd1be3a5c041c460d8d4d45f50243db4eb134dba560b",
+          "bytes": 1114176,
+          "sha256": "7b5a403f70d407ffefdf7fb03debea8fe6a4e0a2663007ebf603c4e980f367ae"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "e04da92e54a304cb872cadefd426225803bb615f63e751ca81333d0d8f24991a",
+          "bytes": 310272,
+          "sha256": "a4fccde74161ff7f7392ba5f637fc53c7a08df5b8445d082a3df166018b227ad"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "026e425ddbf0522ad0b0e1a438dea5e989d1c87e14d548afcb089a9d18c838d8",
+          "bytes": 181344,
+          "sha256": "869b85d8584f749f09166caf5953f9f848a198578576f1e0014b57536e1af4fa"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/monte-carlo-integration-uniform-sampling/efe6a0fc9f36d6624014/algieba-d5f2e285ffc19012.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2926700,
+      "sha256": "d5f2e285ffc190120d133453a82a99906c4767ff771b97ad12aa7801b79f05fb",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "3eb9dd3815c4fc1fbd2f29c052f605357f97f028d4105b13f8a5dcd301b98e66",
+          "bytes": 1281792,
+          "sha256": "2209f4d40a5cc51dea877e7067a9e26513df34d8572199eb7a5d616d99e7ac29"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "f8c3e2260b9f7432d354dd1be3a5c041c460d8d4d45f50243db4eb134dba560b",
+          "bytes": 1154304,
+          "sha256": "b903649b123a532149f4145dbfade8c13c695b054cc0990ca5d1784931db610c"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "e04da92e54a304cb872cadefd426225803bb615f63e751ca81333d0d8f24991a",
+          "bytes": 316224,
+          "sha256": "ba3e7a188c036d12ed460a2114ad5ff3d84cfce8d5590f5066a0603fc21a429c"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "026e425ddbf0522ad0b0e1a438dea5e989d1c87e14d548afcb089a9d18c838d8",
+          "bytes": 174144,
+          "sha256": "0c5fd484b1303dc3cff4eb36ad42e58c1cfadace3cedccf87f945514e9b7be4d"
+        }
+      ]
+    }
+  }
+}

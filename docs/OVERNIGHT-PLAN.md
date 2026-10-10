@@ -5868,6 +5868,61 @@ commit, Fable trailer on every commit, check green before each push.
       the solution, the viz check, the narration plan, and the static
       checks before accepting it. Added 2026-10-10.
 
+- [x] F176. Monte Carlo integration × Uniform sampling. Puzzle 182,
+      probabilistic (problemSlug numerical-integration, the atlas
+      problem page carrying "Numerical integration"). Solution
+      monte_carlo_integration_uniform_sampling.py (2.0s, prints OK):
+      three integrands with closed forms (a product of smooth factors
+      with integral exactly 1, the Gaussian over the unit cube equal to
+      a power of (sqrt(pi)/2) erf(1), the unit ball inside its cube with
+      volume pi^(d/2) / Gamma(d/2 + 1)), uniform-sampling Monte Carlo
+      with the standard error, product rules for trapezoid / Simpson /
+      five-point Gauss-Legendre weights, Halton quasi-random points on
+      the first ten primes, stratified (one point per cell) sampling,
+      and a log-log slope fitter. ORACLES: (1) the 1/sqrt(N) law on the
+      product integrand, RMS error over 40 runs at N = 100 / 1,000 /
+      10,000: d = 1: 0.0320 / 0.0125 / 0.0036 (slope -0.474, ratio 8.9);
+      d = 2: 0.0553 / 0.0169 / 0.0044 (-0.551, 12.7); d = 6: 0.1015 /
+      0.0335 / 0.0102 (-0.499, 9.9); d = 10: 0.1580 / 0.0438 / 0.0166
+      (-0.489, 9.5); (2) coverage of the 95% interval on the Gaussian
+      6-cube at N = 2,000 over 300 repetitions: 0.943, realized RMS
+      error 0.00294 against the mean claimed standard error 0.00280; (3)
+      rivals on the Gaussian cube at equal budgets, absolute error: d =
+      1 at 10,001 evaluations: Monte Carlo 1.70e-4, trapezoid 6.13e-10,
+      Simpson 8.88e-16, Gauss-Legendre (5 points) 6.05e-9, Halton
+      1.08e-4, stratified 3.93e-8; d = 2 at 4,096: Monte Carlo 3.02e-3
+      (rms of 40), trapezoid 64 x 64 2.31e-5, Halton 2.64e-4, stratified
+      5.31e-5; d = 6 at 4,096: Monte Carlo 1.77e-3, trapezoid 4^6
+      9.32e-3, Halton 5.62e-4, stratified 4.96e-4 (exact 0.17350); d =
+      10 at 1,024: Monte Carlo 1.67e-3 (3% of 0.053974), trapezoid 2^10
+      3.16e-2 (58%), Halton 2.33e-3, stratified 8.90e-4; Simpson's
+      coarsest 10-D grid would need 3^10 = 59,049 evaluations; the
+      10-ball fraction 0.00252 against 0.00249 from 200,000 points
+      (predicted relative error 0.045, realized 0.012); (4) infinite
+      variance, x^(-3/4) on (0, 1] with integral 4, at N = 2,000:
+      coverage 0.650, realized RMS error 0.793 against claimed 0.465,
+      error slope -0.420 over N = 1,000 to 100,000. Honest: Halton loses
+      to uniform sampling in 10-D at this budget and stratified sampling
+      beats both everywhere (author correction recorded: the draft
+      expected Halton to win in every dimension); the hero loses by
+      2e11x to Simpson in 1-D and the page says so. Cards: self,
+      Quasi-Monte Carlo, Gauss-Legendre quadrature, Stratified sampling
+      (all algoName, all pages in dist/algo). neverUse: a product-rule
+      grid in ten dimensions. Figure: log-log RMS error curves for four
+      dimensions sharing the 1/sqrt(N) slope, beside per-dimension error
+      bars for Monte Carlo, the grid, and Halton; cite Metropolis and
+      Ulam JASA 1949 DOI 10.1080/01621459.1949.10483310, Niederreiter
+      1992. Viz MonteCarloIntegrationViz: 60 uniform darts per tick at
+      the unit square estimating pi/4 with its 95% band against the
+      truth and the realized error against the standard error on log-log
+      axes, the estimate checked within four standard errors of pi/4
+      every tick past 300 darts; NODE-VERIFIED 20 cycles x 70 ticks, 0
+      breaks; stepMs 180, holdTicks rests. Preserved narration: Aoede +
+      Algieba. Authored by a fork agent of this Fable 5.1 session at the
+      owner's explicit request for parallel authoring; the main thread
+      re-ran the solution, the viz check, the narration plan, and the
+      static checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

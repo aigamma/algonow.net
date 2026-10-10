@@ -3163,6 +3163,24 @@ export const PUZZLES = {
     vite: 'tower-of-hanoi-recursive-halving',
     html: 'tower-of-hanoi-recursive-halving/index.html',
   },
+  '/monte-carlo-integration-uniform-sampling/': {
+    slug: 'monte-carlo-integration-uniform-sampling',
+    added: '2026-10-10',
+    problemSlug: 'numerical-integration',
+    number: 182,
+    category: 'probabilistic',
+    algorithm: 'Monte Carlo integration',
+    heuristic: 'Uniform sampling',
+    domain: 'Numerical integration',
+    oneLiner:
+      'Write the integral as the box volume times the mean of the function, estimate that mean by evaluating the function at points drawn independently and uniformly over the box, and read the error off the sample standard deviation over the square root of the count: unbiased, self-reporting, and shrinking as one over root N in any number of dimensions, where a grid of m points per axis costs m to the power d.',
+    listenMinutes: 10,
+    time: 'O(N) evaluations; error sigma / sqrt(N) in any dimension',
+    space: 'a running sum and a sum of squares',
+    baseline: 'Trapezoid rule on a product grid',
+    vite: 'monte-carlo-integration-uniform-sampling',
+    html: 'monte-carlo-integration-uniform-sampling/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

@@ -6142,6 +6142,76 @@ commit, Fable trailer on every commit, check green before each push.
       the solution, the viz check, the narration plan, and the static
       checks before accepting it. Added 2026-10-10.
 
+- [x] F181. Reaching definitions × Forward dataflow. Puzzle 187,
+      languages-compilers (problemSlug dataflow-analysis, the atlas
+      problem page carrying "Dataflow analysis"; no live sibling on this
+      problem; nearest live lesson register-allocation-graph-coloring,
+      puzzle 162, whose liveness input is this analysis run backward).
+      Solution reaching_definitions_forward_dataflow.py (4.9s, prints
+      OK): a three-address IR over four variables, a random
+      structured-program generator (sequences, if/else, while, nested to
+      depth 3; 300 programs, 12,815 blocks, 42.7 on average and 206 at
+      most, 23,841 definitions, 28,245 uses, 224 programs with a loop,
+      loop-depth histogram 76 / 63 / 121 / 40 for depths 0 to 3),
+      gen/kill per block, reverse postorder by DFS, a worklist solver
+      (seeded in a given order, successors re-queued on OUT change;
+      optionally drawing the next block at random), a round-robin solver
+      asserting monotonicity on every visit, a single-sweep solver, a
+      per-definition reachability referee, an exhaustive bounded-walk
+      referee (every walk from the entry visiting no block more than
+      twice), use-def chains, and a concrete-execution simulator (120
+      runs per program, branches by parity, loop cap 6 visits, step cap
+      600). ORACLES: (1) worklist fixpoint equal to the per-definition
+      referee AND to the bounded-walk union on all 300 programs
+      (8,462,078 walks enumerated, 3,444,766 on the largest program;
+      87,308 reaching facts in total); (2) no IN or OUT set ever shrank
+      between round-robin passes; round robin in reverse postorder
+      within depth + 2 passes on every program (982 passes total, max 5,
+      the bound tight on 257 of 300); the four iterating solvers return
+      identical sets; visits strictly ordered: worklist rpo 24,767
+      visits / 79,058 set ops, worklist random order 38,379 / 123,078
+      (worst program 2.8x the rpo visits; no worse than rpo on 20 of
+      300), round robin rpo 46,833 / 147,363, round robin against the
+      flow (reversed rpo) 171,343 / 539,561 in 3,105 passes (max 22);
+      per block 1.93 / 2.99 / 3.65 / 13.4; (3) all 18,405 executed
+      use-def pairs inside the 40,971 chains the analysis allows (44.9%
+      exercised); 8,200 dead stores flagged, none read in any execution;
+      7,453 definitions never read in 120 runs that the analysis could
+      not rule out (the measured imprecision); (4) the single forward
+      sweep: 26,421 reaching facts missing, wrong on all 224 looping
+      programs (exact only on the 76 loop-free ones), use-def chains
+      unsound on 163 programs (4,005 executed pairs denied). Honest: the
+      random worklist order is no worse on 20 shallow programs; the
+      analysis is path-insensitive (44.9% of chains exercised, 7,453
+      never-read definitions not ruled out); one author correction
+      recorded (the draft's exhaustive referee enumerated simple paths
+      only and failed on the first loop, since a body definition reaches
+      the loop exit only through a path visiting the head twice; two
+      visits per block is exactly enough). Cards: self (Reaching
+      definitions), Live variable analysis, Available expressions,
+      Constant propagation (all algoName, pages present in dist/algo).
+      neverUse: a single forward sweep that never revisits a block.
+      Figure: a five-block loop with IN sets after pass 1 and pass 2
+      (the single sweep folds c = a to 1, wrong) beside block visits per
+      block by schedule; cite Kildall POPL 1973 DOI
+      10.1145/512927.512945, Hecht and Ullman SIAM J. Computing 1975,
+      Kam and Ullman Acta Informatica 1977, Aho/Lam/Sethi/Ullman ch. 9.
+      Viz ReachingDefinitionsViz: a seeded structured program of 7 to 14
+      blocks drawn in reverse postorder (forward edges below, back edges
+      above in amber), the worklist solver one block visit per tick with
+      each block filling by the share of its final reaching set learned,
+      the queue as a strip, invariant every tick that every IN/OUT set
+      is below the per-definition oracle and never shrinks, equality
+      with the oracle at the end and the single sweep's deficit
+      reported; NODE-VERIFIED 20 cycles (20.8 ticks per cycle, up to
+      45), 0 breaks; stepMs 420, holdTicks rests. Narration 12,593
+      characters (2,146 words) in ten sections, plan 0.764160 USD for 6
+      provider requests (both voices). Preserved narration: Aoede +
+      Algieba. Authored by a fork agent of this Fable 5.1 session at the
+      owner's explicit request for parallel authoring; the main thread
+      re-ran the solution, the viz check, the narration plan, and the
+      static checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

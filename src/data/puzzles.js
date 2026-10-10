@@ -3253,6 +3253,24 @@ export const PUZZLES = {
     vite: 'ski-rental-break-even-deterministic-rule',
     html: 'ski-rental-break-even-deterministic-rule/index.html',
   },
+  '/reaching-definitions-forward-dataflow/': {
+    slug: 'reaching-definitions-forward-dataflow',
+    added: '2026-10-10',
+    problemSlug: 'dataflow-analysis',
+    number: 187,
+    category: 'languages-compilers',
+    algorithm: 'Reaching definitions',
+    heuristic: 'Forward dataflow',
+    domain: 'Dataflow analysis',
+    oneLiner:
+      'Give every block a gen set (its last write of each variable) and a kill set (every other definition of those variables), start all IN and OUT empty, and pop blocks off a worklist seeded in reverse postorder: IN is the union of the predecessors\' OUT, OUT is gen plus whatever in IN survives kill, and a successor is re-queued only when OUT changed; because union distributes over these transfer functions, the fixpoint is exactly the meet over all paths, reached in about two visits per block.',
+    listenMinutes: 10,
+    time: 'O(blocks × depth) visits, a set union per edge',
+    space: 'two sets per block (IN and OUT)',
+    baseline: 'Round robin until no change',
+    vite: 'reaching-definitions-forward-dataflow',
+    html: 'reaching-definitions-forward-dataflow/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

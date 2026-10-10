@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:reaching-definitions-forward-dataflow",
+  "source_path": "src/content/reaching-definitions-forward-dataflow.narration.js",
+  "source_sha256": "ad02b2f1273756a4c49f436510995dc29f6eb95f34add5381853ae8b33a990d4",
+  "source_characters": 12736,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "91de97a306ac40c8862cb4c3f9fb71134fa92a1c21135813260ad0e41dcdf1a0",
+  "generated_at": "2026-10-10T23:47:46.679Z",
+  "generated_characters": 25472,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4456,
+      "utf8_bytes": 4466,
+      "sha256": "f5c4e71335904155432281c7994283dfd0815d5ac50f0eb05b13b7aea4cea017"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3638,
+      "utf8_bytes": 3644,
+      "sha256": "fa8ab58fdb8ec06c71dc8cded4e2a0593480bea580116954f6ceca0408a20404"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 4642,
+      "utf8_bytes": 4648,
+      "sha256": "66a4c615e653ce7fe3a96377016f83b4c6cc5c9efcaabea3a0ec267c8a0655e6"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "reaching-definitions-forward-dataflow.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "reaching-definitions-forward-dataflow.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1267,
+      "sha256": "e750d1e620f2c9556dbecbd71fe7862c3c590507569b8d2651b3e19014d74c21"
+    },
+    {
+      "id": "reaching-definitions-forward-dataflow.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1236,
+      "sha256": "86de58d08b7c3994b7a4cf64e88110e128532cdc4adbe4e9c7aca92c1cf32a6a"
+    },
+    {
+      "id": "reaching-definitions-forward-dataflow.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1832,
+      "sha256": "2e41a52210fc27bf893ae0d8eb20580685dc5381fab7ebb50d78a99306e7ef94"
+    },
+    {
+      "id": "reaching-definitions-forward-dataflow.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 730,
+      "sha256": "fc82fc507f3157e8491d1a4b53ea6ce83383ede85b67d114b869b3a454e6a3ea"
+    },
+    {
+      "id": "reaching-definitions-forward-dataflow.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1058,
+      "sha256": "48be17059ed68d5068354755a30109b08d7e980a0860b75cac46cf036fc9c8ac"
+    },
+    {
+      "id": "reaching-definitions-forward-dataflow.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 604,
+      "sha256": "a1d2bc835de88ccec6bec00358afc6a5c743c0553c41feb4a6197bd13c2d2364"
+    },
+    {
+      "id": "reaching-definitions-forward-dataflow.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1244,
+      "sha256": "63624721c60ecab285597a186686462acefd44b59e69a367c457a60792a5966e"
+    },
+    {
+      "id": "reaching-definitions-forward-dataflow.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1388,
+      "sha256": "591afc1fc4bd3ff2bd633370609b6d196c63a4f7a56b4b9e668cc3d341d36872"
+    },
+    {
+      "id": "reaching-definitions-forward-dataflow.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1260,
+      "sha256": "1fad8ad467ab72cbd9521b717f54259c74999ddc0f3bd4f4eb24916948353059"
+    },
+    {
+      "id": "reaching-definitions-forward-dataflow.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1996,
+      "sha256": "aa94def9d25399b3611ee9de3c11bb5bd204765ac99e7ded943a60a00468e1e1"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/reaching-definitions-forward-dataflow/91de97a306ac40c8862c/aoede-00b08a627d8e2a51.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3219788,
+      "sha256": "00b08a627d8e2a516102325e05b73321982d9e267bcd95c82cf44852a5ed28f2",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "f5c4e71335904155432281c7994283dfd0815d5ac50f0eb05b13b7aea4cea017",
+          "bytes": 1152864,
+          "sha256": "3871532ab5467b955757432b66f442a8943743a935c17b236b3096ec672d8fa2"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "fa8ab58fdb8ec06c71dc8cded4e2a0593480bea580116954f6ceca0408a20404",
+          "bytes": 894144,
+          "sha256": "a2b75346a6f4c53517732e5211ac6e3ba570de02f266a904e603fa7eb69af5ce"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "66a4c615e653ce7fe3a96377016f83b4c6cc5c9efcaabea3a0ec267c8a0655e6",
+          "bytes": 1172544,
+          "sha256": "f1823a7bf12dbe64942fee9725bdd97b4a01630b0b5a043722af445bfaeecb0f"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/reaching-definitions-forward-dataflow/91de97a306ac40c8862c/algieba-0a3c73aaed7006e3.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3317516,
+      "sha256": "0a3c73aaed7006e339cc5e9222fe644c91c2edc899ab56982b85676dae600e89",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "f5c4e71335904155432281c7994283dfd0815d5ac50f0eb05b13b7aea4cea017",
+          "bytes": 1131552,
+          "sha256": "4224646c8375947452d328bbc7c6d4ad37bea8f1691ea4167fe3f7662d4422b4"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "fa8ab58fdb8ec06c71dc8cded4e2a0593480bea580116954f6ceca0408a20404",
+          "bytes": 971712,
+          "sha256": "ec1185d021c0b96c2230ed8b8625d71f5126b0eace3959422db15673d3910720"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "66a4c615e653ce7fe3a96377016f83b4c6cc5c9efcaabea3a0ec267c8a0655e6",
+          "bytes": 1214016,
+          "sha256": "f5076d363d934adaed0d5abc9e25c362a06e45a15c80b9cd2ccb27b2738fad38"
+        }
+      ]
+    }
+  }
+}

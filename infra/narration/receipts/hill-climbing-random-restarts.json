@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net hill-climbing-random-restarts preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-10T23:04:45.395Z",
+  "publication_sha256": "d8cca16d3136238349b161c2e6f058f43bb77c76165579a4d2a84bf889c43119",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5588632,
+  "objects": [
+    {
+      "stable_id": "puzzle:hill-climbing-random-restarts",
+      "slug": "hill-climbing-random-restarts",
+      "track_id": "algieba",
+      "source_sha256": "8d31c7394df782223210a04d8a15c39a370b6dacf0c7f37458aeabdbceb614dd",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "3d7f3ef714ebfc57b4c94bdfec98ea17e80bd73c764c5cae5beda6bc32b6efa5",
+      "object_key": "narration/v1/puzzles/hill-climbing-random-restarts/3d7f3ef714ebfc57b4c9/algieba-f23fba7802ebaf5d.mp3",
+      "bytes": 2823020,
+      "sha256": "f23fba7802ebaf5da3fa841743c62ac6b794a107539450130cce14bd54f94aeb",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:hill-climbing-random-restarts",
+      "slug": "hill-climbing-random-restarts",
+      "track_id": "aoede",
+      "source_sha256": "8d31c7394df782223210a04d8a15c39a370b6dacf0c7f37458aeabdbceb614dd",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "3d7f3ef714ebfc57b4c94bdfec98ea17e80bd73c764c5cae5beda6bc32b6efa5",
+      "object_key": "narration/v1/puzzles/hill-climbing-random-restarts/3d7f3ef714ebfc57b4c9/aoede-97c7f197b0116b56.mp3",
+      "bytes": 2765612,
+      "sha256": "97c7f197b0116b56947b50ddd64b102ad6239f34fe13a5d4697466a50180f04a",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

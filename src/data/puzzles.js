@@ -3091,6 +3091,24 @@ export const PUZZLES = {
     vite: 'differential-privacy-laplace-mechanism',
     html: 'differential-privacy-laplace-mechanism/index.html',
   },
+  '/hill-climbing-random-restarts/': {
+    slug: 'hill-climbing-random-restarts',
+    added: '2026-10-10',
+    problemSlug: 'local-search-escape',
+    number: 178,
+    category: 'optimization-or',
+    algorithm: 'Hill climbing',
+    heuristic: 'Random restarts',
+    domain: 'Local optimization',
+    oneLiner:
+      'Move to the best neighbor until nothing improves, and when that local optimum is not the goal, throw the state away and climb again from a fresh random start: if one climb succeeds with probability p, the climbs until success are geometric with mean 1/p, so a method that is complete almost never becomes complete almost surely, with no parameter but the budget.',
+    listenMinutes: 10,
+    time: 'about 1/p climbs, each a few hundred evaluations',
+    space: 'one state and its best neighbor',
+    baseline: 'A single steepest-ascent climb',
+    vite: 'hill-climbing-random-restarts',
+    html: 'hill-climbing-random-restarts/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

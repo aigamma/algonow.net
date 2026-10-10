@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:hill-climbing-random-restarts",
+  "source_path": "src/content/hill-climbing-random-restarts.narration.js",
+  "source_sha256": "8d31c7394df782223210a04d8a15c39a370b6dacf0c7f37458aeabdbceb614dd",
+  "source_characters": 10876,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "3d7f3ef714ebfc57b4c94bdfec98ea17e80bd73c764c5cae5beda6bc32b6efa5",
+  "generated_at": "2026-10-10T23:03:30.056Z",
+  "generated_characters": 21752,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4615,
+      "utf8_bytes": 4625,
+      "sha256": "6623d20b998f339f9af0bb2438c16c6e0dbfe45f640b19e6bd2827c42a19d81f"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4373,
+      "utf8_bytes": 4379,
+      "sha256": "55f1b4f144b0e7f4400cd396bee4efe46acedfefb90e1a1f1a5c72a6a9ca5c36"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1888,
+      "utf8_bytes": 1892,
+      "sha256": "4e7dfe14a599170b3d6753dafa4a07981e0729433968bd99d86033a1d394401b"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "hill-climbing-random-restarts.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "hill-climbing-random-restarts.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1242,
+      "sha256": "b3d631628f6d7cb2a07e4e8feb285eb600c89d6fa0a3c472353876a386bd10b2"
+    },
+    {
+      "id": "hill-climbing-random-restarts.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1156,
+      "sha256": "57552b9010afb7fa83d96d260f08b6e95fc742cb2cc78d72b66d1c32e85b5661"
+    },
+    {
+      "id": "hill-climbing-random-restarts.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1483,
+      "sha256": "d2e9660a3a1258e9f7b6fc3d4711d272d5e5eb3041a179dfe9239f54e44b33a3"
+    },
+    {
+      "id": "hill-climbing-random-restarts.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 611,
+      "sha256": "1f989c4a3dc2c1fc605db4fc753d5865a8749409367a5695df24db157be06187"
+    },
+    {
+      "id": "hill-climbing-random-restarts.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 612,
+      "sha256": "d9b7ce8b15a6e58ce8a1fb7285c84a23ec247ee43735bf686cf0d5664d02451b"
+    },
+    {
+      "id": "hill-climbing-random-restarts.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 452,
+      "sha256": "02d634f6ecc2a0076a4e8a89ee1b2bd8c973525b4d3c266f73cbc075c22dbfc9"
+    },
+    {
+      "id": "hill-climbing-random-restarts.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1820,
+      "sha256": "5ff7391d3c6471d5a4946e05314d89ca08d770c7dbe89216530db67cfa812ae1"
+    },
+    {
+      "id": "hill-climbing-random-restarts.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 725,
+      "sha256": "6f878b9949b4841ac42fe8c571ce7f0db91456a70854bda702e9a6fd803ecb57"
+    },
+    {
+      "id": "hill-climbing-random-restarts.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 760,
+      "sha256": "6587013411ed5edce0c5c042d6a32dedea5f1008e3d2484a9a17c688ab7776f2"
+    },
+    {
+      "id": "hill-climbing-random-restarts.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1892,
+      "sha256": "4e7dfe14a599170b3d6753dafa4a07981e0729433968bd99d86033a1d394401b"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/hill-climbing-random-restarts/3d7f3ef714ebfc57b4c9/aoede-97c7f197b0116b56.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2765612,
+      "sha256": "97c7f197b0116b56947b50ddd64b102ad6239f34fe13a5d4697466a50180f04a",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "6623d20b998f339f9af0bb2438c16c6e0dbfe45f640b19e6bd2827c42a19d81f",
+          "bytes": 1196544,
+          "sha256": "ca99961c9a8e8258a972335f0ec2e8dd52dea6920d74ac0c1677db22a6304ffd"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "55f1b4f144b0e7f4400cd396bee4efe46acedfefb90e1a1f1a5c72a6a9ca5c36",
+          "bytes": 1130016,
+          "sha256": "f55e8f0ec4a6cf11880b86aca55976f50b11ffc59c639c7783286a9f4fa2c089"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "4e7dfe14a599170b3d6753dafa4a07981e0729433968bd99d86033a1d394401b",
+          "bytes": 438816,
+          "sha256": "b4add46de087fb9b6fd1e3fb27bda520c1657dbf91872af388d142be86558f44"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/hill-climbing-random-restarts/3d7f3ef714ebfc57b4c9/algieba-f23fba7802ebaf5d.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2823020,
+      "sha256": "f23fba7802ebaf5da3fa841743c62ac6b794a107539450130cce14bd54f94aeb",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "6623d20b998f339f9af0bb2438c16c6e0dbfe45f640b19e6bd2827c42a19d81f",
+          "bytes": 1233792,
+          "sha256": "0a65fd91f117fc98d1fc557e7980f2e0dfaf2beb17a501ff831d5c27f323e1c5"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "55f1b4f144b0e7f4400cd396bee4efe46acedfefb90e1a1f1a5c72a6a9ca5c36",
+          "bytes": 1146336,
+          "sha256": "e985d016adb42fca1e53a694eb6e847f5abfd1937f644cb396cecbdc826798a7"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "4e7dfe14a599170b3d6753dafa4a07981e0729433968bd99d86033a1d394401b",
+          "bytes": 442656,
+          "sha256": "d949f506df09a73bbb8f83f785f10ce3d9d54dba8a2db884bfa9721bd21cb182"
+        }
+      ]
+    }
+  }
+}

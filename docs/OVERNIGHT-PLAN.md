@@ -5664,6 +5664,60 @@ commit, Fable trailer on every commit, check green before each push.
       solution, the viz check, the narration plan, and the static checks
       before accepting it. Added 2026-10-10.
 
+- [x] F172. Hill climbing × Random restarts. Puzzle 178, optimization-or
+      (problemSlug local-search-escape, the atlas problem page carrying
+      "Local optimization"; sibling live lesson annealing-cooling,
+      puzzle 2). Solution hill_climbing_random_restarts.py (12.8s,
+      prints OK): eight queens (attacking-pairs objective, all 92
+      solutions by exhaustive backtracking as the referee) and
+      two-dimensional Rastrigin (global minimum 0 at the origin, success
+      below 1e-4); steepest-ascent climbing with optional sideways
+      moves, a restart loop, simulated annealing with geometric cooling,
+      tabu search with tenure 7 and aspiration, iterated local search
+      with a two-queen or 1.5-unit kick, a pattern-search climber over
+      eight compass points with a halving step; one currency: objective
+      evaluations. ORACLES: (1) one climb on eight queens over 3,000
+      starts: success 14.3% (Russell and Norvig about 14%), 4.01 steps
+      on success, 3.06 when stuck; with up to 100 sideways moves 95.4%
+      (about 94%), 18.6 steps on success, 60.4 on failure; every
+      returned solution one of the 92, and all 92 reached across the
+      run; (2) the geometric law: 1/p = 6.99 climbs expected, 7.83
+      measured over 600 runs (asserted within 15%); Rastrigin 1/p = 38
+      (p = 2.67% over 20,000 starts, 228 evaluations per climb), 34
+      measured over 150 runs (within 25%); (3) the queens race at 5,000
+      evaluations over 200 runs, success / evaluations to success:
+      single climb 14.5% / 227, climb + 100 sideways 95.0% / 946, random
+      restarts 95.0% / 1,520, simulated annealing 98.0% / 2,001, tabu
+      search 100% / 700, iterated local search 89.0% / 1,504; (4) the
+      Rastrigin race at 20,000 evaluations over 100 runs: single climb
+      3% / 236, restarts 89% / 6,495 (formula 1 - (1 - p)^(budget /
+      climb) predicts 90.6%), annealing 100% / 19,776, iterated local
+      search 100% / 3,709. Honest: tabu search wins the queens race and
+      iterated local search wins Rastrigin outright, sideways moves
+      match restarts on queens at lower cost, and the page says the
+      hero's case is the formula and the absence of parameters; author
+      correction recorded (annealing expected to beat restarts on queens
+      at equal budget, and the rivals' outright wins not expected).
+      Cards: self, Simulated annealing (live lesson badge), Tabu search,
+      Iterated local search (all algoName). neverUse: one greedy climb
+      on a landscape full of local optima. Figure: the geometric success
+      curves for p = 0.143 and 0.0267 with the measured means marked,
+      beside success bars for six methods on both problems; cite Russell
+      and Norvig AIMA section 4.1, Johnson, Papadimitriou, and
+      Yannakakis JCSS 1988 DOI 10.1016/0022-0000(88)90046-3, Selman,
+      Levesque, and Mitchell AAAI 1992. Viz HillClimbingViz: eight
+      queens, one steepest-ascent step per tick, attacking pairs drawn,
+      a stuck climb restarting from a random board (flashed red), climbs
+      counted against 1/p with P(solved within k climbs) on screen, the
+      conflict recount checked every tick and the final board checked
+      against the 92 solutions enumerated at load; NODE-VERIFIED 20
+      cycles (21.4 ticks per cycle, max 73), 0 breaks; stepMs 550,
+      holdTicks rests. Preserved narration: Aoede + Algieba. Authored by
+      a fork agent of this Fable 5.1 session at the owner's explicit
+      request for parallel authoring; the main thread re-ran the
+      solution, the viz check, the narration plan, and the static checks
+      before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

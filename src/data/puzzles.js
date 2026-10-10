@@ -3183,13 +3183,33 @@ export const PUZZLES = {
     vite: 'fibonacci-heap-lazy-consolidation-with-marking',
     html: 'fibonacci-heap-lazy-consolidation-with-marking/index.html',
   },
+  '/holt-winters-triple-seasonal-smoothing/': {
+    slug: 'holt-winters-triple-seasonal-smoothing',
+    added: '2026-10-10',
+    problemSlug: 'time-series-forecasting',
+    number: 164,
+    category: 'ml-ai',
+    algorithm: 'Holt-Winters',
+    heuristic: 'Triple seasonal smoothing',
+    domain: 'Seasonal forecasting',
+    oneLiner:
+      'Keep three running numbers per series, a level, a trend, and a cycle of m seasonal indices, each a weighted average with geometrically fading weights at its own rate, and forecast h steps out as level plus h trends plus (or times) the index for that month: one pass, three rates fitted by the one-step error, and no model beyond the decomposition.',
+    description:
+      'Holt-Winters with triple seasonal smoothing on a synthetic monthly series with known parts (level 100, drift 0.5, amplitude 20, noise 3; ten years fitted, two held out) where the oracle forecast from the true parts sets the floor at RMSE 2.83: the fitted model lands at 3.31, within 1.17x the floor, against seasonal naive with drift 6.49, seasonal naive 11.96, simple smoothing 20.25, and Holt\'s linear trend 109.91 (residual lag-12 autocorrelation +0.02 against +0.37); the multiplicative form ahead of the additive on swings that grow with the level (6.46 against 10.73); and the Box-Jenkins airline passengers with 1959 to 1960 held out, the form pre-selected by training error (multiplicative): MAPE 7.3% against 10.0% for seasonal naive with drift and 19.4% for Holt, with the wrong season length (m = 4) scoring 21.99 as the silent failure.',
+    listenMinutes: 10,
+    time: 'one pass over the series; three rates to fit',
+    space: 'a level, a trend, and m seasonal indices',
+    baseline: 'Seasonal naive forecast with drift',
+    vite: 'holt-winters-triple-seasonal-smoothing',
+    html: 'holt-winters-triple-seasonal-smoothing/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Holt-Winters', heuristic: 'Triple seasonal smoothing', domain: 'Seasonal forecasting' },
+  { algorithm: 'Quicksort', heuristic: 'Random pivot', domain: 'In-place comparison sorting' },
 ];
 
 

@@ -5075,6 +5075,43 @@ commit, Fable trailer on every commit, check green before each push.
       occurred; stepMs 700, holdTicks rests. Preserved narration: Aoede +
       Algieba.
 
+- [x] F158. Holt-Winters × Triple seasonal smoothing. Puzzle 164,
+      ml-ai (problemSlug time-series-forecasting, the atlas
+      problem page carrying "Seasonal forecasting"), added 2026-10-10
+      (authored 2026-09-27, registered and shipped 2026-10-10). Solution
+      holt_winters_triple_seasonal_smoothing.py (1.4s, prints OK): the
+      additive and multiplicative recursions with year-one initialization,
+      a coarse-then-fine grid fitter on (alpha, beta, gamma) by one-step
+      squared error, simple smoothing, Holt's linear trend, seasonal naive
+      with and without drift, RMSE, MAPE, lag autocorrelation, a generator
+      for series with known parts, and the 144 Box-Jenkins airline values.
+      ORACLES: (1) the synthetic series (level 100, drift 0.5, amplitude
+      20, noise 3; 120 fitted, 24 held out): oracle from the true parts
+      RMSE 2.83, Holt-Winters 3.31 (alpha 0.06, beta 0.01, gamma 0.15,
+      within 1.17x the floor), seasonal naive with drift 6.49, seasonal
+      naive 11.96, simple smoothing 20.25, Holt 109.91, wrong season
+      length m = 4 21.99; residual lag-12 autocorrelation +0.02 against
+      +0.37 for Holt; (2) growing swings: additive 10.73, multiplicative
+      6.46, oracle 4.26; (3) airline 1949-1958 fitted, 1959-1960 held
+      out, the form pre-selected by training RMSE (multiplicative 10.4,
+      additive 12.5, log 10.6): multiplicative RMSE 36.9 MAPE 7.3%,
+      additive 36.0 and 6.7%, log-additive 17.1 and 3.5%, seasonal naive
+      with drift 49.5 and 10.0%, seasonal naive 77.0 and 15.5%, Holt
+      119.6 and 19.4%, simple 137.6 and 23.6%. Honest: the training
+      error did not pick the best holdout form, and the page says so;
+      two draft expectations corrected by measurement are recorded in
+      the file. Cards: self, Seasonal naive forecast, SARIMA, STL
+      decomposition (all algoName). neverUse: Holt's linear trend on
+      seasonal data (109.91 against 3.31, 33x). Figure: the airline
+      series with the holdout shaded, the Holt-Winters and Holt
+      forecasts, beside log-scale bars of held-out RMSE for six methods;
+      cite Winters, Management Science 1960, DOI 10.1287/mnsc.6.3.324;
+      Holt 1957/2004; Box and Jenkins 1970. Viz HoltWintersViz: the
+      three notebooks updated month by month on a seeded series, the
+      forecast drawn ahead; stepMs 140, holdTicks rests. Preserved
+      narration: Aoede + Algieba (11,565 characters, published
+      2026-09-27T04:27:48Z, 0.693900 USD, live-verified 2026-10-10).
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

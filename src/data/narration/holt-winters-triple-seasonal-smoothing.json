@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:holt-winters-triple-seasonal-smoothing",
+  "source_path": "src/content/holt-winters-triple-seasonal-smoothing.narration.js",
+  "source_sha256": "4b1fa30811e8818db5004eb2172cbb03c260609e44420e18b4de2dbdaf2bb877",
+  "source_characters": 11565,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "f723f3682d494e2796cab3a777ba15363b3070caebb4f78b0ea84fd74ff5f9f1",
+  "generated_at": "2026-09-27T04:26:52.931Z",
+  "generated_characters": 23130,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4699,
+      "utf8_bytes": 4711,
+      "sha256": "a0def95cfd7bbb0c6a3fd3c35e73a2a0314117dfbcadbd72e1dc810d0aeeada8"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4860,
+      "utf8_bytes": 4872,
+      "sha256": "ba82d164c19ada5c2cc75faf6560f40bb4b5305e3df6da1f2c984277f47885eb"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2006,
+      "utf8_bytes": 2016,
+      "sha256": "6ca25f4cb9a763ee2d2ec16b14da5c8937a3f233ccec190e8616705d15bec8be"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "holt-winters-triple-seasonal-smoothing.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "holt-winters-triple-seasonal-smoothing.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1202,
+      "sha256": "ebe3590b89c77f5b931b6b41e00f34c61f6afc37ac847a5dd86d4bfcaf22fedb"
+    },
+    {
+      "id": "holt-winters-triple-seasonal-smoothing.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1329,
+      "sha256": "ae9abf07e5760bc48fd86dcff3ecb001d184beb26855798a1d1e1a91834bb4d3"
+    },
+    {
+      "id": "holt-winters-triple-seasonal-smoothing.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1522,
+      "sha256": "08f313c479a40d19873e00f0bbda4644b974965a22308ddbb0ec30bd0bb563d9"
+    },
+    {
+      "id": "holt-winters-triple-seasonal-smoothing.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 525,
+      "sha256": "875dc3d7f3ded6ac4d134220f190a0ef02ebb29cf53a339d357c7825310b1dec"
+    },
+    {
+      "id": "holt-winters-triple-seasonal-smoothing.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1057,
+      "sha256": "0bddefc73e2a996e39028e98e2341181023501ccbfe3733bd22d7be1cf622c6c"
+    },
+    {
+      "id": "holt-winters-triple-seasonal-smoothing.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 500,
+      "sha256": "54f7370f9f1200a117a2a0dcb905f97f93103c1d10930778d4670c327f23ea11"
+    },
+    {
+      "id": "holt-winters-triple-seasonal-smoothing.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1582,
+      "sha256": "42c086a002390867982e1675533702f211d49ec8f7d523d4bb92c6fd61dd7539"
+    },
+    {
+      "id": "holt-winters-triple-seasonal-smoothing.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 844,
+      "sha256": "858839b606976cf1c96f88715f7341a1249511c4697f3608b3d73836ae65cf50"
+    },
+    {
+      "id": "holt-winters-triple-seasonal-smoothing.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 879,
+      "sha256": "ffb1a961f8ec90434e15264e5fcc5ea307cfa74823e45f17e317c8dd064ba2b2"
+    },
+    {
+      "id": "holt-winters-triple-seasonal-smoothing.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2016,
+      "sha256": "6ca25f4cb9a763ee2d2ec16b14da5c8937a3f233ccec190e8616705d15bec8be"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/holt-winters-triple-seasonal-smoothing/f723f3682d494e2796ca/aoede-0e64e78f1e753c3f.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2797196,
+      "sha256": "0e64e78f1e753c3fa486cace86925fe262f5d1511947b8c5deda5b88270711c9",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "a0def95cfd7bbb0c6a3fd3c35e73a2a0314117dfbcadbd72e1dc810d0aeeada8",
+          "bytes": 1152672,
+          "sha256": "8b0a39ecd0414b81b83c15818ec6f6b2b521c353d2afc501debed69bbd42a707"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ba82d164c19ada5c2cc75faf6560f40bb4b5305e3df6da1f2c984277f47885eb",
+          "bytes": 1179072,
+          "sha256": "b5e1b38da103728838fa6e15e7cc54b401b4262b31e1ae949c9bd3f6d0ecc66b"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "6ca25f4cb9a763ee2d2ec16b14da5c8937a3f233ccec190e8616705d15bec8be",
+          "bytes": 465216,
+          "sha256": "81040f4ef0697cd910b26a4fdc7e37ee98317c05f0804ccab64db70d8f0187c7"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/holt-winters-triple-seasonal-smoothing/f723f3682d494e2796ca/algieba-9b15a24951e249c0.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3002156,
+      "sha256": "9b15a24951e249c0ce16e57700900ddf0e6e7a10395e44d63c0cb1ed3a7f1cad",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "a0def95cfd7bbb0c6a3fd3c35e73a2a0314117dfbcadbd72e1dc810d0aeeada8",
+          "bytes": 1250112,
+          "sha256": "5869caf22cf980c3dc930048c6287bd50133c5177cd2fe55689fd7158f18424f"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ba82d164c19ada5c2cc75faf6560f40bb4b5305e3df6da1f2c984277f47885eb",
+          "bytes": 1299072,
+          "sha256": "cdaff4e8b99347d888f6fad6c83ec17107fb8eafc287dc0b663ee6bb9b64cc93"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "6ca25f4cb9a763ee2d2ec16b14da5c8937a3f233ccec190e8616705d15bec8be",
+          "bytes": 452736,
+          "sha256": "8fa97a8d56b70d99563f6bf3bda262609d1b1b7c25f322feac974a63ad9d7ee6"
+        }
+      ]
+    }
+  }
+}

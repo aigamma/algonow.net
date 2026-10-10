@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net holt-winters-triple-seasonal-smoothing preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-09-27T04:27:48.669Z",
+  "publication_sha256": "68d00025848f6604f35193c1b5bdfdf618af8c9a64d3e32e6175b2cefce2078f",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5799352,
+  "objects": [
+    {
+      "stable_id": "puzzle:holt-winters-triple-seasonal-smoothing",
+      "slug": "holt-winters-triple-seasonal-smoothing",
+      "track_id": "algieba",
+      "source_sha256": "4b1fa30811e8818db5004eb2172cbb03c260609e44420e18b4de2dbdaf2bb877",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "f723f3682d494e2796cab3a777ba15363b3070caebb4f78b0ea84fd74ff5f9f1",
+      "object_key": "narration/v1/puzzles/holt-winters-triple-seasonal-smoothing/f723f3682d494e2796ca/algieba-9b15a24951e249c0.mp3",
+      "bytes": 3002156,
+      "sha256": "9b15a24951e249c0ce16e57700900ddf0e6e7a10395e44d63c0cb1ed3a7f1cad",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:holt-winters-triple-seasonal-smoothing",
+      "slug": "holt-winters-triple-seasonal-smoothing",
+      "track_id": "aoede",
+      "source_sha256": "4b1fa30811e8818db5004eb2172cbb03c260609e44420e18b4de2dbdaf2bb877",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "f723f3682d494e2796cab3a777ba15363b3070caebb4f78b0ea84fd74ff5f9f1",
+      "object_key": "narration/v1/puzzles/holt-winters-triple-seasonal-smoothing/f723f3682d494e2796ca/aoede-0e64e78f1e753c3f.mp3",
+      "bytes": 2797196,
+      "sha256": "0e64e78f1e753c3fa486cace86925fe262f5d1511947b8c5deda5b88270711c9",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

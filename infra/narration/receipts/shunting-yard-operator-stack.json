@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net shunting-yard-operator-stack preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-10T22:33:53.266Z",
+  "publication_sha256": "9dcc6d27f720bdf9c2fdc259d5245242580996725d14211ecd23690cf2e3a61b",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5474872,
+  "objects": [
+    {
+      "stable_id": "puzzle:shunting-yard-operator-stack",
+      "slug": "shunting-yard-operator-stack",
+      "track_id": "algieba",
+      "source_sha256": "aecf899c556b0d3d45c1cd643dc4bece72b5926e5294395e7ab43e3139900866",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "f33924f5f2544cadfd858b489667286ec8630b710a47b74f32b67ae36c026614",
+      "object_key": "narration/v1/puzzles/shunting-yard-operator-stack/f33924f5f2544cadfd85/algieba-a18041044c1d2e38.mp3",
+      "bytes": 2759468,
+      "sha256": "a18041044c1d2e38983999d88e38077bfa66eea1feaa9437798b067175018d28",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:shunting-yard-operator-stack",
+      "slug": "shunting-yard-operator-stack",
+      "track_id": "aoede",
+      "source_sha256": "aecf899c556b0d3d45c1cd643dc4bece72b5926e5294395e7ab43e3139900866",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "f33924f5f2544cadfd858b489667286ec8630b710a47b74f32b67ae36c026614",
+      "object_key": "narration/v1/puzzles/shunting-yard-operator-stack/f33924f5f2544cadfd85/aoede-127573894fa4980b.mp3",
+      "bytes": 2715404,
+      "sha256": "127573894fa4980b2c27d402ee3436833ee8a6bfa54345b0c83ae480913deec8",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

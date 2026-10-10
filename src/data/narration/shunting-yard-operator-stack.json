@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:shunting-yard-operator-stack",
+  "source_path": "src/content/shunting-yard-operator-stack.narration.js",
+  "source_sha256": "aecf899c556b0d3d45c1cd643dc4bece72b5926e5294395e7ab43e3139900866",
+  "source_characters": 11024,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "f33924f5f2544cadfd858b489667286ec8630b710a47b74f32b67ae36c026614",
+  "generated_at": "2026-10-10T22:30:12.304Z",
+  "generated_characters": 22048,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4737,
+      "utf8_bytes": 4746,
+      "sha256": "b2b4d1cec2717df9f1a6b912331e18e57003ec2d336e14efdc25e49c236833a0"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4207,
+      "utf8_bytes": 4211,
+      "sha256": "16909b6d0d4f49154770aaabc7278a0e100a08b35b1efdfa2d6ab8f0762c2ed5"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2080,
+      "utf8_bytes": 2084,
+      "sha256": "da1a46894ca193b64b74732357f28eafe4eecd8a640e2bc61eb65ed91f5fc50f"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "shunting-yard-operator-stack.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "shunting-yard-operator-stack.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1322,
+      "sha256": "d600d029384836f809a29591d48a5d8a8356e9017014bf85b6d8c1e8a51b80e3"
+    },
+    {
+      "id": "shunting-yard-operator-stack.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1125,
+      "sha256": "4b516fc927bd8ec9c8be4a2018028069ac624c250087aac21d77807e1ddb9ea2"
+    },
+    {
+      "id": "shunting-yard-operator-stack.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1584,
+      "sha256": "751a80977a723f20babbe09ca32e04ecc493944f7f1ce2bc3dad2bc64d909b8b"
+    },
+    {
+      "id": "shunting-yard-operator-stack.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 582,
+      "sha256": "b1680e240fb7f9e5df6986fa17f6564972c5013f14c90f0a4a40e1e84b9d6988"
+    },
+    {
+      "id": "shunting-yard-operator-stack.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1037,
+      "sha256": "133b2e3af1a509e00a1ae1fad0a17b0787e927b5201359c4a42366ab8c9ca91e"
+    },
+    {
+      "id": "shunting-yard-operator-stack.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 442,
+      "sha256": "e6119851ccb1e5469a2ca6761710bdb9d98249081106d12ab38e4c3874ce716e"
+    },
+    {
+      "id": "shunting-yard-operator-stack.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1445,
+      "sha256": "e986aa83900e7b3fc063d119b5caa91861eab1b0d47b899db372ad19c75e98cd"
+    },
+    {
+      "id": "shunting-yard-operator-stack.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 596,
+      "sha256": "b1947af1028228dadbdc720a4923c2ff10d0bdb974fe8a18d819d9f85423dffe"
+    },
+    {
+      "id": "shunting-yard-operator-stack.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 681,
+      "sha256": "a292c2aa4524d8101ec387d062386e9ea23a0ee892fc4003869425ab4879abe0"
+    },
+    {
+      "id": "shunting-yard-operator-stack.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2084,
+      "sha256": "da1a46894ca193b64b74732357f28eafe4eecd8a640e2bc61eb65ed91f5fc50f"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/shunting-yard-operator-stack/f33924f5f2544cadfd85/aoede-127573894fa4980b.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2715404,
+      "sha256": "127573894fa4980b2c27d402ee3436833ee8a6bfa54345b0c83ae480913deec8",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b2b4d1cec2717df9f1a6b912331e18e57003ec2d336e14efdc25e49c236833a0",
+          "bytes": 1143456,
+          "sha256": "e868095716a164b70efb8973dcbd0b8572d8931d1addfef4177bdf9163341c3d"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "16909b6d0d4f49154770aaabc7278a0e100a08b35b1efdfa2d6ab8f0762c2ed5",
+          "bytes": 1114656,
+          "sha256": "73436545584e707366fbdec5f54b4faaf038b43eeb70c19bf6145dbfe28d6401"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "da1a46894ca193b64b74732357f28eafe4eecd8a640e2bc61eb65ed91f5fc50f",
+          "bytes": 457056,
+          "sha256": "a97fc5ce2e6a85cb19de742773e559d2879b666dcb81eae0ddbd50f7dcd9e8d3"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/shunting-yard-operator-stack/f33924f5f2544cadfd85/algieba-a18041044c1d2e38.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2759468,
+      "sha256": "a18041044c1d2e38983999d88e38077bfa66eea1feaa9437798b067175018d28",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b2b4d1cec2717df9f1a6b912331e18e57003ec2d336e14efdc25e49c236833a0",
+          "bytes": 1154784,
+          "sha256": "a9101f393c46e764118ea4c2df5c832ea93cd168526893034e50fddacf016084"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "16909b6d0d4f49154770aaabc7278a0e100a08b35b1efdfa2d6ab8f0762c2ed5",
+          "bytes": 1124544,
+          "sha256": "182b64f6ce9f8ebb1897b1d31cd0da325506ed58e14f08d60601d13885582df6"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "da1a46894ca193b64b74732357f28eafe4eecd8a640e2bc61eb65ed91f5fc50f",
+          "bytes": 479904,
+          "sha256": "79512fd72416573d83a28f00119b752d26e6ea3dd945596516af3557fd014d8b"
+        }
+      ]
+    }
+  }
+}

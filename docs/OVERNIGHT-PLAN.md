@@ -5472,6 +5472,46 @@ commit, Fable trailer on every commit, check green before each push.
       holdTicks rests. Preserved narration: Aoede + Algieba. Added
       2026-10-10.
 
+- [x] F168. Shunting yard × Operator stack. Puzzle 174,
+      languages-compilers (problemSlug lexing, the atlas problem page
+      carrying "Expression to postfix"; sibling live lesson
+      pratt-parsing-binding-powers). Solution
+      shunting_yard_operator_stack.py (0.2s, prints OK): tokenizer,
+      shunting yard with positional unary minus and function calls,
+      exact-rational stack machine, recursive descent (one function per
+      level), precedence climbing, a precedence-blind left-to-right
+      evaluator, a grammar-driven random generator, and Python's eval
+      over Fraction-wrapped text as referee. ORACLES: (1) 5,000
+      expressions (30,566 tokens): shunting yard 5,000 / 5,000 equal,
+      30,566 visits + 26,436 stack ops, 1.86 work per token; recursive
+      descent 5,000, 72,185 calls, 3.36; precedence climbing 5,000,
+      35,510 calls, 2.16; left to right 4,176 (0.81); (2) every postfix
+      a permutation of the input without parentheses, the stack machine
+      never underflowing, at most 1.50 stack operations per token (bound
+      2); (3) edge cases 2 ** 3 ** 2 = 512, -2 ** 2 = -4, (-2) ** 2 = 4,
+      8 / 4 / 2 = 1, 8 - 3 - 2 = 3, 2 * 3 + 4 * 5 = 26, nested max / min
+      / abs, 2 + 3 * 4 ** 2 / 8 = 8 (postfix 2 3 4 2 ** * 8 / +), 1 - -1
+      = 2; 5 of 5 malformed inputs rejected; (4) the precedence-blind
+      evaluator right on 718 of the 1,534 expressions mixing precedence
+      levels (46.8%), with 3,180 of 5,000 expressions having at most one
+      operator. Honest: precedence climbing is close (2.16) and reads
+      more like the grammar, so the hero's win is the absence of
+      recursion; author correction recorded (the stack can hold one
+      operator per precedence level per nesting level, so the asserted
+      bound is two operations per token, not nesting depth plus one).
+      Cards: self, Pratt parsing (live lesson badge), Recursive descent
+      parsing, Operator-precedence parsing (all algoName). neverUse:
+      left-to-right evaluation that ignores precedence. Figure: the pass
+      over 2 + 3 * 4 ** 2 / 8 one column per token with stack and
+      output; cite Dijkstra MR 34/61 1961, Floyd JACM 1963 DOI
+      10.1145/321172.321179. Viz ShuntingYardViz: a seeded random
+      expression shunted one token per tick with the input tape,
+      operator stack, and output queue, the postfix evaluated at the end
+      against an independent recursive evaluator and the permutation
+      invariant checked; NODE-VERIFIED 30 cycles, 0 breaks; stepMs 800,
+      holdTicks rests. Preserved narration: Aoede + Algieba. Added
+      2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -3019,6 +3019,24 @@ export const PUZZLES = {
     vite: 'canny-edge-detector-hysteresis-thresholding',
     html: 'canny-edge-detector-hysteresis-thresholding/index.html',
   },
+  '/shunting-yard-operator-stack/': {
+    slug: 'shunting-yard-operator-stack',
+    added: '2026-10-10',
+    problemSlug: 'lexing',
+    number: 174,
+    category: 'languages-compilers',
+    algorithm: 'Shunting yard',
+    heuristic: 'Operator stack',
+    domain: 'Expression to postfix',
+    oneLiner:
+      'Read the tokens once, left to right: numbers go straight to the output, an operator first pops every waiting operator that binds at least as tightly (strictly, for a right-associative one) and then waits on the stack, parentheses are walls; the output is postfix, evaluable by a one-stack machine, with precedence reduced to an integer compared at push time and no recursion anywhere.',
+    listenMinutes: 10,
+    time: 'O(tokens): one pass, at most two stack operations per token',
+    space: 'one operator stack, one output queue',
+    baseline: 'Recursive descent, one function per precedence level',
+    vite: 'shunting-yard-operator-stack',
+    html: 'shunting-yard-operator-stack/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

@@ -5199,6 +5199,53 @@ commit, Fable trailer on every commit, check green before each push.
       holdTicks rests. Preserved narration: Aoede + Algieba. Added
       2026-10-10.
 
+- [x] F161. Brent's method × Inverse quadratic interpolation. Puzzle
+      167, numerical (problemSlug root-finding, the atlas problem page
+      carrying "Robust root finding"). Solution
+      brents_method_inverse_quadratic_interpolation.py (0.1s, prints
+      OK): the classic zeroin with a step-kind trace, bisection,
+      Illinois regula falsi, the plain secant, Newton from the midpoint,
+      Ridders, and Dekker (each with its canonical stop, plus an unsafe
+      step-size stop measured on purpose), a counting wrapper (a
+      derivative counts as one evaluation), nine problems (cos x = x,
+      Wallis's cubic, sqrt 2, e, the omega constant, sin x = x/2, a
+      signed cube root, e^x - 1 on [-40, 60], the triple root (x -
+      0.3)^3) with published roots, and bisection to the last bit as the
+      referee. ORACLES: (1) every bracketing method within 1e-9 of the
+      referee on all nine, Brent within 1e-10; (2) interpolation order
+      on cos x = x: 1.88, 2.08, 1.20; bisection exactly order 1 ratio
+      1/2; (3) Brent under (log2((b - a)/tol) + 1)^2 = 1,670 to 2,257 on
+      every function and under 3x bisection on the hard three, under a
+      third of bisection on each smooth one; (4) the race, evaluations:
+      smooth six totals Brent 49 / bisection 253 / Illinois 62 / Dekker
+      54 / Ridders 144 (82 on Wallis under the bracket criterion),
+      secant 48 and Newton 64 where they converge; cube root Brent 33 (0
+      iqi, 31 secant, bisection fallbacks) / bisection 43 / Illinois 34
+      / Dekker 34 / Ridders 40 / secant and Newton fail; e^x - 1 wide:
+      Brent 18 (2 iqi, 8 secant, 6 bisection) / bisection 49 / Illinois
+      109 / Dekker 16 / Ridders 20 / Newton 32 / secant stops at x = 60
+      after 3 evaluations with error 40; triple root: Brent 102 (43 iqi,
+      29 secant, 28 bisection) / bisection 42 / Illinois 111 / Dekker
+      168 / Ridders 68 / secant 92 / Newton 126; (5) Newton on the cube
+      root from 0.4: 0.1, 0.7, -0.5, 1.9, exactly doubling; the step
+      criterion on the wide bracket: Illinois 4 evaluations error 40,
+      Dekker 3 evaluations error 40, Ridders fine. Honest: Brent loses
+      the triple root to bisection and Ridders, and Dekker is nearly as
+      fast on smooth functions; author correction recorded (Dekker
+      expected to crawl on the wide bracket, measured fast). Cards:
+      self, Bisection method, Ridders' method, Newton's method (live
+      lesson badge) (all algoName). neverUse: an unbracketed method
+      stopped by the size of its step. Figure: rows of step-kind squares
+      for three functions beside bars of smooth-six totals; cite Brent
+      1973 ch. 4, Dekker 1969, Forsythe-Malcolm-Moler 1977,
+      Alefeld-Potra-Shi TOMS 1995 DOI 10.1145/210089.210111. Viz
+      BrentViz: zeroin one evaluation per tick on cos x - x, the signed
+      cube root, or the wide e^x - 1 (cycling), the bracket shaded, a,
+      b, c marked, the step kind colored, bracket width on a log scale;
+      NODE-VERIFIED 21 cycles, bracket held the root on every tick;
+      stepMs 700, holdTicks rests. Preserved narration: Aoede + Algieba.
+      Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -3243,13 +3243,33 @@ export const PUZZLES = {
     vite: 'counterfactual-regret-minimization-regret-matching-updates',
     html: 'counterfactual-regret-minimization-regret-matching-updates/index.html',
   },
+  '/brents-method-inverse-quadratic-interpolation/': {
+    slug: 'brents-method-inverse-quadratic-interpolation',
+    added: '2026-10-10',
+    problemSlug: 'root-finding',
+    number: 167,
+    category: 'numerical',
+    algorithm: 'Brent\'s method',
+    heuristic: 'Inverse quadratic interpolation',
+    domain: 'Robust root finding',
+    oneLiner:
+      'Keep a bracket that provably holds the root, propose the next point from the sideways parabola through the last three (the secant when two coincide), and take it only if it stays inside the bracket and is less than half the step before last, falling back to the midpoint otherwise: superlinear on smooth functions, never worse than about the square of bisection\'s count on any continuous one.',
+    description:
+      'Brent\'s method with inverse quadratic interpolation on nine bracketed problems at tolerance 1e-12, every answer checked against a bisection run to the last bit and the published digits: 7 to 9 evaluations on each of six smooth roots (49 in total against 253 for bisection, 62 for Illinois, 54 for Dekker, 144 for Ridders), measured interpolation order 1.88 and 2.08, 33 on the signed cube root that breaks Newton (doubling its error each step) and the secant, 18 on e^x - 1 over [-40, 60] against 109 for Illinois and a false convergence for the secant at x = 60, and an honest loss on the triple root (102 against 42 for bisection), all inside the guarantee of 1,670 to 2,257.',
+    listenMinutes: 10,
+    time: 'one evaluation per step; order about 1.84 on smooth f',
+    space: 'three points and two step sizes',
+    baseline: 'Bisection',
+    vite: 'brents-method-inverse-quadratic-interpolation',
+    html: 'brents-method-inverse-quadratic-interpolation/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Brent\'s method', heuristic: 'Inverse quadratic interpolation', domain: 'Robust root finding' },
+  { algorithm: 'Greedy graph coloring', heuristic: 'DSatur saturation ordering', domain: 'Vertex coloring' },
 ];
 
 

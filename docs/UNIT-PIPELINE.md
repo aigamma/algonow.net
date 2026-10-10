@@ -82,6 +82,12 @@ the operational detail layer.
 - Deploys are explicit CLI uploads; pushes never publish.
 - The check's rival-count regex counts `^\s*\{\s*name:` blocks; the
   contest rows use `method:` so they don't collide.
+- The registry record no longer carries `description` (2026-10-10): the
+  measured paragraph goes in docs/puzzle-descriptions.json, keyed by slug,
+  because src/data/puzzles.js ships on every page and its chunk hit the
+  56 KB budget. Registry fields now: slug, added, problemSlug, number,
+  category, algorithm, heuristic, domain, oneLiner, listenMinutes, time,
+  space, baseline, vite, html.
 - Colors: --algo/-heur/-path/-warn are 6-digit hex; `${color}AA`
   alpha-suffixing works in canvas.
 - atlas-summary fields: {total, algorithms, heuristics, phrasings,

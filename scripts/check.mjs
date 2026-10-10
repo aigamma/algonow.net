@@ -278,7 +278,9 @@ if (!existsSync('dist/assets')) {
     // JSON asset, not another ceiling raise.
     // 2026-09-26: raised from 48 KB to 56 KB once, when the registry crossed
     // 48 KB gz at 158 pairs (each pair adds about 300 B gz of oneLiner,
-    // description, and metadata). The chunk ships on every page, so the
+    // description, and metadata). 2026-10-10: the description field moved out
+    // to docs/puzzle-descriptions.json (nothing on the client read it), which
+    // took the chunk from 54.7 KB back down at 172 pairs. The chunk ships on every page, so the
     // right fix is structural (a per-page entry plus a light index for the
     // cross-links); that split is flagged to the owner alongside the homepage
     // pagination decision. This raise buys the 164-pair session headroom.

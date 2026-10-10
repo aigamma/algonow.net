@@ -29,8 +29,6 @@ export const PUZZLES = {
     domain: 'Shortest paths on grid maps',
     oneLiner:
       'Dijkstra-grade guarantees, steered by a city-block estimate of the distance still to go.',
-    description:
-      'A* search paired with the Manhattan-distance heuristic: optimal grid pathfinding, animated live, with a tested Python solution and a spoken lesson.',
     listenMinutes: 7,
     time: 'O(b^d)',
     space: 'O(b^d)',
@@ -48,8 +46,6 @@ export const PUZZLES = {
     domain: 'Traveling-salesman tours',
     oneLiner:
       'A random walk through tour space that accepts bad trades while hot, refuses them when cold, and anneals into a near-optimal loop.',
-    description:
-      'Simulated annealing paired with a geometric cooling schedule on the traveling-salesman problem: watch a live tour untangle at three cooling rates, with a tested Python solution and a spoken lesson.',
     listenMinutes: 7,
     time: 'O(k · n)',
     space: 'O(n)',
@@ -67,8 +63,6 @@ export const PUZZLES = {
     domain: 'Adversarial game trees',
     oneLiner:
       'Perfect play by exhaustive lookahead, made affordable by refusing to read branches a rational opponent already ruled out.',
-    description:
-      'Minimax paired with alpha-beta pruning and the move-ordering heuristic: watch the same game tree searched under best-first, random, and worst-first orderings, with a tested Python solution and a spoken lesson.',
     listenMinutes: 7,
     time: 'O(b^(d/2))',
     space: 'O(d)',
@@ -86,8 +80,6 @@ export const PUZZLES = {
     domain: 'Sudoku and constraint grids',
     oneLiner:
       'Depth-first trial and error that always works the tightest cell first, so mistakes surface in one move, not twenty.',
-    description:
-      'Backtracking search paired with the minimum-remaining-values heuristic on Sudoku: watch the same grid solved in reading order versus tightest-cell-first, with a tested Python solution and a spoken lesson.',
     listenMinutes: 7,
     time: 'O(9^m)',
     space: 'O(m)',
@@ -105,8 +97,6 @@ export const PUZZLES = {
     domain: 'The 0/1 knapsack',
     oneLiner:
       'Exhaustive search that carries a receipt: any branch whose optimistic ceiling cannot beat the best bag in hand is discarded unopened.',
-    description:
-      'Branch and bound paired with the fractional-relaxation bound on the 0/1 knapsack: watch subtrees die the moment their ceiling touches the best bag, with a tested Python solution and a spoken lesson.',
     listenMinutes: 7,
     time: 'O(2^n)',
     space: 'O(n)',
@@ -124,8 +114,6 @@ export const PUZZLES = {
     domain: 'Games too big to solve',
     oneLiner:
       'Learn the tree by playing it: random playouts grade the moves, and a bandit formula decides which branch has earned the next simulation.',
-    description:
-      'Monte Carlo tree search paired with the UCB1 exploration bonus: watch a search tree grow asymmetrically under three exploration constants, with a tested Python solution and a spoken lesson.',
     listenMinutes: 8,
     time: 'O(k · d)',
     space: 'O(k)',
@@ -143,8 +131,6 @@ export const PUZZLES = {
     domain: 'Nonnegative shortest paths',
     oneLiner:
       'One proof, four data structures: which container answers "nearest unsettled vertex" decides whether the same algorithm costs seconds or hours.',
-    description:
-      "Dijkstra's algorithm paired with a binary heap: the same proof strategy priced by its priority queue, raced against a linear scan, Bellman-Ford, and breadth-first search on one graph, with a tested Python solution and a spoken lesson.",
     listenMinutes: 8,
     time: 'O(E log V)',
     space: 'O(V)',
@@ -162,8 +148,6 @@ export const PUZZLES = {
     domain: 'Components that only merge',
     oneLiner:
       'A forest of parent pointers where rank decides who hangs under whom and every lookup flattens the path it walked, until each question costs almost nothing.',
-    description:
-      'Union-find paired with union by rank and path compression: watch the same merge stream build a flat forest against a naive one, raced against quick-find and per-query search, with a tested Python solution and a spoken lesson.',
     listenMinutes: 8,
     time: 'O(α(n)) amortized',
     space: 'O(n)',
@@ -181,8 +165,6 @@ export const PUZZLES = {
     domain: 'Needles in streaming haystacks',
     oneLiner:
       'A forward-only scan whose text finger never backs up: when a match breaks, a table of the pattern’s self-overlaps says exactly how much certainty survives.',
-    description:
-      'Knuth-Morris-Pratt paired with the failure function: watch it race a naive scan on repetitive text without re-reading a character, with a tested Python solution and a spoken lesson.',
     listenMinutes: 8,
     time: 'O(n + m)',
     space: 'O(m)',
@@ -200,8 +182,6 @@ export const PUZZLES = {
     domain: 'In-place comparison sorting',
     oneLiner:
       'Partition around a pivot and recurse; three sampled keys per split are the cheap insurance that keeps a great average case from meeting its quadratic ghost.',
-    description:
-      'Quicksort paired with the median-of-three pivot: one array sorted under two pivot rules, raced against mergesort, heapsort, Timsort, and introsort, with a tested Python solution and a spoken lesson.',
     listenMinutes: 8,
     time: 'O(n log n) expected',
     space: 'O(log n)',
@@ -219,8 +199,6 @@ export const PUZZLES = {
     domain: 'Approximate set membership',
     oneLiner:
       'A bit array that never forgets a member and occasionally imagines one: k hash probes per key, tuned so half the bits stay zero and every zero is proof.',
-    description:
-      'A Bloom filter paired with k independent hashes: watch two filters face the same strangers at different k, raced against cuckoo and XOR filters and an exact set, with a tested Python solution.',
     listenMinutes: 8,
     time: 'O(k) per op',
     space: 'm bits, 12 per key',
@@ -238,8 +216,6 @@ export const PUZZLES = {
     domain: 'Counting distinct at scale',
     oneLiner:
       'A kilobyte of registers counts a million-item stream: the longest run of leading zeros ever seen is a witness statement about how many distinct hashes went by.',
-    description:
-      'HyperLogLog paired with leading-zero registers: watch a 768-byte sketch track a live stream against the true count, raced against Flajolet-Martin, KMV, linear counting, and an exact set.',
     listenMinutes: 8,
     time: 'O(1) per item',
     space: '768 B at ±3.3%',
@@ -257,8 +233,6 @@ export const PUZZLES = {
     domain: 'The brightest stretch of an array',
     oneLiner:
       'One pass, two numbers in hand: the best run ending here and the best run ever, because a negative prefix is dead weight no future window should carry.',
-    description:
-      "Kadane's algorithm paired with the running maximum: one pass finds the maximum subarray against brute force, divide and conquer, and a segment tree under churn, with a tested Python solution.",
     listenMinutes: 8,
     time: 'O(n)',
     space: 'O(1)',
@@ -276,8 +250,6 @@ export const PUZZLES = {
     domain: 'Squeezing symbols to their frequencies',
     oneLiner:
       'Merge the two rarest, again and again, until one tree remains: rare symbols sink deep, common ones float shallow, and no prefix-free code can do better.',
-    description:
-      'Huffman coding paired with frequency-sorted merges: watch the optimal prefix tree build itself, measured against Shannon-Fano, arithmetic coding, and rANS on prose and on skew, with a tested Python solution.',
     listenMinutes: 8,
     time: 'O(k log k) build',
     space: 'O(k)',
@@ -295,8 +267,6 @@ export const PUZZLES = {
     domain: 'Maximum flow through a network',
     oneLiner:
       'Augment only along shortest paths, in bulk: BFS layers the residual graph, a blocking flow saturates the whole layer cake, and the distance to the sink can only rise.',
-    description:
-      "Dinic's algorithm paired with level-graph blocking flows: watch phases saturate a network, raced against Edmonds-Karp, Ford-Fulkerson, and push-relabel, with a tested Python solution.",
     listenMinutes: 8,
     time: 'O(V²E), O(E√V) unit',
     space: 'O(V + E)',
@@ -314,8 +284,6 @@ export const PUZZLES = {
     domain: 'Ranking linked graphs',
     oneLiner:
       'Importance as the habit of a distractible reader: follow links, jump anywhere every seventh click, and rank pages by where eternity gets spent.',
-    description:
-      'PageRank paired with the damped random walk: watch a swarm of surfers converge to the eigenvector, measured against HITS, SALSA, and in-degree on traps, cliques, and link farms.',
     listenMinutes: 8,
     time: 'O(E) per pass',
     space: 'O(V)',
@@ -333,8 +301,6 @@ export const PUZZLES = {
     domain: 'Page and cache replacement',
     oneLiner:
       'Serve hits, fetch misses, and when a slot must be freed, bet on temporal locality: the resident untouched longest is the one least likely to be missed.',
-    description:
-      "LRU caching paired with recency eviction: watch it race Belady's clairvoyant on one stream, measured against FIFO, LFU, and random on drifting and scanning traces, with a tested Python solution.",
     listenMinutes: 8,
     time: 'O(1) per request',
     space: 'O(k)',
@@ -352,8 +318,6 @@ export const PUZZLES = {
     domain: 'Clustering points into k groups',
     oneLiner:
       'Lloyd’s descent always converges; where it converges is decided before it starts, so seed each center proportional to squared distance from the rest.',
-    description:
-      'K-means paired with k-means++ seeding: the same blobs clustered from good and bad openings, measured against DBSCAN, Gaussian mixtures, and single linkage, with a tested Python solution.',
     listenMinutes: 8,
     time: 'O(nk) per iteration',
     space: 'O(n + k)',
@@ -371,8 +335,6 @@ export const PUZZLES = {
     domain: 'Convex hulls in the plane',
     oneLiner:
       'Sort the points by angle around the lowest one and the tour never crosses itself: one forgetful pass with a stack tightens it into the hull.',
-    description:
-      'Graham scan paired with polar-angle sorting: watch the string tighten into a convex hull, measured against Jarvis march, monotone chain, and Quickhull on disks and circles, with a tested Python solution.',
     listenMinutes: 8,
     time: 'O(n log n)',
     space: 'O(n)',
@@ -390,8 +352,6 @@ export const PUZZLES = {
     domain: 'Smooth minimization',
     oneLiner:
       'In a narrow valley the gradient points at the opposite wall; remember a fraction of your last step and the crosswise bounces cancel while the downhill drift compounds.',
-    description:
-      'Gradient descent paired with Polyak momentum: two marbles descend one ill-conditioned canyon, measured against Nesterov, conjugate gradient, and Newton, with both rate theorems checked numerically.',
     listenMinutes: 8,
     time: 'O(√κ log 1/ε)',
     space: 'O(d)',
@@ -409,8 +369,6 @@ export const PUZZLES = {
     domain: 'Ordering dependencies',
     oneLiner:
       'Whatever has no unmet prerequisites is safe to do right now: keep that frontier in a queue and the whole graph orders itself in one pass, waves included.',
-    description:
-      "Kahn's algorithm paired with the zero in-degree queue: watch a dependency graph order itself in parallel waves, measured against DFS finish-order and the naive rescan, with a tested Python solution.",
     listenMinutes: 8,
     time: 'O(V + E), exact',
     space: 'O(V)',
@@ -428,8 +386,6 @@ export const PUZZLES = {
     domain: 'Sorted-array lookup',
     oneLiner:
       'Keep one true sentence, "the answer lies in [lo, hi)", and probe the midpoint so either answer halves it: twenty probes on a million keys, guaranteed, on any input.',
-    description:
-      'Binary search paired with the halving invariant: one bracket, three probe policies, measured against interpolation and galloping search, with the 1946 bug pinned spinning in a test.',
     listenMinutes: 8,
     time: '⌈log₂ n⌉ + 1 probes',
     space: 'O(1)',
@@ -447,8 +403,6 @@ export const PUZZLES = {
     domain: 'Minimum spanning trees',
     oneLiner:
       'Scan edges cheapest-first and lay each one only if its endpoints are on different grids: one question asked E times, answered in under one parent-jump by the flat forest.',
-    description:
-      "Kruskal's algorithm paired with the union-find cycle test: watch villages wire themselves cheapest-first, measured against Prim, Borůvka, and the BFS test, with the MST certified by the cycle property.",
     listenMinutes: 8,
     time: 'O(E log E)',
     space: 'O(V)',
@@ -466,8 +420,6 @@ export const PUZZLES = {
     domain: 'Sampling unbounded streams',
     oneLiner:
       'A k-seat lifeboat beside an endless line: item n boards with probability k/n, evicting a random resident, and everyone who ever passed holds exactly the same claim.',
-    description:
-      'Reservoir sampling paired with Algorithm R: uniformity proven in exact fractions, the draw ledger against Algorithm L and bottom-k keys, and the contracts Bernoulli and systematic sampling break.',
     listenMinutes: 8,
     time: 'O(1) per item',
     space: 'O(k)',
@@ -485,8 +437,6 @@ export const PUZZLES = {
     domain: 'Edit distance, witnessed',
     oneLiner:
       'D[i][j] = the distance between prefixes: three neighbors answer every cell, the corner holds the cost, and walking the argmins home is the edit script itself.',
-    description:
-      'Wagner-Fischer paired with the prefix-to-prefix table: watch the edit-distance grid fill and trace its script, measured against Hirschberg, Ukkonen’s band, and Myers diff, every script applied and verified.',
     listenMinutes: 8,
     time: 'Θ(nm) cells',
     space: 'O(nm), O(m) two-row',
@@ -504,8 +454,6 @@ export const PUZZLES = {
     domain: 'Prefix sums under change',
     oneLiner:
       'A tree that was never built: each index owns a block of length i & (−i), queries descend the ladder, updates climb it, and the routing table is binary itself.',
-    description:
-      'The Fenwick tree paired with low-bit ladders: watch queries descend and updates climb the phantom tree, measured against cumulative sums, segment trees, and sqrt blocks on mixed and static workloads.',
     listenMinutes: 8,
     time: 'O(log n) per op',
     space: 'n cells',
@@ -523,8 +471,6 @@ export const PUZZLES = {
     domain: 'Matching many patterns at once',
     oneLiner:
       'One trie holds the whole watchlist, threaded with KMP’s failure idea: the text streams through once, and ten times the patterns costs one percent more.',
-    description:
-      'Aho-Corasick paired with the failure-link automaton: one pass serves the whole watchlist, measured flat as the dictionary grows tenfold, against per-pattern KMP and Rabin-Karp multi-hash.',
     listenMinutes: 8,
     time: 'O(n + matches)',
     space: 'O(Σ|patterns|)',
@@ -542,8 +488,6 @@ export const PUZZLES = {
     domain: 'Linear programming',
     oneLiner:
       'Walk the polytope’s vertices along the steepest improving edge until none improves: nine pivots on real ground, every corner of the adversary’s cube, and a receipt signed by the dual.',
-    description:
-      'The simplex method paired with Dantzig’s pivot rule: nine median pivots on random programs, 4,095 on the Klee-Minty cube, Beale’s cycle in exact arithmetic, and dual certificates throughout.',
     listenMinutes: 8,
     time: 'few pivots typical, 2ⁿ trap',
     space: 'O(mn) tableau',
@@ -561,8 +505,6 @@ export const PUZZLES = {
     domain: 'Decoding hidden sequences',
     oneLiner:
       'The most believable screenplay of the whole night, not a chain of local guesses: max-product over the trellis, with backpointers reading the story out.',
-    description:
-      'The Viterbi algorithm paired with the max-product trellis: the dishonest casino decoded, posterior decoding’s impossible story pinned, greedy’s collapse measured, and beam search’s 50 certified losses.',
     listenMinutes: 8,
     time: 'O(n·S²)',
     space: 'O(n·S)',
@@ -580,8 +522,6 @@ export const PUZZLES = {
     domain: 'Ordered maps by lottery',
     oneLiner:
       'Express lanes staffed by coin flips: ride right, overshoot, take the stairs down, and no arrival order can bias a structure whose randomness is its own.',
-    description:
-      'The skip list paired with coin-flip level promotion: express lanes by lottery, measured immune to arrival order against AVL trees, plain BSTs, and sorted arrays, with the coin itself verified.',
     listenMinutes: 8,
     time: 'O(log n) expected',
     space: 'O(n), ~2× pointers',
@@ -599,8 +539,6 @@ export const PUZZLES = {
     domain: 'Fast matrix multiplication',
     oneLiner:
       'Seven block products where eight seemed necessary, compounded by recursion into a fallen exponent, with every answer audited at an eight-to-one discount.',
-    description:
-      "Strassen's algorithm paired with the seven-product block split: 9.8M multiplications where classical spends 16.8M, measured with exact counters and audited by Freivalds' random probes.",
     listenMinutes: 8,
     time: 'O(n^2.807)',
     space: 'O(n²)',
@@ -618,8 +556,6 @@ export const PUZZLES = {
     domain: 'Probabilistic primality',
     oneLiner:
       'Convict composites on cryptographic proof, acquit primes with an error you chose: at most a quarter of witnesses can lie, and twenty are called at random.',
-    description:
-      "Miller-Rabin paired with random witness rounds: zero errors in a refereed 100,000 sweep, Rabin's quarter bound verified exhaustively, and the Carmichael con artist convicted on canvas.",
     listenMinutes: 8,
     time: 'O(k log³ n)',
     space: 'O(1)',
@@ -637,8 +573,6 @@ export const PUZZLES = {
     domain: 'Order statistics',
     oneLiner:
       'Partition, keep only the side holding rank k, and pick the pivot by coin: the killer built for every fixed rule has nothing to aim at.',
-    description:
-      'Quickselect paired with the random pivot: the med-3 killer is built live with McIlroy’s gas adversary, replayed to certified quadratic cost, then dissolved by the lottery at 4.54n comparisons.',
     listenMinutes: 8,
     time: 'O(n) expected',
     space: 'O(1) in place',
@@ -656,8 +590,6 @@ export const PUZZLES = {
     domain: 'Negative-edge shortest paths',
     oneLiner:
       'Relax every edge until a round goes quiet: the fixpoint is the answer, negative edges are welcome, and a loop still buzzing at round n is arbitrage, certified.',
-    description:
-      'Bellman-Ford paired with early-exit relaxation: 9 rounds instead of 999 measured, every distance confirmed by a Johnson-space referee, negative cycles returned with their sum, Dijkstra wrong 852 times.',
     listenMinutes: 8,
     time: 'O(n·m) worst',
     space: 'O(n)',
@@ -675,8 +607,6 @@ export const PUZZLES = {
     domain: 'Range updates',
     oneLiner:
       'Stamp a range write on its cover nodes as unpaid debt, push it down only under later footsteps: writes become as cheap as reads, in any algebra.',
-    description:
-      'The segment tree paired with lazy propagation: 47 visits per op where naive spends 2,481, the min-monoid generality referee-proven, the Fenwick specialist honestly ahead on pure sums, the eager tree priced at 81x.',
     listenMinutes: 8,
     time: 'O(log n) per op',
     space: 'O(n) (~4n nodes)',
@@ -694,8 +624,6 @@ export const PUZZLES = {
     domain: 'MCMC sampling',
     oneLiner:
       'Wander by local proposals, accept by the ratio min(1, π(y)/π(x)): the unknown constant cancels, detailed balance appears, and the walk’s occupancy becomes the answer.',
-    description:
-      'Metropolis-Hastings paired with the acceptance ratio: detailed balance verified on all 144 pairs of an exact chain, Z-independence proven by bitwise-identical runs, the step-size dial priced in effective samples.',
     listenMinutes: 8,
     time: 'O(1) evals/step',
     space: 'O(1)',
@@ -713,8 +641,6 @@ export const PUZZLES = {
     domain: 'Spectral analysis',
     oneLiner:
       'Split into evens and odds, stitch with a twist of phase: exactly (n/2)·log₂ n butterflies where the definition demands n², and the gap grows forever.',
-    description:
-      'The FFT paired with the Cooley-Tukey radix-2 split: butterfly counts asserted to the integer, 205x over the naive-DFT referee, hidden tones surfaced, convolution coefficient-exact against schoolbook.',
     listenMinutes: 8,
     time: 'O(n log n)',
     space: 'O(n)',
@@ -732,8 +658,6 @@ export const PUZZLES = {
     domain: 'Dictionary compression',
     oneLiner:
       'Replace every repeat with a margin note pointing into the recent past: the decoder copies from its own output, and everything green was never stored.',
-    description:
-      'LZ77 paired with sliding-window matching: byte-exact round trips on this repo’s own files, the window dial measured monotone, the DEFLATE pipeline beating both single stages, pigeonhole priced to the byte.',
     listenMinutes: 8,
     time: 'O(n) decode',
     space: 'O(window)',
@@ -751,8 +675,6 @@ export const PUZZLES = {
     domain: 'Non-overlapping selection',
     oneLiner:
       'Sort by the clock at the end and sweep: the one greedy compass that is a theorem, measured against three plausible ones that are not.',
-    description:
-      'Activity selection paired with earliest-finish-first: optimal on all 2,000 trials against a verified DP referee while earliest-start books 13 of 229, shortest-first misses by 2, and fewest-conflicts falls once in 500.',
     listenMinutes: 8,
     time: 'O(n log n)',
     space: 'O(1) beyond the sort',
@@ -770,8 +692,6 @@ export const PUZZLES = {
     domain: 'Distributed key placement',
     oneLiner:
       'Pin every server to a circle many times: a departure hands over exactly its own arcs, the load levels out, and the grief scatters instead of burying one neighbor.',
-    description:
-      'Consistent hashing paired with virtual nodes: movement equals ownership asserted as set algebra, mod-N’s 90% stampede measured against theory, the vnode dial collapsing load variance 0.716 to 0.035.',
     listenMinutes: 8,
     time: 'O(log nv) lookup',
     space: 'O(n·v) ring points',
@@ -789,8 +709,6 @@ export const PUZZLES = {
     domain: 'Closest pair of points',
     oneLiner:
       'Solve each half, then check the fence corridor: a δ×2δ box holds at most 8 points, so the quadratic-looking strip scan is seven checks deep, counted live.',
-    description:
-      'Closest pair divide and conquer paired with the midline strip merge: the 7-successor packing lemma asserted on every strip point, 142,614 distances where brute force needs five billion, three methods refereeing each other.',
     listenMinutes: 8,
     time: 'O(n log n) worst case',
     space: 'O(n)',
@@ -808,8 +726,6 @@ export const PUZZLES = {
     domain: 'Jaccard similarity estimation',
     oneLiner:
       'Give every element a lottery ticket: the room’s lowest belongs to both sets with probability exactly J, and keeping the k lowest runs k lotteries from one drawing.',
-    description:
-      'MinHash paired with bottom-k signatures: the collision theorem measured at 0.3340 vs an exact 1/3, composability asserted as list equality, the 1/√k error law priced, and LSH banding at perfect recall for 3,980× fewer comparisons.',
     listenMinutes: 8,
     time: 'O(|S|) sketch, O(k) compare',
     space: 'O(k) per set',
@@ -827,8 +743,6 @@ export const PUZZLES = {
     domain: 'Bipartite maximum matching',
     oneLiner:
       'Layer the whole graph in one BFS wave, flip a batch of disjoint shortest augmenting paths at once: about √V waves close the fair, and the failed search is the certificate.',
-    description:
-      'Hopcroft-Karp paired with layered augmenting phases: 4 phases against a permitted 200, every answer certified by a constructed König cover checked edge by edge, greedy pinned to exactly half on its gadget.',
     listenMinutes: 8,
     time: 'O(E·√V)',
     space: 'O(V + E)',
@@ -846,8 +760,6 @@ export const PUZZLES = {
     domain: 'Substring search',
     oneLiner:
       'Compare from the pattern’s last character and let every mismatch launch a leap: most of the haystack is never read, and the longer the needle, the less of it you touch.',
-    description:
-      'Boyer-Moore paired with the bad-character and good-suffix rules: 10.9% of the text read for a 13-char pattern, deepening to 6% at 32; the two-rule split priced where Horspool reads 1.50n on binary.',
     listenMinutes: 8,
     time: 'O(n/m) typical',
     space: 'O(m + σ)',
@@ -865,8 +777,6 @@ export const PUZZLES = {
     domain: 'Root finding',
     oneLiner:
       'Pretend the curve is its tangent and stride to the crossing: near the root the miss squares away each step, and the digit ladder reads 1, 2, 5, 11, 24, 48.',
-    description:
-      "Newton's method paired with tangent-line iteration: quadratic convergence measured as digit doubling in 60-digit decimal, the secant's per-eval win kept honestly, the 2-cycle and exact ×(−2) runaway asserted.",
     listenMinutes: 8,
     time: 'order 2 per step',
     space: 'O(1)',
@@ -884,8 +794,6 @@ export const PUZZLES = {
     domain: 'Uniform permutation',
     oneLiner:
       'Fill the last seat from everyone still standing, lock it, repeat: n! equally likely orderings by counting, and the one-character impostor convicted by its own arithmetic.',
-    description:
-      'Fisher-Yates paired with backward uniform swaps: uniformity certified over all 24 cells (χ²=35.3), the swap-anywhere impostor matched to its exact 256-path theory at 41% worst bias, the seed ceiling measured.',
     listenMinutes: 8,
     time: 'O(n)',
     space: 'O(1) in place',
@@ -903,8 +811,6 @@ export const PUZZLES = {
     domain: 'Disk-friendly ordered index',
     oneLiner:
       'Pack each node to the page and split around medians on the way down: height becomes log base 128, every leaf shares a depth, and three page reads answer anything.',
-    description:
-      'The B-tree paired with high-fanout node splits: 2.99 pages per lookup vs the pointer-chaser’s 21.12 measured on identical keys, the fanout dial 13/5/3/2, every leaf provably level at every stage.',
     listenMinutes: 8,
     time: 'O(log_B n) pages',
     space: 'O(n), ~69% occupancy',
@@ -922,8 +828,6 @@ export const PUZZLES = {
     domain: 'Real-time scheduling',
     oneLiner:
       'Rank every job by whose clock runs out next, preempt freely: utilization up to 100% is schedulable, which no fixed priority can promise.',
-    description:
-      'EDF paired with dynamic deadline priority: the optimality theorem hammered over 780 hyperperiod simulations, the Liu-Layland gap measured as a falling curve (120/120 to 58/120), the overload flip priced.',
     listenMinutes: 8,
     time: 'O(log n) per decision',
     space: 'O(n)',
@@ -941,8 +845,6 @@ export const PUZZLES = {
     domain: 'Full-text indexing',
     oneLiner:
       'Rank every suffix, then let two integers stand in for 2ᵏ characters: the horizon doubles each round, seven rounds index the whole text, and binary search answers forever.',
-    description:
-      'Suffix array construction paired with prefix-doubling ranks: 7 rounds index 66K chars with the ordering certified via a re-verified Kasai LCP array, 20 queries refereed, the repetition adversary priced at 121×.',
     listenMinutes: 8,
     time: 'O(n log n) build',
     space: 'O(n) integers',
@@ -960,8 +862,6 @@ export const PUZZLES = {
     domain: 'All-pairs shortest paths',
     oneLiner:
       'Open the hubs one at a time, re-quote every pair through the newcomer: three lines, negative edges welcome, and the k-loop stays outermost or the book goes stale.',
-    description:
-      'Floyd-Warshall paired with the intermediate-vertex sweep: 200 Bellman-Ford-refereed trials, the loop-order bug wrong on 52/60 with its strange 3-pass healing confirmed, Johnson agreeing exactly at scale.',
     listenMinutes: 8,
     time: 'Θ(n³)',
     space: 'Θ(n²)',
@@ -979,8 +879,6 @@ export const PUZZLES = {
     domain: 'Prefix-keyed dictionary',
     oneLiner:
       'One node per distinct prefix: every word rides the paths already paved, lookups cost len(key)+1 at any dictionary size, and a neighborhood is a place you stand.',
-    description:
-      'The trie paired with shared-prefix branching: len(key)+1 visits asserted flat across an 8.5× size jump, nodes == prefixes + 1, DFS == sorted, and the 59% chain fat measured for the radix sibling.',
     listenMinutes: 8,
     time: 'O(|key|) per op',
     space: 'O(distinct prefixes)',
@@ -998,8 +896,6 @@ export const PUZZLES = {
     domain: 'Strongly connected components',
     oneLiner:
       'Chalk each chamber, keep one note: the earliest chamber anything below can climb back to: and when the note points home, coil off the sealed cavern as a unit.',
-    description:
-      "Tarjan's SCC paired with the low-link stack discipline: one pass at exactly m touches (asserted), reverse-topo emission proven on every cross edge, Kosaraju agreeing at 20K vertices, 2-SAT certified 250 times.",
     listenMinutes: 8,
     time: 'O(n + m), one pass',
     space: 'O(n)',
@@ -1017,8 +913,6 @@ export const PUZZLES = {
     domain: 'Stabbing queries',
     oneLiner:
       'File bookings by check-in, label every drawer with its latest check-out: a drawer whose label ends before tonight cannot hold tonight’s guests: skip it unopened.',
-    description:
-      'The interval tree paired with max-endpoint pruning: 33 visits per query where the scan pays 20,000, the max-end invariant machine-checked at every node, and the long-survivor adversary drowning sorted scans at 114×.',
     listenMinutes: 8,
     time: 'O(log n) find, O(k log n) enumerate',
     space: 'O(n)',
@@ -1036,8 +930,6 @@ export const PUZZLES = {
     domain: 'Frequency estimation',
     oneLiner:
       'Four clerks with fixed clipboards over-tally a million-banner parade: keep the smallest answer, never undercount, and read only the banners big enough to matter.',
-    description:
-      'The count-min sketch paired with row minima: never under on all 145,527 distinct items (asserted), mean overcount 205.8 inside Markov’s 500, the elephants-mice gradient measured 0.25% to 20,000%.',
     listenMinutes: 8,
     time: 'O(d) per op',
     space: 'O(w·d) fixed',
@@ -1055,8 +947,6 @@ export const PUZZLES = {
     domain: 'Big-integer multiplication',
     oneLiner:
       'Gauss’s trick, deployed by a 23-year-old against his professor’s conjecture: one combined product minus two paid ones is the whole cross term, and the exponent falls to 1.585.',
-    description:
-      'Karatsuba paired with three-product splitting: 59,049 = 3¹⁰ digit mults asserted exactly where the grid pays n² = 1,048,576, the identity verified on 500 cases, the crossover measured beside CPython’s shipped 70.',
     listenMinutes: 8,
     time: 'O(n^1.585)',
     space: 'O(n)',
@@ -1074,8 +964,6 @@ export const PUZZLES = {
     domain: 'Local sequence alignment',
     oneLiner:
       'Floor every cell at zero and bank the peak: debts forgiven, credit kept, and the shared island rises from the sea no matter where it sits in either sequence.',
-    description:
-      'Smith-Waterman paired with the zero floor: verified equal to exhaustive substring-pair enumeration on 150 trials, the planted island at local 70 vs global −285, and the Karlin-Altschul phase lesson measured the hard way.',
     listenMinutes: 8,
     time: 'O(nm)',
     space: 'O(nm) with traceback',
@@ -1093,8 +981,6 @@ export const PUZZLES = {
     domain: 'Maximum flow',
     oneLiner:
       'Ford-Fulkerson plus one word: BFS: the hose route is longer and never elected, distances only grow, and the bound forgets the capacities entirely.',
-    description:
-      'Edmonds-Karp paired with shortest augmenting paths: the zigzag gadget measured at 200,000 augmentations vs 2, duality certified against all enumerated cuts on 200 graphs, a min-cut buying a project portfolio.',
     listenMinutes: 8,
     time: 'O(V·E²)',
     space: 'O(V + E)',
@@ -1112,8 +998,6 @@ export const PUZZLES = {
     domain: 'Unimodal maximum finding',
     oneLiner:
       'Two probes at the thirds, one comparison, one third of the interval dead per round: and the entire guarantee lives in a premise the loop never checks.',
-    description:
-      'Ternary search paired with two-probe interval thirds: 600 constructed-argmax tests exact, golden-section’s probe reuse measured at 46 evals vs 104, the bimodal betrayal converging to the wrong hill.',
     listenMinutes: 8,
     time: 'O(log(1/ε)) evals',
     space: 'O(1)',
@@ -1131,8 +1015,6 @@ export const PUZZLES = {
     domain: 'Majority element',
     oneLiner:
       'Every decrement pairs the candidate with a stranger and both walk out: a faction holding more than half the hall cannot run out of partners first.',
-    description:
-      'Boyer-Moore majority vote paired with pairwise cancellation: the surplus bound asserted on 300 adversarial layouts, 2 words vs 500,000 keys measured, the unverified vote crowning the rarest element.',
     listenMinutes: 8,
     time: 'O(n), two passes',
     space: 'O(1): two words',
@@ -1150,8 +1032,6 @@ export const PUZZLES = {
     domain: 'Dictionary compression',
     oneLiner:
       'Every emission mints one new phrase, so the decoder can grow the identical dictionary one step behind: no codebook ever crosses the wire, and the one impossible code is forced, not guessed.',
-    description:
-      'LZW paired with the growing phrase dictionary: 300 byte-exact round trips, the KwKwK corner forced and counted, log corpus 4.65x vs zlib 5.30x, noise expanding 1.42x, the 172% freeze-on-drift tax.',
     listenMinutes: 8,
     time: 'O(n), one pass',
     space: 'O(2¹²) table',
@@ -1169,8 +1049,6 @@ export const PUZZLES = {
     domain: 'Distributed key placement',
     oneLiner:
       'Every client computes the same scoreboard and the key lives with the tallest bar: agreement without a message, and when the winner dies, the runner-up was standing there all along.',
-    description:
-      'Rendezvous hashing paired with highest-random-weight: the disruption theorem asserted key-by-key on 100,000 keys (zero exceptions), spread 1.03 vs the bare ring 51.16, the 90.7% modulo disaster raced.',
     listenMinutes: 8,
     time: 'O(n) per lookup',
     space: 'O(1) state',
@@ -1188,8 +1066,6 @@ export const PUZZLES = {
     domain: 'Offline range queries',
     oneLiner:
       'Sqrt-decompose the query schedule, not the data: the same window slides the same array, and sorting the visits is worth twenty to one on the meter.',
-    description:
-      "Mo's algorithm paired with sqrt block ordering: six orderings through one window, 3,060,650 moves down to 154,452 with identical answers asserted, the folklore sqrt-n block corrected by 44%.",
     listenMinutes: 8,
     time: 'O((n+q)·√n)',
     space: 'O(n)',
@@ -1207,8 +1083,6 @@ export const PUZZLES = {
     domain: 'Posterior sampling',
     oneLiner:
       'Propose each coordinate from its own full conditional and the acceptance ratio cancels to one: the reject branch vanishes, and only the geometry is left to fight.',
-    description:
-      'Gibbs sampling paired with coordinate-wise conditional draws: no reject branch exists, the AR(1) mixing law matched at rho 0.6 and 0.995, the 94x crawl measured, Ising exact over 65,536 states.',
     listenMinutes: 8,
     time: 'O(d) draws/sweep',
     space: 'O(d)',
@@ -1226,8 +1100,6 @@ export const PUZZLES = {
     domain: 'Deletable set membership',
     oneLiner:
       'Store twelve bits of the item in one of two homes linked by an XOR: the evicted fingerprint knows where to go without knowing what it is, and deletion finally has a safe door.',
-    description:
-      'Cuckoo filter paired with fingerprint eviction: zero false negatives through 30 churn rounds, FPR 0.1535% vs law 0.1490%, the 97% load frontier, naive Bloom deletion shredding 96% of survivors.',
     listenMinutes: 8,
     time: 'O(1) expected/op',
     space: 'f/load bits per item',
@@ -1245,8 +1117,6 @@ export const PUZZLES = {
     domain: 'Big-integer multiplication',
     oneLiner:
       'Three limbs make the product a quartic, and five points pin a quartic: evaluate, multiply post by post, interpolate back: five recursive products where pride pays nine.',
-    description:
-      'Toom-Cook paired with five-point interpolation: 5^6 = 15,625 digit mults asserted exactly at 729 digits vs Karatsuba 59,049 and grid 531,441; 500 quartics recovered; every division remainder-zero.',
     listenMinutes: 8,
     time: 'O(n^1.465)',
     space: 'O(n)',
@@ -1264,8 +1134,6 @@ export const PUZZLES = {
     domain: 'Approximate string matching',
     oneLiner:
       'Bit j of the register means the first j+1 pattern characters still might end here: one shift-AND advances every hypothesis at once, and a second register forgives one lie.',
-    description:
-      'Bitap paired with bitmask fuzzy states: the Sellers DP packed into words, 240,000 word-ops vs 2,880,000 cells for identical positions, the planted typo exact search misses, 400 referee cases.',
     listenMinutes: 8,
     time: 'O(n·(k+1)) word-ops',
     space: 'O(σ + k)',
@@ -1283,8 +1151,6 @@ export const PUZZLES = {
     domain: 'Real-time task scheduling',
     oneLiner:
       'Urgency is a property of the period, not the prestige: crown the fastest clock once, offline, and the theorem says no fixed table does better.',
-    description:
-      'Rate-monotonic paired with shorter period wins: RTA fixpoints equal to the simulator both directions, the Liu-Layland bound clean on 300 sets, the 10% gap EDF closes, harmonic clean at U=1.0.',
     listenMinutes: 8,
     time: 'O(1) dispatch',
     space: 'O(n) static table',
@@ -1302,8 +1168,6 @@ export const PUZZLES = {
     domain: 'Full-text indexing',
     oneLiner:
       'Open leaves grow on one global pointer, the active point never re-walks, rule three quits early, suffix links teleport: four masks of one amortized argument, and the index is linear.',
-    description:
-      "Suffix tree paired with Ukkonen's online construction: suffix sets exact on 200 strings, 2.33 steps/char at 200K scale, the naive build 358x worse on repetitive text, LRS and LCS DP-verified.",
     listenMinutes: 8,
     time: 'O(n) build, O(p) query',
     space: 'O(n) nodes',
@@ -1321,8 +1185,6 @@ export const PUZZLES = {
     domain: 'Maximum flow',
     oneLiner:
       'Flood the source, let excess puddle, push one terrace downhill, jack up whatever sticks: no route is ever planned, and the trap built for path choosers has nothing to catch.',
-    description:
-      'Push-relabel paired with FIFO vertex selection: equal to Edmonds-Karp on 200 graphs with duality certificates, the zigzag gadget in 4 local ops, the graph-cut client recovering its blob exactly.',
     listenMinutes: 8,
     time: 'O(V³)',
     space: 'O(V + E)',
@@ -1340,8 +1202,6 @@ export const PUZZLES = {
     domain: 'Top-k heavy hitters',
     oneLiner:
       'The stranger takes the coldest seat and inherits its tally, wristband recording the borrowed marks: the head of the chart stays witnessed, and the placeholders confess.',
-    description:
-      'Space-Saving paired with min-counter replacement: brackets asserted at zero tolerance, the n/m guarantee never violated, worst top-10 error 1 vs Misra-Gries 2,303, the no-skew confession.',
     listenMinutes: 8,
     time: 'O(1)* per item',
     space: 'm counters',
@@ -1359,8 +1219,6 @@ export const PUZZLES = {
     domain: 'Database range index',
     oneLiner:
       'Every row to a leaf, every internal page pure directions, and the shelves bolted into one aisle: find the first book by cabinet, read the next thousand by walking.',
-    description:
-      'B+ tree paired with linked-leaf range scans: 300 ranges slice-exact, lookups at exactly height 3 with zero variance, touches tying at 1.03x while the seek meter splits 9x for the chain.',
     listenMinutes: 8,
     time: 'O(log n) + k/leaf',
     space: 'O(n) pages',
@@ -1378,8 +1236,6 @@ export const PUZZLES = {
     domain: 'Optimal assignment',
     oneLiner:
       'Stipends and discounts that never beat a price, marriages only where the books balance to the cent: when the last worker weds, the ledger equality IS the optimality proof.',
-    description:
-      'Hungarian algorithm paired with tight-edge alternating paths: equal to all n! permutations on 150 instances, the duality certificate at every size, greedy beaten 334x on the trap and 160% on random.',
     listenMinutes: 8,
     time: 'O(n³)',
     space: 'O(n²)',
@@ -1397,8 +1253,6 @@ export const PUZZLES = {
     domain: 'Stable matching',
     oneLiner:
       'Nobody says yes: only you-may-stay-for-now: rejections are forever, holds are provisional, and when the floor quiets, the silence is the proof of stability.',
-    description:
-      'Gale-Shapley paired with deferred acceptance: zero blocking pairs on 300/300, the optimal/pessimal theorems checked against every enumerated stable matching, proposing worth 3.01 ranks.',
     listenMinutes: 8,
     time: 'O(n²)',
     space: 'O(n²) lists',
@@ -1416,8 +1270,6 @@ export const PUZZLES = {
     domain: 'Longest increasing subsequence',
     oneLiner:
       'Deal the array into solitaire: piles only decrease, so the count is a ceiling; every new pile drags a climbing chain behind it, so the count is a floor: the deal is the proof.',
-    description:
-      'LIS paired with patience piles and binary search: DP-matched on 400 arrays with witnesses verified, 2^n enumeration on 50, the pile duality every trial, 677x measured, Ulam at 93.7 vs 100.',
     listenMinutes: 8,
     time: 'O(n log n)',
     space: 'O(n)',
@@ -1435,8 +1287,6 @@ export const PUZZLES = {
     domain: 'Block-sorting compression',
     oneLiner:
       'Sort every rotation, keep the last column: same letters, same entropy to the bit: but letters sorted into each other’s company by their shared futures, ready for a dumb coder to eat.',
-    description:
-      'Burrows-Wheeler paired with move-to-front plus RLE: round trips byte-exact at every stage, the permutation identity exact (H0 3.90 both), MTF 4.23 on raw vs 1.36 after: the lens, metered.',
     listenMinutes: 8,
     time: 'O(n log² n) block',
     space: 'O(n)',
@@ -1454,8 +1304,6 @@ export const PUZZLES = {
     domain: 'Prime enumeration',
     oneLiner:
       'Nobody knocks to ask a door whether it is prime: the composites slam themselves, each by its smallest factor’s hand, and every walker starts at his own square.',
-    description:
-      'Sieve of Eratosthenes paired with crossing off from the square: two independent judges on every number to 20,000, pi(10^6) = 78,498 exact, Mertens within 0.17%, the shave exact at 75,791.',
     listenMinutes: 8,
     time: 'O(n log log n)',
     space: 'O(n) bits',
@@ -1473,8 +1321,6 @@ export const PUZZLES = {
     domain: 'Minimum spanning trees',
     oneLiner:
       'A lit region, a dark region, and one question forever: the cheapest wire crossing the boundary is never a mistake: any plan that omits it improves by swapping it in.',
-    description:
-      "Prim's algorithm paired with the cheapest crossing edge: Kruskal-equal on 300 graphs, all spanning trees enumerated on 50, the cut property audited edge by edge, the keystroke trap at 8.2x.",
     listenMinutes: 8,
     time: 'O(E log V)',
     space: 'O(E) heap',
@@ -1492,8 +1338,6 @@ export const PUZZLES = {
     domain: 'Integer factorization',
     oneLiner:
       'The walk looks endless mod n and tiny mod the hidden factor: two runners, one twice as fast, collide in the shadow world, and the gcd reads the shadow’s name.',
-    description:
-      "Pollard's rho paired with Floyd cycle detection: every factor multiplication-checked, the sqrt(p) birthday law measured at 9.4x per 100x, Brent's 26% counted, the c=0 folklore corrected.",
     listenMinutes: 8,
     time: 'O(√p) expected',
     space: 'O(1)',
@@ -1511,8 +1355,6 @@ export const PUZZLES = {
     domain: 'Longest palindromic substring',
     oneLiner:
       'Inside the great mirror, your twin’s certificate is yours: inherit the radius, pay only past the frontier: and the frontier only ever moves right.',
-    description:
-      "Manacher's algorithm paired with mirrored radius reuse: linearity asserted by counter (7,999 vs 8,002,000 on the adversary), witnesses verified on 400 strings, 60% of all radius inherited.",
     listenMinutes: 8,
     time: 'O(n), ≤ 2n expansions',
     space: 'O(n)',
@@ -1530,8 +1372,6 @@ export const PUZZLES = {
     domain: 'Pattern preprocessing',
     oneLiner:
       'Inside a certified copy of the prefix, your twin’s certificate is yours: comparisons resume only past the box’s edge, and the edge never retreats.',
-    description:
-      "Z-algorithm paired with Z-box window reuse: linear by counter (3,999 vs 7,998,000 on the adversary), the sentinel matcher against find, KMP's failure function rebuilt from Z exact on 200.",
     listenMinutes: 8,
     time: 'O(n), ≤ 2n cmps',
     space: 'O(n)',
@@ -1549,8 +1389,6 @@ export const PUZZLES = {
     domain: 'Exact traveling salesman',
     oneLiner:
       'A page per predicament, not per route: two paths reaching the same (visited set, city) share a future, and sixty quadrillion orderings collapse to forty-four million pages.',
-    description:
-      'Held-Karp paired with bitmask subset states: all tours enumerated on 100 instances, the transition count exact to its closed form, heuristics priced against proven optima: NN +10%, 2-opt +0.4%.',
     listenMinutes: 8,
     time: 'O(2ⁿn²)',
     space: 'O(2ⁿn)',
@@ -1568,8 +1406,6 @@ export const PUZZLES = {
     domain: 'Minimum cut',
     oneLiner:
       'Fuse random edges until two blobs remain: the min cut has few edges, so the frenzy rarely draws one: a lottery ticket per run, and the theorem prices the ticket.',
-    description:
-      "Karger's algorithm paired with random edge contraction: 100 graphs brute-matched with partitions revalidated, the success bound measured over 20,000 runs, amplification 70% to 0.1%.",
     listenMinutes: 8,
     time: 'O(n²) per run',
     space: 'O(n + m)',
@@ -1587,8 +1423,6 @@ export const PUZZLES = {
     domain: 'Smallest enclosing circle',
     oneLiner:
       'Shuffle the points, keep a circle, rebuild only on the rare arrival outside: at most three points pin the answer, and random order makes late rebuilds vanish: expected linear, exactly.',
-    description:
-      "Welzl's algorithm with a randomized incremental basis: 150 instances equal to exhaustion, the optimality certificate at 100,000 points, and the sorted-feed betrayal measured at 247x.",
     listenMinutes: 8,
     time: 'O(n) expected',
     space: 'O(1) basis',
@@ -1606,8 +1440,6 @@ export const PUZZLES = {
     domain: 'Boolean satisfiability',
     oneLiner:
       'Backtracking search that deduces between guesses: any clause with one live literal forces it, cascades follow, and each forced move cancels a subtree: complete both ways, SAT and proven UNSAT.',
-    description:
-      'DPLL with unit propagation: 250 verdicts equal to exhaustion, a controlled ablation at 7x, the phase transition measured at n=90, pigeonhole refuted, the Petersen graph 3-colored.',
     listenMinutes: 8,
     time: 'O(2ⁿ) worst',
     space: 'O(n) trail',
@@ -1625,8 +1457,6 @@ export const PUZZLES = {
     domain: 'Equi-join',
     oneLiner:
       'Build a hash table on the small table, stream the big one past it: equal keys hash equally, so every match waits in the one bucket each probe visits: all-pairs prices retired.',
-    description:
-      'The hash join with build-probe partitioning: three join algorithms agree on 200 instances, 488x under all-pairs, the 40x build-side rule, GRACE partitioning, the skew wall, the sabotage.',
     listenMinutes: 8,
     time: 'O(|R| + |S|)',
     space: 'O(min(|R|,|S|))',
@@ -1644,8 +1474,6 @@ export const PUZZLES = {
     domain: 'Error detection',
     oneLiner:
       'Divide the message by a chosen polynomial and ship the remainder: the divisor decides what damage cannot hide: every burst up to the width, provably, at shift-register cost.',
-    description:
-      'CRC with polynomial division: both forms equal zlib bit-for-bit, 443,186 bursts exhausted with zero escapes, the width law measured across three widths, the sum checksum blinded 500 for 500.',
     listenMinutes: 8,
     time: 'O(n)',
     space: 'O(1) register',
@@ -1663,8 +1491,6 @@ export const PUZZLES = {
     domain: 'NFA to DFA',
     oneLiner:
       'The set of states a guessing machine could be in is itself one definite thing: name each reachable subset, and nondeterminism becomes one table lookup per character.',
-    description:
-      'The subset construction with powerset determinization: 511,750 exhaustive checks against frontier simulation, the 2^n blowup measured and Moore-verified minimal, laziness at 5,592x.',
     listenMinutes: 8,
     time: 'O(2ⁿ) worst, lazy',
     space: 'O(reachable · |Σ|)',
@@ -1682,8 +1508,6 @@ export const PUZZLES = {
     domain: 'Fast modular powers',
     oneLiner:
       'Read the exponent in binary: square for every bit, multiply on the 1s, reduce always: log-many operations where the naive ladder needs a 617-digit count: the loop under every handshake.',
-    description:
-      'Modular exponentiation by square-and-multiply: 3,006 matches against pow, the count law exact on 500 exponents, the naive ladder beaten 34,482x, the timing leak counted and sealed.',
     listenMinutes: 8,
     time: 'O(log e) mults',
     space: 'O(1)',
@@ -1701,8 +1525,6 @@ export const PUZZLES = {
     domain: 'Set cover approximation',
     oneLiner:
       'Always take the set covering the most still-uncovered elements: within H(d) of optimal, essentially unbeatable by Feige, and baited into paying log(n) by one famous family: both theorems run here.',
-    description:
-      'Greedy set cover by maximum-coverage selection: 300 certified optima, the H(d) bound checked per instance, the log(n) trap run for k=2..9, the (1-1/e) coverage floor verified on 200 budgets.',
     listenMinutes: 8,
     time: 'O(picks · sets)',
     space: 'O(n) masks',
@@ -1720,8 +1542,6 @@ export const PUZZLES = {
     domain: 'Distributed consensus',
     oneLiner:
       'Terms as epochs, one vote per node per term, majority crowns: two leaders is arithmetic, not misfortune: and each follower rolls a random timeout so someone usually runs unopposed.',
-    description:
-      'Raft leader election with randomized terms: 19,248 votes audited with zero violations, the randomization ablation livelocking 0/60, the spread dial reproduced, 120/120 crash successions.',
     listenMinutes: 8,
     time: 'one round typical',
     space: 'O(n) per node',
@@ -1739,8 +1559,6 @@ export const PUZZLES = {
     domain: 'Molecular dynamics integration',
     oneLiner:
       'Kick, drift, kick: one force evaluation per step, and a symplectic structure that makes the energy error orbit in a band forever instead of marching: marathons need the shape, not the size.',
-    description:
-      'Velocity Verlet with symplectic stepping: energy banded over 200 orbits, time reversal to 1e-12, orders measured 1.02/2.00/4.00, RK4 leaking monotonically, Euler inflating 10^43-fold.',
     listenMinutes: 8,
     time: 'O(1 force eval)/step',
     space: 'O(n) state',
@@ -1758,8 +1576,6 @@ export const PUZZLES = {
     domain: 'Large-relation sorting',
     oneLiner:
       'Sort memory-sized runs, then merge k at a time: the pass count is 1 + ceil(log_k(runs)), and the logarithm base is your memory: a million records, three counted reads, sorted.',
-    description:
-      "External merge sort with k-way run merging: the pass formula exact on 200 instances, the k dial at 3.5x, Knuth's 2M snowplow measured at 1.99x, a 252x client sorted in three counted passes.",
     listenMinutes: 8,
     time: '2N·(1+⌈log_k r⌉) I/O',
     space: 'M pages',
@@ -1777,8 +1593,6 @@ export const PUZZLES = {
     domain: 'Transaction isolation',
     oneLiner:
       'Every write is a new timestamped version; every transaction reads as of its snapshot: readers never block writers, audits never tear, and one named hole (write skew) waits for the unwary.',
-    description:
-      'MVCC with snapshot timestamps: 200 audits exact mid-storm vs 56% torn without versions, lost updates prevented to the count, write skew demonstrated and refuted, the vacuum ledger balanced.',
     listenMinutes: 8,
     time: 'O(versions) read',
     space: 'O(history) + vacuum',
@@ -1796,8 +1610,6 @@ export const PUZZLES = {
     domain: 'Out-of-order execution',
     oneLiner:
       'Registers hold values or tags naming their future producer: instructions wait on data, never on names: WAW and WAR vanish, and reordering stays bit-invisible to program order.',
-    description:
-      "Tomasulo's algorithm with reservation stations and renaming: 300 programs bit-equal to program order, the dataflow bound respected, the renaming dividend 1.63x, no-rename losing to serial.",
     listenMinutes: 8,
     time: 'bounded by dataflow',
     space: 'stations + tags',
@@ -1815,8 +1627,6 @@ export const PUZZLES = {
     domain: 'Threshold secret splitting',
     oneLiner:
       'Hide the secret at f(0) on a random polynomial and deal points: k shares interpolate straight home, k-1 fit every candidate secret equally: the cliff is vertical, the leak is zero.',
-    description:
-      'Shamir secret sharing by polynomial interpolation: 3,235 quorums exact, perfect secrecy exhibited by exhaustion (a flat table), the 1/p cliff measured, the silent poison healed by majority.',
     listenMinutes: 8,
     time: 'O(k²) reconstruct',
     space: 'n shares',
@@ -1834,8 +1644,6 @@ export const PUZZLES = {
     domain: 'Genome assembly',
     oneLiner:
       'Shred reads into k-mers, wire each as an edge from prefix to suffix, walk every edge once: adjacency without comparison, the genome as an Eulerian path, and repeats as the proven wall.',
-    description:
-      'de Bruijn assembly by k-mer overlap: 300 genomes reassembled exactly, the repeat ambiguity proven by two spectrum-equal assemblies, the coverage curve 21 to 1, the error bubble healed.',
     listenMinutes: 8,
     time: 'O(total bases)',
     space: 'O(distinct k-mers)',
@@ -1854,8 +1662,6 @@ export const PUZZLES = {
     domain: 'Linear state estimation',
     oneLiner:
       'Predict through the model, correct toward the sensor by K = P/(P+R): the trust ratio computed from the two uncertainties, never tuned: optimal in constant memory since Apollo.',
-    description:
-      'The Kalman filter with covariance-weighted correction: Bayes agreement to 1e-12, the Riccati root hit exactly, optimality measured against 40 gains on 400,000 steps, the maneuver spike shown.',
     listenMinutes: 8,
     time: 'O(1) per step',
     space: 'O(1) state + P',
@@ -1874,8 +1680,6 @@ export const PUZZLES = {
     domain: 'Community detection',
     oneLiner:
       'Every node joins whichever neighbor community raises modularity most; then communities collapse to supernodes and it happens again: locality buys million-node scale, hierarchy comes free.',
-    description:
-      'The Louvain method with greedy modularity moves: 335 moves audited to 1e-12, 54/60 enumerated optima, 30/30 planted blocks exact, the karate club at Q=0.4188, the resolution limit run.',
     listenMinutes: 8,
     time: 'O(m) per sweep',
     space: 'O(n + m)',
@@ -1894,8 +1698,6 @@ export const PUZZLES = {
     domain: 'Distributed snapshots',
     oneLiner:
       'Photograph a running system without pausing it: each process records itself on first marker, and the markers sweep every channel clean: a consistent cut through causality, not time.',
-    description:
-      "Chandy-Lamport marker snapshots: 300/300 exact totals mid-flight vs the naive auditor's 0/300, zero causal violations audited message-by-message, marker accounting exact, the cut measured.",
     listenMinutes: 8,
     time: 'O(channels) markers',
     space: 'O(state + in-flight)',
@@ -1914,8 +1716,6 @@ export const PUZZLES = {
     domain: 'Real-world stable sorting',
     oneLiner:
       'Hunt the order already present, keep it stable, and when one side of a merge wins seven straight, gallop in doubling strides: the sort that runs when you type sorted().',
-    description:
-      'Timsort with the galloping merge threshold: 500 arrays equal to sorted() with stability exact, the run dividend at 9.7x, the gallop isolated at 4.4x, the hysteresis tax measured at +1.2%.',
     listenMinutes: 8,
     time: 'O(n) to O(n log n)',
     space: 'O(n/2) merge buffer',
@@ -1934,8 +1734,6 @@ export const PUZZLES = {
     domain: 'Fingerprint substring search',
     oneLiner:
       'Stop comparing letters: hash the pattern once, roll the window fingerprint in two touches per slide, and read characters only when the numbers agree: search by arithmetic.',
-    description:
-      'Rabin-Karp with rolling hash fingerprints: 100 patterns in one pass for 49x, the adversary tamed at 25x, 0 spurious hits at 61 bits vs 6,573 at mod 31, every occurrence list equal to str.find.',
     listenMinutes: 8,
     time: 'O(n + m) expected',
     space: 'O(1) beyond the text',
@@ -1954,8 +1752,6 @@ export const PUZZLES = {
     domain: 'Sparse all-pairs shortest paths',
     oneLiner:
       'One Bellman-Ford survey tilts every negative edge nonnegative without moving a single shortest path: then Dijkstra, forbidden on the raw graph, safely answers all pairs at sparse prices.',
-    description:
-      "Johnson's algorithm with reweighting potentials: negative-edge APSP verified integer-exact against Floyd-Warshall, 48x fewer relaxations sparse, the lift audited on every edge, raw Dijkstra measured wrong on 31% of pairs.",
     listenMinutes: 8,
     time: 'O(n·m log n)',
     space: 'O(n²) output',
@@ -1974,8 +1770,6 @@ export const PUZZLES = {
     domain: 'Soft clustering',
     oneLiner:
       'Model the data as overlapping tilted Gaussians and let every point belong fractionally to all of them: guess softly, refit exactly, and a theorem guarantees the likelihood only climbs.',
-    description:
-      'Gaussian mixtures fit by expectation-maximization: the monotone-likelihood theorem asserted at every iteration, the planted mixture recovered, soft beating hard by 7.4 points on tilted overlap, and the ridgeless singularity measured.',
     listenMinutes: 8,
     time: 'O(t·n·k) densities',
     space: 'O(n·k)',
@@ -1994,8 +1788,6 @@ export const PUZZLES = {
     domain: 'Write-optimized storage',
     oneLiner:
       'Never edit a page: buffer writes in RAM, flush immutable sorted runs, and merge them down a geometric cascade: one bounded run per level, so reads stay sane while writes stay cheap.',
-    description:
-      "The log-structured merge tree with leveled compaction: write amplification 4.2 vs the B-tree's 112.7 and tiered's 1.8, the read and space triangle measured, every get dict-checked across 200,000 operations.",
     listenMinutes: 8,
     time: 'O(levels) per get',
     space: 'O(n), amp 1.06',
@@ -2014,8 +1806,6 @@ export const PUZZLES = {
     domain: 'Nearest-neighbor search',
     oneLiner:
       'Carve the plane at medians, axis by axis, and answer nearest-neighbor queries by opening only the folds the best-so-far ball can reach: 22 visits where the scan examines sixty thousand.',
-    description:
-      'The k-d tree with median-split axis cycling: 22.2 visits per query against a 60,000-point brute scan (2,706x), exact on 1,200 refereed queries, structure audited at every node, and the curse of dimensionality measured at 99% visited by d = 16.',
     listenMinutes: 8,
     time: 'O(log n) expected query',
     space: 'O(n)',
@@ -2034,8 +1824,6 @@ export const PUZZLES = {
     domain: 'Ordered dictionaries, randomized',
     oneLiner:
       'One lottery ticket per key holds two orders in one tree: keys read sorted left to right, priorities heap upward: and the shape belongs to the dice, not to whoever chose the arrival order.',
-    description:
-      "The treap with random heap priorities: the canonical-shape theorem proven across three arrival orders, depth 20.4 vs the 2 ln n = 23.0 expectation at n = 100,000, and the sequential adversary costing a plain BST 2,007 visits per lookup to the treap's 14.8.",
     listenMinutes: 8,
     time: 'O(log n) expected',
     space: 'O(n)',
@@ -2054,8 +1842,6 @@ export const PUZZLES = {
     domain: 'Fixed-width key sorting',
     oneLiner:
       'Sorting that never asks which key is smaller: bucket by one digit at a time, gather stably so each pass preserves all the ones before, and walk under the comparison lower bound.',
-    description:
-      'LSD radix sort with stable digit-bucket passes: zero comparisons, 2.0x under the log2(n!) wall on 32-bit keys and 5.9x on 8-bit, the wide-key row honestly conceded, and stability sabotaged to show 200 of 200 arrays break without it.',
     listenMinutes: 8,
     time: 'O(w·n), 0 comparisons',
     space: 'O(n + base)',
@@ -2074,8 +1860,6 @@ export const PUZZLES = {
     domain: 'Optimal stopping',
     oneLiner:
       'Interview 37% of the field hiring nobody: they are the calibration: then hire the first candidate who beats them all. Provably the best you can do on ranks alone, at any scale.',
-    description:
-      "The secretary problem's 1/e rule, refereed by exact rational arithmetic: the cutoff curve peaks at 0.3743, holds its 37% from n = 50 to 5,000, and both of the rule's walls are measured: value objectives lose 0.793 to 0.964, and cardinal information pierces the rank-only bound 45.5% to 37.1%.",
     listenMinutes: 8,
     time: 'O(n), one pass',
     space: 'O(1): one number',
@@ -2094,8 +1878,6 @@ export const PUZZLES = {
     domain: 'Multi-armed bandits',
     oneLiner:
       'Each round, imagine one plausible world by sampling every arm’s posterior, and play the arm that wins the imagined contest: exploration exactly as large as the doubt, no knob anywhere.',
-    description:
-      "Thompson sampling with posterior draws: the Beta ledger audited exactly, calibration at 97.3%, regret 53 vs epsilon-greedy's 95, UCB1's 177 (the measured horizon twist), and greedy's 470 with 65% of runs stuck forever.",
     listenMinutes: 8,
     time: 'O(k) draws per round',
     space: 'O(k) posteriors',
@@ -2114,8 +1896,6 @@ export const PUZZLES = {
     domain: 'Game-tree search',
     oneLiner:
       'The chess-engine paradox: search the same position at every depth up to the target, and the shallow passes order the deep one so well that all of them together cost less than one blind dive.',
-    description:
-      'Alpha-beta with iterative-deepening move ordering: six searches for less than one blind search (3,940 vs 14,004 nodes, exhaustive-minimax refereed), cutoffs at mean index 0.53 vs 1.38, and the Knuth-Moore floor hit exactly at 431 leaves.',
     listenMinutes: 8,
     time: '~O(b^(d/2)) well-ordered',
     space: 'O(nodes) tables',
@@ -2134,8 +1914,6 @@ export const PUZZLES = {
     domain: 'Near-entropy compression',
     oneLiner:
       'The whole message becomes one number: each symbol narrows the interval by its probability, settled bits ship out as the registers rescale, and no symbol ever pays a whole bit it did not owe.',
-    description:
-      "Arithmetic coding with range renormalization: 12.4x under Huffman's whole-bit wall on a skewed source, within 0.02% of the Shannon floor and never below it, 97,368 straddle events handled, and the naive exact-fraction coder's state measured exploding.",
     listenMinutes: 8,
     time: 'O(n), ~n·H output bits',
     space: 'O(1): 32-bit registers',
@@ -2154,8 +1932,6 @@ export const PUZZLES = {
     domain: 'Adaptive ODE integration',
     oneLiner:
       'Two Runge-Kutta answers from the same six evaluations, and their difference drives the wheel: steps stretch across the flats, crawl through the flame front, and nobody ever chose a step size.',
-    description:
-      'Dormand-Prince with embedded error step control: order five measured at 32.0x per halving, the fifth-root cost law hit at 15.4x vs 15.8x predicted, steps breathing 69x on the ignition problem, and the 117x stiffness wall measured as the boundary.',
     listenMinutes: 8,
     time: '6 evals/step, adaptive',
     space: 'O(1) state',
@@ -2174,8 +1950,6 @@ export const PUZZLES = {
     domain: 'Expression parsing',
     oneLiner:
       'One loop and a table of badges: every operand goes to the neighbor with the bigger binding power, associativity is one unit on the badge, and adding an operator is adding a row.',
-    description:
-      "Pratt parsing with binding-power dispatch: refereed by Python's own ast module on 500 fuzzed expressions, the recursive-descent tower toll measured at 3.5x and 13.5x, the flat equal-precedence parser counted wrong on 219 of 500, and extension shown as one table row.",
     listenMinutes: 8,
     time: 'O(n): ~1 call/token',
     space: 'O(depth)',
@@ -2194,8 +1968,6 @@ export const PUZZLES = {
     domain: 'Task-parallel scheduling',
     oneLiner:
       'Every worker owns a deque: pop your own bottom (hot, uncontended), and when you run dry, rob the top of a random victim: the oldest fork, the biggest subtree, one theft per balance.',
-    description:
-      "Work stealing with randomized victims: the measured makespan sits inside the Blumofe-Leiserson squeeze (730 <= 774 <= 1,138), the central lock pays 1,507 and collapses to 3.9x speedup at fine grain, migration stays at 7.5% of tasks, and the coarse-grain parity row is conceded in print.",
     listenMinutes: 8,
     time: 'W/P + O(T∞) expected',
     space: 'O(P) deques',
@@ -2214,8 +1986,6 @@ export const PUZZLES = {
     domain: 'Motion planning',
     oneLiner:
       'Three lines of loop: sample a random point, find the nearest tree node, step toward it. Nobody codes the exploration bias: a node grows as often as a dart lands in its Voronoi cell, so the frontier rushes into the void.',
-    description:
-      'The rapidly-exploring random tree with Voronoi-biased sampling: 12/12, 12/12, 10/12 across three worlds against an A* referee (paths 1.36x grid-optimal), greedy dead in the bug trap at step 14, and the ablation measured: bias removed, 0/12 at 19% coverage.',
     listenMinutes: 8,
     time: 'O(n) per sample naive',
     space: 'O(n) tree',
@@ -2234,8 +2004,6 @@ export const PUZZLES = {
     domain: 'Distributed consensus',
     oneLiner:
       'Two phases addressed to everyone, and nothing counts until a majority answers: any two majorities share an acceptor, that acceptor remembers, and once a value is chosen every later ballot is forced to choose it again.',
-    description:
-      'Paxos with proposer-acceptor quorums: safety proved by exhaustive model checking (1,439,849 states, one value ever chosen), both ablations caught within 731 states, 40/40 decisions with two of five acceptors crashed, and two-phase commit measured blocking 5/5 on a coordinator crash.',
     listenMinutes: 8,
     time: '2 round trips, O(n) msgs each',
     space: '3 numbers per acceptor',
@@ -2254,8 +2022,6 @@ export const PUZZLES = {
     domain: 'Metric TSP approximation',
     oneLiner:
       'Tree, then pair up the odd corners as cheaply as possible, then walk every edge once and skip the repeats: a tour at most one and a half times optimal, promised in 1976 and unbeaten for forty-four years.',
-    description:
-      'Christofides with matching plus Euler tour: tours measured against the exact Held-Karp optimum on six instances (1.066 mean, 1.133 worst under a proven 1.5), the theorem asserted numerically (tree 0.796, matching 0.339), the double-tree at 1.199, and 2-opt polish reaching the optimum.',
     listenMinutes: 8,
     time: 'O(n³) with blossom matching',
     space: 'O(n²)',
@@ -2274,8 +2040,6 @@ export const PUZZLES = {
     domain: 'Exact cover',
     oneLiner:
       'Pick the column with the fewest rows, try each row, cover and recurse, then let the links dance back: undo for the price of do, and one engine for queens, sudoku, and every exactly-once puzzle.',
-    description:
-      'Knuth\'s Algorithm X with dancing links: 92 and 724 queens solutions refereed by an independent counter, a unique sudoku in 2,740 nodes where first-column branching is unfinished at 200,000, every link restored after every search, and the undo measured at 31.8x cheaper than copying at 561 rows.',
     listenMinutes: 8,
     time: 'O(1) per link undo',
     space: '4 pointers per matrix 1',
@@ -2294,8 +2058,6 @@ export const PUZZLES = {
     domain: 'DFA minimization',
     oneLiner:
       'Split blocks of states through their inverse transitions from a queue of splitters, and after every split queue only the smaller half: a state re-enters the queue at most log n times, and the quadratic rounds become n log n.',
-    description:
-      'Hopcroft\'s minimization with partition refinement: 20,105 transitions examined on 4,800 states under a bound of 352,190 with the ratio flat across five sizes, Moore\'s partition identical on every instance, 2,048 vs 2,095,104 on the chain machine, and the both-halves ablation at 9.4x.',
     listenMinutes: 8,
     time: 'O(k n log n)',
     space: 'O(k n) inverse edges',
@@ -2314,8 +2076,6 @@ export const PUZZLES = {
     domain: 'Delaunay triangulation',
     oneLiner:
       'Insert one point at a time: every triangle whose circumcircle swallows it is bad, the bad ones form a star-shaped cavity, and fanning the cavity rim to the point leaves every circle empty again.',
-    description:
-      'Bowyer-Watson with bad-triangle cavity retriangulation: the 40-point output equals the brute-force empty-circumcircle triple set, Euler counts and the hull boundary exact on every instance, Lawson\'s flips identical, 160,000 in-circle tests against 20,219,600 rebuilding, and the super-triangle trap measured.',
     listenMinutes: 8,
     time: 'O(n²) naive, O(n log n) expected',
     space: 'O(n) triangles',
@@ -2334,8 +2094,6 @@ export const PUZZLES = {
     domain: 'Burst error correction',
     oneLiner:
       'The message is a polynomial, the parity is its remainder at 32 roots, and the syndromes obey a hidden recurrence: synthesize the shortest shift register that explains them and its roots point at the damaged bytes.',
-    description:
-      'Reed-Solomon with Berlekamp-Massey decoding on RS(255, 223): 48/48 exact recoveries with every located position matched, an independent PGZ decoder agreeing on every locator at 8,322 vs 258 multiplications, 17 errors refused 40/40 with zero miscorrections, and 128-bit bursts repaired 12/12.',
     listenMinutes: 8,
     time: 'O(t²) locator, O(n t) decode',
     space: 'O(t) shift register',
@@ -2354,8 +2112,6 @@ export const PUZZLES = {
     domain: 'Continental road routing',
     oneLiner:
       'Contract the unimportant nodes first, keep a shortcut only where a node was the only way through, then answer every query by climbing the ranks from both ends: exact distances at a tenth of Dijkstra\'s work.',
-    description:
-      'Contraction hierarchies with a node-importance contraction order: 200/200 exact distances with every path unpacked onto original edges, 76 settled nodes per query against Dijkstra\'s 837 and bidirectional\'s 528, shortcuts at 1.01x the edges, and the order ablated (random 3.6x, no witness search 10.1x).',
     listenMinutes: 8,
     time: 'preprocess once; query climbs only',
     space: 'shortcuts ~ edges (1.01x here)',
@@ -2374,8 +2130,6 @@ export const PUZZLES = {
     domain: 'Maximal clique listing',
     oneLiner:
       'Three sets: the clique so far, the candidates, and the already-reported. Pick the candidate that covers the most others as the pivot and branch only outside its circle: every maximal clique once, at the provably optimal rate.',
-    description:
-      'Bron-Kerbosch with Tomita pivoting: equal to brute-force subset enumeration on twelve small graphs, every clique on four large graphs verified maximal and unique, 4,427 calls against 19,487 on G(60, 0.5), and on Moon-Moser graphs exactly (3^(k+1)-1)/2 pivoted calls against 4^k without the pivot.',
     listenMinutes: 8,
     time: 'O(3^(n/3)) worst case',
     space: 'O(n) recursion depth',
@@ -2394,8 +2148,6 @@ export const PUZZLES = {
     domain: 'Text diffing',
     oneLiner:
       'Walk the edit graph one edit at a time, keeping only the furthest point on each diagonal and sliding along every match: the first frontier to reach the corner is the shortest diff, priced by the edits, not the file.',
-    description:
-      'The Myers diff algorithm with shortest-edit-script search: 120/120 random pairs equal to the edit-graph dynamic program with every script replaying exactly, 42 frontier points against 3,996,000 table cells for 8 edits on 2,000 lines, and the frontier growing with the edits while the table ignores them.',
     listenMinutes: 8,
     time: 'O((N + M) D)',
     space: 'O(D²) frontiers',
@@ -2414,8 +2166,6 @@ export const PUZZLES = {
     domain: 'Vector similarity search',
     oneLiner:
       'Every point links to a diverse handful of neighbors; one in M also lives a layer up. Hop greedily down the sparse layers, beam-search the bottom, and answer in a fraction of the scan, with the recall measured.',
-    description:
-      'HNSW with navigable small-world layers: recall@10 of 0.997, 0.992, 0.987 at 1,000, 2,000, 4,000 sixteen-dimensional points against exact brute force while the work falls from 40.8% to 13.6% of the scan; the beam and diversity rule ablated; the flat-graph parity stated; the k-d tree visiting every point.',
     listenMinutes: 8,
     time: '~log N hops + ef beam',
     space: '2M links per point',
@@ -2434,8 +2184,6 @@ export const PUZZLES = {
     domain: 'Neural network training',
     oneLiner:
       'One forward pass, one backward pass through the chain rule, and every weight\'s gradient is priced at three forward passes. Spend it sixteen points at a time and the target arrives in five percent of the full-batch budget.',
-    description:
-      'Backpropagation with stochastic gradient descent: every partial derivative checked against central finite differences to 2.7e-6 on six random networks; the backward pass counted at 2.9 forward passes and finite differences at 233 backward passes; minibatch 16 reaching the target loss in 6,000 gradient evaluations against 112,200 for full batch, both at 100% held out; the linear model stalling at 59%; learning rate 8.0 diverging.',
     listenMinutes: 8,
     time: '~3 forward passes per gradient',
     space: 'one activation per unit',
@@ -2454,8 +2202,6 @@ export const PUZZLES = {
     domain: 'Reinforcement learning',
     oneLiner:
       'After every step, move the table entry toward the reward plus the best entry at the next cell, whatever you do next; then do the best-known thing nine times in ten and something random the tenth, so no entry stays a guess.',
-    description:
-      'Q-learning with epsilon-greedy exploration on the cliff walk: the learned table walks value iteration\'s 13-step route exactly with V(start) of -13.00 after 2,000 episodes and 706 falls; SARSA settles on the 17-step safe route with 114 falls; epsilon 0 from zeros finds the optimum by optimism, from -100 it locks into 15 steps; epsilon 0.5 falls 11,717 times.',
     listenMinutes: 8,
     time: 'one table update per step',
     space: '|S| x |A| table',
@@ -2474,8 +2220,6 @@ export const PUZZLES = {
     domain: 'Boosted classification',
     oneLiner:
       'Fit one weak stump, give it a vote, then multiply up the weight of every point it got wrong so the next stump is fitted to the mistakes. Two hundred rounds later the vote of coin-flip learners is a classifier, with a bound that holds every round.',
-    description:
-      'AdaBoost with exponential reweighting on a disk-versus-ring boundary: decision stumps at 63.7% alone voting to 96.7% held out; the training error under the Freund-Schapire product-of-Z bound at all 200 rounds and zero from round 95; the reweighting ablated (63.7%, one stump refitted) and bagging measured (64.0%); the two exact identities behind the bound checked to 1e-15; the weight pile-up on flipped labels measured (34% on 10% of the points).',
     listenMinutes: 8,
     time: 'T rounds x O(n) per feature',
     space: 'n weights + T stumps',
@@ -2494,8 +2238,6 @@ export const PUZZLES = {
     domain: 'Arbitrary-shape clustering',
     oneLiner:
       'A point with enough neighbors within epsilon is core; a cluster is whatever chains of core points can reach, and a stray point with no chain to join is noise. Crescents come out whole because membership follows density, never distance to a center.',
-    description:
-      'DBSCAN with density-reachability on two crescents, a blob, and uniform noise: 3 clusters and 73 noise points equal to the brute-force definition on every core, border, and noise point; ARI 0.901 against the truth where k-means scores 0.372; the eps-grid index at 14.9% of brute force; both dials ablated (minPts 1: 61 clusters, eps 0.5: crescents merge, eps 0.08: 15 fragments); order-dependent borders counted.',
     listenMinutes: 8,
     time: 'n neighborhood queries',
     space: 'labels + eps-grid',
@@ -2514,8 +2256,6 @@ export const PUZZLES = {
     domain: 'Linear classification',
     oneLiner:
       'Sweep the points; on a mistake add the signed point to the weights, on a hit do nothing. The line is a sum of its mistakes, and Novikoff\'s theorem says how many there can be: sixty runs, sixty counts under the bound.',
-    description:
-      'The perceptron with mistake-driven updates on 200 points in the unit disk at three gaps: every one of 60 shuffled runs separates the data with mistake counts of at most 10 / 16 / 20 against Novikoff bounds of 49 / 179 / 698 computed from an independent max-margin sweep; the always-update ablation never converges (12 errors after 200 passes); XOR cycles forever; ten flipped labels leave the last line 7 wrong where the averaged perceptron is at 0.',
     listenMinutes: 8,
     time: 'O((R/gamma)^2) mistakes',
     space: 'one weight vector',
@@ -2534,8 +2274,6 @@ export const PUZZLES = {
     domain: 'Bin packing',
     oneLiner:
       'Sort the items largest first, then drop each into the first bin with room. The big items claim bins before anything blocks them and the small ones fill the gaps: optimal on two hundred of two hundred small instances, and never worse than eleven ninths.',
-    description:
-      'First fit decreasing with descending size order: optimal on 200 of 200 random 12-item instances against an exact subset dynamic program where arrival-order first fit is optimal on 138 and next fit on 33; Dosa\'s tight 11/9 OPT + 6/9 held everywhere and hit exactly on Johnson\'s constructed family (11 bins vs 9, the optimal packing verified bin by bin); 2,000 items packed 1.38% above the ceil-of-sum lower bound with a max-tree finding each first fit in 4.2% of the linear scan\'s bin checks.',
     listenMinutes: 8,
     time: 'O(n log n) with a max-tree',
     space: 'one capacity per bin',
@@ -2554,8 +2292,6 @@ export const PUZZLES = {
     domain: 'Deadlock avoidance',
     oneLiner:
       'Grant a request only if some order still lets every process finish within its declared maximum, and decide that greedily: finish whoever fits the free pool, add their holdings back, repeat. Deadlock cannot happen; the price is a wait.',
-    description:
-      'Banker\'s algorithm with the greedy safe-state check: the check\'s verdict equal to an exhaustive search over every completion order on 400 of 400 random states at 0.53% of the work; the textbook five-process state decided verdict for verdict (safe order P1 P3 P4 P0 P2; granted, wait, unsafe); 200 of 200 simulated workloads finished under the banker at 14.1 refusals per workload where granting whatever is free deadlocked in 101; and 128 of 286 unsafe states finishing under a naive granter, because unsafe means no guarantee, not doom.',
     listenMinutes: 8,
     time: 'O(n^2 m) per request',
     space: 'allocation, need, and free vectors',
@@ -2574,8 +2310,6 @@ export const PUZZLES = {
     domain: 'Linear systems',
     oneLiner:
       'Cancel each column below the diagonal with multiples of one row, and before each column swap up the row with the largest entry so no multiplier exceeds one. The residual sits at the precision of the arithmetic, and the one matrix that beats it is built and measured.',
-    description:
-      'Gaussian elimination with partial pivoting: agreement with exact rational arithmetic to 1e-14 on 30 integer systems; the relative residual at 1.3e-16 on random 80 x 80 systems against 2.0e-14 without pivoting; the classic 2 x 2 with epsilon 1e-17 solved as (1, 1) where no pivoting returns (0, 1) and dies on a zero pivot; Wilkinson\'s order-24 matrix driving the growth to exactly 2^23 where complete pivoting holds 2 and random matrices stay under 8; the n^3/3 count growing 8x per doubling.',
     listenMinutes: 8,
     time: 'n^3/3 multiply-adds + O(n^2) compares',
     space: 'the matrix, in place',
@@ -2594,8 +2328,6 @@ export const PUZZLES = {
     domain: 'Unstructured search',
     oneLiner:
       'Flip the sign of the marked amplitude, reflect everything about the mean, and repeat: each round rotates the state a fixed angle toward the target, so fifty oracle calls find one item in four thousand where a scan needs two thousand, and the geometry says exactly when to stop.',
-    description:
-      'Grover\'s search with amplitude amplification on an exactly simulated state vector: the marked probability matching sin^2((2t + 1) theta) to 2e-15 at every round; one item in 4,096 found in 50 oracle calls at probability 0.9999 against a measured classical scan of 2,112; the overshoot at 100 rounds (0.0009), four marked items in 25 rounds, the wrong schedule (0.0002), the BBHT schedule for an unknown count (51.9 calls); the square-root law measured from 256 to 16,384 items; both halves of the round ablated exactly.',
     listenMinutes: 8,
     time: '~(pi/4) sqrt(N/k) oracle calls',
     space: 'n = log2 N qubits',
@@ -2614,8 +2346,6 @@ export const PUZZLES = {
     domain: 'Option pricing',
     oneLiner:
       'Let the stock climb or drop one rung per step, price the contract at maturity, and roll back the discounted fair-bet average, taking the exercise value where it is larger. The CRR rungs match the volatility and put the whole tree on one grid.',
-    description:
-      'Binomial options pricing on the Cox-Ross-Rubinstein lattice: the European call converging on Black-Scholes (10.4506) to 0.0020 at 1,000 steps with delta matched to four places; put-call parity and the martingale identity inside the tree to 2e-12; the American put at 6.0896 against a 4,000-step reference (premium 0.52 over the European 5.5715, which Black-Scholes would misprice); the grid and the recombination counted at 16 steps (CRR 17 maturity prices and 33 in the whole tree, Jarrow-Rudd 17 and 153, refitted factors 65,536), with the draft\'s recombination claim corrected by the count.',
     listenMinutes: 8,
     time: 'O(N^2) nodes',
     space: 'one column of N + 1 values',
@@ -2634,8 +2364,6 @@ export const PUZZLES = {
     domain: 'Systems modeling',
     oneLiner:
       'Keep a calendar of pending events and jump the clock to the earliest, handling it and scheduling what it causes; nothing is computed for the empty time between. A queue simulated this way lands within a percent and a half of its exact formulas at sixty times fewer steps than a ticking clock.',
-    description:
-      'Discrete event simulation with event-queue advance on a single-server queue: 400,000 events for 200,000 customers with zero order violations, landing within 1.5% of the exact M/M/1 mean count, time, and idle fraction and 0.2% of Pollaczek-Khinchine for deterministic service, with Little\'s law holding inside the run to four decimals; the fixed-increment ablation measured at 62x the steps for 3.3% error at a 0.01 slot and 16.2% error at 0.1 because events in one slot are merged and reordered.',
     listenMinutes: 8,
     time: 'O(events x log calendar)',
     space: 'the calendar plus the state',
@@ -2654,8 +2382,6 @@ export const PUZZLES = {
     domain: 'Gradient computation',
     oneLiner:
       'Run the program once, recording every operation and its local derivatives on a tape; then sweep the tape backwards so each node hands its adjoint to its parents. All n partials for three evaluations\' worth of work, exact to rounding, whatever n is.',
-    description:
-      'Automatic differentiation in reverse mode: both modes matching closed-form gradients to 9e-16 and each other to 3e-16 where central finite differences reach 7e-11; the reverse sweep counted at 2.87x, 2.96x, and 2.99x one loss evaluation for networks of 17, 501, and 5,401 parameters, where forward mode costs n evaluations and finite differences 2n; the tape counted; and the direction flipped for one input and 500 outputs, where forward mode\'s 1,500 operations beat reverse mode\'s 627,750.',
     listenMinutes: 8,
     time: '~3 evaluations for the whole gradient',
     space: 'a tape of every intermediate',
@@ -2674,8 +2400,6 @@ export const PUZZLES = {
     domain: 'Robot localization',
     oneLiner:
       'Carry the robot\'s belief as a thousand guessed positions: move them all, weight each by how well it explains the sensor, and resample so the likely ones multiply. The cloud lands two centimeters from the exact Bayes filter, and a few random guesses let it survive a kidnapping.',
-    description:
-      'Monte Carlo localization with a particle filter on a 100 m loop with four doors: 1,000 particles converging from a uniform prior by step 6 to a steady error of 0.39 m, tracking the exact 2,000-cell Bayes filter to 0.02 m; the particle count turned down to failure (50 particles: 14.04 m); resampling removed (effective sample size 1.0, error doubled); the robot kidnapped at step 120, where the plain filter never recovers and 2% random particles recover it in 18 steps.',
     listenMinutes: 8,
     time: 'N likelihoods per step',
     space: 'N particles',
@@ -2694,8 +2418,6 @@ export const PUZZLES = {
     domain: 'Worst-case-constant lookup',
     oneLiner:
       'Every key lives in one of two slots, so a lookup is two probes, always; insertion earns that by kicking the occupant to its other slot, chain after chain, until one lands in an empty slot. Below half full the chains are short, and past it the cliff is real.',
-    description:
-      'Cuckoo hashing with two-table eviction kicks under churn: the invariant held after every 1,000 of 20,000 operations and 40,000 lookups agreeing with a set with a worst probe count of exactly 2, where separate chaining\'s worst is 4 and linear probing\'s 14 at load 0.45 (318 and 521 at 0.9); insertion measured at 0.10 to 0.77 kicks per key from load 0.1 to 0.49 with no rehash; the cliff past 0.5 measured to the load where ten fresh function pairs in a row failed; and the no-kick table refusing at load 0.075.',
     listenMinutes: 8,
     time: '2 probes per lookup, expected O(1) insert',
     space: 'two tables, under half full',
@@ -2714,8 +2436,6 @@ export const PUZZLES = {
     domain: 'SPD sparse systems',
     oneLiner:
       'Search directions conjugate to every earlier one, so no step undoes another and the answer arrives in about the square root of the condition number of matrix-vector products; divide by the diagonal first and a ten-thousandfold coefficient jump costs nothing extra.',
-    description:
-      'Conjugate gradient with the Jacobi preconditioner on the 2-D Poisson equation: Gaussian elimination matched to 5e-14 on 64 unknowns with termination in 31 steps; 51 / 101 / 199 iterations to a residual of 1e-8 on 256 / 1,024 / 4,096 unknowns, under the sqrt(kappa) bounds 103 / 201 / 396 from the closed-form condition numbers and doubling with n; Jacobi changing the uniform grid by exactly 0 iterations and cutting a 10^4 coefficient jump from 1,082 to 103; steepest descent at 3,417 where CG needs 101.',
     listenMinutes: 8,
     time: '~sqrt(kappa) matrix-vector products',
     space: 'four vectors',
@@ -2734,8 +2454,6 @@ export const PUZZLES = {
     domain: 'Subword tokenization',
     oneLiner:
       'Start from bytes, merge the most frequent adjacent pair into a new token, and repeat: the vocabulary becomes the corpus\'s own common fragments, every string still encodes exactly, and held-out text falls from four and a half tokens per word to under two.',
-    description:
-      'Byte pair encoding with a frequency-merge vocabulary: byte-exact round trips at 0, 50, 200, and 467 merges on training, held-out, and never-seen-character text; the learner\'s incremental pair counts equal to a full recount for 60 merges and the vocabulary exactly 256 + k; tokens per word falling from 4.46 to 1.00 on the training text and 4.60 to 1.76 held out; 200 random merges at 3.22 held out against frequency\'s 2.13; a word-level vocabulary leaving 36.6% of held-out words unencodable.',
     listenMinutes: 8,
     time: 'one pair count per merge',
     space: '256 + k tokens and a merge table',
@@ -2754,8 +2472,6 @@ export const PUZZLES = {
     domain: 'Node importance',
     oneLiner:
       'One breadth-first search per source counts the shortest paths to every vertex; one pass back hands each vertex\'s dependency to its predecessors in proportion to those counts. Every path counted, none listed, and the bridge stands out where degree cannot see it.',
-    description:
-      'Betweenness centrality by Brandes accumulation: agreement with the definition (all-pairs distances and path counts, a triple test per pair) to 9e-14 on random graphs and exactly on path, star, complete-graph, and cycle closed forms; operation counts 3.8x, 7.6x, and 15.1x below the definition at 60, 120, and 240 vertices; the 48,620 shortest paths across a 10 x 10 grid enumerated one by one and matched by one search in 360 edge visits; the bridge between two communities ranked first by 10.7x where degree centrality ranks it third.',
     listenMinutes: 8,
     time: 'O(VE)',
     space: 'O(V + E) per source',
@@ -2774,8 +2490,6 @@ export const PUZZLES = {
     domain: 'Epidemic dissemination',
     oneLiner:
       'Every round, every node reconciles with one uniformly random peer: the spread doubles while few know and finishes the stragglers by luck, in about log N rounds, with no coordinator and through crashes. Fix the peer and it takes N rounds; drop the reconciliation and some nodes never hear.',
-    description:
-      'Gossip with random-peer anti-entropy on 1,024 nodes: push complete in 100 of 100 trials in 18.1 rounds mean (max 24) against the estimate log2 N + ln N = 16.9, at 8,193 messages; pull 13.8 rounds and push-pull 9.2; rumor mongering leaving 5.0% uninformed; a fixed peer taking exactly 1,023 rounds; with 30% of the nodes dead, gossip reaching every live node in 23.8 rounds while a fan-out-4 tree broadcast misses 70.3%.',
     listenMinutes: 8,
     time: 'O(log N) rounds, one message per node per round',
     space: 'one peer contact per node',
@@ -2794,8 +2508,6 @@ export const PUZZLES = {
     domain: 'Data-parallel primitive',
     oneLiner:
       'Sweep up a tree of partial sums, clear the root, sweep back down handing each node its left total: every running sum in twice log n levels for twice n operations, exact under any associative operation, commutative or not.',
-    description:
-      'The parallel prefix sum by Blelloch scan on a simulated parallel machine: exact against the sequential scan under addition, maximum, and non-commutative 2 x 2 matrix multiplication (a scan with swapped operands shown to differ); work counted at exactly 2(n - 1) and depth at 2 log2 n from 256 to 16,384 elements, against Hillis-Steele\'s n log2 n - n + 1 at log2 n, the sequential chain\'s n - 1 at depth n - 1, and the naive per-prefix plan\'s n(n - 1)/2; stream compaction and a radix sort built from it matching filter and sort.',
     listenMinutes: 8,
     time: '2(n - 1) work, 2 log2 n depth',
     space: 'in place',
@@ -2814,8 +2526,6 @@ export const PUZZLES = {
     domain: 'Robust model fitting',
     oneLiner:
       'Fit the model to the smallest sample that determines it, let every point vote on it within a threshold, keep the largest consensus over enough random draws that one is surely clean, and refit to the voters alone: the outliers never enter the answer.',
-    description:
-      'RANSAC by random consensus sampling on 200 points with 40% gross outliers, measured against the generating line and the true inlier set: 31 draws recover the line in 200 of 200 trials (worst slope error 0.023); the draw-count law verified (11 draws succeed 98.1% of 2,000 trials, 3 draws 68.2%; 5 / 11 / 27 / 113 draws at 20 to 80% outliers, all at or above 97%); the threshold ablated (0.05 starves the vote, 5.0 admits outliers); and at 60% outliers RANSAC 0.008 against Huber 0.052, Theil-Sen 0.108, and least squares 0.415.',
     listenMinutes: 8,
     time: 'N draws x n residuals, N = log(1 - p) / log(1 - w^s)',
     space: 'O(n)',
@@ -2834,8 +2544,6 @@ export const PUZZLES = {
     domain: 'Polyline simplification',
     oneLiner:
       'Keep the endpoints, find the point farthest from the chord, and if it is outside the tolerance keep it and recurse on both halves: every vertex kept is one the guarantee demanded, and every point dropped lies within tolerance of the line.',
-    description:
-      'Douglas-Peucker by max-deviation recursion on a 2,000-point track, checked point by point: every original point within tolerance at four tolerances (1,669 / 836 / 79 / 28 vertices at 0.05 / 0.2 / 1.0 / 5.0); within 1.03x to 1.10x of the Imai-Iri minimum-vertex optimum on a 200-point subsample; at the same 79 vertices uniform decimation errs by 1.960 and radial distance by 3.387 against 0.995; and the cost counted at 3,609 evaluations on 400 track points against 79,401 of 79,800 on a decaying zigzag built to defeat the recursion.',
     listenMinutes: 8,
     time: 'O(n log n) typical, O(n^2) worst',
     space: 'O(n)',
@@ -2854,8 +2562,6 @@ export const PUZZLES = {
     domain: 'Modular reconstruction',
     oneLiner:
       'Rebuild an integer from its residues as mixed-radix digits, one small inverse per modulus, so nothing exceeds one modulus until the final assembly: the theorem\'s guarantee at a word\'s width instead of the big product\'s.',
-    description:
-      'The Chinese remainder theorem by Garner\'s algorithm, held to the original integer: 2,000 random values below a 100-bit product rebuilt exactly by the mixed-radix ladder and by the direct formula; uniqueness exhaustive on 1,155 residue tuples and broken by non-coprime moduli (0 and 30 under 6 and 10); on ten 64-bit moduli Garner\'s largest intermediate 64 bits against the direct formula\'s 704; a 640-bit product from ten 64-bit residue products; RSA-512 decryption by CRT at 25% of the multiplications; and the textbook sieve at 2,181,053 additions where Garner spends 20 operations.',
     listenMinutes: 8,
     time: 'k(k - 1)/2 small multiplies, one assembly',
     space: 'k digits, k(k - 1)/2 precomputed inverses',
@@ -2874,8 +2580,6 @@ export const PUZZLES = {
     domain: 'Approximate nearest neighbors',
     oneLiner:
       'Hash each vector by which side of k random hyperplanes it falls on, so near vectors share codes and far ones rarely do, then look in L tables and rerank only the candidates: sublinear search with a miss rate the formula predicts.',
-    description:
-      'Locality-sensitive hashing by random hyperplane hashes on 2,000 clustered unit vectors in 32 dimensions, held to brute force: the collision law theta/pi measured within 0.6 points at five exact angles; the amplification 1 - (1 - p^k)^L measured within 1 point at two; the search at k = 10, L = 20 finding the true neighbor in 100 of 100 queries at 337 dot products against 2,000; the ablations (one bit examines half the data, twenty bits in one table recalls 0.03); random projection to 8 dimensions at recall 0.73; and a k-d tree in 32 dimensions visiting 1,676 of 2,000 points, the curse of dimensionality counted.',
     listenMinutes: 8,
     time: 'k L hash dots + candidates per query',
     space: 'L tables of n codes',
@@ -2894,8 +2598,6 @@ export const PUZZLES = {
     domain: 'Interpretable classification',
     oneLiner:
       'Ask, at every node, the question whose answer drops the label entropy most, split, and recurse: a flowchart that recovers the hidden rule\'s own thresholds, fits the noise if grown too far, and is read back to six leaves by pruning.',
-    description:
-      'The decision tree by information gain splits on 2,000 examples from a hidden tree rule with 10% label noise, held to the rule: the root recovered at the rule\'s threshold and 88.4% test accuracy against the 89.3% Bayes ceiling; entropy, Gini, and misclassification within half a point of each other and random splits 22 points behind; the identifier trap sprung with multiway splits (2,000 leaves, 57.1%, the majority rate) and defused by gain ratio (89.2%) and by binary splits (89.0%); the depth sweep from 74.8% at one question to 100% train / 81.2% test unpruned, pruned back to six leaves at 89.0%; a random forest at 88.7%, naive Bayes 75.3%, logistic regression 73.5%.',
     listenMinutes: 9,
     time: 'O(d n log n) per level',
     space: 'O(leaves)',
@@ -2914,8 +2616,6 @@ export const PUZZLES = {
     domain: 'Probabilistic classification',
     oneLiner:
       'Multiply the class prior by every word\'s likelihood as if the words were independent, in logs, with one imaginary count added to every word so that a never-seen word costs a penalty instead of the verdict: counting beats fitting when labels are scarce.',
-    description:
-      'Naive Bayes with Laplace smoothing on 1,000 training documents over a 5,000-word vocabulary, held to the distributions that generated them: 90.2% against the exact classifier\'s 95.6%; the smoothing sweep with both cliffs (alpha 0 zeroes a class in 96% of documents and scores 50.2%, the majority rate; alpha 1 the best of eight; alpha 100 scores 60%); the independence lie caught as inflated confidence (0.930 at accuracy 0.902, 0.963 when every count is doubled); the learning curve against logistic regression (89.1% vs 82.8% at 50 documents, 90.2% vs 90.9% at 1,000); and raw probability products measured to underflow on 68% of 176-word and 100% of 419-word documents.',
     listenMinutes: 9,
     time: 'one counting pass; V log-probabilities per class',
     space: 'V counts per class',
@@ -2934,8 +2634,6 @@ export const PUZZLES = {
     domain: 'Market-basket analysis',
     oneLiner:
       'Count itemsets level by level and never count a candidate whose subset was infrequent: the lattice above an infrequent set is never visited, and the frequent sets come out exact, with rules checked by lift rather than confidence alone.',
-    description:
-      'Association rule mining by Apriori candidate pruning on 5,000 baskets over 200 items with 25 planted itemsets, held to exhaustive subset counting: 393 frequent itemsets identical at every size, all 25 planted sets recovered; the prune counted per level (size 3: 124 of 1,914 candidates counted, 620,000 tests instead of 9,570,000; levels 3 and up 945,000 against 10,040,000; the unprunable pair level at 9,765,000); the support threshold\'s cliff (951 sets and 105 million tests at 1%, 393 and 10.7 million at 2%); 1,438 rules with the planted ones at lift 6.5 to 21.9 and 194 rules pointing at the ubiquitous item at lift about 1; and Eclat agreeing from 2,832,439 tid-set elements.',
     listenMinutes: 9,
     time: 'one scan per level; candidates x baskets tests',
     space: 'frequent sets per level',
@@ -2954,8 +2652,6 @@ export const PUZZLES = {
     domain: 'Series similarity',
     oneLiner:
       'Find the cheapest monotone path through the grid of sample pairs, letting time stretch and compress inside a band, so that shape is compared while tempo is forgiven: the warp recovered, the classes told apart, and the search made affordable by a lower bound.',
-    description:
-      'Dynamic time warping by elastic alignment on 100-sample series under random smooth time warps, held to a known time map and to a six-shape classification: the recovered path within 2.05 samples of the true warp with DTW at 0.387 against Euclidean 4.134; 1-NN accuracy 99.2% against 83.3%; the Sakoe-Chiba band measured both ways (5% too tight at 90%, 10% at a fifth of the cells with no loss); LB_Keogh never above the true distance on 1,800 pairs and the pruned search exact at 358 of 3,600 full computations; and the pathological unbounded path measured, a spike matching a 60-wide plateau at distance 0.00, capped at 21 samples and 6.24 by the band.',
     listenMinutes: 9,
     time: 'n m cells, or n w with a band',
     space: 'n m, or two rows',
@@ -2974,8 +2670,6 @@ export const PUZZLES = {
     domain: 'Line detection',
     oneLiner:
       'Let every edge point vote for every line through it, in a bounded (rho, theta) table where a line\'s points meet in one cell and clutter spreads thin: the lines are the tallest peaks, however many there are, and no point ever has to be called an outlier.',
-    description:
-      'The Hough transform by parameter-space voting on three planted lines of 40 noisy edge points among 200 clutter points, held to the planted (rho, theta): all three lines are the three tallest peaks within 2 px and 2 degrees (101 / 100 / 86 summed votes against 50 for the tallest clutter peak), still found under 800 clutter points (122 against 91); the accumulator\'s grain measured both ways (2 x 2 bins gather more, 4-degree bins lose a line between bins, 1 x 2 localizes exactly); sequential RANSAC recovering 3 of 3 at 168,400 residual evaluations against 57,600 votes; and one least-squares line through everything fitting 6 of 320 points.',
     listenMinutes: 9,
     time: 'points x theta steps votes',
     space: 'rho steps x theta steps cells',
@@ -2994,8 +2688,6 @@ export const PUZZLES = {
     domain: 'Image binarization',
     oneLiner:
       'Try all 256 thresholds in one pass over the histogram and keep the one that pushes the two class means farthest apart, which is exactly the one that makes each class tightest: a parameter-free cut that is exact, free, and global, with the two regimes where it breaks measured.',
-    description:
-      'Otsu thresholding by between-class variance on synthetic images with a known mask, held to the within-plus-between-equals-total identity (to 9e-13 at every threshold), to the Bayes threshold of the known class Gaussians (121 vs 115, 98.45% of pixels against 98.75%), and to a naive twin (the same threshold at 416x the operations); the two failures measured, an illumination ramp that defeats every global threshold (83.6% at best, recovered to 94.3% by Sauvola and 97.8% by a top-hat correction) and rare objects on overlapping classes (72.9% where the minimum-error criterion holds 95.9%), with that rival\'s own cliff on balanced classes (48.6%).',
     listenMinutes: 9,
     time: 'one histogram pass + 256 bins',
     space: '256 bins',
@@ -3014,8 +2706,6 @@ export const PUZZLES = {
     domain: 'Memory-bound puzzle search',
     oneLiner:
       'Search depth-first under a bound on g plus h, raise the bound to the smallest value that was cut, and restart: optimal answers with a path\'s worth of memory, where the Manhattan distance is the cut that keeps each bounded search short.',
-    description:
-      'IDA* with the Manhattan distance on sliding-tile puzzles, held to breadth-first distances for all 181,440 reachable 8-puzzle states: optimal on 100 of 100 random states under every heuristic, with none of the three heuristics exceeding the truth on any state; 3,043 nodes with Manhattan against 130,771 with misplaced tiles and 398,551 uninformed, 1,495 with linear conflict; at most 30 states in memory where A* stores 2,311 for 2,310 nodes; the iteration profile of a 29-move instance (5 to 8,225 nodes per bound, the last complete iteration 75%); and four 15-puzzle instances matching A* with 29 states stored against up to 19,921.',
     listenMinutes: 9,
     time: 'sum of bounded depth-first searches',
     space: 'one path',
@@ -3034,8 +2724,6 @@ export const PUZZLES = {
     domain: 'Boolean function representation',
     oneLiner:
       'Test one variable per node in a fixed order, merge every identical subgraph, and drop every test whose branches agree: one diagram per function, so equivalence is a pointer comparison, satisfiability a glance at the root, and counting a single pass.',
-    description:
-      'The binary decision diagram in reduced ordered canonical form, held to truth tables and exhaustive checks: 200 random formulas rebuilt by De Morgan reduce to the same node 200 of 200 times while 185 function-changing flips never share one, with every diagram exact on all 256 inputs and every count exact; the variable order measured at 16 nodes against 510 for the same function; ripple-carry adders at 3n - 1 nodes; two 6-bit adder designs identical by pointer and equal to integer addition on all 4,096 inputs, the same fact costing a DPLL solver 8,190 decisions; and a million-row truth table against a 20-node diagram.',
     listenMinutes: 9,
     time: 'apply in |f| x |g|',
     space: 'nodes of the diagram, order-dependent',
@@ -3054,8 +2742,6 @@ export const PUZZLES = {
     domain: 'Automatic memory management',
     oneLiner:
       'When the heap fills, mark everything reachable from the roots by following pointers, then sweep the whole heap and free the rest: exact on cycles by definition, paid for in a sweep of the heap and in the holes it leaves.',
-    description:
-      'Garbage collection by mark and sweep on a 20,000-slot heap under a 60,000-step workload of small linked objects with cycles, held to an independent traversal from the roots: 14 collections each keeping exactly the reachable set with no dangling pointer and 0 objects leaked; reference counting exhausting the same heap at step 7,839 with 4,912 cyclic objects it can never free, and an arena at allocation 4,385; mark costed at the live objects (295 to 2,294) and sweep at the heap (about 4,300) per collection against Cheney\'s copying collector (live-proportional, fails above half the heap); and fragmentation measured as 13,640 free slots in 1,294 holes whose largest is 55, failing a 512-slot request that the compacting collector serves from one block.',
     listenMinutes: 9,
     time: 'mark: live objects; sweep: heap size',
     space: 'a mark bit per object and a mark stack',
@@ -3074,8 +2760,6 @@ export const PUZZLES = {
     domain: 'Congestion avoidance',
     oneLiner:
       'Double the window until the first loss, then add one per round trip and halve on every loss: from one bit of feedback, competing senders converge to equal shares, because increases move parallel to the fairness line and halvings move toward the origin.',
-    description:
-      'TCP congestion control by AIMD with slow start on a fluid model of a shared bottleneck, held to Jain\'s fairness index, the link utilization, and the Chiu-Jain phase-plane invariants checked on every step: two senders from windows 1 and 40 fair by round trip 5 and at 1.000 at rest; one sender at 81% utilization with a sawtooth between 55 and 110; slow start reaching the capacity in 7 round trips against 99 for additive-only; AIAD (0.870) and MIMD (0.854) never converging; a sender that ignores loss taking 99.5% of the link; and round-trip times 1 and 4 splitting it 88% to 12%.',
     listenMinutes: 9,
     time: 'one update per round trip',
     space: 'a window and a threshold per sender',
@@ -3094,8 +2778,6 @@ export const PUZZLES = {
     domain: 'N-body simulation',
     oneLiner:
       'Put the bodies in an octree with every cell\'s mass and center of mass, and let a far cell pull as one point when its size over its distance is below theta: a fifth of the pair interactions for a fraction of a percent of force error, with the trade measured at five angles.',
-    description:
-      'Barnes-Hut with the octree center-of-mass approximation, held to direct summation over every pair: theta 0 reproduces the direct forces to 2.5e-15; theta 0.3 / 0.5 / 0.7 / 1.0 / 2.0 costs 341,842 / 195,766 / 130,172 / 76,431 / 28,023 interactions on 1,000 bodies for median errors of 1.2e-3 / 6.0e-3 / 1.6e-2 / 3.8e-2 / 1.7e-1; the count grows 21.7x across an 8x range of N where direct summation grows 64x; every cell\'s mass and center of mass exact to 1e-9; and a 40-step leapfrog integration drifting in energy by 2.2e-3 and in momentum by 2.5e-3, the tree\'s forces not being antisymmetric.',
     listenMinutes: 9,
     time: 'about N log N interactions per step',
     space: 'an octree of O(N) cells',
@@ -3114,8 +2796,6 @@ export const PUZZLES = {
     domain: 'Nonlinear least squares',
     oneLiner:
       'Solve the Gauss-Newton normal equations with lambda added to the diagonal, raising lambda tenfold after a rejected step and lowering it after an accepted one: a gradient step when the linear model lies, the full Newton step when it tells the truth, and the superlinear finish of Newton from starts where Newton alone diverges.',
-    description:
-      'Levenberg-Marquardt with trust-region damping on the double-exponential fit, held to the residual floor at the known true parameters: 98 of 100 far starts within 1% of the floor in 9.2 iterations on average, against 29 for undamped Gauss-Newton (71 diverged) and 81 for gradient descent at 2,936 iterations; the damping traced on one run (lambda 1e-2 to 1e-6 over 8 accepted and 3 rejected steps); parameter-error ratios of 2.3e-2, 3.5e-2, 7.0e-3 per step near the solution against 0.9999 for gradient descent; and the condition number of the normal matrix cut from 3.6e5 to 1.5e4 by lambda = 1.',
     listenMinutes: 9,
     time: 'one n x n solve per trial step',
     space: 'the Jacobian, m x n',
@@ -3134,8 +2814,6 @@ export const PUZZLES = {
     domain: 'Derivative-free optimization',
     oneLiner:
       'Keep n + 1 points sorted by value and replace the worst each iteration by reflecting it through the centroid of the others, expanding when the reflection is the new best, contracting when it is poor, and shrinking everything toward the best when nothing helps: a minimizer built from comparisons alone, which is why it survives noise that destroys finite-difference gradients.',
-    description:
-      'Nelder-Mead with the reflect-expand-contract simplex on three referees with known minima: 50 of 50 random starts on Rosenbrock below 1e-8 at 208 evaluations against BFGS 111 with the analytic gradient and coordinate descent 0 of 50; 1,139 reflections, 374 expansions, 3,869 contractions, and 9 shrinks over the runs; 0.016 from the center of a quadratic under evaluation noise 1e-3 where finite-difference BFGS ends 2.34 away; McKinnon\'s stall at the origin reproduced (135 inside contractions, no reflection) and escaped by a restart; and evaluations climbing 146 to 5,718 to 81,689 for n = 2, 16, 32 against BFGS 29, 117, 216.',
     listenMinutes: 9,
     time: 'one to n + 1 evaluations per iteration',
     space: 'n + 1 points',
@@ -3154,8 +2832,6 @@ export const PUZZLES = {
     domain: 'Compiler backend',
     oneLiner:
       'Build the interference graph, one node per value and an edge between any two live at once, then simplify it by pushing every node with fewer than K neighbors and, when stuck, the node with the smallest spill cost per degree; pop the stack handing out registers, spill what finds none, rewrite, and repeat: the values sent to memory are the ones touched rarely, outside the loops, and in the way of many others.',
-    description:
-      'Register allocation by graph coloring with Chaitin\'s simplify-select and a loop-weighted cost / degree spill choice, on 30 random structured programs of 48 to 354 values at register pressure 12 to 25, every allocation checked by two oracles (no interference edge inside one register; an identical trace on K physical registers): dynamic loads and stores at K = 4 / 8 / 12 / 16 of 22,890 / 7,918 / 1,998 / 294 against linear scan 28,051 / 18,453 / 15,485 / 10,946, degree-only spilling 28,488 / 15,248 / 5,911 / 994, and everything in memory 41,250; the chromatic number equal to the clique number on all 30 graphs with simplify-select matching it on 30 of 30; and the quadratic price measured on 6,787 values (1,033,679 edges, 4.5 s against 4 ms for linear scan).',
     listenMinutes: 10,
     time: 'quadratic in values per spill round',
     space: 'the interference graph',
@@ -3174,8 +2850,6 @@ export const PUZZLES = {
     domain: 'Amortized-optimal priority queue',
     oneLiner:
       'Keep a forest of heap-ordered trees in a lazy root list: insert splices a one-node tree, decrease-key cuts a node loose, and only delete-min tidies by linking equal-degree roots; a node that loses a second child is cut too, which keeps every tree fat enough that the maximum degree stays logarithmic and decrease-key costs a constant, amortized.',
-    description:
-      'The Fibonacci heap with lazy consolidation and marking, held to a sorted reference on 60,000 random operations (0 mismatches, as for a binary heap with a position map and a pairing heap), the Fibonacci property checked at every node (max degree 13 against the bound 19), the amortized accounting measured (0.274 cuts per decrease-key against the bound of 2, 5.3 links per delete-min against log2 n = 14.7, actual work 212,721 against an amortized total of 1,026,348), the marks shown load-bearing by an adversary that breaks the property without them (16 violations, max degree 17 against 13), and Dijkstra on three graphs against an array oracle: 6,914 primitive steps for 499,500 decrease-keys on the cascade graph against 998,002 for the pairing heap and 999,001 for the lazy heap, and honest wall-clock ties or losses to the binary heap elsewhere.',
     listenMinutes: 10,
     time: 'O(1) insert and decrease-key, O(log n) delete-min, amortized',
     space: 'four pointers, a degree, and a mark per node',
@@ -3194,8 +2868,6 @@ export const PUZZLES = {
     domain: 'Seasonal forecasting',
     oneLiner:
       'Keep three running numbers per series, a level, a trend, and a cycle of m seasonal indices, each a weighted average with geometrically fading weights at its own rate, and forecast h steps out as level plus h trends plus (or times) the index for that month: one pass, three rates fitted by the one-step error, and no model beyond the decomposition.',
-    description:
-      'Holt-Winters on a synthetic monthly series with known parts: RMSE 3.31 against the oracle floor 2.83, seasonal naive with drift 6.49, Holt\'s trend 109.91; the multiplicative form ahead on growing swings (6.46 against 10.73); airline holdout MAPE 7.3% against 10.0% and 19.4%; the wrong season length 21.99.',
     listenMinutes: 10,
     time: 'one pass over the series; three rates to fit',
     space: 'a level, a trend, and m seasonal indices',
@@ -3214,8 +2886,6 @@ export const PUZZLES = {
     domain: 'Strictly balanced dictionary',
     oneLiner:
       'Store a height in every node, allow the two children of any node to differ in height by at most one, and repair a broken node on the way back up with a single or double rotation at the lowest place it breaks: the height stays under 1.44 log2 n for any arrival order, an insertion needs at most one rotation, and the sorted input that turns a plain tree into a list builds the perfectly balanced floor instead.',
-    description:
-      'The AVL tree on 20,000 keys against a Python set referee: height 17 under the bound 20.3, at most one rotation per insertion (4,732 single, 4,708 double), height 15 under sorted arrival; lookups 14.11 visits against 14.29 (red-black), 17.79 (treap), 18.03 (plain BST); the plain tree on sorted keys at height 4,000.',
     listenMinutes: 10,
     time: 'O(log n) worst case per operation',
     space: 'one stored height per node',
@@ -3234,8 +2904,6 @@ export const PUZZLES = {
     domain: 'Imperfect-information equilibria',
     oneLiner:
       'Walk the whole game tree in self-play, and at every information set add, for each action, the gain it would have had over the strategy played, weighted by how likely the opponent and chance were to bring the game there; next iteration play each action in proportion to its positive regret: the average of everything played converges to a Nash equilibrium at the rate of one over the square root of the iterations, with no learning rate and no linear program.',
-    description:
-      'CFR with regret matching on Kuhn poker: value -0.0555 against -1/18, exploitability 0.0015 after 10,000 iterations inside the regret bound 0.0059, on Kuhn\'s closed-form family; CFR+ 0.0049, fictitious play 0.0068, MCCFR 0.0450 at 1,000 iterations or an equal node budget; determinized minimax exploitable for 0.167 a hand.',
     listenMinutes: 10,
     time: 'one full tree walk per iteration; error falls as 1/sqrt(T)',
     space: 'two numbers per action per information set',
@@ -3254,8 +2922,6 @@ export const PUZZLES = {
     domain: 'Robust root finding',
     oneLiner:
       'Keep a bracket that provably holds the root, propose the next point from the sideways parabola through the last three (the secant when two coincide), and take it only if it stays inside the bracket and is less than half the step before last, falling back to the midpoint otherwise: superlinear on smooth functions, never worse than about the square of bisection\'s count on any continuous one.',
-    description:
-      'Brent\'s method on nine bracketed problems at 1e-12 against bisection to the last bit: 49 evaluations for six smooth roots against 253 (bisection), 62 (Illinois), 144 (Ridders); 33 on the cube root that breaks Newton; 18 on e^x - 1 over [-40, 60] against 109; an honest loss on the triple root (102 against 42); the guarantee never exceeded.',
     listenMinutes: 10,
     time: 'one evaluation per step; order about 1.84 on smooth f',
     space: 'three points and two step sizes',
@@ -3274,8 +2940,6 @@ export const PUZZLES = {
     domain: 'Vertex coloring',
     oneLiner:
       'Give each vertex the smallest color its colored neighbors have not used, taking the vertices in the order that is hardest to fool: the one whose neighbors already show the most distinct colors goes next, ties broken by the most uncolored neighbors; one pass, at most one more color than the largest degree, and exactly two on any bipartite graph.',
-    description:
-      'DSatur against an exact chromatic number on 200 random graphs: optimal on 129 of 200 (RLF 98, largest-first 56, random 18); exactly 2 colors on 200 of 200 bipartite graphs; 18 and 75 colors at n = 600 against 19 and 76 for RLF at a fraction of its scans; the crown graph K50,50 minus a matching: largest-first 50, DSatur 2.',
     listenMinutes: 10,
     time: 'O(n^2 + m) with a scan, O((n + m) log n) with a heap',
     space: 'a saturation set per vertex',
@@ -3294,8 +2958,6 @@ export const PUZZLES = {
     domain: 'Document ranking',
     oneLiner:
       'Walk each query term\'s postings and add idf times a term frequency that saturates, tf (k1 + 1) / (tf + k1 (1 - b + b |d| / avgdl)), so the fifth occurrence of a word is worth far less than the first, two different query words beat one word twice, and a document ten times longer is not ten times more relevant.',
-    description:
-      'BM25 on a corpus with known relevance (40 overlapping topics, 200 queries, 40 keyword-stuffed documents): MAP 0.897 against tf-idf 0.706, cosine 0.874, query likelihood 0.822, raw counts 0.684; the saturation curve 1.000 to 2.187 toward the 2.2 ceiling; a word repeated 300 times tops 67 of 200 queries under raw counts and none under BM25.',
     listenMinutes: 10,
     time: 'one postings walk per query term',
     space: 'the inverted index plus a length per document',
@@ -3314,8 +2976,6 @@ export const PUZZLES = {
     domain: 'Option pricing',
     oneLiner:
       'Hedge the option with the stock and the stock\'s expected return drops out, so the price is the discounted expected payoff under a measure where the stock drifts at the risk-free rate; assume constant volatility and the terminal price is lognormal, so that expectation is two normal distribution functions, C = S N(d1) - K e^(-rT) N(d2), and every sensitivity is a formula too.',
-    description:
-      'Black-Scholes on S = 100, K = 100, r = 5%, sigma = 20%, T = 1: call 10.450584, the PDE residual under 4e-6, parity to 1e-12, Greeks to five places; CRR 0.0005 off at 4,000 steps, Crank-Nicolson 0.0006 at 800 x 800, Monte Carlo within standard error; a Heston skew from 24.7% to 13.9% the model cannot make; the vanilla formula 7.9x too high on a barrier call.',
     listenMinutes: 10,
     time: 'two normal CDF evaluations',
     space: 'O(1)',
@@ -3334,8 +2994,6 @@ export const PUZZLES = {
     domain: 'Constraint satisfaction',
     oneLiner:
       'After every assignment, run a queue of arcs: delete from a variable every value with no supporting partner left in a neighbor, and whenever a domain shrinks requeue every arc into it; stop at a fixpoint or a wipeout, then branch only on what survives, so a dead end is found where it is created instead of twenty levels deeper.',
-    description:
-      'MAC with AC-3 on random CSPs (25 variables, domain 6) across the phase transition: at tightness 0.44, 6 nodes against 93 for forward checking while plain backtracking exhausts 200,000; 33 against 102 where instances are satisfiable; the propagation costs two to five times the constraint checks; AC-3 alone solves the easy Sudoku; proven against exhaustive enumeration on 40 small instances.',
     listenMinutes: 10,
     time: 'O(e d^3) propagation per search node',
     space: 'a domain per variable per level',
@@ -3354,8 +3012,6 @@ export const PUZZLES = {
     domain: 'Edge detection',
     oneLiner:
       'Blur, take the gradient, keep only the local maxima along the gradient so every edge is one pixel thin, then decide with two thresholds instead of one: a pixel above the high threshold is an edge, and a pixel above the low threshold is an edge only if it connects through other candidates to a strong one, so faint stretches of real contours survive and isolated noise does not.',
-    description:
-      'Canny with hysteresis on an image whose edges are known by construction: F1 1.000 noiseless and 0.937 at noise 40 with 2 components; one high threshold alone holds recall 0.82 (faint edges lost), one low threshold alone admits 751 pixels for 248 true (precision 0.33); thresholded Sobel 99% thick; the hysteresis invariant proven pixel by pixel.',
     listenMinutes: 10,
     time: 'O(pixels) for blur, gradient, thinning, and one breadth-first search',
     space: 'a magnitude and a direction per pixel',

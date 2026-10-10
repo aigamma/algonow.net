@@ -3109,6 +3109,24 @@ export const PUZZLES = {
     vite: 'hill-climbing-random-restarts',
     html: 'hill-climbing-random-restarts/index.html',
   },
+  '/kernel-density-estimation-silverman-bandwidth/': {
+    slug: 'kernel-density-estimation-silverman-bandwidth',
+    added: '2026-10-10',
+    problemSlug: 'density-estimation',
+    number: 179,
+    category: 'probabilistic',
+    algorithm: 'Kernel density estimation',
+    heuristic: 'Silverman bandwidth',
+    domain: 'Density estimation',
+    oneLiner:
+      'Center a Gaussian bump of width h on every observation and average them, and set h by the one-line rule 0.9 min(s, IQR/1.34) n^(-1/5), the bandwidth that is optimal for Gaussian data with a robust scale: nearly the oracle on one cloud of points, and a blur on two, because the scale it measures is then the gap between the modes.',
+    listenMinutes: 10,
+    time: 'O(n) per evaluation point; one bandwidth from s and IQR',
+    space: 'the sample itself',
+    baseline: 'Histogram with Freedman-Diaconis or Sturges bins',
+    vite: 'kernel-density-estimation-silverman-bandwidth',
+    html: 'kernel-density-estimation-silverman-bandwidth/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

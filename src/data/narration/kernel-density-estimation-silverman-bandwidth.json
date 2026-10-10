@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:kernel-density-estimation-silverman-bandwidth",
+  "source_path": "src/content/kernel-density-estimation-silverman-bandwidth.narration.js",
+  "source_sha256": "a020ab981c6d7aa820211870f86e8f6a5fca2d84e9efbc5c084bf29f6f6f5bac",
+  "source_characters": 11630,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "bbfead8e6a7cc8faa4f8edf5814c95271376eb8821e9b24b7c382b15d7e446c2",
+  "generated_at": "2026-10-10T23:09:55.415Z",
+  "generated_characters": 23260,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4612,
+      "utf8_bytes": 4630,
+      "sha256": "6c77d89d52fcb3256db065df7d763ac27f7b0eb84b0244b250e7aafe40bcff2e"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4984,
+      "utf8_bytes": 4988,
+      "sha256": "83a455bfcaaa95d761299b908373afb5f0f876ab2dff3c4dc89bb2e9b3317a8f"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1273,
+      "utf8_bytes": 1287,
+      "sha256": "b36f22eb181256f3f4b2853f66bae0682e0235bab93179a0a2dc347fa4749d1d"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 761,
+      "utf8_bytes": 761,
+      "sha256": "046652137134b16de00a3fa956795aa6d7e3b08e3820acd8c9dd535626192c89"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "kernel-density-estimation-silverman-bandwidth.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "kernel-density-estimation-silverman-bandwidth.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1581,
+      "sha256": "a13e348e16ea9f9295e02324dc1bba91c7c8bb59ce8906ea8b776352e0e6664b"
+    },
+    {
+      "id": "kernel-density-estimation-silverman-bandwidth.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1146,
+      "sha256": "670040d4e5b9e1a20f287565b95d4b333ccd9dbabc6ebce0671128b1700affa4"
+    },
+    {
+      "id": "kernel-density-estimation-silverman-bandwidth.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1772,
+      "sha256": "79e9c829d9c8edecef66b07060d523af51edaf39fb9f0e5427cc9c34eb9d7f11"
+    },
+    {
+      "id": "kernel-density-estimation-silverman-bandwidth.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 558,
+      "sha256": "403cff1dd1ad851d8803e3b9bba40e8a4dbecefad41a85aa858278fc9a7c67bb"
+    },
+    {
+      "id": "kernel-density-estimation-silverman-bandwidth.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 862,
+      "sha256": "62aa0a1fffc9cac465376c1dfff2dfa15f9dd492dbbdac1dca93f62ba14ea77a"
+    },
+    {
+      "id": "kernel-density-estimation-silverman-bandwidth.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 426,
+      "sha256": "68f4acf1700e2e3a984dcbdf58463f961f8d56d9fe1b1c4587e87e2a6a136ab0"
+    },
+    {
+      "id": "kernel-density-estimation-silverman-bandwidth.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1521,
+      "sha256": "2c502b8b83f521060b15d92decdaef7112e3f1f66f4a40581270f3940591f717"
+    },
+    {
+      "id": "kernel-density-estimation-silverman-bandwidth.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 711,
+      "sha256": "8b846dd35b866d108e23f42eff8edeb0669cf9893d6a1b95978c2216bf8ff7e7"
+    },
+    {
+      "id": "kernel-density-estimation-silverman-bandwidth.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 898,
+      "sha256": "bbbdb03fdc662aa4dda642aa5dcf111536dbd9657af9e798f277275b89133063"
+    },
+    {
+      "id": "kernel-density-estimation-silverman-bandwidth.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2048,
+      "sha256": "ce0aa780c6e9a13af0e690ad0779615a4d7de08094996649d7028f51693c4bb7"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/kernel-density-estimation-silverman-bandwidth/bbfead8e6a7cc8faa4f8/aoede-cb4a08130ad9faca.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2843372,
+      "sha256": "cb4a08130ad9faca169b0ab1b9a6cb34980eb02fb3842a01db528ee7b6cbfe48",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "6c77d89d52fcb3256db065df7d763ac27f7b0eb84b0244b250e7aafe40bcff2e",
+          "bytes": 1143456,
+          "sha256": "44bcaa4bf129f4ebea1528609f2ba926bc41439204fd339139e8833b36ecb35e"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "83a455bfcaaa95d761299b908373afb5f0f876ab2dff3c4dc89bb2e9b3317a8f",
+          "bytes": 1220832,
+          "sha256": "e8884aa6c78275e9d29d7515e3589ce73c49301b4f04db50050885846a0b5ad6"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "b36f22eb181256f3f4b2853f66bae0682e0235bab93179a0a2dc347fa4749d1d",
+          "bytes": 295104,
+          "sha256": "fa3a5b3ad770d0873c2d3d6f88f5d9a548152591ab70d56667e973664302f7d8"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "046652137134b16de00a3fa956795aa6d7e3b08e3820acd8c9dd535626192c89",
+          "bytes": 183744,
+          "sha256": "81dd765cce80bb9038f45a1b0b7cb869b948d2575dd03f90fa83468c5ffb3afd"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/kernel-density-estimation-silverman-bandwidth/bbfead8e6a7cc8faa4f8/algieba-d3ca9e67f5a30341.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2969132,
+      "sha256": "d3ca9e67f5a30341d5273da68ae0af753ec91a0fe66baf52f6858fff1a8ae8b8",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "6c77d89d52fcb3256db065df7d763ac27f7b0eb84b0244b250e7aafe40bcff2e",
+          "bytes": 1169664,
+          "sha256": "4e6ebec39780c0cc0a25147b42ff4ba411504828bd244aafe14a1c725da2eb6d"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "83a455bfcaaa95d761299b908373afb5f0f876ab2dff3c4dc89bb2e9b3317a8f",
+          "bytes": 1291104,
+          "sha256": "8481494ed3ab9b7b6688289fe32cb5ada58b639de729a5477a84f0985d8df97a"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "b36f22eb181256f3f4b2853f66bae0682e0235bab93179a0a2dc347fa4749d1d",
+          "bytes": 305472,
+          "sha256": "243896adafb9f178ae3e0ca279ed693800e9512f4af01d21ce5bc8730b0f2252"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "046652137134b16de00a3fa956795aa6d7e3b08e3820acd8c9dd535626192c89",
+          "bytes": 202656,
+          "sha256": "53599cc9b679df9a70c89222ab55838bfe3ab5c5aebd648dc420c294d086fae3"
+        }
+      ]
+    }
+  }
+}

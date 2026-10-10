@@ -5718,6 +5718,58 @@ commit, Fable trailer on every commit, check green before each push.
       solution, the viz check, the narration plan, and the static checks
       before accepting it. Added 2026-10-10.
 
+- [x] F173. Kernel density estimation × Silverman bandwidth. Puzzle 179,
+      probabilistic (problemSlug density-estimation, the atlas problem
+      page carrying "Density estimation"; sibling live lesson
+      gaussian-mixture-expectation-maximization, puzzle 110). Solution
+      kernel_density_estimation_silverman_bandwidth.py (1.9s, prints
+      OK): three Marron-Wand Gaussian-mixture densities (Gaussian;
+      skewed unimodal #2; separated bimodal #7), a Sample class with
+      precomputed pairwise distances giving the EXACT integrated squared
+      error of a Gaussian KDE at any bandwidth (the three
+      Gaussian-convolution terms in closed form), Silverman's rule,
+      Scott's rule, least-squares cross-validation (Rudemo/Bowman), the
+      oracle bandwidth by a 30-point log grid, exact histogram ISE for
+      Freedman-Diaconis and Sturges bins via the Gaussian CDF, and a
+      nonnegativity and unit-mass check on a wide grid. ORACLES (n =
+      300): Gaussian (sd 1.03, IQR 1.43): h oracle 0.297, Silverman
+      0.296, Scott 0.348, LSCV 0.389; ISE multiples Silverman 1.00x,
+      Scott 1.04x, LSCV 1.12x, histogram FD 1.97x (13 bins), Sturges
+      2.35x (10), h 0.03 7.3x, h 1.5 11.5x; oracle ISE 0.0047. Skewed
+      unimodal (sd 0.83, IQR 1.01): oracle 0.260, Silverman 0.217, Scott
+      0.282, LSCV 0.198; 1.10x, 1.11x, 1.27x, FD 3.75x (19), Sturges
+      9.14x (10), 17.6x, 78.8x; oracle 0.0015. Separated bimodal (sd
+      1.57, IQR 2.97): oracle 0.227, Silverman 0.453, Scott 0.533, LSCV
+      0.198; 5.01x, 7.82x, 1.03x, FD 7.83x (7), Sturges 4.92x (10),
+      8.5x, 36.6x; oracle 0.0033. Rates on the Gaussian, twelve samples
+      per n: n 50 / 100 / 200 / 400 / 800: h 0.366 / 0.340 / 0.302 /
+      0.264 / 0.233, ISE 0.0070 / 0.0080 / 0.0040 / 0.0026 / 0.0011;
+      log-log slopes bandwidth -0.167 (theory -0.200), ISE -0.690
+      (theory -0.800). Honest: the rule loses to a ten-bin histogram on
+      the separated modes; cross-validation loses to the rule on the
+      Gaussian; three author corrections recorded (cross-validation
+      expected to win everywhere; the KDE expected to beat histograms
+      everywhere; the bandwidth slope sits above -1/5 because the robust
+      scale is biased low at small n). Cards: self, Leave-one-out
+      cross-validation, Gaussian mixture model (live lesson badge), Mean
+      shift (all algoName). neverUse: the rule of thumb on data with
+      separated modes. Figure: the bimodal truth with KDEs at h 0.227 /
+      0.453 / 0.03 beside the exact ISE-vs-h U with the rule, oracle,
+      and LSCV marked; cite Silverman 1986 3.4.2, Rosenblatt 1956,
+      Parzen 1962 DOI 10.1214/aoms/1177704472, Marron and Wand 1992. Viz
+      KdeViz: a seeded 120-point sample from one of the three densities
+      (by cycle), the bandwidth swept up a 30-step log ladder one step
+      per tick, the estimate drawn against the truth, the ISE U forming
+      on a log-log panel with Silverman's h marked; mass-to-one and ISE
+      nonnegativity checked every tick; NODE-VERIFIED 20 cycles x 30
+      ticks, 0 breaks; opening seed 20261013 chosen by a scan (Gaussian
+      1.02x, skewed 1.02x, bimodal 2.72x on the first three cycles) and
+      disclosed; stepMs 320, holdTicks rests. Preserved narration: Aoede
+      + Algieba. Authored by a fork agent of this Fable 5.1 session at
+      the owner's explicit request for parallel authoring; the main
+      thread re-ran the solution, the viz check, the narration plan, and
+      the static checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

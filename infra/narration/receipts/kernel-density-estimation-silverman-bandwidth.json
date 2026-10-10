@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net kernel-density-estimation-silverman-bandwidth preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-10T23:11:57.511Z",
+  "publication_sha256": "7c6853abefe6140b23e4de3eafc01becbaecbebcb239d2b7cef34bb42cfa403a",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5812504,
+  "objects": [
+    {
+      "stable_id": "puzzle:kernel-density-estimation-silverman-bandwidth",
+      "slug": "kernel-density-estimation-silverman-bandwidth",
+      "track_id": "algieba",
+      "source_sha256": "a020ab981c6d7aa820211870f86e8f6a5fca2d84e9efbc5c084bf29f6f6f5bac",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "bbfead8e6a7cc8faa4f8edf5814c95271376eb8821e9b24b7c382b15d7e446c2",
+      "object_key": "narration/v1/puzzles/kernel-density-estimation-silverman-bandwidth/bbfead8e6a7cc8faa4f8/algieba-d3ca9e67f5a30341.mp3",
+      "bytes": 2969132,
+      "sha256": "d3ca9e67f5a30341d5273da68ae0af753ec91a0fe66baf52f6858fff1a8ae8b8",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:kernel-density-estimation-silverman-bandwidth",
+      "slug": "kernel-density-estimation-silverman-bandwidth",
+      "track_id": "aoede",
+      "source_sha256": "a020ab981c6d7aa820211870f86e8f6a5fca2d84e9efbc5c084bf29f6f6f5bac",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "bbfead8e6a7cc8faa4f8edf5814c95271376eb8821e9b24b7c382b15d7e446c2",
+      "object_key": "narration/v1/puzzles/kernel-density-estimation-silverman-bandwidth/bbfead8e6a7cc8faa4f8/aoede-cb4a08130ad9faca.mp3",
+      "bytes": 2843372,
+      "sha256": "cb4a08130ad9faca169b0ab1b9a6cb34980eb02fb3842a01db528ee7b6cbfe48",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

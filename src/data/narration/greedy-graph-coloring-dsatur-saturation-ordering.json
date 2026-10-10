@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:greedy-graph-coloring-dsatur-saturation-ordering",
+  "source_path": "src/content/greedy-graph-coloring-dsatur-saturation-ordering.narration.js",
+  "source_sha256": "81a8862dac5246f540ec786ac1679dc087d22466cfc570419ae07c274e8ed46f",
+  "source_characters": 11080,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "473494a27d157358fb4d08341033ed8e80983e6312c93ac367155b892a8286d7",
+  "generated_at": "2026-10-10T21:51:30.480Z",
+  "generated_characters": 22160,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4687,
+      "utf8_bytes": 4692,
+      "sha256": "afb4115ad0cd821b9e7a2d7c518fd10febab76583a39481c30ae45a0f2d243c4"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4377,
+      "utf8_bytes": 4380,
+      "sha256": "d0540c2887b3b193f321c0c513dfaab118aabb798bfd867fc204ef66b0a8be55"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2016,
+      "utf8_bytes": 2021,
+      "sha256": "f4cc93bc2d3b3bda4be32f27a03edc52ef3cd9c8fa1c349610af6ea6c7da8802"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "greedy-graph-coloring-dsatur-saturation-ordering.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "greedy-graph-coloring-dsatur-saturation-ordering.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1303,
+      "sha256": "12a80f62cb68b73de967590f49f42a833076e26cfbd7ac831975dabb917891fb"
+    },
+    {
+      "id": "greedy-graph-coloring-dsatur-saturation-ordering.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1123,
+      "sha256": "932bd89ee82049e38fd414721e51a2d6fd213ee64e1a23e1726451ec16ea774a"
+    },
+    {
+      "id": "greedy-graph-coloring-dsatur-saturation-ordering.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1582,
+      "sha256": "5e7192fc5af21601193831db451dad6cba0c343405ffc5ad32652c55ac1234ca"
+    },
+    {
+      "id": "greedy-graph-coloring-dsatur-saturation-ordering.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 551,
+      "sha256": "7d24cd834e703f278d7b2db17b140553618e28517d0e8121c91d966da5034f3a"
+    },
+    {
+      "id": "greedy-graph-coloring-dsatur-saturation-ordering.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 616,
+      "sha256": "af18b441f9f319c26f4b430a30bb74ff215fdf07507608095a756b896917a52c"
+    },
+    {
+      "id": "greedy-graph-coloring-dsatur-saturation-ordering.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 432,
+      "sha256": "c5292e1f539074be8f0fc691690591f12e80c17ac03164dd94d756a9e595756e"
+    },
+    {
+      "id": "greedy-graph-coloring-dsatur-saturation-ordering.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1859,
+      "sha256": "87508dec250348938bc91ea350a1d113875fb3a80e3f0dd3a8417d4b8f9db65a"
+    },
+    {
+      "id": "greedy-graph-coloring-dsatur-saturation-ordering.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 612,
+      "sha256": "654390cbdb9de1872e135cbaaa028fe45b13e5e4c9f51946ed3cc06cc81713ae"
+    },
+    {
+      "id": "greedy-graph-coloring-dsatur-saturation-ordering.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 851,
+      "sha256": "50c6e3145c917f994655eaf84ae6c9a3baf8772509cfdbf2264db13e77d95a33"
+    },
+    {
+      "id": "greedy-graph-coloring-dsatur-saturation-ordering.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2021,
+      "sha256": "f4cc93bc2d3b3bda4be32f27a03edc52ef3cd9c8fa1c349610af6ea6c7da8802"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/greedy-graph-coloring-dsatur-saturation-ordering/473494a27d157358fb4d/aoede-6c3a41ef6477b44c.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2773676,
+      "sha256": "6c3a41ef6477b44c7406fb6d5b1663d6d0ce6891e14ddb9e6eb76c66d3baa6b6",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "afb4115ad0cd821b9e7a2d7c518fd10febab76583a39481c30ae45a0f2d243c4",
+          "bytes": 1193952,
+          "sha256": "7c68e5d9e16cec86d199b8985727773f8bebb4bbb13d6d06a6e5d9921e23c3b6"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "d0540c2887b3b193f321c0c513dfaab118aabb798bfd867fc204ef66b0a8be55",
+          "bytes": 1126272,
+          "sha256": "e4af187a7129e05a5ba0d6ac0634af85def38aba6c5d839a82706eccaa814b04"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "f4cc93bc2d3b3bda4be32f27a03edc52ef3cd9c8fa1c349610af6ea6c7da8802",
+          "bytes": 453216,
+          "sha256": "bbd2d744c6e302ac2107eff69779c60f94aa3843eb20d8835b8a8a7aa7ef04f5"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/greedy-graph-coloring-dsatur-saturation-ordering/473494a27d157358fb4d/algieba-ff650f4fc7ebf507.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2890700,
+      "sha256": "ff650f4fc7ebf5075c6100d4a1621bf45b60545853f15cc61a5de0f318baeeb1",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "afb4115ad0cd821b9e7a2d7c518fd10febab76583a39481c30ae45a0f2d243c4",
+          "bytes": 1238016,
+          "sha256": "8f8aa0f682233d2e9712073b63748be17e21fadeaa53855567fa0f251969e502"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "d0540c2887b3b193f321c0c513dfaab118aabb798bfd867fc204ef66b0a8be55",
+          "bytes": 1186752,
+          "sha256": "08b0abad7b7a5eb4ddb463c13d00ad3389e2a23ee65d36ad591f819b3e41943e"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "f4cc93bc2d3b3bda4be32f27a03edc52ef3cd9c8fa1c349610af6ea6c7da8802",
+          "bytes": 465696,
+          "sha256": "6d10c03687d58d687b2188554502eb5b2cd09f3fd73e6b8995fa9beeef68e03f"
+        }
+      ]
+    }
+  }
+}

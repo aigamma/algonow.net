@@ -3263,13 +3263,33 @@ export const PUZZLES = {
     vite: 'brents-method-inverse-quadratic-interpolation',
     html: 'brents-method-inverse-quadratic-interpolation/index.html',
   },
+  '/greedy-graph-coloring-dsatur-saturation-ordering/': {
+    slug: 'greedy-graph-coloring-dsatur-saturation-ordering',
+    added: '2026-10-10',
+    problemSlug: 'vertex-coloring',
+    number: 168,
+    category: 'graphs',
+    algorithm: 'Greedy graph coloring',
+    heuristic: 'DSatur saturation ordering',
+    domain: 'Vertex coloring',
+    oneLiner:
+      'Give each vertex the smallest color its colored neighbors have not used, taking the vertices in the order that is hardest to fool: the one whose neighbors already show the most distinct colors goes next, ties broken by the most uncolored neighbors; one pass, at most one more color than the largest degree, and exactly two on any bipartite graph.',
+    description:
+      'Greedy graph coloring with the DSatur saturation order against an exact branch-and-bound chromatic number on 200 random graphs of 24 vertices: optimal on 129 of 200 (average excess 0.355 colors) against 98 for recursive largest first, 58 for smallest-last, 56 for largest-first, and 18 for a random order; exactly 2 colors on 200 of 200 random bipartite graphs where largest-first needed up to 5; at n = 600, 18 and 75 colors against 20 and 80 for largest-first and 19 and 76 for RLF at a thirteenth to a thirty-sixth of RLF\'s neighbor scans; and the crown graph K50,50 minus a matching, where largest-first and RLF use 50 colors on a 2-colorable graph and DSatur uses 2.',
+    listenMinutes: 10,
+    time: 'O(n^2 + m) with a scan, O((n + m) log n) with a heap',
+    space: 'a saturation set per vertex',
+    baseline: 'Largest-first greedy (Welsh-Powell)',
+    vite: 'greedy-graph-coloring-dsatur-saturation-ordering',
+    html: 'greedy-graph-coloring-dsatur-saturation-ordering/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Greedy graph coloring', heuristic: 'DSatur saturation ordering', domain: 'Vertex coloring' },
+  { algorithm: 'BM25 ranking', heuristic: 'Saturating term frequency', domain: 'Document ranking' },
 ];
 
 

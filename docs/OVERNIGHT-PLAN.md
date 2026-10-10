@@ -5246,6 +5246,50 @@ commit, Fable trailer on every commit, check green before each push.
       stepMs 700, holdTicks rests. Preserved narration: Aoede + Algieba.
       Added 2026-10-10.
 
+- [x] F162. Greedy graph coloring × DSatur saturation ordering. Puzzle
+      168, graphs (problemSlug vertex-coloring, the atlas problem page
+      carrying "Vertex coloring"). Solution
+      greedy_graph_coloring_dsatur_saturation_ordering.py (0.7s, prints
+      OK): the greedy pass with a scan counter, largest-first,
+      smallest-last with degree buckets (reports degeneracy), DSatur,
+      recursive largest first, Brelaz's exact branch and bound, random
+      G(n, p), random connected bipartite graphs, the crown graph, and
+      Mycielski's construction. ORACLES: (1) 200 random graphs n = 24, p
+      in [0.2, 0.6], exact chi (8,207 search nodes total): optimal
+      DSatur 129 / RLF 98 / smallest-last 58 / largest-first 56 / random
+      18 of 200, average excess 0.355 / 0.545 / 0.845 / 0.825 / 1.430;
+      (2) every coloring proper, every greedy at most Delta + 1,
+      smallest-last at most degeneracy + 1, DSatur exactly 2 on 200 of
+      200 random bipartite graphs (largest-first up to 5), Mycielski M3
+      / M4 / M5 chi 3 / 4 / 5 recovered by the exact solver and hit by
+      every method; (3) G(600, 0.1): clique bound 4, Delta + 1 = 89,
+      DSatur 18 colors (216,282 scans), RLF 19 (2,601,807),
+      largest-first 20 (35,982), smallest-last 21 (71,964), random 22;
+      G(600, 0.5): clique 10, Delta + 1 = 335, DSatur 75 (359,644), RLF
+      76 (12,832,354), largest-first 80 (179,344), smallest-last 81
+      (358,688), random 85; (4) crown graph K50,50 minus a matching:
+      largest-first 50, RLF 50, smallest-last 2, DSatur 2. Honest:
+      DSatur is wrong by a color on 71 of 200 small graphs, and the
+      viz's random cycles include ties with largest-first (seed 20261014
+      opens with 4 against 5 at chi 4; seed 20261010 would have opened
+      with a one-color loss, so the seed was chosen by a scan and the
+      page says the order is not always better); author correction
+      recorded (the draft hedged that RLF would use the fewest colors on
+      dense graphs; measured one behind DSatur on both instances, not
+      generalized). Cards: self, Recursive largest first, Backtracking
+      coloring, Smallest-last ordering (greedy, algoName Greedy graph
+      coloring). neverUse: a static order on the crown graph. Figure:
+      the six-plus-six crown graph colored by largest-first (6) and
+      DSatur (2) beside bars of optimal hits of 200; cite Brelaz CACM
+      1979 DOI 10.1145/359094.359101, Welsh and Powell 1967, Matula and
+      Beck 1983, Johnson 1974. Viz DsaturViz: the same graph colored one
+      vertex per tick by DSatur (left) and largest-first (right), random
+      20-vertex graphs with the exact chi computed at scene start on
+      even cycles and the 8+8 crown graph on odd cycles; NODE-VERIFIED
+      20 cycles, every coloring proper on every tick; stepMs 600,
+      holdTicks rests. Preserved narration: Aoede + Algieba. Added
+      2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

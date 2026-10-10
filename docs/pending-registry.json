@@ -2,28 +2,6 @@
  "_doc": "Units authored and verified while publication was blocked: authorize-release-objects.mjs needs the privileged AWS login session, which had expired on 2026-10-10. Each record is the registry entry and plan row for one unit; the shipping commit registers it in src/data/puzzles.js, writes the plan row to docs/OVERNIGHT-PLAN.md, bumps livePuzzles, and removes the record. Delete this file when it is empty.",
  "units": [
   {
-   "slug": "greedy-graph-coloring-dsatur-saturation-ordering",
-   "number": 168,
-   "plan_row_id": "F162",
-   "problemSlug": "vertex-coloring",
-   "category": "graphs",
-   "algorithm": "Greedy graph coloring",
-   "heuristic": "DSatur saturation ordering",
-   "domain": "Vertex coloring",
-   "oneLiner": "Give each vertex the smallest color its colored neighbors have not used, taking the vertices in the order that is hardest to fool: the one whose neighbors already show the most distinct colors goes next, ties broken by the most uncolored neighbors; one pass, at most one more color than the largest degree, and exactly two on any bipartite graph.",
-   "description": "Greedy graph coloring with the DSatur saturation order against an exact branch-and-bound chromatic number on 200 random graphs of 24 vertices: optimal on 129 of 200 (average excess 0.355 colors) against 98 for recursive largest first, 58 for smallest-last, 56 for largest-first, and 18 for a random order; exactly 2 colors on 200 of 200 random bipartite graphs where largest-first needed up to 5; at n = 600, 18 and 75 colors against 20 and 80 for largest-first and 19 and 76 for RLF at a thirteenth to a thirty-sixth of RLF's neighbor scans; and the crown graph K50,50 minus a matching, where largest-first and RLF use 50 colors on a 2-colorable graph and DSatur uses 2.",
-   "listenMinutes": 10,
-   "time": "O(n^2 + m) with a scan, O((n + m) log n) with a heap",
-   "space": "a saturation set per vertex",
-   "baseline": "Largest-first greedy (Welsh-Powell)",
-   "narration_plan": {
-    "price_usd": "0.664800",
-    "approval_sha256": "43a232bc0ec5492ab9969f89fd61f036320d89b19c086a645be4a638352a6658",
-    "release": "not generated yet (generate right before publication)"
-   },
-   "plan_row": "Greedy graph coloring × DSatur saturation ordering. Puzzle 168, graphs (problemSlug vertex-coloring, the atlas problem page carrying \"Vertex coloring\"). Solution greedy_graph_coloring_dsatur_saturation_ordering.py (0.7s, prints OK): the greedy pass with a scan counter, largest-first, smallest-last with degree buckets (reports degeneracy), DSatur, recursive largest first, Brelaz's exact branch and bound, random G(n, p), random connected bipartite graphs, the crown graph, and Mycielski's construction. ORACLES: (1) 200 random graphs n = 24, p in [0.2, 0.6], exact chi (8,207 search nodes total): optimal DSatur 129 / RLF 98 / smallest-last 58 / largest-first 56 / random 18 of 200, average excess 0.355 / 0.545 / 0.845 / 0.825 / 1.430; (2) every coloring proper, every greedy at most Delta + 1, smallest-last at most degeneracy + 1, DSatur exactly 2 on 200 of 200 random bipartite graphs (largest-first up to 5), Mycielski M3 / M4 / M5 chi 3 / 4 / 5 recovered by the exact solver and hit by every method; (3) G(600, 0.1): clique bound 4, Delta + 1 = 89, DSatur 18 colors (216,282 scans), RLF 19 (2,601,807), largest-first 20 (35,982), smallest-last 21 (71,964), random 22; G(600, 0.5): clique 10, Delta + 1 = 335, DSatur 75 (359,644), RLF 76 (12,832,354), largest-first 80 (179,344), smallest-last 81 (358,688), random 85; (4) crown graph K50,50 minus a matching: largest-first 50, RLF 50, smallest-last 2, DSatur 2. Honest: DSatur is wrong by a color on 71 of 200 small graphs, and the viz's random cycles include ties with largest-first (seed 20261014 opens with 4 against 5 at chi 4; seed 20261010 would have opened with a one-color loss, so the seed was chosen by a scan and the page says the order is not always better); author correction recorded (the draft hedged that RLF would use the fewest colors on dense graphs; measured one behind DSatur on both instances, not generalized). Cards: self, Recursive largest first, Backtracking coloring, Smallest-last ordering (greedy, algoName Greedy graph coloring). neverUse: a static order on the crown graph. Figure: the six-plus-six crown graph colored by largest-first (6) and DSatur (2) beside bars of optimal hits of 200; cite Brelaz CACM 1979 DOI 10.1145/359094.359101, Welsh and Powell 1967, Matula and Beck 1983, Johnson 1974. Viz DsaturViz: the same graph colored one vertex per tick by DSatur (left) and largest-first (right), random 20-vertex graphs with the exact chi computed at scene start on even cycles and the 8+8 crown graph on odd cycles; NODE-VERIFIED 20 cycles, every coloring proper on every tick; stepMs 600, holdTicks rests. Preserved narration: Aoede + Algieba."
-  },
-  {
    "slug": "bm25-ranking-saturating-term-frequency",
    "number": 169,
    "plan_row_id": "F163",

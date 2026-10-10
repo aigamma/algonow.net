@@ -3199,6 +3199,24 @@ export const PUZZLES = {
     vite: 'round-robin-scheduling-time-quantum',
     html: 'round-robin-scheduling-time-quantum/index.html',
   },
+  '/bonferroni-correction-family-wise-error-control/': {
+    slug: 'bonferroni-correction-family-wise-error-control',
+    added: '2026-10-10',
+    problemSlug: 'multiple-testing',
+    number: 184,
+    category: 'probabilistic',
+    algorithm: 'Bonferroni correction',
+    heuristic: 'Family-wise error control',
+    domain: 'Multiple testing',
+    oneLiner:
+      'Run m tests at once and reject each only at alpha over m: the union bound then caps the chance of any false claim across the whole family at alpha, whatever the tests\' dependence, and the price is that every real effect must clear alpha over m instead of alpha.',
+    listenMinutes: 10,
+    time: 'O(m): one threshold compared to every p-value',
+    space: 'O(1) beyond the p-values',
+    baseline: 'No correction (each test at alpha)',
+    vite: 'bonferroni-correction-family-wise-error-control',
+    html: 'bonferroni-correction-family-wise-error-control/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

@@ -5983,6 +5983,61 @@ commit, Fable trailer on every commit, check green before each push.
       check, the narration plan, and the static checks before accepting
       it. Added 2026-10-10.
 
+- [x] F178. Bonferroni correction × Family-wise error control. Puzzle
+      184, probabilistic (problemSlug multiple-testing, the atlas
+      problem page carrying "Multiple testing"). Solution
+      bonferroni_correction_family_wise_error_control.py (2.1s, prints
+      OK): a family generator (m z-statistics, the first m1 shifted by
+      3.5, under independence, a common factor of correlation 0.5, or
+      centering), exact two-sided p-values via erfc, five rules (no
+      correction, Bonferroni alpha/m, Sidak, Holm step-down,
+      Benjamini-Hochberg step-up), and a run that tallies family-wise
+      error, power, and false discovery proportion while checking the
+      set inclusions Bonferroni within Holm within BH on every family.
+      ORACLES at alpha 0.05: (1) all-null families, FWER no correction /
+      Bonferroni / Sidak / Holm / BH: m = 20 independent (3,000 reps)
+      0.639 / 0.0473 / 0.0490 / 0.0473 / 0.0473 against exact Bonferroni
+      0.0488 and Sidak 0.0500, se 0.0040; m = 20 common factor 0.411 /
+      0.0373 / 0.0380 / 0.0373 / 0.0410; m = 20 centered 0.630 / 0.0467
+      / 0.0480 / 0.0467 / 0.0480; m = 100 independent 0.992 / 0.0507 /
+      0.0513 / 0.0507 / 0.0527; m = 100 common factor 0.781 / 0.0247 /
+      0.0247 / 0.0247 / 0.0310; m = 100 centered 0.993 / 0.0500 / 0.0513
+      / 0.0500 / 0.0513; m = 1,000 (600 reps) independent 1.000 / 0.0400
+      / 0.0417 / 0.0400 / 0.0433, common factor 1.000 / 0.0267 / 0.0267
+      / 0.0267 / 0.0333, centered 1.000 / 0.0467 / 0.0467 / 0.0467 /
+      0.0500: Bonferroni at or below alpha in all nine; (2) nesting held
+      on every family; (3) m = 100 with 10 effects of 3.5 se (3,000
+      reps): power / FWER / FDR: no correction 0.939 / 0.990 / 0.310,
+      Bonferroni 0.511 / 0.044 / 0.008, Holm 0.516 / 0.047 / 0.008, BH
+      0.733 / 0.321 / 0.046 (theorem alpha m0/m = 0.045); m = 1,000 with
+      50 effects (600 reps): no correction 0.940 / 1.000 / 0.502,
+      Bonferroni 0.290 / 0.038 / 0.003, Holm 0.291 / 0.038 / 0.003, BH
+      0.640 / 0.793 / 0.046 (theorem 0.048); (4) look-elsewhere: median
+      smallest null p-value 0.0334 at m = 20 (theory 0.0341) and 0.0069
+      at m = 100 (theory 0.0069); the best of 20 subgroups clears 0.05
+      in 63.9% of experiments, the best of 100 in 99.2%. Honest:
+      Bonferroni is conservative under positive dependence (0.0247 where
+      0.05 was allowed) and dominated by Holm at the same guarantee;
+      author correction recorded (positive correlation expected to break
+      Sidak; measured, both rules merely become conservative, Sidak's
+      1967 inequality). Cards: self, Holm-Bonferroni,
+      Benjamini-Hochberg, Permutation test (all algoName; pages verified
+      in dist/algo). neverUse: no correction with the best of many
+      analyses reported. Figure: FWER of uncorrected testing against m
+      with measured points and the Bonferroni line, beside power bars
+      and FWER dots for four rules with real effects; cite Bonferroni
+      1936, Dunn JASA 1961 DOI 10.1080/01621459.1961.10482090, Holm
+      1979, Benjamini and Hochberg 1995. Viz BonferroniViz: one
+      experiment of twenty null tests per tick for sixty ticks, p-values
+      on a log scale against the alpha and alpha/20 lines, running
+      family-wise error tallies against the exact 64.2% and 4.88%, the
+      subset invariant checked every tick; NODE-VERIFIED 20 cycles x 60
+      ticks, 0 breaks; stepMs 450, holdTicks rests. Preserved narration:
+      Aoede + Algieba. Authored by a fork agent of this Fable 5.1
+      session at the owner's explicit request for parallel authoring;
+      the main thread re-ran the solution, the viz check, the narration
+      plan, and the static checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net bonferroni-correction-family-wise-error-control preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-10T23:35:19.669Z",
+  "publication_sha256": "fc53e8136bdbaffbe61c8eff80ce4bdc468b01f3df7c9176b5155b4d7820e36e",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6026872,
+  "objects": [
+    {
+      "stable_id": "puzzle:bonferroni-correction-family-wise-error-control",
+      "slug": "bonferroni-correction-family-wise-error-control",
+      "track_id": "algieba",
+      "source_sha256": "cccc82495b5ca74b1d116a24d95caf29f825a09ab1cf235edc4bc719b33138ca",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "b2ec1849b7c830582fb1ecc3164a915cdde9e0cf9c519a014896bc274d3cf72f",
+      "object_key": "narration/v1/puzzles/bonferroni-correction-family-wise-error-control/b2ec1849b7c830582fb1/algieba-578afa489112b3c0.mp3",
+      "bytes": 3080492,
+      "sha256": "578afa489112b3c07f23e8cb39e9350f38e3878881dab6f4007da199375ad8bd",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:bonferroni-correction-family-wise-error-control",
+      "slug": "bonferroni-correction-family-wise-error-control",
+      "track_id": "aoede",
+      "source_sha256": "cccc82495b5ca74b1d116a24d95caf29f825a09ab1cf235edc4bc719b33138ca",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "b2ec1849b7c830582fb1ecc3164a915cdde9e0cf9c519a014896bc274d3cf72f",
+      "object_key": "narration/v1/puzzles/bonferroni-correction-family-wise-error-control/b2ec1849b7c830582fb1/aoede-c8f44a33ee0b8c36.mp3",
+      "bytes": 2946380,
+      "sha256": "c8f44a33ee0b8c36dcc558fb361586613b0e3d9a3c0878975452184e720936ec",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

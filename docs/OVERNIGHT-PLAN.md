@@ -5333,6 +5333,53 @@ commit, Fable trailer on every commit, check green before each push.
       BM25; NODE-VERIFIED 20 cycles, 0 breaks; stepMs 650, holdTicks
       rests. Preserved narration: Aoede + Algieba. Added 2026-10-10.
 
+- [x] F164. Black-Scholes × Closed-form European pricing. Puzzle 170,
+      optimization-or (problemSlug option-pricing, the atlas problem
+      page carrying "Option pricing"; sibling live lesson
+      binomial-options-pricing-cox-ross-rubinstein-lattice, puzzle 135).
+      Solution black_scholes_closed_form_european_pricing.py (2.8s,
+      prints OK): the call and put formulas with expiry and
+      zero-volatility limits, analytic Greeks, the CRR lattice, a
+      Crank-Nicolson solver (Thomas algorithm, Dirichlet boundaries),
+      Monte Carlo with exact lognormal draws and standard errors, Brent
+      inversion for implied volatility, a Heston Monte Carlo pricing
+      five strikes on shared paths, and a daily-monitored up-and-out
+      barrier call by simulation. ORACLES (S 100, K 100, r 5%, sigma
+      20%, T 1): (1) call 10.450584, put 5.573526; PDE residual at most
+      4.2e-6 over 20 (S, T) points by central differences; limits at
+      expiry, zero volatility, S -> 0 and S -> inf; (2) parity to 0;
+      Greeks delta 0.63683, gamma 0.01876, vega 37.524, theta -6.414,
+      rho 53.232 all matching central differences to 1e-4 relative; (3)
+      CRR N = 100 / 1,000 / 4,000: 10.43061 / 10.44858 / 10.45008
+      (errors 0.01997 / 0.00200 / 0.00050; 5,151 / 501,501 / 8,006,001
+      nodes); Crank-Nicolson 200 x 200 10.44069 (0.00989; 40,401
+      points), 800 x 800 10.44997 (0.00062; 641,601); Monte Carlo 10^4
+      paths 10.43508 +/- 0.1461, 10^5 paths 10.50005 +/- 0.0467 (a
+      one-sigma miss, reported); (4) implied vol round trip 3.5e-14 at
+      strikes 60 to 140, flat 20% from model prices; Heston (20,000
+      paths, 100 steps, kappa 1.5, theta 0.04, xi 0.6, rho -0.7) prices
+      invert to 24.7% (23.5 to 25.7) at K 80, 21.6% at 90, 18.6% at 100,
+      15.7% at 110, 13.9% (13.6 to 14.1) at 120; (5) up-and-out call,
+      barrier 120, daily monitoring: 1.320 +/- 0.017 against the vanilla
+      10.451, 7.9x. Honest: the 10^5 Monte Carlo run landed one standard
+      error off and the table says so; author correction recorded
+      (Crank-Nicolson at 200 x 200 expected within a tenth of a cent,
+      measured a cent because of the kink at the strike). Cards: self,
+      Binomial options pricing (live lesson badge), Monte Carlo option
+      pricing, Crank-Nicolson (all algoName). neverUse: the vanilla
+      formula for a path-dependent contract. Figure: the call value
+      curve over the payoff with the at-the-money value marked, beside
+      implied volatility by strike (flat model line, Heston skew with
+      two-sigma bars); cite Black and Scholes JPE 1973 DOI
+      10.1086/260062, Merton 1973, Heston 1993. Viz BlackScholesViz: 250
+      lognormal terminal draws per tick for 60 ticks into a histogram
+      with the in-the-money region amber, the discounted mean with its
+      two-sigma band against the closed-form line, and the price curve
+      over the payoff; NODE-VERIFIED 20 cycles x 60 ticks, the estimate
+      within four standard errors on every tick past 1,000 paths; stepMs
+      200, holdTicks rests. Preserved narration: Aoede + Algieba. Added
+      2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:maintaining-arc-consistency-ac3-propagation",
+  "source_path": "src/content/maintaining-arc-consistency-ac3-propagation.narration.js",
+  "source_sha256": "5b65ddf10e785a6bc5bda62244c4c630784ecae52a63815cf69ee17a811ab5b8",
+  "source_characters": 11836,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "983a5116a2b44ce5e795f281a9ece2b61da56981ae4e4d700191c7bab97a9746",
+  "generated_at": "2026-10-10T22:09:35.294Z",
+  "generated_characters": 23672,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4632,
+      "utf8_bytes": 4648,
+      "sha256": "76e63c8087cac207e1360a36bb55662436f8d4239a255d42625a072f5fc91b3e"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4951,
+      "utf8_bytes": 4963,
+      "sha256": "fa3ed5b45c9192aae83c9428d93ec54a104e790350a0c0ddf47e824e6b8af4b6"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1259,
+      "utf8_bytes": 1259,
+      "sha256": "26754f7380c4b958cd3c6fa22fbe76fe7f6acd168a964f6260646314b4db42c3"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 994,
+      "utf8_bytes": 994,
+      "sha256": "cf53fc87b4bcd0972414c2e6cbe34928516b57821a1d06a93b5f6afed64cd8c6"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "maintaining-arc-consistency-ac3-propagation.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "maintaining-arc-consistency-ac3-propagation.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1480,
+      "sha256": "cc371753226bbae53e3dca2333fb9fb7ab8f6be004f9c93909f3d24824131893"
+    },
+    {
+      "id": "maintaining-arc-consistency-ac3-propagation.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1300,
+      "sha256": "6cb7dfaaa4f64b21fd4be66de99bba52907a792a43e5ece87b741c6ead162362"
+    },
+    {
+      "id": "maintaining-arc-consistency-ac3-propagation.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1737,
+      "sha256": "22be50fd86a2397ef56d7c6233d64fac4530440357d08d222a11ee29a6d9eee0"
+    },
+    {
+      "id": "maintaining-arc-consistency-ac3-propagation.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 578,
+      "sha256": "75ce09802a36fd5a7ded6f5bf6fddac21e13a9154171093c2808891c482b7cbe"
+    },
+    {
+      "id": "maintaining-arc-consistency-ac3-propagation.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 778,
+      "sha256": "d6c6af16b9fbf16f385fc9f2af9355502f55c7ea87ed261231f72e8b25a517e0"
+    },
+    {
+      "id": "maintaining-arc-consistency-ac3-propagation.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 404,
+      "sha256": "bbc266377378a1230dd7de9711eb5eca426d354861b97219c45996eb2560378a"
+    },
+    {
+      "id": "maintaining-arc-consistency-ac3-propagation.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1665,
+      "sha256": "ff699b5e8a0a216925b7544501c975885c1b9842cbb04658e477915c3caf8d27"
+    },
+    {
+      "id": "maintaining-arc-consistency-ac3-propagation.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 711,
+      "sha256": "cdddfaa49ce2cc7dbc24835f4ace46765816b74ec59627b55da176916e2253d6"
+    },
+    {
+      "id": "maintaining-arc-consistency-ac3-propagation.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 815,
+      "sha256": "022db8e7a5370b769f53cde7bafe67820cc7a750e3cc9cc6019b8b7957c371a3"
+    },
+    {
+      "id": "maintaining-arc-consistency-ac3-propagation.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2253,
+      "sha256": "66796a6e3c91d1f5d70a64a3a0ade0c9dc1ba510e3331e8ffdfd4da84d1d01a7"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/maintaining-arc-consistency-ac3-propagation/983a5116a2b44ce5e795/aoede-3a715208f7427a02.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2975756,
+      "sha256": "3a715208f7427a020b5ed65818aa7a29035447ea20d62659c1441b90fad68372",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "76e63c8087cac207e1360a36bb55662436f8d4239a255d42625a072f5fc91b3e",
+          "bytes": 1124832,
+          "sha256": "8045e9cef35218bf8020dcb0c7f101488bf29f4abf8d29e6d66d979684f9419d"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "fa3ed5b45c9192aae83c9428d93ec54a104e790350a0c0ddf47e824e6b8af4b6",
+          "bytes": 1303392,
+          "sha256": "b403c2975db88d3a8e6bf04af586ab7f1b6e57328580edec4a5735b7d12408f0"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "26754f7380c4b958cd3c6fa22fbe76fe7f6acd168a964f6260646314b4db42c3",
+          "bytes": 327264,
+          "sha256": "64d2126f451c6d3a4c714ae0f04a44f1d7c2a4e71f35e44c10737bdee60969c0"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "cf53fc87b4bcd0972414c2e6cbe34928516b57821a1d06a93b5f6afed64cd8c6",
+          "bytes": 220032,
+          "sha256": "d717846c8a0350ce75894b1fb30a5a192c2ef4510db3460666f432c603341ec4"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/maintaining-arc-consistency-ac3-propagation/983a5116a2b44ce5e795/algieba-1c24d02aa5ab1ce4.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3115724,
+      "sha256": "1c24d02aa5ab1ce4445c58b7beef9bf2795e63cd7a775cc4a86bf3684bfa2acb",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "76e63c8087cac207e1360a36bb55662436f8d4239a255d42625a072f5fc91b3e",
+          "bytes": 1193856,
+          "sha256": "548bf433713a857ee487e3b3198615b95c080477573eeb62b9fa6f45f4b5ad31"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "fa3ed5b45c9192aae83c9428d93ec54a104e790350a0c0ddf47e824e6b8af4b6",
+          "bytes": 1345152,
+          "sha256": "137aaa0a10515c71ca9466d424d9b85c2a376044a605a8eb440574228a4c1fa7"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "26754f7380c4b958cd3c6fa22fbe76fe7f6acd168a964f6260646314b4db42c3",
+          "bytes": 345216,
+          "sha256": "9f126027885acd25df54269f247b3bd843bdf1c67994802a830310073f9b0a38"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "cf53fc87b4bcd0972414c2e6cbe34928516b57821a1d06a93b5f6afed64cd8c6",
+          "bytes": 231264,
+          "sha256": "6825a7a5482bc2558632759745cc346ffd211957e35e8a7187bfa1478f5eff04"
+        }
+      ]
+    }
+  }
+}

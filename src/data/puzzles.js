@@ -3303,13 +3303,33 @@ export const PUZZLES = {
     vite: 'bm25-ranking-saturating-term-frequency',
     html: 'bm25-ranking-saturating-term-frequency/index.html',
   },
+  '/black-scholes-closed-form-european-pricing/': {
+    slug: 'black-scholes-closed-form-european-pricing',
+    added: '2026-10-10',
+    problemSlug: 'option-pricing',
+    number: 170,
+    category: 'optimization-or',
+    algorithm: 'Black-Scholes',
+    heuristic: 'Closed-form European pricing',
+    domain: 'Option pricing',
+    oneLiner:
+      'Hedge the option with the stock and the stock\'s expected return drops out, so the price is the discounted expected payoff under a measure where the stock drifts at the risk-free rate; assume constant volatility and the terminal price is lognormal, so that expectation is two normal distribution functions, C = S N(d1) - K e^(-rT) N(d2), and every sensitivity is a formula too.',
+    description:
+      'Black-Scholes closed-form pricing on S = 100, K = 100, r = 5%, sigma = 20%, T = 1: call 10.450584 and put 5.573526, the PDE residual under 4e-6 at twenty points, put-call parity to 1e-12, five Greeks matching central differences to five places; three numerical rivals converging on it (the CRR lattice 0.0005 off at 4,000 steps and 8,006,001 nodes, Crank-Nicolson 0.0006 off at 800 x 800, Monte Carlo 10.500 +/- 0.047 at 100,000 paths); implied volatility inverting to a flat 20% from the model\'s own prices but to a 24.7% to 13.9% skew from Heston stochastic-volatility prices, the smile a constant volatility cannot make; and the vanilla formula 7.9x too high on an up-and-out barrier call (10.451 against 1.320 +/- 0.017).',
+    listenMinutes: 10,
+    time: 'two normal CDF evaluations',
+    space: 'O(1)',
+    baseline: 'Monte Carlo with exact lognormal draws',
+    vite: 'black-scholes-closed-form-european-pricing',
+    html: 'black-scholes-closed-form-european-pricing/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.
 // The bench mirrors the committed build queue (docs/OVERNIGHT-PLAN.md,
 // F44 onward, in order), so the public promise and the plan tell one story.
 export const ROADMAP = [
-  { algorithm: 'Black-Scholes', heuristic: 'Closed-form European pricing', domain: 'Option pricing' },
+  { algorithm: 'Maintaining arc consistency', heuristic: 'AC-3 propagation', domain: 'Constraint satisfaction' },
 ];
 
 

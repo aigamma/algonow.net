@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:black-scholes-closed-form-european-pricing",
+  "source_path": "src/content/black-scholes-closed-form-european-pricing.narration.js",
+  "source_sha256": "f79c7d41623eaa207121f6b97393c1584aada21e22833046d1871f251cc83e54",
+  "source_characters": 12228,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "fce08bd9ee03d98adef7ab200539cc6a5e2c565ba703f19762368cdfc41fb2bd",
+  "generated_at": "2026-10-10T22:10:19.618Z",
+  "generated_characters": 24456,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4604,
+      "utf8_bytes": 4614,
+      "sha256": "fa6578142c2d4d15381bc4c11605d78d597d118f74299a7edfeefab29ed830a5"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4750,
+      "utf8_bytes": 4752,
+      "sha256": "5c997921ee5eb758dd82edddabbdb647cba0c9890cb63088eaa1196f42309571"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2055,
+      "utf8_bytes": 2059,
+      "sha256": "e012f40ff3ba65c9a56ddb7b824ebb6024146f25147ef180af356f7dd6970e47"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 819,
+      "utf8_bytes": 823,
+      "sha256": "086a23ce360843c795580ab0e0ad6c0ce9f8b5da99656322d2201b8bd9c08285"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "black-scholes-closed-form-european-pricing.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "black-scholes-closed-form-european-pricing.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1668,
+      "sha256": "bef493f2d8391cb0dbc3ef16d71d3f7b51b1ddcfdca456736e5778e83e407abb"
+    },
+    {
+      "id": "black-scholes-closed-form-european-pricing.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1162,
+      "sha256": "2d53e3216dbfe2598adb7af9e0269d7f37ff279950f5109000c0d3ad78000bf1"
+    },
+    {
+      "id": "black-scholes-closed-form-european-pricing.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1653,
+      "sha256": "2a3a5abc149d4515dc259e47d1ea894ea57fb6ec842e12ab0d6e31f154ca7f58"
+    },
+    {
+      "id": "black-scholes-closed-form-european-pricing.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 569,
+      "sha256": "c02465a39c84258d0ce93f2fc6e95ae69afbda289af9470f8ef7d0498bc3f360"
+    },
+    {
+      "id": "black-scholes-closed-form-european-pricing.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1161,
+      "sha256": "fd78d530a686aa46e382972bede4a8d9436ef9ba12267a8c26a095061c120a04"
+    },
+    {
+      "id": "black-scholes-closed-form-european-pricing.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 392,
+      "sha256": "37a332b414765acbbceadb834ba0260500d52c06b596660a0492bed466b40173"
+    },
+    {
+      "id": "black-scholes-closed-form-european-pricing.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1807,
+      "sha256": "992b156b72773ad40598ca4291c243b0b30fb6d6d407e03fb221a05917d678f6"
+    },
+    {
+      "id": "black-scholes-closed-form-european-pricing.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 813,
+      "sha256": "51483048d8265af0ea17505d8ef96bc9d2174451e2452153026063e89151a1e5"
+    },
+    {
+      "id": "black-scholes-closed-form-european-pricing.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 820,
+      "sha256": "ca437767769fbc5bf9880e7d355b1670541333d3f42bce479d120eea43ca2d93"
+    },
+    {
+      "id": "black-scholes-closed-form-european-pricing.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2060,
+      "sha256": "22554ba7eaef0cbf6e97beb7389fee153d25d0a46ef1c7761e87c13333a8295b"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/black-scholes-closed-form-european-pricing/fce08bd9ee03d98adef7/aoede-7868a4b04ccd7e96.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3087212,
+      "sha256": "7868a4b04ccd7e96014fdfac64dff1af15d4a3a448c835241c45d12a97ca63d4",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "fa6578142c2d4d15381bc4c11605d78d597d118f74299a7edfeefab29ed830a5",
+          "bytes": 1132224,
+          "sha256": "dd4c537881760592a3c82e885313d65363f3738f8f960ce95403e671e75e83fc"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "5c997921ee5eb758dd82edddabbdb647cba0c9890cb63088eaa1196f42309571",
+          "bytes": 1264416,
+          "sha256": "b5c433f26f67be0baef9a05fb0d806c17d32d6df70a5d4cfd6e99691ac4d0638"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "e012f40ff3ba65c9a56ddb7b824ebb6024146f25147ef180af356f7dd6970e47",
+          "bytes": 515712,
+          "sha256": "2cb0434972b4e322b534ee4950d3d276389be136364dcba24094be2b12ae4ca9"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "086a23ce360843c795580ab0e0ad6c0ce9f8b5da99656322d2201b8bd9c08285",
+          "bytes": 174624,
+          "sha256": "a69040eae2e652566d0363d8ff9bf3ddfe28c9c987970f1a9429742c25e5a9e8"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/black-scholes-closed-form-european-pricing/fce08bd9ee03d98adef7/algieba-d4b2fd1e6788c4e8.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3171020,
+      "sha256": "d4b2fd1e6788c4e857228357a15fd350d377e982be23815e3fe78a2300294137",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "fa6578142c2d4d15381bc4c11605d78d597d118f74299a7edfeefab29ed830a5",
+          "bytes": 1165344,
+          "sha256": "803ba270a890ebe90212291ac69cbc36f61b842e85ab68c99a74b13b1f919783"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "5c997921ee5eb758dd82edddabbdb647cba0c9890cb63088eaa1196f42309571",
+          "bytes": 1261632,
+          "sha256": "5142e27b1ed67af9909d2903c4a1f4abab18178e3cc53e2f99cfa1449548d76b"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "e012f40ff3ba65c9a56ddb7b824ebb6024146f25147ef180af356f7dd6970e47",
+          "bytes": 540672,
+          "sha256": "078ffd1611d63cd445fe44e6c1935a60948bd296f5132280de57daa290ef4c91"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "086a23ce360843c795580ab0e0ad6c0ce9f8b5da99656322d2201b8bd9c08285",
+          "bytes": 203136,
+          "sha256": "83fc82f66c7038c5ce00c6b3adb8989e044680a18c0503abbdfa5ae5e59ecc07"
+        }
+      ]
+    }
+  }
+}

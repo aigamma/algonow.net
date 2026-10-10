@@ -3195,7 +3195,7 @@ export const PUZZLES = {
     oneLiner:
       'Keep three running numbers per series, a level, a trend, and a cycle of m seasonal indices, each a weighted average with geometrically fading weights at its own rate, and forecast h steps out as level plus h trends plus (or times) the index for that month: one pass, three rates fitted by the one-step error, and no model beyond the decomposition.',
     description:
-      'Holt-Winters with triple seasonal smoothing on a synthetic monthly series with known parts (level 100, drift 0.5, amplitude 20, noise 3; ten years fitted, two held out) where the oracle forecast from the true parts sets the floor at RMSE 2.83: the fitted model lands at 3.31, within 1.17x the floor, against seasonal naive with drift 6.49, seasonal naive 11.96, simple smoothing 20.25, and Holt\'s linear trend 109.91 (residual lag-12 autocorrelation +0.02 against +0.37); the multiplicative form ahead of the additive on swings that grow with the level (6.46 against 10.73); and the Box-Jenkins airline passengers with 1959 to 1960 held out, the form pre-selected by training error (multiplicative): MAPE 7.3% against 10.0% for seasonal naive with drift and 19.4% for Holt, with the wrong season length (m = 4) scoring 21.99 as the silent failure.',
+      'Holt-Winters on a synthetic monthly series with known parts: RMSE 3.31 against the oracle floor 2.83, seasonal naive with drift 6.49, Holt\'s trend 109.91; the multiplicative form ahead on growing swings (6.46 against 10.73); airline holdout MAPE 7.3% against 10.0% and 19.4%; the wrong season length 21.99.',
     listenMinutes: 10,
     time: 'one pass over the series; three rates to fit',
     space: 'a level, a trend, and m seasonal indices',
@@ -3215,7 +3215,7 @@ export const PUZZLES = {
     oneLiner:
       'Store a height in every node, allow the two children of any node to differ in height by at most one, and repair a broken node on the way back up with a single or double rotation at the lowest place it breaks: the height stays under 1.44 log2 n for any arrival order, an insertion needs at most one rotation, and the sorted input that turns a plain tree into a list builds the perfectly balanced floor instead.',
     description:
-      'The AVL tree with height-balance rotations on 20,000 keys against a Python set referee (in-order walk, every lookup, heights and balance factors audited at every node): height 17 under random arrival against the bound 20.3 and the floor 15, 4,732 single and 4,708 double rotations with never more than one per insertion, height 15 under sorted arrival at one rotation per insertion, 0.369 rotations per deletion; lookups at 14.11 node visits against 14.29 for a left-leaning red-black tree (height 21), 17.79 for a treap (height 33), and 18.03 for the plain tree (height 38); and the plain tree on sorted keys at height 4,000 and 2,053 visits per lookup as the negative example.',
+      'The AVL tree on 20,000 keys against a Python set referee: height 17 under the bound 20.3, at most one rotation per insertion (4,732 single, 4,708 double), height 15 under sorted arrival; lookups 14.11 visits against 14.29 (red-black), 17.79 (treap), 18.03 (plain BST); the plain tree on sorted keys at height 4,000.',
     listenMinutes: 10,
     time: 'O(log n) worst case per operation',
     space: 'one stored height per node',
@@ -3235,7 +3235,7 @@ export const PUZZLES = {
     oneLiner:
       'Walk the whole game tree in self-play, and at every information set add, for each action, the gain it would have had over the strategy played, weighted by how likely the opponent and chance were to bring the game there; next iteration play each action in proportion to its positive regret: the average of everything played converges to a Nash equilibrium at the rate of one over the square root of the iterations, with no learning rate and no linear program.',
     description:
-      'Counterfactual regret minimization with regret matching on Kuhn poker (12 information sets, exact value -1/18): after 10,000 iterations the average strategy has value -0.0555 and exploitability 0.0015 by an exact best-response referee, inside the measured regret bound 0.0059, and sits on Kuhn\'s closed-form family (a jack bet 0.216, a king bet 0.668 against 3 alpha = 0.648, a queen call 0.337 against 1/3); exploitability 0.0911, 0.0233, 0.0065, 0.0015 at 10, 100, 1,000, 10,000 iterations; rock-paper-scissors and biased pennies within 0.01 of their textbook answers; CFR+ 0.0049 and fictitious play 0.0068 at 1,000 iterations, outcome-sampling MCCFR 0.0450 at an equal budget of 58,000 nodes; determinized minimax exploitable for 0.167 a hand as the negative example.',
+      'CFR with regret matching on Kuhn poker: value -0.0555 against -1/18, exploitability 0.0015 after 10,000 iterations inside the regret bound 0.0059, on Kuhn\'s closed-form family; CFR+ 0.0049, fictitious play 0.0068, MCCFR 0.0450 at 1,000 iterations or an equal node budget; determinized minimax exploitable for 0.167 a hand.',
     listenMinutes: 10,
     time: 'one full tree walk per iteration; error falls as 1/sqrt(T)',
     space: 'two numbers per action per information set',
@@ -3255,7 +3255,7 @@ export const PUZZLES = {
     oneLiner:
       'Keep a bracket that provably holds the root, propose the next point from the sideways parabola through the last three (the secant when two coincide), and take it only if it stays inside the bracket and is less than half the step before last, falling back to the midpoint otherwise: superlinear on smooth functions, never worse than about the square of bisection\'s count on any continuous one.',
     description:
-      'Brent\'s method with inverse quadratic interpolation on nine bracketed problems at tolerance 1e-12, every answer checked against a bisection run to the last bit and the published digits: 7 to 9 evaluations on each of six smooth roots (49 in total against 253 for bisection, 62 for Illinois, 54 for Dekker, 144 for Ridders), measured interpolation order 1.88 and 2.08, 33 on the signed cube root that breaks Newton (doubling its error each step) and the secant, 18 on e^x - 1 over [-40, 60] against 109 for Illinois and a false convergence for the secant at x = 60, and an honest loss on the triple root (102 against 42 for bisection), all inside the guarantee of 1,670 to 2,257.',
+      'Brent\'s method on nine bracketed problems at 1e-12 against bisection to the last bit: 49 evaluations for six smooth roots against 253 (bisection), 62 (Illinois), 144 (Ridders); 33 on the cube root that breaks Newton; 18 on e^x - 1 over [-40, 60] against 109; an honest loss on the triple root (102 against 42); the guarantee never exceeded.',
     listenMinutes: 10,
     time: 'one evaluation per step; order about 1.84 on smooth f',
     space: 'three points and two step sizes',
@@ -3275,7 +3275,7 @@ export const PUZZLES = {
     oneLiner:
       'Give each vertex the smallest color its colored neighbors have not used, taking the vertices in the order that is hardest to fool: the one whose neighbors already show the most distinct colors goes next, ties broken by the most uncolored neighbors; one pass, at most one more color than the largest degree, and exactly two on any bipartite graph.',
     description:
-      'Greedy graph coloring with the DSatur saturation order against an exact branch-and-bound chromatic number on 200 random graphs of 24 vertices: optimal on 129 of 200 (average excess 0.355 colors) against 98 for recursive largest first, 58 for smallest-last, 56 for largest-first, and 18 for a random order; exactly 2 colors on 200 of 200 random bipartite graphs where largest-first needed up to 5; at n = 600, 18 and 75 colors against 20 and 80 for largest-first and 19 and 76 for RLF at a thirteenth to a thirty-sixth of RLF\'s neighbor scans; and the crown graph K50,50 minus a matching, where largest-first and RLF use 50 colors on a 2-colorable graph and DSatur uses 2.',
+      'DSatur against an exact chromatic number on 200 random graphs: optimal on 129 of 200 (RLF 98, largest-first 56, random 18); exactly 2 colors on 200 of 200 bipartite graphs; 18 and 75 colors at n = 600 against 19 and 76 for RLF at a fraction of its scans; the crown graph K50,50 minus a matching: largest-first 50, DSatur 2.',
     listenMinutes: 10,
     time: 'O(n^2 + m) with a scan, O((n + m) log n) with a heap',
     space: 'a saturation set per vertex',
@@ -3295,7 +3295,7 @@ export const PUZZLES = {
     oneLiner:
       'Walk each query term\'s postings and add idf times a term frequency that saturates, tf (k1 + 1) / (tf + k1 (1 - b + b |d| / avgdl)), so the fifth occurrence of a word is worth far less than the first, two different query words beat one word twice, and a document ten times longer is not ten times more relevant.',
     description:
-      'BM25 with a saturating term frequency on a generated corpus whose relevance is known by construction (3,000 documents from 40 overlapping topics plus 40 keyword-stuffed documents, 200 queries of two or three words): mean average precision 0.897 and precision at ten 0.992 against 0.706 for tf-idf summation, 0.874 for cosine, 0.822 for Dirichlet query likelihood, 0.788 for Boolean overlap, and 0.684 for raw counts; both ablations worse (0.855 without length normalization, 0.820 without saturation); the weight curve 1.000, 1.375, 1.774, 2.075, 2.187 at tf 1, 2, 5, 20, 200 against the ceiling 2.2; and a document repeating one query word 300 times at rank one on 67 of 200 queries under raw counts (5.9x the best genuine score) against none under BM25 (0.49x).',
+      'BM25 on a corpus with known relevance (40 overlapping topics, 200 queries, 40 keyword-stuffed documents): MAP 0.897 against tf-idf 0.706, cosine 0.874, query likelihood 0.822, raw counts 0.684; the saturation curve 1.000 to 2.187 toward the 2.2 ceiling; a word repeated 300 times tops 67 of 200 queries under raw counts and none under BM25.',
     listenMinutes: 10,
     time: 'one postings walk per query term',
     space: 'the inverted index plus a length per document',
@@ -3315,7 +3315,7 @@ export const PUZZLES = {
     oneLiner:
       'Hedge the option with the stock and the stock\'s expected return drops out, so the price is the discounted expected payoff under a measure where the stock drifts at the risk-free rate; assume constant volatility and the terminal price is lognormal, so that expectation is two normal distribution functions, C = S N(d1) - K e^(-rT) N(d2), and every sensitivity is a formula too.',
     description:
-      'Black-Scholes closed-form pricing on S = 100, K = 100, r = 5%, sigma = 20%, T = 1: call 10.450584 and put 5.573526, the PDE residual under 4e-6 at twenty points, put-call parity to 1e-12, five Greeks matching central differences to five places; three numerical rivals converging on it (the CRR lattice 0.0005 off at 4,000 steps and 8,006,001 nodes, Crank-Nicolson 0.0006 off at 800 x 800, Monte Carlo 10.500 +/- 0.047 at 100,000 paths); implied volatility inverting to a flat 20% from the model\'s own prices but to a 24.7% to 13.9% skew from Heston stochastic-volatility prices, the smile a constant volatility cannot make; and the vanilla formula 7.9x too high on an up-and-out barrier call (10.451 against 1.320 +/- 0.017).',
+      'Black-Scholes on S = 100, K = 100, r = 5%, sigma = 20%, T = 1: call 10.450584, the PDE residual under 4e-6, parity to 1e-12, Greeks to five places; CRR 0.0005 off at 4,000 steps, Crank-Nicolson 0.0006 at 800 x 800, Monte Carlo within standard error; a Heston skew from 24.7% to 13.9% the model cannot make; the vanilla formula 7.9x too high on a barrier call.',
     listenMinutes: 10,
     time: 'two normal CDF evaluations',
     space: 'O(1)',
@@ -3335,7 +3335,7 @@ export const PUZZLES = {
     oneLiner:
       'After every assignment, run a queue of arcs: delete from a variable every value with no supporting partner left in a neighbor, and whenever a domain shrinks requeue every arc into it; stop at a fixpoint or a wipeout, then branch only on what survives, so a dead end is found where it is created instead of twenty levels deeper.',
     description:
-      'Maintaining arc consistency with AC-3 on random binary CSPs (25 variables, domain 6, density 0.3) across the phase transition, every solution checked constraint by constraint and every finishing solver agreeing: at tightness 0.44 MAC with MRV refutes an instance in 6 nodes against 93 for forward checking and 9 for MAC with a static order while chronological backtracking exhausts 200,000 nodes on 9 of 12 instances; at 0.30, 33 against 102 and 184,620 (11 unfinished); the propagation is the cost (11,484 constraint checks against 2,231); AC-3 proven on 40 exhaustively enumerated instances (every survivor supported, idempotent, no solution value removed) and under its e d^3 bound; AC-3 alone solving the easy Sudoku with no search and MAC taking 291 nodes to forward checking\'s 498 on a hard one.',
+      'MAC with AC-3 on random CSPs (25 variables, domain 6) across the phase transition: at tightness 0.44, 6 nodes against 93 for forward checking while plain backtracking exhausts 200,000; 33 against 102 where instances are satisfiable; the propagation costs two to five times the constraint checks; AC-3 alone solves the easy Sudoku; proven against exhaustive enumeration on 40 small instances.',
     listenMinutes: 10,
     time: 'O(e d^3) propagation per search node',
     space: 'a domain per variable per level',
@@ -3355,7 +3355,7 @@ export const PUZZLES = {
     oneLiner:
       'Blur, take the gradient, keep only the local maxima along the gradient so every edge is one pixel thin, then decide with two thresholds instead of one: a pixel above the high threshold is an edge, and a pixel above the low threshold is an edge only if it connects through other candidates to a strong one, so faint stretches of real contours survive and isolated noise does not.',
     description:
-      'The Canny edge detector with hysteresis thresholding on a 96 x 96 image whose edges are known by construction (a disk 120 levels above the background and a square ramping from 30 to 120 above it): F1 1.000 noiseless and 1.000, 1.000, 0.980, 0.937 under noise of 8, 16, 24, 40 with 2 components every time; a single high threshold alone holds recall 0.82 at every level (the faint edges lost), the low threshold alone admits 751 pixels for 248 true at noise 40 (precision 0.33, 131 fragments), thresholded Sobel magnitude is 99% thick, Marr-Hildreth zero crossings reach recall 0.65 to 0.76 in 5 to 28 fragments; and the hysteresis invariant held pixel by pixel, 193 strong pixels pulling 48 weak ones through.',
+      'Canny with hysteresis on an image whose edges are known by construction: F1 1.000 noiseless and 0.937 at noise 40 with 2 components; one high threshold alone holds recall 0.82 (faint edges lost), one low threshold alone admits 751 pixels for 248 true (precision 0.33); thresholded Sobel 99% thick; the hysteresis invariant proven pixel by pixel.',
     listenMinutes: 10,
     time: 'O(pixels) for blur, gradient, thinning, and one breadth-first search',
     space: 'a magnitude and a direction per pixel',

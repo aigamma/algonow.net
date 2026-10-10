@@ -5561,6 +5561,61 @@ commit, Fable trailer on every commit, check green before each push.
       the solution, the viz check, the narration plan, and the static
       checks before accepting it. Added 2026-10-10.
 
+- [x] F170. M/M/1 analysis × Birth-death balance equations. Puzzle 176,
+      probabilistic (problemSlug queueing-performance, the atlas problem
+      page carrying "Single-queue analysis"; sibling live lesson
+      discrete-event-simulation-event-queue-advance, puzzle 136).
+      Solution mm1_analysis_birth_death_balance_equations.py (0.6s,
+      prints OK): a birth-death solver (recursion and normalization on a
+      truncated chain with any death-rate function), measures from a
+      distribution, the M/M/1 and M/D/1 (Pollaczek-Khinchine) closed
+      forms, Kingman's G/G/1 approximation, and an event-list
+      discrete-event simulation (one or more servers, exponential or
+      fixed service, warm-up, batch-means standard errors). ORACLES (mu
+      = 1): (1) the numerical chain against the closed form, worst
+      disagreement 2.7e-11 over L, Lq, W, Wq, P(wait) at seven
+      utilizations; Little's law and pi_n geometric to 1e-9; (2) the
+      simulation, rho / L formula / L sim (se) / Wq formula / Wq sim
+      (se) / P(wait) formula, sim / P(N >= 5) formula, sim / events:
+      0.30 0.429 0.430 (0.004) 0.429 0.437 (0.009) 0.300 0.302 0.002
+      0.003 120,000; 0.50 1.000 1.018 (0.012) 1.000 1.039 (0.019) 0.500
+      0.506 0.031 0.033 120,000; 0.70 2.333 2.323 (0.072) 2.333 2.347
+      (0.091) 0.700 0.697 0.168 0.164 120,000; 0.80 4.000 3.948 (0.132)
+      4.000 3.962 (0.155) 0.800 0.793 0.328 0.320 120,000; 0.90 9.000
+      8.466 (0.338) 9.000 8.428 (0.370) 0.900 0.897 0.590 0.571 240,000;
+      0.95 19.000 17.039 (1.049) 19.000 16.960 (1.078) 0.950 0.950 0.774
+      0.770 240,000; Little's law inside the run within 8%; (3) rivals
+      at rho 0.8 / 0.9: M/D/1 Wq 2.000 / 4.500 (simulated 2.020 +/-
+      0.042 / 4.497 +/- 0.319), W 3.000 / 5.500; M/M/2 with two
+      half-speed servers (death rate min(n, 2) mu / 2) L 4.444 / 9.474
+      (simulated 4.342 +/- 0.187 / 9.206 +/- 0.491), W 5.556 / 10.526,
+      Wq 3.556 / 8.526; Kingman with ca2 = cs2 = 1 exact (4.000 / 9.000)
+      and exact for M/D/1 with cs2 = 0; (4) L = 1, 4, 9, 19, 99 at rho
+      0.5, 0.8, 0.9, 0.95, 0.99; (5) capacity reasoning predicts Wq 0
+      against simulated 8.43 service times at rho 0.9 (P(N >= 5) 0.57)
+      and 16.96 at 0.95. Honest: the rho 0.95 simulation sits two
+      standard errors under 19 after 120,000 customers (slow relaxation
+      near saturation) and the page says so; author correction recorded
+      (short batches gave correlated means at high utilization, longer
+      batches used and reported). Cards: self, Pollaczek-Khinchine
+      formula, Erlang C formula, Discrete event simulation (live lesson
+      badge) (all algoName). neverUse: capacity reasoning, lambda < mu
+      so nobody waits. Figure: geometric state probabilities at rho 0.5
+      and 0.9 beside L against rho on a log scale with the simulated
+      points and three-sigma bars; cite Erlang 1909, Kendall 1953 DOI
+      10.1214/aoms/1177728975, Little 1961. Viz Mm1Viz: a live M/M/1
+      lane at utilization 0.5 / 0.7 / 0.85 by cycle, 40 events per tick
+      for 90 ticks, the share of time in each state as amber bars
+      against the geometric law's blue ticks, the running time average
+      against rho / (1 - rho), the count, the time shares summing to
+      one, and Little's law checked every tick; NODE-VERIFIED 20 cycles
+      x 90 ticks, 0 breaks; stepMs 160, holdTicks rests. Preserved
+      narration: Aoede + Algieba. Authored by a fork agent of this Fable
+      5.1 session at the owner's explicit request for parallel
+      authoring; the main thread re-ran the solution, the viz check, the
+      narration plan, and the static checks before accepting it. Added
+      2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

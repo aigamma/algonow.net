@@ -3055,6 +3055,24 @@ export const PUZZLES = {
     vite: 'nim-solving-nimber-xor',
     html: 'nim-solving-nimber-xor/index.html',
   },
+  '/mm1-analysis-birth-death-balance-equations/': {
+    slug: 'mm1-analysis-birth-death-balance-equations',
+    added: '2026-10-10',
+    problemSlug: 'queueing-performance',
+    number: 176,
+    category: 'probabilistic',
+    algorithm: 'M/M/1 analysis',
+    heuristic: 'Birth-death balance equations',
+    domain: 'Single-queue analysis',
+    oneLiner:
+      'Model the number in the system as a chain that climbs at the arrival rate and falls at the service rate, cut it between every two neighboring states and equate the flows, and the whole distribution is geometric, each extra customer rho times as likely as the last: L = rho / (1 - rho), W = 1 / (mu - lambda), P(wait) = rho, with Little\'s law for free and the same recursion for any number of servers.',
+    listenMinutes: 10,
+    time: 'O(1) per measure in closed form; O(states) for the numerical chain',
+    space: 'the state probabilities, or none',
+    baseline: 'Discrete-event simulation',
+    vite: 'mm1-analysis-birth-death-balance-equations',
+    html: 'mm1-analysis-birth-death-balance-equations/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

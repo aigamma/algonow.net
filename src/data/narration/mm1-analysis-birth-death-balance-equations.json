@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:mm1-analysis-birth-death-balance-equations",
+  "source_path": "src/content/mm1-analysis-birth-death-balance-equations.narration.js",
+  "source_sha256": "deb438f05b9be5c358b48700fc347e6bd5e32d5ea4b5230027381798121a3061",
+  "source_characters": 11945,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "5cbb7a6006dfa2af006fcad4eb154b000e328e310b7191641f7279f8658d4576",
+  "generated_at": "2026-10-10T22:44:29.036Z",
+  "generated_characters": 23890,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4572,
+      "utf8_bytes": 4584,
+      "sha256": "1e06174c963814c00f17d508b9c9ccbae3fcd270337a6838cecc5e6eb492b793"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4489,
+      "utf8_bytes": 4495,
+      "sha256": "39db7ef9c42e6e3cc9ea92d17b1cd65f563e101a0ff593a35a29e29735f70666"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2081,
+      "utf8_bytes": 2089,
+      "sha256": "8b190f78b6336f4a3a461c86f80c7e014258f49196e28cbc038e6b9bb6a868fb"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 803,
+      "utf8_bytes": 805,
+      "sha256": "325c4274051116c05999066036544e713e0e8d488252dab22ab11f66e7530141"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "mm1-analysis-birth-death-balance-equations.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "mm1-analysis-birth-death-balance-equations.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1711,
+      "sha256": "1df9bea38e8922d20d38162a36bb64014c82384c712e29024557ae0f617260d6"
+    },
+    {
+      "id": "mm1-analysis-birth-death-balance-equations.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1053,
+      "sha256": "cdeeea6712c0898a379ddf4d8906dc1b84500c2ee086148851c1fdbd7891ce42"
+    },
+    {
+      "id": "mm1-analysis-birth-death-balance-equations.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1689,
+      "sha256": "10b3cd568a862b68da9d5689e720952be8f89becfe018115a1a77941191d4643"
+    },
+    {
+      "id": "mm1-analysis-birth-death-balance-equations.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 672,
+      "sha256": "aef4ecc4113a804fbdcc83169ef3cb9e11c99530833c06a1723e0af5be7b5d18"
+    },
+    {
+      "id": "mm1-analysis-birth-death-balance-equations.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1083,
+      "sha256": "6194f537a33f9ee00a651e33c4eef8a493927d87d02db5b1355f92fdab217692"
+    },
+    {
+      "id": "mm1-analysis-birth-death-balance-equations.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 445,
+      "sha256": "61c30466e7362f912daa59a5f4c530676f39ddc0566e31e97fa0952284e2ef72"
+    },
+    {
+      "id": "mm1-analysis-birth-death-balance-equations.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1691,
+      "sha256": "0d6e8632ce43c424d266afb85fa13cf78ede22c9423126231d73dfdeb5c99e71"
+    },
+    {
+      "id": "mm1-analysis-birth-death-balance-equations.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 594,
+      "sha256": "cf87145632aaabe8669fcd13855f9c34687eca13515c7da6db12bb9f43db11f6"
+    },
+    {
+      "id": "mm1-analysis-birth-death-balance-equations.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 815,
+      "sha256": "b19a395bb5c516ccd68e0664d63f757fec1f78b1f149342e8345d258c6f19b3f"
+    },
+    {
+      "id": "mm1-analysis-birth-death-balance-equations.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2077,
+      "sha256": "1061f5e93ee08dfc7e1a635b98225ef55506b9d3304d9bee33184fa492a6c56b"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/mm1-analysis-birth-death-balance-equations/5cbb7a6006dfa2af006f/aoede-a74698031e1caa4f.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3042764,
+      "sha256": "a74698031e1caa4f9eb67862efbec25ad65647d3008d6d5f4542a9f3d3cb975a",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "1e06174c963814c00f17d508b9c9ccbae3fcd270337a6838cecc5e6eb492b793",
+          "bytes": 1159104,
+          "sha256": "c2475808e37ef08a51690cc1065a9bf792d219e5cab1390a13dbc52e1a102b0c"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "39db7ef9c42e6e3cc9ea92d17b1cd65f563e101a0ff593a35a29e29735f70666",
+          "bytes": 1187904,
+          "sha256": "f6f113caa35eb2e918830179c917ded25746a8dd1f218449770c5850aafe0014"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "8b190f78b6336f4a3a461c86f80c7e014258f49196e28cbc038e6b9bb6a868fb",
+          "bytes": 500736,
+          "sha256": "b110b6d5b07db0b6c7045749327d501f2fc6e7e75c5fa67a2033c0c144817981"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "325c4274051116c05999066036544e713e0e8d488252dab22ab11f66e7530141",
+          "bytes": 194784,
+          "sha256": "6af2145e5491e347ddb33cfe12c4cd5996c36d507c8265b89d4bd70e81f6e988"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/mm1-analysis-birth-death-balance-equations/5cbb7a6006dfa2af006f/algieba-1ec6cff49f99fdd9.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3187244,
+      "sha256": "1ec6cff49f99fdd9900a8210345f7c26612138b647e336a41510d9c67786bd93",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "1e06174c963814c00f17d508b9c9ccbae3fcd270337a6838cecc5e6eb492b793",
+          "bytes": 1228704,
+          "sha256": "f94a7322256236d7b0bade9eeb4ec455372aa2502670f55a5199f568405d9e9a"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "39db7ef9c42e6e3cc9ea92d17b1cd65f563e101a0ff593a35a29e29735f70666",
+          "bytes": 1244256,
+          "sha256": "bedfc89519ad9cc57bb7691e191b1420092849c6f4d843c2f71da7c9b2cafe18"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "8b190f78b6336f4a3a461c86f80c7e014258f49196e28cbc038e6b9bb6a868fb",
+          "bytes": 496224,
+          "sha256": "f1426202195adbe600aca9a85f0011793cf5464b8f186f3fa8603372bcd86c83"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "325c4274051116c05999066036544e713e0e8d488252dab22ab11f66e7530141",
+          "bytes": 217824,
+          "sha256": "7b61bea4a70e351d01dd0431209b0c0b2508142e695bea459fccaa1b12a6f413"
+        }
+      ]
+    }
+  }
+}

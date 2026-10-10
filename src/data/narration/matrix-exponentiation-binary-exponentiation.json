@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:matrix-exponentiation-binary-exponentiation",
+  "source_path": "src/content/matrix-exponentiation-binary-exponentiation.narration.js",
+  "source_sha256": "98520ad7edbad9435b06a877908670620b79dfe5f76c088d3037bd28c8a4efcb",
+  "source_characters": 11353,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "7f61a85ec7f4054a252e08d4ac44a94cbff47a358f56f1f48189ecc61f2ef56e",
+  "generated_at": "2026-10-10T23:38:17.650Z",
+  "generated_characters": 22706,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4857,
+      "utf8_bytes": 4873,
+      "sha256": "0c00c190388a837682dc14de27cf8b74860cd6a1b221572d09297e3eb9c4792b"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4721,
+      "utf8_bytes": 4731,
+      "sha256": "638fd387c5e5b746cc56b69eb1e058cc50e767c945f84c34865fabae84188207"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 857,
+      "utf8_bytes": 861,
+      "sha256": "e202df1c5fa47f99f1862c1a758aa4af3d03b6a96dfd77156df97dbcb5ea8b03"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 918,
+      "utf8_bytes": 920,
+      "sha256": "691952842d001ec4e8f9e318569977519ff1fd83b92f52714bfcdaeac48b10f8"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "matrix-exponentiation-binary-exponentiation.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "matrix-exponentiation-binary-exponentiation.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1328,
+      "sha256": "422b76afc578115dc0c9de8efb60b61b6eeafb1a6ce019bee56a92cb277d33fc"
+    },
+    {
+      "id": "matrix-exponentiation-binary-exponentiation.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1120,
+      "sha256": "8f3a45797b87656e69db0b0bd4da648c92ffe9b90e15157ddd165a798a731874"
+    },
+    {
+      "id": "matrix-exponentiation-binary-exponentiation.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1734,
+      "sha256": "2845013d4cbc625f658cb69f91ae3f23a19d4f346dc5f4ebd6e5afeeb3ef0e81"
+    },
+    {
+      "id": "matrix-exponentiation-binary-exponentiation.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 558,
+      "sha256": "210252424bdb614348a4bda0f1ebdda7da9e2bc79b9e8a79fe1eb2c06ea72726"
+    },
+    {
+      "id": "matrix-exponentiation-binary-exponentiation.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1003,
+      "sha256": "acff2ef5c6846326f923f42ecc25fc2bf55e6d6aef5f836063f3b967838fd4df"
+    },
+    {
+      "id": "matrix-exponentiation-binary-exponentiation.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 489,
+      "sha256": "cb8a2e2b4be7941ebdda84fb2118ae9674974597efdf112b1e4ea6c087fefaa7"
+    },
+    {
+      "id": "matrix-exponentiation-binary-exponentiation.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1627,
+      "sha256": "d5b273720bf6c167d67bcc69d159a0d80160f666bbf2e02c7936ad53e40a2121"
+    },
+    {
+      "id": "matrix-exponentiation-binary-exponentiation.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 636,
+      "sha256": "b706212045297ceb5bf26ab2ad81b0f142ec95efb425bdc35948c404814df320"
+    },
+    {
+      "id": "matrix-exponentiation-binary-exponentiation.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 966,
+      "sha256": "855cacec99af9bc99f9a6889e1fe13f3dd017135676e369350ccd3f0750f0677"
+    },
+    {
+      "id": "matrix-exponentiation-binary-exponentiation.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1781,
+      "sha256": "6fa14b29b27e053f7c84c8995b70fcd29e072e33991f522e6ebba6f698197059"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/matrix-exponentiation-binary-exponentiation/7f61a85ec7f4054a252e/aoede-7afb6113ef6aa31a.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3034988,
+      "sha256": "7afb6113ef6aa31aed66d2518e637efd9f6831a3da677622e273de1e43a00c88",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "0c00c190388a837682dc14de27cf8b74860cd6a1b221572d09297e3eb9c4792b",
+          "bytes": 1270464,
+          "sha256": "fdc5113cb7ddd4f680d6eaa2ff847c00d00ab51e474fe2d54bc4e6187a33669e"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "638fd387c5e5b746cc56b69eb1e058cc50e767c945f84c34865fabae84188207",
+          "bytes": 1334976,
+          "sha256": "7d3976a1c7989dfd176d9e63db0c327aae0cccfdc4f9bd83a1fb57f23342a4a0"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "e202df1c5fa47f99f1862c1a758aa4af3d03b6a96dfd77156df97dbcb5ea8b03",
+          "bytes": 212256,
+          "sha256": "d7bd11382fde2b5911b16a93a4763b10aa4b878e2cf5f097792c90a5b24fa620"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "691952842d001ec4e8f9e318569977519ff1fd83b92f52714bfcdaeac48b10f8",
+          "bytes": 217056,
+          "sha256": "5698c7ef29950901eece110c5e8a8b1fdadf758c2932c2b2ef53b0ff8676342d"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/matrix-exponentiation-binary-exponentiation/7f61a85ec7f4054a252e/algieba-1e8fd07c43207599.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3075308,
+      "sha256": "1e8fd07c43207599db6b810870e2bf8933262d34bc72571d7a9fd9f920494765",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "0c00c190388a837682dc14de27cf8b74860cd6a1b221572d09297e3eb9c4792b",
+          "bytes": 1336704,
+          "sha256": "d2110e65168258cdd2b9d58f625c0a41aaa8b4c90440b84cf2aa268e84bb76e3"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "638fd387c5e5b746cc56b69eb1e058cc50e767c945f84c34865fabae84188207",
+          "bytes": 1306272,
+          "sha256": "a6ec6a6505cac6871be75f789f2c584b87873b5d7713ce5e382a5e9d465117dd"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "e202df1c5fa47f99f1862c1a758aa4af3d03b6a96dfd77156df97dbcb5ea8b03",
+          "bytes": 214464,
+          "sha256": "33d8e074db7e508eb38a7873500f8e78921c3c0dfad455cef3c5a22787b50b23"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "691952842d001ec4e8f9e318569977519ff1fd83b92f52714bfcdaeac48b10f8",
+          "bytes": 217632,
+          "sha256": "8fe93f0073013b8e5cb0f5dbb4a03eae3e84b82a59504600fa707ace30a76b3c"
+        }
+      ]
+    }
+  }
+}

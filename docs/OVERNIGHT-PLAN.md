@@ -6038,6 +6038,47 @@ commit, Fable trailer on every commit, check green before each push.
       the main thread re-ran the solution, the viz check, the narration
       plan, and the static checks before accepting it. Added 2026-10-10.
 
+- [x] F179. Matrix exponentiation × Binary exponentiation. Puzzle 185,
+      optimization-or (problemSlug linear-recurrences, the atlas problem
+      page carrying "Linear recurrence evaluation"; sibling live lesson
+      modular-exponentiation-square-multiply, puzzle 128). Solution
+      matrix_exponentiation_binary_exponentiation.py (0.2s, prints OK):
+      a counting matrix multiply, binary exponentiation for matrices and
+      integers, iterative and recursive Fibonacci, fast doubling,
+      Kitamasa's polynomial method, companion matrices, an iterative
+      recurrence evaluator, and a walk-counting dynamic program.
+      ORACLES: (1) exact: F(n) by matrix equals iteration for n = 1, 2,
+      10, 93, 1,000, 20,000 (4,180 digits; 18 matrix products against
+      20,000 steps), Cassini F(n-1)F(n+1) - F(n)^2 = (-1)^n at 20,000;
+      (2) n = 10^18 mod 10^9+7: matrix, fast doubling, Kitamasa all
+      209783453, scalar multiplications 656 (59 squarings + 23
+      multiplies = 82 products) / 180 / 492; a random order-5 recurrence
+      at n = 100,000: iteration 99,996 steps (499,980 multiplications),
+      companion 23 products (2,875), Kitamasa 22 products (850), all
+      equal, and equal for n = 0 to 39; at 10^18 companion 12,125
+      against Kitamasa 3,595; (3) products = floor(log2 n) + popcount(n)
+      - 1 for every n to 4,096 and 50 random 64-bit n (mean 92.9 against
+      n - 1 ~ 10^19); 1,000 modular powers equal pow(); (4) A^L equal to
+      the walk DP for L = 1 to 12 on a 7-vertex graph (A^12 in 4
+      products); (5) recursive F(30) 1,664,079 calls = 2F(31) - 1 in
+      0.09 s; iteration 0.045 s per million steps so 10^18 is about
+      1,400 years; the matrix power at 10^18 in 0.09 ms. Honest: fast
+      doubling (180) and Kitamasa (492, 3,595) beat the matrix's
+      constants; author correction recorded (the draft claimed the
+      matrix was cheaper than doubling). Cards: self, Kitamasa's
+      algorithm, Fibonacci DP, Modular exponentiation (live lesson
+      badge) (all algoName). neverUse: iteration or naive recursion when
+      n has eighteen digits. Figure: the 60 bits of 10^18 with the
+      induced squarings and multiplies beside a log-scale bar chart of
+      scalar multiplications by method; cite Knuth TAOCP 2 4.6.3 and 1
+      1.2.8, Pingala, al-Kashi. Viz MatrixPowerViz: binary
+      exponentiation of the Fibonacci matrix mod 10^9+7 for a seeded
+      30-to-50-bit exponent, one bit per tick, result and base matrices
+      drawn, the product counter against n - 1, the partial result
+      checked against fast doubling on every tick; NODE-VERIFIED 20
+      cycles, 0 breaks; stepMs 450, holdTicks rests. Preserved
+      narration: Aoede + Algieba. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

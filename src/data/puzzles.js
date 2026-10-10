@@ -3217,6 +3217,24 @@ export const PUZZLES = {
     vite: 'bonferroni-correction-family-wise-error-control',
     html: 'bonferroni-correction-family-wise-error-control/index.html',
   },
+  '/matrix-exponentiation-binary-exponentiation/': {
+    slug: 'matrix-exponentiation-binary-exponentiation',
+    added: '2026-10-10',
+    problemSlug: 'linear-recurrences',
+    number: 185,
+    category: 'optimization-or',
+    algorithm: 'Matrix exponentiation',
+    heuristic: 'Binary exponentiation',
+    domain: 'Linear recurrence evaluation',
+    oneLiner:
+      'Turn one step of a linear recurrence into a companion matrix, so n steps are the n-th power, and take that power by squaring once per bit of n and multiplying in at the one bits: floor(log2 n) + popcount(n) - 1 products instead of n - 1, for Fibonacci at a quintillion, for walk counts on a graph, for anything associative.',
+    listenMinutes: 10,
+    time: 'O(k^3 log n) scalar multiplications',
+    space: 'two k x k matrices',
+    baseline: 'Plain iteration of the recurrence',
+    vite: 'matrix-exponentiation-binary-exponentiation',
+    html: 'matrix-exponentiation-binary-exponentiation/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

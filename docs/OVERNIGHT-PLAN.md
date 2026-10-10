@@ -5427,6 +5427,51 @@ commit, Fable trailer on every commit, check green before each push.
       650, holdTicks rests. Preserved narration: Aoede + Algieba. Added
       2026-10-10.
 
+- [x] F167. Canny edge detector × Hysteresis thresholding. Puzzle 173,
+      signal-graphics (problemSlug edge-detection, the atlas problem
+      page carrying "Edge detection"). Solution
+      canny_edge_detector_hysteresis_thresholding.py (0.4s, prints OK):
+      a synthetic 96 x 96 image with ground-truth boundary pixels (disk
+      at +120, square ramping +30 to +120), separable Gaussian blur
+      (sigma 1.4), Sobel, non-maximum suppression with image-coordinate
+      diagonals and one strict comparison, breadth-first hysteresis
+      (high = half the peak gradient, low = 0.4 high), single-threshold
+      ablations on thinned and raw magnitude, Marr-Hildreth LoG zero
+      crossings with a slope test, a scorer (precision / recall / F1
+      within one pixel, thick = inside a filled 2 x 2 block, connected
+      components), and a pixel-by-pixel hysteresis-invariant checker.
+      ORACLES: (1) noiseless: precision 1.000, recall 1.000, 240 edge
+      pixels for 248 true, thick 0.000, components 2; (2) the invariant
+      at noise 8 / 16 / 24 / 40: 193 + 48, 193 + 48, 195 + 44, 194 + 47
+      strong + weak, every weak pixel connected to a strong one; (3) F1
+      by noise 8 / 16 / 24 / 40: Canny 1.000 / 1.000 / 0.980 / 0.937
+      (components 2 / 2 / 2 / 2); NMS + high only 0.900 / 0.898 / 0.898
+      / 0.895 (recall 0.82 / 0.82 / 0.82 / 0.81); NMS + low only 1.000 /
+      0.992 / 0.885 / 0.495 (precision at 40: 0.330, 751 pixels, 131
+      components); Sobel magnitude thresholded 0.831 / 0.848 / 0.854 /
+      0.855 (thick 1.000 / 0.987 / 0.987 / 0.994); Marr-Hildreth 0.865 /
+      0.833 / 0.785 / 0.789 (recall 0.76 / 0.71 / 0.65 / 0.72; 6 / 5 / 9
+      / 28 components). Honest: at noise 40 Canny's precision falls to
+      0.946 as speckles attach to true contours; three author
+      corrections recorded (the first NMS mapped diagonals wrongly and
+      kept tied pairs, 35% thick and 24 fragments noiseless; the
+      thickness metric changed from three-or-more neighbors to a filled
+      2 x 2 block; the first image had constant-contrast edges so
+      hysteresis had nothing to rescue, hence the ramped square). Cards:
+      self, Sobel operator, Marr-Hildreth, Otsu thresholding (live
+      lesson badge) (all algoName). neverUse: a single threshold on an
+      image with faint and strong edges together. Figure: a schematic
+      gradient profile along the ramped edge with both thresholds and
+      noise spikes, beside F1 by noise for four methods; cite Canny
+      TPAMI 1986 DOI 10.1109/TPAMI.1986.4767851, Marr and Hildreth 1980.
+      Viz CannyViz: a 48 x 48 image (noise 16 / 28 / 40 by cycle)
+      blurred, differentiated, and thinned at scene start, then
+      hysteresis one breadth-first wave per tick, strong blue, rescued
+      weak amber, unanchored gray, the connectivity invariant checked
+      every tick; NODE-VERIFIED 12 cycles, 0 breaks; stepMs 450,
+      holdTicks rests. Preserved narration: Aoede + Algieba. Added
+      2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

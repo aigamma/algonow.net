@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:canny-edge-detector-hysteresis-thresholding",
+  "source_path": "src/content/canny-edge-detector-hysteresis-thresholding.narration.js",
+  "source_sha256": "8e97cb7af866eb345ae145d9530ab8cf6a6b3c2be1701258b13fa46133115d46",
+  "source_characters": 10861,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "fe21b5d034b2fe8d3cd312e715c465c405ff76d6995298be21f7fd1751b6f85f",
+  "generated_at": "2026-10-10T22:22:50.850Z",
+  "generated_characters": 21722,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4499,
+      "utf8_bytes": 4505,
+      "sha256": "974a7b92e4df1560f8c4a9fea63b6b7bc3b9be8dbdcd120038ec1f01f826df71"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4239,
+      "utf8_bytes": 4243,
+      "sha256": "a78b4b409c7bc5aac061e0a07a709a5958b501d93aaff2855fa0545fc6f4a97d"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1251,
+      "utf8_bytes": 1261,
+      "sha256": "28427a7bf10d57d705c37e818dba6661068a2223b5aab0be501b1f4539c97b15"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 872,
+      "utf8_bytes": 874,
+      "sha256": "d780077691f26edc6adb786820301c37743ca8463882203ec78e528a6abdc095"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "canny-edge-detector-hysteresis-thresholding.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "canny-edge-detector-hysteresis-thresholding.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1256,
+      "sha256": "b892ae8227d801aa9556110e1df9971f37b9f91beeb02e25678bdd9c676729ac"
+    },
+    {
+      "id": "canny-edge-detector-hysteresis-thresholding.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1020,
+      "sha256": "2c1e7a19deec4301f8570528b630e68fa017bd835c7bba89ca0ecf8707383337"
+    },
+    {
+      "id": "canny-edge-detector-hysteresis-thresholding.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1525,
+      "sha256": "8dadd22fa1f5044f6d05133b101c6018c7197439129d11422997535275a9f1bb"
+    },
+    {
+      "id": "canny-edge-detector-hysteresis-thresholding.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 571,
+      "sha256": "dc64e394735d8951d2df588c89fc8b2f5119eb194f3fdc544ed40c81f2af799e"
+    },
+    {
+      "id": "canny-edge-detector-hysteresis-thresholding.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 798,
+      "sha256": "714b532039374f9c234968968ee55572a4c1b6ab772b6238bb07e07fb5b8e434"
+    },
+    {
+      "id": "canny-edge-detector-hysteresis-thresholding.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 413,
+      "sha256": "5c435227d13e3918220e50f8f7a5fa63133ace2bbaeb6a95a6974f5430c33f17"
+    },
+    {
+      "id": "canny-edge-detector-hysteresis-thresholding.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1658,
+      "sha256": "c835250ecf982a458ad440c82b02909665bcf42d85b15cc00960f1c93ccb1ed3"
+    },
+    {
+      "id": "canny-edge-detector-hysteresis-thresholding.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 566,
+      "sha256": "3830731de9cd8fcd768bb088e295b77155b4f1c57825bd11150c5fe5b072aca3"
+    },
+    {
+      "id": "canny-edge-detector-hysteresis-thresholding.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 798,
+      "sha256": "ae655ccfb1bfe204735cb0d8b5f24bb4f510097975c1982ecd67be5deea590ed"
+    },
+    {
+      "id": "canny-edge-detector-hysteresis-thresholding.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2135,
+      "sha256": "a5fb4575e7b39133f5c9294f0bafc23337869bccd2b7e6d1f6428c9d7ed29454"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/canny-edge-detector-hysteresis-thresholding/fe21b5d034b2fe8d3cd3/aoede-f6b646d951719cfa.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2698412,
+      "sha256": "f6b646d951719cfa0c5e83ecfc4ab572e43d2a69d5204632ce27b0b10303e281",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "974a7b92e4df1560f8c4a9fea63b6b7bc3b9be8dbdcd120038ec1f01f826df71",
+          "bytes": 1104672,
+          "sha256": "94ab116c1810b2fb70a711b31bddd17a603fbce4d1c774c60e67dbe829b3fb74"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "a78b4b409c7bc5aac061e0a07a709a5958b501d93aaff2855fa0545fc6f4a97d",
+          "bytes": 1096896,
+          "sha256": "856dc6fae884a48afd35f70a00c72925b1cf109cabebb56635c6253fbe6b65a7"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "28427a7bf10d57d705c37e818dba6661068a2223b5aab0be501b1f4539c97b15",
+          "bytes": 301536,
+          "sha256": "731618be963df9661c1db89b386b3586ee15a76a2da955b1f72438d6388220e6"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "d780077691f26edc6adb786820301c37743ca8463882203ec78e528a6abdc095",
+          "bytes": 195072,
+          "sha256": "632a2d0fa77e1855a6d3d463f57241f9687e9750e384581b23b79b67331e1a6d"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/canny-edge-detector-hysteresis-thresholding/fe21b5d034b2fe8d3cd3/algieba-519426e3a91f8c72.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2832620,
+      "sha256": "519426e3a91f8c72b82b63e2b113940901d331066d6e85f62a1cda0e0d5cdfc0",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "974a7b92e4df1560f8c4a9fea63b6b7bc3b9be8dbdcd120038ec1f01f826df71",
+          "bytes": 1198944,
+          "sha256": "4ab342f08cdc09a1943c263dcbd0b8b6b532af92aa396ce95e87620813565274"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "a78b4b409c7bc5aac061e0a07a709a5958b501d93aaff2855fa0545fc6f4a97d",
+          "bytes": 1125216,
+          "sha256": "44073bf971c90700e52c2e87ddcc777c31b8331677b94aa01b4b9112a7ebfd08"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "28427a7bf10d57d705c37e818dba6661068a2223b5aab0be501b1f4539c97b15",
+          "bytes": 306432,
+          "sha256": "8a162544425a586c1f7cf32ae47740b6da3a680c9960685e6c292941afdd8c0f"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "d780077691f26edc6adb786820301c37743ca8463882203ec78e528a6abdc095",
+          "bytes": 201792,
+          "sha256": "cf16623876a9a29f0715a32eec6ba2d17b4264e5f4421a725bee6c470952cb34"
+        }
+      ]
+    }
+  }
+}

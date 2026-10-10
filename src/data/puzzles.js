@@ -3343,6 +3343,26 @@ export const PUZZLES = {
     vite: 'maintaining-arc-consistency-ac3-propagation',
     html: 'maintaining-arc-consistency-ac3-propagation/index.html',
   },
+  '/canny-edge-detector-hysteresis-thresholding/': {
+    slug: 'canny-edge-detector-hysteresis-thresholding',
+    added: '2026-10-10',
+    problemSlug: 'edge-detection',
+    number: 173,
+    category: 'signal-graphics',
+    algorithm: 'Canny edge detector',
+    heuristic: 'Hysteresis thresholding',
+    domain: 'Edge detection',
+    oneLiner:
+      'Blur, take the gradient, keep only the local maxima along the gradient so every edge is one pixel thin, then decide with two thresholds instead of one: a pixel above the high threshold is an edge, and a pixel above the low threshold is an edge only if it connects through other candidates to a strong one, so faint stretches of real contours survive and isolated noise does not.',
+    description:
+      'The Canny edge detector with hysteresis thresholding on a 96 x 96 image whose edges are known by construction (a disk 120 levels above the background and a square ramping from 30 to 120 above it): F1 1.000 noiseless and 1.000, 1.000, 0.980, 0.937 under noise of 8, 16, 24, 40 with 2 components every time; a single high threshold alone holds recall 0.82 at every level (the faint edges lost), the low threshold alone admits 751 pixels for 248 true at noise 40 (precision 0.33, 131 fragments), thresholded Sobel magnitude is 99% thick, Marr-Hildreth zero crossings reach recall 0.65 to 0.76 in 5 to 28 fragments; and the hysteresis invariant held pixel by pixel, 193 strong pixels pulling 48 weak ones through.',
+    listenMinutes: 10,
+    time: 'O(pixels) for blur, gradient, thinning, and one breadth-first search',
+    space: 'a magnitude and a direction per pixel',
+    baseline: 'Sobel magnitude with a single threshold',
+    vite: 'canny-edge-detector-hysteresis-thresholding',
+    html: 'canny-edge-detector-hysteresis-thresholding/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

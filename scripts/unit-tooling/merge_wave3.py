@@ -33,6 +33,8 @@ FILES = {
     210: '210-triangle-counting-node-iterator.json',
     211: '211-ordinary-least-squares-normal-equations.json',
     212: '212-greedy-k-center-farthest-first-traversal.json',
+    213: '213-matrix-factorization-stochastic-gradient-descent.json',
+    214: '214-lee-maze-routing-breadth-first-wave-expansion.json',
 }
 NOTE = " Authored by a fork agent of this Fable 5.1 session at the owner's explicit request for parallel authoring; the main thread re-ran the solution, the viz check, the narration plan, and the static checks before accepting it."
 want = [int(a) for a in sys.argv[1:]] or list(FILES)

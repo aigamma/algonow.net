@@ -6349,6 +6349,71 @@ commit, Fable trailer on every commit, check green before each push.
       solution, the viz check, the narration plan, and the static checks
       before accepting it. Added 2026-10-10.
 
+- [x] F184. Connected component labeling × Two-pass union-find. Puzzle
+      190, signal-graphics (problemSlug region-labeling, the atlas
+      problem page carrying "Region labeling"; sibling live lessons
+      canny-edge-detector-hysteresis-thresholding, puzzle 173, and
+      unionfind-rank-compression, puzzle 8). Solution
+      connected_component_labeling_two_pass_union_find.py (0.3s, prints
+      OK): a counting union-find (unions, finds, parent links followed)
+      with path compression and union by rank, the two-pass labeler
+      (visits, provisional labels), an iterative BFS flood fill (visits,
+      queue maximum), a recursive flood fill (max depth, RecursionError
+      reported instead of crashing), run-length labeling, union-find
+      over raw pixels, the naive single pass, and image builders (random
+      disks, separated disks, a one-pixel-wide snake, U shapes, diagonal
+      stripes). ORACLES: (1) partition equality (never label numbers)
+      against the BFS on a 160 x 120 image of 60 disks (5,520 foreground
+      pixels) under 4- and 8-connectivity, on 40 random 64 x 48 images
+      under both (80 pairs), and on 10, 25, and 40 separated disks whose
+      counts are known by construction: 88 comparisons, with run-length
+      labeling and pixel union-find agreeing too; (2) counts: 28 / 27
+      components; two-pass 38,400 visits (exactly 2 per pixel, asserted)
+      against BFS 41,280 / 63,360 (queue max 30 / 50); provisional
+      labels 179 / 78, unions 151 / 51, finds 7,934 / 7,474 at 0.635 /
+      0.405 links per find (asserted under 1.5); unions == sets made
+      minus components asserted for every method; run-length 499 runs,
+      471 / 472 unions, 1,443 / 1,455 finds; pixel union-find 5,520
+      sets, 5,492 / 5,493 unions, 25,588 / 45,026 finds at 0.824 / 0.889
+      links; recursive fill 41,280 / 63,360 visits (equal to BFS,
+      asserted), depth 597 / 573; (3) snake 160 x 40 (3,220 pixels, one
+      component): two-pass 12,800 visits, 11 labels, 10 unions; BFS
+      queue max 1; recursive fill depth 3,220 at limit 50,000 and
+      RecursionError at the default 1,000 (asserted); (4) diagonal
+      stripes 60 x 60 period 3: 1,200 components under 4-connectivity
+      (every pixel alone), 39 under 8 (asserted against the stripe
+      count); (5) negative example: naive single pass 60 labels for 30 U
+      shapes (asserted at least 2 per U) and 78 for 27 blobs under
+      8-connectivity; the two-pass made the same 60 provisional labels
+      and 30 unions on the U image. Honest: author correction recorded
+      (the draft expected about one provisional label per component;
+      measured several per blob, 179 for 28 under 4-connectivity,
+      because every row where a blob widens on its left starts a label).
+      Cards: self, Flood fill, Union-find (live lesson badge, puzzle 8),
+      Run-length encoding (all algoName; pages verified in dist/algo).
+      neverUse: one raster pass with no equivalence table (60 labels for
+      30 U shapes), with the recursive flood fill crash as its cousin.
+      Figure: pass one on a U shape with labels 1 and 2 and the amber
+      union at the corner, beside a log-scale chart of sets made and
+      finds spent (two-pass 78 / 7,474; run-length 499 / 1,455; pixel
+      union-find 5,520 / 45,026); cite Rosenfeld and Pfaltz JACM 1966
+      DOI 10.1145/321356.321357, He, Chao, Suzuki IEEE TIP 2008, Wu,
+      Otoo, Suzuki PAA 2009. Viz ComponentLabelingViz: a seeded 48 x 16
+      image (disks, two U shapes, specks) under 4- or 8-connectivity per
+      cycle; pass one six pixels per tick with provisional-label colors
+      and an amber flash per union, pass two twelve per tick recoloring
+      to final components; invariant every tick of pass one: the
+      union-find classes over the scanned prefix equal an independent
+      flood fill's components of that prefix; at the end partition
+      equality with the full flood fill, visits == 2N, unions == labels
+      minus components; NODE-VERIFIED 20 cycles x 191 ticks, 0 breaks;
+      stepMs 60, holdTicks rests. Preserved narration: Aoede + Algieba
+      (plan 27,604 billable characters, 10 provider requests, $0.828120,
+      approval 9ea8d606...). Authored by a fork agent of this Fable 5.1
+      session at the owner's explicit request for parallel authoring;
+      the main thread re-ran the solution, the viz check, the narration
+      plan, and the static checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

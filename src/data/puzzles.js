@@ -3307,6 +3307,24 @@ export const PUZZLES = {
     vite: 'vickrey-auction-second-price-rule',
     html: 'vickrey-auction-second-price-rule/index.html',
   },
+  '/connected-component-labeling-two-pass-union-find/': {
+    slug: 'connected-component-labeling-two-pass-union-find',
+    added: '2026-10-10',
+    problemSlug: 'region-labeling',
+    number: 190,
+    category: 'signal-graphics',
+    algorithm: 'Connected component labeling',
+    heuristic: 'Two-pass union-find',
+    domain: 'Region labeling',
+    oneLiner:
+      'Scan the pixels once in reading order, giving each foreground pixel the label of a neighbor already seen or a fresh one, record every meeting of two labels as a union, then rewrite each label to its root in a second pass: two streaming reads, no stack, no recursion, and a merge-only table sized by labels, not pixels.',
+    listenMinutes: 10,
+    time: 'O(n α(n)): two passes over n pixels, near-constant per union and find',
+    space: 'O(L) parent and rank entries for L provisional labels, plus the label image',
+    baseline: 'Breadth-first flood fill from every unlabeled pixel',
+    vite: 'connected-component-labeling-two-pass-union-find',
+    html: 'connected-component-labeling-two-pass-union-find/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

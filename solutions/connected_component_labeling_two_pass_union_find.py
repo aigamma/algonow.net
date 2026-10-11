@@ -1,48 +1,12 @@
 # Puzzle 190: Connected component labeling x Two-pass union-find
-# Region labeling: a binary image, foreground pixels on a background; give
-# every foreground pixel the number of the connected blob it belongs to,
-# so that two pixels share a label exactly when a path of foreground
-# neighbors joins them (4-connectivity: edge neighbors; 8-connectivity:
-# edge and corner neighbors). The algorithm is the two-pass raster scan of
-# Rosenfeld and Pfaltz (1966): pass one reads the pixels in reading order
-# and gives each foreground pixel the label of an already-scanned neighbor,
-# or a fresh provisional label when it has none; pass two rewrites every
-# provisional label to its final component number. The heuristic is the
-# union-find between the passes: whenever a pixel sees two different
-# labels among its scanned neighbors (the two arms of a U meeting at the
-# bottom), record that they are equivalent by a union, and resolve every
-# label with find, using path compression and union by rank so the whole
-# bookkeeping costs amortized near-constant time per operation. Two
-# streaming passes over the pixels, no stack, no recursion, no revisiting.
-#
-# Referees:
-# (1) THE PARTITION, compared pixel set by pixel set (label numbers
-#     ignored), against an independent iterative breadth-first flood fill on
-#     every image for both connectivities, and against a count known by
-#     construction on images of separated disks;
-# (2) THE COUNTS: pixel visits (exactly two per pixel), provisional labels
-#     against final components, unions and finds, and the average number of
-#     parent links followed per find, which must stay near one under path
-#     compression and union by rank;
-# (3) THE RIVALS: breadth-first flood fill (visits and the queue's maximum
-#     size), recursive depth-first flood fill (its maximum recursion depth,
-#     which equals the length of a thin snake), run-length labeling (unions
-#     over runs instead of pixels), and union-find over the raw pixels (one
-#     set per pixel, no provisional labels), all giving the same partition,
-#     with unions equal to sets made minus components for every one of them;
-# (4) 4- AGAINST 8-CONNECTIVITY on diagonal stripes: every pixel its own
-#     component under 4-connectivity, one component per stripe under 8;
-# (5) THE NEGATIVE EXAMPLE, measured: a single raster pass that takes the
-#     smallest neighbor label but never records equivalences, which splits
-#     every U-shaped component into two or more labels; and the recursive
-#     flood fill at Python's default recursion limit on a snake longer than
-#     the limit, which raises RecursionError.
-#
-# AUTHOR CORRECTION: the draft expected the two-pass first pass to create
-# about as many provisional labels as there are components. Measured on
-# random blobs, pass one creates several labels per blob (every row where
-# a blob widens on the left starts a new one), and the union-find merges
-# them: the ratio is reported rather than assumed.
+# Region labeling: number every foreground pixel of a binary image by its
+# blob under 4- or 8-connectivity. Rosenfeld and Pfaltz (1966): pass one
+# labels each pixel from a scanned neighbor or starts a provisional label,
+# the union-find records every meeting of two labels, pass two rewrites
+# labels to components. Referee: an independent BFS flood fill, compared as
+# a partition, plus counts known by construction and work identities.
+# AUTHOR CORRECTION: the draft expected one provisional label per
+# component; measured, several per blob.
 import random
 import sys
 from collections import deque
@@ -56,7 +20,7 @@ class UnionFind:
         self.rank = []
         self.unions = 0
         self.finds = 0
-        self.links = 0  # parent links followed during finds
+        self.links = 0
 
     def make(self):
         self.parent.append(len(self.parent))
@@ -87,31 +51,18 @@ class UnionFind:
             self.rank[ra] += 1
 
 
-def scanned_neighbors(x, y, conn):
-    yield x - 1, y
-    yield x, y - 1
+def neighbors(x, y, conn, scanned=False):
+    nb = [(x - 1, y), (x, y - 1)] if scanned else [(x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)]
     if conn == 8:
-        yield x - 1, y - 1
-        yield x + 1, y - 1
-
-
-def all_neighbors(x, y, conn):
-    yield x - 1, y
-    yield x + 1, y
-    yield x, y - 1
-    yield x, y + 1
-    if conn == 8:
-        yield x - 1, y - 1
-        yield x + 1, y - 1
-        yield x - 1, y + 1
-        yield x + 1, y + 1
+        nb += [(x - 1, y - 1), (x + 1, y - 1)] if scanned else [(x - 1, y - 1), (x + 1, y - 1), (x - 1, y + 1), (x + 1, y + 1)]
+    return nb
 
 
 def two_pass(img, conn):
     h, w = len(img), len(img[0])
     labels = [[0] * w for _ in range(h)]
     uf = UnionFind()
-    uf.make()  # label 0 is the background
+    uf.make()
     visits = 0
     provisional = 0
     for y in range(h):
@@ -120,11 +71,7 @@ def two_pass(img, conn):
             visits += 1
             if not row[x]:
                 continue
-            best = 0
-            seen = []
-            for nx, ny in scanned_neighbors(x, y, conn):
-                if 0 <= nx < w and 0 <= ny < h and labels[ny][nx]:
-                    seen.append(labels[ny][nx])
+            seen = [labels[ny][nx] for nx, ny in neighbors(x, y, conn, True) if 0 <= nx < w and 0 <= ny < h and labels[ny][nx]]
             if not seen:
                 best = uf.make()
                 provisional += 1
@@ -134,7 +81,6 @@ def two_pass(img, conn):
                     if other != best:
                         uf.union(best, other)
             labels[y][x] = best
-    # second pass: compact final labels
     final = {}
     out = [[0] * w for _ in range(h)]
     for y in range(h):
@@ -164,7 +110,7 @@ def bfs_flood_fill(img, conn):
                 while q:
                     max_queue = max(max_queue, len(q))
                     cx, cy = q.popleft()
-                    for nx, ny in all_neighbors(cx, cy, conn):
+                    for nx, ny in neighbors(cx, cy, conn):
                         visits += 1
                         if 0 <= nx < w and 0 <= ny < h and img[ny][nx] and not out[ny][nx]:
                             out[ny][nx] = comps
@@ -173,7 +119,6 @@ def bfs_flood_fill(img, conn):
 
 
 def dfs_recursive(img, conn, limit):
-    """Recursive flood fill; reports the maximum depth, or the failure."""
     h, w = len(img), len(img[0])
     out = [[0] * w for _ in range(h)]
     depth = [0]
@@ -186,7 +131,7 @@ def dfs_recursive(img, conn, limit):
         depth[0] += 1
         max_depth[0] = max(max_depth[0], depth[0])
         out[y][x] = c
-        for nx, ny in all_neighbors(x, y, conn):
+        for nx, ny in neighbors(x, y, conn):
             visits[0] += 1
             if 0 <= nx < w and 0 <= ny < h and img[ny][nx] and not out[ny][nx]:
                 fill(nx, ny, c)
@@ -209,9 +154,6 @@ def dfs_recursive(img, conn, limit):
 
 
 def pixel_union_find(img, conn):
-    """The structure alone, no provisional labels: every foreground pixel is
-    its own set, every foreground adjacency to a scanned neighbor is a union,
-    and one find per pixel at the end reads the component."""
     h, w = len(img), len(img[0])
     uf = UnionFind()
     idx = [[-1] * w for _ in range(h)]
@@ -219,7 +161,7 @@ def pixel_union_find(img, conn):
         for x in range(w):
             if img[y][x]:
                 idx[y][x] = uf.make()
-                for nx, ny in scanned_neighbors(x, y, conn):
+                for nx, ny in neighbors(x, y, conn, True):
                     if 0 <= nx < w and 0 <= ny < h and img[ny][nx]:
                         uf.union(idx[y][x], idx[ny][nx])
     out = [[0] * w for _ in range(h)]
@@ -235,8 +177,6 @@ def pixel_union_find(img, conn):
 
 
 def run_length_labeling(img, conn):
-    """Label runs of foreground per row, union runs that overlap (or touch
-    diagonally, for 8-connectivity) with runs of the previous row."""
     h, w = len(img), len(img[0])
     uf = UnionFind()
     runs_by_row = []
@@ -278,7 +218,6 @@ def run_length_labeling(img, conn):
 
 
 def naive_single_pass(img, conn):
-    """Smallest scanned-neighbor label, no equivalence bookkeeping."""
     h, w = len(img), len(img[0])
     out = [[0] * w for _ in range(h)]
     labels = 0
@@ -286,7 +225,7 @@ def naive_single_pass(img, conn):
         for x in range(w):
             if not img[y][x]:
                 continue
-            seen = [out[ny][nx] for nx, ny in scanned_neighbors(x, y, conn) if 0 <= nx < w and 0 <= ny < h and out[ny][nx]]
+            seen = [out[ny][nx] for nx, ny in neighbors(x, y, conn, True) if 0 <= nx < w and 0 <= ny < h and out[ny][nx]]
             if seen:
                 out[y][x] = min(seen)
             else:
@@ -303,8 +242,6 @@ def partition(labeling):
                 groups.setdefault(lab, []).append((x, y))
     return frozenset(frozenset(g) for g in groups.values())
 
-
-# ------------------------------------------------------------- images
 
 def blank(w, h):
     return [[0] * w for _ in range(h)]
@@ -326,8 +263,6 @@ def random_blobs(rng, w, h, n):
 
 
 def separated_disks(rng, w, h, n, r):
-    """Disks whose bounding boxes are at least 2 pixels apart: exactly n
-    components by construction, under either connectivity."""
     img = blank(w, h)
     centers = []
     while len(centers) < n:
@@ -339,7 +274,6 @@ def separated_disks(rng, w, h, n, r):
 
 
 def snake(w, h):
-    """A serpentine path one pixel wide: one component of w * (h // 2) pixels, roughly."""
     img = blank(w, h)
     length = 0
     for y in range(0, h, 2):
@@ -354,7 +288,6 @@ def snake(w, h):
 
 
 def u_shapes(rng, w, h, n):
-    """n U shapes with arms that only meet at the bottom row of each U."""
     img = blank(w, h)
     placed = 0
     attempts = 0
@@ -362,8 +295,7 @@ def u_shapes(rng, w, h, n):
         attempts += 1
         uw, uh = rng.randint(6, 14), rng.randint(5, 12)
         x0, y0 = rng.randrange(0, w - uw), rng.randrange(0, h - uh)
-        box = [(x, y) for y in range(y0 - 1, y0 + uh + 1) for x in range(x0 - 1, x0 + uw + 1) if 0 <= x < w and 0 <= y < h]
-        if any(img[y][x] for x, y in box):
+        if any(img[y][x] for y in range(max(0, y0 - 1), min(h, y0 + uh + 1)) for x in range(max(0, x0 - 1), min(w, x0 + uw + 1))):
             continue
         for y in range(y0, y0 + uh):
             img[y][x0] = 1
@@ -386,34 +318,32 @@ def diagonal_stripes(w, h, period):
 def main():
     rng = random.Random(SEED)
     W, H = 160, 120
-
-    # Oracle 1 and 2: random blobs under both connectivities against BFS.
-    images = [('random blobs', random_blobs(rng, W, H, 60))]
+    blobs = random_blobs(rng, W, H, 60)
     results = {}
-    for name, img in images:
-        for conn in (4, 8):
-            lab, stats = two_pass(img, conn)
-            ref, rstats = bfs_flood_fill(img, conn)
-            assert partition(lab) == partition(ref), (name, conn)
-            assert stats['components'] == rstats['components']
-            assert stats['visits'] == 2 * W * H
-            assert stats['links_per_find'] < 1.5, stats['links_per_find']
-            rl, rlstats = run_length_labeling(img, conn)
-            assert partition(rl) == partition(ref), (name, conn, 'run-length')
-            pu, pustats = pixel_union_find(img, conn)
-            assert partition(pu) == partition(ref), (name, conn, 'pixel union-find')
-            assert pustats['unions'] == pustats['sets'] - rstats['components']
-            assert stats['unions'] == stats['provisional'] - stats['components']
-            assert rlstats['unions'] == rlstats['runs'] - rlstats['components']
-            results[(name, conn)] = (stats, rstats, rlstats, pustats)
-    # separated disks: the count is known by construction
+    for conn in (4, 8):
+        lab, stats = two_pass(blobs, conn)
+        ref, rstats = bfs_flood_fill(blobs, conn)
+        assert partition(lab) == partition(ref), conn
+        assert stats['components'] == rstats['components']
+        assert stats['visits'] == 2 * W * H
+        assert stats['links_per_find'] < 1.5, stats['links_per_find']
+        rl, rlstats = run_length_labeling(blobs, conn)
+        assert partition(rl) == partition(ref), (conn, 'run-length')
+        pu, pustats = pixel_union_find(blobs, conn)
+        assert partition(pu) == partition(ref), (conn, 'pixel union-find')
+        assert pustats['unions'] == pustats['sets'] - rstats['components']
+        assert stats['unions'] == stats['provisional'] - stats['components']
+        assert rlstats['unions'] == rlstats['runs'] - rlstats['components']
+        ok_dfs, d = dfs_recursive(blobs, conn, 50000)
+        assert ok_dfs is not None and partition(ok_dfs) == partition(ref)
+        assert d['visits'] == rstats['visits'], 'same neighbor visits as BFS'
+        results[conn] = (stats, rstats, rlstats, pustats, d)
     for k in (10, 25, 40):
         img = separated_disks(rng, W, H, k, 4)
         for conn in (4, 8):
             lab, stats = two_pass(img, conn)
             assert stats['components'] == k, (k, conn, stats['components'])
             assert partition(lab) == partition(bfs_flood_fill(img, conn)[0])
-    # many random images, both connectivities, against BFS
     checked = 0
     for _ in range(40):
         img = random_blobs(rng, 64, 48, rng.randint(5, 40))
@@ -427,7 +357,6 @@ def main():
             assert partition(pu) == partition(ref)
             checked += 1
 
-    # Oracle 3: the recursive flood fill and the snake.
     snake_img, snake_len = snake(W, 40)
     lab, sstats = two_pass(snake_img, 4)
     assert sstats['components'] == 1
@@ -435,11 +364,10 @@ def main():
     assert ok_lab is not None and dstats['max_depth'] >= snake_len - 1, dstats
     assert partition(ok_lab) == partition(lab)
     _, dfail = dfs_recursive(snake_img, 4, 1000)
-    assert dfail['failed'], 'the recursive fill should overflow the default limit on the snake'
+    assert dfail['failed'], 'snake overflows the default limit'
     bfs_snake, bstats = bfs_flood_fill(snake_img, 4)
     assert partition(bfs_snake) == partition(lab)
 
-    # Oracle 4: diagonal stripes.
     stripes = diagonal_stripes(60, 60, 3)
     pixels = sum(sum(r) for r in stripes)
     lab4, s4 = two_pass(stripes, 4)
@@ -449,38 +377,31 @@ def main():
     assert s8['components'] == stripe_count, (s8['components'], stripe_count)
     assert partition(lab8) == partition(bfs_flood_fill(stripes, 8)[0])
 
-    # Oracle 5: the naive single pass on U shapes (and on the blobs).
     u_img, placed = u_shapes(rng, W, H, 30)
     lab_u, ustats = two_pass(u_img, 4)
     assert ustats['components'] == placed
     naive_u, nstats = naive_single_pass(u_img, 4)
     assert nstats['labels'] >= 2 * placed, (nstats['labels'], placed)
     assert partition(naive_u) != partition(lab_u)
-    naive_b, nbstats = naive_single_pass(images[0][1], 8)
-    blob_stats = results[('random blobs', 8)][0]
-    assert nbstats['labels'] > blob_stats['components']
+    naive_b, nbstats = naive_single_pass(blobs, 8)
+    s8b = results[8][0]
+    assert nbstats['labels'] > s8b['components']
 
-    s4b, r4b, rl4b, pu4b = results[('random blobs', 4)]
-    s8b, r8b, rl8b, pu8b = results[('random blobs', 8)]
-    dfs_blobs = {}
-    for conn, rstats in ((4, r4b), (8, r8b)):
-        ok_dfs, d = dfs_recursive(images[0][1], conn, 50000)
-        assert ok_dfs is not None and partition(ok_dfs) == partition(bfs_flood_fill(images[0][1], conn)[0])
-        assert d['visits'] == rstats['visits'], 'the recursive and queue fills examine the same neighbors'
-        dfs_blobs[conn] = d
-    fg = sum(sum(r) for r in images[0][1])
-    print('contest: a 160 x 120 binary image of 60 random disks (' + f'{fg:,} foreground pixels) labeled under 4- and 8-connectivity; referee: an independent breadth-first flood fill, compared as a partition of pixels; disks placed apart as a count known by construction; one currency: pixel visits, unions, finds')
-    print(f'{"method":>26} {"conn":>4} {"components":>10} {"visits":>8} {"sets made":>11} {"unions":>7} {"finds":>7} {"links/find":>10}')
-    for conn, (s, r, rl, pu) in ((4, (s4b, r4b, rl4b, pu4b)), (8, (s8b, r8b, rl8b, pu8b))):
-        print(f'{"two-pass + union-find":>26} {conn:>4} {s["components"]:>10} {s["visits"]:>8,} {s["provisional"]:>11} {s["unions"]:>7} {s["finds"]:>7,} {s["links_per_find"]:>10.3f}')
-        print(f'{"BFS flood fill":>26} {conn:>4} {r["components"]:>10} {r["visits"]:>8,} {"-":>11} {"-":>7} {"-":>7} {"queue max " + str(r["max_queue"]):>10}')
-        print(f'{"run-length labeling":>26} {conn:>4} {rl["components"]:>10} {"-":>8} {str(rl["runs"]) + " runs":>11} {rl["unions"]:>7} {rl["finds"]:>7,} {"-":>10}')
-        print(f'{"union-find over pixels":>26} {conn:>4} {pu["components"]:>10} {"-":>8} {pu["sets"]:>11,} {pu["unions"]:>7,} {pu["finds"]:>7,} {pu["links_per_find"]:>10.3f}')
-    print(f'recursive flood fill on the same image: {dfs_blobs[4]["visits"]:,} and {dfs_blobs[8]["visits"]:,} visits (equal to the queue version), maximum depth {dfs_blobs[4]["max_depth"]:,} and {dfs_blobs[8]["max_depth"]:,}')
-    print(f'separated disks: 10, 25, and 40 components found exactly under both connectivities; {checked} random image-connectivity pairs matched the flood fill (two-pass and run-length both)')
-    print(f'the snake: one component of {snake_len:,} pixels; two-pass {sstats["visits"]:,} visits, {sstats["provisional"]} provisional labels and {sstats["unions"]} unions; BFS queue never above {bstats["max_queue"]}; recursive flood fill needs depth {dstats["max_depth"]:,} and raises RecursionError at the default limit of 1,000')
-    print(f'diagonal stripes (60 x 60, period 3): {pixels:,} components under 4-connectivity (every pixel alone), {stripe_count} under 8-connectivity (one per stripe)')
-    print(f'the naive single pass: {nstats["labels"]} labels for {placed} U shapes (every U split at least in two), and {nbstats["labels"]} labels for the {blob_stats["components"]} blobs under 8-connectivity; the two-pass gave {ustats["provisional"]} provisional labels for the {placed} U shapes and merged them with {ustats["unions"]} unions')
+    fg = sum(sum(r) for r in blobs)
+    print(f'contest: 160 x 120, 60 disks, {fg:,} foreground pixels; referee BFS flood fill as a partition; currency: visits, sets, unions, finds')
+    fmt = '{:>26} {:>4} {:>10} {:>8} {:>11} {:>7} {:>7} {:>10}'
+    print(fmt.format('method', 'conn', 'components', 'visits', 'sets made', 'unions', 'finds', 'links/find'))
+    for conn in (4, 8):
+        s, r, rl, pu, d = results[conn]
+        print(fmt.format('two-pass + union-find', conn, s['components'], f'{s["visits"]:,}', s['provisional'], s['unions'], f'{s["finds"]:,}', f'{s["links_per_find"]:.3f}'))
+        print(fmt.format('BFS flood fill', conn, r['components'], f'{r["visits"]:,}', '-', '-', '-', f'queue max {r["max_queue"]}'))
+        print(fmt.format('run-length labeling', conn, rl['components'], '-', f'{rl["runs"]} runs', rl['unions'], f'{rl["finds"]:,}', '-'))
+        print(fmt.format('union-find over pixels', conn, pu['components'], '-', f'{pu["sets"]:,}', f'{pu["unions"]:,}', f'{pu["finds"]:,}', f'{pu["links_per_find"]:.3f}'))
+        print(fmt.format('recursive flood fill', conn, d['components'], f'{d["visits"]:,}', '-', '-', '-', f'depth {d["max_depth"]}'))
+    print(f'separated disks 10, 25, 40 exact; {checked} random image-connectivity pairs matched (two-pass, run-length, pixel union-find)')
+    print(f'snake: {snake_len:,} pixels, one component; two-pass {sstats["visits"]:,} visits, {sstats["provisional"]} labels, {sstats["unions"]} unions; BFS queue max {bstats["max_queue"]}; recursion depth {dstats["max_depth"]:,}, RecursionError at 1,000')
+    print(f'stripes 60 x 60 period 3: {pixels:,} components (4-conn), {stripe_count} (8-conn)')
+    print(f'naive single pass: {nstats["labels"]} labels for {placed} U shapes, {nbstats["labels"]} for {s8b["components"]} blobs (8-conn); two-pass: {ustats["provisional"]} labels, {ustats["unions"]} unions')
     print(f'OK: the two-pass partition equals the flood fill on every image under both connectivities ({checked + 8} comparisons) and run-length labeling and union-find over pixels agree; unions equal labels minus components for every method; counts known by construction recovered exactly; '
           f'{s8b["links_per_find"]:.3f} parent links per find with path compression and rank; the snake of {snake_len:,} pixels needs recursion depth {dstats["max_depth"]:,} where the two passes need none; '
           f'4-connectivity {pixels:,} against 8-connectivity {stripe_count} on the stripes; the naive single pass splits every U ({nstats["labels"]} labels for {placed})')

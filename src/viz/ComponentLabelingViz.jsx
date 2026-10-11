@@ -2,15 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
 // Two-pass connected component labeling with union-find on a seeded 48 x 16
-// binary image, under 4- or 8-connectivity chosen per cycle. Pass one scans
-// in reading order, a few pixels per tick, handing out provisional labels
-// and firing a union wherever two labels meet (the amber flash). Pass two
-// rewrites every pixel to its root's final number. The invariant checked
-// after every tick of pass one: the union-find's classes over the pixels
-// scanned so far equal the true components of that scanned prefix, found by
-// an independent flood fill; at the end the whole labeling equals the flood
-// fill's partition, visits are exactly two per pixel, and unions equal
-// labels minus components.
+// binary image under 4- or 8-connectivity. Pass one scans in reading order,
+// a few pixels per tick, handing out provisional labels and firing a union
+// (amber flash) where two labels meet; pass two rewrites every pixel to its
+// root's final number. Invariant after every pass-one tick: the union-find's
+// classes over the scanned prefix equal that prefix's true components by an
+// independent flood fill; at the end the labeling equals the flood fill's
+// partition, visits are two per pixel, and unions equal labels minus
+// components.
 const W = 640;
 const H = 300;
 const COLS = 48;
@@ -65,21 +64,10 @@ export function floodFill(img, conn, limit) {
   return { comp, count };
 }
 
-// Two class-id arrays (0 = in no class) induce the same partition of the
-// first n pixels exactly when the ids map to each other one to one.
-export function samePartition(a, b, n) {
-  const ab = new Map();
-  const ba = new Map();
-  for (let i = 0; i < n; i += 1) {
-    if ((a[i] === 0) !== (b[i] === 0)) return false;
-    if (!a[i]) continue;
-    const m1 = ab.get(a[i]);
-    if (m1 === undefined) ab.set(a[i], b[i]);
-    else if (m1 !== b[i]) return false;
-    const m2 = ba.get(b[i]);
-    if (m2 === undefined) ba.set(b[i], a[i]);
-    else if (m2 !== a[i]) return false;
-  }
+// Both labelings number components by their first pixel in reading order,
+// so two class-id arrays describe the same partition exactly when equal.
+export function sameArray(a, b, n) {
+  for (let i = 0; i < n; i += 1) if (a[i] !== b[i]) return false;
   return true;
 }
 
@@ -182,7 +170,7 @@ export function makeScene(seed) {
     components: 0,
     done: false,
     ok: true,
-    last: `${conn}-connectivity; ${fg} foreground pixels of ${N}; the flood-fill referee counts ${ref.count} components`,
+    last: `${conn}-connectivity; ${fg} foreground of ${N}; referee: ${ref.count} components`,
   };
 }
 
@@ -218,19 +206,20 @@ export function sceneTick(sc) {
     }
     // invariant: the classes over the scanned prefix equal its true components
     const classId = new Int32Array(N);
-    const roots = new Set();
+    const roots = new Map();
     for (let q = 0; q < sc.i; q += 1) {
       if (sc.labels[q]) {
-        classId[q] = rootOf(sc, sc.labels[q]);
-        roots.add(classId[q]);
+        const r = rootOf(sc, sc.labels[q]);
+        if (!roots.has(r)) roots.set(r, roots.size + 1);
+        classId[q] = roots.get(r);
       }
     }
     const prefix = floodFill(sc.img, sc.conn, sc.i);
-    const match = samePartition(classId, prefix.comp, sc.i) && roots.size === prefix.count;
+    const match = sameArray(classId, prefix.comp, sc.i) && roots.size === prefix.count;
     sc.ok = sc.ok && match;
     sc.classes = roots.size;
     sc.prefixComponents = prefix.count;
-    sc.last = `pass one: pixel ${sc.i} of ${N}; ${sc.provisional} labels, ${sc.unions} unions, ${sc.finds} finds; ${roots.size} classes = ${prefix.count} components of the scanned prefix: ${match ? 'yes' : 'NO'}`;
+    sc.last = `pass one: pixel ${sc.i} of ${N}; ${sc.provisional} labels, ${sc.unions} unions, ${sc.finds} finds; ${roots.size} classes = ${prefix.count} prefix components: ${match ? 'yes' : 'NO'}`;
     if (sc.i >= N) sc.phase = 2;
     return false;
   }
@@ -247,20 +236,16 @@ export function sceneTick(sc) {
   sc.last = `pass two: pixel ${sc.j} of ${N}; ${sc.components} components so far; ${sc.finds} finds at ${perFind} links each`;
   if (sc.j >= N) {
     const match =
-      samePartition(sc.final, sc.ref.comp, N) &&
+      sameArray(sc.final, sc.ref.comp, N) &&
       sc.components === sc.ref.count &&
       sc.visits === 2 * N &&
       sc.unions === sc.provisional - sc.components;
     sc.ok = sc.ok && match;
     sc.done = true;
-    sc.last = `done: ${sc.components} components (flood fill ${sc.ref.count}); ${sc.visits} visits = 2 x ${N}; ${sc.provisional} labels merged by ${sc.unions} unions; ${sc.finds} finds at ${perFind} links each; partition equals the flood fill: ${match ? 'yes' : 'NO'}`;
+    sc.last = `done: ${sc.components} components (flood fill ${sc.ref.count}); ${sc.visits} visits = 2 x ${N}; ${sc.provisional} labels, ${sc.unions} unions, ${sc.finds} finds at ${perFind} links; equals the flood fill: ${match ? 'yes' : 'NO'}`;
     return true;
   }
   return false;
-}
-
-export function summarize(sc) {
-  return { conn: sc.conn, fg: sc.fg, components: sc.components, referee: sc.ref.count, labels: sc.provisional, unions: sc.unions, finds: sc.finds, ok: sc.ok };
 }
 
 const labelColor = (lab) => `hsl(${(lab * 47) % 360}, 55%, 62%)`;
@@ -311,8 +296,8 @@ export default function ComponentLabelingViz() {
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
         const header = sc.phase === 1 && !s.done
-          ? `pass one, ${sc.conn}-connectivity: reading order, each pixel takes a scanned neighbor's label or a new one; amber where two labels meet (union)`
-          : `pass two, ${sc.conn}-connectivity: every label rewritten to its root's final number, one color per component`;
+          ? `pass one, ${sc.conn}-connectivity: a scanned neighbor's label or a new one; amber = union`
+          : `pass two, ${sc.conn}-connectivity: each label rewritten to its root's component`;
         ctx.fillText(header, 12, 18);
         for (let p = 0; p < N; p += 1) {
           const x = GX + (p % COLS) * CELL;
@@ -346,20 +331,14 @@ export default function ComponentLabelingViz() {
         }
         ctx.fillStyle = dim;
         const perFind = (sc.links / Math.max(1, sc.finds)).toFixed(3);
-        ctx.fillText(`visits ${sc.visits} of ${2 * N} (two per pixel); provisional labels ${sc.provisional}; unions ${sc.unions}; finds ${sc.finds} at ${perFind} parent links each`, 12, 236);
+        ctx.fillText(`visits ${sc.visits} of ${2 * N}; labels ${sc.provisional}; unions ${sc.unions}; finds ${sc.finds} at ${perFind} links each`, 12, 236);
         ctx.fillStyle = ink;
         const compLine = sc.phase === 1 && !s.done
-          ? `${sc.fg} foreground pixels; classes so far ${sc.classes}, components of the scanned prefix ${sc.prefixComponents}; the flood-fill referee counts ${sc.ref.count} in the whole image`
-          : `${sc.fg} foreground pixels; components written ${sc.components}; the flood-fill referee counts ${sc.ref.count}`;
+          ? `${sc.fg} foreground; classes ${sc.classes} = prefix components ${sc.prefixComponents}; referee ${sc.ref.count} in all`
+          : `${sc.fg} foreground; components written ${sc.components}; referee ${sc.ref.count}`;
         ctx.fillText(compLine, 12, 252);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(
-          sc.ok
-            ? 'invariant: the union-find classes equal the true components of everything scanned so far (independent flood fill)'
-            : 'INVARIANT BROKEN',
-          12,
-          268,
-        );
+        ctx.fillText(sc.ok ? 'invariant: union-find classes = true components of the scanned prefix (flood fill)' : 'INVARIANT BROKEN', 12, 268);
         const line = sc.last;
         ctx.fillStyle = s.done ? (sc.ok ? good : warn) : ink;
         ctx.fillText(line.length > 96 ? `${line.slice(0, 95)}…` : line, 12, H - 6);

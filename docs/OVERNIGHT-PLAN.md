@@ -6810,6 +6810,62 @@ commit, Fable trailer on every commit, check green before each push.
       re-ran the solution, the viz check, the narration plan, and the
       static checks before accepting it. Added 2026-10-10.
 
+- [x] F193. Sharding × Hash partitioning. Puzzle 199, data-retrieval
+      (problemSlug sharding, the atlas problem page carrying "Horizontal
+      scaling"; sibling live lessons consistent-hashing-virtual-nodes,
+      puzzle 40, and rendezvous-highest-random-weight, puzzle 61).
+      Solution sharding_hash_partitioning.py (2.3 s, prints OK, 21
+      assertions): a deterministic 64-bit BLAKE2 digest as the hash, the
+      modulo router, a consistent-hashing ring with virtual nodes, jump
+      consistent hash (Lamping and Veach 2014), a load counter, and a
+      repeated balance experiment. ORACLES: (1) balance: 100 random key
+      sets of 20,000 keys on 16 shards, chi-square mean 15.06 +/- 0.55
+      against the multinomial's 15, per-shard sd 33.7 against sqrt(n/N
+      (1 - 1/N)) = 34.2, heaviest shard 1.089 x mean at worst
+      (five-sigma bound asserted); (2) routing: 100,000 keys, loads
+      6,122 to 6,390 around 6,250, every key found on its home shard and
+      on no other, 0.34 us per route; (3) growth: 16 -> 17 under modulo
+      moves 0.9418 (theory 16/17 = 0.9412, asserted within 0.005), 4 ->
+      5: 0.804, 8 -> 9: 0.896, 32 -> 33: 0.969 (each within 0.012 of
+      N/(N+1)); doubling 16 -> 32 moves 0.4993 and every mover goes to s
+      + 16; the ring with 100 virtual nodes moves 0.0637 and jump
+      consistent hash 0.0596 (theory 1/17 = 0.0588), every move onto the
+      new node; ring loads after the add 5,290 to 7,113 around 5,882;
+      one point per node leaves the heaviest node at 2.1 to 5.4 x mean
+      over 20 rings; on a 10 TB cluster the modulo moves 9.42 TB against
+      0.60; (4) skew: 200,000 Zipf requests over 100,000 keys, the
+      hottest key 16,610 requests (8.3%) against a shard mean of 12,500,
+      heaviest shard 2.582 x mean, salting the 13 keys above 1,250
+      requests into 16 sub-keys each gives 1.190 x; (5) range
+      partitioning: a 1,000-key scan touches 1.013 shards against 16
+      under hashing, the last 10,000 time-ordered inserts land 100% on
+      one range shard against 7.0% on the busiest hash shard, a query by
+      a non-key attribute fans out to 16 either way; (6) negative
+      example: partitioning user ids by their last digit leaves 6 of 16
+      shards empty with the heaviest at 1.62 x mean. Two author
+      corrections recorded in the header (one-point ring imbalance
+      guessed at two to three times, measured 2.1 to 5.4; salting only
+      two keys left the third-hottest key's shard at 1.4 x, so the page
+      salts every key above a tenth of the mean). Cards: self, Sharding
+      x Range partitioning (algoName Sharding), Consistent hashing x
+      Virtual nodes (live lesson, puzzle 40), Jump consistent hash;
+      neverUse: a bare modulo on a growing cluster or a last-digit hash.
+      Figure: the move fraction N/(N+1) against 1/(N+1) with the
+      measured dots, beside the Zipf shard loads before and after
+      salting; cites Stonebraker 1986, Karger et al. 1997, DeCandia et
+      al. 2007, Corbett et al. 2012, Lamping and Veach 2014. Viz
+      ShardingViz: keys streaming onto 6 to 9 shards under modulo and
+      onto a ring with 48 virtual nodes, one shard joining at half the
+      keys, moved keys flashed red; invariants every tick (every key on
+      exactly one shard in both schemes, the modulo move within six
+      standard errors of N/(N+1), every ring move onto the new shard);
+      NODE-VERIFIED 20 cycles, 66 ticks each, 0 breaks; stepMs 380,
+      holdTicks rests. Narration plan 0.706440 USD, 23,548 billable
+      characters, 8 requests, approval 71802e72...; chunk estimate 18.1
+      KB gz. Preserved narration: Aoede + Algieba. Authored by a fork
+      agent of this Fable 5.1 session at the owner's explicit request
+      for parallel authoring. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

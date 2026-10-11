@@ -3433,6 +3433,24 @@ export const PUZZLES = {
     vite: 'gaussian-process-regression-rbf-kernel',
     html: 'gaussian-process-regression-rbf-kernel/index.html',
   },
+  '/sharding-hash-partitioning/': {
+    slug: 'sharding-hash-partitioning',
+    added: '2026-10-10',
+    problemSlug: 'sharding',
+    number: 199,
+    category: 'data-retrieval',
+    algorithm: 'Sharding',
+    heuristic: 'Hash partitioning',
+    domain: 'Horizontal scaling',
+    oneLiner:
+      'Give every key one home by hashing it and taking the remainder modulo the shard count: loads as even as a multinomial, no directory, one machine per lookup, and a bill that comes due only when N changes, when the modulo re-homes N/(N + 1) of the data where a ring or jump hash moves 1/(N + 1), and when one hot key needs a salt because no hash can split it.',
+    listenMinutes: 11,
+    time: 'O(1) per route (one hash, one modulo); O(n · N/(N + 1)) keys moved when a shard joins',
+    space: 'O(1) routing state; O(n/N) keys per shard',
+    baseline: 'Range partitioning on the same key',
+    vite: 'sharding-hash-partitioning',
+    html: 'sharding-hash-partitioning/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

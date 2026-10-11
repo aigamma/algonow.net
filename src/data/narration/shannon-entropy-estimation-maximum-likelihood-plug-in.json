@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:shannon-entropy-estimation-maximum-likelihood-plug-in",
+  "source_path": "src/content/shannon-entropy-estimation-maximum-likelihood-plug-in.narration.js",
+  "source_sha256": "a1fb56b03b0b8ca20aab9a91cc5062aca124c7b5a13cb68b6bca66168a1bbcc3",
+  "source_characters": 12193,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "60f6ba002c9db84e6d941f26d07e0bd4f4650d8ce01a85e13706f4e076680f03",
+  "generated_at": "2026-10-11T01:14:05.238Z",
+  "generated_characters": 24386,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4472,
+      "utf8_bytes": 4490,
+      "sha256": "e000265b5e73d08bf02fb0eaeb436cd122fbe741f7308c8da16e6d3b8b174a6b"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4830,
+      "utf8_bytes": 4840,
+      "sha256": "1a4bfaeeddbe0c35493570a65dbefe69be5ab69935d9876f5b9ee702c6512895"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1998,
+      "utf8_bytes": 2000,
+      "sha256": "0dcdc8b83c92168be0d0b41f1288ad47daac5101321bb8ef0cb433bb6acf8af7"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 893,
+      "utf8_bytes": 893,
+      "sha256": "1d7decf06fe71ef8cee0649f9a047febf1382f06b976c421eb0d597855d47a26"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "shannon-entropy-estimation-maximum-likelihood-plug-in.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "shannon-entropy-estimation-maximum-likelihood-plug-in.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1405,
+      "sha256": "66a6932ae1c824811094f213f49a3d63a65c66395f59db2fa88f0199dea392a0"
+    },
+    {
+      "id": "shannon-entropy-estimation-maximum-likelihood-plug-in.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1329,
+      "sha256": "96d54a9cb267f51e3f8fe8de5805f5462366fa528b796d51641e7d4a46e1b486"
+    },
+    {
+      "id": "shannon-entropy-estimation-maximum-likelihood-plug-in.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1625,
+      "sha256": "db0c7c8ba8bd442aef40adbcec322dabf312ab2c29bec46907c82b8f5ff7e3b5"
+    },
+    {
+      "id": "shannon-entropy-estimation-maximum-likelihood-plug-in.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 658,
+      "sha256": "5ed70007bc44760fd5be0b0a61712624fb8afbe9b0761fdc9da7b344b27def07"
+    },
+    {
+      "id": "shannon-entropy-estimation-maximum-likelihood-plug-in.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 985,
+      "sha256": "ede2e3e80c75f407089805414ba89a60c112e6af903d15575f347595d693c794"
+    },
+    {
+      "id": "shannon-entropy-estimation-maximum-likelihood-plug-in.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 647,
+      "sha256": "16b7f442541effd8729836a8444c1d41e1b26fb6b2f08d62d4796c46351a3500"
+    },
+    {
+      "id": "shannon-entropy-estimation-maximum-likelihood-plug-in.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1455,
+      "sha256": "5e7810dcc3e96e8c53289d2662ded1c4dbd18cd0fc5d6efd871b60789653a841"
+    },
+    {
+      "id": "shannon-entropy-estimation-maximum-likelihood-plug-in.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1085,
+      "sha256": "a59e6b6386f5aa783c847d5d59854994ff9a6a4f7f2f950867a34c1fbd1641dc"
+    },
+    {
+      "id": "shannon-entropy-estimation-maximum-likelihood-plug-in.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1055,
+      "sha256": "b44749c536905440d870ea2ac2897842829542068e9b3265f9fc9605e2f0641d"
+    },
+    {
+      "id": "shannon-entropy-estimation-maximum-likelihood-plug-in.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1836,
+      "sha256": "31bf023b61880e741e53affec665538c626890ec07ce25fa85d7eb71ccaffd00"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/shannon-entropy-estimation-maximum-likelihood-plug-in/60f6ba002c9db84e6d94/aoede-4ba0da5f06f4fbfc.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3121772,
+      "sha256": "4ba0da5f06f4fbfcaa470936f578a6c227f8e806e538808d7de72dcae6b8125d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "e000265b5e73d08bf02fb0eaeb436cd122fbe741f7308c8da16e6d3b8b174a6b",
+          "bytes": 1108896,
+          "sha256": "7f015569b168ffcef575e6bd5d2dae95705ff6b3cc53787cf440862d7bcf9b0f"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "1a4bfaeeddbe0c35493570a65dbefe69be5ab69935d9876f5b9ee702c6512895",
+          "bytes": 1326624,
+          "sha256": "896f7b77e4484ab67d3a08fe28c699f1f6b9c1a0607a5fcf504f3d78beec0923"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "0dcdc8b83c92168be0d0b41f1288ad47daac5101321bb8ef0cb433bb6acf8af7",
+          "bytes": 487104,
+          "sha256": "821ad9a369dd62d74d4254d5fca5e9a592d6161edbe91498ae848f1ae44d6bb6"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "1d7decf06fe71ef8cee0649f9a047febf1382f06b976c421eb0d597855d47a26",
+          "bytes": 198912,
+          "sha256": "06d0421cefad150796508596979d5dfa02491a20a49aa8f78a9446c323140fe6"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/shannon-entropy-estimation-maximum-likelihood-plug-in/60f6ba002c9db84e6d94/algieba-3334ae2327fd5508.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3199052,
+      "sha256": "3334ae2327fd5508896aa232bba1a65c153fa725c0856f7c3ae1ea8e74e04c68",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "e000265b5e73d08bf02fb0eaeb436cd122fbe741f7308c8da16e6d3b8b174a6b",
+          "bytes": 1220736,
+          "sha256": "61b6e73d0509b1fad8367ae902a2ac7c2dd2b5898de68c6967d50df9e956cf2e"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "1a4bfaeeddbe0c35493570a65dbefe69be5ab69935d9876f5b9ee702c6512895",
+          "bytes": 1279584,
+          "sha256": "39e145d01046a87a4325ee308519d456d188eff8fdf6d4400dd01d88b78abd29"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "0dcdc8b83c92168be0d0b41f1288ad47daac5101321bb8ef0cb433bb6acf8af7",
+          "bytes": 500832,
+          "sha256": "420396ceed71f286bb9295def79ac58c62ffb4a98c68f213d74b2679094014bf"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "1d7decf06fe71ef8cee0649f9a047febf1382f06b976c421eb0d597855d47a26",
+          "bytes": 197664,
+          "sha256": "776df9f0a97b5fd6a685bb6f9f7fd1ddd8440aa6e7fe94a44fef561e0cd12b12"
+        }
+      ]
+    }
+  }
+}

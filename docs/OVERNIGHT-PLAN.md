@@ -6565,6 +6565,65 @@ commit, Fable trailer on every commit, check green before each push.
       the solution, the viz check, the narration plan, and the static
       checks before accepting it. Added 2026-10-10.
 
+- [x] F189. Shannon entropy estimation × Maximum likelihood plug-in.
+      Puzzle 195, compression-coding (problemSlug entropy-estimation,
+      the atlas problem page carrying "Entropy estimation"; sibling live
+      lesson huffman-frequency-merges). Solution
+      shannon_entropy_estimation_maximum_likelihood_plug_in.py (0.7 s,
+      prints OK, 62 assertions): the plug-in in its log n form,
+      Miller-Madow and jackknife corrections, the EXACT expectation of
+      the plug-in as a sum of binomial terms (a brute force over every
+      count vector on a 4-symbol alphabet at n = 8 agrees to 1e-12:
+      1.532790 bits against a truth of 1.846439), a Huffman coder on the
+      counts, Zipf distributions, and a plug-in mutual information.
+      ORACLES: (1) 100 equiprobable symbols (6.644 bits): exact bias
+      -3.41 at n = 10 (E[plug-in] 3.233, log2 10 = 3.322), -2.01 at 30,
+      -0.822 at 100 (Miller first-order -0.714), -0.261 at 300, -0.0728
+      at 1,000 (-0.0714), -0.0239 at 3,000, -0.00715 at 10,000
+      (-0.00714); Miller-Madow -2.79, -1.40, -0.370, -0.034, -0.0012
+      (exact -0.00136), -0.0001, -0.0000; jackknife -2.12, -0.83,
+      -0.065, +0.027, +0.0018, +0.0002, -0.0000; sd 0.0101 at 1,000 and
+      0.0009 at 10,000 (ratio 11.06: the uniform leading variance term
+      vanishes, 1/n). (2) Zipf over 100 symbols (5.310 bits): bias -2.43
+      at n = 10, -0.663 at 100, -0.0765 at 1,000 (sd 0.0738), -0.0072 at
+      10,000 (sd 0.0217; ratio 3.40 against root ten 3.16); Miller-Madow
+      -0.0104 and jackknife +0.0031 at 1,000. (3) All 14 Monte Carlo
+      means (120 to 200 reps) within 3 standard errors of the exact
+      expectation, for the plug-in and for Miller-Madow; bias ratios
+      1,000 against 10,000: 10.17 uniform, 10.66 Zipf; no sample above
+      log2 of the symbols seen (2,480 samples). (4) Code length on a
+      Zipf sample of 10,000: plug-in 5.2808 = ideal code length; Huffman
+      5.3185; truth 5.3102. (5) Independent 10 x 10 variables, n =
+      1,000, 300 reps: plug-in mutual information 0.0587 +/- 0.0005
+      bits, exact expectation 0.0598, first order (kx - 1)(ky - 1)/(2n
+      ln 2) = 0.0584. (6) NEGATIVE EXAMPLE: Zipf over 2,000 symbols
+      (8.115 bits) at n = 2,000: 632 symbols ever seen, plug-in -0.583,
+      Miller-Madow -0.356, jackknife -0.205; at n = 20,000: -0.079,
+      -0.015, +0.005, 1,785 seen. AUTHOR CORRECTION recorded: the draft
+      claimed the spread shrinks like 1/sqrt(n) for every distribution;
+      the uniform case shrinks like 1/n. Cards: self, Miller-Madow
+      correction, Jackknife resampling (Zahl's entropy jackknife), NSB
+      entropy estimator (all algoName pages exist). neverUse: the
+      plug-in reported as unbiased when n is of the order of k. Figure:
+      exact bias curves (plug-in, Miller's formula, Miller-Madow,
+      jackknife) on log axes beside the collapse bars at n = 10 to 1,000
+      with the log2 n ceiling; cite Shannon 1948 (DOI
+      10.1002/j.1538-7305.1948.tb01338.x), Miller 1955, Paninski 2003
+      (DOI 10.1162/089976603321780272), Nemenman-Shafee-Bialek 2002. Viz
+      EntropyEstimationViz: a seeded 8-to-16-symbol source, the sample
+      growing 15% per tick to 2,000, empirical bars against true
+      outlines, the plug-in and Miller-Madow climbing toward the truth
+      on a log n axis with the gap shaded; invariants per tick (two
+      formula forms agree, estimate <= log2 of symbols seen,
+      non-negative, correction >= raw); NODE-VERIFIED 20 cycles, 44
+      ticks each, 0 breaks; stepMs 350, holdTicks rests. Narration plan
+      0.731580 USD, approval 04fc8baf..., 24,386 billable characters, 8
+      requests. Preserved narration: Aoede + Algieba. Authored by a fork
+      agent of this Fable 5.1 session at the owner's explicit request
+      for parallel authoring; the main thread re-ran the solution, the
+      viz check, the narration plan, and the static checks before
+      accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

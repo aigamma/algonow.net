@@ -3361,6 +3361,24 @@ export const PUZZLES = {
     vite: 'set-associative-cache-index-tag-lookup',
     html: 'set-associative-cache-index-tag-lookup/index.html',
   },
+  '/shannon-entropy-estimation-maximum-likelihood-plug-in/': {
+    slug: 'shannon-entropy-estimation-maximum-likelihood-plug-in',
+    added: '2026-10-10',
+    problemSlug: 'entropy-estimation',
+    number: 195,
+    category: 'compression-coding',
+    algorithm: 'Shannon entropy estimation',
+    heuristic: 'Maximum likelihood plug-in',
+    domain: 'Entropy estimation',
+    oneLiner:
+      'Count each symbol, divide by n, and plug the frequencies into Shannon\'s formula: one pass, nothing to tune, and a bias that is always negative and known to first order, (k − 1)/(2n ln 2) bits, so that at ten samples per symbol one added term makes it honest and at one sample per symbol nothing does.',
+    listenMinutes: 10,
+    time: 'O(n + k) per estimate: one pass over the samples, one over the counts',
+    space: 'O(k) counts',
+    baseline: 'Compressed size per symbol (Huffman on the counts)',
+    vite: 'shannon-entropy-estimation-maximum-likelihood-plug-in',
+    html: 'shannon-entropy-estimation-maximum-likelihood-plug-in/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

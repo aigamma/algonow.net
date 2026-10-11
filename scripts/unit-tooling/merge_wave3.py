@@ -22,6 +22,7 @@ FILES = {
     199: '199-sharding-hash-partitioning.json',
     200: '200-template-matching-normalized-cross-correlation.json',
     201: '201-importance-sampling-variance-reducing-proposal.json',
+    202: '202-longest-prefix-match-trie-lookup.json',
 }
 NOTE = " Authored by a fork agent of this Fable 5.1 session at the owner's explicit request for parallel authoring; the main thread re-ran the solution, the viz check, the narration plan, and the static checks before accepting it."
 want = [int(a) for a in sys.argv[1:]] or list(FILES)

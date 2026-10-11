@@ -3505,6 +3505,24 @@ export const PUZZLES = {
     vite: 'distance-vector-routing-bellman-ford-exchange',
     html: 'distance-vector-routing-bellman-ford-exchange/index.html',
   },
+  '/importance-sampling-variance-reducing-proposal/': {
+    slug: 'importance-sampling-variance-reducing-proposal',
+    added: '2026-10-10',
+    problemSlug: 'variance-reduction',
+    number: 201,
+    category: 'probabilistic',
+    algorithm: 'Importance sampling',
+    heuristic: 'Variance-reducing proposal',
+    domain: 'Rare-event estimation',
+    oneLiner:
+      'Draw from a proposal that lands on the rare event, weight every sample by the target-to-proposal density ratio, and the weighted average stays unbiased while its variance drops by thousands: the exponential tilt N(4, 1) estimates P(Z > 4) to 1.75% in 10,000 draws where 100,000 plain draws manage 49%, and Kish\'s effective sample size tells you when the proposal has failed.',
+    listenMinutes: 11,
+    time: 'O(n) density ratios per estimate, one pass for ESS',
+    space: 'O(1) beyond the running sums',
+    baseline: 'Plain Monte Carlo at ten times the draws',
+    vite: 'importance-sampling-variance-reducing-proposal',
+    html: 'importance-sampling-variance-reducing-proposal/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

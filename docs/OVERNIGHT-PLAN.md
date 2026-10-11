@@ -7074,6 +7074,60 @@ commit, Fable trailer on every commit, check green before each push.
       the main thread re-ran the solution, the viz check, the narration
       plan, and the static checks before accepting it. Added 2026-10-10.
 
+- [x] F195. Importance sampling × Variance-reducing proposal. Puzzle
+      201, probabilistic (problemSlug variance-reduction, the atlas
+      problem page carrying "Rare-event estimation"; sibling live lesson
+      monte-carlo-integration-uniform-sampling, puzzle 182). Solution
+      importance_sampling_variance_reducing_proposal.py (0.9 s, prints
+      OK): tilted sampling runs returning estimate, second moment, Kish
+      ESS, top-weight share, and the self-normalized estimate; plain
+      Monte Carlo; a bump integrand with closed-form integral and its
+      zero-variance proposal; five estimators of E[exp Z]. ORACLES: P(Z
+      > 4) = 0.5 erfc(4/sqrt 2) = 3.1671e-5 to nine digits; the shifted
+      estimator's exact second moment exp(mu^2) Qbar(a + mu); the
+      zero-variance proposals' constant weights; closed-form variances
+      of the plain estimators. MEASURED (20 runs each): plain n =
+      100,000 mean/truth 0.979, sd/truth 0.490; tilt N(4,1) n = 10,000
+      mean/truth 1.001, sd/truth 0.0175, ESS 0.182 n, top weight 0.11%;
+      second moment 5.515e-9 vs exact 5.528e-9 (0.2%); per-sample
+      variance ratio 6,999; best shift mu* = 4.12 (variance 4.485e-9 vs
+      4.525e-9 at 4); wide N(4,2) sd/truth 0.029, ESS 0.09; undershot
+      N(2,1) 0.066, ESS 0.02; narrow N(4,0.5) 0.015, ESS 0.35 (infinite
+      variance in theory: x^2 coefficient of log(p^2/q) = +1.0, weights
+      pass one beyond x = 8.09, reached once in 6.5e15 draws); overshoot
+      N(7,0.5) mean/truth 0.036, sd/truth 0.041, top weight 64%, ESS
+      0.0003 n (3 of 10,000); self-normalized tilt 1.89x truth; bump
+      integral 4.62859e-3: plain sd/truth 0.118 (closed form 0.114),
+      N(3,0.5) proposal 0.0086, zero-variance weights constant to
+      1.3e-17; self-normalized bias with N(3,1): +1.157 (n = 100),
+      +0.394 (1,000), +0.042 (10,000); E[exp Z] = 1.6487 variance ratios
+      antithetic 2.4, control 2.7, stratified (100 strata) 12.4,
+      importance with N(1,1) exact (zero variance). Two author
+      corrections recorded in the header: the narrow proposal expected
+      to blow up was the steadiest row (the divergence lives beyond x =
+      8.09, never visited), and the self-normalized bias expected to be
+      small was near double. Cards: self, Stratified sampling (12.4x),
+      Control variates (2.7x), Cross-entropy method (qualitative).
+      neverUse: the overshooting proposal, precisely wrong at 0.036 of
+      the truth with a 4% error bar. Figure: target and tilted proposal
+      densities with the event and the weight curve on a log scale,
+      beside a log-scale bar chart of sd/truth for six estimators; cite
+      Kahn and Marshall 1953 (DOI 10.1287/opre.1.5.263), Siegmund 1976
+      (DOI 10.1214/aos/1176343541), Owen 2013 chapter 9. Viz
+      ImportanceSamplingViz: plain and tilted estimates of P(Z > a) for
+      a seeded threshold in {3, 3.5, 4}, 400 draws per tick for 50
+      ticks, running estimates on a log scale around the exact truth,
+      the proposal histogram with hits highlighted, ESS and top weight
+      share; invariant: weights nonnegative, estimates finite, final
+      within six standard errors; NODE-VERIFIED 20 cycles, 49 ticks
+      each, 0 breaks; stepMs 220, holdTicks rests. Narration plan
+      0.732960 USD, approval 04a2cc04..., 24,432 billable characters, 10
+      requests, about 12,200 spoken characters. Preserved narration:
+      Aoede + Algieba. Authored by a fork agent of this Fable 5.1
+      session at the owner's explicit request for parallel authoring;
+      the main thread re-ran the solution, the viz check, the narration
+      plan, and the static checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -11,7 +11,14 @@ FILES = {
     188: '188-two-opt-edge-uncrossing-swaps.json',
     189: '189-vickrey-auction-second-price-rule.json',
     190: '190-connected-component-labeling-two-pass-union-find.json',
+    192: '192-random-search-uniform-hyperparameter-sampling.json',
+    194: '194-set-associative-cache-index-tag-lookup.json',
     195: '195-shannon-entropy-estimation-maximum-likelihood-plug-in.json',
+    191: '191-perlin-noise-gradient-lattice-interpolation.json',
+    193: '193-distance-vector-routing-bellman-ford-exchange.json',
+    196: '196-blast-seed-and-extend-word-matches.json',
+    197: '197-gaussian-process-regression-rbf-kernel.json',
+    198: '198-fruchterman-reingold-force-directed-placement.json',
 }
 NOTE = " Authored by a fork agent of this Fable 5.1 session at the owner's explicit request for parallel authoring; the main thread re-ran the solution, the viz check, the narration plan, and the static checks before accepting it."
 want = [int(a) for a in sys.argv[1:]] or list(FILES)

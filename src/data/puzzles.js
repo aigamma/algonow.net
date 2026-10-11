@@ -3325,6 +3325,24 @@ export const PUZZLES = {
     vite: 'connected-component-labeling-two-pass-union-find',
     html: 'connected-component-labeling-two-pass-union-find/index.html',
   },
+  '/random-search-uniform-hyperparameter-sampling/': {
+    slug: 'random-search-uniform-hyperparameter-sampling',
+    added: '2026-10-10',
+    problemSlug: 'hyperparameter-tuning',
+    number: 192,
+    category: 'ml-ai',
+    algorithm: 'Random search',
+    heuristic: 'Uniform hyperparameter sampling',
+    domain: 'Hyperparameter tuning',
+    oneLiner:
+      'Draw every trial\'s hyperparameters independently and uniformly (log-uniform across orders of magnitude), train, keep the best: n trials hit the top 5% of the space with probability 1 - 0.95^n in any dimension, and because only a few knobs matter, n random trials try n values of the one that does where a grid of the same size tries k.',
+    listenMinutes: 11,
+    time: 'O(n) independent trainings, embarrassingly parallel',
+    space: 'O(n) records of the trials',
+    baseline: 'Grid search',
+    vite: 'random-search-uniform-hyperparameter-sampling',
+    html: 'random-search-uniform-hyperparameter-sampling/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

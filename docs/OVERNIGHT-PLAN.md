@@ -6414,6 +6414,89 @@ commit, Fable trailer on every commit, check green before each push.
       the main thread re-ran the solution, the viz check, the narration
       plan, and the static checks before accepting it. Added 2026-10-10.
 
+- [x] F186. Random search × Uniform hyperparameter sampling. Puzzle 192,
+      ml-ai (problemSlug hyperparameter-tuning, the atlas problem page
+      carrying "Hyperparameter tuning"; topic model-selection, tier 1;
+      sibling live lessons hill-climbing-random-restarts, puzzle 178,
+      and annealing-cooling, puzzle 2). Solution
+      random_search_uniform_hyperparameter_sampling.py (2.9 s, prints
+      OK, deterministic across runs): uniform, full-factorial grid, and
+      Latin hypercube samplers; a two-dimensional objective with one
+      important axis (peak of width 0.12 at x = 0.37, weak y) and its
+      six-dimensional extension; a top-5%-by-volume threshold (400 x 400
+      grid in 2-D, 200,000 samples in 6-D) with hit probabilities and
+      standard errors; a Chebyshev-feature polynomial ridge learner (14
+      training, 200 validation points; knobs degree 1-10, lambda 1e-7 to
+      1e2 log scale, and one knob the closed-form solver ignores) with a
+      Gaussian-elimination solver; and a closed-form gradient-descent
+      loss on curvatures 1 to 100. ORACLES: (1) THEOREM: P(top 5% hit by
+      n draws) = 0.4080 +/- 0.0049, 0.7793 +/- 0.0041, 0.9539 +/- 0.0021
+      at n = 10, 30, 60 over 10,000 repeats against 1 - 0.95^n = 0.4013,
+      0.7854, 0.9539 (each within 3 SE); (2) LOW EFFECTIVE
+      DIMENSIONALITY, 300 repeats: k x k grid = exactly k distinct x
+      values, best/optimum 0.349, 0.916, 0.404, 0.944, 0.916, 0.802 at k
+      = 3..8 (falls 4 to 5 and 7 to 8: alignment lottery, asserted); k^2
+      random trials = k^2 distinct x, 0.768 +/- 0.014, 0.884, 0.919,
+      0.950, 0.967, 0.972 +/- 0.001 (rises, beats the grid by > 0.2 at k
+      = 3 and 5, asserted); Latin hypercube 0.885, 0.926, 0.955, 0.966,
+      0.969, 0.976; (3) LEARNER: dense scan of 3,610 settings, optimum
+      validation MSE 0.0521 at degree 3, lambda 0.0596; within-5% region
+      = 8.5% of the space, so the theorem predicts hit rates 0.91 (27)
+      and 1.00 (64); measured over 200 repeats: random 0.91 and 0.99
+      (mean best/opt 1.033 +/- 0.009, 1.004 +/- 0.001), LHS 0.98 and
+      1.00 (1.007 +/- 0.003, 1.002); grid 3 per axis: 9 distinct
+      (degree, lambda) pairs of 27 trainings, 4.915x optimum, miss; grid
+      4 per axis: 16 of 64, 1.430x, miss (all asserted; random hit rate
+      within 3 SE + 0.03 of 1 - (1 - 0.085)^n; LHS hits at least as
+      often as random); (4) LEARNING RATE on [1e-5, 1], stable below
+      0.020, best 0.0194 (loss 1.13e-2), 20 draws x 2,000 repeats:
+      uniform converging 0.0195 +/- 0.0007 (theory 0.0200), any
+      convergent draw 0.315, a draw within 2x of the best rate 0.168
+      (theory 0.187), median best loss/opt 8.5; log-uniform 0.6585 +/-
+      0.0024 (theory 0.6602), 1.000, 0.721 (theory 0.728), 3.9 (all four
+      closed forms asserted within 3 SE); (5) NEGATIVE EXAMPLE: 5^6 =
+      15,625-training grid, 5 distinct values per knob, best 0.415 of
+      the six-knob optimum; 60 random trainings 0.963 +/- 0.001 (above
+      0.9 in 97% of 500 repeats), top-5% hit probability 0.956 +/- 0.003
+      (theory 0.9539). Two author corrections recorded in the header:
+      the loss-window criterion (0.07 vs 0.27, exponentially sensitive
+      loss) replaced by the rate window; the 40-point draft learner
+      (everything hit the 5% band) replaced by 14 points (band = 8.5% of
+      the space). A measured Gaussian-process expected-improvement rival
+      (95% within 5% at 27, 1.025 +/- 0.020, a draw with random) was
+      authored and then REMOVED to fit the 20 KB page-chunk budget (its
+      GP code alone cost about 1 KB gzipped); the Bayesian optimization
+      card is now qualitative, like Vickrey's VCG card. Cards: self,
+      Grid search, Latin hypercube sampling, Bayesian optimization ×
+      Expected improvement (algoName Expected improvement, unmeasured);
+      all algo pages exist. neverUse: an exhaustive grid when six knobs
+      each get five values (15,625 trainings at 0.415 against 60 random
+      at 0.963). Contest: the ridge learner at budgets 27 and 64 (five
+      rows, LHS best at 27). Figure: the Bergstra-Bengio projection
+      picture (4 x 4 grid vs 16 random points, the peak band in green,
+      ticks on the x axis showing 4 against 16 distinct values; the 1 -
+      0.95^n curve panel was dropped for the chunk budget); cites
+      Bergstra and Bengio JMLR 13 (2012), Li et al. Hyperband JMLR 18
+      (2018), Snoek, Larochelle, Adams NeurIPS 2012, McKay, Beckman,
+      Conover Technometrics 1979. Viz RandomSearchViz: grid vs random on
+      the same hidden objective, one trial per tick per panel, k seeded
+      3 to 7, distinct-x counters, best-so-far rings, invariant (equal
+      trial counts, unit square, monotone bests, grid distinct x <= k,
+      end recount equals both bests); NODE-VERIFIED 20 cycles, 0 breaks,
+      30.25 ticks per cycle; stepMs 400, holdTicks rests. Narration 10
+      sections, 12,757 spoken chars, no digits; plan 0.773460 USD
+      (25,782 billable chars, 10 requests), approval 34fc2aef...
+      Preserved narration: Aoede + Algieba. Meta description 182 chars.
+      Page-chunk estimate by the main thread's estimate_chunk.mjs
+      (main.jsx bundled with a stub manifest, shared modules external):
+      19.2 KB; that estimator reads about 0.5 KB above the real chunk
+      (hill-climbing 17.6 est vs 17.1 real, differential privacy 18.5 vs
+      18.0), so about 18.7 KB expected against the 20 KB budget.
+      Authored by a fork agent of this Fable 5.1 session at the owner's
+      explicit request for parallel authoring; the main thread re-ran
+      the solution, the viz check, the narration plan, and the static
+      checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

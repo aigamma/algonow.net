@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net random-search-uniform-hyperparameter-sampling preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-11T01:28:39.885Z",
+  "publication_sha256": "e579bc650006d12e3d08628889990f3f7fab469d9588d52ba294ded9d730017e",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6762424,
+  "objects": [
+    {
+      "stable_id": "puzzle:random-search-uniform-hyperparameter-sampling",
+      "slug": "random-search-uniform-hyperparameter-sampling",
+      "track_id": "algieba",
+      "source_sha256": "2580973542dd1bfc7a939515a67f408ab64e6dca429c3e2cac61c31860c5e1ef",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "d895fe76dbbdfa88beb4d94cfa6e3f6caa6cac163793b5210326a7006c4a416d",
+      "object_key": "narration/v1/puzzles/random-search-uniform-hyperparameter-sampling/d895fe76dbbdfa88beb4/algieba-f3b028b6f23b8519.mp3",
+      "bytes": 3460748,
+      "sha256": "f3b028b6f23b851989a0a74a1a17ca77f08fac5f35530eb52f5b49d91c5c38b8",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:random-search-uniform-hyperparameter-sampling",
+      "slug": "random-search-uniform-hyperparameter-sampling",
+      "track_id": "aoede",
+      "source_sha256": "2580973542dd1bfc7a939515a67f408ab64e6dca429c3e2cac61c31860c5e1ef",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "d895fe76dbbdfa88beb4d94cfa6e3f6caa6cac163793b5210326a7006c4a416d",
+      "object_key": "narration/v1/puzzles/random-search-uniform-hyperparameter-sampling/d895fe76dbbdfa88beb4/aoede-e2adb369d556b8c6.mp3",
+      "bytes": 3301676,
+      "sha256": "e2adb369d556b8c63cd7c6f4c4ffec81274c7e5d8468a5c248454b89647e0d66",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

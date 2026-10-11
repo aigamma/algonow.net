@@ -19,6 +19,8 @@ FILES = {
     196: '196-blast-seed-and-extend-word-matches.json',
     197: '197-gaussian-process-regression-rbf-kernel.json',
     198: '198-fruchterman-reingold-force-directed-placement.json',
+    199: '199-sharding-hash-partitioning.json',
+    200: '200-template-matching-normalized-cross-correlation.json',
 }
 NOTE = " Authored by a fork agent of this Fable 5.1 session at the owner's explicit request for parallel authoring; the main thread re-ran the solution, the viz check, the narration plan, and the static checks before accepting it."
 want = [int(a) for a in sys.argv[1:]] or list(FILES)

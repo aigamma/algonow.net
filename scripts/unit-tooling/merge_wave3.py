@@ -39,6 +39,7 @@ FILES = {
     216: '216-finite-difference-method-central-difference-stencils.json',
     217: '217-monte-carlo-option-pricing-antithetic-variates.json',
     218: '218-carry-lookahead-adder-generate-propagate-logic.json',
+    219: '219-mean-variance-optimization-markowitz-frontier.json',
 }
 NOTE = " Authored by a fork agent of this Fable 5.1 session at the owner's explicit request for parallel authoring; the main thread re-ran the solution, the viz check, the narration plan, and the static checks before accepting it."
 want = [int(a) for a in sys.argv[1:]] or list(FILES)

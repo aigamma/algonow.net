@@ -3487,6 +3487,24 @@ export const PUZZLES = {
     vite: 'template-matching-normalized-cross-correlation',
     html: 'template-matching-normalized-cross-correlation/index.html',
   },
+  '/distance-vector-routing-bellman-ford-exchange/': {
+    slug: 'distance-vector-routing-bellman-ford-exchange',
+    added: '2026-10-10',
+    problemSlug: 'network-routing',
+    number: 193,
+    category: 'distributed-systems',
+    algorithm: 'Distance-vector routing',
+    heuristic: 'Bellman-Ford exchange',
+    domain: 'Network routing',
+    oneLiner:
+      'Every router keeps one vector, its best known distance and next hop to each destination, hands it to its neighbors every update interval, and relaxes to the cheapest offer plus the link: Bellman-Ford spread across the routers, settling in L minus one intervals, and counting a dead route up to a finite infinity when a link dies.',
+    listenMinutes: 10,
+    time: 'O(n) entries per router per update interval to each neighbor; L − 1 intervals to settle, at most n − 2',
+    space: 'O(n) per router: a distance and a next hop per destination',
+    baseline: 'Link-state flooding plus Dijkstra at every router',
+    vite: 'distance-vector-routing-bellman-ford-exchange',
+    html: 'distance-vector-routing-bellman-ford-exchange/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

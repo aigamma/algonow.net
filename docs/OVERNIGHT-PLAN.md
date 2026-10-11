@@ -6999,6 +6999,81 @@ commit, Fable trailer on every commit, check green before each push.
       the solution, the viz check, the narration plan, and the static
       checks before accepting it. Added 2026-10-10.
 
+- [x] F187. Distance-vector routing × Bellman-Ford exchange. Puzzle 193,
+      distributed-systems (problemSlug network-routing, the atlas
+      problem page carrying "Network routing"; sibling live lessons
+      bellman-ford-early-exit, puzzle 34, and dijkstra-binary-heap,
+      puzzle 7). Solution
+      distance_vector_routing_bellman_ford_exchange.py (2.0s, 16,430
+      bytes, prints OK): a random connected weighted graph generator, a
+      lexicographic (cost, hops) Dijkstra that also counts relaxations,
+      Floyd-Warshall, a BFS hop diameter, a DistanceVector class
+      (lockstep or random asynchronous order; split horizon, poison
+      reverse, triggered updates, infinity cap; counts vectors, entries,
+      and changes including next-hop changes, and the worst transient
+      distance to a watched destination), and a link-state flood
+      followed by a counting Dijkstra per router. ORACLES: (1) 200
+      random graphs (18.7 routers, 38.4 links): quiet tables equal
+      Dijkstra and Floyd-Warshall on every pair, next hops reach every
+      destination at the referee's cost; busy intervals == L - 1 on 200
+      of 200 (max L 8, max 7 busy), at most n - 2; DV 5.49 intervals
+      incl. the quiet one, 438 vectors, 9,261 entries per graph, 37
+      numbers per router; link state floods in exactly the BFS hop
+      diameter (4.14 rounds), 5,794 records, 1,635 relaxations, 114
+      numbers per router. (2) Chain A-B-C, A-B fails, infinity 16,
+      lockstep: plain 15 intervals, worst 15, 15 changes, trace
+      (3,2),(3,4),(5,4),(5,6)...; split horizon 2 intervals, worst 2
+      (stale truth); poison reverse 2 / 2; triggered updates 1 interval,
+      worst 15, the same 15 changes (asserted equal); 7.5 minutes at
+      RIP's 30 s; poison reverse over 500 random asynchronous orders:
+      worst 2, no count. (3) RFC 1058 triangle after C-target fails:
+      plain, split horizon, poison reverse all 15 intervals / worst 15
+      in lockstep (the dead route circles A, B, C one router per
+      interval); 565 of 1,000 random asynchronous orders under poison
+      reverse count to 15 (10.0 intervals each), 435 settle in 2.8. (4)
+      99 random hop-count meshes losing a router: plain / split / poison
+      all 15.0 intervals and worst 15, entries after the failure 10,626
+      / 8,789 / 10,626; link state 3.3 flood rounds. (5) No cap: after
+      1,000 intervals B and C hold (1,001, 1,002) and are still
+      changing. Honest: two AUTHOR CORRECTIONS recorded in the header
+      (the draft expected poison reverse to settle the lockstep triangle
+      in four intervals, the trace showed the dead route circling the
+      three routers to 15, so the page calls poison reverse a two-router
+      fix; and a next-hop change at an unchanged distance now counts as
+      a table change, because under poison reverse it changes what
+      neighbors hear, after a premature quiet left one viz router at
+      infinity). Trimmed to the chunk budget at the coordinator's
+      request: the 100-mesh link-loss sweep was dropped, the estimator
+      reads 18.9 KB (solution 16,430 B, content 16,705 B, narration
+      12,685 B with 12,047 spoken characters, viz 10,618 B). Cards:
+      self, Link-state routing (algoName), Path-vector routing
+      (algoName), Bellman-Ford (live lesson badge, puzzle 34); all pages
+      verified in dist/algo. neverUse: the vector exchange with no
+      finite infinity on links that fail (1,002 and counting; 15
+      intervals even with the cap on the chain, the triangle, and 99 of
+      99 meshes). Contest: 5 rows x 4 columns (intervals to settle,
+      worst distance held, what happens, cost). Figure: the chain's (B,
+      C) staircase to the cap of 16 beside split horizon's drop at
+      intervals 1 and 2; cite Hedrick RFC 1058 (1988) DOI
+      10.17487/RFC1058, Bellman 1958. Viz DistanceVectorViz: nine
+      routers on a seeded mesh with unit links learn their distance to
+      one amber destination, one lockstep interval per tick, blue
+      next-hop markers, green when equal to a BFS referee; after a
+      three-tick hold a failure strikes (seed-driven variant:
+      destination isolated or one used link cut, plain or poison
+      reverse) and the tables re-route or count the dead route in red to
+      the cap of 16; invariant every tick: estimates at least the truth
+      while building, quiet tables equal the referee (infinity
+      included), build took exactly L - 1 busy intervals, no finite
+      estimate reaches the cap; NODE-VERIFIED 20 cycles, 0 breaks, and
+      40 seeds with every final ok true across all four variants; stepMs
+      520, holdTicks rests. Preserved narration: Aoede + Algieba (plan
+      24,362 billable characters, 8 provider requests, $0.730860,
+      approval 6980c209...). Authored by a fork agent of this Fable 5.1
+      session at the owner's explicit request for parallel authoring;
+      the main thread re-ran the solution, the viz check, the narration
+      plan, and the static checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

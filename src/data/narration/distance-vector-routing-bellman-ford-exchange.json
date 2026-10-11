@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:distance-vector-routing-bellman-ford-exchange",
+  "source_path": "src/content/distance-vector-routing-bellman-ford-exchange.narration.js",
+  "source_sha256": "b398b531739828306a3a43e48a9a34422dfab9f23fdae1a3a5ea8b4c22b47117",
+  "source_characters": 12181,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "1179b5fa39a5d776d92e072517e4395643eee8f16da23d88b3024c0a0c743b33",
+  "generated_at": "2026-10-11T01:56:41.722Z",
+  "generated_characters": 24362,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4288,
+      "utf8_bytes": 4292,
+      "sha256": "b6720fbaeb4ef52feccbdfffbea505be741b97fd4416cdd7b1eff488bececce3"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4962,
+      "utf8_bytes": 4968,
+      "sha256": "707f01e77a22da0b17bd4ff6cbf6933c8f4d2bf9569536fa8088a75c60b7d22d"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1999,
+      "utf8_bytes": 1999,
+      "sha256": "27bd2696da4346aa70748a461bf1d9a7e77017f6d374dfea01ba74d6078e2916"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 932,
+      "utf8_bytes": 934,
+      "sha256": "01e1bab04fae042c465cc294b3d41196ae327be8d804b2b0e3ac6985c3a32738"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "distance-vector-routing-bellman-ford-exchange.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "distance-vector-routing-bellman-ford-exchange.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1569,
+      "sha256": "962f34e413a89207870c53d1824d31d578b7a189dd72a2d1bc7f9b1c40b683e1"
+    },
+    {
+      "id": "distance-vector-routing-bellman-ford-exchange.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1137,
+      "sha256": "2176e1bf9b67f1bf8f494d4a2e2886bd33ff2c43ca11e0b252290c9f4331e61a"
+    },
+    {
+      "id": "distance-vector-routing-bellman-ford-exchange.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1455,
+      "sha256": "d7afeebbb8bc2043ba13d05a476789a8861c1b6a81b9e95d5df52fb0936de62e"
+    },
+    {
+      "id": "distance-vector-routing-bellman-ford-exchange.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 717,
+      "sha256": "1e31e6a1a2b12e5cc57d2185b4e99a71d6ed0b31ccc8a518b420494414c7ef85"
+    },
+    {
+      "id": "distance-vector-routing-bellman-ford-exchange.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 894,
+      "sha256": "45de532a4159a8fb77fd3998d4d89aea69ebf4c510ce9ed3be64eff60031e066"
+    },
+    {
+      "id": "distance-vector-routing-bellman-ford-exchange.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 549,
+      "sha256": "bafdf46f9323e47a6f9233cf060813c0866faf6e8b095f6c5604b621b10d2f2b"
+    },
+    {
+      "id": "distance-vector-routing-bellman-ford-exchange.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1792,
+      "sha256": "f4ef3c23fbe4422defcd62c5ac89257f30d1388de56973dc3524948592c36b81"
+    },
+    {
+      "id": "distance-vector-routing-bellman-ford-exchange.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1006,
+      "sha256": "e6e38a5043e03dc214160de8b1347286cd5b5c11946affbf29068d55ea3ccddb"
+    },
+    {
+      "id": "distance-vector-routing-bellman-ford-exchange.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1065,
+      "sha256": "50702310d4742ba7c8852d1fb024f529ded6bc9be76723a845c0231c91e29977"
+    },
+    {
+      "id": "distance-vector-routing-bellman-ford-exchange.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1866,
+      "sha256": "60ecaeb313f9f3a441484ab08925a1dc9201e4f4e23b99a6f015351c10421ef6"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/distance-vector-routing-bellman-ford-exchange/1179b5fa39a5d776d92e/aoede-296d0891372e1261.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3003404,
+      "sha256": "296d0891372e12619d199b438f2ed346d9eeb2a35a3a41ee45ddb8ed57acbb00",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b6720fbaeb4ef52feccbdfffbea505be741b97fd4416cdd7b1eff488bececce3",
+          "bytes": 1040736,
+          "sha256": "9e6932f2df3c845314cb76d387f5a2cf29760fcc0ce8ac8ed4f7701004c93489"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "707f01e77a22da0b17bd4ff6cbf6933c8f4d2bf9569536fa8088a75c60b7d22d",
+          "bytes": 1231776,
+          "sha256": "9fffa32e2753e6e25031fedfe839866edd4be709eaac24e362561b36da491dca"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "27bd2696da4346aa70748a461bf1d9a7e77017f6d374dfea01ba74d6078e2916",
+          "bytes": 502752,
+          "sha256": "fde0302f713c13d1b0ab00e2f51524c3428efaf12b048785c986c487971a24f0"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "01e1bab04fae042c465cc294b3d41196ae327be8d804b2b0e3ac6985c3a32738",
+          "bytes": 227904,
+          "sha256": "83a677b45b8003f978e3b97e588b179674f1a6b34bc7f7096e6e79d6ef0cfe7c"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/distance-vector-routing-bellman-ford-exchange/1179b5fa39a5d776d92e/algieba-29e69b35d807f666.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3261452,
+      "sha256": "29e69b35d807f666a2aafd9be484088c634d30e79a4cfe4aefc8aa0a303871e4",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b6720fbaeb4ef52feccbdfffbea505be741b97fd4416cdd7b1eff488bececce3",
+          "bytes": 1178592,
+          "sha256": "1e682d7ab62d518596d1ff2537b17bdceb04970af087136e23cf7c3b9959a4ff"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "707f01e77a22da0b17bd4ff6cbf6933c8f4d2bf9569536fa8088a75c60b7d22d",
+          "bytes": 1332576,
+          "sha256": "df2eece9906ff8e4f42e252a54a3881dd07edcce978df8b02321e913f4ace20f"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "27bd2696da4346aa70748a461bf1d9a7e77017f6d374dfea01ba74d6078e2916",
+          "bytes": 514464,
+          "sha256": "db9ecd71d1d35fb3f2ce449c12cc20944d3c038f88fdc3279f5fe7ee2cac259d"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "01e1bab04fae042c465cc294b3d41196ae327be8d804b2b0e3ac6985c3a32738",
+          "bytes": 235584,
+          "sha256": "7d0ab8f04dbd265ddf1cd74f9447b74ed9f49b4472c3de6b06e951890621649a"
+        }
+      ]
+    }
+  }
+}

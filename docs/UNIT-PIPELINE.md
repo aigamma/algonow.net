@@ -97,3 +97,46 @@ the operational detail layer.
 - No em dashes; never the banned h-word; narration numbers spelled.
 - One unit per commit+push+deploy, strictly sequential, no subagents
   for authoring (rule 10; this session verified it runs as Fable 5).
+
+## Lessons from the 2026-10-10 run (puzzles 164 to 220)
+
+- **Estimate the page chunk before paying for tracks.** The 20 KB gz
+  per-page budget bundles the solution source, content, narration, and
+  viz. Once tracks exist the narration is hash-bound, so an over-budget
+  page can only be trimmed in the other three files (puzzle 190 learned
+  this at 20.7 KB). `scripts/unit-tooling/estimate_chunk.mjs "" <slug>`
+  works before the manifest exists; real size is 0.972 to 0.978 of the
+  estimate, so gate authored units at 19.3 (the verifier gates at 19.5).
+- **Generation and shipping overlap.** The exclusive `.generation.lock`
+  guards only the paid generation; authorize, publish, install, verify,
+  build, check, commit, and deploy do not take it. Start the next unit's
+  generation the moment the previous one finishes, then ship.
+- **The applier derives livePuzzles from the registry count.** Puzzle
+  numbers are no longer monotone with the live count (172 is blocked on
+  owner reconciliation and later units ship out of numeric order), so
+  `apply_registry.py` counts `src/data/puzzles.js` records instead of
+  incrementing; `npm run check` enforces the equality.
+- **Homepage budget, 2026-10-10 decision.** At 204 live pairs the
+  prerendered homepage crossed its 24 KB gz ceiling. The ceiling was not
+  raised; the full-catalog `PairCard` dropped its two meta chips (time,
+  baseline) in a `compact` mode (src/pages/Home.jsx). The daily pick and
+  "new this week" cards keep their chips. Pagination remains the owner's
+  decision; see the dated note beside the ceiling in scripts/check.mjs.
+- **Fork authoring, owner-authorized exception.** At the owner's explicit
+  in-the-moment request, five `fork` agents (same model, Claude Fable
+  5.1) each authored one unit with disjoint files and no git, build,
+  check, deploy, AWS, or paid steps; the main thread re-verified every
+  unit from its artifacts (`fork_verify.mjs`: solution OK line, vizcheck
+  20 cycles, narration plan, static checks, rival pages, chunk estimate)
+  and did all integration one unit at a time. Each unit's commit states
+  the fork provenance. Rule 10's single-thread default still stands
+  without that explicit request.
+- **Review after a run.** `review_units.mjs --from N --live` re-checks
+  every live unit including whether its published audio still matches
+  the present narration text (plan `source_sha256` == manifest
+  `source_sha256`), and `ssr_smoke.mjs --from N` (copied into build/ so
+  React resolves) server-renders every page. Both passed 42 of 42 on
+  2026-10-11.
+- **A queued unit lives in `docs/pending-registry.json`** (record with
+  price and approval hash) between its WIP commit and its registration,
+  so a session cut by the usage limit strands nothing.

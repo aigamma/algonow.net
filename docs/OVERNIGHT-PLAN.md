@@ -6866,6 +6866,77 @@ commit, Fable trailer on every commit, check green before each push.
       agent of this Fable 5.1 session at the owner's explicit request
       for parallel authoring. Added 2026-10-10.
 
+- [x] F192. Fruchterman-Reingold × Force-directed placement. Puzzle 198,
+      graphs (problemSlug graph-layout, the atlas problem page carrying
+      "Graph layout"; sibling live lessons
+      barnes-hut-octree-center-of-mass-approximation 112,
+      annealing-cooling 2). Solution
+      fruchterman_reingold_force_directed_placement.py (1.7 s, prints
+      OK): seeded graph generators (grid, cycle, path, random tree, ring
+      with chords, complete), random and circular layouts, FR on the
+      free plane (k = sqrt(1/n), repulsion k^2/d over all pairs or
+      within grid cells of side 2k, attraction d^2/k, cap t from 0.1
+      linearly to 0 over 200 iterations), Kamada-Kawai (springs L d_ij,
+      stiffness 1/d_ij^2, one Newton step per vertex per sweep, 60
+      sweeps), spectral layout (Hall 1970, two Laplacian eigenvectors by
+      deflated power iteration), referees: segment-intersection crossing
+      count, edge-length CV, scale-free stress 1 - cos^2(euclidean,
+      graph distance), cycle convexity, mean corner error at degree-4
+      vertices. MEASURED: C12 from ten random starts convex and
+      crossing-free 10/10, edge CV mean 0.004 max 0.005, random starts
+      average 13.3 crossings; 5x5 grid unfolded 9/10 random starts, mean
+      corner error 1.5 deg, edge CV 0.090 on the unfolded ones, the
+      circular start left 11 crossings; P12 straightness 0.977 mean,
+      0.781 min. Quality table, 6x6 grid (36 v, 60 e): random 522
+      crossings / CV 0.452 / stress 0.3372; circular 135 / 0.703 /
+      0.2088; FR 0 / 0.110 / 0.0135, 126,000 pair forces, ~46 ms;
+      Kamada-Kawai 0 / 0.012 / 0.0125, 2,160 Newton steps, ~20 ms;
+      spectral 0 / 0.277 / 0.0166, ~17 ms. Random tree n=40: random
+      235/0.323/0.3227, circular 152/0.587/0.2893, FR 0/0.398/0.0406, KK
+      0/0.130/0.0305, spectral 0/1.002/0.0666. Ring n=40 + 6 chords:
+      random 313/0.433/0.2874, circular 3/1.466/0.1453, FR
+      5/0.253/0.0627, KK 2/0.142/0.0528, spectral 8/0.694/0.1034. C40:
+      random 280/0.407/0.3707, circular 0/0/0.0147, FR 1/0.129/0.1604,
+      KK 0/0/0.0147, spectral 0/0/0.0147. Cooling on the 6x6 grid:
+      displacement per iteration 3.517 (first ten) -> 0.09864 (last
+      ten), energy 33.25 -> 5.09 decreasing on 59% of iterations;
+      NEGATIVE no cooling: last-ten displacement 3.600, stress 0.0164,
+      CV 0.235, 0 crossings. Determinism bitwise; circular start on the
+      6x6 grid: stress 0.1274, 16 crossings. Grid-cell variant at n =
+      144, 200 iterations: exact 2,059,200 pair forces, ~417 ms, stress
+      0.0310, 4 crossings; cells 320,227 pair forces, ~106 ms, stress
+      0.1448, 114 crossings; bucketed repulsion differs from the exact
+      sum by 77.2% of its norm at the random start; 10,296 pairs per
+      iteration, ~5e11 at a million vertices. NEGATIVE dense graphs: K6
+      10 crossings (min 3, convex 15), K8 56 (min 19, convex 70). AUTHOR
+      CORRECTIONS recorded in the file: the frame clamp (convex 1/10 at
+      CV 0.2 -> free plane 10/10 at 0.005); FR does not beat the
+      circular layout on the 40-cycle (circle optimal); final moves are
+      cap-bound near 3%, not under 1%. Cards: self
+      (Fruchterman-Reingold), Kamada-Kawai, Spectral layout, ForceAtlas2
+      (all algoName, pages in dist/algo). neverUse: exact all-pairs
+      repulsion at a million vertices or a hard distance cutoff instead
+      (10,296 pairs/iteration at 144, 5e11 at 1e6; the cutoff dropped
+      77.2% of repulsion and left 114 crossings vs 4). Figure: the two
+      force curves balancing at d = k beside a stress bar chart of the
+      five grid layouts with crossing counts; cite Fruchterman and
+      Reingold 1991 DOI 10.1002/spe.4380211102, Eades 1984, Kamada and
+      Kawai 1989. Viz ForceDirectedViz: seeded grid 4x5 / random tree 18
+      / ring 16 + 3 chords, random start, four FR iterations per tick
+      (stepMs 90), drawing rescaled to the canvas, temperature bar,
+      crossing count red/green, invariant every tick: every move within
+      the cap, all pairs counted, coordinates finite; NODE-VERIFIED 20
+      cycles x 49 ticks, 0 breaks. Narration 11,367 spoken chars, ten
+      sections, plan $0.690060 sha256
+      6c08140906a48f3d29a1e2bf686b4024e2bcfee72b7002ca69ba71be6fd2025b
+      (23,002 billable characters, 6 requests). Meta description 197
+      chars. Chunk estimate 19.3 KB gz by the calibrated estimator (real
+      about 0.975 of that). Preserved narration: Aoede + Algieba.
+      Authored by a fork agent of this Fable 5.1 session at the owner's
+      explicit request for parallel authoring; the main thread re-ran
+      the solution, the viz check, the narration plan, and the static
+      checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

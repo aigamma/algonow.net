@@ -3451,6 +3451,24 @@ export const PUZZLES = {
     vite: 'sharding-hash-partitioning',
     html: 'sharding-hash-partitioning/index.html',
   },
+  '/fruchterman-reingold-force-directed-placement/': {
+    slug: 'fruchterman-reingold-force-directed-placement',
+    added: '2026-10-10',
+    problemSlug: 'graph-layout',
+    number: 198,
+    category: 'graphs',
+    algorithm: 'Fruchterman-Reingold',
+    heuristic: 'Force-directed placement',
+    domain: 'Graph layout',
+    oneLiner:
+      'Treat a graph as charges and springs: every pair repels by k squared over d, every edge pulls by d squared over k with k the ideal edge length, each vertex moves along its net force by at most a temperature that cools linearly to zero, and the resting positions are the drawing: adjacent near, everything else apart, symmetry recovered because the forces carry it.',
+    listenMinutes: 10,
+    time: 'O(n² + m) per iteration for a fixed number of iterations',
+    space: 'positions and one displacement per vertex',
+    baseline: 'Circular layout',
+    vite: 'fruchterman-reingold-force-directed-placement',
+    html: 'fruchterman-reingold-force-directed-placement/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

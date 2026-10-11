@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:fruchterman-reingold-force-directed-placement",
+  "source_path": "src/content/fruchterman-reingold-force-directed-placement.narration.js",
+  "source_sha256": "6b665a78059cc6ce0a5d18312ca9a7b77428c85afb92787b3de2f290133de65f",
+  "source_characters": 11501,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "5413a51cdad3e6aa8efc16619e404a7aff1bc2729237edd25bf6e57fa1b87776",
+  "generated_at": "2026-10-11T01:45:35.005Z",
+  "generated_characters": 23002,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4907,
+      "utf8_bytes": 4907,
+      "sha256": "d77c4a50a5bd4c01baaf5f202646c5489ccc727ee533354c22cf7f3ce4e98a4b"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4830,
+      "utf8_bytes": 4830,
+      "sha256": "153277c52b5f008f191cd12f66281c22a0afd01d647929b57bc16b0d9a7028a3"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1764,
+      "utf8_bytes": 1764,
+      "sha256": "d8934a2b821bbacd7081f690eea4da22598ac8116bc5cdc347d725407a58bc93"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "fruchterman-reingold-force-directed-placement.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "fruchterman-reingold-force-directed-placement.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1377,
+      "sha256": "e2d012cb7679e14ff856e40b7b0ea5e2024fc140ef3648a4475ffd7fe49cb506"
+    },
+    {
+      "id": "fruchterman-reingold-force-directed-placement.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1141,
+      "sha256": "cb2732de54376834e56e1acb511b9d86575b1e44a22e9b1b45adc79ab507620b"
+    },
+    {
+      "id": "fruchterman-reingold-force-directed-placement.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1646,
+      "sha256": "4056ca84d6c116b71f86850e4f295c7f3bb01087ab13504edfb4b42dd0a1b30d"
+    },
+    {
+      "id": "fruchterman-reingold-force-directed-placement.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 610,
+      "sha256": "29f674f0b822cd4179a2338a8e706d17b57536b060094540f9684d15b0df0394"
+    },
+    {
+      "id": "fruchterman-reingold-force-directed-placement.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 915,
+      "sha256": "21327ae4db375fdd77152e91e7c6b6df8dac890f3d0101dc239eb79b99fef771"
+    },
+    {
+      "id": "fruchterman-reingold-force-directed-placement.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 495,
+      "sha256": "73cbabffae3c0428f4d89aa6d744c047a022230f4698a845b1038b88fd387dc6"
+    },
+    {
+      "id": "fruchterman-reingold-force-directed-placement.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1562,
+      "sha256": "f7dc5373f28848b78a5ad5924a945442d43fda017642be50fabbf32b21bcb6b0"
+    },
+    {
+      "id": "fruchterman-reingold-force-directed-placement.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 921,
+      "sha256": "188fe50f8d2ade09db200c6b34edd50423e453bc2b4c5191acf866fc21e65e11"
+    },
+    {
+      "id": "fruchterman-reingold-force-directed-placement.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 927,
+      "sha256": "423abdf4f1981519755f3da807fc01076ec7114ca983826e7f56f5d840e0e7d6"
+    },
+    {
+      "id": "fruchterman-reingold-force-directed-placement.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1764,
+      "sha256": "d8934a2b821bbacd7081f690eea4da22598ac8116bc5cdc347d725407a58bc93"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/fruchterman-reingold-force-directed-placement/5413a51cdad3e6aa8efc/aoede-d05691f813b5e041.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2831660,
+      "sha256": "d05691f813b5e041de91f5fab501a4d790ffd28c284bc660c633878049937662",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d77c4a50a5bd4c01baaf5f202646c5489ccc727ee533354c22cf7f3ce4e98a4b",
+          "bytes": 1247904,
+          "sha256": "3ec1502dd48565d42fc271994252c6a4aa313d741d9927d0297164478ebde583"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "153277c52b5f008f191cd12f66281c22a0afd01d647929b57bc16b0d9a7028a3",
+          "bytes": 1211136,
+          "sha256": "6463fe88facdabf4898327ef4c6d9e21fb78473497cc43faf5fdc436324e5a1b"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "d8934a2b821bbacd7081f690eea4da22598ac8116bc5cdc347d725407a58bc93",
+          "bytes": 372384,
+          "sha256": "1e7d7fe0c43939c69c311b4b47e9d99867acfc28c18c0ecb563d052874ea15a7"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/fruchterman-reingold-force-directed-placement/5413a51cdad3e6aa8efc/algieba-2a565a24bb684cf4.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2906924,
+      "sha256": "2a565a24bb684cf4866abd56de9af6b9d328fceaea458bc40c4e3ae47558747b",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d77c4a50a5bd4c01baaf5f202646c5489ccc727ee533354c22cf7f3ce4e98a4b",
+          "bytes": 1309824,
+          "sha256": "515260ad103c1b2a65056c8989f31d77acc6537fc1572f00bebc637ff07225a4"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "153277c52b5f008f191cd12f66281c22a0afd01d647929b57bc16b0d9a7028a3",
+          "bytes": 1228032,
+          "sha256": "4818476c1b23ff656de7beefe14c7272d9be7f1a986cedbb0be04a5e442b2b0d"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "d8934a2b821bbacd7081f690eea4da22598ac8116bc5cdc347d725407a58bc93",
+          "bytes": 368832,
+          "sha256": "2a7aa25e238613fc85c189bd449a5025d77c7ce9fd0ab079269a6901366cb218"
+        }
+      ]
+    }
+  }
+}

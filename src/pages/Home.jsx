@@ -15,7 +15,15 @@ function PairTitle({ algorithm, heuristic }) {
   );
 }
 
-function PairCard({ p, now }) {
+// `compact` drops the two meta chips (time, baseline). The full catalog below
+// renders every live pair as prerendered HTML on the homepage, and the chips
+// were about half of each card's gzipped bytes: at 204 pairs the homepage
+// crossed its 24 KB budget (2026-10-10). Of the three remedies the budget
+// comment in scripts/check.mjs names (paginate, trim the cards, accept the
+// slower paint), trimming the catalog cards is the smallest reversible one;
+// the daily pick and the "new this week" cards keep their chips, and every
+// puzzle page still shows its time and baseline.
+function PairCard({ p, now, compact = false }) {
   return (
     <a className="pair-card" href={puzzlePath(p)}>
       <span className="pc-number">
@@ -27,10 +35,12 @@ function PairCard({ p, now }) {
       </span>
       <PairTitle algorithm={p.algorithm} heuristic={p.heuristic} />
       <p className="pc-domain">{p.domain}</p>
-      <span className="pc-meta">
-        <span className="chip">time {p.time}</span>
-        <span className="chip">vs {p.baseline}</span>
-      </span>
+      {!compact && (
+        <span className="pc-meta">
+          <span className="chip">time {p.time}</span>
+          <span className="chip">vs {p.baseline}</span>
+        </span>
+      )}
     </a>
   );
 }
@@ -150,7 +160,7 @@ export default function Home({ day: stamped = null }) {
               </h3>
               <div className="pairs-grid">
                 {g.pairs.map((p) => (
-                  <PairCard key={p.slug} p={p} now={now} />
+                  <PairCard key={p.slug} p={p} now={now} compact />
                 ))}
               </div>
             </section>

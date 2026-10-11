@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net hidden-markov-map-matching-emission-transition-road-probabilities preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-11T02:19:16.220Z",
+  "publication_sha256": "12d0dd708630de5b9f22c254f1ce2f6b3f2b5dadcedf7fac62554c822e01021b",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5171416,
+  "objects": [
+    {
+      "stable_id": "puzzle:hidden-markov-map-matching-emission-transition-road-probabilities",
+      "slug": "hidden-markov-map-matching-emission-transition-road-probabilities",
+      "track_id": "algieba",
+      "source_sha256": "fd85c9993d1da66cedad4a9a887ed8593260f7b871efdebc6b9c9fdc09dac0d0",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "ed865a275feb5e1d2ba6565807a95fed71cb822c755f625496876d6451c02a1a",
+      "object_key": "narration/v1/puzzles/hidden-markov-map-matching-emission-transition-road-probabilities/ed865a275feb5e1d2ba6/algieba-d25b571b5f05b0e7.mp3",
+      "bytes": 2658572,
+      "sha256": "d25b571b5f05b0e773bd5c06fa513f513cd6ecf6310ee3e23cbaadcfb1b2a736",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:hidden-markov-map-matching-emission-transition-road-probabilities",
+      "slug": "hidden-markov-map-matching-emission-transition-road-probabilities",
+      "track_id": "aoede",
+      "source_sha256": "fd85c9993d1da66cedad4a9a887ed8593260f7b871efdebc6b9c9fdc09dac0d0",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "ed865a275feb5e1d2ba6565807a95fed71cb822c755f625496876d6451c02a1a",
+      "object_key": "narration/v1/puzzles/hidden-markov-map-matching-emission-transition-road-probabilities/ed865a275feb5e1d2ba6/aoede-37a8e7c9d8f1c343.mp3",
+      "bytes": 2512844,
+      "sha256": "37a8e7c9d8f1c3435f79918081e2b8374db2ab5412dfb4e768e338ca6012a8e2",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

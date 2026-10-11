@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:hidden-markov-map-matching-emission-transition-road-probabilities",
+  "source_path": "src/content/hidden-markov-map-matching-emission-transition-road-probabilities.narration.js",
+  "source_sha256": "fd85c9993d1da66cedad4a9a887ed8593260f7b871efdebc6b9c9fdc09dac0d0",
+  "source_characters": 10665,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "ed865a275feb5e1d2ba6565807a95fed71cb822c755f625496876d6451c02a1a",
+  "generated_at": "2026-10-11T02:17:53.644Z",
+  "generated_characters": 21330,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4634,
+      "utf8_bytes": 4646,
+      "sha256": "82a81334fa51035fc1d74d534bc75cc280074539f5b1b51ebc2ed09fc01185cc"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4467,
+      "utf8_bytes": 4473,
+      "sha256": "64f363267fb8c14ebe11809483032445be2bb33656c9a513b3d596975cfca471"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1564,
+      "utf8_bytes": 1572,
+      "sha256": "0cb2aa7fe7df300372c7d3514d68c59a75d19bdc418bc6382e38c2e80049551d"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "hidden-markov-map-matching-emission-transition-road-probabilities.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "hidden-markov-map-matching-emission-transition-road-probabilities.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1191,
+      "sha256": "3d3c341705615fa8d1fc5784c0d0e7a9854b750a94b1a58d7ff3efad9fc8d334"
+    },
+    {
+      "id": "hidden-markov-map-matching-emission-transition-road-probabilities.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1058,
+      "sha256": "6140690f31ccef4b79bff38d2065b6b3063a294a3059f656b7df07fb94737fc2"
+    },
+    {
+      "id": "hidden-markov-map-matching-emission-transition-road-probabilities.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1638,
+      "sha256": "a6633ebcee5419d4b315682659131fa1670f1eee18548fe0d3de573b22bdd80a"
+    },
+    {
+      "id": "hidden-markov-map-matching-emission-transition-road-probabilities.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 626,
+      "sha256": "d35437d4f0ac7024b477bd3a1a03de4812fb5a9f54e1b5e0b66581da77e88b24"
+    },
+    {
+      "id": "hidden-markov-map-matching-emission-transition-road-probabilities.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 954,
+      "sha256": "df787985c7d354194eb112266c75ce6d603afbf1c5dc1ee3c683dbb15be52f22"
+    },
+    {
+      "id": "hidden-markov-map-matching-emission-transition-road-probabilities.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 526,
+      "sha256": "aefd04e80aec6145759138988ad4cce7f315922f8b79dcc9369d0eae0983feeb"
+    },
+    {
+      "id": "hidden-markov-map-matching-emission-transition-road-probabilities.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1429,
+      "sha256": "8169fbc6ac5e75648a3d467d2e87d4ca87e4c94a99d23b0a6442e21d1f736303"
+    },
+    {
+      "id": "hidden-markov-map-matching-emission-transition-road-probabilities.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 736,
+      "sha256": "5f16ff7a8d25e904a1dad3498d684bed05152841291bfd1561d3a7c3e9ee20a3"
+    },
+    {
+      "id": "hidden-markov-map-matching-emission-transition-road-probabilities.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 818,
+      "sha256": "f0c2b476d13f68f92298d9899af7b1dfdb12d510f57bee5868bd4edcf4dfa78b"
+    },
+    {
+      "id": "hidden-markov-map-matching-emission-transition-road-probabilities.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1572,
+      "sha256": "0cb2aa7fe7df300372c7d3514d68c59a75d19bdc418bc6382e38c2e80049551d"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/hidden-markov-map-matching-emission-transition-road-probabilities/ed865a275feb5e1d2ba6/aoede-37a8e7c9d8f1c343.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2512844,
+      "sha256": "37a8e7c9d8f1c3435f79918081e2b8374db2ab5412dfb4e768e338ca6012a8e2",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "82a81334fa51035fc1d74d534bc75cc280074539f5b1b51ebc2ed09fc01185cc",
+          "bytes": 1102176,
+          "sha256": "15745300a88c0e4f13a7cbb93f43421cea0ba6aa71d24f06642343ddbee077dc"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "64f363267fb8c14ebe11809483032445be2bb33656c9a513b3d596975cfca471",
+          "bytes": 1095456,
+          "sha256": "a978afb0c25801aab35728978004fbfb8bf0b6290a8ad079955a8ed63af0f167"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "0cb2aa7fe7df300372c7d3514d68c59a75d19bdc418bc6382e38c2e80049551d",
+          "bytes": 314976,
+          "sha256": "623022fc3cbba232bd4c978783f532b6b8753c50d7b474701869cc951be12d78"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/hidden-markov-map-matching-emission-transition-road-probabilities/ed865a275feb5e1d2ba6/algieba-d25b571b5f05b0e7.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2658572,
+      "sha256": "d25b571b5f05b0e773bd5c06fa513f513cd6ecf6310ee3e23cbaadcfb1b2a736",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "82a81334fa51035fc1d74d534bc75cc280074539f5b1b51ebc2ed09fc01185cc",
+          "bytes": 1167456,
+          "sha256": "30d1e34e3fe779651eb1bfd76a2111d28cbfa4860d18337d56e729d300368e61"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "64f363267fb8c14ebe11809483032445be2bb33656c9a513b3d596975cfca471",
+          "bytes": 1175616,
+          "sha256": "f0226c53adf2f2ed747ab6b87a8b342f2dc043ca482d2178742cb27adf6309d2"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "0cb2aa7fe7df300372c7d3514d68c59a75d19bdc418bc6382e38c2e80049551d",
+          "bytes": 315264,
+          "sha256": "bf00617c3b5d5f5678c3d15eb0bccaeb6959075b593e2dc2f679cd922433aeb0"
+        }
+      ]
+    }
+  }
+}

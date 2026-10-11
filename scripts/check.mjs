@@ -302,6 +302,15 @@ if (!existsSync('dist/assets')) {
   // flagged in that session's report: paginate, trim the cards, or accept the
   // slower first paint. Raising it again without that decision is the habit
   // the comment above warns about.
+  //
+  // 2026-10-10: the catalog crossed 24KB at 204 live pairs (24.1KB gz), again
+  // mid-run with the owner away. The ceiling was NOT raised. The remedy taken
+  // was the second of the three named above: the full-catalog cards on the
+  // homepage dropped their two meta chips (time, baseline), which were about
+  // half of each card's bytes (src/pages/Home.jsx, PairCard compact). The
+  // daily pick and the "new this week" cards keep their chips. This buys room
+  // for several hundred more pairs at the trimmed rate; the pagination
+  // decision is still the owner's and is flagged in that session's report.
   const homeHtml = readFileSync('dist/index.html', 'utf8');
   budget('html index.html', gz('dist/index.html'), 24 * 1024);
   if (!/<div id="root" data-day="\d+">\s*<header/.test(homeHtml)) {

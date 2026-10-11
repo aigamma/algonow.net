@@ -7304,6 +7304,60 @@ commit, Fable trailer on every commit, check green before each push.
       of this Fable 5.1 session at the owner's explicit request for
       parallel authoring. Added 2026-10-10.
 
+- [x] F199. Hidden Markov map matching × Emission-transition road
+      probabilities. Puzzle 205, geometry (problemSlug map-matching, the
+      atlas problem page carrying "Map matching"; sibling live lessons
+      viterbi-max-product, puzzle 29, and
+      monte-carlo-localization-particle-filter, puzzle 138). Solution
+      hidden_markov_map_matching_emission_transition_road_probabilities.py
+      (0.7 s, prints OK): a synthetic city of 75 intersections and 132
+      segments (a 9 x 7 grid of avenues 100 m apart, 8 diagonals, two
+      frontage roads 18 m beside an avenue joined only at their ends), a
+      75 x 75 route table from 75 Dijkstra runs (19,800 relaxations),
+      hidden simple-path routes, fixes every 35 m with Gaussian noise,
+      candidates within 25 + 3 sigma m, emission -(d/sigma)^2/2,
+      transition -|straight-line - route|/beta with beta fitted
+      Newson-Krumm style as the median gap / ln 2 on 10 known-truth
+      traces per noise level (6.02, 10.36, 15.31, 23.16 m at sigma 4, 8,
+      12, 20). ORACLES: (a) Viterbi equals the exhaustive maximum over
+      every candidate sequence on 40 short traces (339,964 sequences
+      enumerated) to 1e-9, and its score equals its own terms re-summed;
+      (b) against the hidden route, 20 traces per sigma: on the true
+      segment HMM 0.956 / 0.886 / 0.827 / 0.703 vs snapping 0.906 /
+      0.800 / 0.706 / 0.597; position error 3.3 / 6.6 / 10.3 / 18.3 m vs
+      3.5 / 7.5 / 12.2 / 21.2; route-length error 0.005 / 0.026 / 0.074
+      / 0.290 vs 0.466 / 0.807 / 1.052 / 1.203; candidates per fix 3.74
+      / 4.66 / 5.56 / 8.12; (c) beta = infinity reproduces nearest-road
+      snapping on every fix; along the 600 m avenue at sigma 10 the
+      frontage road took 83 of 800 snapped fixes (10.4%) and 1 matched
+      fix; (d) thinning at sigma 8: every fix 0.894 vs 0.814, every 2nd
+      0.902 vs 0.831, every 4th 0.864 vs 0.809; (e) one 39-fix trace:
+      164 candidates, 749 lattice edges against 1.63e23 sequences. Three
+      author corrections recorded (frontage capture 10.4% not a fifth,
+      cross streets take fixes; thinning by two cost nothing; snapping's
+      position error only slightly worse, the gap is the route). Cards:
+      self, Viterbi algorithm (live lesson), ST-Matching, Particle
+      filter (live lesson) (all algoName). neverUse: nearest-road
+      snapping for a route. Figure: the avenue with its frontage road,
+      fixes, red snapping flips against the matched route, beside
+      route-length error bars at four noise levels; cite Newson and
+      Krumm 2009 (DOI 10.1145/1653771.1653818), Viterbi 1967, Quddus,
+      Ochieng, Noland 2007. Viz MapMatchingViz: a seeded 7 x 4 road grid
+      with a frontage road, a hidden route (the avenue past the frontage
+      road or a random path), fixes revealed one per tick, Viterbi and
+      snapping re-run on the prefix each tick, the invariant that the
+      Viterbi path equals the exhaustive maximum on short prefixes (or
+      beats every one-candidate change on long ones) and beats the
+      snapping path; NODE-VERIFIED 20 cycles, 0 breaks; stepMs 380,
+      holdTicks rests. Preserved narration: Aoede + Algieba, plan
+      0.639900 USD, 21,330 billable characters, 6 requests, 10,531
+      spoken characters. Chunk estimate 19.0 KB gz (solution 15,557
+      bytes, content about 15,900, narration 11,175, viz 12,000).
+      Authored by a fork agent of this Fable 5.1 session at the owner's
+      explicit request for parallel authoring; the main thread re-ran
+      the solution, the viz check, the narration plan, and the static
+      checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -3577,6 +3577,24 @@ export const PUZZLES = {
     vite: 'greedy-vertex-cover-maximal-matching',
     html: 'greedy-vertex-cover-maximal-matching/index.html',
   },
+  '/hidden-markov-map-matching-emission-transition-road-probabilities/': {
+    slug: 'hidden-markov-map-matching-emission-transition-road-probabilities',
+    added: '2026-10-10',
+    problemSlug: 'map-matching',
+    number: 205,
+    category: 'geometry',
+    algorithm: 'Hidden Markov map matching',
+    heuristic: 'Emission-transition road probabilities',
+    domain: 'Map matching',
+    oneLiner:
+      'Treat roads as hidden states and GPS fixes as noisy observations, score each fix by its distance to a road and each hop by how far the driving distance strays from the straight line, and let Viterbi pick the most probable route: 95.6% of fixes on the true segment with half a percent of route-length error where nearest-road snapping manages 90.6% and a 47% detour.',
+    listenMinutes: 10,
+    time: 'O(T C^2) transitions after one Dijkstra per intersection',
+    space: 'O(V^2) route table plus O(T C) lattice',
+    baseline: 'Nearest-road snapping (beta = infinity)',
+    vite: 'hidden-markov-map-matching-emission-transition-road-probabilities',
+    html: 'hidden-markov-map-matching-emission-transition-road-probabilities/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

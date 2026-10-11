@@ -24,6 +24,7 @@ FILES = {
     201: '201-importance-sampling-variance-reducing-proposal.json',
     202: '202-longest-prefix-match-trie-lookup.json',
     203: '203-ll1-parsing-first-follow-table.json',
+    204: '204-greedy-vertex-cover-maximal-matching.json',
 }
 NOTE = " Authored by a fork agent of this Fable 5.1 session at the owner's explicit request for parallel authoring; the main thread re-ran the solution, the viz check, the narration plan, and the static checks before accepting it."
 want = [int(a) for a in sys.argv[1:]] or list(FILES)

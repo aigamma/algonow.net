@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net template-matching-normalized-cross-correlation preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-11T01:53:50.692Z",
+  "publication_sha256": "a9ef2fe5bebfbf941aa1d2bdfc807911bc22d44e8da8ffdb19b9293943137dd0",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5925208,
+  "objects": [
+    {
+      "stable_id": "puzzle:template-matching-normalized-cross-correlation",
+      "slug": "template-matching-normalized-cross-correlation",
+      "track_id": "algieba",
+      "source_sha256": "4b62f08e104e84d6fa4ac7a68d2e31dc593091069546d310a99cdf2ef5194c1e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "3eabc7e3d889704601b3fce741aa2f15334da5b723d52ab820afbc7b7d192b4c",
+      "object_key": "narration/v1/puzzles/template-matching-normalized-cross-correlation/3eabc7e3d889704601b3/algieba-40feb54a4f5b56d4.mp3",
+      "bytes": 3033260,
+      "sha256": "40feb54a4f5b56d4f57bfd67d0d47223a1ebfa0202ac6fb1efb99cb94f8c6a72",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:template-matching-normalized-cross-correlation",
+      "slug": "template-matching-normalized-cross-correlation",
+      "track_id": "aoede",
+      "source_sha256": "4b62f08e104e84d6fa4ac7a68d2e31dc593091069546d310a99cdf2ef5194c1e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "3eabc7e3d889704601b3fce741aa2f15334da5b723d52ab820afbc7b7d192b4c",
+      "object_key": "narration/v1/puzzles/template-matching-normalized-cross-correlation/3eabc7e3d889704601b3/aoede-986b4a1e3f4c5638.mp3",
+      "bytes": 2891948,
+      "sha256": "986b4a1e3f4c5638733b9bd0ce24e8039a85f48e0c80f1451a3e35415a0b7f4d",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

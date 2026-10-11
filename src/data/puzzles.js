@@ -3469,6 +3469,24 @@ export const PUZZLES = {
     vite: 'fruchterman-reingold-force-directed-placement',
     html: 'fruchterman-reingold-force-directed-placement/index.html',
   },
+  '/template-matching-normalized-cross-correlation/': {
+    slug: 'template-matching-normalized-cross-correlation',
+    added: '2026-10-10',
+    problemSlug: 'object-detection',
+    number: 200,
+    category: 'signal-graphics',
+    algorithm: 'Template matching',
+    heuristic: 'Normalized cross-correlation',
+    domain: 'Pattern localization',
+    oneLiner:
+      'Slide the template over every window and score each by the correlation coefficient of the two pixel sets, mean removed and variance normalized, so any gain or offset in the lighting still scores exactly one at the true match; read each window\'s mean and variance from two summation tables in four lookups, floor the variance to refuse flat windows, and fit a quadratic around the peak for the sub-pixel position.',
+    listenMinutes: 10,
+    time: 'O(positions × template area) for the dot products; O(1) per window for the mean and variance',
+    space: 'two summation tables of the scene plus the score map',
+    baseline: 'Sum of squared differences',
+    vite: 'template-matching-normalized-cross-correlation',
+    html: 'template-matching-normalized-cross-correlation/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

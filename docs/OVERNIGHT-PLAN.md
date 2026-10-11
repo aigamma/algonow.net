@@ -6937,6 +6937,68 @@ commit, Fable trailer on every commit, check green before each push.
       the solution, the viz check, the narration plan, and the static
       checks before accepting it. Added 2026-10-10.
 
+- [x] F194. Template matching × Normalized cross-correlation. Puzzle
+      200, signal-graphics (problemSlug object-detection, the atlas
+      problem page carrying "Pattern localization"; sibling live lessons
+      hough-transform-parameter-space-voting and fft-cooley-tukey).
+      Solution template_matching_normalized_cross_correlation.py (5.9 s,
+      prints OK): texture generator, bilinear warp (shift, rotation,
+      scale), direct per-window scorer returning NCC, SSD, raw
+      correlation, and SAD from shared window sums, two summation
+      tables, a counting radix-2 FFT, Lewis's fast NCC (tables plus FFT
+      numerator), and a 3 x 3 least-squares quadratic sub-pixel fit; 64
+      x 64 scenes, 12 x 12 pattern planted at a known position, 2,809
+      candidate positions, seeded. ORACLES: (1) NCC = 1.000000 (within
+      1e-9) at six exact copies and |NCC| <= 1 on every map (max
+      1.000000000); exact copies found 24/24 by all four scores; (2)
+      gain 0.4 to 2.5 and offset +-60 on the scene: NCC 24/24, SSD 8/24,
+      SAD 6/24, raw correlation 22/24; (3) additive noise sigma
+      15/40/80/120: NCC 6,6,6,5 of 6; SSD 6,6,1,0; SAD 6,6,0,1; raw
+      6,6,2,0; (4) the table-plus-FFT map equals the direct map to
+      1.2e-13 with its argmax on the plant; direct 404,496 numerator +
+      404,496 denominator multiplications per match; tables 4,096 (one
+      squared image); FFT numerator 1,441,792 (three 128 x 128
+      transforms at four real multiplications per complex one), so the
+      FFT costs more than the direct dot products at this size; (5)
+      sub-pixel: integer peak error 0.640 px, quadratic fit 0.314 px
+      over 16 planted fractional shifts; (6) rotation of the planted
+      pattern, hits of 6 (mean peak): 0 deg 6 (1.00), 5 deg 6 (0.98), 10
+      deg 6 (0.91), 15 deg 0 (0.85), 20 deg 1 (0.76), 30 deg 0 (0.64),
+      45 deg 0 (0.49); scale 0.8/0.9/1.0/1.1/1.25: 6/6 at every scale;
+      (7) untextured template without the variance floor: 0/6 found,
+      mean peak 0.26; with the floor flagged 6/6; a flat 20 x 20 scene
+      block floors exactly its 81 windows. Three author corrections
+      recorded in the header: the draft assumed the FFT numerator would
+      cut the multiplication count (counters said the opposite); the
+      draft's smooth scenes let chance windows correlate at 0.83 and
+      beat half-pixel-shifted plants (scenes given finer texture, chance
+      peaks 0.44); the draft's two one-dimensional parabolas (0.61 px)
+      were replaced by the 3 x 3 quadratic (0.36 px on the same seed).
+      Cards: self, Phase correlation, SIFT, Hough transform (live lesson
+      badge), all algoName pages present in dist/algo. neverUse: NCC for
+      a rotated object (6/6 at 10 deg, 0/6 at 15 deg) or a texture-free
+      template (0/6, peak 0.26 without the floor). Contest: 6 rows (NCC
+      tables, NCC direct, NCC FFT numerator, SSD, SAD, raw correlation)
+      x 4 columns (exact copy, gain + offset, noise sigma 80,
+      multiplications per match). Figure: hits under lighting change by
+      score, beside multiplications per match on a log scale; cite Lewis
+      1995, Briechle and Hanebeck 2001 (DOI 10.1117/12.421129), Brunelli
+      2009. Viz TemplateMatchingViz: a 40 x 40 scene with an 8 x 8
+      planted pattern shown under a seeded gain (0.4 to 2.2) and offset
+      (+-60) plus noise, one row of 33 windows scored per tick by NCC
+      and SSD, the NCC map filling in blue, the plant in green, the SSD
+      minimum in amber (wrong in 10 of 40 cycles, NCC right in 40 of
+      40); invariant every NCC inside [-1, 1] and the final peak on the
+      plant; NODE-VERIFIED 20 cycles, 32 ticks each, 0 breaks; stepMs
+      140, holdTicks rests. Narration plan: 0.715740 USD, 23,858
+      billable characters, 6 requests, approval e25f86e6..., about
+      12,000 spoken characters; chunk estimate 18.4 KB gz by the
+      calibrated estimator. Preserved narration: Aoede + Algieba.
+      Authored by a fork agent of this Fable 5.1 session at the owner's
+      explicit request for parallel authoring; the main thread re-ran
+      the solution, the viz check, the narration plan, and the static
+      checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:greedy-vertex-cover-maximal-matching",
+  "source_path": "src/content/greedy-vertex-cover-maximal-matching.narration.js",
+  "source_sha256": "6c187e4a013109472ad76e00059ddb05ac5c62ab62cd55d9703abea226331b23",
+  "source_characters": 11898,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "da2265db4e6f3c7f243ecd54c203c6f5da331f4eb841d1f66c3fcf4fb27e9391",
+  "generated_at": "2026-10-11T02:13:25.075Z",
+  "generated_characters": 23796,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4759,
+      "utf8_bytes": 4769,
+      "sha256": "df6834ac13b8924d0d10758339c4082a0d667c3fde7e4db9aabfabd569d708ec"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4079,
+      "utf8_bytes": 4083,
+      "sha256": "67bdddfc3d63abdd1dd8be23519cb97205189e3e7955a3ca3614cc4dbd925866"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2296,
+      "utf8_bytes": 2308,
+      "sha256": "3055bea521165f5562a5aa4280911ea46a0a4d63d68a2b86a30a117a19b1bc0c"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 764,
+      "utf8_bytes": 770,
+      "sha256": "9d6446a85537a723a74620a138bfa03841683ff5bbb3440b623d3bc31712c1f1"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "greedy-vertex-cover-maximal-matching.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "greedy-vertex-cover-maximal-matching.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1357,
+      "sha256": "cd8746dc4ee2027c9e72806fc0ee57a958b589506a6b9c09478d6594ba71c7c9"
+    },
+    {
+      "id": "greedy-vertex-cover-maximal-matching.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1268,
+      "sha256": "b9e468c45259f966dabe2e1cb1c9ced339373c008345888224201899fdb01bdf"
+    },
+    {
+      "id": "greedy-vertex-cover-maximal-matching.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1490,
+      "sha256": "b8694d105ddc199780d89d8ac510413a3d6d5fed8b5519eefe3643b188a6e2bd"
+    },
+    {
+      "id": "greedy-vertex-cover-maximal-matching.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 521,
+      "sha256": "63aefaa09e5f6f3cefcd11a90ec86322547685fb062e582ce25c6bb90fe122e1"
+    },
+    {
+      "id": "greedy-vertex-cover-maximal-matching.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 704,
+      "sha256": "ebb65b3890617398329e6c3014375681bad353610c128b571fe2cf6ddcd8d118"
+    },
+    {
+      "id": "greedy-vertex-cover-maximal-matching.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 418,
+      "sha256": "4b31f38beaeac1caae3e9b68aa82230895e5f43cfae0a66aaf63e9ee5b7522ff"
+    },
+    {
+      "id": "greedy-vertex-cover-maximal-matching.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2172,
+      "sha256": "34778ed992b2cdbec3a8d574fbf40833d2d0d0e43855fd3d7799101703a0e9fe"
+    },
+    {
+      "id": "greedy-vertex-cover-maximal-matching.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 781,
+      "sha256": "712a0819ea61c89ca9ee65b5b6abf6b2e0fb42b1f707036fe154b6df8c8e1183"
+    },
+    {
+      "id": "greedy-vertex-cover-maximal-matching.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1248,
+      "sha256": "14f728a677876daf0e5efa48a408fdb46de626910f1208ec64f2dba90cf20965"
+    },
+    {
+      "id": "greedy-vertex-cover-maximal-matching.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1828,
+      "sha256": "058ec2f8e628771efa05b42d6424d8fddaa7f18855149c2ee69131edc0aa9445"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/greedy-vertex-cover-maximal-matching/da2265db4e6f3c7f243e/aoede-717f506120d97d8f.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2990444,
+      "sha256": "717f506120d97d8fc8aa166888481af278493fade02ca53b51502055867fdf5e",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "df6834ac13b8924d0d10758339c4082a0d667c3fde7e4db9aabfabd569d708ec",
+          "bytes": 1198272,
+          "sha256": "6edbd5412cb003f17f276edafe03bbfeb14348c160e32a3c73499a3b6ea805ba"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "67bdddfc3d63abdd1dd8be23519cb97205189e3e7955a3ca3614cc4dbd925866",
+          "bytes": 1051872,
+          "sha256": "1a3c7cbb2f930e167e5706a2234791863d1b40c7d64b12f9500ef42e5d7f9801"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "3055bea521165f5562a5aa4280911ea46a0a4d63d68a2b86a30a117a19b1bc0c",
+          "bytes": 551232,
+          "sha256": "ad84c009b0a4906c8e397f57946ffb898b7349e2beb75bd508a72ce1d66d8ae0"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "9d6446a85537a723a74620a138bfa03841683ff5bbb3440b623d3bc31712c1f1",
+          "bytes": 188832,
+          "sha256": "363731760a0a3d5b43ac7699b9887fb29e78a8316f420f703694471e7269c011"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/greedy-vertex-cover-maximal-matching/da2265db4e6f3c7f243e/algieba-1da710a78dfce580.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3193388,
+      "sha256": "1da710a78dfce580974874ce67794c7ca23c1b2493b5e9551e8388f0121b2c49",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "df6834ac13b8924d0d10758339c4082a0d667c3fde7e4db9aabfabd569d708ec",
+          "bytes": 1289376,
+          "sha256": "d10ee11980a66e0b9b9e765513b6765fc60f2fe1807a6e3345f94552c7729a8d"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "67bdddfc3d63abdd1dd8be23519cb97205189e3e7955a3ca3614cc4dbd925866",
+          "bytes": 1138464,
+          "sha256": "83dd67d0384e238766be94006d880ba24f334f7531ab1c9ea1d42468735b6b2d"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "3055bea521165f5562a5aa4280911ea46a0a4d63d68a2b86a30a117a19b1bc0c",
+          "bytes": 588576,
+          "sha256": "418023e1bfe147b3b0e9bc59a94fc707d2338786eeaacd4b08c93f4b37cc3c15"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "9d6446a85537a723a74620a138bfa03841683ff5bbb3440b623d3bc31712c1f1",
+          "bytes": 176736,
+          "sha256": "b5508e9a5bb0eae60f3d89c18ff4153c3854903b692cbc230b991b7b76e230a6"
+        }
+      ]
+    }
+  }
+}

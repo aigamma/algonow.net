@@ -3559,6 +3559,24 @@ export const PUZZLES = {
     vite: 'll1-parsing-first-follow-table',
     html: 'll1-parsing-first-follow-table/index.html',
   },
+  '/greedy-vertex-cover-maximal-matching/': {
+    slug: 'greedy-vertex-cover-maximal-matching',
+    added: '2026-10-10',
+    problemSlug: 'vertex-cover',
+    number: 204,
+    category: 'optimization-or',
+    algorithm: 'Greedy vertex cover',
+    heuristic: 'Maximal matching',
+    domain: 'Vertex cover 2-approximation',
+    oneLiner:
+      'Take any edge with neither end chosen, put both ends in the cover, delete what they touch, repeat: the kept edges are a maximal matching, every cover needs one vertex per kept edge, so the output is at most twice the optimum in one linear pass, with the matching as a receipt; the max-degree greedy beats it on average and loses by a logarithm when the graph is chosen against it.',
+    listenMinutes: 11,
+    time: 'O(V + E): one pass over the edges',
+    space: 'O(V) for the cover and the matching',
+    baseline: 'Max-degree greedy (greedy set cover on edges)',
+    vite: 'greedy-vertex-cover-maximal-matching',
+    html: 'greedy-vertex-cover-maximal-matching/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

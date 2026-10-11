@@ -7249,6 +7249,61 @@ commit, Fable trailer on every commit, check green before each push.
       narration plan, and the static checks before accepting it. Added
       2026-10-10.
 
+- [x] F198. Greedy vertex cover × Maximal matching. Puzzle 204,
+      optimization-or (problemSlug vertex-cover, the atlas problem page
+      carrying "Vertex cover 2-approximation"; sibling live lessons
+      greedy-set-cover-max-coverage, branchbound-fractional,
+      hopcroft-karp-layered-phases). Solution
+      greedy_vertex_cover_maximal_matching.py (1.0 s, prints OK): the
+      matching rule, the max-degree greedy with incremental degrees,
+      exact branch and bound (branch on the max-degree vertex, prune
+      with the matching bound), brute force for small graphs, Kuhn's
+      augmenting-path matching, Konig's cover from the matching, the
+      half-integral LP solved through the bipartite double cover with a
+      dual fractional matching as the optimality certificate, and the
+      generator for the degree greedy's bad family. ORACLES: (1) exact
+      solver equals brute force on 60 graphs of 6 to 11 vertices; (2)
+      300 random G(14, 0.3) graphs: matching rule 1.495 mean / 2.000
+      worst against OPT (15 branch-and-bound nodes mean), |M| <= OPT <=
+      2|M| and a valid cover on every graph; degree greedy 1.032 /
+      1.286; LP rounding at one half 1.757 / 2.000; OPT/LP 1.123 mean;
+      primal feasible, dual feasible, values equal on every graph; (3)
+      edge order: one order 1.491 against best of eight shuffles 1.289
+      (40 graphs); (4) tight examples: K6,6 cover 12 against OPT 6
+      (ratio 2.0, degree greedy optimal at 6), star K1,8 cover 2 against
+      1; (5) Konig: min cover = max matching = brute force on 40 random
+      bipartite graphs; (6) bad family (n left vertices; for each i in
+      2..n, n // i right vertices of degree i): OPT = n exactly by
+      Konig; degree greedy takes every right vertex, 34 / 87 / 216 / 517
+      at n = 16 / 32 / 64 / 128, ratios 2.125 / 2.719 / 3.375 / 4.039
+      against H_n - 1 = 4.433 at 128; matching rule 2.000 on each; (7)
+      exact search at average degree 4: 24 / 118 / 919 / 4,514 / 31,496
+      nodes at n = 24 / 48 / 72 / 96 / 120 (asserted > 100x growth). Two
+      author corrections recorded in the header: the draft guessed the
+      matching rule's worst case over random graphs at 1.90 and measured
+      exactly 2.00; the draft expected branch and bound to blow up by n
+      = 24 on dense random graphs, where the matching bound prunes to a
+      few dozen nodes, so the growth experiment moved to sparse graphs.
+      Cards: self, LP rounding vertex cover (algoName), Greedy set cover
+      (max-degree greedy, live lesson badge), Branch and bound (live
+      lesson badge). neverUse: the max-degree greedy when the graph may
+      be chosen against you (the bad family ratios). Figure: mean and
+      worst ratios for three methods beside the bad-family ratio
+      climbing with n against the matching rule's flat 2.000; cite
+      Gavril in Garey and Johnson 1979, Karp 1972, Khot and Regev 2008
+      (DOI 10.1016/j.jcss.2007.06.019), Konig 1931. Viz VertexCoverViz:
+      a seeded random graph of 11 to 14 vertices on a circle, one edge
+      per tick, amber kept edges and blue cover vertices, deleted edges
+      faded, the exact optimum by brute force over subsets, invariant
+      that deleted edges touch the cover and |cover| = 2|M|, final check
+      |M| <= OPT <= 2|M| and every edge covered; NODE-VERIFIED 20
+      cycles, 0 breaks; stepMs 420, holdTicks rests. Narration plan
+      0.713880 USD, 23,796 billable characters, 8 requests, about 11,900
+      spoken characters, approval af95b467...; chunk estimate 17.0 KB
+      gz. Preserved narration: Aoede + Algieba. Authored by a fork agent
+      of this Fable 5.1 session at the owner's explicit request for
+      parallel authoring. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

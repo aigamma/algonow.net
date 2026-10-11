@@ -6497,6 +6497,74 @@ commit, Fable trailer on every commit, check green before each push.
       the solution, the viz check, the narration plan, and the static
       checks before accepting it. Added 2026-10-10.
 
+- [x] F188. Set-associative cache × Index-tag lookup. Puzzle 194,
+      languages-compilers (problemSlug cache-organization, the atlas
+      problem page carrying "Cache organization"; sibling live lesson
+      lru-recency-eviction, puzzle 17, named in the narration; rivals
+      Victim cache and Skewed-associative cache share the d phrase).
+      Solution set_associative_cache_index_tag_lookup.py (0.7 s, prints
+      OK): a set-associative simulator parameterized by capacity, block,
+      ways, and policy (LRU, FIFO, random) that splits each address into
+      tag, index, and offset and compares one set's tags; a dictionary
+      direct-mapped reference; an ordered-dictionary fully associative
+      LRU reference; Belady optimal with a heap of next uses; the three
+      C decomposition; traces: a 64 KB sequential sweep, three 4 KB
+      arrays spaced 16 KB apart over four passes, a 128 x 128 matrix of
+      doubles by rows, by columns, and in 16-row tiles, a Zipf trace
+      (40,000 accesses, 4,096 blocks, s = 1.0, hot blocks scattered),
+      and a five-block cycle in one four-way set. ORACLES: (1) the
+      fields reconstruct every address bit for bit in 240,000 checks,
+      index bits = log2(sets), offset bits = log2(block), tag the rest
+      (18/8/6 direct-mapped, 20/6/6 four-way, 26/0/6 fully associative);
+      (2) the general simulator equals the direct-mapped reference at W
+      = 1 and the fully associative LRU reference at S = 1 on 206,976
+      decisions over every trace; (3) Belady misses no more than any
+      configuration on any trace; (4) misses = compulsory + capacity +
+      conflict, conflict 0 when fully associative; (5) measured: sweep
+      and row walk 12.5% everywhere (compulsory only); three arrays (192
+      of 256 blocks fit) direct-mapped 6,144 of 6,144, 2-way 6,144,
+      4-way 192 (first touches), 32 KB direct-mapped still 67.7%; column
+      walk 100% at 1, 2, 4, 8, 16 ways, 12.5% fully associative, 12.5%
+      direct-mapped in 16-row tiles; Zipf miss rates 48.05 / 44.63 /
+      43.11 / 42.66 / 42.52 / 42.16% at 1 / 2 / 4 / 8 / 16 / 256 ways,
+      compulsory 3,535, capacity 13,328, conflict 2,357 / 990 / 381 /
+      201 / 146 / 0, Belady 10,282 misses (25.70%); rule of thumb
+      direct-mapped 16 KB 19,220 against two-way 8 KB 21,524 (ratio
+      0.893); replacement at 4 ways on Zipf LRU 17,244, FIFO 18,760,
+      random 18,798; five blocks cycling one four-way set: LRU 10,000 of
+      10,000, FIFO 10,000, random 4,014, Belady 2,503, four blocks LRU
+      4; comparators 1 / 2 / 4 / 8 / 16 / 256 per access, tag + valid +
+      LRU overhead 3.71 / 4.10 / 4.49 / 4.88 / 5.27 / 6.84% of data
+      bits. Honest: ways do not fix a stride (said in the weakness and
+      the negative example); LRU loses to random on the five-block
+      cycle. Two author corrections recorded (associativity below full
+      does not rescue the column walk; the three arrays fit three to a
+      set, so four ways miss only first touches, not one in eight).
+      Cards: self, Victim cache, Skewed-associative cache, Loop tiling
+      (all algoName, pages present). neverUse: a direct-mapped cache
+      under streams spaced a cache size apart. Figure: the 32-bit
+      address split for direct-mapped, four-way, and fully associative
+      beside a bar chart of Zipf conflict misses by ways; cite Hill and
+      Smith 1989 DOI 10.1109/12.40842, Smith 1982 DOI
+      10.1145/356887.356892, Hennessy and Patterson appendix B. Viz
+      SetAssociativeCacheViz: an eight-block cache as 8 x 1, 4 x 2, or 2
+      x 4 by cycle serving three arrays one cache size apart for two
+      passes (96 accesses), one access per tick, address bits colored by
+      field, the indexed set outlined, hit and miss flashes, counters
+      for hits, misses, and tag compares; invariant: an independent
+      per-set LRU reference agrees on every access and the fields
+      rebuild the address, and at the end direct-mapped and two-way
+      missed everything while four-way missed only the six first
+      touches; NODE-VERIFIED 20 cycles, 96 ticks each, 0 breaks; stepMs
+      380, holdTicks rests. Preserved narration: Aoede + Algieba, plan
+      0.733260 USD, 24,442 billable characters, 8 requests (narration
+      trimmed to about 12,100 spoken characters and the page chunk to an
+      estimated 18.9 KB gz after the coordinator's budget note).
+      Authored by a fork agent of this Fable 5.1 session at the owner's
+      explicit request for parallel authoring; the main thread re-ran
+      the solution, the viz check, the narration plan, and the static
+      checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

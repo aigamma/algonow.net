@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net set-associative-cache-index-tag-lookup preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-11T01:30:37.855Z",
+  "publication_sha256": "8e24eac26d47c61ac5975f50d9141e522406edf69980ab498321a14fc4765471",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6428248,
+  "objects": [
+    {
+      "stable_id": "puzzle:set-associative-cache-index-tag-lookup",
+      "slug": "set-associative-cache-index-tag-lookup",
+      "track_id": "algieba",
+      "source_sha256": "3d3e7e8e01aacc7bdc2020c499865132801db5c850423fd0e26bec09d85bc7fe",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "9380f6e6847a149d232e69d8a75c4b850718204e2ab5a9ae49390a4bd1636b8c",
+      "object_key": "narration/v1/puzzles/set-associative-cache-index-tag-lookup/9380f6e6847a149d232e/algieba-78589d48150b5e15.mp3",
+      "bytes": 3282764,
+      "sha256": "78589d48150b5e15deaeec47997184c6f464e7ac06cc027def8cf455ffb22210",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:set-associative-cache-index-tag-lookup",
+      "slug": "set-associative-cache-index-tag-lookup",
+      "track_id": "aoede",
+      "source_sha256": "3d3e7e8e01aacc7bdc2020c499865132801db5c850423fd0e26bec09d85bc7fe",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "9380f6e6847a149d232e69d8a75c4b850718204e2ab5a9ae49390a4bd1636b8c",
+      "object_key": "narration/v1/puzzles/set-associative-cache-index-tag-lookup/9380f6e6847a149d232e/aoede-69f9c9ca8181548a.mp3",
+      "bytes": 3145484,
+      "sha256": "69f9c9ca8181548a4cb3f36611b08b87d094ac4fadfbae52c346dbc32ed22bbe",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

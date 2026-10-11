@@ -3343,6 +3343,24 @@ export const PUZZLES = {
     vite: 'random-search-uniform-hyperparameter-sampling',
     html: 'random-search-uniform-hyperparameter-sampling/index.html',
   },
+  '/set-associative-cache-index-tag-lookup/': {
+    slug: 'set-associative-cache-index-tag-lookup',
+    added: '2026-10-10',
+    problemSlug: 'cache-organization',
+    number: 194,
+    category: 'languages-compilers',
+    algorithm: 'Set-associative cache',
+    heuristic: 'Index-tag lookup',
+    domain: 'Cache organization',
+    oneLiner:
+      'Cut the address into offset, index, and tag, let the index pick one small set, and compare only that set\'s W tags in parallel: the direct-mapped cache\'s one-step lookup with room for W colliding lines, so a few ways erase most conflict misses (2,357 to 381 at four ways on a Zipf trace, 6,144 to 192 on three aligned arrays) while a stride that aims a hundred blocks at one set still needs tiling or full associativity.',
+    listenMinutes: 11,
+    time: 'O(W) tag compares per access, in parallel: one step',
+    space: 'capacity plus tag, valid, and recency bits (3.71% to 6.84% here)',
+    baseline: 'Direct-mapped cache (one way)',
+    vite: 'set-associative-cache-index-tag-lookup',
+    html: 'set-associative-cache-index-tag-lookup/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

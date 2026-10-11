@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:vickrey-auction-second-price-rule",
+  "source_path": "src/content/vickrey-auction-second-price-rule.narration.js",
+  "source_sha256": "059e88466c0897252e69183f125e5eea57e371819d98d5afe720c8b4f9e6caa5",
+  "source_characters": 12324,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "bbde5dc4031d81498cb96815fa335df13d9a8d3683f8a9722aced3ee000b17a8",
+  "generated_at": "2026-10-11T00:55:38.684Z",
+  "generated_characters": 24648,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4789,
+      "utf8_bytes": 4793,
+      "sha256": "9e12c0f2e13bd6bf1424127f91a6ffd8a92946d66f06d7446990cc4741e6dd3a"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4221,
+      "utf8_bytes": 4227,
+      "sha256": "3815ba60e7bab42b4ca9db64311801ecbdb3bfa6b40b65375af500ee780bb284"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2856,
+      "utf8_bytes": 2860,
+      "sha256": "4ea2732c51f8859164076c931d9c8b7b21774b8469d2b152ec1d17879560e695"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 458,
+      "utf8_bytes": 462,
+      "sha256": "485bee74eee289263ae43e1443c632d60659e7cf3561b93f7684dd37afa2cc78"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "vickrey-auction-second-price-rule.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "vickrey-auction-second-price-rule.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1261,
+      "sha256": "a1418f0c93d221cb7d8c3316619d882f4607944c548d0d4e14f81942fb0807a2"
+    },
+    {
+      "id": "vickrey-auction-second-price-rule.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1480,
+      "sha256": "7b35af9aaec38e68546873266f69ffb49d8bdd5d87cf81c47a63b0ebd1ff1817"
+    },
+    {
+      "id": "vickrey-auction-second-price-rule.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1921,
+      "sha256": "dd9a591211709127edc23edcc03b5e838aa72d78ec05426c9e2a5a7ddf55093f"
+    },
+    {
+      "id": "vickrey-auction-second-price-rule.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 745,
+      "sha256": "2d7df7addd5fbb4173cb4c67b92977937d4fa66e403b18db69fbc604e6e39e8a"
+    },
+    {
+      "id": "vickrey-auction-second-price-rule.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 889,
+      "sha256": "d3ee2c9dd8acc1133393a4032d33ead91d0bc51c5c7f366da62b74047d2833b5"
+    },
+    {
+      "id": "vickrey-auction-second-price-rule.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 650,
+      "sha256": "c8ab0538207b172c2cbb423b4d84d8ce123f38e80fa28034045c4b3c5a00dacd"
+    },
+    {
+      "id": "vickrey-auction-second-price-rule.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1935,
+      "sha256": "af127d565d1e36fc88919963b58699a5578b410b29980536c208f142d1a8a815"
+    },
+    {
+      "id": "vickrey-auction-second-price-rule.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 805,
+      "sha256": "cd9186d97b16ce27cf0a0ecd9ee3cba4567bcc58e9b396e389b1034094530926"
+    },
+    {
+      "id": "vickrey-auction-second-price-rule.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1221,
+      "sha256": "509cce9033d92f6687562ade1abe0f420815a506eaa718fa31e6c2efc9564bd7"
+    },
+    {
+      "id": "vickrey-auction-second-price-rule.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1292,
+      "sha256": "4299dd6dc7adf5542833991ef465ecb0e1752f8cc2b9d099e6a8b90bdfeaa934"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/vickrey-auction-second-price-rule/bbde5dc4031d81498cb9/aoede-dadac81c50e3ad00.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3050828,
+      "sha256": "dadac81c50e3ad00892ea797de06eb18d292c1b4716393527f570638750b2fed",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "9e12c0f2e13bd6bf1424127f91a6ffd8a92946d66f06d7446990cc4741e6dd3a",
+          "bytes": 1148736,
+          "sha256": "9d45bb0544ee1afe655e4288d53cd2517dab9227312f2b9c0132785ebc82ddaa"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "3815ba60e7bab42b4ca9db64311801ecbdb3bfa6b40b65375af500ee780bb284",
+          "bytes": 1081536,
+          "sha256": "72ca5fccebef212e389e2e62385227b4b46b95ad30e299de8618a3457ba5ebc6"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "4ea2732c51f8859164076c931d9c8b7b21774b8469d2b152ec1d17879560e695",
+          "bytes": 714624,
+          "sha256": "97fec2aeb7ac90dfc10fea1982f6bead0e95d187d04606774d3f461059f29964"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "485bee74eee289263ae43e1443c632d60659e7cf3561b93f7684dd37afa2cc78",
+          "bytes": 105696,
+          "sha256": "eed5b7feefdb554c541bb24e8eb9784b369a4c6a5d9ccd04c99060a094913675"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/vickrey-auction-second-price-rule/bbde5dc4031d81498cb9/algieba-b5ef7cfc051039b7.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3141644,
+      "sha256": "b5ef7cfc051039b70646e12f92ca8bfe8414501d091b5f7e837ff4a3fed786a5",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "9e12c0f2e13bd6bf1424127f91a6ffd8a92946d66f06d7446990cc4741e6dd3a",
+          "bytes": 1205856,
+          "sha256": "062faa0c8cd0c09414eaa717a8ed09c3f46ec96ca4134de613566cb4f7ba9a68"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "3815ba60e7bab42b4ca9db64311801ecbdb3bfa6b40b65375af500ee780bb284",
+          "bytes": 1099392,
+          "sha256": "81ffdec0e38c838855592bcf103f4010613ad75e7cbe20de98bbf30248d73c9a"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "4ea2732c51f8859164076c931d9c8b7b21774b8469d2b152ec1d17879560e695",
+          "bytes": 716544,
+          "sha256": "46c48bae573e6c19f65fcd29e1fb0b57a5173eda5bb24b8d6e72b81bee2d7363"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "485bee74eee289263ae43e1443c632d60659e7cf3561b93f7684dd37afa2cc78",
+          "bytes": 119616,
+          "sha256": "8a9eef672743b1dec490c6ecbc2e1fab5a71e66f4c3ac301a61054dbb9b47c0f"
+        }
+      ]
+    }
+  }
+}

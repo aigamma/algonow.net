@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net vickrey-auction-second-price-rule preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-11T00:56:49.642Z",
+  "publication_sha256": "1521495836ac07b41ceedc427c47ba64cfd11f68846ab6b726b3d355f08bde45",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6192472,
+  "objects": [
+    {
+      "stable_id": "puzzle:vickrey-auction-second-price-rule",
+      "slug": "vickrey-auction-second-price-rule",
+      "track_id": "algieba",
+      "source_sha256": "059e88466c0897252e69183f125e5eea57e371819d98d5afe720c8b4f9e6caa5",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "bbde5dc4031d81498cb96815fa335df13d9a8d3683f8a9722aced3ee000b17a8",
+      "object_key": "narration/v1/puzzles/vickrey-auction-second-price-rule/bbde5dc4031d81498cb9/algieba-b5ef7cfc051039b7.mp3",
+      "bytes": 3141644,
+      "sha256": "b5ef7cfc051039b70646e12f92ca8bfe8414501d091b5f7e837ff4a3fed786a5",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:vickrey-auction-second-price-rule",
+      "slug": "vickrey-auction-second-price-rule",
+      "track_id": "aoede",
+      "source_sha256": "059e88466c0897252e69183f125e5eea57e371819d98d5afe720c8b4f9e6caa5",
+      "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+      "release_sha256": "bbde5dc4031d81498cb96815fa335df13d9a8d3683f8a9722aced3ee000b17a8",
+      "object_key": "narration/v1/puzzles/vickrey-auction-second-price-rule/bbde5dc4031d81498cb9/aoede-dadac81c50e3ad00.mp3",
+      "bytes": 3050828,
+      "sha256": "dadac81c50e3ad00892ea797de06eb18d292c1b4716393527f570638750b2fed",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

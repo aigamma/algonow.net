@@ -3289,6 +3289,24 @@ export const PUZZLES = {
     vite: 'two-opt-edge-uncrossing-swaps',
     html: 'two-opt-edge-uncrossing-swaps/index.html',
   },
+  '/vickrey-auction-second-price-rule/': {
+    slug: 'vickrey-auction-second-price-rule',
+    added: '2026-10-10',
+    problemSlug: 'auction-design',
+    number: 189,
+    category: 'optimization-or',
+    algorithm: 'Vickrey auction',
+    heuristic: 'Second-price rule',
+    domain: 'Truthful single-item auction',
+    oneLiner:
+      'Seal the bids, give the item to the highest, and charge the second bid: your bid then decides only whether you win, never what you pay, so the truth is a dominant strategy, the highest value always wins, and the seller earns exactly what a first-price auction would at equilibrium, without anyone computing one.',
+    listenMinutes: 10,
+    time: 'O(n log n) to sort the bids, O(n) with two running maxima',
+    space: 'O(1) beyond the bids',
+    baseline: 'First-price sealed bid',
+    vite: 'vickrey-auction-second-price-rule',
+    html: 'vickrey-auction-second-price-rule/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

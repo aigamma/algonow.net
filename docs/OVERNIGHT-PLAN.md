@@ -6281,6 +6281,74 @@ commit, Fable trailer on every commit, check green before each push.
       the solution, the viz check, the narration plan, and the static
       checks before accepting it. Added 2026-10-10.
 
+- [x] F183. Vickrey auction × Second-price rule. Puzzle 189,
+      optimization-or (problemSlug auction-design, the atlas problem
+      page carrying "Truthful single-item auction"; sibling live lessons
+      gale-shapley-deferred-acceptance, puzzle 73, and
+      secretary-one-over-e). Solution
+      vickrey_auction_second_price_rule.py (0.76s, prints OK): a Vickrey
+      auction with optional reserve, a first-price auction, an ascending
+      clock auction, second-price and first-price payoff functions, the
+      expected first-price payoff against equilibrium rivals, the
+      closed-form two-bidder reserve revenue 1/3 + r^2 - 4r^3/3, and a
+      mean with standard error. ORACLES, i.i.d. uniform [0, 1] values,
+      60,000 draws per cell: (1) dominant strategy exhaustively: 21
+      values x 21 highest rival bids x 21 deviations = 9,261 grid
+      comparisons plus 20,000 random continuous profiles x 201
+      deviations = 4,020,000, total 4,029,261 comparisons, 0 profitable
+      deviations from the truth; under a first-price rule 210 of the 441
+      grid (value, rival) cells reward shading; (2) first-price
+      equilibrium by best response: against rivals bidding (n - 1)v/n,
+      the best reply on a 1,000-bid grid is within 0.0007 of (n - 1)v/n
+      over n = 2, 3, 5 and v = 0.2, 0.5, 0.8, 1.0, and bidding v earns
+      exactly 0 (equilibrium utility 0.149 on average); (3) revenue
+      equivalence: Vickrey 0.3351 +/- 0.0010, 0.4997 +/- 0.0009, 0.6665
+      +/- 0.0007 at n = 2, 3, 5 against first-price at equilibrium
+      0.3340 +/- 0.0005, 0.4994 +/- 0.0005, 0.6668 +/- 0.0005 and theory
+      (n - 1)/(n + 1) = 0.3333, 0.5, 0.6667, all within three standard
+      errors; the highest value won 60,000 of 60,000 at every n; an
+      ascending clock at increment 0.001 matched the Vickrey winner on
+      3,000 of 3,000 draws and the price within 0.001, 500 rounds per
+      auction on average; (4) Myerson's reserve: the closed form peaks
+      at r = 0.500 on a 1,000-point grid; simulated two-bidder revenue
+      0.3330 +/- 0.0010 (r = 0, formula 0.3333), 0.3859 +/- 0.0008 (0.3,
+      formula 0.3873), 0.4181 +/- 0.0010 (0.5, formula 0.4167), 0.3674
+      +/- 0.0015 (0.7, formula 0.3660), each within three standard
+      errors, 0.5 the best; unsold 0%, 9.2%, 24.7%, 48.8%; (5)
+      efficiency and the negative example: Vickrey misallocates on 0 of
+      60,000 draws; a first-price auction between a bidder shading by
+      half and one shading by a fifth misallocates 18.7% of draws and
+      loses 3.5% of welfare; a seller who reads the bids and shills just
+      under the winner extracts 0.2496 +/- 0.0008 per sale at n = 3, the
+      whole gap E[v1 - v2] = 1/(n + 1) = 0.25. Author correction
+      recorded (the draft called the two-bidder reserve gain a third;
+      the formula gives 1/3 to 5/12, a quarter). Cards: self, VCG
+      mechanism, Myerson optimal auction, Ascending clock auction (all
+      algoName; pages verified in dist/algo). neverUse: the second-price
+      rule with a seller who can read the bids (the shill) or colluding
+      bidders. Figure: payoff against bid for a bidder with value 0.8
+      facing a rival bid of 0.5 under both rules (the second-price step,
+      flat above the rival, truth optimal; first-price 0.8 - b, truth
+      earns 0) beside the two-bidder revenue curve against the reserve
+      with four measured points peaking at 0.5; cite Vickrey 1961
+      Journal of Finance DOI 10.1111/j.1540-6261.1961.tb02789.x, Myerson
+      1981, Clarke 1971, Groves 1973. Viz VickreyViz: sixty three-bidder
+      sealed-bid auctions, one per tick, bars for the bids with the
+      winner green and the amber second-price line, a probed bidder's
+      payoff-against-bid step curve, running Vickrey and equilibrium
+      first-price revenue against (n - 1)/(n + 1) = 0.5; invariant every
+      tick: the highest value wins, pays the second value, and 41 probed
+      deviations never beat the truth; NODE-VERIFIED 20 cycles x 60
+      ticks, 0 breaks (2,460 deviations per cycle); stepMs 420,
+      holdTicks rests. Preserved narration: Aoede + Algieba, plan 24,648
+      billable characters, $0.739440, approval
+      c7655390b9358213981744154c7a73362d200ca998287d362890a6b3d61a6688
+      (not generated yet). Meta description 196 chars. Authored by a
+      fork agent of this Fable 5.1 session at the owner's explicit
+      request for parallel authoring; the main thread re-ran the
+      solution, the viz check, the narration plan, and the static checks
+      before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

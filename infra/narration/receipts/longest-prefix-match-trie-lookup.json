@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net longest-prefix-match-trie-lookup preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-11T02:06:04.751Z",
+  "publication_sha256": "3ed54baabdb5b822b76c227fa27cad7e429187584845351d9257293a9718e6b0",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5717560,
+  "objects": [
+    {
+      "stable_id": "puzzle:longest-prefix-match-trie-lookup",
+      "slug": "longest-prefix-match-trie-lookup",
+      "track_id": "algieba",
+      "source_sha256": "9ae6e22cafef56f2f3ecc43bb94cb53f65102f01c33cd71e72d2f7999256dd9e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "a0646221053cd301a5f56f8a536b8a9ab749e3d8179fcab3e65b41fd96a4ff0f",
+      "object_key": "narration/v1/puzzles/longest-prefix-match-trie-lookup/a0646221053cd301a5f5/algieba-495d2a42842ff583.mp3",
+      "bytes": 2937644,
+      "sha256": "495d2a42842ff5834bcd3b9351043c2d86f05cb56f626f863704dbaa127acfc5",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:longest-prefix-match-trie-lookup",
+      "slug": "longest-prefix-match-trie-lookup",
+      "track_id": "aoede",
+      "source_sha256": "9ae6e22cafef56f2f3ecc43bb94cb53f65102f01c33cd71e72d2f7999256dd9e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "a0646221053cd301a5f56f8a536b8a9ab749e3d8179fcab3e65b41fd96a4ff0f",
+      "object_key": "narration/v1/puzzles/longest-prefix-match-trie-lookup/a0646221053cd301a5f5/aoede-fc1308ea2e2ab318.mp3",
+      "bytes": 2779916,
+      "sha256": "fc1308ea2e2ab31812590e8d1ff6dd50a4a0985ef6efe1ff5a3cf8ac6a56597e",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

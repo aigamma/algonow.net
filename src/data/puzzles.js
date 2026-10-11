@@ -3523,6 +3523,24 @@ export const PUZZLES = {
     vite: 'importance-sampling-variance-reducing-proposal',
     html: 'importance-sampling-variance-reducing-proposal/index.html',
   },
+  '/longest-prefix-match-trie-lookup/': {
+    slug: 'longest-prefix-match-trie-lookup',
+    added: '2026-10-10',
+    problemSlug: 'packet-forwarding',
+    number: 202,
+    category: 'distributed-systems',
+    algorithm: 'Longest prefix match',
+    heuristic: 'Trie lookup',
+    domain: 'IP forwarding',
+    oneLiner:
+      'Route every packet by the most specific prefix that covers its destination: store the prefixes in a binary trie keyed by address bits, walk the destination one bit per level remembering the last prefix passed, and answer in at most 32 steps where a scan compares the whole table, with strides for speed and path compression for memory as the measured rivals.',
+    listenMinutes: 11,
+    time: 'O(W) bit steps per lookup (W = 32), independent of the table size; O(W) per insert or delete',
+    space: 'O(total prefix bits) nodes; 20,804 for 2,000 routes, 3,504 path-compressed',
+    baseline: 'Linear scan of every prefix per packet',
+    vite: 'longest-prefix-match-trie-lookup',
+    html: 'longest-prefix-match-trie-lookup/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

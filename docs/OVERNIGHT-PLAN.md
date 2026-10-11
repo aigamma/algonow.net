@@ -7128,6 +7128,56 @@ commit, Fable trailer on every commit, check green before each push.
       the main thread re-ran the solution, the viz check, the narration
       plan, and the static checks before accepting it. Added 2026-10-10.
 
+- [x] F196. Longest prefix match × Trie lookup. Puzzle 202,
+      distributed-systems (problemSlug packet-forwarding, the atlas
+      problem page carrying "IP forwarding"; sibling live lesson
+      trie-shared-prefix-branching, puzzle 51). Solution
+      longest_prefix_match_trie_lookup.py (0.9 s, prints OK): a seeded
+      IPv4 forwarding table with a BGP-like length mix (2,000 prefixes,
+      570 nested inside a shorter one, 23 distinct lengths, a /0
+      default), the linear-scan referee, a unibit trie with
+      insert/delete/lookup, a stride-8 multibit trie with controlled
+      prefix expansion, a Patricia trie built from the unibit trie,
+      binary search on prefix lengths with markers (Waldvogel et al.
+      1997), and a timing harness. ORACLES: (1) all four structures
+      equal the scan on 2,200 destinations (1,000 random plus the first
+      and last address of 300 prefixes and the addresses just outside;
+      174 destinations covered by two or more prefixes), and again after
+      200 inserts and 200 deletes (20,978 nodes after, exactly 20,804
+      after undoing); (2) depth: unibit mean 17.0, max 32 (asserted <=
+      32); stride-8 mean 2.64, max 4 (asserted <= 4); Patricia 10.8
+      visits, max 15; length search 4.7 probes, max 5, 2,620 markers
+      over 23 lengths; (3) expansion: 38,625 expanded entries equal the
+      formula sum over prefixes of 2^(8 - len mod 8) - 1; 2,047 nodes x
+      256 = 524,032 entries against 41,608 unibit slots; Patricia 3,504
+      nodes asserted fewer than unibit; (4) timings in Python: scan
+      104.3 us, unibit 0.60, stride-8 0.25, Patricia 0.81, length search
+      0.42 per lookup; scan = 173x the trie; a 10 GbE line card at 14.88
+      Mpps has 67 ns per packet, so the scan costs 1,552 budgets and the
+      trie 9; (5) negative example: an exact-match hash table keyed by
+      network addresses misses 1,000 of 1,000 random destinations. Two
+      author corrections recorded in the header (path compression cut
+      nodes sixfold, not by half; the Patricia lookup is slower than the
+      bit walk in Python, 0.81 against 0.60 us, so the page credits
+      memory, not speed). Cards: self, Multibit trie forwarding x
+      Controlled prefix expansion, Radix tree x Path compression
+      (Patricia), Trie x Shared-prefix branching (live lesson, puzzle
+      51); neverUse: an exact-match hash table or a per-packet scan.
+      Figure: a five-bit trie with a highlighted longest-match walk
+      beside measured steps-per-lookup bars with entry counts; cites
+      Fuller et al. RFC 1519 (1993), Sklower 1991, Degermark et al.
+      1997, Waldvogel et al. 1997, Srinivasan and Varghese 1999. Viz
+      PrefixTrieViz: an eight-bit table of 10 to 15 prefixes with
+      nesting and a default route drawn as the full trie, one
+      destination per tick walking it (path blue, matched prefix green),
+      every answer checked against a scan and steps <= 8; NODE-VERIFIED
+      20 cycles, 47 ticks each, 0 breaks; stepMs 420, holdTicks rests.
+      Narration plan 0.703020 USD, 23,434 billable characters, 6
+      requests, approval 763897c8...; chunk estimate 18.3 KB gz.
+      Preserved narration: Aoede + Algieba. Authored by a fork agent of
+      this Fable 5.1 session at the owner's explicit request for
+      parallel authoring. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

@@ -6624,6 +6624,192 @@ commit, Fable trailer on every commit, check green before each push.
       viz check, the narration plan, and the static checks before
       accepting it. Added 2026-10-10.
 
+- [x] F190. BLAST × Seed-and-extend word matches. Puzzle 196, comp-bio
+      (problemSlug sequence-database-search, the atlas problem page
+      carrying "Sequence database search"; sibling live lesson
+      smith-waterman-zero-floor, puzzle 56, is the referee). Solution
+      blast_seed_and_extend_word_matches.py (1.5 s, prints OK): word
+      index, ungapped X-drop extension, a search counting hits,
+      extensions, and cells, Smith-Waterman with linear gaps, banded
+      Smith-Waterman around a seed diagonal, the exact best ungapped
+      segment over every diagonal, a Gumbel fit by moments, and a solver
+      for the Karlin-Altschul lambda. Instance: a query of 80 bases
+      against 328 sequences of 160 (200 random decoys, 128 planted
+      homologs, 16 per divergence from 5% to 40%, with indels); +5/-4,
+      gap -6, X-drop 40; thresholds one above the best decoy for every
+      method (zero false positives on the 200 decoys). ORACLES: every
+      HSP recounts from its extents and never exceeds the Smith-Waterman
+      score or the exact ungapped maximum of its pair; Smith-Waterman
+      finds every homolog to 25% and at least as many as seeding at
+      every level (121 of 128 in all); sensitivity falls from w = 7
+      (105) to 11 (74) to 15 (54); the gapped stage (74) sits between
+      the ungapped search and the referee; two-hit extends less (31
+      against 92 extensions, 31 found); w = 4 fires more than ten times
+      the hits (20,101 against 1,144; 410,736 cells against 5,408; 10x
+      against 776x); w = 11 spends under a hundredth of the referee's
+      4,198,400 cells; fitted lambda 0.197 within 30% of Karlin-Altschul
+      0.192 (K 0.1540, 500 fresh null sequences); at T2 = 54 the fit
+      predicts 9.1 chance decoys and 13 appear, within 2.5 sigma; no
+      decoy admitted by any method (ungapped T = 66 with fitted E-value
+      1.44 per search, gapped T = 107); the same top hit (sequence 25,
+      10% divergence); all 75 banded scores equal the full
+      Smith-Waterman score (102,000 cells); every one of the 47 w = 11
+      misses shares no eleven-base word with the query (0 weak segments,
+      0 short extensions); 69 of 74 HSPs equal the exact best ungapped
+      segment. Sensitivity by divergence (SW / w7 / w11 / w15): 5%: 1 1
+      1 1; 10%: 1 1 .94 .94; 15%: 1 1 .88 .62; 20%: 1 1 .75 .56; 25%: 1
+      .94 .44 .19; 30%: .94 .69 .38 0; 35%: .94 .75 .19 .06; 40%: .69
+      .19 .06 0. Three author corrections recorded in the header
+      (completeness claim, threshold rule, null construction). Cards:
+      self, FASTA search, Smith-Waterman (live lesson badge), BWA-MEM
+      (all algoName, pages exist). neverUse: a word size tuned for one
+      regime used in another (w = 15 misses 40 of 41 at 30%+; w = 4
+      explodes). Figure: sensitivity curves by divergence beside a
+      log-scale bar chart of cells; cite Altschul et al. 1990 (DOI
+      10.1016/S0022-2836(05)80360-2), Karlin and Altschul 1990, Altschul
+      et al. 1997. Viz BlastViz: a dot plot of a 36-base query against a
+      72-base subject with a planted copy at 10 to 30% divergence, one
+      7-base word looked up per tick, hits in amber, ungapped extensions
+      in blue, the best HSP in green at the end, counters for hits,
+      extensions, and cells against the full matrix, Smith-Waterman
+      computed up front; invariant: every HSP recounts and never exceeds
+      Smith-Waterman; NODE-VERIFIED 20 cycles, 30 ticks each, 0 breaks;
+      stepMs 450, holdTicks rests. Preserved narration: Aoede + Algieba.
+      Authored by a fork agent of this Fable 5.1 session at the owner's
+      explicit request for parallel authoring; the main thread re-ran
+      the solution, the viz check, the narration plan, and the static
+      checks before accepting it. Added 2026-10-10.
+
+- [x] F191. Gaussian process regression × RBF kernel. Puzzle 197, ml-ai
+      (problemSlug regression, the atlas problem page carrying
+      "Probabilistic regression"; topic gaussian-processes, tier 1).
+      Solution gaussian_process_regression_rbf_kernel.py (1.2 s, prints
+      OK): pure Python 1-D GP with our own Cholesky, triangular solves,
+      Gauss-Jordan inverse and determinant, prior sampler, random
+      Fourier features, and a DTC sparse approximation. ORACLES: (1)
+      noise-free interpolation: max |mean - y| 1e-6, max variance 1e-10
+      at 30 training points; (2) GP weights equal kernel ridge
+      regression (ridge = noise variance 0.04) by Gauss-Jordan to
+      1.4e-8; (3) quadratic-feature kernel: GP posterior equals
+      weight-space Bayesian linear regression, mean 3.7e-14, variance
+      6.1e-16; (4) random Fourier features: kernel error 0.1327 / 0.0391
+      / 0.0470 / 0.0114 and posterior-mean RMSE vs exact 0.1424 / 0.1457
+      / 0.0602 / 0.0264 at D = 50 / 200 / 800 / 3,200 (not monotone step
+      by step; asserted first-to-last by a factor of three); (5)
+      calibration over 150 prior draws (grid of 51, 20 training, 31
+      test, noise 0.2): latent 95% coverage 0.9501 ± 0.0057, noisy
+      0.9486; (6) Cholesky LML -4.422299 equals the direct
+      determinant-and-inverse formula; maximizing over 11 length scales
+      on 30 draws at true ℓ = 1: geometric mean 1.009, 29/30 within one
+      grid step; held-out RMSE ℓ = 0.1: 0.687, ML: 0.162, ℓ = 8: 0.626,
+      3-NN: 0.266; (7) fit time 1 / 4 / 25 / 182 ms at n = 40 / 80 / 160
+      / 320, slope 2.87 (160 to 320), n = 10,000 extrapolates to 1.5 h
+      and an 800 MB matrix at this pace; DTC at n = 200 with m = 5 / 10
+      / 20 / 40 inducing points: RMSE vs exact mean 3.3e-1 / 1.8e-1 /
+      1.7e-4 / 5.4e-8 at work ratio 0.004 / 0.015 / 0.060 / 0.240.
+      AUTHOR CORRECTION recorded in the header: the draft asserted a
+      monotone random-feature error; measured kernel error rose from D =
+      200 to 800. Cards: self, Kernel ridge regression, Sparse Gaussian
+      process (DTC), Random Fourier features (all algoName, pages
+      exist). neverUse: a hand-set length scale (0.687 / 0.626 against
+      0.162; 3-NN at 0.266 beats both). Baseline 3-NN. Figure: held-out
+      RMSE bars for ℓ = 0.1, evidence, 8, and 3-NN beside the DTC gap on
+      a log scale with work ratios; cite Rasmussen and Williams 2006,
+      Krige 1951, Matheron 1963 (DOI 10.2113/gsecongeo.58.8.1246), Neal
+      1996. Viz GaussianProcessViz: one noisy point per tick (24 per
+      cycle), Cholesky refit, blue mean and 95% band, dashed truth;
+      invariants: variance never negative, never rises when a point is
+      added, Cholesky weights equal Gauss-Jordan to 1e-6; NODE-VERIFIED
+      20 cycles, 23 ticks each, 0 breaks; stepMs 500, holdTicks rests.
+      Narration: 10 sections, about 12,100 spoken characters, plan
+      0.668160 USD, 22,272 billable characters, 8 requests, approval
+      6d99d44d...; chunk estimate 18.5 KB gz. Preserved narration: Aoede
+      + Algieba. Authored by a fork agent of this Fable 5.1 session at
+      the owner's explicit request for parallel authoring; the main
+      thread re-ran the solution, the viz check, the narration plan, and
+      the static checks before accepting it. Added 2026-10-10.
+
+- [x] F185. Perlin noise × Gradient lattice interpolation. Puzzle 191,
+      signal-graphics (problemSlug procedural-texturing, the atlas
+      problem page carrying "Procedural texturing"; atlas topic
+      graphics-rendering, tier 1; first live unit of that topic).
+      Solution perlin_noise_gradient_lattice_interpolation.py (0.5s,
+      prints OK): a seeded Lattice class (permutation of 0 to 255
+      written twice, hash p[p[i & 255] + (j & 255)], eight unit
+      gradients or a value in [-1, 1] per grid point, a corner-fetch
+      counter as the work currency), 2-D Perlin noise with a pluggable
+      fade (quintic 6t^5 - 15t^4 + 10t^3, Perlin's 1985 cubic 3t^2 -
+      2t^3, linear), value noise on the same lattice, white noise with
+      one hash per sample, fractal Brownian motion, 2-D simplex noise, a
+      recursive FFT, and helpers for power bands, median frequency,
+      lag-one autocorrelation, zero crossings, and one-sided slope and
+      curvature jumps. ORACLES: (1) exactly 0.0 at 16,384 of 16,384
+      lattice points; the central-difference slope there equals the
+      hashed gradient to 1.0e-7, root-mean-square slope 1.000000 for
+      Perlin against 5.7e-8 for value noise (every grid point of value
+      noise is a stationary point); (2) the range bound sqrt(2)/2 =
+      0.707107 held at all 65,536 cell centers of the torus and 200,000
+      random points, attained exactly in 28 cells (5 with all four
+      gradients pointing inward, 23 outward); mean -0.0007, standard
+      deviation 0.2104; (3) across 2,000 cell borders the one-sided
+      slope jump is 2.70e-9 (quintic), 8.13e-5 (cubic), 2.703 (linear, a
+      crease; interior slopes reach 1.860), value noise 3.6e-9, simplex
+      at random points 3.6e-4; the curvature jump is 0.1241 at h = 1e-3
+      and 0.0125 at 1e-4 for the quintic (shrinking: continuous
+      curvature) against 12.4533 and 12.5148 for the cubic (a step: the
+      2002 improvement); (4) FFT of 4,096 samples (16 per cell) along
+      lattice-periodic lines: Perlin on a generic line 41.7% of the
+      power below a quarter cycle per cell, 58.3% between a quarter and
+      two cycles, 0.005% above two, median frequency 0.301 cycles per
+      cell, lag-one autocorrelation 0.9871, 0.82 zero crossings per
+      cell; along a lattice row 6.1% / 93.9% / 0.010%, median 0.512;
+      value noise 58.3% / 41.7% / 0.002%, median 0.199, lag-one 0.9929,
+      0.51 crossings; white noise 0.6% / 19.4% / 80.068%, median 4.000,
+      lag-one -0.0658, 8.50 crossings; (5) corners per sample Perlin 4
+      against simplex 3 (simplex range [-0.705, +0.706] after its x70
+      scale); four octaves at halving amplitude inside the bound with
+      standard deviations 0.2104, 0.1560, 0.1371, 0.1288 (max +0.6409,
+      +0.4753, +0.4320, +0.4085). Two author corrections recorded in the
+      file header: the draft wrote the range as [-1, 1] (the scaled
+      range) where the raw bound is sqrt(2)/2, and the draft called the
+      noise band-pass where a generic line carries two fifths of its
+      power below a quarter cycle per cell (band-pass only along a
+      lattice row), so the page says band-limited above. Cards: self,
+      Simplex noise, Worley noise, Diamond-square algorithm (all
+      algoName; pages verified in dist/algo). Baseline: value noise.
+      neverUse: linear interpolation in place of the fade (the 2.703
+      crease), with white noise as the other trap. Contest table: six
+      rows (quintic, cubic, linear, value noise, white noise, simplex)
+      over grid-point behavior, border slope jump, power above two
+      cycles per cell, median frequency, corners per sample. Figure:
+      one-dimensional gradient noise across twelve cells (green zeros,
+      blue hashed slopes, amber quintic blend, dashed red linear blend
+      with creases), the three fades described in the caption; cite
+      Perlin 1985 SIGGRAPH DOI 10.1145/325165.325247 and Perlin 2002
+      Improving Noise DOI 10.1145/566654.566636. Viz PerlinNoiseViz: a
+      ten by four window onto a seeded lattice, one cell blended per
+      tick with the hashed gradients in blue and the quintic-faded value
+      in grey, then three ticks adding octaves two to four; invariant
+      every tick: exactly zero at all 55 lattice points through every
+      octave and every sample inside the scaled bound; NODE-VERIFIED 20
+      cycles x 43 ticks, 0 breaks (501,760 samples per cycle); stepMs
+      320, holdTicks rests. Preserved narration: Aoede + Algieba, plan
+      24,388 billable characters (12,194 spoken per voice), 8 requests,
+      $0.731640, approval
+      c106075fde32fd9cbf68771828a09dd0b7e9c2d0184d41cfb95c9c47f6af0277
+      (not generated yet). Meta description 185 chars. Page chunk held
+      to the main thread's estimator (estimate_chunk.mjs) at 19.0 KB gz
+      or below, under the 20 KB real budget: the unit was trimmed in six
+      rounds from an initial 20.3 KB content-only estimate (the
+      isotropy, 32-row-average, and octave-autocorrelation measurements
+      were dropped, the figure reduced to the one-dimensional panel,
+      prose tightened throughout) without changing any cited number;
+      solution 14.7 KB, content about 18 KB, narration 12.7 KB, viz 9.9
+      KB. Authored by a fork agent of this Fable 5.1 session at the
+      owner's explicit request for parallel authoring; the main thread
+      re-ran the solution, the viz check, the narration plan, and the
+      static checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

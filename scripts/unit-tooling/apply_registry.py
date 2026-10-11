@@ -76,8 +76,13 @@ open(dp, 'w', encoding='utf8', newline='\n').write(json.dumps(dd, indent=1, ensu
 p = 'src/data/atlas-summary.json'
 t = open(p, encoding='utf8').read()
 cur = int(re.search(r'"livePuzzles":(\d+)', t).group(1))
-assert cur < unit['number'], (cur, unit['number'])  # numbers may skip a unit that is blocked on human review
-t = t.replace(f'"livePuzzles":{cur}', f'"livePuzzles":{cur + 1}')
+# livePuzzles must equal the registry's record count (npm run check enforces
+# it); derive it from puzzles.js rather than incrementing, since puzzle
+# numbers are no longer monotone with the live count (172 is blocked and
+# later units ship out of numeric order).
+live_count = len(re.findall(r"^  '/[a-z0-9-]+/': \{", s, flags=re.M))
+assert live_count > cur, (live_count, cur)
+t = t.replace(f'"livePuzzles":{cur}', f'"livePuzzles":{live_count}')
 open(p, 'w', encoding='utf8', newline='\n').write(t)
 
 p = 'docs/OVERNIGHT-PLAN.md'

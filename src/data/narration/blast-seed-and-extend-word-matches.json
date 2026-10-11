@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:blast-seed-and-extend-word-matches",
+  "source_path": "src/content/blast-seed-and-extend-word-matches.narration.js",
+  "source_sha256": "f8f1634f7f5d78830ad68626edbd2ff44d5b62327750d369ea1c3ec1c858e580",
+  "source_characters": 11613,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "8fc4ade746e445fe0d38c07696411c56f065cb3cb67c48355faf598a67e7454d",
+  "generated_at": "2026-10-11T01:23:16.569Z",
+  "generated_characters": 23226,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4844,
+      "utf8_bytes": 4844,
+      "sha256": "f53afda3109b6134e4591570c523d55a0a11673088eb5e7362ada21fc67c4ae2"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4192,
+      "utf8_bytes": 4192,
+      "sha256": "aa2da2136464d56975771f48de15cde46fe1a5fc4da5ca4b1ff8ca1327fd61dc"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1784,
+      "utf8_bytes": 1784,
+      "sha256": "a85b003d3bf1b908ac1e6c1ed1451b93cc713b1ba9037b32eb5a976e1d61fa43"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 793,
+      "utf8_bytes": 793,
+      "sha256": "f3e891abceb8f2ac67163ce18a05a011eca5e835142dab7b96f9793dbca7e331"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "blast-seed-and-extend-word-matches.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "blast-seed-and-extend-word-matches.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1152,
+      "sha256": "0d092856b93bb38ad2211f7a2f66d620f6bcbe7b36cc8ead822e26258f7946ae"
+    },
+    {
+      "id": "blast-seed-and-extend-word-matches.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1219,
+      "sha256": "06a9bce5517672941c297f15b28d9f30d8084db0fe6fab0ac2f8d213db4a8de5"
+    },
+    {
+      "id": "blast-seed-and-extend-word-matches.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1611,
+      "sha256": "3b351fa07b5e24791c541ba16f8ee866ad782f34afce7f1fd2599325570de9b1"
+    },
+    {
+      "id": "blast-seed-and-extend-word-matches.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 729,
+      "sha256": "81961985ff2dcba7f408ef9f9193a7431cdf07f7830454786b36874c4c2b866f"
+    },
+    {
+      "id": "blast-seed-and-extend-word-matches.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1156,
+      "sha256": "d78d859ef3a46f789c920cb82ad90e6981164b8813051a8c44f9ff8eb6923c3a"
+    },
+    {
+      "id": "blast-seed-and-extend-word-matches.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 645,
+      "sha256": "ecb999a203ecd29c07824b1afe320e1a1e7a86b005d7b7691f1a0cb3960180ed"
+    },
+    {
+      "id": "blast-seed-and-extend-word-matches.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1484,
+      "sha256": "296f94ec362e0aef9a51077894c3a836a2ede7d611d66ba45e5c0f5658f55a3e"
+    },
+    {
+      "id": "blast-seed-and-extend-word-matches.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 899,
+      "sha256": "4c864362910f4d8748ee671ebe1a32f5190dd57f9bf0e3509c283ae9b0b45e04"
+    },
+    {
+      "id": "blast-seed-and-extend-word-matches.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 809,
+      "sha256": "cecda11d12b9c2e3f5fc92440a38a3b9aec5b48a31eacad011dcd51a48ff20d9"
+    },
+    {
+      "id": "blast-seed-and-extend-word-matches.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1766,
+      "sha256": "2c5cd2662854887e32924cb036fb3db39f8a390c4868105f28643f55f199db5f"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/blast-seed-and-extend-word-matches/8fc4ade746e445fe0d38/aoede-8a9558516f06b981.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2942060,
+      "sha256": "8a9558516f06b98138eceb02509fabc0b8b46af0999e5df7dfc7fba98fcadc54",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "f53afda3109b6134e4591570c523d55a0a11673088eb5e7362ada21fc67c4ae2",
+          "bytes": 1253184,
+          "sha256": "70336f627abcb448c61aa4312412ada6c939fbaa2d1964d53f4bc280278a0c56"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "aa2da2136464d56975771f48de15cde46fe1a5fc4da5ca4b1ff8ca1327fd61dc",
+          "bytes": 1093632,
+          "sha256": "aeffd250ebc01eb4dc93a46fe00d0dc56a737e240d1985365507ee377d6b2675"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "a85b003d3bf1b908ac1e6c1ed1451b93cc713b1ba9037b32eb5a976e1d61fa43",
+          "bytes": 419136,
+          "sha256": "87daa9966734b31453eecf91c730de985b47468f0b64252d6a248cef8a82d620"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "f3e891abceb8f2ac67163ce18a05a011eca5e835142dab7b96f9793dbca7e331",
+          "bytes": 175872,
+          "sha256": "0353592a80394ec275601a84908513ecf580aab9f19404abb0c49b60f65bae2e"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/blast-seed-and-extend-word-matches/8fc4ade746e445fe0d38/algieba-6428250b195b38ce.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3035084,
+      "sha256": "6428250b195b38ce00d7e4d586c56c4143a45aa45f6d6ae200438bbb1b5db81c",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "f53afda3109b6134e4591570c523d55a0a11673088eb5e7362ada21fc67c4ae2",
+          "bytes": 1302336,
+          "sha256": "b980e2c289833e6e2a3bd9fa53ccb1849005c04d64bb5241a0b07f8f50ef1ca7"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "aa2da2136464d56975771f48de15cde46fe1a5fc4da5ca4b1ff8ca1327fd61dc",
+          "bytes": 1117632,
+          "sha256": "18b06e92df0a03f38ea17ce15f876504acd405602a1364a5f90430644c59792d"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "a85b003d3bf1b908ac1e6c1ed1451b93cc713b1ba9037b32eb5a976e1d61fa43",
+          "bytes": 428064,
+          "sha256": "b89d4f66291920718961f4284da194863fe1cb2be2ea6fe29bd379cbcc64dc4c"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "f3e891abceb8f2ac67163ce18a05a011eca5e835142dab7b96f9793dbca7e331",
+          "bytes": 186816,
+          "sha256": "1207468faa12bedb66ac9fd8d686bba556c11fcb9a5fb272a713180f084374e0"
+        }
+      ]
+    }
+  }
+}

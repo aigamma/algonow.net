@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:gaussian-process-regression-rbf-kernel",
+  "source_path": "src/content/gaussian-process-regression-rbf-kernel.narration.js",
+  "source_sha256": "0c793658dd4fbecfd23561401bec45ec54c1697658454773a548f8efa3481e2f",
+  "source_characters": 11136,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "1b42b3ea246b0206616425f646eafbd6f939787a96387dd7568c43efaec5c969",
+  "generated_at": "2026-10-11T01:27:30.033Z",
+  "generated_characters": 22272,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4578,
+      "utf8_bytes": 4578,
+      "sha256": "fb0e8de778eeb4aa46240390d70eb78fafe74a216ff2953dc69eb704d5d9855a"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4744,
+      "utf8_bytes": 4746,
+      "sha256": "9c33f4dfeafdbe91948c82c9f97fedf09f1b60e8f2eb9c170f8a66c7e73c3c1f"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 925,
+      "utf8_bytes": 925,
+      "sha256": "7cf3625da5b16fadda3b77bf1414817988e3fbde57c9dc4ecaa62f5c81c51080"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 889,
+      "utf8_bytes": 889,
+      "sha256": "075f8fb900e853d279c2642b4aeef95b791cb06b790b655f4d60f66b91d744d4"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "gaussian-process-regression-rbf-kernel.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "gaussian-process-regression-rbf-kernel.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1144,
+      "sha256": "2ec8382f642238274e0672314b44747c82a07dad746435fce03c4049b388c470"
+    },
+    {
+      "id": "gaussian-process-regression-rbf-kernel.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 962,
+      "sha256": "b26819100b865c7ae4187b3f03a70a5a577d22012ed15b508bfd35e09994bcfd"
+    },
+    {
+      "id": "gaussian-process-regression-rbf-kernel.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1771,
+      "sha256": "a9462fac248c083c6de3f3e2d289e69821f64958f360ec7db687e0d5b1f6afc9"
+    },
+    {
+      "id": "gaussian-process-regression-rbf-kernel.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 568,
+      "sha256": "6397890707a3e802f1cc2ec587f2b89ebd5055660d4bb953535bcd73512bb411"
+    },
+    {
+      "id": "gaussian-process-regression-rbf-kernel.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 945,
+      "sha256": "890f77a75a3244c43c10d78a215393a9bef23a828ae086fc353c0712f1de7838"
+    },
+    {
+      "id": "gaussian-process-regression-rbf-kernel.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 499,
+      "sha256": "5f554a5e06cce8ef59e73c1825fd93169818f273200a8c281456b4e4f5dbb2e7"
+    },
+    {
+      "id": "gaussian-process-regression-rbf-kernel.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1669,
+      "sha256": "2d0fe0622c23fb52ab8a7c320c0748be03c255aec646fa248aa2f0bc5f1d9545"
+    },
+    {
+      "id": "gaussian-process-regression-rbf-kernel.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 710,
+      "sha256": "b8c001fa45eb00256a363a3138265bbcb65213281f00bcf4062071b283ccec1c"
+    },
+    {
+      "id": "gaussian-process-regression-rbf-kernel.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 913,
+      "sha256": "d0b3c34e8dee6d687f166163754eb448e94fab43076ba66e9bbcf479bad82b9d"
+    },
+    {
+      "id": "gaussian-process-regression-rbf-kernel.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1814,
+      "sha256": "948839ea454c3eb85eb775e299890af3836648fbf312a318b06023bb59233ffa"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/gaussian-process-regression-rbf-kernel/1b42b3ea246b02066164/aoede-907837cbd2677312.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2801324,
+      "sha256": "907837cbd2677312103d5b8ca79f99802a6792fec29c1d6774a9833002f649eb",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "fb0e8de778eeb4aa46240390d70eb78fafe74a216ff2953dc69eb704d5d9855a",
+          "bytes": 1180704,
+          "sha256": "f6fb23f31089a8260ff4c1e88807f949a316666b0efc7bdbde5c0e4795093410"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "9c33f4dfeafdbe91948c82c9f97fedf09f1b60e8f2eb9c170f8a66c7e73c3c1f",
+          "bytes": 1209024,
+          "sha256": "25b9b3bcc71ddbd2c0cef56d80e9f096cf0e7a3779df44cb5700d3b7703664a8"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "7cf3625da5b16fadda3b77bf1414817988e3fbde57c9dc4ecaa62f5c81c51080",
+          "bytes": 208704,
+          "sha256": "33a64e51385618d637786de8a103292d82c6385ee96250e8eafca8ba465fdda7"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "075f8fb900e853d279c2642b4aeef95b791cb06b790b655f4d60f66b91d744d4",
+          "bytes": 202656,
+          "sha256": "06ebfdaadbcb523714a326cc1f1885c8e0a4ccb1c275466cc73f3e2af28ba236"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/gaussian-process-regression-rbf-kernel/1b42b3ea246b02066164/algieba-acdbac0f0a26a958.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2909996,
+      "sha256": "acdbac0f0a26a958d41234c9e74f376c116cdfd3ed352c26cfe0577534c14d5d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "fb0e8de778eeb4aa46240390d70eb78fafe74a216ff2953dc69eb704d5d9855a",
+          "bytes": 1209792,
+          "sha256": "4468f09a856aa47c1e055cbc7234c759061fd7030065c1ada103035ad756ef61"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "9c33f4dfeafdbe91948c82c9f97fedf09f1b60e8f2eb9c170f8a66c7e73c3c1f",
+          "bytes": 1293024,
+          "sha256": "777dcfd038455a67f336d9eedcf60b89c3d29821197dca02c275d744118cfd77"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "7cf3625da5b16fadda3b77bf1414817988e3fbde57c9dc4ecaa62f5c81c51080",
+          "bytes": 200832,
+          "sha256": "cec201906ced70c66d0aed5851eb2117f9de0a8761a2d237d5aa808b96b56452"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "075f8fb900e853d279c2642b4aeef95b791cb06b790b655f4d60f66b91d744d4",
+          "bytes": 206112,
+          "sha256": "1f43f9327b81671e1e98f633398b43b586b432cc3b42e0d389ced58259f4257b"
+        }
+      ]
+    }
+  }
+}

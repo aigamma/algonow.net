@@ -3541,6 +3541,24 @@ export const PUZZLES = {
     vite: 'longest-prefix-match-trie-lookup',
     html: 'longest-prefix-match-trie-lookup/index.html',
   },
+  '/ll1-parsing-first-follow-table/': {
+    slug: 'll1-parsing-first-follow-table',
+    added: '2026-10-10',
+    problemSlug: 'context-free-parsing',
+    number: 203,
+    category: 'languages-compilers',
+    algorithm: 'LL(1) parsing',
+    heuristic: 'First-follow table',
+    domain: 'Predictive parsing',
+    oneLiner:
+      'Keep a stack of the symbols still to match and look at one token: compute nullable, FIRST, and FOLLOW as least fixpoints, enter each production under the tokens that can begin it (and, when it can vanish, under the tokens that can follow it), and parse by one table lookup per expansion; a cell with two entries is the proof that the grammar is not LL(1) yet.',
+    listenMinutes: 10,
+    time: 'O(n) stack operations, one table lookup per expansion; the table is three fixpoints over the grammar',
+    space: 'the stack (bounded by the parse tree\'s frontier) plus the table',
+    baseline: 'Hand-written recursive descent for the same grammar',
+    vite: 'll1-parsing-first-follow-table',
+    html: 'll1-parsing-first-follow-table/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

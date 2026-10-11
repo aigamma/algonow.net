@@ -7178,6 +7178,77 @@ commit, Fable trailer on every commit, check green before each push.
       this Fable 5.1 session at the owner's explicit request for
       parallel authoring. Added 2026-10-10.
 
+- [x] F197. LL(1) parsing × First-follow table. Puzzle 203,
+      languages-compilers (problemSlug context-free-parsing, the atlas
+      problem page carrying "Predictive parsing"; sibling live lessons
+      pratt-parsing-binding-powers (113) and
+      shunting-yard-operator-stack (174)). Solution
+      ll1_parsing_first_follow_table.py (0.2 s, prints OK): a Grammar
+      class computing nullable, FIRST, and FOLLOW as three least
+      fixpoints with pass counts; the LL(1) table builder recording each
+      conflict as first/first or first/follow; a table-driven parser
+      with an explicit stack building the parse tree and counting
+      lookups and stack operations (with a pick rule for conflicted
+      cells and a step cap); a seeded sentence generator; a one-token
+      corruptor (delete, insert, swap); an Earley recognizer that also
+      reports the longest viable prefix; a hand-written recursive
+      descent parser counting calls; a Pratt parser whose
+      left-associative operator tree the folded LL(1) tree must equal.
+      ORACLES: (1) textbook expression grammar (E -> T E', E' -> + T E'
+      | eps, T -> F T', T' -> * F T' | eps, F -> ( E ) | id): nullable
+      {E', T'}, FIRST and FOLLOW equal Aho/Lam/Sethi/Ullman 4.4 exactly,
+      13 table cells, 0 conflicts, fixpoint passes 2, 4, 3; (2) 1,500
+      generated sentences (17,800 tokens, longest 41): all accepted,
+      every tree re-yields its string, recursive descent agrees with
+      37,184 calls = the 37,184 table lookups (one per expansion), the
+      folded tree equals the Pratt tree on all 1,500; (3) 1,500
+      corruptions: 1,248 rejected, Earley agrees on all 1,500 and
+      recursive descent too, every LL(1) error position equals the
+      longest viable prefix (correct-prefix property); (4) work: stack
+      ops = 5.58 x tokens + 9.0, every parse within 16 ops of the line,
+      max 14 ops per token (one-token input), asserted under 20 residual
+      and under 15 per token; Earley 78,715 chart items (4.4 per token)
+      and 3x the LL(1) time on the corruptions; (5) left-recursive
+      grammar E -> E + T | T, T -> T * F | F: 4 FIRST/FIRST conflicts (E
+      and T on id and '('); the transformed grammar agrees with Earley
+      on the original on 1,200 strings both ways; fed directly,
+      preferring the recursive production loops (step cap) on 300 of 300
+      valid inputs, preferring the other rejects 252 of 300 (every input
+      containing + or *); (6) dangling else S -> if c then S S' | other,
+      S' -> else S | eps: exactly 1 FIRST/FOLLOW conflict on (S', else);
+      preferring 'else S' binds the else to the innermost if at depths 1
+      to 6 on 6 nestings, preferring eps rejects all 6; S -> a b | a c:
+      1 conflict, left-factored 0. AUTHOR CORRECTION recorded in the
+      header: the draft asserted every parse within three slopes of the
+      linear fit; one-token inputs sit 16 ops off the line, so the page
+      states the measured bound. Cards: self (algoName LL(1) parsing),
+      Recursive descent parsing, LALR parsing x Merged lookahead states,
+      Pratt parsing x Binding-power dispatch (live lesson badge); all
+      pages exist in dist/algo. neverUse: the left-recursive grammar fed
+      straight to the LL(1) parser (4 conflicts; loops on 300 of 300 or
+      rejects 252 of 300). Contest: conflicts / valid accepted /
+      corruptions rejected / work per token for the LL(1) table,
+      recursive descent (2.09 calls per token), Earley (4.4 items, 3x
+      time), and LL(1) on the left-recursive grammar. Figure:
+      nullable/FIRST/FOLLOW table beside the 5 x 6 parse table with its
+      13 filled cells; cites Lewis and Stearns 1968 (DOI
+      10.1145/321466.321477), Knuth 1971 (DOI 10.1007/BF00289517), Aho,
+      Lam, Sethi, Ullman 4.4. Viz Ll1ParsingViz: a table-driven parse of
+      a seeded 3-to-14-token expression (35% carry a one-token
+      corruption), one parser step per tick, the input row with consumed
+      and lookahead tokens, the stack, the 5 x 6 table with the active
+      cell lit, counters of steps, lookups, and expansions; invariant:
+      lookups equal expansions and the verdict equals an independent
+      recursive descent recognizer; NODE-VERIFIED 20 cycles, 0 breaks;
+      stepMs 420, holdTicks rests. Narration plan: 0.665820 USD, 22,194
+      billable characters, 8 requests, about 11,000 spoken characters.
+      Chunk estimate 18.9 KB gz (estimate_chunk.mjs). Preserved
+      narration: Aoede + Algieba. Authored by a fork agent of this Fable
+      5.1 session at the owner's explicit request for parallel
+      authoring; the main thread re-ran the solution, the viz check, the
+      narration plan, and the static checks before accepting it. Added
+      2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

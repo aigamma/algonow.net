@@ -7358,6 +7358,63 @@ commit, Fable trailer on every commit, check green before each push.
       the solution, the viz check, the narration plan, and the static
       checks before accepting it. Added 2026-10-10.
 
+- [x] F200. Lexicographic permutations × Next-permutation algorithm.
+      Puzzle 206, dp-combinatorics (problemSlug permutation-generation,
+      the atlas problem page carrying "Permutation generation"; sibling
+      live lessons fisher-yates-uniform-swaps (puzzle 46) and
+      held-karp-bitmask-states (puzzle 81)). Solution
+      lexicographic_permutations_next_permutation_algorithm.py (1.6 s,
+      prints OK, 21 checks): Algorithm L with counters for comparisons,
+      swaps, moves, and suffix length; a lexicographic enumerator;
+      Heap's algorithm (iterative); Steinhaus-Johnson-Trotter with
+      Even's directions; Lehmer rank and unrank; a copying recursion;
+      next bigger number by rule and by brute force. ORACLES: (1) the
+      rule equals itertools.permutations for n = 1 to 8 (40,320 at n =
+      8), each arrangement strictly greater than the last; (2) multisets
+      [0,0,1,1,2], [0,0,0,1,1,2,2], MISSISSIPPI (34,650), [1,1,1,1] each
+      listed once, equal to sorted(set(permutations)) and the
+      multinomial; (3) over the full enumeration at n = 8 and 9: mean
+      suffix 1.718 (asserted within 0.01 of e − 1 = 1.718), comparisons
+      3.077, swaps 1.543 (asserted in 1.50 to 1.60), moves 3.086 per
+      step; n = 9 (362,880) in 0.12 s; (4) Heap's algorithm at n = 7:
+      5,040 arrangements each once, 5,039 swaps, 2,513 descents, sorted
+      set equal to the lexicographic list; Johnson-Trotter: 5,040 once,
+      5,039 swaps each of two adjacent positions, 2,519 descents;
+      Algorithm L 0 descents; (5) unrank(k, 8) equals the k-th
+      sequential arrangement and rank inverts it on 2,000 random k plus
+      k = 0, 1, 40,319; (6) 12! = 479,001,600 would take about 3 minutes
+      and 20! = 2,432,902,008,176,640,000 about 26,240 years at the
+      measured n = 9 pace (honest extrapolation); (7) the copying
+      recursion copies 38.7 elements per arrangement at n = 8 and
+      produces the same set; (8) next bigger number with the same digits
+      agrees with brute force on 300 random digit strings of length 4 to
+      7, 52 with no answer. AUTHOR CORRECTION recorded in the header:
+      the draft guessed 1.36 swaps per step; the measurement is 1.543
+      because reversing a suffix of length L costs floor(L/2) swaps,
+      mean 0.543 under the 1/k! suffix law; and Heap's one swap per step
+      is cheaper per step but buys no order, which the page states
+      instead. Cards: self, Heap's algorithm, Steinhaus-Johnson-Trotter,
+      Factorial number system × Lehmer code ranking (all algoName pages
+      present). neverUse: regenerating the whole census for one
+      next-arrangement question (40,320 strings for an eight-digit
+      number; 38.7 copies per arrangement). Figure: one step on 1 2 5 4
+      3 (pivot 2, partner 3, swap, reverse) beside bars of the per-step
+      costs and the descents of the three orders; cite Knuth TAOCP 4A
+      7.2.1.2 Algorithm L, Narayana Pandita 1356, Sedgewick 1977 (DOI
+      10.1145/356689.356692). Viz NextPermutationViz: a seeded multiset
+      of five letters, one arrangement per tick with pivot and partner
+      in amber and the reversed suffix in blue, a progress bar against
+      the multinomial count, invariant that each arrangement is greater
+      than the last and uses the same letters and that the final count
+      equals the multinomial; NODE-VERIFIED 20 cycles, 28.75 ticks per
+      cycle, 0 breaks; stepMs 170, holdTicks rests. Narration plan
+      0.656340 USD, 21,878 billable characters, 8 requests, approval
+      690c8a1d. Chunk estimate 16.2 KB gz. Preserved narration: Aoede +
+      Algieba. Authored by a fork agent of this Fable 5.1 session at the
+      owner's explicit request for parallel authoring; the main thread
+      re-ran the solution, the viz check, the narration plan, and the
+      static checks before accepting it. Added 2026-10-10.
+
 - [x] HONESTY PASS (owner directive 2026-08-27: the atlas reports
       what we have, not hidden potentiality). (1)
       atlas-summary.json gains livePuzzles: 100, and check.mjs

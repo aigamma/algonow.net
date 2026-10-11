@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:lexicographic-permutations-next-permutation-algorithm",
+  "source_path": "src/content/lexicographic-permutations-next-permutation-algorithm.narration.js",
+  "source_sha256": "ae6557a14ecfaa62a0523c6646be84b7b14c5f2644611d71b7e9421934f6a876",
+  "source_characters": 10939,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "10932af01f5cd94efd3dbf5c7ef00ba3176d802cd88f1d813b4fc0c5be49159c",
+  "generated_at": "2026-10-11T02:22:07.133Z",
+  "generated_characters": 21878,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4916,
+      "utf8_bytes": 4916,
+      "sha256": "15f31258efaa393a130ea61c374e919293b3f52670b39b66989865aa7cab4540"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4419,
+      "utf8_bytes": 4421,
+      "sha256": "7be0720a177e4dc990ef061eb1a23586e65f7c4769f7d501a4ae7d9013f49324"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 924,
+      "utf8_bytes": 926,
+      "sha256": "0d6c8f1fbb1f2c67ffafa7295ee07c5218dce47ec0adbec4bb462e99a293a6bf"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 680,
+      "utf8_bytes": 680,
+      "sha256": "aca9341d0b41ddfb0c6ed6c7f02112fdedd773194279300c09091c4bc6a572e8"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "lexicographic-permutations-next-permutation-algorithm.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "lexicographic-permutations-next-permutation-algorithm.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1430,
+      "sha256": "5a13e5afe6cb4688fd56df9b752eb7dd5f57ec007e59c6c56d39d97413758e68"
+    },
+    {
+      "id": "lexicographic-permutations-next-permutation-algorithm.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1263,
+      "sha256": "108d48fc2bfbeb72190adcddc5ade13760de7bac3e1e5e2f93e5b3e6450d443a"
+    },
+    {
+      "id": "lexicographic-permutations-next-permutation-algorithm.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1450,
+      "sha256": "583d12fb61f4d07b6a2a9202dbb8a317d07e603911fca25857f977d5c06dcfb2"
+    },
+    {
+      "id": "lexicographic-permutations-next-permutation-algorithm.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 640,
+      "sha256": "5cc0ba0f5a0e0066dba6153fe10ac6c0cd05c1c17795f68255f42aa2633566c6"
+    },
+    {
+      "id": "lexicographic-permutations-next-permutation-algorithm.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 885,
+      "sha256": "f1b2cbe4a888d2db6b46106976aed605b5057f81dd76c2a3c5dbd19c7b750574"
+    },
+    {
+      "id": "lexicographic-permutations-next-permutation-algorithm.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 594,
+      "sha256": "44a763b3e0c743db731e14794e22bf46f3ea22c693305fbd31f131650ba9a64d"
+    },
+    {
+      "id": "lexicographic-permutations-next-permutation-algorithm.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1297,
+      "sha256": "cde80f9153d82f29a1866ee8cc54ab67095c879862b689742cf42aa814b1a78a"
+    },
+    {
+      "id": "lexicographic-permutations-next-permutation-algorithm.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 767,
+      "sha256": "f67f0622f3a41f4affdd9bbfa88ce1a7d2703407a57078eca60f4048ad444478"
+    },
+    {
+      "id": "lexicographic-permutations-next-permutation-algorithm.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 868,
+      "sha256": "0579515e6cbc22b5cb19e3121b365f792b571d52fd7c103c2c98082b1141caac"
+    },
+    {
+      "id": "lexicographic-permutations-next-permutation-algorithm.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1606,
+      "sha256": "bfe55e391559483d7c64c34ec4fc435f7f9dff03c80ffef331ae30bf99e50908"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/lexicographic-permutations-next-permutation-algorithm/10932af01f5cd94efd3d/aoede-f017733f8e049049.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2613164,
+      "sha256": "f017733f8e049049c7599ee09f52630e776982afa423ec712c5d94409f667ac6",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "15f31258efaa393a130ea61c374e919293b3f52670b39b66989865aa7cab4540",
+          "bytes": 1179744,
+          "sha256": "a7bbbd9061f20fabeacdc192f8d54d862e7b1ad8e1058925409ee8b6f2118259"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "7be0720a177e4dc990ef061eb1a23586e65f7c4769f7d501a4ae7d9013f49324",
+          "bytes": 1062624,
+          "sha256": "6656ec86a6a594c14b532b3f49f02b68f113168dd4085bc7ceacaa6287bcd54a"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "0d6c8f1fbb1f2c67ffafa7295ee07c5218dce47ec0adbec4bb462e99a293a6bf",
+          "bytes": 207936,
+          "sha256": "2e624ea67d62e2baa89c45eab46d90cf92207e470f3f623f30ab334db310cb66"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "aca9341d0b41ddfb0c6ed6c7f02112fdedd773194279300c09091c4bc6a572e8",
+          "bytes": 162624,
+          "sha256": "a2324c0009c544282a0be5c2c3223c89750483d39089ed2b53303a0d8924df86"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/lexicographic-permutations-next-permutation-algorithm/10932af01f5cd94efd3d/algieba-79fff3cccba5e018.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2809100,
+      "sha256": "79fff3cccba5e018388bc0890a9f24d37315b7cd48dbe36be370d7c180674bf5",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "15f31258efaa393a130ea61c374e919293b3f52670b39b66989865aa7cab4540",
+          "bytes": 1269024,
+          "sha256": "854caf073ec159493c1dcf2ac217a0bcc886f2a906d21b49effc4b41afc8e1ba"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "7be0720a177e4dc990ef061eb1a23586e65f7c4769f7d501a4ae7d9013f49324",
+          "bytes": 1140096,
+          "sha256": "27bd68a9d79adfa17d4314d110113cc961bfe6e5b1dec465964bb240009ebd80"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "0d6c8f1fbb1f2c67ffafa7295ee07c5218dce47ec0adbec4bb462e99a293a6bf",
+          "bytes": 210432,
+          "sha256": "5d0005bcd84f65778ba65815eeda08f55424306342af1b3b836187e966294de8"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "aca9341d0b41ddfb0c6ed6c7f02112fdedd773194279300c09091c4bc6a572e8",
+          "bytes": 189312,
+          "sha256": "66ef267dde4ac614ab56ff6f0df22eb20751a1529524dec5c8f9fd4fdab737fd"
+        }
+      ]
+    }
+  }
+}

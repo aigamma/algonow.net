@@ -3595,6 +3595,24 @@ export const PUZZLES = {
     vite: 'hidden-markov-map-matching-emission-transition-road-probabilities',
     html: 'hidden-markov-map-matching-emission-transition-road-probabilities/index.html',
   },
+  '/lexicographic-permutations-next-permutation-algorithm/': {
+    slug: 'lexicographic-permutations-next-permutation-algorithm',
+    added: '2026-10-10',
+    problemSlug: 'permutation-generation',
+    number: 206,
+    category: 'dp-combinatorics',
+    algorithm: 'Lexicographic permutations',
+    heuristic: 'Next-permutation algorithm',
+    domain: 'Permutation generation',
+    oneLiner:
+      'Scan from the right for the longest non-increasing suffix, swap the element before it with the rightmost suffix element larger than it, reverse the suffix: Narayana\'s fourteenth-century rule visits every arrangement of a multiset exactly once in dictionary order, in place with two indices, at a constant amortized cost per step (mean suffix e - 1), where the single-swap orders of Heap and Johnson-Trotter are cheaper per step and unsorted.',
+    listenMinutes: 10,
+    time: 'O(1) amortized per arrangement (mean suffix e − 1); O(n) for one worst step',
+    space: 'O(1) extra: two indices, in place',
+    baseline: 'Heap\'s algorithm (one swap per arrangement, unsorted)',
+    vite: 'lexicographic-permutations-next-permutation-algorithm',
+    html: 'lexicographic-permutations-next-permutation-algorithm/index.html',
+  },
 };
 
 // Planned pairs. Shown dimmed on the homepage bench; no HTML entry yet.

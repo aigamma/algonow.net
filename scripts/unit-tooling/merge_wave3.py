@@ -25,6 +25,14 @@ FILES = {
     202: '202-longest-prefix-match-trie-lookup.json',
     203: '203-ll1-parsing-first-follow-table.json',
     204: '204-greedy-vertex-cover-maximal-matching.json',
+    205: '205-hidden-markov-map-matching-emission-transition-road-probabilities.json',
+    206: '206-lexicographic-permutations-next-permutation-algorithm.json',
+    207: '207-exponential-smoothing-geometric-decay-weights.json',
+    208: '208-uncertainty-sampling-least-confidence-query.json',
+    209: '209-job-scheduling-approximation-longest-processing-time.json',
+    210: '210-triangle-counting-node-iterator.json',
+    211: '211-ordinary-least-squares-normal-equations.json',
+    212: '212-greedy-k-center-farthest-first-traversal.json',
 }
 NOTE = " Authored by a fork agent of this Fable 5.1 session at the owner's explicit request for parallel authoring; the main thread re-ran the solution, the viz check, the narration plan, and the static checks before accepting it."
 want = [int(a) for a in sys.argv[1:]] or list(FILES)

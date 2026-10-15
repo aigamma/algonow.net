@@ -297,7 +297,7 @@ export const content = {
     <Figure
       id="fig-kalman-blend"
       aspect="16 / 7"
-      caption="The trust ratio, computed rather than tuned. Predict through the model (uncertainty grows by Q), then correct toward the measurement by K = P/(P+R): the exact ratio of the two uncertainties, recomputed every step, converging to the closed-form Riccati root. The measured verdict: a 40-gain search on 400,000 steps found its best at 0.400 with MSE 1.56; the algebra had already said 0.3904, same MSE, no search. Trusting the sensor alone scores exactly R; trusting the model alone drifts as q·t; the computed blend beats every constant between them: and when the model breaks (the unmodeled maneuver), the innovation sequence is where the truth shows first."
+      caption="The trust ratio, computed rather than tuned. Predict through the model (uncertainty grows by Q), then correct toward the measurement by K = P/(P+R): the exact ratio of the two uncertainties, recomputed every step, converging to the closed-form Riccati root. The measured verdict: a 40-gain search on 400,000 steps found its best at 0.400 with MSE 1.56; the algebra had already said 0.3904, same MSE, no search. Trusting the sensor alone scores exactly R; trusting the model alone drifts as q·t; the computed blend reaches the best steady-state constant gain without searching: and when the model breaks (the unmodeled maneuver), the innovation sequence is where the truth shows first."
       cite={{
         text: 'Kálmán, "A New Approach to Linear Filtering and Prediction Problems", Journal of Basic Engineering 82(1), 1960: the recursion that navigated Apollo and never stopped running.',
         href: 'https://doi.org/10.1115/1.3662552',

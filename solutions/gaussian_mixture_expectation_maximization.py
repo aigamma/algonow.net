@@ -2,24 +2,24 @@
 # Soft clustering: explain the data as k overlapping Gaussian
 # sources, each with its own weight, center, and full covariance
 # (tilted ellipses, not just circles), and let every point belong
-# FRACTIONALLY to all of them. EM alternates two moves that never
-# hurt: the E-step computes each point's responsibilities (how
+# FRACTIONALLY to all of them. Exact unregularized EM alternates
+# two likelihood-preserving moves: the E-step computes responsibilities (how
 # much each component owns it, given current parameters), and the
 # M-step refits every parameter in closed form under those
-# responsibility weights.
+# responsibility weights. This demo adds a diagonal covariance ridge,
+# modifying the M-step; ordinary likelihood need not then be monotone.
 #
 # The pairing is the point. The algorithm is the Gaussian mixture
 # model: the likelihood being climbed, the thing with parameters.
 # The heuristic is expectation-maximization's responsibility
 # weighting: guess softly, refit on the soft guess, repeat: the
 # guiding rule with a THEOREM attached (Dempster-Laird-Rubin
-# 1977: the data log-likelihood never decreases), and this file
-# asserts that theorem numerically at every single iteration of
-# every run it performs.
+# 1977: exact EM cannot decrease data likelihood). This file checks
+# observed monotonicity on its fixed ridged demonstration runs separately.
 #
 # Referees:
-# (1) THE MONOTONICITY THEOREM: log-likelihood non-decreasing at
-#     all iterations of all runs (main fits + 20 restarts);
+# (1) observed log-likelihood non-decreasing on the fixed main
+#     fits and 20 restarts, not a guarantee for arbitrary ridged runs;
 # (2) responsibilities are a soft partition: every row sums to 1;
 # (3) recovery: on a planted 3-source mixture the fitted means,
 #     weights, and covariances match the truth (best label
@@ -73,7 +73,8 @@ def sample_gauss2(rng, mu, cov):
 
 def em_fit(pts, k, init_means, iters, ridge=1e-6):
     """Full-covariance 2D EM. Returns (weights, means, covs, ll_history,
-    responsibilities). Asserts the monotonicity theorem per iteration."""
+    responsibilities). Exact unregularized steps are checked for monotonicity;
+    a positive covariance ridge changes the update and has no such guarantee."""
     n = len(pts)
     w = [1.0 / k] * k
     mu = [list(m) for m in init_means]
@@ -89,10 +90,10 @@ def em_fit(pts, k, init_means, iters, ridge=1e-6):
             z = logsumexp(lp)
             ll += z
             resp.append([math.exp(v - z) for v in lp])
-        if lls:
-            assert ll >= lls[-1] - 1e-9, (ll, lls[-1])  # the theorem, every step
+        if lls and ridge == 0:
+            assert ll >= lls[-1] - 1e-9, (ll, lls[-1])  # exact unregularized EM
         lls.append(ll)
-        # M-step: closed-form refit under responsibility weights.
+        # M-step: weighted refit, followed by the optional diagonal ridge.
         for j in range(k):
             nj = sum(r[j] for r in resp)
             w[j] = nj / n
@@ -193,6 +194,10 @@ def em_best_of(rng, pts, k, restarts, iters):
 if __name__ == '__main__':
     rng = random.Random(SEED)
 
+    def assert_observed_monotone(history):
+        """A regression check for these fixed demos, not a ridge theorem."""
+        assert all(b >= a - 1e-9 for a, b in zip(history, history[1:])), history
+
     # The planted instance: three tilted, overlapping ellipses.
     TRUE = [
         (0.5, (0.0, 0.0), (4.0, 1.8, 1.8, 1.0)),
@@ -204,6 +209,7 @@ if __name__ == '__main__':
     # Fit: 8 k-means++-seeded restarts, best final likelihood kept
     # (the standard remedy for EM's local optima, and the page says so).
     w, mu, cov, lls, resp = em_best_of(rng, pts, 3, 8, 120)
+    assert_observed_monotone(lls)
 
     # Oracle 2: a soft partition, exactly.
     for r in resp:
@@ -211,11 +217,12 @@ if __name__ == '__main__':
         assert all(-1e-12 <= v <= 1 + 1e-12 for v in r)
 
     # Oracle 1 extended: 20 random restarts on a fresh smaller sample,
-    # every iteration of every one monotone (asserted inside em_fit).
+    # every iteration of these fixed ridged runs is observed monotone.
     small, _ = plant(rng, TRUE, 300)
     for _ in range(20):
         s = [small[rng.randrange(300)] for _ in range(3)]
-        em_fit(small, 3, s, 40)
+        small_fit = em_fit(small, 3, s, 40)
+        assert_observed_monotone(small_fit[3])
 
     # Oracle 3: recovery, best label permutation.
     from itertools import permutations
@@ -265,7 +272,8 @@ if __name__ == '__main__':
         (1 / 3, (3.0, 5.0), (0.5, 0.0, 0.0, 0.5)),
     ]
     rpts, rtruth = plant(rng, ROUND, 900)
-    _, _, _, _, rresp = em_best_of(rng, rpts, 3, 4, 60)
+    _, _, _, rlls, rresp = em_best_of(rng, rpts, 3, 4, 60)
+    assert_observed_monotone(rlls)
     rgmm = best_perm_accuracy([max(range(3), key=lambda j: r[j]) for r in rresp], rtruth, 3)
     rkm_best = None
     for _ in range(4):
@@ -283,6 +291,7 @@ if __name__ == '__main__':
     # log-likelihood diverges, and the "fit" explains nothing.
     tiny, _ = plant(rng, TRUE, 40)
     _, _, _, sane_tiny_lls, _ = em_best_of(rng, tiny, 2, 4, 25)
+    assert_observed_monotone(sane_tiny_lls)
     sane_ll = sane_tiny_lls[-1]
     # (a) The mechanism: one component seeded ON a data point with a
     # tight covariance owns only that point; the ridgeless M-step then
@@ -345,10 +354,10 @@ if __name__ == '__main__':
     print(f"  {'tilted, overlapping ellipses':<34} {gmm_acc * 100:>7.1f}% {km_acc * 100:>8.1f}%   full covariance reads the tilt; hard round distance cannot")
     print(f"  {'round, well-separated blobs':<34} {rgmm * 100:>7.1f}% {rkm * 100:>8.1f}%   parity, said plainly: when clusters are round, k-means is enough")
     print(f"recovery, audited: fitted means within {mean_err:.2f} of truth (max), weights within {weight_err:.3f}, covariances within {cov_err:.2f}; fitted log-likelihood {lls[-1]:,.1f} >= the generator's own {ll_true:,.1f}")
-    print(f"the theorem, cashed out: log-likelihood non-decreasing at every one of {len(lls) - 1} main-fit steps and every step of 20 restarts; every responsibility row sums to 1")
+    print(f"observed on these fixed ridged runs: log-likelihood non-decreasing at every one of {len(lls) - 1} main-fit steps and every step of 20 restarts; every responsibility row sums to 1")
     print(f"the soft dividend: {unsure} of {len(pts)} points carry max responsibility under 0.9: the model KNOWS which points sit on the seam")
     print(f"the pathology, measured: ridgeless EM seeded on one data point collapsed its covariance determinant below 1e-200 within {collapse_iter} iteration(s); "
           f"walking the same collapse parametrically, the data log-likelihood climbs {ladder[0]:,.0f} -> {ladder[1]:,.0f} -> {ladder[2]:,.0f} -> {ladder[3]:,.0f} without bound "
           f"(a sane 2-component fit of the same 40 points: {sane_ll:,.0f}): likelihood up, insight zero: the ridge exists for this")
-    print(f'OK: EM monotone everywhere, responsibilities a soft partition, the planted mixture recovered (means/weights/covariances toleranced, fitted LL >= true LL), '
+    print(f'OK: fixed demo likelihood trajectories monotone, responsibilities a soft partition, the planted mixture recovered (means/weights/covariances toleranced, fitted LL >= true LL), '
           f'soft beats hard by {(gmm_acc - km_acc) * 100:.1f} points on tilted overlap with parity on round blobs, and the singularity pathology reproduced with numbers')

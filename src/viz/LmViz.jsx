@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -6,7 +7,7 @@ import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.j
 // far point, one iteration per tick: Levenberg-Marquardt (blue), with
 // its damping shown; undamped Gauss-Newton (red), whose full steps can
 // overshoot into nonsense; and gradient descent with backtracking
-// (amber), which crawls along the valley. The floor is the cost at the
+// (amber), which crawls along the valley. The reference is the cost at the
 // true parameters.
 const W = 640;
 const H = 300;
@@ -55,7 +56,7 @@ function normal(p, data) {
 
 function solve2(A, b) {
   const det = A[0][0] * A[1][1] - A[0][1] * A[1][0];
-  if (Math.abs(det) < 1e-300) return null;
+  if (!Number.isFinite(det) || Math.abs(det) < 1e-300) return null;
   return [(b[0] * A[1][1] - b[1] * A[0][1]) / det, (A[0][0] * b[1] - A[1][0] * b[0]) / det];
 }
 
@@ -67,7 +68,7 @@ export function makeScene(seed) {
     data.push([t, TRUE[0] * Math.exp(-TRUE[1] * t) + gauss(rand) * NOISE]);
   }
   const start = [0.5 + rand() * 5, 0.2 + rand() * 3.5];
-  const floor = cost(TRUE, data);
+  const referenceCost = cost(TRUE, data);
   // a coarse cost grid for the contour picture
   const GX = 60;
   const GY = 40;
@@ -83,8 +84,8 @@ export function makeScene(seed) {
     grid.push(row);
   }
   return {
-    data, start, floor, grid, gmax, GX, GY,
-    lm: { p: start.slice(), lam: 1e-2, path: [start.slice()], cost: cost(start, data), dead: false },
+    data, start, referenceCost, grid, gmax, GX, GY,
+    lm: { p: start.slice(), lam: 1e-2, path: [start.slice()], cost: cost(start, data), dead: false, converged: false, stalled: false },
     gn: { p: start.slice(), path: [start.slice()], cost: cost(start, data), dead: false },
     gd: { p: start.slice(), alpha: 1e-3, path: [start.slice()], cost: cost(start, data), dead: false },
     t: 0, done: false,
@@ -96,14 +97,22 @@ export function sceneTick(sc) {
   const { data } = sc;
   // Levenberg-Marquardt
   const lm = sc.lm;
-  if (!lm.dead) {
+  if (!lm.dead && !lm.converged && !lm.stalled) {
     const { JtJ, Jtr } = normal(lm.p, data);
-    for (let tries = 0; tries < 20; tries++) {
+    const gradient = Math.hypot(...Jtr);
+    if (gradient <= 1e-8 * Math.max(1, lm.cost)) lm.converged = true;
+    let accepted = false;
+    for (let tries = 0; tries < 20 && !lm.converged; tries++) {
       const A = [[JtJ[0][0] * (1 + lm.lam), JtJ[0][1]], [JtJ[1][0], JtJ[1][1] * (1 + lm.lam)]];
       const step = solve2(A, [-Jtr[0], -Jtr[1]]);
-      if (!step) {
-        lm.lam *= 10;
+      if (!step || step.some((value) => !Number.isFinite(value))) {
+        lm.lam = Math.min(lm.lam * 10, 1e12);
         continue;
+      }
+      if (Math.hypot(...step) <= 1e-10 * (1 + Math.hypot(...lm.p))) {
+        lm.converged = gradient <= 1e-6 * Math.max(1, lm.cost);
+        lm.stalled = !lm.converged;
+        break;
       }
       const q = [lm.p[0] + step[0], lm.p[1] + step[1]];
       const c = cost(q, data);
@@ -111,11 +120,13 @@ export function sceneTick(sc) {
         lm.p = q;
         lm.cost = c;
         lm.lam = Math.max(lm.lam / 10, 1e-12);
+        accepted = true;
         break;
       }
-      lm.lam *= 10;
+      lm.lam = Math.min(lm.lam * 10, 1e12);
     }
-    lm.path.push(lm.p.slice());
+    if (accepted) lm.path.push(lm.p.slice());
+    else if (!lm.converged) lm.stalled = true;
   }
   // Gauss-Newton, undamped
   const gn = sc.gn;
@@ -206,10 +217,10 @@ export default function LmViz() {
         const Y = (b) => oy + ph - (b / B_MAX) * ph;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('fit y = a exp(-b t) to 30 noisy points: the cost surface over (a, b), three optimizers from the same start, one iteration per tick', 12, 18);
+        ctx.fillText('fit y = a exp(-b t): 30 noisy points, three optimizers from one start', 12, 18);
         for (let j = 0; j < sc.GY; j++) {
           for (let i = 0; i < sc.GX; i++) {
-            const v = Math.log10(sc.grid[j][i] + 1e-9) - Math.log10(sc.floor);
+            const v = Math.log10(sc.grid[j][i] + 1e-9) - Math.log10(sc.referenceCost);
             const shade = Math.max(0, Math.min(1, v / 4));
             ctx.fillStyle = `rgba(93, 162, 255, ${0.05 + 0.35 * (1 - shade)})`;
             ctx.fillRect(ox + (i / sc.GX) * pw, oy + ph - ((j + 1) / sc.GY) * ph, pw / sc.GX + 0.5, ph / sc.GY + 0.5);
@@ -248,28 +259,29 @@ export default function LmViz() {
         ctx.fillText('a: 0 to 6 →', ox, oy + ph + 14);
         ctx.fillText('b: 0 to 4 ↑', ox + pw - 70, oy + ph + 14);
         const tx = 380;
-        const rel = (c) => (c / sc.floor).toFixed(3);
+        const rel = (c) => (c / sc.referenceCost).toFixed(3);
         ctx.fillStyle = algo;
-        ctx.fillText(`Levenberg-Marquardt: cost ${rel(sc.lm.cost)}x floor, lambda ${sc.lm.lam.toExponential(0)}`, tx, 50);
+        ctx.fillText(`LM ${rel(sc.lm.cost)}x ref; λ ${sc.lm.lam.toExponential(0)}`, tx, 50);
         ctx.fillStyle = warn;
-        ctx.fillText(`Gauss-Newton: ${sc.gn.dead ? 'DIVERGED' : `cost ${rel(sc.gn.cost)}x floor`}`, tx, 70);
+        ctx.fillText(`Gauss-Newton: ${sc.gn.dead ? 'DIVERGED' : `${rel(sc.gn.cost)}x ref`}`, tx, 70);
         ctx.fillStyle = heur;
-        ctx.fillText(`gradient descent: cost ${rel(sc.gd.cost)}x floor (3 steps/tick)`, tx, 90);
+        ctx.fillText(`gradient ${rel(sc.gd.cost)}x ref (3 steps/tick)`, tx, 90);
         ctx.fillStyle = good;
-        ctx.fillText('green ring: the true (a, b); floor = cost there', tx, 120);
+        ctx.fillText('green ring: true generating (a, b)', tx, 120);
         ctx.fillStyle = dim;
-        ctx.fillText('lambda large: a short gradient step; small: the full', tx, 150);
-        ctx.fillText('Gauss-Newton step; raised on rejection, lowered on success', tx, 166);
-        ctx.fillText('this two-parameter surface is mild: all three can arrive.', tx, 196);
-        ctx.fillText('the file, four parameters: LM 98 of 100 far starts', tx, 212);
-        ctx.fillText('in 9 iterations; Gauss-Newton 29 (71 diverged);', tx, 228);
+        ctx.fillText('ref = cost there, not a lower bound', tx, 136);
+        ctx.fillText('large λ: gradient-like; small: GN', tx, 156);
+        ctx.fillText('λ rises on rejection, falls on success', tx, 172);
+        ctx.fillText('this 2-parameter surface is mild', tx, 196);
+        ctx.fillText('solution, 4 parameters: LM 98/100', tx, 212);
+        ctx.fillText('9 iterations; GN 29/100 converged', tx, 228);
         ctx.fillText('gradient descent 81 in 2,936 iterations', tx, 244);
         let line;
         if (s.done) {
-          line = `after ${ITERS} iterations: LM at ${rel(sc.lm.cost)}x the floor, Gauss-Newton ${sc.gn.dead ? 'diverged' : `${rel(sc.gn.cost)}x`}, gradient descent ${rel(sc.gd.cost)}x after ${ITERS * 3} steps`;
-          ctx.fillStyle = sc.lm.cost <= sc.floor * 1.05 ? good : warn;
+          line = `${ITERS} iterations: LM ${rel(sc.lm.cost)}x ref; GN ${sc.gn.dead ? 'diverged' : `${rel(sc.gn.cost)}x`}; gradient ${rel(sc.gd.cost)}x (${ITERS * 3} steps)`;
+          ctx.fillStyle = sc.lm.cost <= sc.referenceCost * 1.05 ? good : warn;
         } else {
-          line = `iteration ${sc.t}: LM ${rel(sc.lm.cost)}x, Gauss-Newton ${sc.gn.dead ? 'diverged' : `${rel(sc.gn.cost)}x`}, gradient descent ${rel(sc.gd.cost)}x the floor`;
+          line = `iteration ${sc.t}: LM ${rel(sc.lm.cost)}x ref; GN ${sc.gn.dead ? 'diverged' : `${rel(sc.gn.cost)}x`}; gradient ${rel(sc.gd.cost)}x`;
           ctx.fillStyle = ink;
         }
         ctx.fillText(line, 12, H - 8);
@@ -281,7 +293,9 @@ export default function LmViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -64,8 +64,8 @@ export const content = {
       and passes flags to everyone they exchange batons with: and
       each stretch of track photographs whatever batons are
       mid-air between one runner&apos;s photo and the flag&apos;s
-      arrival. Nobody stopped running. The composite is not a
-      moment that ever existed on any wall clock: it is better: a
+      arrival. Nobody stopped running. The composite need not be a
+      moment that existed on any wall clock: it is a
       state the system <em>could</em> have been in, with every
       baton accounted for exactly once.
     </p>
@@ -293,7 +293,7 @@ export const content = {
     <Figure
       id="fig-chandy-cut"
       aspect="16 / 7"
-      caption="A cut through causality, not through time. Each process photographs itself on its first marker; the marker then sweeps each FIFO channel, and whatever arrives between the photo and the sweep IS the channel's in-flight content: recorded once, missed never. The composite state never existed at any wall-clock instant: it is a state the system could have occupied, which is exactly what conservation laws and stable properties need: measured here as 300 of 300 exact totals while the naive clock-style audit went 0 for 300 on the same storms."
+      caption="A cut through causality, not through time. Each process photographs itself on its first marker; the marker then sweeps each FIFO channel, and whatever arrives between the photo and the sweep IS the channel's in-flight content: recorded once, missed never. The composite state need not have existed at any wall-clock instant: it is a state the system could have occupied, which is exactly what conservation laws and stable properties need: measured here as 300 of 300 exact totals while the naive clock-style audit went 0 for 300 on the same storms."
       cite={{
         text: 'Chandy & Lamport, "Distributed Snapshots: Determining Global States of Distributed Systems", ACM TOCS 3(1), 1985: posed over dinner, solved that evening, running in every stream checkpoint since.',
         href: 'https://doi.org/10.1145/214451.214456',
@@ -314,7 +314,7 @@ export const content = {
         <path d="M 300 60 L 380 110" stroke="#f0b94b" strokeWidth="1.8" />
         <circle cx="352" cy="92" r="5" fill="#f0b94b" />
         <text x="330" y="130" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">in-flight: caught by the sweep</text>
-        <text x="60" y="220" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">measured: photos + channel records = 100,000 exactly, 300/300, ~7.2 transfers caught mid-channel per run</text>
+        <text x="60" y="220" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">300/300: photos + channels = 100,000 · 7.2 transfers in transit per snapshot</text>
         <text x="60" y="244" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">causal audit: every receive inside the cut has its send inside the cut: zero violations</text>
         <text x="60" y="268" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">termination: exactly one marker per channel (30), every run complete</text>
       </svg>

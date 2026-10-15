@@ -41,13 +41,15 @@ export const content = {
   heurRole: (
     <p>
       Supplies the <strong>window</strong>: match only against the recent
-      past. That bounds memory and search, and bets that repetition is
+      past. That bounds the search range and a streaming decoder&apos;s
+      history, and bets that repetition is
       local: real prose repeats phrases it used recently, not chapters
       ago. The dial is measured: on this site&apos;s own build plan, a
       256-byte window leaves 49,827 bytes, 4,096 leaves 37,838, and
       32,768 leaves <strong>32,719</strong>: monotone by construction
-      (asserted), paid for in search time and decoder memory. Ziv-Lempel
-      universality is the limit of this dial.
+      (asserted), paid for in search time and streaming decoder memory. LZ77
+      universality requires growing windows and match lengths; this
+      fixed-width LZSS format does not inherit that limit.
     </p>
   ),
 
@@ -71,8 +73,8 @@ export const content = {
       with the same prefix (hash chains).
     </>,
     <>
-      <strong>Extend each candidate</strong> to the longest match within
-      the window; keep the best.
+      <strong>Extend each candidate</strong> that starts within the
+      window, up to the 255-byte match limit; keep the best.
     </>,
     <>
       <strong>Emit:</strong> a (distance, length) token if the match
@@ -80,7 +82,7 @@ export const content = {
     </>,
     <>
       <strong>Slide:</strong> index the bytes just covered and continue;
-      old positions expire past the window.
+      ignore candidate positions older than the window.
     </>,
     <>
       <strong>Decode by copying:</strong> literals append; matches copy
@@ -101,8 +103,9 @@ export const content = {
       game assets.
     </>,
     <>
-      <strong>Streaming with bounded memory:</strong> the window is the
-      whole state: kilobytes, fixed, forever.
+      <strong>Streaming decode with bounded memory:</strong> a streaming
+      decoder can keep only the window. This teaching encoder retains
+      history and tokens in O(n) memory; its decoder returns the full output.
     </>,
   ],
   baseline: (
@@ -115,16 +118,17 @@ export const content = {
       common and &apos;#&apos; is rare; LZ77 sees that &quot;the
       algorithm&quot; appeared twelve lines ago. The proof they are
       different: the pipeline running both, DEFLATE, lands at 23,064:
-      40% below either.
+      28% below Huffman alone and 30% below this window stage alone.
     </>
   ),
 
   strength: (
     <>
-      <strong>Universal, streaming, decoder-trivial, and honest about
-      its limits.</strong> No model of the data is assumed (Ziv-Lempel
-      universality is the theorem form of that sentence); memory is the
-      window, fixed; the decoder is ten unfailing lines; and every claim
+      <strong>Streaming, decoder-trivial, and honest about
+      its limits.</strong> No source model is supplied; the universality
+      theorem requires a growing window, not a fixed 4KB one. This encoder
+      uses O(n) memory; streaming decode can use O(window) beyond emitted
+      output. The decoder is ten unfailing lines; and every claim
       round-tripped byte-exact on this repo&apos;s living files: 1.37× to
       2.93× with the window stage alone.
     </>
@@ -133,7 +137,8 @@ export const content = {
     <>
       <strong>Blind to symbol skew, greedy, and local by design.</strong>{' '}
       Without an entropy stage the tokens themselves are wasteful
-      (DEFLATE&apos;s 40% gap is exactly that waste, measured); greedy
+      (DEFLATE is 30% smaller here, also benefiting from a different
+      parser and token format); greedy
       longest-match is not optimal parsing (zstd&apos;s optimal parser
       is the modern refinement); and repetition beyond the window is
       invisible: the dial buys reach with search time. On random data it
@@ -152,14 +157,15 @@ export const content = {
       wins: (
         <>
           <strong>1.58×</strong> on real prose and 2.93× on CSS from the
-          window alone; 79× on runs; ten-line decoder; fixed memory.
+          window alone; 79× on runs; ten-line decoder; supports
+          window-bounded streaming decode.
           (The flag-bit framing is Storer-Szymanski&apos;s LZSS: same
           idea, named honestly.)
         </>
       ),
       costs: (
         <>
-          No entropy stage (the 40% DEFLATE gap), greedy parsing, and
+          No entropy stage (DEFLATE is 30% smaller here), greedy parsing, and
           blindness past the window.
         </>
       ),
@@ -276,7 +282,7 @@ export const content = {
     <Figure
       id="fig-lz77-window"
       aspect="16 / 7"
-      caption="The cursor, the window, and the back-reference. Everything left of the cursor is already-written output; the window is its recent tail. A match becomes a (distance, length) token: an instruction to the decoder to copy from its own past. The flag bit (LZSS) says which kind of token follows. Repetition beyond the window is invisible on purpose: that blindness is the price of fixed memory, and the measured dial shows what each kilobyte of reach buys."
+      caption="The cursor, the window, and the back-reference. Everything left of the cursor is already-written output; the window is its recent tail. A match becomes a (distance, length) token: an instruction to the decoder to copy from its own past. The flag bit (LZSS) says which kind of token follows. Repetition beyond the window is invisible on purpose: that bounds the history a streaming decoder needs, and the measured dial shows what each kilobyte of reach buys. The teaching encoder retains O(n) history and token storage."
       cite={{
         text: 'Ziv & Lempel, "A Universal Algorithm for Sequential Data Compression", IEEE Trans. Information Theory 23, 1977; the flag framing is Storer & Szymanski 1982; the pipeline is DEFLATE, RFC 1951 (Katz).',
         href: 'https://doi.org/10.1109/TIT.1977.1055714',

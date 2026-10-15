@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -89,7 +90,7 @@ export default function MonteCarloIntegrationViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`${BATCH} uniform darts per tick at the unit square; blue: inside the quarter disk; the fraction estimates pi / 4`, 12, 18);
+        ctx.fillText(`${BATCH} uniform darts/tick; blue: inside the quarter disk; fraction estimates π/4`, 12, 18);
         // left: the square
         const sx = 24;
         const sy = 40;
@@ -148,7 +149,7 @@ export default function MonteCarloIntegrationViz() {
         ctx.strokeStyle = `${dim}66`;
         ctx.strokeRect(gx, gy - gh, gw, gh);
         ctx.fillStyle = dim;
-        ctx.fillText('error vs darts (log-log); dashed: the standard error, falling as 1/sqrt(N)', gx, gy - gh - 6);
+        ctx.fillText('log-log error; dashed: SE ∝ 1/√N', gx, gy - gh - 6);
         if (sc.curve.length > 1) {
           ctx.strokeStyle = `${heur}cc`;
           ctx.setLineDash([3, 3]);
@@ -186,7 +187,9 @@ export default function MonteCarloIntegrationViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

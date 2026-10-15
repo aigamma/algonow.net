@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:bonferroni-correction-family-wise-error-control",
   "source_path": "src/content/bonferroni-correction-family-wise-error-control.narration.js",
-  "source_sha256": "cccc82495b5ca74b1d116a24d95caf29f825a09ab1cf235edc4bc719b33138ca",
-  "source_characters": 11843,
+  "source_sha256": "5f74626de1db0e645ca7b8d7feb87a837b88c5115de469397de0bb50e63dbf70",
+  "source_characters": 11895,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -57,9 +57,9 @@
     }
   },
   "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
-  "release_sha256": "b2ec1849b7c830582fb1ecc3164a915cdde9e0cf9c519a014896bc274d3cf72f",
-  "generated_at": "2026-10-10T23:33:27.415Z",
-  "generated_characters": 23686,
+  "release_sha256": "a62026165438be2e538a67eeb81e04e2a50bd84e5d4cc54272fd46ef8dfbcd8a",
+  "generated_at": "2026-10-15T23:01:21.169Z",
+  "generated_characters": 23790,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -91,16 +91,16 @@
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4956,
-      "utf8_bytes": 4968,
-      "sha256": "f1b67e5d1466756aca356d821d11e39f6963e1e9f64014202fd3cddd5647c6dd"
+      "characters": 4152,
+      "utf8_bytes": 4164,
+      "sha256": "db6637c1749ba065c2f541177332b9526b6edfd459f503a131c223ed42d8db35"
     },
     {
       "id": "request-003",
       "index": 3,
-      "characters": 1150,
-      "utf8_bytes": 1166,
-      "sha256": "4262ca54424f8a31de41b46af3df998ee98291305998af260f334736dcd5f45b"
+      "characters": 2006,
+      "utf8_bytes": 2022,
+      "sha256": "aa3dad988a245eb88fa32cad8e2882b7068aaeb793d9acf0b45f5902ca8c7537"
     },
     {
       "id": "request-004",
@@ -248,8 +248,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 861,
-      "sha256": "70c3669f9f52352d0c8394920a2f2a3c3b6a301011fa7c5e150d364c67935b3d"
+      "utf8_bytes": 913,
+      "sha256": "70d186494df2b2dae6c672528902045a85a66f352a55ba3cea0d4293a6e08a69"
     },
     {
       "id": "bonferroni-correction-family-wise-error-control.06-signals",
@@ -373,35 +373,35 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/bonferroni-correction-family-wise-error-control/b2ec1849b7c830582fb1/aoede-c8f44a33ee0b8c36.mp3",
+      "object_key": "narration/v1/puzzles/bonferroni-correction-family-wise-error-control/a62026165438be2e538a/aoede-8982fc8abba26f87.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2946380,
-      "sha256": "c8f44a33ee0b8c36dcc558fb361586613b0e3d9a3c0878975452184e720936ec",
+      "bytes": 2976428,
+      "sha256": "8982fc8abba26f87370f5d42bf06166013fe3e5b8678323c7931eb1920a17889",
       "request_parts": [
         {
           "request_index": 1,
           "request_sha256": "73838452b7191eecec91a4f0e297f3d3b1bb5c7285a00681eaef2b1d25712375",
-          "bytes": 1177536,
-          "sha256": "b3c7078ad1e3a7c2c173c2224ee8e740a8526b0d2238531d6908af18ea76f39b"
+          "bytes": 1201632,
+          "sha256": "59de7f611dee9b02992edfd845a18a906ace37db079df255d2f1308ffe38ed0f"
         },
         {
           "request_index": 2,
-          "request_sha256": "f1b67e5d1466756aca356d821d11e39f6963e1e9f64014202fd3cddd5647c6dd",
-          "bytes": 1243872,
-          "sha256": "a1e3983eeba75d8885995c8ff6b804f751da9de144d975d310436aac664abf7e"
+          "request_sha256": "db6637c1749ba065c2f541177332b9526b6edfd459f503a131c223ed42d8db35",
+          "bytes": 1038336,
+          "sha256": "b01c082de4f3cb8444bb9f88091268d5fbd7bc102ab46231decf3b8fe6bfd9f6"
         },
         {
           "request_index": 3,
-          "request_sha256": "4262ca54424f8a31de41b46af3df998ee98291305998af260f334736dcd5f45b",
-          "bytes": 305664,
-          "sha256": "e2c1cb509c985de17ab1249cfaffa40105d83d6aa6d5dab7b1e033c0c94290e8"
+          "request_sha256": "aa3dad988a245eb88fa32cad8e2882b7068aaeb793d9acf0b45f5902ca8c7537",
+          "bytes": 518112,
+          "sha256": "9e928d54cd55b6f8c7e61809a7382413de3d565c69825db51c1404294b13d783"
         },
         {
           "request_index": 4,
           "request_sha256": "7ea263a269ae05f25078b9a38f404889f14bc062179cc690d84ea44755aa6448",
-          "bytes": 219072,
-          "sha256": "7cd1e7c75667fbfec661289f5f562448d69dbe24292a87c12aa9bd05e562b19f"
+          "bytes": 218112,
+          "sha256": "e612d705552b1104a8863dc27278a1bc2d204846691c48749eee2ca069089d85"
         }
       ]
     },
@@ -410,11 +410,11 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/bonferroni-correction-family-wise-error-control/b2ec1849b7c830582fb1/algieba-578afa489112b3c0.mp3",
+      "object_key": "narration/v1/puzzles/bonferroni-correction-family-wise-error-control/a62026165438be2e538a/algieba-f320915f70d7eab5.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 3080492,
-      "sha256": "578afa489112b3c07f23e8cb39e9350f38e3878881dab6f4007da199375ad8bd",
+      "bytes": 3070316,
+      "sha256": "f320915f70d7eab5417d9850beb3933bf9f8c43d349cfbc946984425cece66aa",
       "request_parts": [
         {
           "request_index": 1,
@@ -424,21 +424,21 @@
         },
         {
           "request_index": 2,
-          "request_sha256": "f1b67e5d1466756aca356d821d11e39f6963e1e9f64014202fd3cddd5647c6dd",
-          "bytes": 1303104,
-          "sha256": "63b0d783dd9867eaa68c190bddd589ab4ba891375aeaf4a728498eb8ef18d8a3"
+          "request_sha256": "db6637c1749ba065c2f541177332b9526b6edfd459f503a131c223ed42d8db35",
+          "bytes": 1094304,
+          "sha256": "29cc23b918f3f96086508aefbe43ab329a8ff8216a7967fbe45378e46f53fb3f"
         },
         {
           "request_index": 3,
-          "request_sha256": "4262ca54424f8a31de41b46af3df998ee98291305998af260f334736dcd5f45b",
-          "bytes": 323712,
-          "sha256": "30d42d998024c3558a8aa0db87f0bbd8c03ce5ad5e86c4c8da86b0fa5a9bc87e"
+          "request_sha256": "aa3dad988a245eb88fa32cad8e2882b7068aaeb793d9acf0b45f5902ca8c7537",
+          "bytes": 525504,
+          "sha256": "d5939a39e2d11ffeaae52be9324495f9fd7c788cc61e2c5e48bf3f3a143f0bf3"
         },
         {
           "request_index": 4,
           "request_sha256": "7ea263a269ae05f25078b9a38f404889f14bc062179cc690d84ea44755aa6448",
-          "bytes": 215424,
-          "sha256": "d8d98ba4a98fc9591ae5b431c2fe32917039b744105316af06b805d170805589"
+          "bytes": 212256,
+          "sha256": "cca434789b5f3cf19ea2e5ab0b95c21046f4d84bdf98d954d031d53a3d7ffd94"
         }
       ]
     }

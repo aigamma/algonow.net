@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -149,7 +150,7 @@ export default function PrefixTrieViz() {
         const onPath = new Set(sc.path);
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('amber nodes hold a prefix (next hop); the blue path is this destination, bit by bit; green is the longest prefix passed', 12, 18);
+        ctx.fillText('amber: prefix/next hop; blue: destination bits; green: longest prefix passed', 12, 18);
         ctx.lineWidth = 1;
         for (const node of sc.nodes) {
           for (const child of node.c) {
@@ -177,7 +178,7 @@ export default function PrefixTrieViz() {
           ctx.fillText(bits[i], 560 + i * 9, 36);
         }
         ctx.fillStyle = ink;
-        ctx.fillText(`next hop ${sc.best}, ${sc.steps} steps`, 530, 52);
+        ctx.fillText(`hop ${sc.best}; ${sc.steps} steps`, 530, 52);
         ctx.fillStyle = sc.ok ? good : warn;
         ctx.fillText(sc.ok ? `invariant: every answer equals the table scan; steps <= ${BITS}` : 'INVARIANT BROKEN', 12, 268);
         const line = sc.last;
@@ -191,7 +192,9 @@ export default function PrefixTrieViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

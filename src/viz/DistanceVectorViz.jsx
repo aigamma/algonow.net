@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -188,7 +189,7 @@ export default function DistanceVectorViz() {
         const seg = (u, v) => { ctx.beginPath(); ctx.moveTo(...sc.pos[u]); ctx.lineTo(...sc.pos[v]); ctx.stroke(); };
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`one update interval per tick: each router hands its distance to the amber destination to every neighbor (${sc.mode})`, 12, 18);
+        ctx.fillText(`each router shares its distance to amber with neighbors (${sc.mode})`, 12, 18);
         ctx.lineWidth = 1.5;
         ctx.strokeStyle = `${dim}77`;
         for (let u = 0; u < N; u += 1) for (const v of sc.adj[u]) if (u < v) seg(u, v);
@@ -230,10 +231,10 @@ export default function DistanceVectorViz() {
         const right = N - sc.est.filter((e, u) => e !== sc.truth[u]).length;
         const after = sc.phase === 'fail' || sc.done;
         [
-          [dim, `vectors handed over: ${sc.vectors}; changed now: ${sc.changed}`],
+          [dim, `vectors ${sc.vectors}; changed ${sc.changed}`],
           [right === N ? good : warn, `${right} of ${N} equal the BFS referee`],
           [after && sc.worst >= 8 ? warn : dim, after ? `${sc.isolate ? 'dead route counted to' : 'worst transient distance'} ${sc.worst} (cap ${CAP})` : `L - 1 = ${sc.L - 1} busy intervals expected`],
-          [dim, 'the file: the chain counts to 15 in 15 intervals'],
+          [dim, 'solution: count to 15 in 15 intervals'],
           [sc.ok ? good : warn, sc.ok ? 'invariant: quiet tables equal BFS' : 'INVARIANT BROKEN'],
         ].forEach(([c, t], i) => { ctx.fillStyle = c; ctx.fillText(t, 400, 80 + i * 22); });
         ctx.fillStyle = s.done ? (sc.ok ? good : warn) : col('--ink', '#e9edf6');
@@ -246,7 +247,9 @@ export default function DistanceVectorViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -278,7 +279,7 @@ export default function MapMatchingViz() {
           ctx.fillText(text, rx, 40 + i * 16);
         });
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? 'invariant: optimum, >= snapping' : 'INVARIANT BROKEN', rx, 184);
+        ctx.fillText(sc.ok ? 'optimal score ≥ snap' : 'INVARIANT BROKEN', rx, 184);
         ctx.fillStyle = s.done ? (sc.ok ? good : warn) : ink;
         const line = sc.last;
         ctx.fillText(line.length > 100 ? `${line.slice(0, 99)}…` : line, 12, H - 6);
@@ -290,7 +291,9 @@ export default function MapMatchingViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

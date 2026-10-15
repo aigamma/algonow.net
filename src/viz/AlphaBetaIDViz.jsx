@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -314,10 +315,10 @@ export default function AlphaBetaIDViz() {
           ctx.fillText(`exhaustive minimax on this tree: ${sc.mm2.toLocaleString()} nodes · every method's value agrees: ${sc.ref2}`, 60, 200);
           let line;
           if (done || t >= 200) {
-            line = `${sc.perDepth.length} searches for ${(100 * totalId / sc.blind).toFixed(0)}% of one blind search's bill: the shallow passes are the guide, not the overhead`;
+            line = `${sc.perDepth.length} guided searches: ${(100 * totalId / sc.blind).toFixed(0)}% of one blind search’s work`;
             ctx.fillStyle = good;
           } else {
-            line = 'each iteration is a geometric fraction of the next: the memory it leaves is worth more than it costs';
+            line = 'shallow passes guide the next search; their work can pay for itself';
             ctx.fillStyle = ink;
           }
           ctx.font = '12px ui-monospace, monospace';
@@ -335,7 +336,9 @@ export default function AlphaBetaIDViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

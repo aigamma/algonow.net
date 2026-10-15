@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -171,7 +172,7 @@ export default function ManacherViz() {
 
         ctx.fillStyle = dim;
         ctx.font = '11px ui-monospace, monospace';
-        ctx.fillText('green arcs: fully inherited (free) · amber: fresh expansion · blue bar: the frontier R, only ever moving right', 14, 20);
+        ctx.fillText('green: inherited · amber: fresh expansion · blue R: rightmost verified frontier', 14, 20);
 
         let line;
         if (!finished && cur) {
@@ -181,7 +182,7 @@ export default function ManacherViz() {
         } else {
           const f = sc.frames[sc.n - 1];
           const witness = sc.s.slice((sc.best.i - sc.best.p) / 2, (sc.best.i - sc.best.p) / 2 + sc.best.p);
-          line = `longest: "${witness}" (${sc.best.p}) · total paid ${f.paid} expansions vs ${f.inherited} inherited: verified once, reused forever`;
+          line = `longest: "${witness}" (${sc.best.p}) · paid ${f.paid}, inherited ${f.inherited}`;
           ctx.fillStyle = good;
         }
         ctx.font = '12px ui-monospace, monospace';
@@ -195,7 +196,9 @@ export default function ManacherViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

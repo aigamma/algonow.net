@@ -269,7 +269,7 @@ export const content = {
     <Figure
       id="fig-fr-forces"
       aspect="16 / 7"
-      caption="Left: the two forces against distance in units of k. Attraction d² / k (blue) grows, repulsion k² / d (amber) shrinks, and they balance at d = k (green), the edge length the system settles toward. Right: scale-free stress of five layouts of the 6 × 6 grid from the same random start, with crossing counts; 0 is a perfect embedding of graph distance."
+      caption="Left: the two forces against distance in units of k. Attraction d² / k (blue) grows, repulsion k² / d (amber) shrinks, and they balance at d = k (green), the equilibrium distance for an isolated pair; other vertices change it. Right: scale-free stress of five layouts of the 6 × 6 grid from the same random start, with crossing counts; 0 is a perfect embedding of graph distance."
       cite={{
         text: 'T. M. J. Fruchterman and E. M. Reingold, "Graph Drawing by Force-directed Placement," Software: Practice and Experience 21(11), 1991. P. Eades, "A Heuristic for Graph Drawing," Congressus Numerantium 42, 1984. T. Kamada and S. Kawai, "An Algorithm for Drawing General Undirected Graphs," Information Processing Letters 31(1), 1989.',
         href: 'https://doi.org/10.1002/spe.4380211102',
@@ -295,7 +295,7 @@ export const content = {
               <text x={fx(1) - 10} y={y0 + 14} fill="#62d98a" fontSize="10">d = k</text>
               <text x={fx(1.55)} y={fy(2.6)} fill="#5da2ff" fontSize="10">attraction d² / k</text>
               <text x={fx(1.4)} y={fy(0.55)} fill="#f0b94b" fontSize="10">repulsion k² / d</text>
-              <text x={x0} y="250" fill="#9aa5bd" fontSize="10">k = √(area / n); each vertex moves at most t per iteration</text>
+              <text x={x0} y="250" fill="#9aa5bd" fontSize="10">k = √(area/n); move ≤ t</text>
               <text x={bx} y="30" fill="#9aa5bd" fontSize="10">stress on the 6 × 6 grid (0 is perfect), crossings</text>
               {bars.map(([name, v, cr, col], i) => (
                 <g key={name}>

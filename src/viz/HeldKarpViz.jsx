@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -197,7 +198,7 @@ export default function HeldKarpViz() {
           for (let layer = 1; layer <= sc.m; layer++) {
             const count = sc.layers[layer];
             const y = 236 - layer * 28;
-            const w = Math.min(500, count * 14);
+            const w = Math.min(430, count * 14);
             const on = layer < lit;
             ctx.fillStyle = on
               ? layer === sc.m
@@ -273,7 +274,9 @@ export default function HeldKarpViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

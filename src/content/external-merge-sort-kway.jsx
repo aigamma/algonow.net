@@ -312,7 +312,7 @@ export const content = {
         <text x="240" y="190" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">one sorted stream out</text>
         <text x="40" y="224" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured at identical memory: k=2: 7 passes, 52,500 I/O · k=8: 3, 22,500 · k=64: 2, 15,000 (3.5×)</text>
         <text x="40" y="246" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">the client: 1,048,576 records, 4,160 of memory: 3 passes, 49,152 page reads == 3 × 16,384 exactly</text>
-        <text x="40" y="272" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">the pager anti-pattern: quicksort over 252× RAM pays one I/O per comparison: the funnel pays one per page</text>
+        <text x="40" y="272" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">at 252× RAM: quicksort pays I/O per comparison; the merge streams pages</text>
       </svg>
     </Figure>
   ),

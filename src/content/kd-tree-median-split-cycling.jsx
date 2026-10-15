@@ -50,13 +50,13 @@ export const content = {
       the prune bite: split at the <em>median</em>, cycle the{' '}
       <em>axis</em>. Medians guarantee balance (depth audited at
       16 against the ceil(log2 n) + 1 = 17 bound), so descent is
-      logarithmic; cycling gives every dimension its turn, so
-      cells stay squarish and the best-ball rarely crosses
-      planes. The measured result in 2D: <strong>22.2 nodes
+      logarithmic; cycling gives every dimension its turn. Cell aspect
+      ratios are not guaranteed; the best-ball prunes when it
+      misses the splitting plane. The measured result in 2D: <strong>22.2 nodes
       visited per query against 60,000 scanned</strong>: 2,706×.
       The same rule&apos;s honest limit: as d grows, each axis
-      gets its turn only every d levels, cells stop being
-      squarish, and the prune dies: 569 visits at d = 8, 3,961
+      gets its turn only every d levels, distance concentrates,
+      and the prune dies: 569 visits at d = 8, 3,961
       of 4,000 at d = 16.
     </p>
   ),
@@ -304,7 +304,7 @@ export const content = {
     <Figure
       id="fig-kdtree-carve"
       aspect="16 / 7"
-      caption="Carve at medians, cycle the axes, prune with the ball. The plane is split at the median x, each half at its median y, and so on: squarish cells, balanced depth (16 on the 17 bound, audited). A query descends to its home cell for a first candidate, then unwinds: subtrees beyond a plane farther than the best-so-far radius are provably irrelevant and never opened. Measured: 22.2 visits per query against a 60,000-point scan (2,706×), exact against the brute referee 1,200 times: and the same code visiting 99% of everything at d = 16, the curse counted."
+      caption="Carve at medians, cycle the axes, prune with the ball. The plane is split at the median x, each half at its median y, and so on: axis-aligned cells, balanced depth (16 on the 17 bound, audited). A query descends to its home cell for a first candidate, then unwinds: subtrees beyond a plane farther than the best-so-far radius are provably irrelevant and never opened. Measured: 22.2 visits per query against a 60,000-point scan (2,706×), exact against the brute referee 1,200 times: and the same code visiting 99% of everything at d = 16, the curse counted."
       cite={{
         text: 'J. L. Bentley, "Multidimensional binary search trees used for associative searching," CACM 18(9), 1975. DOI 10.1145/361002.361007. NN query analysis: Friedman, Bentley, Finkel 1977; "curse of dimensionality": Bellman 1961.',
         href: 'https://doi.org/10.1145/361002.361007',

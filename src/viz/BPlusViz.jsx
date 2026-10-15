@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -122,7 +123,7 @@ function makeScene(seed) {
   const start = 3 + Math.floor(rand() * 6);
   const bplusHops = [26, 22, start];
   for (let i = 1; i < ACT2_HOPS - 2; i++) bplusHops.push(start + i);
-  return { keys, built, target, scatter, bplusHops };
+  return { keys, target, scatter, bplusHops };
 }
 
 export default function BPlusViz() {
@@ -316,7 +317,9 @@ export default function BPlusViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

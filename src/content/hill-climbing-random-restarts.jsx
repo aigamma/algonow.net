@@ -314,7 +314,7 @@ export const content = {
               <text x={x0} y="36" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="10">queens p = 0.143</text>
               <text x={x0 + 130} y="36" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">Rastrigin p = 0.0267</text>
               <text x={x0} y={y0 + 30} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">climbs</text>
-              <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">success within budget: queens (left bar), Rastrigin (right)</text>
+              <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">success: queens (left), Rastrigin (right)</text>
               {bars.map(([name, q, r, c], i) => (
                 <g key={name}>
                   <rect x={bx + i * 40} y={by - q * 1.7} width="14" height={q * 1.7} fill={c} fillOpacity="0.9" />
@@ -323,7 +323,7 @@ export const content = {
                   <text x={bx + i * 40} y={by - q * 1.7 - 4} fill={c} fontFamily="ui-monospace, monospace" fontSize="8">{q}</text>
                 </g>
               ))}
-              <text x={bx} y={by + 30} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">5,000 and 20,000 evaluations; tabu and sideways on queens only</text>
+              <text x={bx} y={by + 30} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">5,000 / 20,000 evals; tabu/sideways: queens</text>
             </g>
           );
         })()}

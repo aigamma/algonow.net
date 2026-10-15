@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -287,12 +288,12 @@ export default function MVCCViz() {
           if (phase >= 5 || done) {
             ctx.fillStyle = good;
             ctx.font = '11px ui-monospace, monospace';
-            ctx.fillText(`serial replay: T1 commits first, T2 re-reads and sees ${sk.t2WouldSee} on call: T2 refuses: invariant survives`, 60, 232);
+            ctx.fillText(`serial: T1 commits, T2 sees ${sk.t2WouldSee} on call and refuses; invariant preserved`, 60, 232);
           }
 
           let line;
           if (done || phase >= 5) {
-            line = 'disjoint writes hide the dependency: SSI or explicit locks close the hole: knowing when is the skill';
+            line = 'disjoint writes hide dependencies · SSI or explicit locks prevent write skew';
             ctx.fillStyle = warn;
           } else {
             line = ['two doctors, one rule: someone stays on call', 'both transactions photograph a safe world', 'each steps off: different keys touched', 'first-committer-wins finds nothing to veto', 'the snapshots were each true: together they lied'][phase];
@@ -313,7 +314,9 @@ export default function MVCCViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

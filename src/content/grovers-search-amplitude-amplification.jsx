@@ -140,8 +140,10 @@ export const content = {
   weakness: (
     <>
       <strong>Quadratic, not exponential, and it needs the count.</strong>{' '}
-      √N is the ceiling (BBBV): no version of this reaches
-      polynomial time on NP-hard search. Overshoot is real (0.0009 at
+      Ω(√N) queries are necessary for black-box unstructured search
+      (BBBV): searching 2ⁿ candidates this way still takes exponential
+      queries. This bound does not cover algorithms that exploit
+      problem structure. Overshoot is real (0.0009 at
       2t*), the wrong k is fatal (0.0002), and the fix for unknown k
       costs a constant factor (51.9 vs 50). The oracle must be a
       reversible circuit; loading a classical database into it costs
@@ -305,8 +307,8 @@ export const content = {
         <line x1="40" y1="230" x2="150" y2="62" stroke="#5da2ff" strokeWidth="2" />
         <text x="120" y="56" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="10">after t rounds: (2t + 1)θ</text>
         <line x1="40" y1="230" x2="56" y2="32" stroke="#62d98a" strokeWidth="2.5" />
-        <text x="60" y="52" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">t* = 50: sin² = 0.9999</text>
-        <text x="40" y="272" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">oracle: reflect across the axis; diffusion: reflect across the start; together: rotate by 2θ</text>
+        <text x="60" y="78" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">t* = 50: sin² = 0.9999</text>
+        <text x="40" y="272" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">two reflections rotate by 2θ</text>
         <text x="320" y="40" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="11">optimal rounds t* by N (√2 per doubling)</text>
         {[[256, 12], [512, 17], [1024, 25], [2048, 35], [4096, 50], [8192, 71], [16384, 100]].map(([n, t], i) => (
           <g key={n}>
@@ -315,7 +317,7 @@ export const content = {
             <text x={326 + i * 42} y="246" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{n >= 1024 ? `${n / 1024}k` : n}</text>
           </g>
         ))}
-        <text x="320" y="270" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">classical scan at N = 4,096: 2,112 calls measured; Grover: 50</text>
+        <text x="320" y="270" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">N=4,096: scan 2,112 calls; Grover 50</text>
       </svg>
     </Figure>
   ),

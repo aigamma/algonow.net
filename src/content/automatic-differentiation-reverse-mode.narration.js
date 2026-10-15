@@ -39,7 +39,7 @@ export const narration = [
   {
     section: 'tradeoffs',
     text:
-      'The honest weaknesses of the hero. The tape, and the direction. Reverse mode keeps every intermediate until the sweep: ninety thousand nodes for one loss on five thousand parameters, and gigabytes for a deep network, which checkpointing trades back for recomputation. It is the wrong mode for many outputs: six hundred twenty seven thousand operations for a five hundred output Jacobian column that forward mode gets in fifteen hundred. And it needs differentiable operations; a sort or a lookup breaks the tape, and a branch is differentiated only along the path that was taken.',
+      'The honest weaknesses of the hero. The tape, and the direction. Reverse mode keeps every intermediate until the sweep: ninety thousand nodes for one loss on five thousand parameters, and gigabytes for a deep network, which checkpointing trades back for recomputation. It is the wrong mode for many outputs: six hundred twenty seven thousand operations for a five hundred output Jacobian column that forward mode gets in fifteen hundred. And it needs differentiable operations; a discrete choice has no ordinary derivative at its decision boundary. Sort values can be differentiated away from ties, and a lookup can pass gradients to the selected value, but not its discrete index. A branch is differentiated only along the path that was taken.',
   },
   {
     section: 'tradeoffs',

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -165,9 +166,9 @@ export default function Ll1ParsingViz() {
           ctx.fillStyle = '#10141c';
           ctx.fillText(sym, x + 5, 92);
         });
-        const gx = 380;
+        const gx = 370;
         const gy = 128;
-        const cw = 40;
+        const cw = 38;
         const ch = 24;
         ctx.fillStyle = dim;
         ctx.fillText('M[A, a]: the first-follow table', gx, gy - 30);
@@ -195,10 +196,12 @@ export default function Ll1ParsingViz() {
         ctx.fillStyle = dim;
         ctx.fillText(`steps ${sc.steps}; lookups ${sc.lookups} = expansions ${sc.expansions}${sc.cell && sc.done && !sc.verdict ? ' + 1 empty cell' : ''}`, 12, 128);
         ctx.fillText(`tokens consumed ${sc.i} of ${sc.toks.length}`, 12, 146);
-        ctx.fillText('the file: 5.58 stack ops per token, 0 conflicts in 13 cells,', 12, 176);
-        ctx.fillText('1,248 corruptions rejected at the viable prefix', 12, 192);
+        ctx.fillText('file: 5.58 stack ops/token; 0 conflicts', 12, 176);
+        ctx.fillText('13 cells; 1,248 corruptions rejected', 12, 192);
+        ctx.fillText('at the viable prefix', 12, 208);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? 'invariant: one lookup per expansion; verdict = recursive descent' : 'INVARIANT BROKEN', 12, 222);
+        ctx.fillText(sc.ok ? 'one lookup per expansion' : 'INVARIANT BROKEN', 12, 236);
+        ctx.fillText('verdict checked by recursive descent', 12, 252);
         const line = sc.last;
         ctx.fillStyle = s.done ? (sc.verdict && sc.ok ? good : sc.ok ? heur : warn) : ink;
         ctx.fillText(line.length > 96 ? `${line.slice(0, 95)}…` : line, 12, H - 6);
@@ -210,7 +213,9 @@ export default function Ll1ParsingViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

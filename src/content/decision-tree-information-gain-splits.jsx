@@ -309,18 +309,18 @@ export const content = {
     <Figure
       id="fig-tree-read"
       aspect="16 / 7"
-      caption="The pruned tree, read aloud: is x₁ below 0.6? If not, is x₂ above 0.2? If so, is the category A or B, and is x₃ above 0.7? Six leaves, each a majority with its count, 89.0% on 2,000 held-out rows against a noise ceiling of 89.3%. Right: the depth sweep, training accuracy climbing to 100% while held-out accuracy peaks at depth 4 and falls to 81.2% for the unpruned tree; the identifier trap sits at the majority rate."
+      caption="A schematic tree, read aloud: is x₁ below 0.6? On the yes branch, ask whether the category is A or B, then test x₃ above 0.7; on the no branch, test x₂ above 0.2. The five drawn leaves show how each path ends in a class prediction. The separate measured pruned tree has six leaves and scores 89.0% on 2,000 held-out rows against a noise ceiling of 89.3%. Right: the depth sweep, training accuracy climbing to 100% while held-out accuracy peaks at depth 4 and falls to 81.2% for the unpruned tree; the identifier trap sits at the majority rate."
       cite={{
         text: 'J. R. Quinlan, "Induction of decision trees," Machine Learning 1(1), 1986. DOI 10.1007/BF00116251. J. R. Quinlan, C4.5: Programs for Machine Learning, Morgan Kaufmann, 1993. L. Breiman, J. Friedman, R. Olshen, C. Stone, Classification and Regression Trees, 1984.',
         href: 'https://doi.org/10.1007/BF00116251',
       }}
     >
-      <svg viewBox="0 0 640 280" role="img" aria-label="A six-leaf decision tree drawn as boxes and arrows on the left; on the right, training and held-out accuracy against tree depth with the identifier trap marked">
+      <svg viewBox="0 0 640 280" role="img" aria-label="A schematic five-leaf decision tree on the left; on the right, training and held-out accuracy against tree depth with the identifier trap marked">
         {[
           [150, 30, 'x₁ < 0.6 ?', '#5da2ff'],
           [70, 90, 'A or B ?', '#5da2ff'],
           [230, 90, 'x₂ > 0.2 ?', '#5da2ff'],
-          [30, 150, 'x₃ > 0.7 ?', '#5da2ff'],
+          [50, 150, 'x₃ > 0.7 ?', '#5da2ff'],
         ].map(([x, y, label, color], i) => (
           <g key={i}>
             <rect x={x - 42} y={y - 12} width="84" height="24" rx="4" fill="none" stroke={color} />
@@ -331,7 +331,7 @@ export const content = {
           [110, 150, '0', '#f0b94b'],
           [190, 150, '0', '#f0b94b'],
           [270, 150, '1', '#5da2ff'],
-          [8, 210, '0', '#f0b94b'],
+          [24, 210, '0', '#f0b94b'],
           [62, 210, '1', '#5da2ff'],
         ].map(([x, y, label, color], i) => (
           <g key={`l-${i}`}>
@@ -339,7 +339,7 @@ export const content = {
             <text x={x} y={y + 4} textAnchor="middle" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="10">{label}</text>
           </g>
         ))}
-        {[[150, 42, 70, 78], [150, 42, 230, 78], [70, 102, 30, 138], [70, 102, 110, 139], [230, 102, 190, 139], [230, 102, 270, 139], [30, 162, 8, 199], [30, 162, 62, 199]].map(([x1, y1, x2, y2], i) => (
+        {[[150, 42, 70, 78], [150, 42, 230, 78], [70, 102, 50, 138], [70, 102, 110, 139], [230, 102, 190, 139], [230, 102, 270, 139], [50, 162, 24, 199], [50, 162, 62, 199]].map(([x1, y1, x2, y2], i) => (
           <line key={`e-${i}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#9aa5bd" strokeOpacity="0.6" />
         ))}
         <text x="96" y="66" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">yes</text>

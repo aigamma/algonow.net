@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -142,7 +143,7 @@ export default function AdaBoostViz() {
         ctx.fillText(`round ${T}: one stump per round, fitted to the weighted points; ${N} points, a disk inside a ring`, 12, 18);
         const x0 = 14;
         const y0 = 34;
-        const size = 236;
+        const size = 210;
         const cells = 24;
         const cw = size / cells;
         if (T > 0) {
@@ -197,7 +198,7 @@ export default function AdaBoostViz() {
         ctx.strokeStyle = `${dim}66`;
         ctx.strokeRect(x0, y0, size, size);
         ctx.fillStyle = heur;
-        ctx.fillText('amber rings: the ten heaviest points, where the next stump must look', x0, y0 + size + 14);
+        ctx.fillText('amber rings: 10 heaviest points', x0, y0 + size + 14);
         // Right: training error and the bound.
         const cx0 = 290;
         const cy0 = 40;
@@ -232,7 +233,7 @@ export default function AdaBoostViz() {
         ctx.fillText('training error of the vote', cx0 + 8, cy0 + 28);
         if (sc.last) {
           ctx.fillStyle = ink;
-          ctx.fillText(`last stump: ${sc.last.st.f === 0 ? 'x' : 'y'} ${sc.last.st.pol > 0 ? '≤' : '>'} ${sc.last.st.thr.toFixed(2)} → +, weighted error ${sc.last.st.err.toFixed(3)}, vote α ${sc.last.alpha.toFixed(2)}`, cx0, cy0 + chgt + 30);
+          ctx.fillText(`stump ${sc.last.st.f === 0 ? 'x' : 'y'}${sc.last.st.pol > 0 ? '≤' : '>'}${sc.last.st.thr.toFixed(2)}: error ${sc.last.st.err.toFixed(3)}, α ${sc.last.alpha.toFixed(2)}`, cx0, cy0 + chgt + 30);
         }
         let line;
         if (s.done) {
@@ -254,7 +255,9 @@ export default function AdaBoostViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -263,7 +264,7 @@ export default function JohnsonViz() {
           }
           let line;
           if (done || t >= 260) {
-            line = `lifted: min edge weight ${sc.minLifted} (never negative): dijkstra is safe now; raw dijkstra had ${sc.wrong} of ${sc.reach} pairs WRONG on this graph`;
+            line = `minimum lifted weight: ${sc.minLifted} · raw Dijkstra wrong on ${sc.wrong}/${sc.reach} pairs`;
             ctx.fillStyle = good;
           } else if (phase === 0) {
             line = 'raw graph: red edges are negative: pop-means-final is invalid here';
@@ -321,7 +322,9 @@ export default function JohnsonViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

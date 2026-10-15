@@ -89,8 +89,7 @@ export const content = {
       more pass since leaving out one occurrence changes one term.
     </>,
     <>
-      <strong>Report with n against k:</strong> at n ≥ 10k the corrected
-      number is good to thousandths of a bit; at n ≈ k say so, or reach
+      <strong>Report with n against k:</strong> at n ≥ 10k the correction had millibit-scale bias on the tested uniform examples; individual estimates still vary, and this is no distribution-free accuracy guarantee; at n ≈ k say so, or reach
       for a Bayesian estimator.
     </>,
   ],
@@ -130,7 +129,7 @@ export const content = {
   ),
   weakness: (
     <>
-      <strong>Always low, and badly so when n is not large against k.</strong>{' '}
+      <strong>Biased low in expectation, and badly so when n is not large against k.</strong>{' '}
       −0.822 bits at n = 100, −3.41 at n = 10; 0.583 bits low on a
       2,000-symbol tail at n = 2,000 (632 symbols ever seen); 0.0587 bits
       of mutual information between independent variables, the predicted
@@ -321,7 +320,7 @@ export const content = {
                   <text x={bx + i * 48} y={by + 12} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="8">{n}</text>
                 </g>
               ))}
-              <text x={bx} y={by + 28} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">n samples; at n = 10 the estimate is 3.23 of 6.64</text>
+              <text x={bx} y={by + 28} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">at n=10: estimate 3.23, truth 6.64</text>
             </g>
           );
         })()}

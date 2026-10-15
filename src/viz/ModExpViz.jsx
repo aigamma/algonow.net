@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -236,7 +237,7 @@ export default function ModExpViz() {
               drawStripes(r0.arr, r0.y, phase === k && !done ? upTo : 99);
               if (phase > k || done) {
                 ctx.fillStyle = warn;
-                ctx.fillText(`${r0.arr.length} ops`, 150 + r0.arr.length * 16 + 8, r0.y + 14);
+                ctx.fillText(`${r0.arr.length} ops`, 150, r0.y + 32);
               }
             }
           });
@@ -276,7 +277,9 @@ export default function ModExpViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

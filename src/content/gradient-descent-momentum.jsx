@@ -5,10 +5,10 @@ import { narration } from './gradient-descent-momentum.narration.js';
 
 export const content = {
   given:
-    'A smooth convex bowl f, its gradient on demand, and curvature bounded between μ and L: condition number κ = L/μ.',
+    'A positive-definite quadratic bowl f, its gradient on demand, and curvature bounded between μ and L: condition number κ = L/μ.',
   task: 'Find the minimizer to eight digits.',
   constraint:
-    'You pay per gradient evaluation, and κ = 100: the valley is a hundred times longer than it is wide, which is exactly the terrain that makes naive descent zigzag.',
+    'You pay per gradient evaluation, and κ = 100: the curvature is a hundred times greater in the stiffest direction than in the softest, which is exactly the terrain that makes naive descent zigzag.',
 
   origins: (
     <p>
@@ -16,7 +16,7 @@ export const content = {
       it in <strong>1847</strong>, for orbital least-squares. The pairing is
       Soviet: Boris Polyak&apos;s 1964 paper added the{' '}
       <strong>heavy ball</strong> term, one extra line reusing the previous
-      step, and proved the rate improves from κ to <strong>√κ</strong>. Yuri
+      step, and proved the tuned quadratic rate improves from κ to <strong>√κ</strong>. Yuri
       Nesterov closed the theory in 1983 with the accelerated variant that
       is provably optimal for first-order methods. Then history folded back:
       the 1986 backpropagation paper already carried momentum, and the
@@ -29,7 +29,7 @@ export const content = {
   algoRole: (
     <p>
       Owns the <strong>descent contract</strong>: step against the gradient,
-      x ← x − η∇f, at a step size the curvature licenses (η ≤ 2/L, and the
+      x ← x − η∇f, at a step size the curvature licenses (0 &lt; η &lt; 2/L, and the
       tested solution shows the cliff just past it). Under that contract
       each step provably lowers f and the error contracts by
       (κ−1)/(κ+1) per step: convergence is a theorem, but on an
@@ -84,8 +84,9 @@ export const content = {
     </>,
     <>
       <strong>Respect the regime:</strong> β too high goes underdamped (f
-      visibly climbs mid-flight, measured), and any η past 2/L diverges
-      geometrically, momentum or not.
+      visibly climbs mid-flight, measured), plain descent needs 0 &lt; η &lt; 2/L. On this positive-definite quadratic,
+      heavy-ball stability instead requires 0 ≤ β &lt; 1 and
+      0 &lt; η &lt; 2(1 + β)/L.
     </>,
   ],
 

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -119,7 +120,7 @@ export default function Bm25Viz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('the same postings walk, one posting per tick; left: raw term frequency, right: BM25 with saturation and length', 12, 18);
+        ctx.fillText('same postings; left: raw frequency; right: BM25 saturation and length adjustment', 12, 18);
         const rowH = 24;
         const top = 48;
         const rawMax = Math.max(1, ...sc.raw);
@@ -167,7 +168,9 @@ export default function Bm25Viz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -147,7 +148,7 @@ export default function KdeViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`${sc.density.name}, ${N} points; one bandwidth per tick: gray the truth, blue the kernel estimate, amber Silverman's rule`, 12, 18);
+        ctx.fillText(`${sc.density.name}, ${N} points; gray: truth; blue: KDE; amber: Silverman bandwidth`, 12, 18);
         const x0 = 24;
         const y0 = 226;
         const pw = 330;
@@ -248,7 +249,9 @@ export default function KdeViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -44,7 +44,7 @@ export const content = {
       why: linear space hits exactly 0.0 at n = 2,000 while log space
       reads −3,594.4). The profound part is what one symbol swap buys:
       replace max with <strong>sum</strong> and the identical trellis
-      computes marginals (the forward algorithm): same lattice, two
+      computes total sequence weight (the forward algorithm); add a backward pass for marginals: same lattice, two
       different questions: &quot;the best single story&quot; versus
       &quot;the weight of all stories&quot;. The contest measures the gap
       between those questions on real sequences.
@@ -77,8 +77,7 @@ export const content = {
       backpointer.
     </>,
     <>
-      <strong>Finish:</strong> the best final cell is the story&apos;s
-      probability; n·S² work total, log-space throughout.
+      <strong>Finish:</strong> the best final cell is the story&apos;s log probability; n·S² work total, log-space throughout.
     </>,
     <>
       <strong>Backtrace:</strong> follow the pointers home: the MAP path,
@@ -253,7 +252,7 @@ export const content = {
     <Figure
       id="fig-viterbi-trellis"
       aspect="16 / 7"
-      caption="One cell of the trellis, and the semiring that defines the question. The best path into state s at time t is the max over predecessors of their best paths times the transition, times the emission; backpointers remember the argmax and the backtrace reads the story out. Change exactly one operation, max to sum, and the identical lattice answers a different question: the total weight of all stories, which is the forward algorithm, posterior decoding, and the door to training."
+      caption="One cell of the trellis, and the semiring that defines the question. The best path into state s at time t is the max over predecessors of their best paths times the transition, times the emission; backpointers remember the argmax and the backtrace reads the story out. Change exactly one operation, max to sum, and the identical lattice answers a different question: the total weight of all stories, which is the forward algorithm; add a backward pass for posterior decoding, and the door to training."
       cite={{
         text: 'Viterbi, "Error Bounds for Convolutional Codes and an Asymptotically Optimum Decoding Algorithm", IEEE Transactions on Information Theory 13(2), 1967, intended as a proof device. The trellis exposition is Forney, 1973; the HMM tutorial is Rabiner, 1989; the casino is Durbin et al.',
         href: 'https://doi.org/10.1109/TIT.1967.1054010',

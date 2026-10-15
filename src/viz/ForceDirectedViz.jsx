@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -166,9 +167,9 @@ export default function ForceDirectedViz() {
         ctx.fillStyle = sc.cross === 0 ? good : warn;
         ctx.fillText(`edge crossings: ${sc.cross}${sc.it > 0 ? ` (${sc.startCross} at the random start)` : ''}`, bx, by + 100);
         ctx.fillStyle = dim;
-        ctx.fillText('the file: 6x6 grid 522 crossings to 0, stress 0.3372 to 0.0135', bx, by + 124);
+        ctx.fillText('solution: crossings 522→0; stress 0.337→0.0135', bx, by + 124);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? 'invariant: moves within the cap, all pairs counted, coordinates finite' : 'INVARIANT BROKEN', bx, by + 148);
+        ctx.fillText(sc.ok ? 'moves capped; all pairs; finite coordinates' : 'INVARIANT BROKEN', bx, by + 148);
         const line = sc.last;
         ctx.fillStyle = s.done ? (sc.ok ? good : warn) : ink;
         ctx.fillText(line.length > 96 ? `${line.slice(0, 95)}…` : line, 12, H - 6);
@@ -180,7 +181,9 @@ export default function ForceDirectedViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

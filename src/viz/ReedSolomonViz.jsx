@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -270,14 +271,14 @@ export default function ReedSolomonViz() {
           for (let i = 0; i < swept; i++) {
             const isRoot = a.roots.includes(i);
             ctx.fillStyle = isRoot ? heur : `${dim}77`;
-            ctx.fillRect(x0 + 300 + i * 18, cy - 10, 14, 12);
+            ctx.fillRect(x0 + 300 + i * 18, cy + 8, 14, 12);
           }
         }
 
         let line;
         if (phase === 0) line = t < 4 ? 'a clean codeword: every syndrome would be zero' : `${a.e} symbols hit: positions ${a.positions.join(', ')}`;
         else if (phase === 1) line = 'evaluate the received word at the generator’s roots: nonzero syndromes mean errors';
-        else if (phase === 2) line = 'each syndrome is checked against the recurrence so far; a discrepancy patches it, and every other patch lengthens it';
+        else if (phase === 2) line = 'check each syndrome against the recurrence; a discrepancy patches the recurrence';
         else if (phase === 3) line = `roots found so far: ${a.roots.filter((r) => r <= (done ? N : Math.floor((t - 96) / 3))).length}, locator degree ${a.bm.L}`;
         else if (a.ok) line = `${a.roots.length} roots match degree ${a.bm.L}: Forney values applied, syndromes all zero, message recovered exactly: ${a.exact ? 'yes' : 'no'}`;
         else line = `${a.roots.length} roots for a degree-${a.bm.L} locator: the decoder refuses rather than guess: ${a.e} errors exceed t = ${T}`;
@@ -292,7 +293,9 @@ export default function ReedSolomonViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

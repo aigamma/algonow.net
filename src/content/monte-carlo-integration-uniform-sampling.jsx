@@ -83,8 +83,7 @@ export const content = {
     </>,
     <>
       <strong>Error bar:</strong> vol(B) × s/√N with s the sample standard
-      deviation; a 95% interval is ±1.96 of that, valid when f has finite
-      variance.
+      deviation; a 95% interval is ±1.96 of that, an asymptotic normal approximation for independent samples with finite variance, not a finite-sample guarantee.
     </>,
     <>
       <strong>Refine:</strong> four times the samples halve the error, in
@@ -310,13 +309,13 @@ export const content = {
                 <g key={label}>
                   <polyline points={pts.map(([n, e]) => `${X(n)},${Y(e)}`).join(' ')} fill="none" stroke={c} strokeWidth="2" />
                   {pts.map(([n, e]) => <circle key={n} cx={X(n)} cy={Y(e)} r="3" fill={c} />)}
-                  <text x={X(10000) + 6} y={Y(pts[2][1]) + 3} fill={c} fontFamily="ui-monospace, monospace" fontSize="9">{label}</text>
+                  <text x={X(10000) + 6} y={Y(pts[2][1]) + (label === '1-D' ? 8 : label === '2-D' ? -2 : 3)} fill={c} fontFamily="ui-monospace, monospace" fontSize="9">{label}</text>
                 </g>
               ))}
               {[100, 1000, 10000].map((n) => <text key={n} x={X(n) - 10} y={y0 + 14} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{n.toLocaleString()}</text>)}
               {[0.1, 0.01].map((e) => <text key={e} x={x0 - 30} y={Y(e) + 3} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{e}</text>)}
-              <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">RMS error vs N (log-log): slopes −0.47, −0.55, −0.50, −0.49</text>
-              <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">error at equal budget (log): blue MC, gray grid, amber Halton</text>
+              <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">RMS error vs N: slopes near −0.5</text>
+              <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">error (log): MC blue, grid gray, Halton amber</text>
               {groups.map(([label, vals], g) => (
                 <g key={label}>
                   {vals.map((v, i) => (

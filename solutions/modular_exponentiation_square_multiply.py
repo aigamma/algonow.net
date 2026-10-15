@@ -1,11 +1,11 @@
 # Puzzle 88: Modular exponentiation x square-and-multiply
 # Raising a to the e-th power mod m, where e has two thousand bits:
-# the operation every handshake on the internet performs, made
+# an operation used by RSA and finite-field Diffie-Hellman, made
 # possible by reading the exponent in binary.
 #
 # The pairing is the point. The algorithm is modular
 # exponentiation with reduction after every step, so numbers never
-# outgrow 2m. The heuristic is square-and-multiply: scan the
+# exceed m squared before reduction. The heuristic is square-and-multiply: scan the
 # exponent's bits: square for every bit, multiply only on the 1s:
 # floor(log2 e) + popcount(e) - 1 multiplications instead of e - 1.
 # The count law is asserted EXACTLY against the exponent's bit
@@ -17,9 +17,11 @@
 # random triples up to 2048 bits, edge cases included. The dark
 # side is measured too: square-and-multiply's operation count
 # DEPENDS on the exponent's popcount: an eavesdropper counting
-# operations reads the key's 1s: and the Montgomery ladder is
+# operations learns the key's popcount: and the Montgomery ladder is
 # shown paying identical counts for every same-length exponent:
-# the leak, sealed, at the price of always multiplying. Clients:
+# the count difference removed, at the price of always multiplying.
+# This Python ladder still branches on secret bits and uses variable-time
+# big-integer arithmetic; it is not constant-time production cryptography. Clients:
 # toy RSA round-tripping 50 messages through 512-bit primes, and
 # 100 Diffie-Hellman handshakes agreeing on both sides.
 import random
@@ -32,7 +34,8 @@ def sqm(a, e, m, counter=None):
         return 0
     if e == 0:
         return 1 % m
-    result = a % m
+    a %= m
+    result = a
     for bit in bin(e)[3:]:
         result = (result * result) % m
         if counter is not None:
@@ -47,7 +50,8 @@ def sqm(a, e, m, counter=None):
 def ladder(a, e, m, counter=None):
     """Montgomery ladder: one square AND one multiply per bit,
     every bit, regardless of its value: the count leaks only the
-    exponent's LENGTH."""
+    exponent's LENGTH. This illustrative Python implementation is not
+    constant-time: its branches and big-integer operations can still leak."""
     if m == 1:
         return 0
     r0, r1 = 1, a % m
@@ -64,7 +68,7 @@ def ladder(a, e, m, counter=None):
 
 
 def naive_power(a, e, m, counter=None):
-    """The ladder of e-1 multiplications: run only where e is small
+    """The ladder of e multiplications from 1: run only where e is small
     enough to survive it."""
     result = 1 % m
     x = a % m
@@ -147,15 +151,20 @@ if __name__ == "__main__":
     small_ratio = naive_ops / small_ops
     assert small_ratio > 20_000, small_ratio  # measured 34,482x
 
-    # At 2048 bits the naive count is e - 1 itself: a number with
+    # At 2048 bits this naive loop's count is e itself: a number with
     # 617 decimal digits. The law, not a run.
     e_big = rng.getrandbits(2048) | (1 << 2047) | 1
     c2 = {}
     sqm(3, e_big, (1 << 2048) - 159, c2)
     big_ops = c2["sq"] + c2["mul"]
-    naive_digits = len(str(e_big - 1))
+    naive_digits = len(str(e_big))
     assert big_ops < 4_000
     assert naive_digits == 617
+    ladder_small = {}
+    ladder_big = {}
+    assert ladder(7, e_small, 10**9 + 7, ladder_small) == want
+    assert ladder(3, e_big, (1 << 2048) - 159, ladder_big) == pow(3, e_big, (1 << 2048) - 159)
+    assert ladder_small['ops'] == 40 and ladder_big['ops'] == 4096
 
     # Oracle 3: THE LEAK, counted. Same 1024-bit length, popcount 3
     # vs ~512: square-and-multiply's op count differs by exactly the
@@ -176,7 +185,7 @@ if __name__ == "__main__":
     l_de = {}
     ladder(3, e_sparse, m_leak, l_sp)
     ladder(3, e_dense, m_leak, l_de)
-    assert l_sp["ops"] == l_de["ops"]  # the leak, sealed
+    assert l_sp["ops"] == l_de["ops"]  # equal counts, not a constant-time proof
 
     # Oracle 4: toy RSA. 512-bit primes via Miller-Rabin (itself
     # riding sqm), 50 messages round-tripped exactly.
@@ -208,10 +217,10 @@ if __name__ == "__main__":
 
     print("contest: a^e mod m at 2048 bits; referee: Python's built-in pow, matched exactly on 3,006 triples including every edge case")
     print(f"  {'method':<24} {'ops at e~10^6':>13} {'ops at 2048 bits':>17}   nature")
-    print(f"  {'Naive ladder':<24} {naive_ops:>13,} {'~10^617':>17}   e-1 multiplications: run only where survivable")
+    print(f"  {'Naive ladder':<24} {naive_ops:>13,} {'~10^617':>17}   e multiplications from 1: run only where survivable")
     print(f"  {'Square-and-multiply':<24} {small_ops:>13,} {big_ops:>17,}   squares per bit, multiplies per 1: {small_ratio:,.0f}x measured")
-    print(f"  {'Montgomery ladder':<24} {'2/bit':>13} {l_sp['ops']:>17,}   every bit pays both: the count leaks nothing")
+    print(f"  {'Montgomery ladder':<24} {ladder_small['ops']:>13,} {ladder_big['ops']:>17,}   equal counts per bit; Python timing is not protected")
     print(f"the count law, exact on 500 exponents: squares == bit_length - 1, multiplies == popcount - 1")
-    print(f"the leak, counted: same 1024-bit length, popcount 3 vs {bin(e_dense).count('1')}: square-and-multiply pays {sp_ops:,} vs {de_ops:,} ops ({leak_gap} more: exactly the popcount gap: an op-counting eavesdropper reads the key's 1s); the ladder pays {l_sp['ops']:,} for both: identical")
+    print(f"the count difference: same 1024-bit length, popcount 3 vs {bin(e_dense).count('1')}: square-and-multiply pays {sp_ops:,} vs {de_ops:,} ops ({leak_gap} more: exactly the popcount gap); the ladder pays {l_sp['ops']:,} for both: identical counts do not establish constant timing")
     print(f"the clients: RSA with 512-bit Miller-Rabin primes round-tripped 50 messages exactly; 100 Diffie-Hellman handshakes agreed on both sides and matched g^(ab)")
-    print("OK: 3,006 matches against pow, the count law exact, the naive ladder priced by execution at 10^6 and by law at 2048 bits, the popcount leak counted and sealed by the ladder, and both cryptographic clients round-tripping")
+    print("OK: 3,006 matches against pow, the count law exact, the naive ladder priced by execution at 10^6 and by law at 2048 bits, the popcount-dependent count removed by the ladder (not a timing guarantee), and both toy cryptographic clients round-tripping")

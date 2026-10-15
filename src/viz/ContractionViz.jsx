@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -403,7 +404,7 @@ export default function ContractionViz() {
         ctx.fillStyle = dim;
         ctx.fillText(`plain Dijkstra settles ${sc.plain.settled}`, lx, 120);
         ctx.font = '10px ui-monospace, monospace';
-        ctx.fillText('amber dashed: shortcuts (the only shortest way through a gone node)', lx, 148);
+        ctx.fillText('amber dashed: shortcuts past removed nodes', lx, 148);
         ctx.fillText('blue dots: forward climb · amber dots: backward climb', lx, 162);
         ctx.fillText('green: the unpacked path, every edge original', lx, 176);
         ctx.font = '11px ui-monospace, monospace';
@@ -417,7 +418,9 @@ export default function ContractionViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

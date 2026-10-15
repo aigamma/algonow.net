@@ -34,7 +34,7 @@ export const narration = [
   {
     section: 'tradeoffs',
     text:
-      'The strength is that the cost is effectively constant, and provably so. Amortized inverse Ackermann per operation: three hops at fifteen hundred elements, at most four at the scale of the universe, and Fredman and Saks showed nothing can do better. The weakness is what the structure refuses to know. It answers together or not yet, and nothing else. It cannot split, cannot undo, and cannot tell you the route between two connected elements, only that one exists. The moment edges can be deleted you need entirely different machinery, link cut trees or Euler tour trees, at logarithmic cost per operation. And the guarantee is amortized, not per operation: a single early find can still be slow; it is the average over the stream that is nearly free.',
+      'The strength is that the cost is effectively constant, and provably so. Amortized big O of inverse Ackermann per operation. The inverse Ackermann function is tiny at any practical size, but its value is not an exact hop count. Fredman and Saks proved a matching asymptotic lower bound in their model. The weakness is what the structure refuses to know. It answers together or not yet, and nothing else. It cannot split, cannot undo, and cannot tell you the route between two connected elements, only that one exists. The moment edges can be deleted you need entirely different machinery, link cut trees or Euler tour trees, at logarithmic cost per operation. And the guarantee is amortized, not per operation: a single early find can still be slow; it is the average over the stream that is nearly free.',
   },
   {
     section: 'tradeoffs',

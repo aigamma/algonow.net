@@ -6,7 +6,7 @@ import { narration } from './reservoir-algorithm-r.narration.js';
 export const content = {
   given:
     'A stream of items, seen once each, whose length nobody knows and which may end at any moment.',
-  task: 'Hold, at every instant, a uniform random sample of exactly k of the items seen so far.',
+  task: 'Hold, at every instant, a uniform random sample of min(k, n) of the n items seen so far.',
   constraint:
     'One pass, k memory, and the guarantee must hold at every prefix, not just at the end, because "the end" is not a concept the stream has promised you.',
 
@@ -127,9 +127,7 @@ export const content = {
   weakness: (
     <>
       <strong>Sequential, solitary, and unweighted.</strong> Plain R burns
-      a draw per item (L exists for exactly this); a reservoir cannot
-      merge with another reservoir, so sharded pipelines want bottom-k
-      keys instead (the merge is proven exact below); and weighted or
+      a draw per item (L exists for exactly this); merging reservoirs requires the shard sizes and randomized allocation between shards; bottom-k keys instead merge directly (the merge is proven exact below); and weighted or
       priority sampling needs different machinery (A-Res and friends).
     </>
   ),

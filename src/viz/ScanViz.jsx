@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -125,7 +126,7 @@ export default function ScanViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        const title = sc.kind === 'blelloch' ? `Blelloch scan (exclusive): ${sc.phase === 'up' ? 'up-sweep' : 'down-sweep'}, one level per tick` : 'Hillis-Steele scan (inclusive): each element adds the one d places left, d = 1, 2, 4, 8';
+        const title = sc.kind === 'blelloch' ? `Blelloch scan (exclusive): ${sc.phase === 'up' ? 'up-sweep' : 'down-sweep'}, one level per tick` : 'Hillis-Steele inclusive: add from d places left, d=1,2,4,8';
         ctx.fillText(`${N} values on a parallel machine; ${title}`, 12, 18);
         const x0 = 24;
         const bw = 36;
@@ -168,7 +169,9 @@ export default function ScanViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

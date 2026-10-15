@@ -301,9 +301,9 @@ export const content = {
           );
         })}
         <rect x={40 + (4 / 16) * 560} y={214} width={(12 / 16) * 560 - 8} height={16} fill="none" stroke="#62d98a" strokeWidth="1.4" strokeDasharray="5 4" rx="4" />
-        <text x={40 + (4 / 16) * 560} y={246} fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="12">the write: add v to [4, 15]</text>
+        <text x={330} y={246} fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="12">add v to [4,15]</text>
         <text x="40" y="246" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">covers: [4,7] and [8,15]</text>
-        <text x="40" y="272" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">two stamps, zero leaves touched · debt descends only under later footsteps · eager instead: 81×, measured</text>
+        <text x="40" y="272" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">two tags, no leaves touched · push debt only when visited · eager update: 81× more work</text>
       </svg>
     </Figure>
   ),

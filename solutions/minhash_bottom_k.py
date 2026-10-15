@@ -15,6 +15,7 @@
 # 1/sqrt(k), and the LSH banding demo finding every planted duplicate
 # while doing 500x fewer comparisons than all-pairs.
 import hashlib
+import heapq
 import math
 import random
 import statistics
@@ -27,19 +28,23 @@ def h64(x, salt=""):
 
 def bottom_k(items, k, salt="", counter=None):
     """The k smallest hash values of one hash function: one pass."""
-    hs = []
+    if k <= 0:
+        raise ValueError("k must be positive")
+    heap, kept = [], set()
     for it in items:
         if counter is not None:
             counter["hashes"] = counter.get("hashes", 0) + 1
-        hs.append(h64(it, salt))
-    hs.sort()
-    out = []
-    for v in hs:  # dedupe (sets may repeat nothing, but hashes could tie)
-        if not out or v != out[-1]:
-            out.append(v)
-        if len(out) == k:
-            break
-    return out
+        value = h64(it, salt)
+        if value in kept:
+            continue
+        if len(heap) < k:
+            heapq.heappush(heap, -value)
+            kept.add(value)
+        elif value < -heap[0]:
+            removed = -heapq.heapreplace(heap, -value)
+            kept.remove(removed)
+            kept.add(value)
+    return sorted(kept)
 
 
 def jaccard_est(sig_a, sig_b, k):

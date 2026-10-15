@@ -99,8 +99,7 @@ export const content = {
       prevented to the count.
     </>,
     <>
-      <strong>Vacuum behind the horizon:</strong> versions older
-      than every live snapshot are garbage: 844 → 20, ledger
+      <strong>Vacuum behind the horizon:</strong> keep the newest version at or before the oldest live snapshot, plus all newer versions; only earlier versions are garbage: 844 → 20, ledger
       asserted balanced.
     </>,
   ],
@@ -321,8 +320,8 @@ export const content = {
         <text x="338" y="42" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">reader&apos;s snapshot: resolves left, ignores right</text>
         <text x="100" y="152" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">200/200 audits summed the invariant exactly · read-latest tore 113/200 on the same storm</text>
         <text x="100" y="186" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">write skew: T1 and T2 read the same safe photo, write disjoint keys, both commit: 0 on call</text>
-        <text x="100" y="208" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">first-committer-wins: counter == successful commits exactly · blind engine: 1,000 of 2,000 increments lost</text>
-        <text x="100" y="240" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">vacuum: 844 versions → 20 (one per key), ledger balanced: old snapshots are storage, not magic</text>
+        <text x="100" y="208" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">first-committer-wins: count = commits · blind writes lose 1,000 of 2,000</text>
+        <text x="100" y="240" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">vacuum: 844 → 20 versions · active old snapshots retain history</text>
         <text x="100" y="266" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">the fix when invariants span keys: SSI (dangerous-structure detection) or explicit locks</text>
       </svg>
     </Figure>

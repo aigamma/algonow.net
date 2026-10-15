@@ -15,14 +15,15 @@ export const content = {
       George Dantzig built the simplex method in <strong>1947</strong> for
       Air Force planning problems, and for two decades it looked
       unbeatable: a few dozen pivots on anything anyone tried. Then Klee
-      and Minty (1972) squashed a cube so that steepest-rate greed visits{' '}
+      and Minty (1972) squashed a cube so that Dantzig&apos;s reduced-cost rule visits{' '}
       <strong>every one of its 2ⁿ vertices</strong>, Beale had already
       (1955) exhibited a corner where it cycles forever, and Bland (1977)
-      proved the humble smallest-index rule cannot cycle. The paradox
-      (exponential in theory, superb in practice) stood until Spielman and
-      Teng&apos;s <strong>smoothed analysis</strong> (2004): the tiniest
-      random perturbation of any instance makes simplex expected-polynomial.
-      The traps are real, measured on this page, and vanishingly thin.
+      proved the humble smallest-index rule cannot cycle. Spielman and Teng&apos;s <strong>smoothed analysis</strong> (2004)
+      proved a bound for a particular two-phase shadow-vertex simplex
+      method: expected time polynomial in the dimensions and 1/σ under
+      their Gaussian coefficient-perturbation model. The bound depends
+      on the perturbation scale σ; it does not establish that guarantee
+      for Dantzig&apos;s rule. The traps measured here remain real.
     </p>
   ),
 
@@ -33,17 +34,17 @@ export const content = {
       vertex to adjacent vertex along edges that improve the objective,
       and when no improving edge remains it does not merely stop: the
       final tableau&apos;s reduced costs <em>are</em> a dual solution, and
-      the tests verify it on every large instance: dual feasible, gap
+      the tests verify it on five larger instances: dual feasible, gap
       zero. The answer arrives holding its own proof.
     </p>
   ),
   heurRole: (
     <p>
       Chooses <strong>which improving edge</strong>. Dantzig&apos;s rule
-      takes the steepest immediate rate: the most negative reduced cost.
+      takes the largest gain per unit of the entering variable: the most negative reduced cost in this tableau.
       On real ground that greed is superb: a median of{' '}
-      <strong>9 pivots</strong> on random 30×60 programs, four times under
-      Bland&apos;s cautious 35. Its two failure modes are the page&apos;s
+      <strong>9 pivots</strong> on random 30×60 programs, about 3.7 times below
+      Bland&apos;s cautious 33.5. Its two failure modes are the page&apos;s
       story: on the Klee-Minty cube it takes exactly{' '}
       <strong>2ⁿ − 1</strong> pivots (63, 255, 1,023, 4,095 measured as n
       climbs), and at Beale&apos;s degenerate corner, with a plain
@@ -56,11 +57,11 @@ export const content = {
     <p>
       A climber on a cut gemstone in fog, seeking the highest corner. The
       only sense available is local: from this corner, which edges lead
-      upward, and how steeply do they start? Dantzig&apos;s climber always
-      takes the edge that starts steepest: on honest gems, brilliant. The
-      Klee-Minty stone is cut by an adversary so that the steepest-looking
-      start at every corner belongs to the scenic route: the climber
-      visits all 4,096 corners of a 12-facet stone, each step locally
+      upward, and what gain do they offer per unit of the entering variable?
+      Dantzig&apos;s climber takes the largest such gain, not the largest
+      gain per unit of geometric distance. The Klee-Minty stone is cut
+      so that this choice at every corner belongs to the scenic route: the climber
+      visits all 4,096 corners of a 12-dimensional stone, each step locally
       irreproachable. And one corner is polished so flat that several
       edges tie at zero gain: a climber who breaks ties carelessly circles
       it forever, feeling progress at every turn.
@@ -77,14 +78,15 @@ export const content = {
       objective responds, per unit, to entering each nonbasic variable.
     </>,
     <>
-      <strong>Choose by the rule:</strong> Dantzig takes the steepest;
+      <strong>Choose by the rule:</strong> Dantzig takes the largest gain per unit of the entering variable;
       Bland the smallest index; random any improving one. The choice is
       the heuristic, and the contest prices all three.
     </>,
     <>
-      <strong>Ratio test:</strong> walk the chosen edge until the first
-      constraint goes tight; that variable leaves the basis. No positive
-      ratio means unbounded, reported as such.
+      <strong>Ratio test:</strong> increase the entering variable to
+      the minimum nonnegative ratio; a basic variable reaches zero and
+      leaves. Bland breaks ties by the smallest basic-variable index.
+      No positive pivot-column entry means unbounded, reported as such.
     </>,
     <>
       <strong>Stop with proof:</strong> no negative reduced cost remains;
@@ -105,9 +107,9 @@ export const content = {
       methods lack, and the reason branch-and-bound is simplex country.
     </>,
     <>
-      Instances are <strong>real, not adversarial</strong>: smoothed
-      analysis is the formal version of &quot;nature does not cut
-      Klee-Minty gems&quot;.
+      <strong>Typical performance matters:</strong> measure your
+      instances. The smoothed bound for the shadow-vertex method does
+      not supply a polynomial guarantee for Dantzig&apos;s rule.
     </>,
   ],
   baseline: (
@@ -115,7 +117,7 @@ export const content = {
       The honest baseline for the <em>pivot rule</em> is Bland&apos;s
       smallest-index rule: never cycles (proven by Bland, demonstrated
       here on the exact instance where Dantzig loops), and pays for the
-      guarantee with a median of <strong>35 pivots</strong> against
+      guarantee with a median of <strong>33.5 pivots</strong> against
       Dantzig&apos;s 9 on random ground. Real solvers keep both: greed for
       speed, Bland as the anti-cycling parachute deployed only when
       degeneracy stalls progress.
@@ -126,9 +128,9 @@ export const content = {
     <>
       <strong>Fast in the world, and self-certifying.</strong> Nine median
       pivots on random 30×60 programs, the dual certificate free in the
-      final tableau (verified: feasible, gap zero), warm-startable, and
-      smoothed-polynomial: the measured traps require an adversary&apos;s
-      hand to build and a perturbation to destroy.
+      final tableau (verified: feasible, gap zero), and warm-startable.
+      These measured results do not give Dantzig&apos;s rule a polynomial
+      guarantee under coefficient perturbations.
     </>
   ),
   weakness: (
@@ -153,7 +155,7 @@ export const content = {
       cost: 'exp worst, superb typical',
       wins: (
         <>
-          <strong>9 median pivots</strong> where caution needs 35; the
+          <strong>9 median pivots</strong> where caution needs 33.5; the
           dual certificate free; warm starts for branch-and-bound.
         </>
       ),
@@ -178,7 +180,7 @@ export const content = {
       ),
       costs: (
         <>
-          Slow greed: median 35 pivots on random ground, four times
+          Slow greed: median 33.5 pivots on random ground, about 3.7 times
           Dantzig; nobody runs it as the primary rule.
         </>
       ),
@@ -187,21 +189,21 @@ export const content = {
     {
       name: 'Simplex × random edge',
       algoName: 'Simplex method',
-      cost: 'subexp on known traps',
+      cost: '39 pivots on this cube; no general bound here',
       wins: (
         <>
-          The cube cannot be pre-cut against a coin: <strong>39
+          On this cube and random seed: <strong>39
           pivots</strong> on the Klee-Minty instance that costs Dantzig
-          4,095. Randomization as trap insurance, measured.
+          4,095. A measured improvement for this instance.
         </>
       ),
       costs: (
         <>
-          Middling on honest ground (median 29), and its worst-case
-          theory remains genuinely open.
+          Middling on this random sample (median 28.5); the measured
+          cube result is not a worst-case guarantee.
         </>
       ),
-      when: 'Adversarial or degenerate territory; and as the living argument behind smoothed analysis.',
+      when: 'Comparing pivot rules on difficult instances; changing the rule is distinct from perturbing the coefficients.',
     },
     {
       name: 'Interior-point method',
@@ -241,7 +243,7 @@ export const content = {
 
   contest: {
     instance:
-      'pivots to the proven optimum: 30 random programs (m = 30, n = 60, median) and the Klee-Minty cube at n = 12; every answer checked against exhaustive basis enumeration at toy size and against its own dual certificate at scale',
+      'pivots to the proven optimum: 30 random programs (m = 30, n = 60, median) and the Klee-Minty cube at n = 12; the rules checked against exhaustive basis enumeration at toy size and Dantzig against dual certificates on five larger instances',
     columns: ['random LPs (median)', 'Klee-Minty n = 12'],
     rows: [
       {
@@ -253,31 +255,31 @@ export const content = {
       },
       {
         method: 'Bland (smallest index)',
-        values: ['35', '465'],
-        verdict: 'the anti-cycling theorem, paying 4× on honest ground',
+        values: ['33.5', '465'],
+        verdict: 'the anti-cycling theorem, paying about 3.7× on this random sample',
       },
       {
         method: 'Random improving edge',
-        values: ['29', '39'],
+        values: ['28.5', '39'],
         best: 1,
-        verdict: 'a coin cannot be pre-trapped: 105× under Dantzig on the cube',
+        verdict: '105× fewer pivots than Dantzig on this cube and random seed',
       },
     ],
     source:
-      'python solutions/simplex_dantzig_pivots.py prints this table and asserts all three rules match exhaustive basis enumeration on 25 exact-arithmetic instances, dual feasibility with zero gap on every large solve, per-pivot feasibility, the Klee-Minty counts (63, 255, 1,023, 4,095: 2ⁿ − 1 at each n), and Beale’s corner: Dantzig revisits a basis in exact Fractions while Bland terminates at 1/20 in six pivots.',
+      'python solutions/simplex_dantzig_pivots.py prints this table and asserts all three rules match exhaustive basis enumeration on 25 exact-arithmetic instances, dual feasibility with zero gap on five larger instances, per-pivot feasibility, the Klee-Minty counts (63, 255, 1,023, 4,095: 2ⁿ − 1 at each n), and Beale’s corner: Dantzig revisits a basis in exact Fractions while Bland terminates at 1/20 in six pivots.',
   },
 
   figure: (
     <Figure
       id="fig-klee-minty"
       aspect="16 / 7"
-      caption="The trap, at n = 3. Klee and Minty squash a cube so that from every vertex, the steepest-starting edge belongs to the long way around: Dantzig's climber visits all 2³ corners in 7 pivots, each step locally irreproachable, while a two-pivot route to the top sat there the whole time. The construction scales: 2ⁿ − 1 pivots, measured on this page up to 4,095 at n = 12, and it is knife-edge thin: a random rule crosses the same cube in 39."
+      caption="The trap, at n = 3. Klee and Minty squash a cube so that from every vertex, the edge with the largest gain per unit of its entering variable belongs to the long way around: Dantzig's climber visits all 2³ corners in 7 pivots, each step locally irreproachable, while the illustrated three-pivot route to the top sat there the whole time. The construction scales: 2ⁿ − 1 pivots, measured on this page up to 4,095 at n = 12, while the random rule takes 39 pivots on the measured n = 12 instance. That changes the pivot rule, not the coefficients."
       cite={{
-        text: 'Klee and Minty, "How Good is the Simplex Algorithm?", 1972; the cycling corner is Beale, 1955, and its cure is Bland, 1977. The resolution of the paradox is Spielman and Teng, "Smoothed Analysis of Algorithms", JACM 51(3), 2004.',
+        text: 'Klee and Minty, "How Good is the Simplex Algorithm?", 1972; the cycling corner is Beale, 1955, and its cure is Bland, 1977. The shadow-vertex smoothed bound is Spielman and Teng, "Smoothed Analysis of Algorithms", JACM 51(3), 2004; its expected bound depends on dimensions and inverse Gaussian perturbation scale.',
         href: 'https://doi.org/10.1145/990308.990310',
       }}
     >
-      <svg viewBox="0 0 640 290" role="img" aria-label="A squashed cube with the seven-step greedy path snaking through all eight vertices and a two-step direct path to the top">
+      <svg viewBox="0 0 640 290" role="img" aria-label="A squashed cube with the seven-step greedy path snaking through all eight vertices and a three-step direct path to the top">
         {(() => {
           const V = {
             a: [150, 240], b: [330, 252], c: [110, 150], d: [300, 158],
@@ -308,7 +310,7 @@ export const content = {
         <text x="440" y="196" fill="#e06767" fontFamily="ui-monospace, monospace" fontSize="12">every vertex visited</text>
         <text x="440" y="226" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="12">a 3-pivot route</text>
         <text x="440" y="242" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="12">existed throughout</text>
-        <text x="30" y="36" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="12">every edge Dantzig takes starts steepest from where it stands</text>
+        <text x="30" y="36" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="12">Dantzig maximizes gain per unit of the entering variable</text>
       </svg>
     </Figure>
   ),

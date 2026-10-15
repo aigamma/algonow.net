@@ -152,8 +152,7 @@ export const content = {
       <em>scores higher Q</em> (0.9045 vs 0.8841) than the
       obviously right one. No cleverer search fixes an objective
       that prefers the wrong answer: below the resolution scale
-      you need a resolution parameter, Leiden-style refinement,
-      or a different yardstick. Greedy order also makes runs
+      you need a resolution parameter or a different yardstick; Leiden refinement alone retains the same resolution limit. Greedy order also makes runs
       nondeterministic in general, and phase-1 local optima can
       strand nodes (this page&apos;s aggregation pass is what
       rescues them).
@@ -296,7 +295,7 @@ export const content = {
     <Figure
       id="fig-louvain-limit"
       aspect="16 / 7"
-      caption="The unfolding, and the ruler that bends. Phase 1: greedy local moves, each audited against the definition of Q. Phase 2: communities collapse into supernodes and the moves repeat: hierarchy for free. The famous flaw is the objective's, not the search's: in a ring of 40 five-cliques, the partition that fuses adjacent cliques scores HIGHER modularity (0.9045) than one-community-per-clique (0.8841), so a perfect optimizer must return the fused answer. Below the resolution scale, modularity prefers the wrong partition: know the yardstick's failure modes before trusting its optimum."
+      caption="The unfolding, and the ruler that bends. Phase 1: greedy local moves, each audited against the definition of Q. Phase 2: communities collapse into supernodes and the moves repeat: hierarchy for free. The famous flaw is the objective's, not the search's: in a ring of 40 five-cliques, the partition that fuses adjacent cliques scores HIGHER modularity (0.9045) than one-community-per-clique (0.8841), so a perfect optimizer cannot return one community per clique. Below the resolution scale, modularity prefers the wrong partition: know the yardstick's failure modes before trusting its optimum."
       cite={{
         text: 'Blondel, Guillaume, Lambiotte & Lefebvre, "Fast unfolding of communities in large networks", J. Stat. Mech. 2008: the two-phase greedy that made community detection routine at scale.',
         href: 'https://doi.org/10.1088/1742-5468/2008/10/P10008',

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -182,7 +183,7 @@ export default function PagerankViz() {
         ctx.fillStyle = dim;
         const { err, steps } = statsRef.current;
         ctx.fillText(
-          `${WALKERS} surfers · ${steps.toLocaleString()} clicks · rings = the eigenvector · discs = where the swarm actually lives · gap ${(err * 100).toFixed(1)}%`,
+          `${WALKERS} surfers · ${steps.toLocaleString()} clicks · rings: rank · discs: sampled occupancy · gap ${(err * 100).toFixed(1)}%`,
           14,
           H - 10,
         );
@@ -193,7 +194,9 @@ export default function PagerankViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -145,7 +145,7 @@ export const content = {
       checkpointing trades back for recomputation. It is the wrong
       mode for many outputs: 627,750 operations for a 500-output
       Jacobian column that forward mode gets in 1,500. And it needs
-      differentiable operations: a sort or a lookup breaks the tape.
+      differentiable operations: discrete choices have no ordinary derivative at their decision boundaries. Sort values can be differentiated away from ties, and a lookup can pass gradients to the selected value, but not to its discrete index.
     </>
   ),
 
@@ -307,9 +307,9 @@ export const content = {
         <text x="430" y="142" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">forward mode 3,859,203 (n passes)</text>
         <rect x="430" y="152" width="200" height="14" fill="#e2606c" opacity="0.7" />
         <text x="430" y="180" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">finite differences 7,718,406 (2n)</text>
-        <text x="430" y="212" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">agreement: modes 3e-16, differences 7e-11</text>
+        <text x="430" y="212" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">agreement: 3e-16; finite diff 7e-11</text>
         <text x="430" y="240" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">one input, 500 outputs: forward 1,500,</text>
-        <text x="430" y="256" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">reverse 627,750: sweep from the small side</text>
+        <text x="430" y="256" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">reverse: 627,750; use small side</text>
       </svg>
     </Figure>
   ),

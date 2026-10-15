@@ -304,7 +304,7 @@ export const content = {
           const slot = 45;
           return (
             <g fontFamily="ui-monospace, monospace" fontSize="10">
-              <text x={x0} y="20" fill="#9aa5bd">one 32-bit address, 16 KB, 64-byte blocks: tag | index | offset</text>
+              <text x={x0} y="20" fill="#9aa5bd">32-bit address: tag | index | offset</text>
               {splits.map(([label, tag, index], r) => {
                 const y = 44 + r * 64;
                 const sets = index > 0 ? 1 << index : 1;
@@ -334,7 +334,7 @@ export const content = {
                   </g>
                 );
               })}
-              <text x={cx} y={cy + 28} fill="#9aa5bd" fontSize="9">ways; compulsory and capacity misses are the same in every column</text>
+              <text x={cx} y={cy + 28} fill="#9aa5bd" fontSize="9">ways; compulsory/capacity misses unchanged</text>
             </g>
           );
         })()}

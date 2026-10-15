@@ -8,7 +8,7 @@ export const content = {
     'An ordered dictionary that must survive its own input. A plain binary search tree is perfect on shuffled keys and a disaster on sorted ones: fed 4,000 sequential keys it becomes a 4,000-link list, and every lookup walks it.',
   task: 'Give every key one random priority at birth and maintain two orders at once: a search tree on the keys (in-order = sorted) and a max-heap on the priorities: all edits by split and merge.',
   constraint:
-    'A set referee shadows a 30,000-operation workload: in-order equals sorted(reference) at every checkpoint, both invariants audited over the whole tree, 500 split/merge round-trips exact. The theorem is measured: average depth 20.4 against the 2 ln n = 23.0 expectation at n = 100,000; the canonical-shape property proven by building one (key, priority) set in three orders and asserting identical trees; and the adversary priced: 2,007 visits per lookup for the plain BST, 14.8 for the treap.',
+    'A set referee shadows a 30,000-operation workload: in-order equals sorted(reference) at every checkpoint, both invariants audited over the whole tree, 500 split/merge round-trips exact. The theorem is measured: average depth 20.4 against the leading asymptotic term 2 ln n = 23.0 at n = 100,000; the canonical-shape property proven by building one (key, priority) set in three orders and asserting identical trees; and the adversary priced: 2,007 visits per lookup for the plain BST, 14.8 for the treap.',
 
   origins: (
     <p>
@@ -41,7 +41,7 @@ export const content = {
       workload checkpoints, never assumed. All editing reduces to{' '}
       <strong>split</strong> (cut the tree at a key into a
       &lt;-tree and a &ge;-tree) and <strong>merge</strong> (zip
-      two key-disjoint trees, higher priority on top): insert =
+      two trees with every left-tree key smaller than every right-tree key, higher priority on top): insert =
       split, make a leaf, merge twice; delete = two splits, drop
       the middle, merge. Five hundred split/merge round-trips
       restored the exact in-order sequence, and a 30,000-op
@@ -98,7 +98,7 @@ export const content = {
       round-trips verified exact.
     </>,
     <>
-      <strong>Merge:</strong> zip two key-disjoint trees, higher
+      <strong>Merge:</strong> zip two trees with every left-tree key smaller than every right-tree key, higher
       priority wins the root: split&apos;s exact inverse.
     </>,
     <>
@@ -310,7 +310,7 @@ export const content = {
     <Figure
       id="fig-treap-two-orders"
       aspect="16 / 7"
-      caption="Two orders, one tree, and the dice hold the shape. Keys read left-to-right in BST order; priorities decrease downward in heap order; the unique tree satisfying both is a canonical function of the (key, priority) set, independent of arrival order (proven here across three orders, node for node). Random draws make that shape behave like a random-order BST: average depth 20.4 at n = 100,000 against the 2 ln n = 23.0 expectation: while sequential arrival, which stretches a plain BST to depth 4,000 (2,007 visits per lookup), leaves the treap at 14.8."
+      caption="Two orders, one tree, and the dice hold the shape. Keys read left-to-right in BST order; priorities decrease downward in heap order; the unique tree satisfying both is a canonical function of the (key, priority) set, independent of arrival order (proven here across three orders, node for node). Random draws make that shape behave like a random-order BST: average depth 20.4 at n = 100,000 against the leading asymptotic term 2 ln n = 23.0: while sequential arrival, which stretches a plain BST to depth 4,000 (2,007 visits per lookup), leaves the treap at 14.8."
       cite={{
         text: 'R. Seidel, C. R. Aragon, "Randomized Search Trees," Algorithmica 16, 1996 (FOCS 1989). DOI 10.1007/BF01940876. Cartesian trees: Vuillemin 1980; kin: skip lists (Pugh 1990), zip trees (Tarjan et al. 2018).',
         href: 'https://doi.org/10.1007/BF01940876',
@@ -339,7 +339,7 @@ export const content = {
         <text x="480" y="52" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">priorities decrease downward</text>
         <text x="480" y="66" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">(a max-heap: the dice)</text>
         <text x="30" y="232" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">split(k): one tree → (&lt;k, ≥k) · merge: the inverse · insert and delete are compositions</text>
-        <text x="30" y="254" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: avg depth 20.4 at n=100,000 (2 ln n = 23.0) · same shape from 3 arrival orders · adversary: bst 2,007 vs treap 14.8</text>
+        <text x="30" y="254" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">n=100,000: depth 20.4, 2 ln n=23.0 · 3 orders, same tree · adversary: 2,007 vs 14.8</text>
         <text x="30" y="276" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">key-derived priorities: depth 4,000 of 4,000: the randomness is the load-bearing wall</text>
       </svg>
     </Figure>

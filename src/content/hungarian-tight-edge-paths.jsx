@@ -315,7 +315,7 @@ export const content = {
         <text x="450" y="78" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">stuck tree: rows +δ,</text>
         <text x="450" y="92" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">columns −δ, δ = min slack:</text>
         <text x="450" y="106" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">one cell snaps tight</text>
-        <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: greedy 4,535 vs optimal 1,747 (n=150) · the trap 4,004 vs 12 · Σu+Σv = cost, asserted everywhere</text>
+        <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">n = 150: greedy 4,535 vs optimum 1,747 · trap: 4,004 vs 12 · Σu + Σv = cost</text>
       </svg>
     </Figure>
   ),

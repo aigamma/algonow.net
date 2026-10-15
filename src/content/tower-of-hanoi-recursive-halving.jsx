@@ -276,7 +276,7 @@ export const content = {
     <Figure
       id="fig-hanoi-sierpinski"
       aspect="16 / 7"
-      caption="Left: the state graph for three disks, 27 states drawn as the Sierpiński triangle, with the recursive solution's path from the all-on-source corner to the all-on-target corner highlighted: 7 moves along one edge of the triangle, the largest disk's single move being the step between the two big sub-triangles. Right: moves by n for three pegs (2ⁿ − 1), four pegs (Frame-Stewart, equal to the breadth-first optimum), and the random walk's mean, on a log scale."
+      caption="Left: the state graph for three disks, 27 states drawn as the Sierpiński triangle, with the recursive solution's path from the all-on-source corner to the all-on-target corner highlighted: 7 highlighted legal moves, the largest disk's single move being the step between the two big sub-triangles. Right: moves by n for three pegs (2ⁿ − 1), four pegs (Frame-Stewart, equal to the breadth-first optimum), and the random walk's mean, on a log scale."
       cite={{
         text: 'É. Lucas (as N. Claus), La Tour d’Hanoï, 1883. J. S. Frame and B. M. Stewart, solutions to advanced problem 3918, American Mathematical Monthly 48(3), 1941, pp. 216-219, DOI 10.2307/2304268. T. Bousch, "La quatrième tour de Hanoï," Bulletin of the Belgian Mathematical Society 21(5), 2014.',
         href: 'https://doi.org/10.2307/2304268',
@@ -289,13 +289,13 @@ export const content = {
           const pos = (state) => {
             let x = 0;
             let y = 0;
-            let r = 90;
+            let r = 68;
             for (let i = 0; i < 3; i += 1) {
               x += pegVec[state[i]][0] * r;
               y -= pegVec[state[i]][1] * r;
               r /= 2;
             }
-            return [180 + x, 150 + y];
+            return [180 + x, 164 + y];
           };
           const states = [];
           for (let a = 0; a < 3; a += 1) for (let b = 0; b < 3; b += 1) for (let c = 0; c < 3; c += 1) states.push([a, b, c]);
@@ -355,9 +355,9 @@ export const content = {
               <polyline points={walk.map((v, i) => `${X(i)},${Y(v)}`).join(' ')} fill="none" stroke="#e2606c" strokeWidth="2" strokeDasharray="4 3" />
               {ns.map((n, i) => <text key={n} x={X(i) - 3} y={by + 14} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{n}</text>)}
               {[1, 10, 100, 1000].map((v) => <text key={v} x={bx - 30} y={Y(v) + 3} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{v}</text>)}
-              <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">moves by n (log): blue three pegs, green four pegs,</text>
+              <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">moves (log): blue 3 pegs, green 4,</text>
               <text x={bx} y="36" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">red dashed the random walk's mean</text>
-              <text x={bx} y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">n = 8: 255 against 33; the walk at n = 6: 5,780</text>
+              <text x={bx} y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">n=8: 255 vs 33 · n=6 walk: 5,780</text>
             </g>
           );
         })()}

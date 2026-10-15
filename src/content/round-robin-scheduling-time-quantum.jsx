@@ -325,7 +325,7 @@ export const content = {
               ))}
               <line x1={X(4)} y1={y0 - ph} x2={X(4)} y2={y0} stroke="#62d98a" strokeDasharray="3 3" />
               <text x={X(4) + 4} y={y0 - ph + 10} fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="9">q = 4</text>
-              <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">amber: interactive response (0 to 40); blue: mean turnaround (0 to 240)</text>
+              <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">response amber; turnaround blue</text>
               <text x={x0} y={y0 + 30} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">quantum, log scale; response 11.8 and turnaround 82.0 at q = 4</text>
               <line x1={bx} y1={y0} x2={bx + bw} y2={y0} stroke="#9aa5bd" strokeOpacity="0.6" />
               <polyline points={qs.map((q, i) => `${XB(q)},${YU(util[i])}`).join(' ')} fill="none" stroke="#e2606c" strokeWidth="2" />

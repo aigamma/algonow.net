@@ -332,7 +332,7 @@ export const content = {
               ))}
               {[0.5, 0.9, 0.99].map((r) => <text key={r} x={X(r) - 10} y={by + 12} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{r}</text>)}
               {[1, 9, 99].map((L) => <text key={L} x={bx - 22} y={Y(L) + 3} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{L}</text>)}
-              <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">L = rho / (1 - rho), log scale; dots: simulation</text>
+              <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">L = ρ/(1−ρ), log; simulation dots</text>
               <text x={bx} y={by + 28} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">1 at 0.5, 9 at 0.9, 19 at 0.95, 99 at 0.99</text>
             </g>
           );

@@ -298,7 +298,7 @@ export const content = {
     <Figure
       id="fig-dp-breathing"
       aspect="16 / 7"
-      caption="Two answers from one set of stages, and the difference drives the wheel. The Dormand-Prince tableau's order-5 and order-4 results share six evaluations; |y₅ − y₄| prices each step (audited within 10× of truth, 40/40), the fifth-root law resizes h, and the steps breathe: 0.38 through the flame front, 26.4 on the flats, 488 evaluations against fixed-step RK4's 4,000 for the same refereed answer. Order five is an experiment here (32.0× per halving), the cost dial obeys its law (15.4× vs 15.8×), and the method's wall is measured too: 117× on a smooth stiff problem, where stability, not accuracy, pins every explicit step."
+      caption="Two answers from one set of stages, and the difference drives the wheel. The Dormand-Prince tableau's order-5 and order-4 results share seven stages, with six new evaluations after reusing the previous endpoint; |y₅ − y₄| prices each step (audited within 10× of truth, 40/40), the fifth-root law resizes h, and the steps breathe: 0.38 through the flame front, 26.4 on the flats, 488 evaluations against fixed-step RK4's 4,000 for the same refereed answer. Order five is an experiment here (32.0× per halving), the cost dial obeys its law (15.4× vs 15.8×), and the method's wall is measured too: 117× on a smooth stiff problem, where stability, not accuracy, pins every explicit step."
       cite={{
         text: 'J. R. Dormand, P. J. Prince, "A family of embedded Runge-Kutta formulae," J. Comp. Appl. Math. 6(1), 1980. DOI 10.1016/0771-050X(80)90013-3. Embedded pairs: Fehlberg 1969 (NASA); ode45: Shampine-Reichelt 1997.',
         href: 'https://doi.org/10.1016/0771-050X(80)90013-3',
@@ -313,7 +313,7 @@ export const content = {
         <text x="44" y="246" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">the steps beneath: h breathing 69× (0.38 at the front, 26.4 on the flats): nobody chose them</text>
         <text x="360" y="110" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">est = |y₅ − y₄| from shared stages</text>
         <text x="360" y="124" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">h ← 0.9 h (tol/est)^(1/5)</text>
-        <text x="40" y="268" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">measured laws: order 32.0× per halving (2⁵) · cost dial 15.4× vs 15.8× predicted · dividend 8× vs fixed RK4</text>
+        <text x="40" y="268" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">halving: error ÷32 (2⁵) · cost ratio: 15.4× vs predicted 15.8× · 8× over fixed RK4</text>
         <text x="40" y="284" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">the wall: stiff twin 117× dearer: stability pins explicit steps: adaptivity cannot fix stiffness</text>
       </svg>
     </Figure>

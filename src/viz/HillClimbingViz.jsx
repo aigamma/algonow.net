@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -148,7 +149,7 @@ export default function HillClimbingViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('eight queens, one steepest-ascent step per tick; red lines: attacking pairs; a stuck climb restarts from a random board', 12, 18);
+        ctx.fillText('eight queens: red attacking pairs; steepest ascent; restart randomly when stuck', 12, 18);
         const cell = 27;
         const ox = 30;
         const oy = 40;
@@ -200,7 +201,7 @@ export default function HillClimbingViz() {
           ctx.fillRect(tx + (k % 20) * 14, 180 + Math.floor(k / 20) * 14, 10, 10);
         }
         ctx.fillStyle = dim;
-        ctx.fillText('red: climbs that stuck; amber: the current climb; green: solved', tx, 222);
+        ctx.fillText('red: stuck; amber: current; green: solved', tx, 222);
         ctx.fillStyle = sc.ok ? good : warn;
         ctx.fillText(sc.ok ? `the recount matches; ${SOLUTIONS.size} solutions known` : 'INVARIANT BROKEN', tx, 250);
         let line;
@@ -220,7 +221,9 @@ export default function HillClimbingViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

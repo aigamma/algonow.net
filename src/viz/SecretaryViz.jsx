@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -193,7 +194,7 @@ export default function SecretaryViz() {
           const played = ep + (reveal ? 1 : 0);
           ctx.fillStyle = ink;
           ctx.font = '12px ui-monospace, monospace';
-          ctx.fillText(`wins ${tally}/${played}${played ? ` (${Math.round((100 * tally) / played)}%)` : ''} · long run: 37%`, 460, 44);
+          ctx.fillText(`wins ${tally}/${played}${played ? ` (${Math.round((100 * tally) / played)}%)` : ''} · limit ≈37%`, 410, 44);
           let line;
           if (reveal) {
             line = episode.win
@@ -249,7 +250,7 @@ export default function SecretaryViz() {
               ctx.fill();
             }
             ctx.fillStyle = good;
-            ctx.fillText('dots: 3,000-trial simulation riding the exact curve', 330, 220);
+            ctx.fillText('dots: 3,000-trial simulation', 330, 220);
           }
           if (frac >= 1 || done) {
             ctx.strokeStyle = `${warn}AA`;
@@ -264,7 +265,7 @@ export default function SecretaryViz() {
           }
           let line;
           if (done || t >= 200) {
-            line = 'too early: no bar · too late: the best is spent calibrating · n/e: the proven balance, flat-topped and forgiving';
+            line = 'too early: weak threshold · too late: best already passed · optimum near n/e';
             ctx.fillStyle = good;
           } else {
             line = 'the whole strategy space in one curve: computed from the closed form, not sampled';
@@ -285,7 +286,9 @@ export default function SecretaryViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -301,7 +302,7 @@ export default function ChristofidesViz() {
         ctx.fillText(`MST: ${sc.mstLen.toFixed(0)}  (${(sc.mstLen / sc.opt).toFixed(2)} of the optimum: never more than 1)`, x, 60);
         if (act >= 1) {
           ctx.fillStyle = heur;
-          ctx.fillText(`${sc.odd.length} odd cities · matching: ${sc.matchLen.toFixed(0)}  (${(sc.matchLen / sc.opt).toFixed(2)}: never more than 0.5)`, x, 84);
+          ctx.fillText(`${sc.odd.length} odd · matching ${sc.matchLen.toFixed(0)} (${(sc.matchLen / sc.opt).toFixed(2)}x; bound 0.5)`, x, 84);
         }
         if (act === 2 && t >= (sc.walk.length - 1) * 2) {
           ctx.fillStyle = good;
@@ -313,7 +314,7 @@ export default function ChristofidesViz() {
 
         let line;
         if (act === 0) line = `Prim: ${mstShown} of ${sc.mst.length} edges: the tree costs at most what any tour costs`;
-        else if (act === 1) line = `${sc.odd.length} cities have odd degree: pairing them cheaply makes every degree even, at most half an optimal tour`;
+        else if (act === 1) line = `pair ${sc.odd.length} odd cities: all degrees become even; matching costs at most OPT/2`;
         else if (t < (sc.walk.length - 1) * 2) line = 'every degree even means an Euler walk exists: walk every edge once and come home';
         else line = `shortcut: skip cities already seen: ${(sc.tourLen / sc.opt).toFixed(3)} x optimum, the theorem says at most 1.5`;
         ctx.fillStyle = act === 2 && t >= (sc.walk.length - 1) * 2 ? good : ink;
@@ -326,7 +327,9 @@ export default function ChristofidesViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

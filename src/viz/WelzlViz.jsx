@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -84,12 +85,12 @@ export function makeScene(seed) {
     raw.push([320 + gx * 112, 152 + gy * 62]);
   }
   // Similarity-map the blob so its enclosing circle lands on a fixed
-  // frame: r 128 at (320, 158). A similarity preserves which point
+  // frame: r 112 at (320, 148). A similarity preserves which point
   // pins the circle, so the animated run is the real one, and no
   // gaussian tail cycle ever pushes the circle offscreen.
   const pre = runWelzl(raw).c;
-  const f = 128 / pre.r;
-  const mapped = raw.map(([x, y]) => [320 + (x - pre.x) * f, 158 + (y - pre.y) * f]);
+  const f = 112 / pre.r;
+  const mapped = raw.map(([x, y]) => [320 + (x - pre.x) * f, 148 + (y - pre.y) * f]);
   // Five real shuffles of the same set; animate the median-cost one.
   // A single n = 56 run can be a freak (one unlucky late rebuild
   // triples the bill); the median shuffle is the typical behavior
@@ -111,7 +112,7 @@ export function makeScene(seed) {
   const arc = [];
   for (let t = 0; t < 44; t++) {
     const th = ((-80 + (160 * t) / 43) * Math.PI) / 180;
-    arc.push([320 + 96 * Math.cos(th), 158 + 96 * Math.sin(th)]);
+    arc.push([320 + 96 * Math.cos(th), 148 + 96 * Math.sin(th)]);
   }
   const acts = [
     {
@@ -252,10 +253,10 @@ export default function WelzlViz() {
           ctx.fillStyle = ev.out ? warn : ink;
         } else if (act.betray) {
           const r1 = s.scene.acts[0].run;
-          line = `${n} sorted arrivals · ${act.run.rebuilds} rebuilds · ${act.run.tests.toLocaleString()} tests vs act one's ${r1.tests.toLocaleString()}: the shuffle IS the algorithm`;
+          line = `sorted: ${act.run.rebuilds} rebuilds · ${act.run.tests.toLocaleString()} tests; shuffled: ${r1.tests.toLocaleString()}`;
           ctx.fillStyle = warn;
         } else {
-          line = `${n} points enclosed · ${act.run.rebuilds} rebuilds · ${act.run.tests.toLocaleString()} tests: late arrivals almost never rebuild`;
+          line = `${n} points enclosed · ${act.run.rebuilds} rebuilds · ${act.run.tests.toLocaleString()} tests`;
           ctx.fillStyle = good;
         }
         ctx.font = '12px ui-monospace, monospace';
@@ -273,7 +274,9 @@ export default function WelzlViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

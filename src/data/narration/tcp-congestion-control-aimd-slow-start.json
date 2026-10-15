@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:tcp-congestion-control-aimd-slow-start",
   "source_path": "src/content/tcp-congestion-control-aimd-slow-start.narration.js",
-  "source_sha256": "327145455f10d5e7bdf8fbba9a63b024d00fe0a35ea336bf9a705f5a61c5d01a",
-  "source_characters": 10518,
+  "source_sha256": "e874f2efbba1389a3fb5b52cb03279d2e143b6a26faf7a845e1de028a6a77995",
+  "source_characters": 10726,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -42,9 +42,9 @@
     }
   },
   "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
-  "release_sha256": "b9a71b91ffe7c887b18f50fdde2d22da181e6c2586e71ac54a7c956256049e2f",
-  "generated_at": "2026-09-27T03:08:28.780Z",
-  "generated_characters": 21036,
+  "release_sha256": "59875d280836f19e20f17dc4320dec30ed7226b21b9cead855d7e262b082a0f8",
+  "generated_at": "2026-10-15T22:37:08.643Z",
+  "generated_characters": 21452,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -76,9 +76,9 @@
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4398,
-      "utf8_bytes": 4404,
-      "sha256": "40b61a570ad97f742a1de1a1394118b567759cbe33ef63c3045f989312a7f61c"
+      "characters": 4606,
+      "utf8_bytes": 4612,
+      "sha256": "df3c352ad5c2eca53b280dbfa9fce700dc50fe2c812934e1d2be7e6b1799ea1b"
     },
     {
       "id": "request-003",
@@ -226,8 +226,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 906,
-      "sha256": "8fc12ff4dec006f16fddf98d69463c9a5065177af1d90b5b6af0d7493f4f18ec"
+      "utf8_bytes": 1069,
+      "sha256": "f75fb24b446ae914757e1684193af26be6de08be064121a7e339b2460b1ba769"
     },
     {
       "id": "tcp-congestion-control-aimd-slow-start.06-signals",
@@ -295,8 +295,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 562,
-      "sha256": "aec6338cdfe86876653c4810c413e08f44a5a6894ce4cf58217b25143c95a9a4"
+      "utf8_bytes": 607,
+      "sha256": "a9e63264464c0d8bf2534c7d3c315e26799ebe548c822e5c32e9f40b68794b7a"
     },
     {
       "id": "tcp-congestion-control-aimd-slow-start.09-tradeoffs",
@@ -351,29 +351,29 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/tcp-congestion-control-aimd-slow-start/b9a71b91ffe7c887b18f/aoede-0a9c7bf47b9cc5bc.mp3",
+      "object_key": "narration/v1/puzzles/tcp-congestion-control-aimd-slow-start/59875d280836f19e20f1/aoede-6ef3d6ce53562705.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2551628,
-      "sha256": "0a9c7bf47b9cc5bc94c081852f34298988223eeb6bd71e6949420d345b64797a",
+      "bytes": 2614028,
+      "sha256": "6ef3d6ce535627059eae6e04dd929abbfacd80bf1f3e86108951c45908758194",
       "request_parts": [
         {
           "request_index": 1,
           "request_sha256": "0c8a04e62d1c7d2166d06a0cc4fda3d5755c0be7309128e9a2b2adc9cc668b7a",
-          "bytes": 1112544,
-          "sha256": "4b85e81ecb9d194c09e2472a85c05884d2b975c403ad750d212f465472d84e62"
+          "bytes": 1072224,
+          "sha256": "9fbf8b24245e739a64d3e931a70add58a0057261ebb1c776a7cb43ef81c976ba"
         },
         {
           "request_index": 2,
-          "request_sha256": "40b61a570ad97f742a1de1a1394118b567759cbe33ef63c3045f989312a7f61c",
-          "bytes": 1094592,
-          "sha256": "33fe3a57bef6f074cb116b09fb8a3491080ca14dc3bc3a0c4b0bda8cf9e3fb30"
+          "request_sha256": "df3c352ad5c2eca53b280dbfa9fce700dc50fe2c812934e1d2be7e6b1799ea1b",
+          "bytes": 1199424,
+          "sha256": "9987aea6f56eb9607a0a3e6c5b9b0c19019214b874c70ed9b9ce41d0ef592900"
         },
         {
           "request_index": 3,
           "request_sha256": "96514f034b1f8111af35f3e81b0c21862a0911cf323a9695dc0f48ab15cc575c",
-          "bytes": 344256,
-          "sha256": "8fac97e08aeaab501058d60783976aaf5c9aeefa496669608c1f3e4a22fe6db9"
+          "bytes": 342144,
+          "sha256": "1fc6efe174f5ad5a7bbf4eccc68f9c014e3c95107b29c209de66e5372e68c8c8"
         }
       ]
     },
@@ -382,29 +382,29 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/tcp-congestion-control-aimd-slow-start/b9a71b91ffe7c887b18f/algieba-3d7b0aa17da95be6.mp3",
+      "object_key": "narration/v1/puzzles/tcp-congestion-control-aimd-slow-start/59875d280836f19e20f1/algieba-2a4ce7f2b7ba6bb0.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2669708,
-      "sha256": "3d7b0aa17da95be6e42ce03aa86e21903f672443fbd6dc23c30c9fc518a4d82c",
+      "bytes": 2741996,
+      "sha256": "2a4ce7f2b7ba6bb0fd56f918de6b1ffa7acfe81f6f8e4026da4a1b6412b1eb3c",
       "request_parts": [
         {
           "request_index": 1,
           "request_sha256": "0c8a04e62d1c7d2166d06a0cc4fda3d5755c0be7309128e9a2b2adc9cc668b7a",
-          "bytes": 1159104,
-          "sha256": "a12caa71b7f73e395882ab9dc10c2ca1377f85ab88a3cffe9d5815241ad6e179"
+          "bytes": 1148352,
+          "sha256": "5918c80b33c9d62129be6698930a338874eaa2c48d56dcb0cdba5cd1cfb56a83"
         },
         {
           "request_index": 2,
-          "request_sha256": "40b61a570ad97f742a1de1a1394118b567759cbe33ef63c3045f989312a7f61c",
-          "bytes": 1164096,
-          "sha256": "912ad3ce264a58d5bf44502497a323a72327fe99cd488d3e1c45b125bb628dd0"
+          "request_sha256": "df3c352ad5c2eca53b280dbfa9fce700dc50fe2c812934e1d2be7e6b1799ea1b",
+          "bytes": 1235904,
+          "sha256": "af2392cc088bb23359ac858056b6a992f91ff16da222fd3592164b3d59764d5d"
         },
         {
           "request_index": 3,
           "request_sha256": "96514f034b1f8111af35f3e81b0c21862a0911cf323a9695dc0f48ab15cc575c",
-          "bytes": 346272,
-          "sha256": "0fe2f4a4f257fac81facee68da6ef6ecf35dce0a52c556f1b8a27b2367121ec8"
+          "bytes": 357504,
+          "sha256": "b18618f9b898643cbdf5093c875ee7f61a0d6c6172f54e1f022c5732ae931518"
         }
       ]
     }

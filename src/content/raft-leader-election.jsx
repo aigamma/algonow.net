@@ -5,7 +5,7 @@ import { narration } from './raft-leader-election.narration.js';
 
 export const content = {
   given:
-    'Five machines, an unreliable network, crashes at arbitrary moments: and a question that must never have two simultaneous answers: who leads?',
+    'Five machines, an unreliable network, crashes at arbitrary moments: and a question whose answer must be unique within each term: who leads?',
   task: "Elect one leader per term, provably: logical terms as epochs, one vote per node per term, majority quorums: with liveness bought by each node's randomized election timeout.",
   constraint:
     'The referee is the raw vote ledger, audited at zero tolerance: 19,248 votes across 3,875 terms with no double votes, no double majorities, no term ever holding two leaders. The ablation removes only the randomness: identical timeouts livelock 0-of-60 elections in five-way splits, while a 150 ms spread resolves 60-of-60, usually in one term.',
@@ -92,13 +92,12 @@ export const content = {
     </>,
     <>
       <strong>Crown on majority:</strong> three of five: disjoint
-      majorities cannot exist, so neither can co-leaders: checked
+      majorities cannot exist, so neither can two leaders in the same term: checked
       in every term.
     </>,
     <>
       <strong>Step down on a higher term:</strong> any message
-      from the future demotes you: stale leaders are harmless,
-      not dangerous.
+      from the future demotes you: a partitioned old leader may still believe it leads until then; safe commits also require quorum-based log replication.
     </>,
   ],
 
@@ -324,8 +323,8 @@ export const content = {
           <circle key={i} cx={420 + (i % 3) * 60} cy={80 + Math.floor(i / 3) * 70} r={17} fill="rgba(240,185,75,0.3)" stroke="#f0b94b" strokeWidth="2" />
         ))}
         <text x="400" y="38" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="12">identical timers: five candidates</text>
-        <text x="400" y="200" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">1-1-1-1-1, term++, repeat: 0/60 ever elect</text>
-        <text x="40" y="276" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">audited: 19,248 votes, 3,875 terms, zero double votes, zero double majorities · 120/120 crash successions, worst gap 700 ms</text>
+        <text x="400" y="200" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">split votes, term++, repeat: 0/60 elect</text>
+        <text x="40" y="276" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">19,248 votes, 3,875 terms: no double majority · 120/120 successions, gap ≤ 700 ms</text>
       </svg>
     </Figure>
   ),

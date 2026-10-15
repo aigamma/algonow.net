@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:reed-solomon-berlekamp-massey",
   "source_path": "src/content/reed-solomon-berlekamp-massey.narration.js",
-  "source_sha256": "079d8bd6bb6fb16cee01ab457018d6774a4e6429035014e6ab84cda5e7046653",
-  "source_characters": 11079,
+  "source_sha256": "ef1047498c61c120bdf12888d0ea7e6a2d49d9b7cfeec2af89adc99011cbb7a8",
+  "source_characters": 11187,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -42,9 +42,9 @@
     }
   },
   "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
-  "release_sha256": "f0d9fc36d6780f7a462172bbb6c093cbbc4124920273abdef3239733da045fc3",
-  "generated_at": "2026-09-26T22:08:36.364Z",
-  "generated_characters": 22158,
+  "release_sha256": "a3c3c0924252c353fb88f01970330d1dccd34be14a97521c4bcffa8f297bac90",
+  "generated_at": "2026-10-15T22:10:53.397Z",
+  "generated_characters": 22374,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -69,23 +69,23 @@
     {
       "id": "request-001",
       "index": 1,
-      "characters": 4920,
-      "utf8_bytes": 4932,
-      "sha256": "d17f79a2cafc8a351371c7cf023dce2ba7352d4ba1bfa6665d6671629cd04bb7"
+      "characters": 4018,
+      "utf8_bytes": 4030,
+      "sha256": "1376435ed8e34c8c7ddafa0f275bb995a6f7ea8ebc99f262a170e5f2e37bc769"
     },
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4892,
-      "utf8_bytes": 4902,
-      "sha256": "41c3be614f66dbfa12a9dd060deba04b78dfae36fef49c3bb4da215d668095f6"
+      "characters": 4227,
+      "utf8_bytes": 4233,
+      "sha256": "b8926019ed2dde9125b81ffd4ebc288a007f015f124e08f62657cbce4485c304"
     },
     {
       "id": "request-003",
       "index": 3,
-      "characters": 1267,
-      "utf8_bytes": 1275,
-      "sha256": "67e3f13fa07f427ade941de0855d1a43887923582ccefbfd0f412d858accc250"
+      "characters": 2942,
+      "utf8_bytes": 2954,
+      "sha256": "357d8a5f66be49a1f899d3992dfc466b8e7d545074f425e8cac3d67771911414"
     }
   ],
   "assembly": {
@@ -203,8 +203,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 900,
-      "sha256": "1e8301f44c11027c7a78a6af566265f4eb567f8ebd5c1847fa18d3f14444845d"
+      "utf8_bytes": 989,
+      "sha256": "25f972b84568c2728dbc08397b7417741a6c6290dec6e1c9674ad9f952607322"
     },
     {
       "id": "reed-solomon-berlekamp-massey.05-run",
@@ -295,8 +295,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 860,
-      "sha256": "c66c704a7d996f6a8aa848986f46603f3ecde9a431e85492afd540266b0196d7"
+      "utf8_bytes": 879,
+      "sha256": "b2ba155769a2122ee8bb302e9e5f28cbdca635965824e6433bbe325e3bba2fa7"
     },
     {
       "id": "reed-solomon-berlekamp-massey.09-tradeoffs",
@@ -351,29 +351,29 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/reed-solomon-berlekamp-massey/f0d9fc36d6780f7a4621/aoede-0bac5e399d456f91.mp3",
+      "object_key": "narration/v1/puzzles/reed-solomon-berlekamp-massey/a3c3c0924252c353fb88/aoede-be7b83f6e1707e43.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2873900,
-      "sha256": "0bac5e399d456f91655d379580f31c2268583e464dd69c91373849b36926302f",
+      "bytes": 2847212,
+      "sha256": "be7b83f6e1707e43a8d1e66c70fd8de1612be864b4747b19c9bd0a5c2aa90b17",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "d17f79a2cafc8a351371c7cf023dce2ba7352d4ba1bfa6665d6671629cd04bb7",
-          "bytes": 1254432,
-          "sha256": "c60849d172903631908f95ad9fe5d8378313b7556d925b85723003bed17e69fa"
+          "request_sha256": "1376435ed8e34c8c7ddafa0f275bb995a6f7ea8ebc99f262a170e5f2e37bc769",
+          "bytes": 975264,
+          "sha256": "8f548b833e5a11c7f6b706e543aa4e7b413721afccc5236076a7b75c7607cd4c"
         },
         {
           "request_index": 2,
-          "request_sha256": "41c3be614f66dbfa12a9dd060deba04b78dfae36fef49c3bb4da215d668095f6",
-          "bytes": 1310016,
-          "sha256": "51c28dcf1aa65dd739dbcaa0e4c21584b67dae00457d2fd847b6f80d011c8453"
+          "request_sha256": "b8926019ed2dde9125b81ffd4ebc288a007f015f124e08f62657cbce4485c304",
+          "bytes": 1121856,
+          "sha256": "70e8ee42ea34ea206f9803a2c55253478d681ee163de58bac3e394b28ff0e1be"
         },
         {
           "request_index": 3,
-          "request_sha256": "67e3f13fa07f427ade941de0855d1a43887923582ccefbfd0f412d858accc250",
-          "bytes": 309216,
-          "sha256": "6cdb3293dab55943d57dd1f4cd04aeb1c0aa10d9ff696cdd72dbb65ae4e75286"
+          "request_sha256": "357d8a5f66be49a1f899d3992dfc466b8e7d545074f425e8cac3d67771911414",
+          "bytes": 749856,
+          "sha256": "be3f51944294b1762f4e397f79a4a8d751775d17e8b8790add787ef6bc9f53fa"
         }
       ]
     },
@@ -382,29 +382,29 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/reed-solomon-berlekamp-massey/f0d9fc36d6780f7a4621/algieba-afffc475ea5a4417.mp3",
+      "object_key": "narration/v1/puzzles/reed-solomon-berlekamp-massey/a3c3c0924252c353fb88/algieba-c4b98e23ff66d409.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2964620,
-      "sha256": "afffc475ea5a4417e98c216b81e5b4391b9aff2a55deb61cd90f658da3f8130d",
+      "bytes": 2991596,
+      "sha256": "c4b98e23ff66d409c1fd0183af2478819c22890062823ff93950150fa791a1a7",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "d17f79a2cafc8a351371c7cf023dce2ba7352d4ba1bfa6665d6671629cd04bb7",
-          "bytes": 1310592,
-          "sha256": "9bcdac298b06b9015aa80102b7b74bf481097e534529f692bc4cdbd35f893954"
+          "request_sha256": "1376435ed8e34c8c7ddafa0f275bb995a6f7ea8ebc99f262a170e5f2e37bc769",
+          "bytes": 1050912,
+          "sha256": "62528ad185f0a5d845eddede18a7160b4b58615837335e27344bcd7c3ffa619c"
         },
         {
           "request_index": 2,
-          "request_sha256": "41c3be614f66dbfa12a9dd060deba04b78dfae36fef49c3bb4da215d668095f6",
-          "bytes": 1346496,
-          "sha256": "2ae18546f438dbfe1ea95479f84ab2aa2a85cdce6375d6438217dab76e353094"
+          "request_sha256": "b8926019ed2dde9125b81ffd4ebc288a007f015f124e08f62657cbce4485c304",
+          "bytes": 1202016,
+          "sha256": "392e3b05332747bd02cf1d2b50f25026673eba0e37b4fc8c02781c56cb16a8e0"
         },
         {
           "request_index": 3,
-          "request_sha256": "67e3f13fa07f427ade941de0855d1a43887923582ccefbfd0f412d858accc250",
-          "bytes": 307296,
-          "sha256": "6adc1fa801473decdcead6398d9304177e2dc211af543500055a692808b48bbb"
+          "request_sha256": "357d8a5f66be49a1f899d3992dfc466b8e7d545074f425e8cac3d67771911414",
+          "bytes": 738432,
+          "sha256": "5f11cfb5e2674c474c0d4df33a8b7b427b0a9b90951339e127da53757630d1ec"
         }
       ]
     }

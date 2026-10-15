@@ -10,7 +10,7 @@
 # way back up by a single or double rotation at the lowest unbalanced
 # node. The rule forces the height below 1.4405 log2(n + 2) - 0.328, so a
 # lookup never costs more than about 1.44 log2 n comparisons, and an
-# insertion is repaired by at most one rotation (single or double).
+# insertion is repaired by at most one rebalancing (one or two rotations).
 #
 # Referees:
 # (1) A SET REFEREE shadows a mixed workload of 60,000 operations: after

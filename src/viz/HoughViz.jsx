@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -124,7 +125,11 @@ export function sceneTick(sc) {
   const picked = [];
   for (const c of cells) {
     if (picked.length === 2) break;
-    if (picked.some((p) => Math.abs(p.ri - c.ri) <= 4 && Math.min(Math.abs(p.ti - c.ti), THETAS - Math.abs(p.ti - c.ti)) <= 4)) continue;
+    if (picked.some((p) => {
+      const dt = Math.abs(p.ti - c.ti);
+      const dr = dt <= THETAS / 2 ? Math.abs(p.ri - c.ri) : Math.abs(p.ri + c.ri - (sc.nRho - 1));
+      return dr <= 4 && Math.min(dt, THETAS - dt) <= 4;
+    })) continue;
     picked.push(c);
   }
   sc.detected = picked.map((c) => ({ rho: c.ri * RHO_STEP - sc.rhoMax, theta: c.ti * 2, votes: c.v }));
@@ -240,7 +245,7 @@ export default function HoughViz() {
         ctx.strokeRect(ax, ay, aw, ah);
         ctx.fillStyle = dim;
         ctx.fillText('theta: 0° to 180° →', ax, ay + ah + 14);
-        ctx.fillText('rho ↓', ax + aw + 4, ay + 12);
+        ctx.fillText('rho ↓', ax - 34, ay + 12);
         if (sc.detected) {
           for (const d of sc.detected) {
             const ti = d.theta / 2;
@@ -252,13 +257,13 @@ export default function HoughViz() {
           }
         }
         ctx.fillStyle = dim;
-        ctx.fillText(`brightest cell: ${vmax} votes`, ax, 268);
+        ctx.fillText(`brightest cell: ${vmax} votes`, ax, 32);
         ctx.fillText('the file: 3 lines of 40 points in 200 clutter, peaks 101 / 100 / 86 vs clutter 50', 12, 268);
         let line;
         if (s.done) {
           const m = matches(sc);
           const hits = m.filter(Boolean).length;
-          line = `${hits} of 2 planted lines at the two tallest peaks (${sc.detected.map((d) => `${d.votes} votes at rho ${d.rho.toFixed(0)}, theta ${d.theta}°`).join('; ')})`;
+          line = `${hits}/2 lines at top peaks: ${sc.detected.map((d) => `${d.votes} votes, ρ ${d.rho.toFixed(0)}, θ ${d.theta}°`).join('; ')}`;
           ctx.fillStyle = hits === 2 ? good : warn;
         } else {
           line = `${sc.voted} of ${sc.pts.length} points have voted; a line's points cross in one cell, clutter spreads thin`;
@@ -273,7 +278,9 @@ export default function HoughViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

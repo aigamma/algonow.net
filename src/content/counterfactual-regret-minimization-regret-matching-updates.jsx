@@ -278,7 +278,7 @@ export const content = {
     <Figure
       id="fig-cfr-kuhn"
       aspect="16 / 7"
-      caption="Left: exploitability of the average strategy on Kuhn poker against iterations, both axes logarithmic, for CFR, CFR+, fictitious play, and outcome-sampling MCCFR, with the 1/√T slope for reference. Right: the first player's bet probability by card at the first decision, on Kuhn's family constraint P(bet | K) = 3 P(bet | J)."
+      caption="Left: exploitability of the average strategy on Kuhn poker against iterations, both axes logarithmic, for CFR, CFR+, fictitious play, and outcome-sampling MCCFR, with the 1/√T slope for reference. Right: the first player's bet probability by card at the first decision, on Kuhn's equilibrium constraint P(bet | K) = 3 P(bet | J)."
       cite={{
         text: 'M. Zinkevich, M. Johanson, M. Bowling, and C. Piccione, "Regret minimization in games with incomplete information," NeurIPS 2007. S. Hart and A. Mas-Colell, "A simple adaptive procedure leading to correlated equilibrium," Econometrica 68(5), 2000, DOI 10.1111/1468-0262.00153. H. W. Kuhn, "A simplified two-person poker," Contributions to the Theory of Games 1, 1950.',
         href: 'https://doi.org/10.1111/1468-0262.00153',
@@ -326,12 +326,12 @@ export const content = {
                   <rect x={bx + i * 60} y={by - p * 160} width="34" height={p * 160} fill="#5da2ff" fillOpacity="0.85" />
                   <text x={bx + i * 60} y={by - p * 160 - 5} fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="10">{p.toFixed(3)}</text>
                   <text x={bx + i * 60 + 10} y={by + 14} fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="11">{card}</text>
-                  <text x={bx + i * 60 + 6} y={by + 28} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{label}</text>
+                  <text x={bx + i * 60 + 6} y={by + 23} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{label}</text>
                 </g>
               ))}
               <line x1={bx} y1={by - 3 * alpha * 160} x2={bx + 180} y2={by - 3 * alpha * 160} stroke="#62d98a" strokeDasharray="3 3" />
-              <text x={bx} y={by - 3 * alpha * 160 - 6} fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="9">3α = 0.648 (measured 0.668)</text>
-              <text x={bx} y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">the family: α in [0, 1/3]; CFR settled at α = 0.216</text>
+              <text x={bx} y={by - 3 * alpha * 160 - 20} fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="9">3α = 0.648</text>
+              <text x={bx} y="274" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">CFR: α = 0.216 ∈ [0, 1/3]</text>
             </g>
           );
         })()}

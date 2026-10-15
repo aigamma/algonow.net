@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -178,7 +179,9 @@ export default function MinHashViz() {
         ctx.fillRect(mx + 1, ey, 24, my + mh - ey);
         ctx.fillStyle = ink;
         ctx.font = '11px ui-monospace, monospace';
-        ctx.fillText(`Ĵ = ${est.toFixed(3)}`, mx + 38, Math.max(ey + 3, my + 12));
+        let estimateLabelY = Math.max(ey + 3, my + 12);
+        if (Math.abs(estimateLabelY - (ty + 3)) < 16) estimateLabelY = ty - 14;
+        ctx.fillText(`Ĵ = ${est.toFixed(3)}`, mx + 38, estimateLabelY);
 
         ctx.fillStyle = dim;
         ctx.font = '11px ui-monospace, monospace';
@@ -201,7 +204,9 @@ export default function MinHashViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

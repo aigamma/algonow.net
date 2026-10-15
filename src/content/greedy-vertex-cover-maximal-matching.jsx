@@ -257,7 +257,7 @@ export const content = {
     <Figure
       id="fig-vertex-cover-ratios"
       aspect="16 / 7"
-      caption="Left: ratio of cover size to the exact optimum over 300 random graphs of 14 vertices, mean and worst, for the matching rule, the max-degree greedy, and LP rounding. The greedy wins on average; the two provable methods touch exactly 2 at worst and never pass it. Right: the bad family. The degree greedy’s ratio climbs with the harmonic number as n doubles from 16 to 128, while the matching rule sits at 2.000 on every graph, because the theorem forbids anything worse."
+      caption="Left: ratio of cover size to the exact optimum over 300 random graphs of 14 vertices, mean and worst, for the matching rule, the max-degree greedy, and LP rounding. The greedy wins on average; the two provable methods touch exactly 2 at worst and never pass it. Right: the bad construction. The degree greedy’s ratio climbs with the harmonic number as n doubles from 16 to 128, while the matching rule sits at 2.000 on every graph, attaining the theorem’s upper bound on this construction."
       cite={{
         text: 'F. Gavril, reported in M. R. Garey and D. S. Johnson, Computers and Intractability, 1979. R. M. Karp, "Reducibility among combinatorial problems," 1972. S. Khot and O. Regev, "Vertex cover might be hard to approximate to within 2 − ε," J. Comput. Syst. Sci. 74(3), 2008. D. Kőnig, 1931.',
         href: 'https://doi.org/10.1016/j.jcss.2007.06.019',
@@ -272,9 +272,9 @@ export const content = {
           const py = (r) => 230 - (r - 1) * 45;
           return (
             <g fontFamily="ui-monospace, monospace">
-              <text x="20" y="22" fill="#9aa5bd" fontSize="10">cover / OPT on 300 random graphs: mean (solid) and worst (outline)</text>
+              <text x="20" y="22" fill="#9aa5bd" fontSize="10">cover / OPT: mean filled; worst outlined</text>
               <line x1="30" y1={y(2)} x2="300" y2={y(2)} stroke="#e2606c" strokeDasharray="4 3" />
-              <text x="250" y={y(2) - 4} fill="#e2606c" fontSize="9">2 x OPT</text>
+              <text x="250" y={y(2) - 18} fill="#e2606c" fontSize="9">2 x OPT</text>
               {bars.map(([name, m, w, c], i) => (
                 <g key={name}>
                   <rect x={40 + i * 90} y={y(w)} width="60" height={230 - y(w)} fill="none" stroke={c} strokeOpacity="0.8" />
@@ -283,8 +283,8 @@ export const content = {
                   <text x={40 + i * 90} y="246" fill="#9aa5bd" fontSize="9">{name}</text>
                 </g>
               ))}
-              <text x="20" y="268" fill="#62d98a" fontSize="10">the greedy is better on average; the two provable methods never pass 2</text>
-              <text x="340" y="22" fill="#9aa5bd" fontSize="10">the bad family: cover / OPT as n doubles (OPT = n by Konig)</text>
+              <text x="20" y="268" fill="#62d98a" fontSize="10">matching and LP: ratio ≤ 2</text>
+              <text x="340" y="22" fill="#9aa5bd" fontSize="10">bad instances: cover / OPT; OPT = n</text>
               <polyline points={fam.map(([, r], i) => `${px(i)},${py(r)}`).join(' ')} fill="none" stroke="#e2606c" strokeWidth="2" />
               {fam.map(([n, r], i) => (
                 <g key={n}>
@@ -295,7 +295,7 @@ export const content = {
               ))}
               <line x1={px(0)} y1={py(2)} x2={px(3)} y2={py(2)} stroke="#5da2ff" strokeWidth="2" />
               <text x={px(3) - 70} y={py(2) + 14} fill="#5da2ff" fontSize="9">matching rule 2.000</text>
-              <text x="340" y="268" fill="#f0b94b" fontSize="10">degree greedy climbs with H(n) - 1 (4.433 at n = 128)</text>
+              <text x="340" y="268" fill="#f0b94b" fontSize="10">degree greedy: H(n) − 1</text>
             </g>
           );
         })()}

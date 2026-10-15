@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -196,13 +197,12 @@ export default function TemplateMatchingViz() {
           ctx.strokeRect(ox + sc.ssdPeak[0] * k - 2.5, oy + sc.ssdPeak[1] * k - 2.5, T * k + 5, T * k + 5);
         }
         ctx.fillStyle = dim;
-        ctx.fillText('green: the plant', 236, 90);
-        ctx.fillText('amber: SSD minimum', 236, 104);
-        ctx.fillText('blue map: NCC in [-1, 1]', 236, 118);
-        ctx.fillText(`gain ${sc.gain.toFixed(2)}, offset ${sc.offset.toFixed(0)}`, 236, 142);
-        ctx.fillText('NCC ignores both; SSD does not', 236, 156);
+        ctx.fillText('green: planted template; amber: SSD minimum', 236, 214);
+        ctx.fillText('NCC map: blue ≥ 0, red < 0; range [-1, 1]', 236, 230);
+        ctx.fillText(`gain ${sc.gain.toFixed(2)}, offset ${sc.offset.toFixed(0)}`, 236, 246);
+        ctx.fillText('NCC ignores positive gain and offset; SSD does not', 236, 262);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? 'invariant: every NCC inside [-1, 1]' : 'INVARIANT BROKEN', 236, 180);
+        ctx.fillText(sc.ok ? 'NCC inside [-1, 1]' : 'INVARIANT BROKEN', 12, 248);
         const line = sc.last;
         ctx.fillStyle = s.done ? (sc.ok ? good : warn) : ink;
         ctx.fillText(line.length > 96 ? `${line.slice(0, 95)}…` : line, 12, H - 6);
@@ -214,7 +214,9 @@ export default function TemplateMatchingViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -313,14 +313,14 @@ export const content = {
         <path d="M 60 40 L 156 136 L 188 136 L 220 168 L 252 168 L 284 200 L 284 232 L 284 264" fill="none" stroke="#62d98a" strokeWidth="2.6" />
         {[[156, 136], [188, 136], [124, 168]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r="4" fill="#5da2ff" />)}
         {[[220, 168], [252, 168], [156, 200], [92, 200]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r="4" fill="rgba(93,162,255,0.6)" />)}
-        <text x="300" y="60" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">right: delete A[x] · down: insert B[y] · diagonal: free match (the snake)</text>
+        <text x="300" y="60" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">right: delete · down: insert · diagonal: match</text>
         <text x="300" y="84" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">frontier D: the furthest point on each diagonal k = x − y</text>
-        <text x="300" y="104" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">green: the first path to the corner, D = 3, the shortest script</text>
+        <text x="300" y="104" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">green: shortest path to the corner, D = 3</text>
         <text x="300" y="140" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">8 edits: 42 frontier points at 250 lines and at 2,000</text>
         <text x="300" y="160" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">the table: 62,000 cells at 250, 3,996,000 at 2,000</text>
         <text x="300" y="192" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">1,000 lines: frontier 12 → 30,020 as edits go 4 → 256</text>
         <text x="300" y="212" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">the table stays near a million cells regardless</text>
-        <text x="300" y="248" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">referees: DP agreement 120/120, script replay exact, D = N + M − 2·LCS</text>
+        <text x="300" y="248" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">120/120 match DP · replay exact · D = N+M−2LCS</text>
         <text x="300" y="268" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">kitten → sitting: script 5, Levenshtein 3 (a different question)</text>
       </svg>
     </Figure>

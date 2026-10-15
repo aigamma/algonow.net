@@ -285,7 +285,7 @@ export const content = {
     >
       <svg viewBox="0 0 640 290" role="img" aria-label="A palindrome arc spanning to R with mirrored centers i and j inheriting radius">
         <line x1="40" y1="170" x2="600" y2="170" stroke="#2a3450" strokeWidth="2" />
-        <path d="M 120 170 A 190 190 0 0 1 500 170" fill="none" stroke="#5da2ff" strokeWidth="2.2" />
+        <path d="M 120 170 A 190 145 0 0 1 500 170" fill="none" stroke="#5da2ff" strokeWidth="2.2" />
         <circle cx="310" cy="170" r="6" fill="#5da2ff" />
         <text x="300" y="196" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="12">C</text>
         <line x1="500" y1="158" x2="500" y2="182" stroke="#5da2ff" strokeWidth="2" />

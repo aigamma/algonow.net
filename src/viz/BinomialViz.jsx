@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks } from './useCanvasLoop.js';
 
@@ -8,7 +9,7 @@ import { useCanvasLoop, isStill, holdTicks } from './useCanvasLoop.js';
 // every step count up to 60 against the Black-Scholes value (dashed),
 // the even/odd zigzag converging.
 const W = 640;
-const H = 300;
+const H = 340;
 const S0 = 100;
 const K = 100;
 const R = 0.05;
@@ -172,8 +173,8 @@ export default function BinomialViz() {
           }
         }
         ctx.fillStyle = dim;
-        ctx.fillText(`step ${sc.step} of ${sc.N}: amber payoffs, blue continuation values${sc.c.american ? ', red where exercise beats continuing' : ''}`, x0, 262);
-        ctx.fillText(`u = ${sc.u.toFixed(4)}, d = 1/u, p = ${sc.p.toFixed(4)}: every node on one grid of ${2 * sc.N + 1} prices`, x0, 278);
+        ctx.fillText(`step ${sc.step} of ${sc.N}: amber payoffs, blue continuation values${sc.c.american ? ', red where exercise beats continuing' : ''}`, x0, 282);
+        ctx.fillText(`u = ${sc.u.toFixed(4)}, d = 1/u, p = ${sc.p.toFixed(4)}: every node on one grid of ${2 * sc.N + 1} prices`, x0, 300);
         // convergence chart
         const cx0 = 360;
         const cy0 = 40;
@@ -213,7 +214,7 @@ export default function BinomialViz() {
             : `${sc.c.label} on ${sc.N} steps: ${root.toFixed(2)} against Black-Scholes ${sc.bs.toFixed(2)}; the zigzag closes as N grows`;
           ctx.fillStyle = good;
         } else {
-          line = 'each node is the discounted risk-neutral average of its two children, or the payoff if exercising now is worth more';
+          line = 'discount the risk-neutral child average; exercise an American option if worth more';
           ctx.fillStyle = ink;
         }
         ctx.font = '11px ui-monospace, monospace';
@@ -226,7 +227,9 @@ export default function BinomialViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

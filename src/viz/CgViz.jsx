@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -152,7 +153,7 @@ export default function CgViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`2-D Poisson on a ${n} x ${n} grid (${N} unknowns)${sc.jump ? ', coefficient jumping by 10,000 across the quadrants' : ', uniform coefficient'}; one iteration per tick`, 12, 18);
+        ctx.fillText(`2-D Poisson, ${n}×${n} grid (${N} unknowns)${sc.jump ? '; coefficient jumps 10,000×' : '; uniform coefficient'}`, 12, 18);
         // residual field of the hero
         const x0 = 16;
         const y0 = 36;
@@ -166,8 +167,8 @@ export default function CgViz() {
           }
         }
         ctx.fillStyle = dim;
-        ctx.fillText(`residual field of ${sc.heroName} (scaled to its own max)`, x0, y0 + n * cell + 16);
-        ctx.fillText(`iteration ${sc.hero.it}: |r| / |b| = ${sc.hero.hist[sc.hero.hist.length - 1].toExponential(1)}`, x0, y0 + n * cell + 32);
+        ctx.fillText(`scaled residual: ${sc.heroName}`, x0, y0 + n * cell + 16);
+        ctx.fillText(`|r| / |b| = ${sc.hero.hist[sc.hero.hist.length - 1].toExponential(1)}`, x0, y0 + n * cell + 32);
         // log residual chart
         const cx0 = 260;
         const cy0 = 40;
@@ -193,20 +194,20 @@ export default function CgViz() {
         drawHist(sc.hero.hist, sc.jump ? heur : algo);
         ctx.fillStyle = dim;
         ctx.fillText('1', cx0 - 10, cy0 + 4);
-        ctx.fillText('1e-10', cx0 - 38, cy0 + ch + 4);
+        ctx.fillText('1e-10', cx0 + 6, cy0 + ch - 6);
         ctx.fillText(`iterations 0 to ${maxIt}`, cx0 + cw - 130, cy0 + ch + 14);
         ctx.fillStyle = sc.jump ? heur : algo;
         ctx.fillText(`${sc.heroName}: ${sc.hero.it} iterations${sc.hero.done ? (sc.hero.hist[sc.hero.hist.length - 1] < TOL ? ', converged' : ', capped') : ''}`, cx0, cy0 + ch + 30);
         ctx.fillStyle = dim;
-        ctx.fillText(`${sc.rivalName}: ${sc.rival.it} iterations${sc.rival.done ? (sc.rival.hist[sc.rival.hist.length - 1] < TOL ? ', converged' : `, capped at ${MAX_IT} (residual ${sc.rival.hist[sc.rival.hist.length - 1].toExponential(1)})`) : ''}`, cx0, cy0 + ch + 46);
+        ctx.fillText(`${sc.rivalName}: ${sc.rival.it} iterations${sc.rival.done ? (sc.rival.hist[sc.rival.hist.length - 1] < TOL ? ', converged' : `, capped; r ${sc.rival.hist[sc.rival.hist.length - 1].toExponential(1)}`) : ''}`, cx0, cy0 + ch + 46);
         let line;
         if (s.done) {
           line = sc.jump
             ? `dividing by the diagonal undid the 10,000x scaling: ${sc.hero.it} iterations against ${sc.rival.it}${sc.rival.hist[sc.rival.hist.length - 1] < TOL ? '' : ' (not converged)'} for plain CG`
-            : `conjugate directions never undo earlier progress: ${sc.hero.it} iterations against ${sc.rival.it}${sc.rival.hist[sc.rival.hist.length - 1] < TOL ? '' : ' (still going)'} for steepest descent`;
+            : `CG: ${sc.hero.it} iterations; steepest descent: ${sc.rival.it}${sc.rival.hist[sc.rival.hist.length - 1] < TOL ? '' : ' (not converged)'}`;
           ctx.fillStyle = good;
         } else {
-          line = sc.jump ? 'the preconditioner solves M z = r with M the diagonal: one division per unknown per iteration' : 'each direction is A-conjugate to all before it; the residual is the only thing the iteration touches A with';
+          line = sc.jump ? 'the preconditioner solves M z = r with M the diagonal: one division per unknown per iteration' : 'A-conjugate directions preserve earlier progress';
           ctx.fillStyle = ink;
         }
         ctx.fillText(line, 12, H - 8);
@@ -218,7 +219,9 @@ export default function CgViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

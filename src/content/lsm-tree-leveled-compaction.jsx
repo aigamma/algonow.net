@@ -329,8 +329,8 @@ export const content = {
         <rect x="40" y="178" width="420" height="16" fill="rgba(98,217,138,0.14)" stroke="#62d98a" strokeWidth="1.4" rx="3" />
         <text x="470" y="190" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">bottom: tombstones die here</text>
         <text x="40" y="218" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="11">a get probes: memtable → L0 (newest first) → one run per level: 19.6 KB measured</text>
-        <text x="40" y="244" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">the triangle: write amp 112.7 (b-tree) &gt; 4.2 (leveled) &gt; 1.8 (tiered) · read KB 36.2 &gt; 19.6 &gt; 12.0 · space 1.32 &gt; 1.06</text>
-        <text x="40" y="266" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">the giant-file trap: rewrite everything per flush: WA 13.3 and growing with data (7.3 at half): the cascade caps it</text>
+        <text x="40" y="244" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">write amp: 112.7 / 4.2 / 1.8 · read KB: 36.2 / 19.6 / 12.0 · space: 1.32 / 1.06</text>
+        <text x="40" y="266" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">rewrite-all trap: write amp 13.3, growing with data (7.3 at half size)</text>
       </svg>
     </Figure>
   ),

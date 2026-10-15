@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -124,8 +125,8 @@ export default function PerceptronViz() {
         const ink = css.getPropertyValue('--ink').trim() || '#e9edf6';
         const sc = s.scene;
         const cx = 150;
-        const cy = 158;
-        const rad = 128;
+        const cy = 152;
+        const rad = 116;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
         ctx.fillText(`${N} points in the unit disk, margin ${sc.margin}; the line moves only on a mistake`, 12, 18);
@@ -159,20 +160,24 @@ export default function PerceptronViz() {
           ctx.lineWidth = 1;
         }
         if (sc.w[0] !== 0 || sc.w[1] !== 0) {
-          // w . x + b = 0 clipped to the disk's bounding square
+          // Intersect with a bounding square, then clip the stroke to the disk.
           const pts = [];
           const [a, bb] = sc.w;
           const c = sc.b;
           for (const xv of [-1.05, 1.05]) if (Math.abs(bb) > 1e-9) { const yv = -(a * xv + c) / bb; if (Math.abs(yv) <= 1.05) pts.push([xv, yv]); }
           for (const yv of [-1.05, 1.05]) if (Math.abs(a) > 1e-9) { const xv = -(bb * yv + c) / a; if (Math.abs(xv) < 1.05) pts.push([xv, yv]); }
           if (pts.length >= 2) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(cx, cy, rad, 0, Math.PI * 2);
+            ctx.clip();
             ctx.strokeStyle = s.done ? good : algo;
             ctx.lineWidth = 2.5;
             ctx.beginPath();
             ctx.moveTo(cx + pts[0][0] * rad, cy - pts[0][1] * rad);
             ctx.lineTo(cx + pts[1][0] * rad, cy - pts[1][1] * rad);
             ctx.stroke();
-            ctx.lineWidth = 1;
+            ctx.restore();
           }
         }
         const tx = 310;
@@ -212,7 +217,9 @@ export default function PerceptronViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

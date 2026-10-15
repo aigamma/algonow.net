@@ -92,7 +92,7 @@ export const content = {
     <>
       <strong>Repeat</strong> until every vertex is colored: a proper
       coloring with at most Δ + 1 colors, and exactly 2 on a bipartite
-      graph.
+      graph with at least one edge (1 for a nonempty edgeless graph).
     </>,
   ],
 
@@ -108,8 +108,8 @@ export const content = {
     </>,
     <>
       <strong>Structure you can exploit:</strong> a graph you suspect is
-      bipartite or nearly so, where the saturation order is exact and
-      largest-first is not.
+      bipartite, where the saturation order is exact and largest-first
+      need not be. Nearly bipartite graphs have no such guarantee.
     </>,
   ],
   baseline: (
@@ -191,7 +191,8 @@ export const content = {
       ),
       costs: (
         <>
-          Blows up past a few dozen to a few hundred vertices.
+          Hard instances can become impractical at a few dozen to a few
+          hundred vertices; structured graphs can be much easier.
         </>
       ),
       when: 'The graph is small or structured and the answer must be provably optimal.',
@@ -311,7 +312,7 @@ export const content = {
           };
           const lfColors = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5];
           const dsColors = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1];
-          const bars = [['DSatur', 129, '#5da2ff'], ['RLF', 98, '#9aa5bd'], ['smallest-last', 58, '#f0b94b'], ['largest-first', 56, '#f0b94b'], ['random', 18, '#e2606c']];
+          const bars = [['DSatur', 129, '#5da2ff'], ['RLF', 98, '#9aa5bd'], ['SL', 58, '#f0b94b'], ['LF', 56, '#f0b94b'], ['random', 18, '#e2606c']];
           const bx = 400;
           const by = 236;
           return (
@@ -328,7 +329,7 @@ export const content = {
                   <text x={bx + i * 46 - 2} y={by + 12} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="8">{name}</text>
                 </g>
               ))}
-              <text x={bx} y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">average excess 0.36, 0.55, 0.85, 0.83, 1.43 colors</text>
+              <text x={bx} y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">excess: 0.36, 0.55, 0.85, 0.83, 1.43</text>
             </g>
           );
         })()}

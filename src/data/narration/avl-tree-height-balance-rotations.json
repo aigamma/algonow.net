@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:avl-tree-height-balance-rotations",
   "source_path": "src/content/avl-tree-height-balance-rotations.narration.js",
-  "source_sha256": "1a9e7e51e071267fddd7d1ca62effc34c77155b3f4aea05c4ca5f153d8c50f7d",
-  "source_characters": 11347,
+  "source_sha256": "d6d83dbbdabb92c47f49fac0f2c7b6be996af38153253459f4ebd3ada43966a8",
+  "source_characters": 11575,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -42,9 +42,9 @@
     }
   },
   "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
-  "release_sha256": "fabae53a419454fd07965be4f5b049b690b12e07e42108f5b243d64881181631",
-  "generated_at": "2026-10-10T20:14:08.156Z",
-  "generated_characters": 22694,
+  "release_sha256": "54ea8b45f4ae41331828f99d59a1fbd5ec481b5c2bd1b04b9484c3f66390f7dd",
+  "generated_at": "2026-10-15T22:44:59.228Z",
+  "generated_characters": 23150,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -69,23 +69,23 @@
     {
       "id": "request-001",
       "index": 1,
-      "characters": 4599,
-      "utf8_bytes": 4607,
-      "sha256": "caebeab4fc759b5d1a807ff8c4d388017c46092e71e45a67b607376a6476ad2e"
+      "characters": 4785,
+      "utf8_bytes": 4793,
+      "sha256": "e612cd9c18b94e1dba828a1baf5fd1eb89eaa9282558434b776f625901a6d868"
     },
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4959,
-      "utf8_bytes": 4965,
-      "sha256": "6658ab76fe68d2ebf5bdc7d696fd40a26eb24716f19523312b535c7541c020a7"
+      "characters": 4188,
+      "utf8_bytes": 4194,
+      "sha256": "bcd9c068644aca3959ec3545f281ddaad22b16c83e14fcf90779e8b01195e84c"
     },
     {
       "id": "request-003",
       "index": 3,
-      "characters": 1789,
-      "utf8_bytes": 1791,
-      "sha256": "eebe052b7349dcbb39a6b9fc7fdcbb8ab339d5d5524b1516d3cdbfc10bf855ac"
+      "characters": 2602,
+      "utf8_bytes": 2604,
+      "sha256": "8ec1ad345ee2768e65cd8867f1d771a200826ae354f0c20f3705e6c0a82d4d7a"
     }
   ],
   "assembly": {
@@ -134,8 +134,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1302,
-      "sha256": "ab2696d37c296ad944afaebde01884eee28b14544477ae6468c48311695ae10a"
+      "utf8_bytes": 1344,
+      "sha256": "bf9113dc6fd285e1f19ebfcb929205d459625662bddb45ea8240fee218ce2df7"
     },
     {
       "id": "avl-tree-height-balance-rotations.02-origins",
@@ -180,8 +180,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1497,
-      "sha256": "ff41c5f4209039f4945844e786a64762f485d4b0bb410f9ace059c2c359b5164"
+      "utf8_bytes": 1609,
+      "sha256": "c903190e8679087aa32f7c98da931b81b0a54dddd06a7b7306ebc02987855413"
     },
     {
       "id": "avl-tree-height-balance-rotations.04-picture",
@@ -203,8 +203,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 566,
-      "sha256": "e33f4f0c5ff6fbe6c27298d4388931a22ec000cc272e28034223ffd6451a13a0"
+      "utf8_bytes": 598,
+      "sha256": "7a4898cfb94594f5f6680f8d762c64bce4e96b70107bfcd87d3657d11d1c206f"
     },
     {
       "id": "avl-tree-height-balance-rotations.05-run",
@@ -226,8 +226,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1150,
-      "sha256": "92d47e07401887dda73bfa4be7387477fdc2deed7c9c9b672acfc74aab4893e6"
+      "utf8_bytes": 1178,
+      "sha256": "d145e0b53c8dfeb8310072581391e4d0a346b25741c85fbf562b59e2d6a8157f"
     },
     {
       "id": "avl-tree-height-balance-rotations.06-signals",
@@ -318,8 +318,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 797,
-      "sha256": "0c088a64ee5d15e50804a75756740d380e9292c2b1b6943685c308b3772f80ba"
+      "utf8_bytes": 808,
+      "sha256": "fc425fc4eca305617ce2404bd70a73f691164bad5afa0a187656416c03020b51"
     },
     {
       "id": "avl-tree-height-balance-rotations.10-code",
@@ -341,8 +341,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1791,
-      "sha256": "eebe052b7349dcbb39a6b9fc7fdcbb8ab339d5d5524b1516d3cdbfc10bf855ac"
+      "utf8_bytes": 1794,
+      "sha256": "bbc733b7cac086f6b63b030064f3439598c475d8de7ebfead8406322d607c83e"
     }
   ],
   "tracks": {
@@ -351,29 +351,29 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/avl-tree-height-balance-rotations/fabae53a419454fd0796/aoede-ade1ff2dd6daba27.mp3",
+      "object_key": "narration/v1/puzzles/avl-tree-height-balance-rotations/54ea8b45f4ae41331828/aoede-7779ebbf5523ee75.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2906924,
-      "sha256": "ade1ff2dd6daba27c0045eea285bb673d2162a2a1674699bdf020d9c72b05d9a",
+      "bytes": 2986124,
+      "sha256": "7779ebbf5523ee75a7b13ded2c7eb9c7791b6b0ec836d158d77efa77adce23d4",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "caebeab4fc759b5d1a807ff8c4d388017c46092e71e45a67b607376a6476ad2e",
-          "bytes": 1196736,
-          "sha256": "6471d637dee99ac00983178039cc49078cd8fab3e35d4bfd7c3d5cba9ccf9dd1"
+          "request_sha256": "e612cd9c18b94e1dba828a1baf5fd1eb89eaa9282558434b776f625901a6d868",
+          "bytes": 1248192,
+          "sha256": "b12d5dfc7bd8e41f802697e4301af34425fd0c9a37fe76a1327b0b585aa13689"
         },
         {
           "request_index": 2,
-          "request_sha256": "6658ab76fe68d2ebf5bdc7d696fd40a26eb24716f19523312b535c7541c020a7",
-          "bytes": 1278336,
-          "sha256": "a7073b05b603bf4a3cfc3db155b5286f7a4412f3cc4ad4bc0877a4193c0ac47f"
+          "request_sha256": "bcd9c068644aca3959ec3545f281ddaad22b16c83e14fcf90779e8b01195e84c",
+          "bytes": 1101984,
+          "sha256": "76d57832e2c210b7ca92859c185f52612d0caf9450af1f942134641f4b1644ea"
         },
         {
           "request_index": 3,
-          "request_sha256": "eebe052b7349dcbb39a6b9fc7fdcbb8ab339d5d5524b1516d3cdbfc10bf855ac",
-          "bytes": 431616,
-          "sha256": "e5f165136eac08b75cc283291a81257bc1eeb59a6226b6d816d7e1aeecdd9845"
+          "request_sha256": "8ec1ad345ee2768e65cd8867f1d771a200826ae354f0c20f3705e6c0a82d4d7a",
+          "bytes": 635712,
+          "sha256": "4085ee35c0777a95d53b00bd22baf2b23b1e9c3c6600fcdc5f76e1149d5a6a6c"
         }
       ]
     },
@@ -382,29 +382,29 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/avl-tree-height-balance-rotations/fabae53a419454fd0796/algieba-18198d737e691322.mp3",
+      "object_key": "narration/v1/puzzles/avl-tree-height-balance-rotations/54ea8b45f4ae41331828/algieba-89a47e00ceabc41e.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 3072716,
-      "sha256": "18198d737e691322128b2db39810c32eb6a65a7f3491f1d3a37f8ee5100eb980",
+      "bytes": 3084044,
+      "sha256": "89a47e00ceabc41ec474878453367d2a21d5b8f246a110ec6d1e1d973918dcac",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "caebeab4fc759b5d1a807ff8c4d388017c46092e71e45a67b607376a6476ad2e",
-          "bytes": 1240992,
-          "sha256": "72312f0d7eaa56f2145d705a22808441872c9b1e6fc20f072f3f40fb861b331c"
+          "request_sha256": "e612cd9c18b94e1dba828a1baf5fd1eb89eaa9282558434b776f625901a6d868",
+          "bytes": 1278912,
+          "sha256": "dd8db8b83e23eff802e18c9dc1c9f9d1e9e0e737643b4409f4d6a931ec0ef1d5"
         },
         {
           "request_index": 2,
-          "request_sha256": "6658ab76fe68d2ebf5bdc7d696fd40a26eb24716f19523312b535c7541c020a7",
-          "bytes": 1364832,
-          "sha256": "a28f5e29334b765a28649a0140484e953278bdc39b6f50f54e5f572db5f134a6"
+          "request_sha256": "bcd9c068644aca3959ec3545f281ddaad22b16c83e14fcf90779e8b01195e84c",
+          "bytes": 1130112,
+          "sha256": "333c4cb4675eba542c9bd599b26569ff7a6948f5e73063d5bcf1cc461dc9fb63"
         },
         {
           "request_index": 3,
-          "request_sha256": "eebe052b7349dcbb39a6b9fc7fdcbb8ab339d5d5524b1516d3cdbfc10bf855ac",
-          "bytes": 466656,
-          "sha256": "94a52853608f9d44e6553346beb9218289ae859b0cd715b0ad60457a6c49f987"
+          "request_sha256": "8ec1ad345ee2768e65cd8867f1d771a200826ae354f0c20f3705e6c0a82d4d7a",
+          "bytes": 674784,
+          "sha256": "7b2e77883bb1d1c1996b6ae59fcc6e238a4faaf34aa20561365125a67183cf75"
         }
       ]
     }

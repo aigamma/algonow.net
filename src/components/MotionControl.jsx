@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { DEFAULT_LEVEL, MOTION_LEVELS, applyAttr, getLevelKey, setLevel } from '../lib/motion.js';
+import { DEFAULT_LEVEL, MOTION_LEVELS, applyAttr, getLevelKey, setLevel, subscribe } from '../lib/motion.js';
 
 function MotionGlyph() {
   return (
@@ -28,6 +28,7 @@ export default function MotionControl() {
   useEffect(() => {
     applyAttr();
     setLevelKey(getLevelKey());
+    return subscribe((level) => setLevelKey(level.key));
   }, []);
 
   useEffect(() => {

@@ -293,7 +293,7 @@ export const content = {
     <Figure
       id="fig-debruijn-euler"
       aspect="16 / 7"
-      caption="Sequences as edges, and the genome as an Eulerian walk. Each k-mer is an edge from its (k−1)-prefix to its (k−1)-suffix: adjacency is implicit in the spelling, no read ever compared with another, and Hierholzer finds the walk in linear time: the 2001 reduction that turned assembly's Hamiltonian ordering into Euler's bridges. The wall is measured, not feared: a repeat longer than k−1 collapses into one node, its interleaved loops reorder freely, and two different genomes match every single k-mer: proven here by exhibiting both. Real assemblers stop at tangles and report contigs: an answer the data cannot distinguish from its rival is not an answer."
+      caption="Sequences as edges, and the genome as an Eulerian walk. Each k-mer is an edge from its (k−1)-prefix to its (k−1)-suffix: adjacency is implicit in the spelling, no read ever compared with another, and Hierholzer finds the walk in linear time: the 2001 reduction that turned assembly's Hamiltonian ordering into Euler's bridges. The wall is measured, not feared: a repeat longer than k−1 shares a path of nodes, its interleaved loops reorder freely, and two different genomes match every single k-mer: proven here by exhibiting both. Real assemblers stop at tangles and report contigs: an answer the data cannot distinguish from its rival is not an answer."
       cite={{
         text: 'Pevzner, Tang & Waterman, "An Eulerian path approach to DNA fragment assembly", PNAS 98(17), 2001: the reduction that carried genomics into the short-read era.',
         href: 'https://doi.org/10.1073/pnas.171285098',
@@ -315,7 +315,7 @@ export const content = {
         <path d="M 200 223 C 160 258, 240 258, 200 223" fill="none" stroke="#e2606c" strokeWidth="1.6" />
         <text x="230" y="200" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">a repeat past k−1: one node, two loops,</text>
         <text x="230" y="216" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">two spectrum-identical genomes: proven</text>
-        <text x="80" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: 300 exact reassemblies · coverage 21→4→1 contigs · error bubble healed at count ≥ 3 · cliff at repeat+2</text>
+        <text x="80" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">300 exact assemblies · coverage: 21→4→1 contigs · heal at count ≥3 · cliff: repeat+2</text>
       </svg>
     </Figure>
   ),

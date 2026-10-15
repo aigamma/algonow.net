@@ -102,7 +102,7 @@ export const content = {
 
   strength: (
     <>
-      <strong>A free lunch.</strong> Identical value, identical move, a
+      <strong>A free lunch.</strong> Identical value, an optimal move (ties may differ), a
       vanishing fraction of the reading; memory stays O(d) because the walk is
       depth-first. Well ordered, effort drops toward O(b^(d/2)), nearly
       doubling reachable depth.

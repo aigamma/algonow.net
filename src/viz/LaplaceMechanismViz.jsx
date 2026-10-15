@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -121,7 +122,7 @@ export default function LaplaceMechanismViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`epsilon ${sc.eps}, ${BATCH} releases per tick from each neighbor: blue D, amber D' (count + 1); below: their ratio bin by bin vs e^eps`, 12, 18);
+        ctx.fillText(`ε=${sc.eps}; blue D, amber D' (count + 1); below: measured density ratio vs e^ε`, 12, 18);
         const x0 = 24;
         const pw = 380;
         const X = (v) => x0 + ((v + SPAN) / (2 * SPAN)) * pw;
@@ -196,14 +197,14 @@ export default function LaplaceMechanismViz() {
         ctx.fillText(`attacker who knows both databases:`, tx, 114);
         ctx.fillText(`right ${rate.toFixed(3)} of ${sc.trials.toLocaleString()}`, tx, 130);
         ctx.fillStyle = good;
-        ctx.fillText(`theorem ceiling e^eps/(1+e^eps) = ${ceiling.toFixed(3)}`, tx, 148);
+        ctx.fillText(`ceiling: e^ε/(1+e^ε)=${ceiling.toFixed(3)}`, tx, 148);
         ctx.fillStyle = dim;
         ctx.fillText(`exact best test: ${(1 - Math.exp(-sc.eps / 2) / 2).toFixed(3)}`, tx, 164);
         ctx.fillStyle = sc.ok ? good : warn;
         ctx.fillText(sc.ok ? 'density ratio never above e^eps' : 'RATIO BOUND BROKEN', tx, 194);
         ctx.fillStyle = dim;
         ctx.fillText('the file: 0.698 vs 0.731 at eps 1;', tx, 222);
-        ctx.fillText('exact release 1.000, noise by feel 0.952', tx, 238);
+        ctx.fillText('exact 1.000; ad hoc noise 0.952', tx, 238);
         let line;
         if (s.done) {
           line = sc.last;
@@ -221,7 +222,9 @@ export default function LaplaceMechanismViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

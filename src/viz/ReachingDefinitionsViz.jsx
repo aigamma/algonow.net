@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -298,7 +299,7 @@ export default function ReachingDefinitionsViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`${sc.n} blocks in reverse postorder, loop depth ${sc.p.loopDepth}; forward edges below, back edges above (amber); fill = share of the final set learned`, 12, 16);
+        ctx.fillText(`${sc.n} blocks, reverse postorder, loop depth ${sc.p.loopDepth}; amber: back edges; fill: facts learned`, 12, 16);
         const y0 = 100;
         const bw = 36;
         const bh = 44;
@@ -364,7 +365,9 @@ export default function ReachingDefinitionsViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

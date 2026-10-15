@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:betweenness-centrality-brandes-accumulation",
   "source_path": "src/content/betweenness-centrality-brandes-accumulation.narration.js",
-  "source_sha256": "bcceace9996cfd2adba0ffb97885faa2fbbb31ee3c087d20422772ad45b720fa",
-  "source_characters": 9483,
+  "source_sha256": "16d3e57f2c91270f10d61d0978591a61baf5b3c9603d30ac29ae74a8d2ac38b3",
+  "source_characters": 9570,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -42,9 +42,9 @@
     }
   },
   "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
-  "release_sha256": "a87a7343407227f2939222c802bf0ae96a2392608505c52af06bf3ad8de7c044",
-  "generated_at": "2026-09-27T01:12:46.645Z",
-  "generated_characters": 18966,
+  "release_sha256": "6ef356598de0e791b96591cbc13df5f95b1ffd18ed276b3a307558638b818e88",
+  "generated_at": "2026-10-15T23:28:17.224Z",
+  "generated_characters": 19140,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -69,16 +69,16 @@
     {
       "id": "request-001",
       "index": 1,
-      "characters": 4923,
-      "utf8_bytes": 4937,
-      "sha256": "dd1e021a0b9ee8e743359183c66e65487a925bbecce948576f3dee100720fe38"
+      "characters": 4972,
+      "utf8_bytes": 4986,
+      "sha256": "6b15f557c4f6c7998ce284ef52f0171244f5a9b35535b5ed7c496971beba30e4"
     },
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4560,
-      "utf8_bytes": 4574,
-      "sha256": "8fefe630574aa2aa2bf049060b281e1a3c0602051e7e06211054ddd304184967"
+      "characters": 4598,
+      "utf8_bytes": 4612,
+      "sha256": "43899cb0c90e32fe8cde775775d4b3d632ae1e26e6cbdeea9ed90951c447aca5"
     }
   ],
   "assembly": {
@@ -150,8 +150,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 944,
-      "sha256": "4caf01597226cefec1d360de541fa3e7a20c39f0ec4ba501bc7fd051e8f19f67"
+      "utf8_bytes": 955,
+      "sha256": "75e136e3f367d65112e7831d796a3ec0260bc914c76e0e4335cb3e4abcf64e69"
     },
     {
       "id": "betweenness-centrality-brandes-accumulation.03-pair",
@@ -173,8 +173,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1948,
-      "sha256": "060b5f9803485ff8200609418f9c58b1b3015662e0563cbc9545de042d7ef90c"
+      "utf8_bytes": 1986,
+      "sha256": "c2af2286dfcdb2b3e2ad6b13a07f61e4871746e0ef73b5b433b8f7964ba810a8"
     },
     {
       "id": "betweenness-centrality-brandes-accumulation.04-picture",
@@ -219,8 +219,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 985,
-      "sha256": "e4e7f78dc47ee98a80b2e29afefb0aa484bb553af58d96be785254358a356420"
+      "utf8_bytes": 987,
+      "sha256": "42cf8351c1f10793dd99ce9395ec6fa6730830f7ed45aa010888d0bec14b9549"
     },
     {
       "id": "betweenness-centrality-brandes-accumulation.06-signals",
@@ -311,8 +311,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 677,
-      "sha256": "8ce8688b990bc964312e127a29cd5ab74f2d5654af856b2fe82b697458497867"
+      "utf8_bytes": 713,
+      "sha256": "becb9cc465025143945a4c3fbdb88c32c89f2202ccc42d36a20dca4394c5c4be"
     },
     {
       "id": "betweenness-centrality-brandes-accumulation.10-code",
@@ -344,23 +344,23 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/betweenness-centrality-brandes-accumulation/a87a7343407227f29392/aoede-8d3210fa1722c418.mp3",
+      "object_key": "narration/v1/puzzles/betweenness-centrality-brandes-accumulation/6ef356598de0e791b965/aoede-bad081f32f0eae15.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2357036,
-      "sha256": "8d3210fa1722c418efdf28d71a7b231af93fc4f097082e2b2f1521ffa9eea515",
+      "bytes": 2442764,
+      "sha256": "bad081f32f0eae1527e0311a7c87eca05f6002db254bbd3ab297efacecbc8540",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "dd1e021a0b9ee8e743359183c66e65487a925bbecce948576f3dee100720fe38",
-          "bytes": 1204224,
-          "sha256": "39c544e62d793ccc5d8132ecdec88a50aadd293fc4e8607fa449a7b5a99390b3"
+          "request_sha256": "6b15f557c4f6c7998ce284ef52f0171244f5a9b35535b5ed7c496971beba30e4",
+          "bytes": 1238112,
+          "sha256": "2f05de771b25da03cb2815f39b9f9c55abfb49bfa9e965cfb835e26b4ed535dd"
         },
         {
           "request_index": 2,
-          "request_sha256": "8fefe630574aa2aa2bf049060b281e1a3c0602051e7e06211054ddd304184967",
-          "bytes": 1152576,
-          "sha256": "0be9fafed59923d192f6405950c62699d8aa1bfee4b1da4ff80d9510bea4a511"
+          "request_sha256": "43899cb0c90e32fe8cde775775d4b3d632ae1e26e6cbdeea9ed90951c447aca5",
+          "bytes": 1204416,
+          "sha256": "7048c6aa1be5b19484e4c27bc4108a0f9c5a6de50418451c962d5fd98e953a65"
         }
       ]
     },
@@ -369,23 +369,23 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/betweenness-centrality-brandes-accumulation/a87a7343407227f29392/algieba-365c7a435788d53c.mp3",
+      "object_key": "narration/v1/puzzles/betweenness-centrality-brandes-accumulation/6ef356598de0e791b965/algieba-584dcb5915b017e6.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2530604,
-      "sha256": "365c7a435788d53cbb5f5c8149485d7f059086e62c20875ea5be6f63b4f22150",
+      "bytes": 2597132,
+      "sha256": "584dcb5915b017e67c90eae1199631a6c86d02521833fc54326df64220c4e6f8",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "dd1e021a0b9ee8e743359183c66e65487a925bbecce948576f3dee100720fe38",
-          "bytes": 1284672,
-          "sha256": "ddd51b0f0cda0f3979cd7c028ae549ee9f249f1ba2e29a4eb20c692304b93a62"
+          "request_sha256": "6b15f557c4f6c7998ce284ef52f0171244f5a9b35535b5ed7c496971beba30e4",
+          "bytes": 1300032,
+          "sha256": "592cfcc4a6b3f5426656130bfa6ad7b161101cfb783d34cdeb0ed9e3cd249343"
         },
         {
           "request_index": 2,
-          "request_sha256": "8fefe630574aa2aa2bf049060b281e1a3c0602051e7e06211054ddd304184967",
-          "bytes": 1245696,
-          "sha256": "759beda4de38c2c1a83f364b4c21b6595a79a0d92f0067d78a467dd55cc29426"
+          "request_sha256": "43899cb0c90e32fe8cde775775d4b3d632ae1e26e6cbdeea9ed90951c447aca5",
+          "bytes": 1296864,
+          "sha256": "e59342ee418c6aa8765096fd99a139898a991cc0bc9087df00266055367b660e"
         }
       ]
     }

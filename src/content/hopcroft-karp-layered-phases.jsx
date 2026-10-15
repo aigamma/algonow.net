@@ -18,8 +18,7 @@ export const content = {
       spine is older: Berge&apos;s lemma (1957: no augmenting path ⇒
       maximum), and <strong>König&apos;s theorem</strong> (1931: in
       bipartite graphs, max matching = min vertex cover), which this
-      page uses as its referee. The algorithm is also a family
-      reunion: run Dinic&apos;s blocking-flow method (a live unit here)
+      page uses as its referee. The algorithm is also a connection: run Dinic&apos;s blocking-flow method (a live unit here)
       on the unit-capacity bipartite network and Hopcroft-Karp is what
       falls out.
     </p>
@@ -33,7 +32,7 @@ export const content = {
       one; Berge&apos;s lemma says a matching with no such path is
       maximum. Augmenting one path per search is Kuhn&apos;s O(V·E)
       baseline: measured here at 1,776,030 edge touches, correct and
-      6.3× the price.
+      7.0× the price.
     </p>
   ),
   heurRole: (
@@ -44,8 +43,8 @@ export const content = {
       augmenting paths and flips them all at once. Between phases the
       shortest augmenting length strictly grows, and after √V phases
       fewer than √V augmentations can remain: at most ~2√V phases,
-      asserted. The measured graph needed <strong>4</strong> against a
-      bound of 200: 279,886 edge touches, with the answer certified by
+      asserted. The measured graph needed <strong>5</strong> against a
+      bound of 200: 253,278 edge touches, with the answer certified by
       König rather than by trust.
     </p>
   ),
@@ -109,7 +108,7 @@ export const content = {
     <>
       The honest baseline is <strong>Kuhn&apos;s algorithm</strong>: one
       augmenting DFS per vertex, 30 lines, and the same 4,999 matching
-      here at 6.3× the edge touches. On random graphs it is genuinely
+      here at 7.0× the edge touches. On random graphs it is genuinely
       fine (its worst cases are structured); it remains the contest
       default below 10⁵ edges. The phase batch is insurance that costs
       nothing: the same DFS, scheduled better.
@@ -119,7 +118,7 @@ export const content = {
   strength: (
     <>
       <strong>A √V theorem, and answers that carry their own
-      proof.</strong> 4 phases where 200 were permitted; every matching
+      proof.</strong> 5 phases where 200 were permitted; every matching
       on this page (300 small trials and the 50,000-edge instance)
       certified by a constructed König cover touching every edge; the
       Hall-violation gadget diagnosed exactly (10 lefts sharing 3
@@ -134,7 +133,7 @@ export const content = {
       layering); weighted assignment needs the Hungarian algorithm or
       auctions: the moment jobs have values, this page&apos;s tool
       answers the wrong question. And on benign random graphs the
-      measured gap over Kuhn is 6.3×, not the worst-case V/√V: the
+      measured gap over Kuhn is 7.0×, not the worst-case V/√V: the
       batch pays off most exactly where inputs are structured against
       you.
     </>
@@ -150,7 +149,7 @@ export const content = {
       cost: 'O(E·√V)',
       wins: (
         <>
-          <strong>4 phases, 279,886 edge touches</strong>, the √V bound
+          <strong>5 phases, 253,278 edge touches</strong>, the √V bound
           asserted, and König certificates constructed for every answer.
         </>
       ),
@@ -169,7 +168,7 @@ export const content = {
       wins: (
         <>
           Thirty lines, same answer (asserted), and honestly competitive
-          on random graphs: <strong>6.3×</strong> the touches here, not
+          on random graphs: <strong>7.0×</strong> the touches here, not
           the worst-case gap.
         </>
       ),
@@ -225,7 +224,7 @@ export const content = {
       <>
         Take-any-available-edge is a fine <em>heuristic</em> (maximal ⇒
         at least half of maximum, and it scored 93.2% on the random
-        instance): but the P3 gadget pins it to <strong>exactly
+        instance): but the three-edge path gadget pins it to <strong>exactly
         50%</strong>, constructed: 500 chains where first-edge greed
         blocks both completions, scoring 500 where 1,000 existed. The
         failure mode is silent: greedy returns a plausible number with
@@ -244,14 +243,14 @@ export const content = {
       {
         method: 'Hopcroft-Karp × phases',
         isThisUnit: true,
-        values: ['279,886', '4,999'],
+        values: ['253,278', '4,999'],
         best: 0,
-        verdict: '4 phases against a permitted 200: the √V bound at work',
+        verdict: '5 phases against a permitted 200: the √V bound at work',
       },
       {
         method: 'Kuhn, one path at a time',
         values: ['1,776,030', '4,999'],
-        verdict: 'same answer (asserted), 6.3× the touches on friendly ground',
+        verdict: 'same answer (asserted), 7.0× the touches on friendly ground',
       },
       {
         method: 'Greedy (no augmenting)',
@@ -260,14 +259,14 @@ export const content = {
       },
     ],
     source:
-      'python solutions/hopcroft_karp_layered_phases.py prints this table and asserts: 300 small trials where Hopcroft-Karp equals Kuhn equals exhaustive brute force AND each answer is König-certified (cover size equal, every edge covered); the Hall-violation gadget matched at exactly 5 = 3+1+1; the phase count within 2√V at scale with the 4,999-vertex cover checked against all 50,000 edges; greedy’s maximal-matching half-bound holding, and its P3 gadget pinning it to exactly 500 of 1,000.',
+      'python solutions/hopcroft_karp_layered_phases.py prints this table and asserts: 300 small trials where Hopcroft-Karp equals Kuhn equals exhaustive brute force, phase paths are shortest and vertex-disjoint, and each answer is König-certified (cover size equal, every edge covered); the Hall-violation gadget matched at exactly 5 = 3+1+1; the phase count within 2√V at scale with the 4,999-vertex cover checked against all 50,000 edges; greedy’s maximal-matching half-bound holding, and its three-edge path gadget pinning it to exactly 500 of 1,000.',
   },
 
   figure: (
     <Figure
       id="fig-hk-phases"
       aspect="16 / 7"
-      caption="One phase. BFS from every free left vertex layers the graph by alternating distance: forward on unmatched edges, backward on matched ones: stopping at the first layer containing a free right vertex. A DFS then harvests vertex-disjoint shortest augmenting paths and flips the whole batch. The shortest length strictly grows each phase, so ~2√V phases suffice: the measured graph needed 4. The final failed BFS is not waste: its reachable set IS König's minimum vertex cover, the certificate."
+      caption="One phase. BFS from every free left vertex layers the graph by alternating distance: forward on unmatched edges, backward on matched ones: stopping at the first layer containing a free right vertex. A DFS then harvests vertex-disjoint shortest augmenting paths and flips the whole batch. The shortest length strictly grows each phase, so ~2√V phases suffice: the measured graph needed 5. The final failed BFS is not waste: the unreached left vertices together with the reached right vertices form König's minimum vertex cover, the certificate."
       cite={{
         text: 'Hopcroft & Karp, "An n^{5/2} Algorithm for Maximum Matchings in Bipartite Graphs", SIAM J. Computing 2, 1973; the referee is König 1931; the augmenting principle is Berge 1957.',
         href: 'https://doi.org/10.1137/0202019',
@@ -287,7 +286,7 @@ export const content = {
         <text x="480" y="54" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">amber = free</text>
         <text x="480" y="74" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">green = augmenting</text>
         <text x="480" y="94" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">dashed = matched</text>
-        <text x="60" y="270" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="12">two disjoint shortest paths flip in ONE phase · lengths strictly grow · ~2√V phases total (measured: 4)</text>
+        <text x="60" y="270" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="12">one phase flips disjoint shortest paths · lengths grow · O(√V) phases; measured: 5</text>
         <text x="130" y="26" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">L</text>
         <text x="412" y="26" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">R</text>
       </svg>

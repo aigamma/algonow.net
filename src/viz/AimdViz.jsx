@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -101,7 +102,7 @@ export default function AimdViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`two senders on a link of ${CAPACITY} packets per round trip with a ${QUEUE}-packet queue; one round trip per tick; halve on loss, add one otherwise`, 12, 18);
+        ctx.fillText(`two senders, capacity ${CAPACITY}, queue ${QUEUE}; per round trip: halve on loss, otherwise add one`, 12, 18);
         // time chart
         const cx = 20;
         const cy = 40;
@@ -181,10 +182,10 @@ export default function AimdViz() {
         const f = jain(sc.windows);
         let line;
         if (s.done) {
-          line = `after ${ROUNDS} round trips: windows ${sc.windows[0].toFixed(0)} and ${sc.windows[1].toFixed(0)}, Jain fairness ${f.toFixed(3)}; ${sc.drops.length} loss events; the file: fair by round 5, AIAD 0.87 and MIMD 0.85 never converge`;
+          line = `${ROUNDS} round trips: windows ${sc.windows[0].toFixed(0)}, ${sc.windows[1].toFixed(0)}; Jain fairness ${f.toFixed(3)}; ${sc.drops.length} losses`;
           ctx.fillStyle = f > 0.98 ? good : warn;
         } else {
-          line = `round trip ${sc.t}: windows ${sc.windows[0].toFixed(0)} and ${sc.windows[1].toFixed(0)}, Jain fairness ${f.toFixed(3)}; increases move parallel to the line, halvings move toward the origin`;
+          line = `round trip ${sc.t}: windows ${sc.windows[0].toFixed(0)}, ${sc.windows[1].toFixed(0)}; fairness ${f.toFixed(3)}; loss halves both windows`;
           ctx.fillStyle = ink;
         }
         ctx.fillText(line, 12, H - 8);
@@ -196,7 +197,9 @@ export default function AimdViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

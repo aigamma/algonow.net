@@ -284,7 +284,7 @@ export const content = {
     <Figure
       id="fig-black-scholes-smile"
       aspect="16 / 7"
-      caption="Left: the call's value against the stock price one year out (blue) above its payoff at expiry (gray): the gap is time value, largest at the money, where gamma (the curvature) peaks at 0.01876. Right: implied volatility by strike. The model's own prices invert to a flat 20% (gray); prices simulated under Heston stochastic volatility with correlation −0.7 invert to a skew from 24.7% to 13.9% (amber, with two-standard-error bars), a shape a constant volatility cannot produce."
+      caption="Left: the call's value against the stock price with one year to expiry (blue) above its payoff at expiry (gray): the gap is time value, largest at the money, where gamma (the curvature) is 0.01876. Right: implied volatility by strike. The model's own prices invert to a flat 20% (gray); prices simulated under Heston stochastic volatility with correlation −0.7 invert to a skew from 24.7% to 13.9% (amber, with two-standard-error bars), a shape a constant volatility cannot produce."
       cite={{
         text: 'F. Black and M. Scholes, "The pricing of options and corporate liabilities," Journal of Political Economy 81(3), 1973, pp. 637-654, DOI 10.1086/260062. R. C. Merton, "Theory of rational option pricing," Bell Journal of Economics 4(1), 1973. S. L. Heston, "A closed-form solution for options with stochastic volatility," Review of Financial Studies 6(2), 1993.',
         href: 'https://doi.org/10.1086/260062',
@@ -329,7 +329,7 @@ export const content = {
               <line x1={X(100)} y1={Y(0)} x2={X(100)} y2={Y(call(100))} stroke="#62d98a" strokeDasharray="3 3" />
               <text x={X(100) + 4} y={Y(call(100)) - 6} fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="9">10.45 at S = 100</text>
               {[50, 100, 150].map((S) => <text key={S} x={X(S) - 8} y={y0 + 14} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{S}</text>)}
-              <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">call value vs stock price, T = 1 (blue) over the payoff (gray)</text>
+              <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">call blue; payoff gray; T = 1</text>
               <text x={x0} y={y0 + 30} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">delta 0.637, gamma 0.0188 at the money</text>
               <line x1={bx} y1={by} x2={bx + bw} y2={by} stroke="#9aa5bd" strokeOpacity="0.6" />
               <line x1={XK(80)} y1={YV(20)} x2={XK(120)} y2={YV(20)} stroke="#9aa5bd" strokeWidth="1.5" strokeDasharray="4 3" />
@@ -343,7 +343,7 @@ export const content = {
                 </g>
               ))}
               {[12, 16, 20, 24].map((v) => <text key={v} x={bx - 26} y={YV(v) + 3} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{v}%</text>)}
-              <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">implied volatility by strike: Heston prices (amber)</text>
+              <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">implied volatility: Heston (amber)</text>
               <text x={bx} y={by + 30} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">24.7% at K = 80 to 13.9% at K = 120</text>
             </g>
           );

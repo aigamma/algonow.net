@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -230,7 +231,7 @@ export default function RabinKarpViz() {
           ctx.fillText(`touches so far   rabin-karp ${String(st.rkTouch).padStart(4, ' ')}   naive ${String(st.naiveTouch).padStart(4, ' ')}`, 14, 162);
           let line;
           if (done || idx >= steps.length - 1) {
-            line = `pass done: ${sc.wide.trueHits} true matches, ${sc.wide.spurious} spurious at the wide modulus; the same text at mod 23: ${sc.tiny.spurious} false candidates, all verified and rejected`;
+            line = `done: ${sc.wide.trueHits} matches · false candidates: ${sc.wide.spurious} wide, ${sc.tiny.spurious} mod 23 · each verified`;
             ctx.fillStyle = good;
           } else {
             line = 'two touches per slide, whatever the window length: the fingerprint stands in for the letters';
@@ -284,7 +285,9 @@ export default function RabinKarpViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

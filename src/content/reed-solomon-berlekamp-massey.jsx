@@ -90,7 +90,7 @@ export const content = {
     </>,
     <>
       <strong>Syndromes:</strong> evaluate the received word at the
-      32 roots; all zero means clean.
+      32 roots; all zero means no detectable error, not proof of an uncorrupted message.
     </>,
     <>
       <strong>Berlekamp-Massey:</strong> the shortest LFSR
@@ -152,8 +152,7 @@ export const content = {
     <>
       <strong>Hard decisions, a hard wall, and byte-sized
       blindness.</strong> Bounded-distance decoding sees only 2t
-      syndromes: the 17th error is a refusal, not a graceful
-      degradation, and soft channel information (how confident each
+      syndromes: past 16 errors the decoder may refuse or silently return a different codeword; the 40 tested 17-error cases all refused, and soft channel information (how confident each
       bit was) is thrown away, which is where LDPC and turbo codes
       win their extra decibels. A single flipped bit costs a whole
       symbol of the budget. And the finite-field arithmetic is
@@ -309,8 +308,8 @@ export const content = {
         <rect x="120" y="150" width="400" height="34" rx="8" fill="rgba(240,185,75,0.12)" stroke="#f0b94b" strokeWidth="1.6" />
         <text x="132" y="172" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">Berlekamp-Massey: shortest LFSR generating S → Λ(x), degree = error count (258 mults)</text>
         <path d="M 320 190 L 320 212" stroke="#9aa5bd" strokeWidth="1.4" />
-        <text x="30" y="232" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">Chien: Λ(α⁻ⁱ) = 0 at the 3 corrupted positions · Forney: the error values · repaired word: syndromes all zero</text>
-        <text x="30" y="262" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">measured: 48/48 exact (positions matched) · PGZ agrees 48/48 at 8,322 mults · 17 errors refused 40/40 · 128-bit bursts fixed 12/12</text>
+        <text x="30" y="232" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">Chien finds 3 positions · Forney finds error values · corrected syndromes: zero</text>
+        <text x="30" y="262" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">48/48 corrected · PGZ agrees, 8,322 mults · 40/40 refusals · 12/12 bursts fixed</text>
         <text x="30" y="282" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">guessing error patterns instead: 3.02 × 10⁶³ candidates</text>
       </svg>
     </Figure>

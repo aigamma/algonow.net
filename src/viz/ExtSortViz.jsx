@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -31,15 +32,42 @@ export function simulate(records, mem, k) {
     const next = [];
     const passLog = [];
     for (let g = 0; g < cur.length; g += k) {
-      const group = cur.slice(g, g + k).map((r) => r.slice());
+      const group = cur.slice(g, g + k);
       const out = [];
-      while (group.some((r) => r.length)) {
-        let bi = -1;
-        for (let i = 0; i < group.length; i++) {
-          if (group[i].length && (bi < 0 || group[i][0] < group[bi][0])) bi = i;
+      const heap = [];
+      const push = (entry) => {
+        heap.push(entry);
+        let i = heap.length - 1;
+        while (i > 0) {
+          const p = (i - 1) >> 1;
+          if (heap[p].value <= heap[i].value) break;
+          [heap[p], heap[i]] = [heap[i], heap[p]];
+          i = p;
         }
-        out.push(group[bi].shift());
-        passLog.push({ group: g, from: g + bi, val: out[out.length - 1] });
+      };
+      const pop = () => {
+        const first = heap[0];
+        const last = heap.pop();
+        if (heap.length) {
+          heap[0] = last;
+          let i = 0;
+          for (;;) {
+            let smallest = i;
+            for (const child of [2 * i + 1, 2 * i + 2]) if (child < heap.length && heap[child].value < heap[smallest].value) smallest = child;
+            if (smallest === i) break;
+            [heap[i], heap[smallest]] = [heap[smallest], heap[i]];
+            i = smallest;
+          }
+        }
+        return first;
+      };
+      group.forEach((run, from) => { if (run.length) push({ value: run[0], from, offset: 0 }); });
+      while (heap.length) {
+        const entry = pop();
+        out.push(entry.value);
+        passLog.push({ group: g, from: g + entry.from, val: entry.value });
+        const offset = entry.offset + 1;
+        if (offset < group[entry.from].length) push({ value: group[entry.from][offset], from: entry.from, offset });
       }
       next.push(out);
     }
@@ -47,7 +75,7 @@ export function simulate(records, mem, k) {
     passes.push({ log: passLog, count: next.length });
     cur = next;
   }
-  return { runs0, passes, sorted: cur[0] || [], io };
+  return { runs0, passes, sorted: cur[0] || [], io, mergeMemoryRecords: (k + 1) * 4 };
 }
 
 export function makeScene(seed) {
@@ -150,7 +178,7 @@ export default function ExtSortViz() {
           ctx.fillText('act 1 · phase 1: sort memory-sized chunks into runs · phase 2: one 8-way merge', 14, 20);
 
           // Input tape.
-          ctx.fillText('input tape (96 records, memory holds 12)', 14, 44);
+          ctx.fillText('96 records · run buffer 12 · merge buffer 36 records', 14, 44);
           bar(14, 50, 610, 12, forming ? Math.min(1, t / formTicks) : 1, dim);
 
           // Runs.
@@ -205,7 +233,7 @@ export default function ExtSortViz() {
           ctx.fillText(line, 14, H - 12);
           statsRef.current = { line };
         } else {
-          ctx.fillText('act 2 · the k dial: same data, same memory: k = 2 pays passes, k = 8 pays one', 14, 20);
+          ctx.fillText('act 2 · same runs; larger merge buffer allows k = 8', 14, 20);
           const passLens = sc.narrow.passes.map((p) => Math.ceil(p.log.length / 4));
           const total = passLens.reduce((a, b) => a + b, 0);
           const t = done ? total + 40 : Math.min(s.tick, total + 40);
@@ -257,7 +285,9 @@ export default function ExtSortViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

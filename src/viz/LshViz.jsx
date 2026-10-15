@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -109,7 +110,7 @@ export default function LshViz() {
         const R = 118;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`${N} unit vectors in the plane, ${CLUSTERS} clusters; table ${Math.min(sc.table, L)} of ${L}: ${K} random lines, one bit each; the query's sector is its bucket`, 12, 18);
+        ctx.fillText(`${N} unit vectors, ${CLUSTERS} clusters; table ${Math.min(sc.table, L)}/${L}: ${K} random lines encode the query sector`, 12, 18);
         ctx.strokeStyle = `${dim}55`;
         ctx.beginPath();
         ctx.arc(cx, cy, R, 0, Math.PI * 2);
@@ -118,8 +119,8 @@ export default function LshViz() {
           ctx.strokeStyle = `${heur}99`;
           for (const phi of sc.lines) {
             ctx.beginPath();
-            ctx.moveTo(cx + Math.cos(phi) * R, cy - Math.sin(phi) * R);
-            ctx.lineTo(cx - Math.cos(phi) * R, cy + Math.sin(phi) * R);
+            ctx.moveTo(cx - Math.sin(phi) * R, cy - Math.cos(phi) * R);
+            ctx.lineTo(cx + Math.sin(phi) * R, cy + Math.cos(phi) * R);
             ctx.stroke();
           }
         }
@@ -181,7 +182,7 @@ export default function LshViz() {
             : `missed: the true neighbor never shared the query's sector in ${L} tables; ${sc.cands.size} candidates examined`;
           ctx.fillStyle = hit ? good : warn;
         } else {
-          line = `table ${sc.table}: ${sc.lastBucket.length} points share the query's ${K}-bit code; near points share sides of random lines more often than far ones`;
+          line = `table ${sc.table}: ${sc.lastBucket.length} points share the ${K}-bit code; near points collide more often`;
           ctx.fillStyle = ink;
         }
         ctx.fillText(line, 12, H - 8);
@@ -193,7 +194,9 @@ export default function LshViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

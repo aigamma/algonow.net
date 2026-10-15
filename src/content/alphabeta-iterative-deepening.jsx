@@ -5,7 +5,7 @@ import { narration } from './alphabeta-iterative-deepening.narration.js';
 
 export const content = {
   given:
-    'A game tree of branching 8 and depth 8: about 19 million leaves: and an alpha-beta searcher whose entire power depends on which move it happens to try first at every node.',
+    'A game tree of branching 8 and depth 8: 16,777,216 leaves (about 19 million nodes in the full tree): and an alpha-beta searcher whose entire power depends on which move it happens to try first at every node.',
   task: 'Search depth 1, then 2, then 3, up to the target: each iteration remembers every node’s best move and feeds a per-ply history table, so the next, deeper iteration tries yesterday’s answers first and cuts almost immediately.',
   constraint:
     'Exhaustive minimax referees depth 6 exactly (40 random trees plus the contest tree); at depth 8, three adversarial orderings must agree. The paradox is asserted, not narrated: all six ID iterations together cost 3,940 nodes against one blind depth-6 search’s 14,004: and with oracle ordering the Knuth-Moore floor is hit exactly: 431 leaves against the formula’s 431.',
@@ -319,14 +319,14 @@ export const content = {
           </g>
         ))}
         <path d="M 60 46 v 130" stroke="#f0b94b" strokeWidth="1.4" markerEnd="" />
-        <text x="66" y="120" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">best moves + history flow down</text>
+        <text x="170" y="120" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">ordering reused</text>
         <text x="40" y="216" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">all six iterations: 3,940 nodes</text>
         <rect x={330} y={40} width={260} height={18} fill="rgba(226,96,108,0.25)" stroke="#e2606c" strokeWidth="1.4" />
         <text x={330} y={34} fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">one blind depth-6 search: 14,004 nodes (3.6×)</text>
         <rect x={330} y={92} width={73} height={18} fill="rgba(98,217,138,0.3)" stroke="#62d98a" strokeWidth="1.4" />
         <text x={330} y={86} fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">the final ID pass alone: 2,338 (17% of blind)</text>
         <text x="330" y="150" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">cutoff arrives at move index 0.53 vs 1.38:</text>
-        <text x="330" y="164" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">yesterday&apos;s search is today&apos;s oracle</text>
+        <text x="360" y="164" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">previous search guides order</text>
         <text x="330" y="192" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">the floor, hit exactly: oracle order visits 431</text>
         <text x="330" y="206" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">leaves = b^⌈d/2⌉ + b^⌊d/2⌋ - 1 (Knuth-Moore)</text>
         <text x="40" y="248" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">depth 8: ID 40,769 vs random 251,348 (16%), values agreeing across three adversarial orderings</text>

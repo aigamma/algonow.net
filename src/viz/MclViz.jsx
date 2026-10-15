@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -82,6 +83,7 @@ export function sceneTick(sc) {
     return v;
   });
   sc.weights = total > 0 ? w.map((v) => v / total) : new Array(N).fill(1 / N);
+  sc.posteriorParticles = sc.particles.slice();
   sc.mean = circularMean(sc.particles, sc.weights);
   sc.err = circErr(sc.mean, sc.truth);
   sc.errs.push(sc.err);
@@ -152,7 +154,7 @@ export default function MclViz() {
         const px = (x) => x0 + (x / LOOP) * xw;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`step ${sc.step}: ${N} particles on a ${LOOP} m loop, doors at ${DOORS.join(', ')} m; 2 m steps, nearest-door sensor${sc.kidnapped ? '; robot kidnapped at step ' + KIDNAP_AT : ''}`, 12, 18);
+        ctx.fillText(`step ${sc.step}: ${N} particles, ${LOOP} m loop, nearest-door sensor${sc.kidnapped ? '; kidnapped at ' + KIDNAP_AT : ''}`, 12, 18);
         // corridor
         const cy = 70;
         ctx.strokeStyle = `${dim}88`;
@@ -169,7 +171,7 @@ export default function MclViz() {
           const wsz = Math.min(5, 1.2 + sc.weights[i] * N * 1.5);
           ctx.fillStyle = `${algo}99`;
           ctx.beginPath();
-          ctx.arc(px(sc.particles[i]), cy - 30 - (i % 7) * 3, wsz, 0, Math.PI * 2);
+          ctx.arc(px((sc.posteriorParticles || sc.particles)[i]), cy - 30 - (i % 7) * 3, wsz, 0, Math.PI * 2);
           ctx.fill();
         }
         // truth
@@ -221,12 +223,12 @@ export default function MclViz() {
           ctx.setLineDash([]);
         }
         ctx.fillStyle = dim;
-        ctx.fillText('cloud histogram: amber the weighted mean, dashed green the truth', 12, 268);
+        ctx.fillText('resampled histogram; amber: posterior mean; dashed green: truth', 12, 268);
         let line;
         if (s.done) {
           const before = sc.errs.slice(20, KIDNAP_AT).reduce((a, b) => a + b, 0) / (KIDNAP_AT - 20);
           const after = sc.errs.slice(KIDNAP_AT + 20).reduce((a, b) => a + b, 0) / (sc.errs.length - KIDNAP_AT - 20);
-          line = `mean error ${before.toFixed(1)} m once localized, ${after.toFixed(1)} m after recovering from the kidnapping; the random particles bought the recovery`;
+          line = `mean error: ${before.toFixed(1)} m localized, ${after.toFixed(1)} m after kidnapping; random particles aid recovery`;
           ctx.fillStyle = good;
         } else {
           line = sc.err !== null ? `error now ${sc.err.toFixed(1)} m: move every particle, weight by the reading, resample so likely guesses multiply` : 'uniform prior: the robot could be anywhere';
@@ -241,7 +243,9 @@ export default function MclViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

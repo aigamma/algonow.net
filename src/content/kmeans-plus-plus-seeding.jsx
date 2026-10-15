@@ -262,7 +262,7 @@ export const content = {
     <Figure
       id="fig-kmeanspp-d2"
       aspect="16 / 7"
-      caption="D² sampling in one frame. One seed is placed; every other point's brightness is its squared distance to the nearest seed so far, which is exactly its probability of becoming the next seed. The far, unserved blobs practically shout, a doubled-up seed becomes a rare accident instead of the expected case, and the 8(ln k + 2) expected-cost guarantee is already in force before Lloyd's first iteration."
+      caption="D² sampling in one frame. One seed is placed; every other point's brightness is its squared distance to the nearest seed so far, which is proportional to its probability of becoming the next seed. The far, unserved blobs practically shout, a doubled-up seed becomes a rare accident instead of the expected case, and the 8(ln k + 2) expected-cost guarantee is already in force before Lloyd's first iteration."
       cite={{
         text: 'Arthur and Vassilvitskii, "k-means++: The Advantages of Careful Seeding", SODA 2007. Lloyd’s iteration is the 1957 Bell Labs memo published as "Least Squares Quantization in PCM", IEEE Transactions on Information Theory 28(2), 1982.',
         href: 'https://doi.org/10.1109/TIT.1982.1056489',

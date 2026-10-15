@@ -279,7 +279,7 @@ export const content = {
     <Figure
       id="fig-mr-chain"
       aspect="16 / 7"
-      caption="The squaring chain and its two doors. From a^d, square s times toward a^(n−1). A prime admits only two histories: the chain starts at 1, or passes through −1 on its way in. Reaching 1 from any other value exhibits a nontrivial square root of 1, impossible in a field: composite, certified. Rabin's theorem prices the lottery: at most a quarter of witnesses miss, measured worst case 0.1857."
+      caption="The squaring chain and its two doors. From a^d, square s times toward a^(n−1). A prime admits only two histories: the chain starts at 1, or passes through −1 on its way in. Reaching 1 from any other value exhibits a nontrivial square root of 1, impossible in a field: composite, certified. Rabin's theorem prices the lottery: at most a quarter of tested bases miss, measured worst case 0.1857."
       cite={{
         text: 'Rabin, "Probabilistic algorithm for testing primality", Journal of Number Theory 12, 1980. The deterministic witness bound is Sorenson & Webster, 2015; the Carmichael blind spot dates to 1910.',
         href: 'https://doi.org/10.1016/0022-314X(80)90084-0',

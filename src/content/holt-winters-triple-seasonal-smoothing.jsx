@@ -318,8 +318,8 @@ export const content = {
               <polyline points={data.map((v, t) => `${X(t)},${Y(v)}`).join(' ')} fill="none" stroke="#9aa5bd" strokeWidth="1.2" />
               <polyline points={fc.map((yv, k) => `${X(120 + k)},${yv}`).join(' ')} fill="none" stroke="#5da2ff" strokeWidth="2" />
               <polyline points={holt.map((yv, k) => `${X(120 + k)},${yv}`).join(' ')} fill="none" stroke="#e2606c" strokeWidth="1.5" strokeDasharray="4 3" />
-              <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">airline passengers 1949 to 1960; shaded: held out; blue: Holt-Winters 7.3%; red: Holt trend 19.4%</text>
-              <text x={x0} y={y0 + 16} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">gamma 0.99 on the fit: the season is relearned each year; the log form scores 3.5% but training error did not pick it</text>
+              <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">airline held-out: HW 7.3%; Holt 19.4%</text>
+              <text x={x0} y={y0 + 16} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">log form: 3.5%; training error missed it</text>
               {bars.map(([name, v, color], i) => (
                 <g key={name}>
                   <rect x={bx + i * 32} y={by - hgt(v)} width="22" height={hgt(v)} fill={color} fillOpacity="0.85" />

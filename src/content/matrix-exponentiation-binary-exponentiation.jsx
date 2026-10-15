@@ -294,7 +294,7 @@ export const content = {
           const hgt = (v) => (Math.log10(v) / Math.log10(20000)) * 170;
           return (
             <g>
-              <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">10^18 in binary: {bits.length} bits, {ones} ones; each bit a squaring, each one a multiply</text>
+              <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">10^18: {bits.length} bits, {ones} one-bits</text>
               {bits.split('').map((b, i) => (
                 <rect key={i} x={x0 + i * bw} y={b === '1' ? 40 : 52} width={bw - 1} height={b === '1' ? 24 : 12} fill={b === '1' ? '#f0b94b' : '#9aa5bd'} fillOpacity={b === '1' ? 0.95 : 0.4} />
               ))}

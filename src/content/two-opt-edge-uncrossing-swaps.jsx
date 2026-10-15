@@ -308,7 +308,7 @@ export const content = {
           const c = [250, 60];
           const d = [40, 220];
           const x = [145, 140];
-          const bars = [['nearest neighbor', 14.98, '1 of 20', '#9aa5bd'], ['2-opt, random start', 4.12, '8 of 20', '#5da2ff'], ['2-opt, NN start', 1.85, '13 of 20', '#5da2ff'], ['2-opt then Or-opt', 0.0, '20 of 20', '#62d98a']];
+          const bars = [['nearest neighbor', 14.98, '1 of 20', '#9aa5bd'], ['random', 4.12, '8 of 20', '#5da2ff'], ['NN', 1.85, '13 of 20', '#5da2ff'], ['2-opt then Or-opt', 0.0, '20 of 20', '#62d98a']];
           const bx = 360;
           const by = 220;
           const hgt = (v) => (v / 16) * 160;
@@ -331,7 +331,7 @@ export const content = {
               <text x={d[0] - 14} y={d[1] + 12} fill="#e9edf6" fontSize="11">d</text>
               <text x={x[0] + 6} y={x[1] - 6} fill="#e2606c" fontSize="10">X</text>
               <text x="40" y="250" fill="#e2606c" fontSize="10">red: removed, |ab| + |cd| = (|aX| + |Xb|) + (|cX| + |Xd|)</text>
-              <text x="40" y="264" fill="#f0b94b" fontSize="10">amber: added, |ac| + |bd| is strictly less; the path b..c reverses</text>
+              <text x="40" y="264" fill="#f0b94b" fontSize="10">amber: shorter pair; reverse b..c</text>
               <text x={bx} y="30" fill="#9aa5bd" fontSize="10">gap over the exact optimum, n = 16, 20 instances</text>
               {bars.map(([name, v, hits, col], i) => (
                 <g key={name}>

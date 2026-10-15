@@ -5,7 +5,7 @@ import { narration } from './modular-exponentiation-square-multiply.narration.js
 
 export const content = {
   given:
-    'A base, a 2048-bit exponent, a modulus: and the fact that every TLS handshake, RSA signature, and Diffie-Hellman agreement is exactly this computation.',
+    'A base, a 2048-bit exponent, a modulus: compute the modular power used in RSA and finite-field Diffie-Hellman. Elliptic-curve handshakes use different group arithmetic.',
   task: 'Compute aᵉ mod m by reading the exponent in binary: square for every bit, multiply only on the 1s: three thousand operations where the naive ladder needs a number with 617 digits.',
   constraint:
     "The referee is Python's built-in pow: matched exactly on 3,006 triples up to 2048 bits, every edge case included. The count law is asserted exactly (squares = bit length − 1, multiplies = popcount − 1 on 500 exponents), and the naive ladder is actually run and counted where it can survive.",
@@ -24,16 +24,17 @@ export const content = {
       (discrete log). RSA followed in 1977. The modern chapters are
       about the <em>side channels</em>: Kocher&apos;s 1996 timing
       attacks read exponent bits from running time, and
-      constant-time ladders became a security requirement, not a
-      style choice.
+      constant-time implementations became a security requirement.
+      A ladder can help enforce a regular schedule; equal operation counts
+      alone do not prove constant-time execution.
     </p>
   ),
 
   algoRole: (
     <p>
       Owns the <strong>modular frame</strong>: reduce after every
-      operation, so intermediates never exceed m² and 2048-bit work
-      stays 2048-bit work (compute aᵉ first and the intermediate
+      operation, after reducing the input base, so intermediates stay below m²
+      (compute aᵉ first and the intermediate
       for a 2048-bit exponent would not fit in the observable
       universe). Owns correctness at the edges: e = 0, m = 1, the
       identities: all matched against pow on 3,006 triples. And
@@ -54,8 +55,8 @@ export const content = {
       and 3,091 at 2048 bits. The fine print is a security fact:
       that count <em>depends on the exponent&apos;s 1s</em>:
       measured here as a 493-operation gap between same-length
-      exponents: which is the leak Kocher exploited, and the
-      Montgomery ladder seals.
+      exponents. The Montgomery ladder removes this count difference;
+      the Python version still branches on bits and is not constant-time.
     </p>
   ),
 
@@ -72,7 +73,7 @@ export const content = {
       floor: the numbers stay pocket-sized while the exponent
       soars. And the surveillance camera in the lobby counts your
       single-floor steps: walk a different number of them and a
-      watcher learns your destination&apos;s digits: unless you
+      watcher learns how many 1s your destination has: unless you
       walk every floor&apos;s worth of steps regardless, which is
       the ladder&apos;s discipline.
     </p>
@@ -81,8 +82,7 @@ export const content = {
   steps: [
     <>
       <strong>Reduce always:</strong> every square and multiply is
-      followed by mod m: intermediates stay bounded, 2048-bit work
-      stays 2048-bit.
+      followed by mod m: after reducing the base, products stay below m².
     </>,
     <>
       <strong>Read the bits:</strong> left to right after the
@@ -95,8 +95,8 @@ export const content = {
     </>,
     <>
       <strong>Mind the leak:</strong> that count reads the
-      exponent&apos;s 1s aloud (493-op gap measured): secrets
-      demand the ladder&apos;s fixed rhythm.
+      exponent&apos;s popcount (493-op gap measured): secrets
+      require vetted constant-time arithmetic, beyond this Python demonstration.
     </>,
     <>
       <strong>Build upward:</strong> Miller-Rabin, RSA, and
@@ -119,14 +119,14 @@ export const content = {
     </>,
     <>
       <strong>The exponent is a secret:</strong> then the operation
-      count is a broadcast: reach for the constant-time ladder and
-      never branch on a key bit.
+      count can leak information: use a vetted constant-time implementation.
+      This Python ladder demonstrates fixed operation counts only.
     </>,
   ],
   baseline: (
     <>
       The honest baseline is the <strong>naive ladder</strong>:
-      e − 1 multiplications: run here in full at e = 999,983
+      e multiplications starting from 1: run here in full at e = 999,983
       (999,983 multiplications, counted) against
       square-and-multiply&apos;s 29: 34,482×. At 2048 bits the
       baseline&apos;s count is a 617-digit number: not slow:
@@ -142,7 +142,7 @@ export const content = {
       to 2048 bits; the count law exact on 500 exponents; the
       naive ladder executed and beaten 34,482× where it could
       survive; the popcount leak measured as exactly the popcount
-      gap (493 ops) and sealed by the ladder&apos;s identical
+      gap (493 ops) and removed from the ladder&apos;s identical
       counts; RSA and Diffie-Hellman round-tripping on top.
     </>
   ),
@@ -152,9 +152,11 @@ export const content = {
       free.</strong> Square-and-multiply&apos;s data-dependent
       count (and, in real silicon, its data-dependent branches and
       cache traffic) is the classic timing side channel: Kocher
-      1996: production crypto uses Montgomery ladders, fixed
-      windows, and blinding, paying up to 2× the operations for
-      silence. Each 2048-bit multiplication is itself expensive
+      1996. Production crypto needs carefully implemented constant-time
+      arithmetic and may use ladders, fixed windows, and blinding.
+      Equal operation counts alone leave branch, memory-access, and
+      big-integer timing leaks possible; this Python code is educational.
+      Each 2048-bit multiplication is itself expensive
       (Montgomery multiplication, Karatsuba and friends: the live
       Toom-Cook unit&apos;s territory): the 3,091 operations are
       3,091 big-number multiplications, not machine instructions.
@@ -174,8 +176,8 @@ export const content = {
       wins: (
         <>
           <strong>The count law</strong>: log-many operations,
-          exact and asserted: the loop under every handshake on
-          the internet.
+          exact and asserted: an arithmetic core of RSA and finite-field
+          Diffie-Hellman.
         </>
       ),
       costs: (
@@ -193,18 +195,18 @@ export const content = {
       wins: (
         <>
           Every bit pays a square AND a multiply: counts identical
-          for all same-length exponents (asserted): the timing
-          leak sealed by construction, and the standard on smart
-          cards and ECC.
+          for all same-length exponents (asserted). This removes the
+          popcount-dependent operation count, one ingredient of a
+          constant-time implementation.
         </>
       ),
       costs: (
         <>
-          Up to 2× the plain form&apos;s operations: silence is
-          bought, not free.
+          More operations than the plain form, approaching 2× for long sparse
+          exponents. Python branches and big integers still have variable timing.
         </>
       ),
-      when: 'Whenever the exponent is a key: constant-time is a security requirement, not a style.',
+      when: 'Secret exponents, through a vetted constant-time implementation rather than this teaching code.',
     },
     {
       name: 'Fixed-window exponentiation',
@@ -219,9 +221,9 @@ export const content = {
       ),
       costs: (
         <>
-          The table costs memory and setup: worthless for a
-          one-shot power, decisive for RSA signing with a fixed
-          key.
+          The table costs memory and setup, but can pay off even for one
+          large power. Reusing a table requires a compatible base and modulus;
+          a fixed RSA key alone does not fix the message base.
         </>
       ),
       when: 'Repeated exponentiations with one base or one modulus: amortize the table, win every call.',
@@ -276,7 +278,7 @@ export const content = {
       {
         method: 'Naive ladder',
         values: ['999,983', '~10⁶¹⁷'],
-        verdict: 'e − 1 multiplications: run only where survivable',
+        verdict: 'e multiplications from 1: run only where survivable',
       },
       {
         method: 'Square-and-multiply',
@@ -292,14 +294,14 @@ export const content = {
       },
     ],
     source:
-      "python solutions/modular_exponentiation_square_multiply.py prints this table and asserts: square-and-multiply and the Montgomery ladder equal to pow on 3,006 triples up to 2048 bits with all edge cases; the count law exact on 500 exponents (squares = bit_length − 1, multiplies = popcount − 1); the naive ladder executed in full at e = 999,983 and beaten above 20,000× (measured 34,482×); the leak counted (same 1024-bit length, popcount 3 vs 496: an op gap of exactly 493) and sealed (ladder counts identical); RSA over 512-bit Miller-Rabin primes round-tripping 50 messages; and 100 Diffie-Hellman handshakes agreeing on both sides and matching g^(ab).",
+      "python solutions/modular_exponentiation_square_multiply.py prints this table and asserts: square-and-multiply and the Montgomery ladder equal to pow on 3,006 triples up to 2048 bits with all edge cases; the count law exact on 500 exponents (squares = bit_length − 1, multiplies = popcount − 1); the naive ladder executed in full at e = 999,983 and beaten above 20,000× (measured 34,482×); the count difference measured (same 1024-bit length, popcount 3 vs 496: an op gap of exactly 493) and absent in the ladder, which is not a constant-time guarantee; toy RSA over 512-bit Miller-Rabin primes round-tripping 50 messages; and 100 finite-field Diffie-Hellman handshakes agreeing on both sides and matching g^(ab).",
   },
 
   figure: (
     <Figure
       id="fig-modexp-bits"
       aspect="16 / 7"
-      caption="The exponent read as binary. Each bit costs one squaring; each 1 costs one extra multiply; the modulus keeps every intermediate pocket-sized. The count law is exact: bit_length − 1 squares plus popcount − 1 multiplies: 3,091 operations at 2048 bits where the naive ladder's count is a 617-digit number. The same law is the leak: the count reads the exponent's 1s aloud (493-op gap measured between same-length keys), which is why secret exponents ride the Montgomery ladder's fixed rhythm instead."
+      caption="The exponent read as binary. After the leading 1, each bit costs one squaring and each 1 costs one extra multiply. The count law is exact: bit_length − 1 squares plus popcount − 1 multiplies: 3,091 operations at 2048 bits where the naive ladder's count is a 617-digit number. The count reveals the exponent's popcount (493-op gap measured between same-length exponents). The ladder removes this count difference; this Python implementation is not constant-time or suitable for production secrets."
       cite={{
         text: 'Diffie & Hellman, "New Directions in Cryptography", IEEE Trans. Information Theory 22(6), 1976: key exchange built on this loop\'s one-way asymmetry: easy forward, believed hard backward.',
         href: 'https://doi.org/10.1109/TIT.1976.1055638',
@@ -318,8 +320,8 @@ export const content = {
         <text x="60" y="120" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">e = 45: five squares, three multiplies: 3⁴⁵ mod m in eight ops, not forty-four</text>
         <text x="60" y="156" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">the law, asserted: squares = bit_length − 1 · multiplies = popcount − 1</text>
         <text x="60" y="180" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: e ≈ 10⁶: naive 999,983 vs 29 (34,482×) · 2048 bits: 3,091 vs a 617-digit count</text>
-        <text x="60" y="216" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">the leak: same length, popcount 3 vs 496: 1,025 vs 1,518 ops: the count spells the key</text>
-        <text x="60" y="240" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">the seal: Montgomery ladder: 2,048 ops for both, identical: silence costs 2×</text>
+        <text x="60" y="216" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">same length, popcount 3 vs 496: 1,025 vs 1,518 ops: the count reveals popcount</text>
+        <text x="60" y="240" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">Montgomery ladder: 2,048 ops for both; equal counts do not prove constant timing</text>
         <text x="60" y="272" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">clients run: RSA (512-bit MR primes, 50 round-trips) · Diffie-Hellman (100 handshakes agreeing)</text>
       </svg>
     </Figure>

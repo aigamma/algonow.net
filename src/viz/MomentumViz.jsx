@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -59,8 +60,6 @@ function makeScene(seed) {
   return { angle, gd, hb };
 }
 
-const px = ([x, y]) => [320 + x * 300, 152 + y * 300];
-
 export default function MomentumViz() {
   const canvasRef = useRef(null);
   const cycle = useRef(0);
@@ -115,13 +114,23 @@ export default function MomentumViz() {
         const path = css.getPropertyValue('--path').trim() || '#62d98a';
         const dim = css.getPropertyValue('--ink-dim').trim() || '#9aa5bd';
 
+        // Fit the full trajectories and outer contour with a single scale.
+        // Momentum can overshoot the starting point without leaving the view.
+        const points = [...s.scene.gd, ...s.scene.hb];
+        const cos = Math.cos(s.scene.angle);
+        const sin = Math.sin(s.scene.angle);
+        const extentX = Math.max(Math.sqrt(cos * cos + sin * sin / KAPPA), ...points.map(([x]) => Math.abs(x)));
+        const extentY = Math.max(Math.sqrt(sin * sin + cos * cos / KAPPA), ...points.map(([, y]) => Math.abs(y)));
+        const scale = Math.min(294 / extentX, 116 / extentY);
+        const px = ([x, y]) => [320 + x * scale, 142 + y * scale];
+
         // Contours of the rotated bowl.
         ctx.save();
-        ctx.translate(320, 152);
+        ctx.translate(320, 142);
         ctx.rotate(s.scene.angle);
         for (const t of [1, 0.75, 0.52, 0.32, 0.16]) {
           ctx.beginPath();
-          ctx.ellipse(0, 0, 300 * t, (300 / Math.sqrt(KAPPA)) * t, 0, 0, Math.PI * 2);
+          ctx.ellipse(0, 0, scale * t, (scale / Math.sqrt(KAPPA)) * t, 0, 0, Math.PI * 2);
           ctx.strokeStyle = 'rgba(93,162,255,0.22)';
           ctx.lineWidth = 1;
           ctx.stroke();
@@ -129,7 +138,7 @@ export default function MomentumViz() {
         ctx.restore();
         ctx.fillStyle = path;
         ctx.beginPath();
-        ctx.arc(320, 152, 3.5, 0, Math.PI * 2);
+        ctx.arc(320, 142, 3.5, 0, Math.PI * 2);
         ctx.fill();
 
         const at = Math.floor(s.tick / TICKS_PER_STEP);
@@ -167,7 +176,9 @@ export default function MomentumViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -24,7 +25,6 @@ function simulate(seed) {
   const rand = mulberry32(seed);
   const buckets = Array.from({ length: NB }, () => []);
   const events = []; // {kind:'hop', from, to, chain} | {kind:'place', b} | {kind:'delete', b, slot}
-  const itemHome = new Map();
 
   const mkItem = (id) => {
     const i1 = Math.floor(rand() * NB);
@@ -34,6 +34,8 @@ function simulate(seed) {
   };
 
   const insert = (it) => {
+    const before = buckets.map((bucket) => bucket.slice());
+    const eventStart = events.length;
     for (const b of [it.i1, it.i2]) {
       if (buckets[b].length < BS) {
         buckets[b].push(it);
@@ -58,6 +60,10 @@ function simulate(seed) {
         return true;
       }
     }
+    // A bounded kick failure must not silently discard an existing member.
+    buckets.forEach((bucket, i) => bucket.splice(0, bucket.length, ...before[i]));
+    events.length = eventStart;
+    events.push({ kind: 'reject', b: it.i1, item: it });
     return false;
   };
 
@@ -207,6 +213,9 @@ export default function CuckooViz() {
         } else if (lastEvent.kind === 'evict') {
           line = `kick ${lastEvent.chain}: evicted print hops to ITS other home: i ⊕ hash(fp), no item needed`;
           ctx.fillStyle = warn;
+        } else if (lastEvent.kind === 'reject') {
+          line = 'kick limit: insertion rejected; existing members preserved';
+          ctx.fillStyle = warn;
         } else if (lastEvent.kind === 'delete') {
           line = 'delete: one fingerprint out, zero collateral: every neighbor untouched';
           ctx.fillStyle = good;
@@ -228,7 +237,9 @@ export default function CuckooViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

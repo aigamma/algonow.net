@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -49,6 +50,7 @@ function instrumentedTree(vals) {
     add(2 * node, lo, mid, l, r, v);
     add(2 * node + 1, mid + 1, hi, l, r, v);
     s[node] = s[2 * node] + s[2 * node + 1];
+    snap(node, 'pull');
   };
   let acc = 0;
   const query = (node, lo, hi, l, r) => {
@@ -247,7 +249,9 @@ export default function SegmentTreeViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

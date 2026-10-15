@@ -38,6 +38,7 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
     const canvas = canvasRef.current;
     if (!canvas) return undefined;
     const ctx = canvas.getContext('2d');
+    if (!ctx) return undefined;
 
     // Crispness: the model draws in logical width x height units, but
     // the CSS box is usually wider (the canvas fills its frame), so a
@@ -57,16 +58,19 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
     // Speed Index at 3.9s and the score at 98. An observer callback already
     // runs after layout, so taking the width from the entry forces nothing.
     let fitted = false;
+    let cssWidth = width;
     const fitTo = (cssW) => {
+      if (!(cssW > 0)) return;
+      cssWidth = cssW;
       const dpr = Math.min(window.devicePixelRatio || 1, 3);
-      const scale = ((cssW || width) / width) * dpr;
+      const scale = (cssWidth / width) * dpr;
       const pw = Math.max(1, Math.round(width * scale));
       const ph = Math.max(1, Math.round(height * scale));
       if (canvas.width !== pw || canvas.height !== ph) {
         canvas.width = pw;
         canvas.height = ph;
       }
-      ctx.setTransform(scale, 0, 0, scale, 0, 0);
+      ctx.setTransform(pw / width, 0, 0, ph / height, 0, 0);
       fitted = true;
     };
     const widthOf = (entry) =>
@@ -81,36 +85,66 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
     state[PACE_KEY] = pace;
     stateRef.current = state;
 
+    const paint = () => {
+      if (fitted) draw(ctx, state, width, height);
+    };
+    const ro = new ResizeObserver((entries) => {
+      fitTo(widthOf(entries[0]));
+      paint();
+    });
+    ro.observe(canvas);
+
+    // Moving a window between screens can change density without changing its
+    // CSS box, so ResizeObserver alone cannot keep the backing store sharp.
+    let densityQuery = null;
+    const watchDensity = () => {
+      densityQuery?.removeEventListener?.('change', densityChanged);
+      densityQuery = window.matchMedia?.(`(resolution: ${window.devicePixelRatio || 1}dppx)`);
+      densityQuery?.addEventListener?.('change', densityChanged);
+    };
+    const densityChanged = () => {
+      if (fitted) {
+        fitTo(cssWidth);
+        paint();
+      }
+      watchDensity();
+    };
+    watchDensity();
+    const disconnectSizing = () => {
+      ro.disconnect();
+      densityQuery?.removeEventListener?.('change', densityChanged);
+    };
+
     if (isStill()) {
-      let guard = 0;
-      while (tick(state) !== false && guard < maxTicks) guard += 1;
+      for (let guard = 0; guard < maxTicks; guard += 1) {
+        if (tick(state) === false) break;
+      }
       // The observer delivers once as soon as it starts observing, so the
       // first fit and the first draw both ride that callback. It also keeps
       // the figure crisp if the column reflows (window resize, zoom).
-      const roStill = new ResizeObserver((entries) => {
-        fitTo(widthOf(entries[0]));
-        draw(ctx, state, width, height);
-      });
-      roStill.observe(canvas);
-      return () => roStill.disconnect();
+      return disconnectSizing;
     }
 
     let raf = 0;
     let timer = 0;
     let running = true;
-    let visible = true;
+    let visible = false;
 
     // Nothing is drawn until the observer has reported a size, because the
     // context transform comes from it. That is one frame, not a wait.
-    const paint = () => {
-      if (fitted) draw(ctx, state, width, height);
+    const paintFrame = () => {
+      raf = 0;
+      if (visible && !document.hidden) paint();
     };
 
     const step = () => {
-      if (!running || !visible || document.hidden) return;
+      if (!running || !fitted || !visible || document.hidden) return;
       const more = tick(state);
-      raf = requestAnimationFrame(paint);
-      if (more === false) running = false;
+      if (!raf) raf = requestAnimationFrame(paintFrame);
+      if (more === false) {
+        running = false;
+        clearInterval(timer);
+      }
     };
 
     timer = setInterval(step, pace);
@@ -118,25 +152,17 @@ export function useCanvasLoop(canvasRef, { width, height, init, tick, draw, step
     const io = new IntersectionObserver(
       (entries) => {
         visible = entries[0]?.isIntersecting ?? true;
+        if (visible && !document.hidden) paint();
       },
       { threshold: 0.05 }
     );
     io.observe(canvas);
 
-    // Fits the backing store the first time the observer reports, and again
-    // whenever the layout changes size, so the figure never sits upscaled and
-    // soft after a reflow.
-    const ro = new ResizeObserver((entries) => {
-      fitTo(widthOf(entries[0]));
-      paint();
-    });
-    ro.observe(canvas);
-
     return () => {
       clearInterval(timer);
       cancelAnimationFrame(raf);
       io.disconnect();
-      ro.disconnect();
+      disconnectSizing();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [...deps, motionNonce]);

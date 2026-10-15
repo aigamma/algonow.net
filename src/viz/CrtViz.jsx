@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -111,7 +112,7 @@ export default function CrtViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`a hidden integer below ${M.toLocaleString()} = 7 x 11 x 13, known only by its residues; Garner: one digit per tick; the scan: ${SCAN_STEP} integers per tick`, 12, 18);
+        ctx.fillText(`x < ${M.toLocaleString()} = 7 × 11 × 13; per tick: one Garner digit vs ${SCAN_STEP} scanned integers`, 12, 18);
         // dials
         MODULI.forEach((m, i) => {
           const cx = 70 + i * 120;
@@ -193,7 +194,7 @@ export default function CrtViz() {
         ctx.fillText(`brute-force scan: ${sc.checks.toLocaleString()} integers checked${sc.scanFound !== null ? `, found ${sc.scanFound}` : ''}`, lx, ly + 46);
         let line;
         if (s.done) {
-          line = `Garner: ${sc.digits.join(', ')} in 3 steps, x = ${sc.partial}; the scan checked ${sc.checks.toLocaleString()} integers against 3 residues each to find the same ${sc.scanFound}`;
+          line = `Garner digits ${sc.digits.join(', ')} give x = ${sc.partial} in 3 steps; scan: ${sc.checks.toLocaleString()} integers, same ${sc.scanFound}`;
           ctx.fillStyle = good;
         } else {
           line = sc.step < MODULI.length ? `digit ${sc.step + 1} pins the value modulo ${sc.scale * MODULI[sc.step]}; the scan keeps checking` : `Garner is done; the scan has ${(M - sc.scanPos).toLocaleString()} integers left to try`;
@@ -208,7 +209,9 @@ export default function CrtViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

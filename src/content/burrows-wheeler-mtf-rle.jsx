@@ -63,9 +63,9 @@ export const content = {
       t&apos;s of &quot;the&quot; standing together, sorted into
       each other&apos;s company by their shared future. Nothing was
       deleted: the same letters, rearranged by a rule so rigid it
-      can be undone: but now a coder with no memory at all walks
-      down the shelf and finds the same book, over and over, exactly
-      as a memoryless coder needs.
+      can be undone: move-to-front and run-length coding now turn
+      those runs into a skewed stream for a memoryless coder. The
+      transform alone leaves symbol counts unchanged.
     </p>
   ),
 
@@ -288,7 +288,7 @@ export const content = {
     <Figure
       id="fig-bwt-column"
       aspect="16 / 7"
-      caption="Sorted by their futures. Every rotation of banana| lines up in sorted order, and the last column reads the letter BEFORE each context: the letter before every 'an…' is 'n', before every 'na…' is 'a': shared futures pull identical letters together. The column is a permutation: same letters, same entropy, to the bit: but the runs are new, and runs are what a memoryless coder can eat. The LF-mapping walks the column backward and rebuilds the text from nothing else."
+      caption="Sorted by their futures. Every rotation of banana| lines up in sorted order, and the last column reads the letter BEFORE each context: the letters before 'an…' contexts are 'b' or 'n', while both 'na…' contexts have 'a' before them: shared futures pull identical letters together. The column is a permutation: same letters, same entropy, to the bit: but the runs are new, and move-to-front plus run-length coding turns them into a skewed stream for a memoryless coder. The LF-mapping walks the column backward and rebuilds the text from nothing else."
       cite={{
         text: 'Burrows & Wheeler, "A Block-sorting Lossless Data Compression Algorithm", DEC SRC Report 124, 1994; Manzini, "An Analysis of the Burrows-Wheeler Transform", JACM 48(3), 2001, proved the pipeline tracks k-th order entropy. bzip2 ships it; the FM-index made it a search engine.',
         href: 'https://doi.org/10.1145/382780.382782',
@@ -320,7 +320,7 @@ export const content = {
         <text x="356" y="122" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">together: so the n’s are neighbors</text>
         <text x="356" y="152" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">same letters as banana| exactly:</text>
         <text x="356" y="166" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">H0 unchanged to the bit</text>
-        <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured at 21,697 chars: runs 1.02 → 4.35 · MTF ≤1 fraction 7.3% → 85.5% · H0 after MTF 4.23 → 1.36 bits</text>
+        <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">21,697 chars: runs 1.02 → 4.35 · MTF ≤1: 7.3% → 85.5% · H0: 4.23 → 1.36 bits</text>
       </svg>
     </Figure>
   ),

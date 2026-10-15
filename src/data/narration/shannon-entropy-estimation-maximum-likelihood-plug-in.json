@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:shannon-entropy-estimation-maximum-likelihood-plug-in",
   "source_path": "src/content/shannon-entropy-estimation-maximum-likelihood-plug-in.narration.js",
-  "source_sha256": "a1fb56b03b0b8ca20aab9a91cc5062aca124c7b5a13cb68b6bca66168a1bbcc3",
-  "source_characters": 12193,
+  "source_sha256": "ff5683c9b20fd759cb41eddacc38ec01abea669e8acb59d87c3acabed5cf9d74",
+  "source_characters": 12380,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -57,9 +57,9 @@
     }
   },
   "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
-  "release_sha256": "60f6ba002c9db84e6d941f26d07e0bd4f4650d8ce01a85e13706f4e076680f03",
-  "generated_at": "2026-10-11T01:14:05.238Z",
-  "generated_characters": 24386,
+  "release_sha256": "46da64b0a07d951e8bf9ebc311c279797bde09b19315e656432dead02a12463f",
+  "generated_at": "2026-10-15T23:09:49.045Z",
+  "generated_characters": 24760,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -91,16 +91,16 @@
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4830,
-      "utf8_bytes": 4840,
-      "sha256": "1a4bfaeeddbe0c35493570a65dbefe69be5ab69935d9876f5b9ee702c6512895"
+      "characters": 4985,
+      "utf8_bytes": 4995,
+      "sha256": "ac83f09dd988c62207245a4d7f624769e9879d9e86afd123e95e9b90d7ee992a"
     },
     {
       "id": "request-003",
       "index": 3,
-      "characters": 1998,
-      "utf8_bytes": 2000,
-      "sha256": "0dcdc8b83c92168be0d0b41f1288ad47daac5101321bb8ef0cb433bb6acf8af7"
+      "characters": 2030,
+      "utf8_bytes": 2032,
+      "sha256": "0ee00cd66aada1339c3583d9c2de2c963bf425104178e474f691b22d6fc295f5"
     },
     {
       "id": "request-004",
@@ -248,8 +248,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 985,
-      "sha256": "ede2e3e80c75f407089805414ba89a60c112e6af903d15575f347595d693c794"
+      "utf8_bytes": 1079,
+      "sha256": "d3718013adff30c37604dd4d812ae881a1b742d92eb7035d68350db318c92dac"
     },
     {
       "id": "shannon-entropy-estimation-maximum-likelihood-plug-in.06-signals",
@@ -317,8 +317,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1085,
-      "sha256": "a59e6b6386f5aa783c847d5d59854994ff9a6a4f7f2f950867a34c1fbd1641dc"
+      "utf8_bytes": 1146,
+      "sha256": "d3202454f7901f8a15ddc485da6be007641863e1b77798e3f37c29c524247cb8"
     },
     {
       "id": "shannon-entropy-estimation-maximum-likelihood-plug-in.09-tradeoffs",
@@ -340,8 +340,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1055,
-      "sha256": "b44749c536905440d870ea2ac2897842829542068e9b3265f9fc9605e2f0641d"
+      "utf8_bytes": 1087,
+      "sha256": "5f6ff5d3659217f6dd1c8d034744efdd82951f8146dcfaf9a060f52c7c0e159f"
     },
     {
       "id": "shannon-entropy-estimation-maximum-likelihood-plug-in.10-code",
@@ -373,29 +373,29 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/shannon-entropy-estimation-maximum-likelihood-plug-in/60f6ba002c9db84e6d94/aoede-4ba0da5f06f4fbfc.mp3",
+      "object_key": "narration/v1/puzzles/shannon-entropy-estimation-maximum-likelihood-plug-in/46da64b0a07d951e8bf9/aoede-7269759108955c42.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 3121772,
-      "sha256": "4ba0da5f06f4fbfcaa470936f578a6c227f8e806e538808d7de72dcae6b8125d",
+      "bytes": 3051404,
+      "sha256": "7269759108955c42f516ed08a91757ffcd0f4f6abebfba3c1c19fcaecb2bef58",
       "request_parts": [
         {
           "request_index": 1,
           "request_sha256": "e000265b5e73d08bf02fb0eaeb436cd122fbe741f7308c8da16e6d3b8b174a6b",
-          "bytes": 1108896,
-          "sha256": "7f015569b168ffcef575e6bd5d2dae95705ff6b3cc53787cf440862d7bcf9b0f"
+          "bytes": 1067424,
+          "sha256": "fccaba8930f215d38742163f10683f847f21df580d216dedb4d8be76298c53a4"
         },
         {
           "request_index": 2,
-          "request_sha256": "1a4bfaeeddbe0c35493570a65dbefe69be5ab69935d9876f5b9ee702c6512895",
-          "bytes": 1326624,
-          "sha256": "896f7b77e4484ab67d3a08fe28c699f1f6b9c1a0607a5fcf504f3d78beec0923"
+          "request_sha256": "ac83f09dd988c62207245a4d7f624769e9879d9e86afd123e95e9b90d7ee992a",
+          "bytes": 1292256,
+          "sha256": "abb336061f0f39df75032c21b86eccb01e0bf5c539d2a22f4ed7df693905d059"
         },
         {
           "request_index": 3,
-          "request_sha256": "0dcdc8b83c92168be0d0b41f1288ad47daac5101321bb8ef0cb433bb6acf8af7",
-          "bytes": 487104,
-          "sha256": "821ad9a369dd62d74d4254d5fca5e9a592d6161edbe91498ae848f1ae44d6bb6"
+          "request_sha256": "0ee00cd66aada1339c3583d9c2de2c963bf425104178e474f691b22d6fc295f5",
+          "bytes": 492576,
+          "sha256": "3671dc5dbe301bbb548d74052d807dbefbf61a9257eeb70bfb6bcf4bd8b78c4b"
         },
         {
           "request_index": 4,
@@ -410,35 +410,35 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/shannon-entropy-estimation-maximum-likelihood-plug-in/60f6ba002c9db84e6d94/algieba-3334ae2327fd5508.mp3",
+      "object_key": "narration/v1/puzzles/shannon-entropy-estimation-maximum-likelihood-plug-in/46da64b0a07d951e8bf9/algieba-2710344c59b968f4.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 3199052,
-      "sha256": "3334ae2327fd5508896aa232bba1a65c153fa725c0856f7c3ae1ea8e74e04c68",
+      "bytes": 3168044,
+      "sha256": "2710344c59b968f4f6e8a4cf0e0669798bc77488993929a43563b815877b52c4",
       "request_parts": [
         {
           "request_index": 1,
           "request_sha256": "e000265b5e73d08bf02fb0eaeb436cd122fbe741f7308c8da16e6d3b8b174a6b",
-          "bytes": 1220736,
-          "sha256": "61b6e73d0509b1fad8367ae902a2ac7c2dd2b5898de68c6967d50df9e956cf2e"
+          "bytes": 1164576,
+          "sha256": "5c1333a29b5c1f350d1fe0f8bbeb5bfbc5c426e9db28d2c93739ca10dc821827"
         },
         {
           "request_index": 2,
-          "request_sha256": "1a4bfaeeddbe0c35493570a65dbefe69be5ab69935d9876f5b9ee702c6512895",
-          "bytes": 1279584,
-          "sha256": "39e145d01046a87a4325ee308519d456d188eff8fdf6d4400dd01d88b78abd29"
+          "request_sha256": "ac83f09dd988c62207245a4d7f624769e9879d9e86afd123e95e9b90d7ee992a",
+          "bytes": 1300896,
+          "sha256": "cc3577b3744eb0fb6531edda5bae8ca06bf44fcf3bac5659e629a723a294a297"
         },
         {
           "request_index": 3,
-          "request_sha256": "0dcdc8b83c92168be0d0b41f1288ad47daac5101321bb8ef0cb433bb6acf8af7",
-          "bytes": 500832,
-          "sha256": "420396ceed71f286bb9295def79ac58c62ffb4a98c68f213d74b2679094014bf"
+          "request_sha256": "0ee00cd66aada1339c3583d9c2de2c963bf425104178e474f691b22d6fc295f5",
+          "bytes": 497184,
+          "sha256": "45597804cbd8006336875f207aaa38b014d7cfed5938b461895bca3af0f0ea31"
         },
         {
           "request_index": 4,
           "request_sha256": "1d7decf06fe71ef8cee0649f9a047febf1382f06b976c421eb0d597855d47a26",
-          "bytes": 197664,
-          "sha256": "776df9f0a97b5fd6a685bb6f9f7fd1ddd8440aa6e7fe94a44fef561e0cd12b12"
+          "bytes": 205152,
+          "sha256": "c8f92cb8b8737b99c7f082cf689c52c20a6fe968abc93d115bc253a4c12e297c"
         }
       ]
     }

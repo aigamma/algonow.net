@@ -334,8 +334,8 @@ export const content = {
         <text x="380" y="100" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">45.5%: cardinal values pierce the rank-only wall</text>
         <text x="66" y="56" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">P(success)</text>
         <text x="560" y="238" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">cutoff r</text>
-        <text x="60" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">race on identical streams: first 2.0% · half 35.4% · n/e 37.1% · clairvoyant 100% · flat top: n/2 costs only 2 points</text>
-        <text x="60" y="282" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">scale-invariant: 37.1% at n = 50, 37.2% at n = 5,000 · value objective: backward induction 0.964 vs 0.793</text>
+        <text x="60" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">success: first 2.0% · half 35.4% · n/e 37.1% · clairvoyant 100%</text>
+        <text x="60" y="282" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">n=50: 37.1%; n=5,000: 37.2% · value objective: induction 0.964 vs 0.793</text>
       </svg>
     </Figure>
   ),

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks } from './useCanvasLoop.js';
 
@@ -94,7 +95,7 @@ export function tickB(sc) {
   sc.step += 1;
   if (sc.step >= CHAIN) {
     sc.done = true;
-    sc.ops.reverseWouldBe = CHAIN * 2 * CHAIN;
+    sc.ops.reverseWouldBe = CHAIN * (CHAIN + 1);
   }
   return sc.done;
 }
@@ -196,7 +197,7 @@ export default function AutodiffViz() {
           }
         } else {
           ctx.fillStyle = dim;
-          ctx.fillText(`the other direction: one input x = ${sc.x.toFixed(2)}, six outputs g₁ … g₆, each gₖ = sin(0.9 gₖ₋₁ + 0.1k); forward mode carries (value, derivative)`, 12, 18);
+          ctx.fillText(`forward: x=${sc.x.toFixed(2)}, six outputs; gₖ=sin(0.9gₖ₋₁+0.1k); carry value and derivative`, 12, 18);
           for (let k = 0; k <= CHAIN; k++) {
             const x = 50 + k * 90;
             const y = 130;
@@ -226,7 +227,7 @@ export default function AutodiffViz() {
           if (sc.done) {
             ctx.fillStyle = heur;
             ctx.fillText(`reverse mode here would sweep once per output: ${CHAIN} sweeps, about ${sc.ops.reverseWouldBe} ops`, 12, 230);
-            line = 'many outputs, one input: sweep forward; many inputs, one output: sweep backward. The heuristic is the direction.';
+            line = 'one input, many outputs: forward; many inputs, one output: reverse';
             ctx.fillStyle = good;
           } else {
             line = 'a dual number carries the derivative along with the value; one pass, one input direction';
@@ -243,7 +244,9 @@ export default function AutodiffViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

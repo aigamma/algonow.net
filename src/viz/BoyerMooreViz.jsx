@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -19,7 +20,7 @@ const SCENES = [
   { text: 'grep is fast because it does not look at most of the bytes it searches', pat: 'bytes' },
 ];
 
-function simulate(text, pat) {
+export function simulate(text, pat) {
   const n = text.length;
   const m = pat.length;
   const last = {};
@@ -41,7 +42,8 @@ function simulate(text, pat) {
     }
     if (matched) {
       events.push({ type: 'found', align: i });
-      i += m;
+      // A complete match can overlap the next occurrence.
+      i += 1;
     } else {
       const bad = j - (last[text[i + j]] ?? -1);
       const shift = Math.max(bad, 1);
@@ -222,7 +224,9 @@ export default function BoyerMooreViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

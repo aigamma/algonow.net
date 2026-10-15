@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -133,7 +134,7 @@ export default function Mm1Viz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`M/M/1 at utilization ${sc.rho}, ${EVENTS_PER_TICK} events per tick; amber: share of time in each state, blue ticks: (1 - rho) rho^n`, 12, 18);
+        ctx.fillText(`M/M/1, ρ=${sc.rho}; amber: measured time shares; blue ticks: (1-ρ)ρⁿ`, 12, 18);
         // the lane
         ctx.fillStyle = dim;
         ctx.fillText('the lane now', 20, 44);
@@ -214,7 +215,9 @@ export default function Mm1Viz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

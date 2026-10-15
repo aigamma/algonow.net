@@ -6,9 +6,9 @@ import { narration } from './gaussian-mixture-expectation-maximization.narration
 export const content = {
   given:
     'Unlabeled points thrown off by several overlapping sources: sensor modes, customer types, cell populations: with tilted, elongated spreads. Hard boundaries lie about the seams; the sources overlap, so membership is genuinely fractional.',
-  task: 'Model the data as k weighted Gaussians with full covariances and fit by EM: the E-step assigns every point soft responsibilities under the current parameters, the M-step refits every parameter in closed form under those weights, and the loop repeats until the likelihood stops moving.',
+  task: 'Model the data as k weighted Gaussians with full covariances and fit by EM: the E-step assigns every point soft responsibilities under the current parameters, the M-step refits parameters under those weights and adds a small diagonal ridge, and the loop repeats.',
   constraint:
-    'The guiding rule carries a theorem, and this page asserts it numerically: the log-likelihood never decreased across all 119 main-fit iterations and every step of 20 restarts. Recovery is audited against the planted truth (means within 0.13, weights within 0.02, fitted likelihood above the generator’s own), soft beats hard by 7.4 points on tilted overlap, parity on round blobs is said plainly, and the famous singularity is reproduced with numbers.',
+    'Exact unregularized EM has a non-decreasing likelihood theorem. The diagonal ridge modifies that M-step, so ordinary likelihood need not be monotone. On this page’s fixed runs it did not decrease across all 119 main-fit steps and every step of 20 restarts, checked numerically. Recovery is audited against the planted truth (means within 0.13, weights within 0.02, fitted likelihood above the generator’s own), soft beats hard by 7.4 points on tilted overlap, parity on round blobs is said plainly, and the famous singularity is reproduced with numbers.',
 
   origins: (
     <p>
@@ -21,7 +21,7 @@ export const content = {
       &quot;Maximum likelihood from incomplete data via the EM
       algorithm&quot; unified a scattered family of fixes under
       one two-step scheme and proved the property this page
-      cashes out: each iteration can only raise the likelihood
+      illustrates: exact EM steps cannot decrease the likelihood
       (the convergence fine print was later tightened by Wu,
       1983). GMM+EM became a workhorse: speaker recognition ran
       on it for two decades, vision systems subtract backgrounds
@@ -55,11 +55,12 @@ export const content = {
       might be 0.6 owned by one source and 0.4 by another (173 of
       1,500 points here carry a top responsibility under 0.9).
       The M-step then refits weights, means, and covariances in
-      closed form under those fractions. The rule&apos;s license
-      is a theorem: each round can only raise the likelihood:{' '}
-      <strong>asserted at every one of 119 iterations and every
-      step of 20 restarts</strong>: so the loop climbs until a
-      local optimum, guaranteed. Restarts (8 here, k-means++
+      closed form under those fractions, then adds a diagonal ridge.
+      Exact unregularized EM cannot decrease likelihood, but this ridge
+      changes the update and does not inherit that guarantee. The page
+      checks the <strong>observed non-decrease over 119 main-fit steps and every
+      step of 20 restarts</strong>; neither monotonicity nor convergence to a
+      local maximum follows for arbitrary ridged runs. Restarts (8 here, k-means++
       seeded, best kept) are the standard answer to
       &quot;local.&quot;
     </p>
@@ -78,8 +79,8 @@ export const content = {
       strong it really is: counting every sample partially,
       by exactly how much it belongs. Better stations imply
       better fractions; better fractions imply better stations;
-      and the theorem says this circle spirals upward, never
-      down. Where a hard border throws away the seam, the soft
+      and exact unregularized EM guarantees the likelihood cannot fall.
+      The ridged demonstration checks its actual trajectory. Where a hard border throws away the seam, the soft
       dial <em>measures</em> it: and the seam is usually where
       the interesting customers, cells, and failures live.
     </p>
@@ -102,9 +103,9 @@ export const content = {
       weights: plus a tiny ridge on each variance.
     </>,
     <>
-      <strong>Climb:</strong> the likelihood can only rise
-      (asserted at every step of every run): stop when the gain
-      goes quiet.
+      <strong>Check progress:</strong> track the actual likelihood.
+      These fixed runs never decrease; adding a covariance ridge does not
+      guarantee that behavior on other data.
     </>,
     <>
       <strong>Read the seams:</strong> the responsibilities are
@@ -146,10 +147,10 @@ export const content = {
 
   strength: (
     <>
-      <strong>A model with a warranty.</strong> The two-step loop
-      carries a proof: likelihood never decreases: and this page
-      asserted it at all 119 main-fit steps and every step of 20
-      restarts rather than trusting the textbook. The fit
+      <strong>A model with measured recovery.</strong> Exact unregularized EM
+      has a non-decreasing likelihood theorem. The ridged fit on this page
+      also increased monotonically over all 119 main-fit steps and every step of 20
+      restarts, an observed property of these runs. The fit
       recovered the planted truth (means within 0.13, weights
       within 0.02, covariances within 0.34) and scored the data
       higher than the generating parameters themselves. Soft
@@ -187,7 +188,7 @@ export const content = {
         <>
           <strong>Reads tilt and overlap</strong>: +7.4 points
           here, knows its 173 uncertain points, and yields a real
-          density model with a monotone-climb warranty.
+          density model with an explicitly checked likelihood trajectory.
         </>
       ),
       costs: (
@@ -301,7 +302,7 @@ export const content = {
 
   contest: {
     instance:
-      'clustering 1,500 points from 3 planted sources, accuracy vs the planted labels (best permutation); both fits referee themselves: EM likelihood monotone, Lloyd distortion non-increasing',
+      'clustering 1,500 points from 3 planted sources, accuracy vs the planted labels (best permutation); both fits are checked: EM likelihood observed monotone on these runs, Lloyd distortion non-increasing',
     columns: ['gmm-em', 'k-means'],
     rows: [
       {
@@ -318,14 +319,14 @@ export const content = {
       },
     ],
     source:
-      'python solutions/gaussian_mixture_expectation_maximization.py prints this table and asserts: log-likelihood non-decreasing at every iteration of every run (119 main-fit steps + 20 restarts: the Dempster-Laird-Rubin theorem, numerically); every responsibility row sums to 1; the planted mixture recovered under the best permutation (means within 0.13, weights within 0.02, covariances within 0.34) with fitted likelihood -5,526.2 above the generator’s -5,536.7; Lloyd’s distortion non-increasing (the rival referees itself); soft over hard by 7.4 points on tilted overlap with parity inside 2 points on round blobs; and the ridgeless singularity reproduced: determinant below 1e-200 in one iteration, likelihood ladder -194 → -16 unbounded.',
+      'python solutions/gaussian_mixture_expectation_maximization.py prints this table and checks: log-likelihood non-decreasing on the fixed demo fits (119 main-fit steps + 20 restarts), an observation rather than a guarantee for the modified ridge update; every responsibility row sums to 1; the planted mixture recovered under the best permutation (means within 0.13, weights within 0.02, covariances within 0.34) with fitted likelihood -5,526.2 above the generator’s -5,536.7; Lloyd’s distortion non-increasing (the rival referees itself); soft over hard by 7.4 points on tilted overlap with parity inside 2 points on round blobs; and the ridgeless singularity reproduced: determinant below 1e-200 in one iteration, likelihood ladder -194 → -16 unbounded.',
   },
 
   figure: (
     <Figure
       id="fig-gmm-em"
       aspect="16 / 7"
-      caption="Guess softly, refit exactly, repeat. The E-step scores every point under every tilted ellipse and normalizes into responsibilities: the seam point belongs 0.6 to blue and 0.4 to amber, and 173 of 1,500 points here are genuinely shared like that. The M-step refits weights, means, and full covariances in closed form under those fractions. Each round provably raises the likelihood (asserted at all 119 steps): the staircase climbs to -5,526.2, above the generating parameters' own -5,536.7, recovering every planted mean within 0.13."
+      caption="Guess softly, refit, repeat. The E-step scores every point under every tilted ellipse and normalizes into responsibilities: the seam point belongs 0.6 to blue and 0.4 to amber, and 173 of 1,500 points here have top responsibility below 0.9. The M-step refits weights, means, and full covariances, then adds a diagonal ridge. Likelihood increased on these 119 steps, checked numerically; the ridge update does not guarantee monotonicity in general. The fit ends at -5,526.2, above the generating parameters' own -5,536.7, recovering every planted mean within 0.13."
       cite={{
         text: 'A. P. Dempster, N. M. Laird, D. B. Rubin, "Maximum likelihood from incomplete data via the EM algorithm," JRSS-B 39(1), 1977. DOI 10.1111/j.2517-6161.1977.tb01600.x. Mixtures back to Pearson 1894; convergence tightened by Wu 1983.',
         href: 'https://doi.org/10.1111/j.2517-6161.1977.tb01600.x',
@@ -345,10 +346,10 @@ export const content = {
         <text x="452" y="34" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">E: score, normalize</text>
         <text x="452" y="112" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">M: refit in closed form</text>
         <path d="M 380 235 h 30 v -8 h 30 v -10 h 30 v -14 h 30 v -20 h 30 v -6 h 30 v -2 h 30" fill="none" stroke="#62d98a" strokeWidth="1.8" />
-        <text x="380" y="258" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">log-likelihood: never a step down (asserted ×119)</text>
+        <text x="380" y="258" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">likelihood rises in this run</text>
         <text x="380" y="205" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">ends at -5,526.2 &gt; truth&apos;s -5,536.7</text>
         <text x="30" y="240" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">tilted overlap: gmm 96.2% vs k-means 88.8% · round blobs: parity 100/100</text>
-        <text x="30" y="262" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">ridgeless trapdoor: det &lt; 1e-200 in one step, likelihood -194 → -16 unbounded: the ridge exists for this</text>
+        <text x="30" y="262" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">no ridge: covariance collapse</text>
       </svg>
     </Figure>
   ),

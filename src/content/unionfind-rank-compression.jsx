@@ -262,7 +262,7 @@ export const content = {
     <Figure
       id="fig-unionfind-flatten"
       aspect="16 / 8"
-      caption="What each heuristic is for. Quick-find pays the full array on every effective union, a flat wall at n. Naive linking is cheap until merge order turns the forest into a chain, where one find walks all 1,500 parents. Rank caps the height at log n, and compression flattens every path a query walks, so the pairing's cost sits on the floor: amortized inverse Ackermann, at most 3 hops at this size."
+      caption="What each heuristic is for. Quick-find pays the full array on every effective union, a flat wall at n. Naive linking is cheap until merge order turns the forest into a chain, where one find walks all 1,500 parents. Rank caps the height at log n, and compression flattens every path a query walks, so the pairing's cost sits on the floor: amortized O(α(n)). This bounds a sequence of operations; an individual find can take more hops."
       cite={{
         text: 'Galler and Fischer, "An Improved Equivalence Algorithm", CACM 7, 1964. The inverse-Ackermann bound is Tarjan, JACM 22, 1975; Fredman and Saks proved it optimal in 1989.',
         href: 'https://doi.org/10.1145/321879.321884',
@@ -281,7 +281,7 @@ export const content = {
         <path d="M64 250 C 200 246, 420 247, 612 248" fill="none" stroke="#5da2ff" strokeWidth="2.5" />
         <text x="380" y="236" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="12">rank + compression</text>
         <line x1="560" y1="248" x2="560" y2="216" stroke="#62d98a" strokeWidth="1.4" strokeDasharray="4 4" />
-        <text x="452" y="210" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="12">α(1,500) = 3 hops</text>
+        <text x="452" y="210" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="12">amortized O(α(n))</text>
       </svg>
     </Figure>
   ),

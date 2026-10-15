@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -56,13 +57,14 @@ export function sceneTick(sc) {
       sc.last = 'reflect: the reflection was best but the expansion was not better';
     }
   } else {
-    const con = fr < s[2].v ? [c[0] + 0.5 * (refl[0] - c[0]), c[1] + 0.5 * (refl[1] - c[1])] : [c[0] + 0.5 * (w[0] - c[0]), c[1] + 0.5 * (w[1] - c[1])];
+    const outside = fr < s[2].v;
+    const con = outside ? [c[0] + 0.5 * (refl[0] - c[0]), c[1] + 0.5 * (refl[1] - c[1])] : [c[0] + 0.5 * (w[0] - c[0]), c[1] + 0.5 * (w[1] - c[1])];
     const fc = f(con);
     sc.evals += 1;
     if (fc < Math.min(fr, s[2].v)) {
       s[2] = { p: con, v: fc };
       sc.ops.contract += 1;
-      sc.last = fr < s[2].v ? 'contract outside: the reflection was poor, so halve the step from the centroid' : 'contract inside: the reflection was worst of all, so step halfway back toward the centroid';
+      sc.last = outside ? 'contract outside: the reflection was poor, so halve the step from the centroid' : 'contract inside: the reflection was worst of all, so step halfway back toward the centroid';
     } else {
       for (let i = 1; i < 3; i++) {
         s[i] = { p: [s[0].p[0] + 0.5 * (s[i].p[0] - s[0].p[0]), s[0].p[1] + 0.5 * (s[i].p[1] - s[0].p[1])], v: 0 };
@@ -182,13 +184,13 @@ export default function NelderMeadViz() {
         ctx.fillStyle = dim;
         ctx.fillText(`reflect ${sc.ops.reflect}  expand ${sc.ops.expand}`, tx, 96);
         ctx.fillText(`contract ${sc.ops.contract}  shrink ${sc.ops.shrink}`, tx, 112);
-        ctx.fillText('green: best vertex; amber: worst; blue: middle', tx, 140);
+        ctx.fillText('best / middle / worst: green / blue / amber', tx, 140);
         ctx.fillText('the file: 50 of 50 starts below 1e-8 at 208', tx, 176);
         ctx.fillText('evaluations; 3,869 contractions to 1,139', tx, 192);
         ctx.fillText('reflections; McKinnon’s stall reproduced', tx, 208);
         let line;
         if (s.done) {
-          line = `${sc.iter} iterations, ${sc.evals} evaluations: best ${best.v.toExponential(2)} at (${best.p[0].toFixed(4)}, ${best.p[1].toFixed(4)}); ${sc.ops.contract} contractions, ${sc.ops.reflect} reflections, ${sc.ops.expand} expansions, ${sc.ops.shrink} shrinks`;
+          line = `${sc.iter} iterations, ${sc.evals} evaluations: best ${best.v.toExponential(2)} at (${best.p[0].toFixed(4)}, ${best.p[1].toFixed(4)})`;
           ctx.fillStyle = best.v < 1e-6 ? good : heur;
         } else {
           line = sc.last;
@@ -203,7 +205,9 @@ export default function NelderMeadViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

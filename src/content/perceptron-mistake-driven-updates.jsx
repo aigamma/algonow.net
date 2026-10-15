@@ -6,7 +6,7 @@ import { narration } from './perceptron-mistake-driven-updates.narration.js';
 export const content = {
   given:
     '200 labeled points in the unit disk, the two classes on either side of an unknown direction with a gap of at least 0.4, 0.2, or 0.1 between them. Find a line that puts every point on its correct side.',
-  task: 'Sweep the points in a random order. When the current line gets one wrong, add y x to the weights and y to the bias; when it gets one right, do nothing. Sweep again until a full pass makes no mistake. The final line is a sum of the points it got wrong, and Novikoff’s theorem bounds how many that can be: at most (R/γ)², with γ the widest margin any separator achieves.',
+  task: 'Sweep the points in a random order. When the current line gets one wrong, add y x to the weights and y to the bias; when it gets one right, do nothing. Sweep again until a full pass makes no mistake. The final line is a sum of the label-signed points it got wrong, and Novikoff’s theorem bounds how many that can be: at most (R/γ)², with γ the widest margin any separator achieves.',
   constraint:
     'The margin γ is found by an independent sweep of 54,000 candidate directions; R = √2. Across 20 shuffles at each of three margins, every run separates the data exactly, with worst mistake counts of 10, 16, and 20 against bounds of 49, 179, and 698. The ablation that updates on every example, mistake or not, never converges: 12 errors after 200 passes on data the mistake rule separates in 2. Where no line exists (XOR by quadrant) the perceptron cycles forever, 20,868 mistakes in 200 passes and 92 of 200 points wrong at the end; on nearly separable data (10 flipped labels) it also never stops, and the averaged perceptron reads the same stream to a separator with 0 errors against the true labels where the last one has 7.',
 
@@ -48,7 +48,7 @@ export const content = {
     <p>
       Supplies the <strong>discipline of silence</strong>: points on
       the right side leave the weights alone. That is what makes the
-      final separator a sum of the mistaken points, what makes the
+      final separator a sum of the label-signed mistaken points, what makes the
       bound a count of mistakes rather than a count of steps, and what
       makes the algorithm stop. The ablation updates on every example
       with the same step: on the margin-0.4 data the mistake rule
@@ -138,7 +138,7 @@ export const content = {
       separated its data under the Novikoff bound, worst 10 / 16 / 20
       mistakes against 49 / 179 / 698, within 4 passes; the update is
       one addition per mistake, needs no learning rate, and the final
-      line is literally a sum of the points it got wrong.
+      line is literally a sum of the label-signed points it got wrong.
     </>
   ),
   weakness: (
@@ -292,7 +292,7 @@ export const content = {
     <Figure
       id="fig-perceptron-bound"
       aspect="16 / 7"
-      caption="Two classes in the unit disk with a gap, the widest-margin direction u found by an independent sweep (γ = the smallest y (u · x)), and the perceptron’s final line, which is a sum of the points it got wrong (amber rings). Novikoff: mistakes ≤ (R/γ)². Measured at gaps 0.4 / 0.2 / 0.1: γ 0.203 / 0.106 / 0.054, bounds 49 / 179 / 698, worst mistakes 10 / 16 / 20 across 20 shuffles each; updating on every example never converges."
+      caption="Two classes in the unit disk with a gap, the widest-margin direction u found by an independent sweep (γ = the smallest y (u · x)), and the perceptron’s final line, which is a sum of the signed points it got wrong (amber rings). Novikoff: mistakes ≤ (R/γ)². Measured at gaps 0.4 / 0.2 / 0.1: γ 0.203 / 0.106 / 0.054, bounds 49 / 179 / 698, worst mistakes 10 / 16 / 20 across 20 shuffles each; updating on every example never converges."
       cite={{
         text: 'A. B. J. Novikoff, "On convergence proofs on perceptrons," Symposium on the Mathematical Theory of Automata 12, 1962. F. Rosenblatt, "The perceptron: a probabilistic model for information storage and organization in the brain," Psychological Review 65(6), 1958. DOI 10.1037/h0042519.',
         href: 'https://doi.org/10.1037/h0042519',

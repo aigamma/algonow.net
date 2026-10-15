@@ -276,7 +276,7 @@ export const content = {
     <Figure
       id="fig-rho-track"
       aspect="16 / 7"
-      caption="The track spells ρ. Modulo n the walk looks endless; modulo the hidden factor p it has only p positions: a tail into a loop, forced to self-collide within ~√p steps by the birthday paradox. The tortoise and hare meet inside the loop with zero memory, and gcd(|x − y|, n) reads the hidden factor off a collision that happened in p's shadow world while the walkers were still far apart in n's. Measured: 100× the factor, 9.4× the steps: the √ law on the invoice."
+      caption="The track spells ρ. Modulo n the walk looks endless; modulo the hidden factor p it has only p positions: a tail into a loop, expected to self-collide on a ~√p scale under the random-map model. The tortoise and hare meet inside the loop with zero memory, and gcd(|x − y|, n) reads the hidden factor off a collision that happened in p's shadow world while the walkers were still far apart in n's. Measured: 100× the factor, 9.4× the steps: the √ law on the invoice."
       cite={{
         text: 'Pollard, "A Monte Carlo Method for Factorization", BIT 15, 1975: four pages that made randomness a factoring tool; Brent\'s 1980 batched variant measured here at its famous ~25%.',
         href: 'https://doi.org/10.1007/BF01933667',
@@ -291,7 +291,7 @@ export const content = {
         <text x="466" y="72" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">hare (2×)</text>
         <text x="70" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">the tail: ~√p steps in · the loop: ~√p around · mod p there are only p places to stand</text>
         <text x="330" y="228" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">meet ⇒ gcd(|x−y|, n) = p</text>
-        <text x="70" y="34" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: 100× the factor → 9.4× the steps (law: 10×) · Brent −26% evals · c = 0: a 4.2× tax, not a failure</text>
+        <text x="70" y="34" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">100× factor → 9.4× steps (law: 10×) · Brent saves 26% evals · c = 0 costs 4.2×</text>
       </svg>
     </Figure>
   ),

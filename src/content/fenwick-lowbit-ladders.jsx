@@ -80,8 +80,7 @@ export const content = {
       lowbit(i). Every block containing i is corrected, and only those.
     </>,
     <>
-      <strong>Range = two prefixes:</strong> sum(l..r) = prefix(r) −
-      prefix(l). Subtraction is doing real work here: remember it when the
+      <strong>Range = two prefixes:</strong> sum over [l, r) = prefix(r) − prefix(l), using zero-based array indices. Subtraction is doing real work here: remember it when the
       operation has none.
     </>,
     <>

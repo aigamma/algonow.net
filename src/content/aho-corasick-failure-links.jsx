@@ -120,8 +120,7 @@ export const content = {
       <strong>The text pass costs the text.</strong> Growing the dictionary
       tenfold moved the automaton&apos;s work from 95,700 to{' '}
       <strong>96,807</strong>: one percent. Never backs up (streams),
-      reusable across texts, identities included, and the whole build is
-      bounded by the dictionary&apos;s own size.
+      reusable across texts, identities included, and the trie size is bounded by the dictionary&apos;s total length L. This implementation copies Z inherited output references; output links avoid that extra storage.
     </>
   ),
   weakness: (

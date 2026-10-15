@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -155,7 +156,7 @@ export default function CuckooHashingViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`two tables of ${SIZE} slots, one key per tick toward load ${(TARGET / (2 * SIZE)).toFixed(3)}; a key lives in slot h₁ of table 1 or slot h₂ of table 2`, 12, 18);
+        ctx.fillText(`two ${SIZE}-slot tables, target load ${(TARGET / (2 * SIZE)).toFixed(3)}; each key lives at h₁ in T1 or h₂ in T2`, 12, 18);
         const cw = 28;
         const x0 = 40;
         const rows = [60, 150];
@@ -225,7 +226,9 @@ export default function CuckooHashingViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

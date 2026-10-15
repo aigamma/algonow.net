@@ -273,7 +273,7 @@ export const content = {
         <line x1="66" y1="168" x2="612" y2="160" stroke="#5da2ff" strokeWidth="2.5" />
         <text x="500" y="150" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="12">exploitation · w/n</text>
         <path d="M66 56 C 150 168, 260 224, 612 246" fill="none" stroke="#f0b94b" strokeWidth="2.5" />
-        <text x="470" y="238" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="12">exploration · c√(ln t / n)</text>
+        <text x="456" y="238" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="12">exploration · c√(ln t / n)</text>
         <line x1="200" y1="40" x2="200" y2="256" stroke="#232c40" strokeWidth="1" strokeDasharray="4 5" />
         <text x="208" y="60" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">bonus dominates</text>
         <text x="330" y="60" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">evidence dominates</text>

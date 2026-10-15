@@ -301,9 +301,9 @@ export const content = {
         <text x="60" y="148" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">amber taps: the generator polynomial: the choice of what cannot hide</text>
         <path d="M 30 87 L 56 87" stroke="#9aa5bd" strokeWidth="1.6" />
         <text x="8" y="91" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">bits</text>
-        <text x="60" y="190" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">receiver: divide message + CRC: remainder 0 = accept (1,200 frames: all clean accepted, all 349 damaged rejected)</text>
+        <text x="60" y="190" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">receiver: divide message + CRC · accept remainder 0 · all 349 damaged frames caught</text>
         <text x="60" y="214" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">the sum checksum missed 500/500 word swaps: addition commutes, division does not</text>
-        <text x="60" y="252" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: bursts ≤ 32 bits: 0/443,186 escaped · 1-2-3-bit errors: 0/181,328 · random: 2⁻ʷ (202 misses at w=8, 0 at w=32)</text>
+        <text x="60" y="252" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">undetected: bursts 0/443,186 · 1-3 bits 0/181,328 · random: 202 at w=8, 0 at w=32</text>
       </svg>
     </Figure>
   ),

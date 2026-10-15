@@ -298,21 +298,21 @@ export const content = {
         <text x="44" y="72" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">R: the clique so far</text>
         {[[60, 105], [95, 95], [120, 120]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r="7" fill="#62d98a" />)}
         <rect x="190" y="50" width="280" height="90" rx="10" fill="rgba(93,162,255,0.10)" stroke="#5da2ff" strokeWidth="1.6" />
-        <text x="204" y="72" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">P: candidates that extend R</text>
+        <text x="204" y="44" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">P: candidates</text>
         <circle cx="250" cy="110" r="11" fill="rgba(240,185,75,0.3)" stroke="#f0b94b" strokeWidth="2.4" />
         <text x="245" y="114" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="10">u</text>
         {[[290, 100], [315, 122], [340, 100], [365, 122]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r="7" fill="rgba(93,162,255,0.35)" stroke="#5da2ff" strokeWidth="1" />)}
         <path d="M 250 110 L 290 100 M 250 110 L 315 122 M 250 110 L 340 100 M 250 110 L 365 122" stroke="#f0b94b" strokeWidth="1" strokeDasharray="3 3" />
         {[[420, 100], [445, 122]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r="7" fill="rgba(93,162,255,0.35)" stroke="#5da2ff" strokeWidth="2.4" />)}
         <text x="396" y="80" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="10">P \\ N(u): branch</text>
-        <text x="270" y="80" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">N(u): covered by u’s branch</text>
+        <text x="270" y="80" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">N(u): covered</text>
         <rect x="500" y="50" width="110" height="90" rx="10" fill="rgba(154,165,189,0.10)" stroke="#9aa5bd" strokeWidth="1.2" />
         <text x="512" y="72" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">X: excluded</text>
         {[[535, 105], [570, 118]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r="7" fill="rgba(154,165,189,0.3)" stroke="#9aa5bd" strokeWidth="1" />)}
-        <text x="30" y="176" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">a maximal clique extending R contains u, or contains a vertex not adjacent to u: the two branches shown cover everything</text>
-        <text x="30" y="206" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">measured calls: G(60, 0.5) 4,427 vs 19,487 · G(60, 0.7) 35,170 vs 693,973 · G(120, 0.5) 100,994 vs 574,935</text>
-        <text x="30" y="228" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">Moon-Moser (3ᵏ cliques): pivoted (3ᵏ⁺¹ − 1)/2 calls, unpivoted 4ᵏ: 121 vs 256, 364 vs 1,024, 1,093 vs 4,096</text>
-        <text x="30" y="258" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">referees: brute-force subsets on 12 small graphs; every large-graph clique verified maximal and unique; three variants agreeing</text>
+        <text x="30" y="176" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">a maximal extension contains u or a non-neighbor of u: these branches suffice</text>
+        <text x="30" y="206" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">calls: 4,427 vs 19,487 · 35,170 vs 693,973 · 100,994 vs 574,935</text>
+        <text x="30" y="228" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">Moon-Moser: (3ᵏ⁺¹−1)/2 vs 4ᵏ calls · 121 vs 256; 364 vs 1,024; 1,093 vs 4,096</text>
+        <text x="30" y="258" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">12 brute-force oracles · all large cliques maximal and unique · 3 variants agree</text>
         <text x="30" y="280" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">subset enumeration at 60 vertices: 1.15 × 10¹⁸ candidates for 1,870 cliques</text>
       </svg>
     </Figure>

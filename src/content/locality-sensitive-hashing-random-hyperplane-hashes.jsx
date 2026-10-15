@@ -324,7 +324,7 @@ export const content = {
         ))}
         <line x1="110" y1="140" x2={110 + Math.cos(0.9) * 90} y2={140 - Math.sin(0.9) * 90} stroke="#5da2ff" strokeWidth="2" />
         <line x1="110" y1="140" x2={110 + Math.cos(1.4) * 90} y2={140 - Math.sin(1.4) * 90} stroke="#5da2ff" strokeWidth="2" />
-        <text x="30" y="258" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">two vectors at θ; a random line splits them w.p. θ/π</text>
+        <text x="30" y="258" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">split probability: θ/π</text>
         <text x="30" y="272" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">measured 8.2 / 17.0 / 33.4 / 50.3 / 66.5% at 15 to 120°</text>
         {(() => {
           const x0 = 280;

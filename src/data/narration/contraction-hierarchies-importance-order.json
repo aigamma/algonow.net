@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:contraction-hierarchies-importance-order",
   "source_path": "src/content/contraction-hierarchies-importance-order.narration.js",
-  "source_sha256": "57fe2fc43cf70dfcc4e8ad32f49e61138fc01f7fc672e3bab441937f243c7155",
-  "source_characters": 10435,
+  "source_sha256": "1891ea5a8ab0ef0e53ae9fe400676526e1f6f0e5322aa499bc2303270847a04b",
+  "source_characters": 10445,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -42,9 +42,9 @@
     }
   },
   "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
-  "release_sha256": "bfc7e15dcae57168a16cb77c5def74ad6048c50b6ab23ff6dac632f9fdad73ec",
-  "generated_at": "2026-09-26T22:18:44.075Z",
-  "generated_characters": 20870,
+  "release_sha256": "547d0f916db6fcaf3faff60a5b027eeee08d59cb4c274cb5224a24c325c9fe14",
+  "generated_at": "2026-10-15T23:21:25.076Z",
+  "generated_characters": 20890,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -76,9 +76,9 @@
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4718,
-      "utf8_bytes": 4724,
-      "sha256": "a0155643c0719b2ee47ac2fc2c8e0068118cebdf66fc5c0f22365974a3fbe997"
+      "characters": 4728,
+      "utf8_bytes": 4734,
+      "sha256": "7412d92400a224e4c42404d2ac0eb057406214940a337235d853c064253d776a"
     },
     {
       "id": "request-003",
@@ -226,8 +226,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1127,
-      "sha256": "faed91cf8d949af0c6212345b7c8324dde7d54560e99b93c8fb82b16d56197a0"
+      "utf8_bytes": 1137,
+      "sha256": "81da8fac0b5622be4b8cd0de81e3d53af24fdbeee729a435897e757f88d69ede"
     },
     {
       "id": "contraction-hierarchies-importance-order.06-signals",
@@ -351,29 +351,29 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/contraction-hierarchies-importance-order/bfc7e15dcae57168a16c/aoede-ac3a2e9d7b03e1e3.mp3",
+      "object_key": "narration/v1/puzzles/contraction-hierarchies-importance-order/547d0f916db6fcaf3faf/aoede-1e8eb2327805baf8.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2615756,
-      "sha256": "ac3a2e9d7b03e1e3769de363364cbe1ef7e8493ebb8b374e610eef7db7b8a2d8",
+      "bytes": 2585228,
+      "sha256": "1e8eb2327805baf81242b61b6a3e43a6e95a3a21cd9b33318a208755e06c3081",
       "request_parts": [
         {
           "request_index": 1,
           "request_sha256": "7e6de6c48fe8f78d02ccfba4b8542e9642ac5676250ad88bf6eb6381340cc8d8",
-          "bytes": 1109856,
-          "sha256": "b114756d842293f38dac3b375028da5ac691b1c5e1bfe3c87e31ed00052698dd"
+          "bytes": 1117056,
+          "sha256": "c97344e25c89d12d747198a6caad4365ca37ad6b5fb1d382eb08e0ecc8019132"
         },
         {
           "request_index": 2,
-          "request_sha256": "a0155643c0719b2ee47ac2fc2c8e0068118cebdf66fc5c0f22365974a3fbe997",
-          "bytes": 1232352,
-          "sha256": "a07c330e8afac8d6b048e45d8764b433638ff7f6e993740e3db75e09da0f2bd3"
+          "request_sha256": "7412d92400a224e4c42404d2ac0eb057406214940a337235d853c064253d776a",
+          "bytes": 1171584,
+          "sha256": "17e7632dadfa814defa8b1fbd7c998ea52730482a77579ea08faf9f74c0ebc28"
         },
         {
           "request_index": 3,
           "request_sha256": "158512029f4ebc23548d3b9c5c1f32c80eba3df0f903e26a7f19ee4d9d4b0428",
-          "bytes": 273312,
-          "sha256": "f55fbf33e8a6ded3fa39b091667fcddbb3e1484619644fdffaa3e2dc9928ef4b"
+          "bytes": 296352,
+          "sha256": "010ea816e0f100dcc505c7b48f38ff20024e9bcc5501d75d87bdfea0a0430aca"
         }
       ]
     },
@@ -382,11 +382,11 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/contraction-hierarchies-importance-order/bfc7e15dcae57168a16c/algieba-8756f404cd84d049.mp3",
+      "object_key": "narration/v1/puzzles/contraction-hierarchies-importance-order/547d0f916db6fcaf3faf/algieba-88b0cd6fd79ee747.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2704940,
-      "sha256": "8756f404cd84d049b7f52fc2fd29d11ac4e274fd254e5ea7365658110017b69d",
+      "bytes": 2693996,
+      "sha256": "88b0cd6fd79ee74770a21ca0adec75f80a3274a6fca4a840c3e8824f458d19a3",
       "request_parts": [
         {
           "request_index": 1,
@@ -396,15 +396,15 @@
         },
         {
           "request_index": 2,
-          "request_sha256": "a0155643c0719b2ee47ac2fc2c8e0068118cebdf66fc5c0f22365974a3fbe997",
-          "bytes": 1239936,
-          "sha256": "d9049668983cafea112cae1dc883ed818ec8b1bce41a8586f5800da889c97b7a"
+          "request_sha256": "7412d92400a224e4c42404d2ac0eb057406214940a337235d853c064253d776a",
+          "bytes": 1250592,
+          "sha256": "1eaaf954123fce46107dd8bbee632eb878a2ccf202349868b85c8403b3bb0440"
         },
         {
           "request_index": 3,
           "request_sha256": "158512029f4ebc23548d3b9c5c1f32c80eba3df0f903e26a7f19ee4d9d4b0428",
-          "bytes": 321696,
-          "sha256": "0192a4eb0ef5ba3cfee9dea0c22e95ac0658b2619c9c4a742e98fb9cea8376d7"
+          "bytes": 300096,
+          "sha256": "c76b5342a4bf15490b2236094727d9b363ba63972cc739f9877ccc5670af30be"
         }
       ]
     }

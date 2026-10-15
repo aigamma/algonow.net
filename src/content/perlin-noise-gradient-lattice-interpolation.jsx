@@ -98,7 +98,7 @@ export const content = {
     <>
       <strong>Verify:</strong> zero and the hashed slope at every lattice
       point; no sample outside ±√2/2; one-sided slopes and curvatures agree
-      across borders; nothing finer than two cycles per cell in the FFT.
+      across borders; little measured power above two cycles per cell, not a strict frequency cutoff.
     </>,
   ],
 
@@ -140,7 +140,7 @@ export const content = {
   weakness: (
     <>
       <strong>The grid is still there if you know how to look.</strong> The
-      spectrum is band-limited above but not band-pass: along a generic line
+      spectrum has a small high-frequency tail and is not strictly band-limited or band-pass: along a generic line
       41.7% of the power sits below a quarter cycle per cell, because every
       cell carries a random mean. The axis and diagonal gradients leave a
       directional bias; cost is 2<sup>n</sup> corners per sample; and the

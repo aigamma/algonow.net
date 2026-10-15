@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -195,7 +196,7 @@ export default function KdTreeViz() {
           const t = done ? total : Math.min(s.tick, total);
           const carveFrac = Math.min(1, t / 90);
           const evIdx = t <= 90 ? 0 : Math.min(evLen, Math.floor((t - 90) / 4));
-          ctx.fillText('act 1 · carve at medians, cycle the axes: then one query, one shrinking ball, whole regions closed unopened', 14, 20);
+          ctx.fillText('act 1 · median splits, cycling axes · one query prunes distant regions', 14, 20);
           // frame
           ctx.strokeStyle = 'rgba(154,165,189,0.4)';
           ctx.strokeRect(PX(0), PY(0), 290, 230);
@@ -276,7 +277,7 @@ export default function KdTreeViz() {
               line = `answer exact (equals the full scan): ${sc.trace.visited} visits vs ${N1}: the ball closed the map`;
               ctx.fillStyle = good;
             } else {
-              line = 'descend to the home cell, then unwind: every candidate shrinks the ball, and the ball closes folds';
+              line = 'descend, then unwind: better candidates shrink the search radius';
               ctx.fillStyle = heur;
             }
           }
@@ -305,7 +306,7 @@ export default function KdTreeViz() {
           let line;
           if (done || t >= 200) {
             const last = sc.curse[sc.curse.length - 1];
-            line = `d = ${last.d}: ${Math.round(last.avg)} of 512 visited (${Math.round((100 * last.avg) / 512)}%): a brute scan wearing a tree costume: change tools, not tuning`;
+            line = `d = ${last.d}: ${Math.round(last.avg)} of 512 visited (${Math.round((100 * last.avg) / 512)}%): pruning barely helps in high dimensions`;
             ctx.fillStyle = warn;
           } else {
             line = 'every answer stays exact (brute-checked in this figure): only the visit bill explodes';
@@ -326,7 +327,9 @@ export default function KdTreeViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

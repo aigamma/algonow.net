@@ -309,7 +309,7 @@ export const content = {
           const hgt = (v) => (v / 260) * 180;
           return (
             <g>
-              <text x="20" y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">one square per step after the two bracket ends: blue parabola, amber secant, red bisection</text>
+              <text x="20" y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">steps: IQI blue, secant amber, bisection red</text>
               {rows.map(([label, kinds], r) => (
                 <g key={label}>
                   <text x="20" y={60 + r * 60} fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="10">{label}</text>
@@ -328,7 +328,7 @@ export const content = {
                   <text x={bx + i * 42} y={by + 12} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="8">{name}</text>
                 </g>
               ))}
-              <text x={bx} y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">secant 48 and Newton 64 where they converge</text>
+              <text x={bx} y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">converged: secant 48, Newton 64</text>
             </g>
           );
         })()}

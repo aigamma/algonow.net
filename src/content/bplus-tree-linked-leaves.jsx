@@ -311,7 +311,7 @@ export const content = {
         <line x1="490" y1="124" x2="460" y2="176" stroke="#2a3450" />
         <line x1="490" y1="124" x2="545" y2="176" stroke="#2a3450" />
         <text x="60" y="240" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">BETWEEN 29 AND 70: one descent, then the amber chain: no re-climbing</text>
-        <text x="60" y="264" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: touches 1,507 vs 1,553 (a wash) · seeks 180 vs 1,553 (9×) · lookups exactly height 3, zero variance</text>
+        <text x="60" y="264" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">touches: 1,507 vs 1,553 · seeks: 180 vs 1,553 · every lookup visits 3 levels</text>
       </svg>
     </Figure>
   ),

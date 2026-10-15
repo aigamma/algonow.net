@@ -5,7 +5,8 @@ Algorithm L): find the longest non-increasing suffix, the element before
 it is the pivot; swap the pivot with the rightmost suffix element larger
 than it; reverse the suffix. Repeating from the sorted sequence visits
 every arrangement of a multiset exactly once in increasing lexicographic
-order, in place, with O(1) extra memory and O(1) amortized work per step.
+order, in place, with O(1) extra memory. Work is O(1) amortized for distinct keys;
+repeated keys can raise the average to O(n).
 
 Oracles: itertools.permutations (lexicographic from sorted input) and
 exhaustive sets for n <= 8; the multinomial count for multisets; Heap's

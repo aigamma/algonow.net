@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:fibonacci-heap-lazy-consolidation-with-marking",
   "source_path": "src/content/fibonacci-heap-lazy-consolidation-with-marking.narration.js",
-  "source_sha256": "ebe1a2e741910938bd60745490778c86ecf0e7534be085d96bbdeacb8b69fce7",
-  "source_characters": 11378,
+  "source_sha256": "16d8963e62a0bd4ff755cb075698537347b25123095aa6d9893c558c2155d4f0",
+  "source_characters": 11432,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -42,9 +42,9 @@
     }
   },
   "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
-  "release_sha256": "5ae04ea4d878bf3be46a65f94612aad247cb888f0d57e35c22c0673177c5c79b",
-  "generated_at": "2026-09-27T04:13:08.668Z",
-  "generated_characters": 22756,
+  "release_sha256": "5240a620a78bb6d1e5b6ee44425586780d2972a789ee5a725573abd4d0e3698a",
+  "generated_at": "2026-10-15T23:39:28.779Z",
+  "generated_characters": 22864,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -69,9 +69,9 @@
     {
       "id": "request-001",
       "index": 1,
-      "characters": 4933,
-      "utf8_bytes": 4941,
-      "sha256": "b61999e6e2469e6b957ff84af3f92ac38115b27046b13779829447612bdab263"
+      "characters": 4987,
+      "utf8_bytes": 4995,
+      "sha256": "8092f7efe7d61146f3b27e8ade2ae80e69284fe017531f2d74c27121052e4e66"
     },
     {
       "id": "request-002",
@@ -134,8 +134,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1515,
-      "sha256": "ffc3aa8b0e55eccf954e7ea7f2e935dfc479d805a2a25d5b519f2c08245ae0ae"
+      "utf8_bytes": 1542,
+      "sha256": "6c127406a2ce5ae7f1490703e54838666a0bb8f34ccefed51c1e235ed28f9025"
     },
     {
       "id": "fibonacci-heap-lazy-consolidation-with-marking.02-origins",
@@ -180,8 +180,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1860,
-      "sha256": "e91571bd833d733b4cb177e07f08bbaaf1be8c57a87e1d1f460fd3563eb1d4ef"
+      "utf8_bytes": 1887,
+      "sha256": "f12045c19b7628a593fda0b1d9544e141ded9b6f72a89062a63dc7aae17cb3a7"
     },
     {
       "id": "fibonacci-heap-lazy-consolidation-with-marking.04-picture",
@@ -351,29 +351,29 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/fibonacci-heap-lazy-consolidation-with-marking/5ae04ea4d878bf3be46a/aoede-3b047a28b9ea28bc.mp3",
+      "object_key": "narration/v1/puzzles/fibonacci-heap-lazy-consolidation-with-marking/5240a620a78bb6d1e5b6/aoede-44f29624d287cebf.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2878700,
-      "sha256": "3b047a28b9ea28bc2637546d0431003c6f9d91e4f1d86d2260e93e46f9079816",
+      "bytes": 2859404,
+      "sha256": "44f29624d287cebf2fdeb941010b7d1b2242caed3b95fe1117da32b04aaf0872",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "b61999e6e2469e6b957ff84af3f92ac38115b27046b13779829447612bdab263",
-          "bytes": 1231104,
-          "sha256": "b4b54cb95951a16b11353e6bcfb16f96cd9b70a769c8740eb0d64c0e682ff420"
+          "request_sha256": "8092f7efe7d61146f3b27e8ade2ae80e69284fe017531f2d74c27121052e4e66",
+          "bytes": 1227936,
+          "sha256": "9c2da69e70e90837ea1538372a0049562a69c3014d057c5f4321258ffb3accda"
         },
         {
           "request_index": 2,
           "request_sha256": "fe6790508048633421c401b70588452fb8f6cb0c549b29b528f0aebd47c2e2d5",
-          "bytes": 1100256,
-          "sha256": "1335b18880361d7fec9641155acf6b55b180ad44eb46c649f8e06df2f9b4997c"
+          "bytes": 1093056,
+          "sha256": "bf2d01cefb4b0ce627241500a6aa9de2d8a959dce81da152b4c7d12eb384f56b"
         },
         {
           "request_index": 3,
           "request_sha256": "03483cb5a0546d17532338f44d94ce1cd473250efef0f26187a084536bbee091",
-          "bytes": 547104,
-          "sha256": "a17ad2586c58c4ee9d39f4ecb47d6b97687da25f415603c4e195aa16ad4876f5"
+          "bytes": 538176,
+          "sha256": "495f22c90f6656d78bc876d87b86697da3e3bf41886342e5185439e7aafe5f03"
         }
       ]
     },
@@ -382,29 +382,29 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/fibonacci-heap-lazy-consolidation-with-marking/5ae04ea4d878bf3be46a/algieba-b95ae6daed2af99d.mp3",
+      "object_key": "narration/v1/puzzles/fibonacci-heap-lazy-consolidation-with-marking/5240a620a78bb6d1e5b6/algieba-3afd6a3ada1fa31f.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 3050732,
-      "sha256": "b95ae6daed2af99dba30c9fb6616fd15922d361aa7b6cc3de1d8dab4d2703467",
+      "bytes": 3114284,
+      "sha256": "3afd6a3ada1fa31f234ba19359f7d17528e542043e3998f917cbb8009bea562f",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "b61999e6e2469e6b957ff84af3f92ac38115b27046b13779829447612bdab263",
-          "bytes": 1273344,
-          "sha256": "6bd93eec735b6ff83fe3febf5ca047a7391b323ab40f4e0b5d3e3fd292b3d5e5"
+          "request_sha256": "8092f7efe7d61146f3b27e8ade2ae80e69284fe017531f2d74c27121052e4e66",
+          "bytes": 1348896,
+          "sha256": "1973793d60d243778b1c3157ca4d927961baf7d31b3182320a9b790f823f3f0d"
         },
         {
           "request_index": 2,
           "request_sha256": "fe6790508048633421c401b70588452fb8f6cb0c549b29b528f0aebd47c2e2d5",
-          "bytes": 1224096,
-          "sha256": "297606811532dd324ede47eac12beb6f7d92dc7553af21b023801916c1f9df01"
+          "bytes": 1195296,
+          "sha256": "6df62874d4a3670f199af2e16e5118239a8949558883c8ef15114ce9d56468ca"
         },
         {
           "request_index": 3,
           "request_sha256": "03483cb5a0546d17532338f44d94ce1cd473250efef0f26187a084536bbee091",
-          "bytes": 553056,
-          "sha256": "37a83ebff0c230c7296fa7481bb6a931f200d0fbddf4404b5200eb46152b6fcd"
+          "bytes": 569856,
+          "sha256": "0e24e43280818f5cf5e16782929f86ad92b9f46a2ab4062dd37515270c99686e"
         }
       ]
     }

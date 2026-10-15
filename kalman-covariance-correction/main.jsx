@@ -26,21 +26,16 @@ function PreservedPlayerBoundary(props) {
   );
 }
 
-const narrationPending = narrationManifest?.status === 'pending';
-if (!narrationPending) {
-  const manifestProblem = narrationManifestProblem(narrationManifest, MEDIA_BASE_URL);
-  if (manifestProblem) {
-    throw new Error(`Kalman preserved narration is not deployable: ${manifestProblem}`);
-  }
+const manifestProblem = narrationManifestProblem(narrationManifest, MEDIA_BASE_URL);
+if (manifestProblem) {
+  throw new Error(`Kalman preserved narration is not deployable: ${manifestProblem}`);
 }
 
-const narrationPlayer = narrationPending
-  ? null
-  : {
-      Component: PreservedPlayerBoundary,
-      manifest: narrationManifest,
-      mediaBaseUrl: MEDIA_BASE_URL,
-    };
+const narrationPlayer = {
+  Component: PreservedPlayerBoundary,
+  manifest: narrationManifest,
+  mediaBaseUrl: MEDIA_BASE_URL,
+};
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>

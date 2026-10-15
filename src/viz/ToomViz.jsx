@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -249,7 +250,7 @@ export default function ToomViz() {
           BARS.forEach((b, i) => {
             if (i >= grown) return;
             const f = i === grown - 1 ? frac : 1;
-            const wpx = (Math.log10(b.value) / logMax) * 520 * f;
+            const wpx = (Math.log10(b.value) / logMax) * 440 * f;
             ctx.fillStyle = colors[b.color];
             ctx.fillRect(90, 62 + i * 62, wpx, 30);
             ctx.fillStyle = colors.dim;
@@ -275,7 +276,9 @@ export default function ToomViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

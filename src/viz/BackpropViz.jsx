@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -227,11 +228,11 @@ export default function BackpropViz() {
         let line;
         if (s.done) {
           line = sc.lossS < 0.08
-            ? `SGD reached loss 0.08 after ${Math.round(sc.sgdEvals / BATCH)} small updates; full batch made ${Math.round(sc.fullEvals / NPTS)} updates on the same budget and sits at ${sc.lossF.toFixed(2)}`
+            ? `same budget: SGD loss 0.08 in ${Math.round(sc.sgdEvals / BATCH)} updates; full batch loss ${sc.lossF.toFixed(2)} in ${Math.round(sc.fullEvals / NPTS)}`
             : `budget spent: SGD at loss ${sc.lossS.toFixed(2)} after ${Math.round(sc.sgdEvals / BATCH)} updates, full batch at ${sc.lossF.toFixed(2)} after ${Math.round(sc.fullEvals / NPTS)}`;
           ctx.fillStyle = good;
         } else {
-          line = 'each backward pass costs about three forward passes; SGD spends them nineteen updates at a time where full batch spends one';
+          line = 'same gradient budget: about nineteen small SGD updates per full-batch update';
           ctx.fillStyle = ink;
         }
         ctx.font = '11px ui-monospace, monospace';
@@ -244,7 +245,9 @@ export default function BackpropViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -302,7 +302,7 @@ export const content = {
           </marker>
         </defs>
         <text x="470" y="98" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">fresh comparisons only here</text>
-        <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: 3,999 vs 7,998,000 on the adversary · the bridge: KMP’s failure function rebuilt from Z, exact on 200 strings</text>
+        <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">adversary: 3,999 vs 7,998,000 comparisons · Z rebuilds KMP’s table on 200 strings</text>
       </svg>
     </Figure>
   ),

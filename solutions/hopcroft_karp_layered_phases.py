@@ -21,8 +21,9 @@ from collections import deque
 INF = float("inf")
 
 
-def hopcroft_karp(nl, nr, adj, counter=None):
-    """Returns (match_l, match_r, phases). adj: left -> list of rights."""
+def hopcroft_karp(nl, nr, adj, counter=None, phase_log=None):
+    """Returns (match_l, match_r, phases). adj: left -> list of rights.
+    Optional phase_log records actual paths and their starting matching."""
     match_l = [-1] * nl
     match_r = [-1] * nr
     dist = [0] * nl
@@ -36,37 +37,53 @@ def hopcroft_karp(nl, nr, adj, counter=None):
                 q.append(u)
             else:
                 dist[u] = INF
-        found = False
+        shortest = INF
         while q:
             u = q.popleft()
+            if dist[u] >= shortest:
+                continue
             for v in adj[u]:
                 if counter is not None:
                     counter["edges"] = counter.get("edges", 0) + 1
                 w = match_r[v]
                 if w == -1:
-                    found = True
+                    shortest = min(shortest, dist[u] + 1)
                 elif dist[w] == INF:
                     dist[w] = dist[u] + 1
                     q.append(w)
-        return found
+        return shortest
 
-    def dfs(u):
+    def dfs(u, path=None):
         for v in adj[u]:
             if counter is not None:
                 counter["edges"] = counter.get("edges", 0) + 1
             w = match_r[v]
-            if w == -1 or (dist[w] == dist[u] + 1 and dfs(w)):
+            if ((w == -1 and dist[u] + 1 == shortest)
+                    or (w != -1 and dist[w] == dist[u] + 1
+                        and dist[w] < shortest and dfs(w, path))):
                 match_l[u] = v
                 match_r[v] = u
+                if path is not None:
+                    path.append((u, v))
                 return True
         dist[u] = INF
         return False
 
-    while bfs():
+    while True:
+        shortest = bfs()
+        if shortest == INF:
+            break
         phases += 1
+        if phase_log is not None:
+            phase = {"before_l": match_l[:], "before_r": match_r[:],
+                     "shortest_length": 2 * shortest - 1, "paths": []}
         for u in range(nl):
             if match_l[u] == -1:
-                dfs(u)
+                path = [] if phase_log is not None else None
+                if dfs(u, path) and phase_log is not None:
+                    phase["paths"].append(list(reversed(path)))
+        if phase_log is not None:
+            phase_log.append(phase)
     return match_l, match_r, phases
 
 
@@ -158,7 +175,19 @@ if __name__ == "__main__":
             for v in range(nr):
                 if rng.random() < 0.3:
                     adj[u].append(v)
-        ml, mr, _ = hopcroft_karp(nl, nr, adj)
+        phase_log = []
+        ml, mr, _ = hopcroft_karp(nl, nr, adj, phase_log=phase_log)
+        previous_length = 0
+        for phase in phase_log:
+            assert phase["shortest_length"] > previous_length
+            previous_length = phase["shortest_length"]
+            used_l, used_r = set(), set()
+            for path in phase["paths"]:
+                assert 2 * len(path) - 1 == phase["shortest_length"]
+                for u, v in path:
+                    assert u not in used_l and v not in used_r
+                    used_l.add(u)
+                    used_r.add(v)
         size = sum(1 for x in ml if x != -1)
         assert size == kuhn(nl, nr, adj)
         assert size == brute_max_matching(nl, nr, adj)
@@ -209,8 +238,9 @@ if __name__ == "__main__":
             assert u in cover_l_set or v in cover_r_set
     g_size = greedy_matching(NL, NR, adj_big)
     assert g_size >= size_b / 2  # the maximal-matching guarantee
+    assert (phases, c_hk["edges"], c_kuhn["edges"], size_b, g_size) == (5, 253278, 1776030, 4999, 4659)
 
-    # Oracle 4: the greedy half gadget: P3 chains where first-edge
+    # Oracle 4: the greedy half gadget: three-edge paths where first-edge
     # greed scores exactly half of optimal, by construction.
     G = 500
     nlg = nrg = 2 * G
@@ -232,5 +262,5 @@ if __name__ == "__main__":
     print(f"  {'Greedy (no augmenting)':<28} {'~' + format(E, ','):>13} {g_size:>9,}   maximal only: {g_size / size_b:.1%} of max here, 50% on the gadget")
     print(f"Konig certificate at scale: cover of {len(cl_b):,} left + {len(cr_b):,} right = {size_b:,} vertices touches all {E:,} edges (asserted edge by edge)")
     print(f"Hall violation gadget: 10 lefts sharing 3 rights: matching exactly 5 = 3 + 1 + 1, certified by its own cover")
-    print(f"greedy half gadget: {G}-fold P3 chains: greedy {greedy_g}, optimal {opt_g}: the 1/2 bound met with equality, constructed")
-    print("OK: 300 brute-refereed trials each Konig-certified, the Hall deficiency exact, the phase bound held at scale with the cover verified edge by edge, Kuhn agreeing at 10x the touches, and greedy pinned to exactly half on its gadget")
+    print(f"greedy half gadget: {G}-fold three-edge paths: greedy {greedy_g}, optimal {opt_g}: the 1/2 bound met with equality, constructed")
+    print(f"OK: 300 brute-refereed trials each Konig-certified, shortest disjoint phase paths checked, the Hall deficiency exact, the phase bound held at scale with the cover verified edge by edge, Kuhn agreeing at {c_kuhn['edges'] / c_hk['edges']:.1f}x the touches, and greedy pinned to exactly half on its gadget")

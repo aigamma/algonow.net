@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -204,10 +205,10 @@ export default function DesViz() {
         }
         let line;
         if (s.done) {
-          line = `event calendar: ${sc.ev.steps} steps for ${HORIZON} time units; fixed step: ${sc.fx.steps}; both saw the same customers, one skipped the empty time`;
+          line = `same customers over ${HORIZON} time units: ${sc.ev.steps} event steps vs ${sc.fx.steps} clock steps`;
           ctx.fillStyle = good;
         } else {
-          line = 'every unit of simulated time costs exactly as many steps as it has events; the slot clock pays for empty time too';
+          line = 'event steps skip empty time; the slot clock must visit every time slot';
           ctx.fillStyle = ink;
         }
         ctx.fillText(line, 12, H - 8);
@@ -219,7 +220,9 @@ export default function DesViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -324,7 +324,7 @@ export const content = {
           <circle key={i} cx={380} cy={y0} r={4} fill="#e2606c" />
         ))}
         <text x="390" y="250" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">2 shares: every secret fits</text>
-        <text x="40" y="278" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: 3,235 quorums exact · the flat table exhausted · guessing floor 1/257 · poison 300/300, healed 300/300</text>
+        <text x="40" y="278" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">3,235 exact quorums · guessing floor 1/257 · 300/300 poisoned, 300/300 healed</text>
       </svg>
     </Figure>
   ),

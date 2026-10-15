@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -373,7 +374,7 @@ export default function LsmViz() {
           ctx.fillText(`the read side reverses: avg sorted-run probes per get: leveled ${sc.probes.leveled.toFixed(1)} vs tiered ${sc.probes.tiered.toFixed(1)}`, 60, 228);
           let line;
           if (done || t >= 200) {
-            line = `write traffic ${(sc.race.btree / sc.race.leveled).toFixed(0)}x under the b-tree; tiered writes ${(sc.race.leveled / sc.race.tiered).toFixed(1)}x less but probes ${(sc.probes.tiered / Math.max(sc.probes.leveled, 0.1)).toFixed(1)}x more: pick your corner`;
+            line = `leveled: ${(sc.race.btree / sc.race.leveled).toFixed(0)}× less writing than B-tree · tiered: ${(sc.race.leveled / sc.race.tiered).toFixed(1)}× less, ${(sc.probes.tiered / Math.max(sc.probes.leveled, 0.1)).toFixed(1)}× more probes`;
             ctx.fillStyle = good;
           } else {
             line = 'all three answer every get identically (dict-refereed): only the traffic differs';
@@ -394,7 +395,9 @@ export default function LsmViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

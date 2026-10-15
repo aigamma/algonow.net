@@ -288,13 +288,13 @@ export const content = {
               <text x="64" y={ly(16) - 4} fill="#e2606c">infinity = 16: the route is dropped</text>
               {[2, 6, 10, 14].map((d) => <text key={d} x="42" y={ly(d) + 3}>{d}</text>)}
               {[0, 3, 6, 9, 12, 15].map((i) => <text key={i} x={lx(i) - 3} y="250">{i}</text>)}
-              <text x="604" y="250" textAnchor="end">interval</text>
+              <text x="560" y="250" textAnchor="end">interval</text>
               <polyline points={steps([1, 3, 3, 5, 5, 7, 7, 9, 9, 11, 11, 13, 13, 15, 15])} fill="none" stroke="#f0b94b" strokeWidth="2.5" />
               <polyline points={steps([2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14])} fill="none" stroke="#5da2ff" strokeWidth="2" />
               <polyline points={drop(1, 1)} fill="none" stroke="#62d98a" strokeWidth="2" strokeDasharray="3 3" />
               <polyline points={drop(2, 2)} fill="none" stroke="#62d98a" strokeWidth="2" strokeDasharray="3 3" />
-              <text x="60" y="272" fill="#f0b94b">B (amber) and C (blue), plain exchange: 15 intervals to the cap, 7.5 minutes at a 30 s interval</text>
-              <text x="604" y="272" fill="#62d98a" textAnchor="end">split horizon (green): B drops A at interval 1, C at 2</text>
+              <text x="60" y="272" fill="#f0b94b">plain: 15 intervals to the cap</text>
+              <text x="604" y="272" fill="#62d98a" textAnchor="end">split horizon: drops at 1 and 2</text>
             </g>
           );
         })()}

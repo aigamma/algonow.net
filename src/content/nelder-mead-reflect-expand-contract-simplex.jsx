@@ -95,8 +95,7 @@ export const content = {
     <>
       <strong>Contract:</strong> otherwise, outside (halfway from c to x
       <sub>r</sub>) when f(x<sub>r</sub>) &lt; f(x<sub>w</sub>), inside
-      (halfway from c to x<sub>w</sub>) when not; keep it if it beats
-      the worse of the two, else <strong>shrink</strong> every vertex
+      (halfway from c to x<sub>w</sub>) when not; keep it if it beats the better of the reflected point and the old worst, else <strong>shrink</strong> every vertex
       halfway toward the best.
     </>,
     <>
@@ -299,9 +298,9 @@ export const content = {
     >
       <svg viewBox="0 0 640 280" role="img" aria-label="A triangle with its reflection, expansion, and contraction points marked along the line from the worst vertex through the centroid, beside a bar chart of evaluations against dimension for Nelder-Mead and BFGS on a log scale">
         {(() => {
-          const B = [70, 90];
-          const S = [120, 220];
-          const W = [230, 170];
+          const B = [200, 70];
+          const S = [230, 220];
+          const W = [300, 190];
           const c = [(B[0] + S[0]) / 2, (B[1] + S[1]) / 2];
           const along = (t) => [c[0] + t * (c[0] - W[0]), c[1] + t * (c[1] - W[1])];
           const R = along(1);
@@ -336,8 +335,8 @@ export const content = {
               {dot(E, 'E expand', '#62d98a', 8, -6)}
               {dot(Co, 'Co', '#f0b94b', 6, -8)}
               {dot(Ci, 'Ci', '#e2606c', 6, 14)}
-              <text x="40" y="30" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">the four moves: W through c to R; E twice as far; Co, Ci halfway; dashed: shrink toward B</text>
-              <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">measured over 50 runs: 1,139 reflect, 374 expand, 3,869 contract, 9 shrink</text>
+              <text x="40" y="30" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">reflect, expand, contract, shrink</text>
+              <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">50 runs: 1,139 reflections; 3,869 contractions</text>
               <line x1={x0} y1={y0} x2={x0 + 240} y2={y0} stroke="#9aa5bd" strokeOpacity="0.5" />
               {dims.map((n, i) => (
                 <g key={n}>
@@ -347,7 +346,7 @@ export const content = {
                   <text x={x0 + 6 + i * 46} y={y0 - hgt(nm[i]) - 4} fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="9">{nm[i].toLocaleString()}</text>
                 </g>
               ))}
-              <text x={x0} y="30" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">evaluations to 1e-6, log scale: simplex (amber) vs BFGS (blue)</text>
+              <text x={x0} y="30" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">evals to 1e-6: simplex amber, BFGS blue</text>
               <text x={x0} y="46" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">BFGS: 29 / 38 / 68 / 117 / 216</text>
               <text x={x0} y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">growth n = 2 to 16: simplex 39x, BFGS 4x</text>
             </g>

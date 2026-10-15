@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -264,13 +265,13 @@ export default function GmmViz() {
           ctx.fillText(`ll ${fr.ll.toFixed(0)}`, 500, 260);
           let line;
           if (done || t >= ITERS * 6) {
-            line = 'converged: ellipses on the planted tilt, seam points visibly blended, the staircase never stepped down';
+            line = 'converged: tilted ellipses, blended responsibilities · likelihood rose in this run';
             ctx.fillStyle = good;
           } else if (it < 4) {
             line = 'clumsy start: identity circles, wrong spots: the E-step still hands out honest fractions';
             ctx.fillStyle = ink;
           } else {
-            line = 'E: score and normalize · M: refit under the fractions · the theorem: the climb is monotone';
+            line = 'E: normalize scores · M: weighted refit · exact, unregularized EM is monotone';
             ctx.fillStyle = heur;
           }
           ctx.font = '12px ui-monospace, monospace';
@@ -278,7 +279,7 @@ export default function GmmViz() {
           statsRef.current = { line };
         } else {
           const t = done ? 200 : Math.min(s.tick, 200);
-          ctx.fillText('act 2 · the trapdoor: a ridgeless component pinned on ONE point: variance to zero, likelihood to infinity', 14, 20);
+          ctx.fillText('act 2 · no ridge: one component collapses onto one point; likelihood diverges', 14, 20);
           const frac = Math.min(1, t / 200);
           const logEps = -1 - frac * 59; // 1e-1 .. 1e-60
           const eps = Math.pow(10, logEps);
@@ -307,7 +308,7 @@ export default function GmmViz() {
           ctx.fillText(`variance ${eps.toExponential(0)}`, Math.min(px + 10, 500), Math.max(py - 10, 34));
           ctx.fillStyle = warn;
           ctx.font = '13px ui-monospace, monospace';
-          ctx.fillText(`log-likelihood ${ll.toFixed(0)} and climbing`, 420, 80);
+          ctx.fillText(`logL ${ll.toFixed(0)} and rising`, 420, 80);
           ctx.font = '11px ui-monospace, monospace';
           ctx.fillStyle = dim;
           ctx.fillText('one point memorized exactly;', 420, 100);
@@ -335,7 +336,9 @@ export default function GmmViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

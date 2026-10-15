@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -230,11 +231,11 @@ export default function TwoOptViz() {
         }
         const tx = 304;
         ctx.fillStyle = dim;
-        ctx.fillText(`2-opt from a random tour of ${n} cities, one swap per two ticks`, tx, 24);
-        ctx.fillText('red: the two edges removed; amber dashed: the two that replace them', tx, 40);
+        ctx.fillText(`2-opt: ${n} cities, random starting tour`, tx, 24);
+        ctx.fillText('red: removed; amber dashed: replacements', tx, 40);
         ctx.fillStyle = ink;
         ctx.fillText(`length ${sc.len.toFixed(3)}  (start ${sc.start.toFixed(3)}, exact optimum ${sc.opt.toFixed(3)})`, tx, 68);
-        ctx.fillText(`crossings ${sc.cross}  (start ${sc.startCross});  swaps ${sc.swaps}, of them ${sc.uncross} uncrossings`, tx, 86);
+        ctx.fillText(`crossings ${sc.cross} (start ${sc.startCross}); swaps ${sc.swaps} (${sc.uncross} uncross)`, tx, 86);
         const barX = tx;
         const barW = 316;
         const scale = (v) => barX + (barW * v) / sc.start;
@@ -245,12 +246,12 @@ export default function TwoOptViz() {
         ctx.fillStyle = heur;
         ctx.fillRect(scale(sc.opt) - 1, 100, 2, 18);
         ctx.fillStyle = dim;
-        ctx.fillText('tour length against the start; amber tick: the Held-Karp optimum', barX, 132);
-        ctx.fillText('every crossing is an improving swap (triangle inequality), so the', tx, 160);
-        ctx.fillText('local optimum has none; the file: 103 swaps and 0 crossings at', tx, 176);
-        ctx.fillText('n = 400, 1.85% above exact at n = 16 from nearest neighbor', tx, 192);
+        ctx.fillText('length / start; amber: exact Held-Karp optimum', barX, 132);
+        ctx.fillText('uncrossing improves a Euclidean tour;', tx, 160);
+        ctx.fillText('a local optimum has no crossings.', tx, 176);
+        ctx.fillText('solution: 103 swaps at n=400; +1.85% at n=16', tx, 192);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? 'invariant: permutation, strict descent by the predicted delta, never below the optimum' : 'INVARIANT BROKEN', tx, 216);
+        ctx.fillText(sc.ok ? 'permutation; predicted descent; ≥ optimum' : 'INVARIANT BROKEN', tx, 216);
         const line = sc.last;
         ctx.fillStyle = s.done ? good : ink;
         ctx.fillText(line.length > 100 ? `${line.slice(0, 99)}…` : line, 12, H - 6);
@@ -262,7 +263,9 @@ export default function TwoOptViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

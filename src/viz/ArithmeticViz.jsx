@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -64,7 +65,14 @@ export function makeAct1(rand) {
     }
     steps.push({ sym: s, lo, wid, events, bitsSoFar: bits.length, pending });
   }
-  return { probs, cum, syms, steps, totalBits: bits.length };
+  // Finish the message: settle one final bit and every deferred E3 bit.
+  // A shipped prefix alone is not a complete arithmetic code.
+  const prefixBits = bits.length;
+  pending += 1;
+  const finalBit = lo < 0.25 ? 0 : 1;
+  bits.push(finalBit);
+  while (pending > 0) { bits.push(1 - finalBit); pending -= 1; }
+  return { probs, cum, syms, steps, bits, prefixBits, terminationBits: bits.length - prefixBits, totalBits: bits.length };
 }
 
 export function makeAct2() {
@@ -215,7 +223,7 @@ export default function ArithmeticViz() {
           ctx.fillText(`ideal cost so far: ${ideal.toFixed(1)} bits · shipped + held: ${st.bitsSoFar + st.pending}`, 40, 188);
           let line;
           if (done || idx >= a1.steps.length - 1) {
-            line = `message coded in ~${a1.totalBits} bits against an ideal of ${a1.syms.reduce((acc, sy) => acc - Math.log2(a1.probs[sy]), 0).toFixed(1)}: fractional bits, pooled: no symbol paid a whole bit it did not owe`;
+            line = `${a1.totalBits} bits including termination; ideal ${a1.syms.reduce((acc, sy) => acc - Math.log2(a1.probs[sy]), 0).toFixed(1)} bits`;
             ctx.fillStyle = good;
           } else if (st.events.some((e) => e.type === 'straddle')) {
             line = 'straddle: too tight to call a side: zoom anyway and owe a bit the future reveals';
@@ -229,7 +237,7 @@ export default function ArithmeticViz() {
           statsRef.current = { line };
         } else {
           const t = done ? 200 : Math.min(s.tick, 200);
-          ctx.fillText('act 2 · why the heuristic exists: the exact-fraction coder’s state (real BigInt fractions) vs 32-bit registers', 14, 20);
+          ctx.fillText('act 2 · denominator bit width vs fixed 32-bit registers', 14, 20);
           const frac = Math.min(1, t / 200);
           const pts = sc.act2;
           const maxBits = pts[pts.length - 1].bits;
@@ -252,7 +260,7 @@ export default function ArithmeticViz() {
           ctx.stroke();
           const last = pts[upto - 1];
           ctx.fillStyle = warn;
-          ctx.fillText(`exact fractions: ${last.bits.toLocaleString()} bits of state at ${last.n} symbols`, 200, Y(last.bits) - 8);
+          ctx.fillText(`denominator: ${last.bits.toLocaleString()} bits at ${last.n} symbols`, 200, Y(last.bits) - 8);
           ctx.strokeStyle = algo;
           ctx.setLineDash([5, 4]);
           ctx.beginPath();
@@ -261,13 +269,13 @@ export default function ArithmeticViz() {
           ctx.stroke();
           ctx.setLineDash([]);
           ctx.fillStyle = algo;
-          ctx.fillText('the renormalizing coder: 32 bits, forever, by construction', 70, Y(32) - 6);
+          ctx.fillText('renormalization: 32 bits per register', 70, Y(32) - 6);
           ctx.fillStyle = dim;
           ctx.font = '10px ui-monospace, monospace';
-          ctx.fillText(`and the wall it exists to break (from the solution, n = 4,000 at 99/1): huffman ${sc.wall.huff.toLocaleString()} bits vs the ${sc.wall.floor.toLocaleString()}-bit floor`, 60, 244);
+          ctx.fillText(`solution, n = 4,000 at 99/1: Huffman ${sc.wall.huff.toLocaleString()} bits vs the ${sc.wall.floor.toLocaleString()}-bit floor`, 60, 244);
           let line;
           if (done || t >= 200) {
-            line = 'same output, constant state: ship settled bits, rescale, repeat: the heuristic is the difference between a proof and a program';
+            line = 'constant state: ship settled bits, rescale, repeat';
             ctx.fillStyle = good;
           } else {
             line = 'every symbol multiplies the fraction again: nothing ever cancels: the state can only grow';
@@ -277,7 +285,7 @@ export default function ArithmeticViz() {
           ctx.fillText(line, 14, H - 12);
           statsRef.current = {
             line: done
-              ? 'one number for the whole message, 32 bits of state for the whole run'
+              ? 'one number for the message; fixed 32-bit registers throughout'
               : line,
           };
         }
@@ -288,7 +296,9 @@ export default function ArithmeticViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -6,7 +6,8 @@
 # the feasible polytope, moving along an edge that improves the objective
 # until none does; optimality then falls out as a dual certificate read off
 # the final tableau. The heuristic is WHICH improving edge: Dantzig's rule
-# takes the steepest immediate rate (most positive reduced cost). On real
+# takes the greatest improvement per unit of the entering variable (the
+# most negative reduced cost in this tableau's sign convention). On real
 # instances that greed is superb (a few dozen pivots, measured); on the
 # Klee-Minty cube it is walked through every one of the 2^n vertices
 # (measured: 4,095 pivots at n=12); and on Beale's degenerate corner, with
@@ -14,6 +15,7 @@
 # humble smallest-index rule provably terminates on the same instance.
 import random
 from fractions import Fraction
+from statistics import median
 
 
 def simplex(A, b, c, rule="dantzig", rng=None, exact=False, cap=100000):
@@ -41,12 +43,15 @@ def simplex(A, b, c, rule="dantzig", rng=None, exact=False, cap=100000):
             enter = min(improving)
         else:
             enter = rng.choice(improving)
-        # Ratio test, ties to the lowest row index (the classic tie-break).
+        # Bland also breaks ratio ties by the leaving variable's index.
+        # Other rules use the lowest row index for the cycling demonstration.
         best_i, best_ratio = -1, None
         for i in range(m):
             if T[i][enter] > 0:
                 ratio = T[i][-1] / T[i][enter]
-                if best_ratio is None or ratio < best_ratio:
+                if (best_ratio is None or ratio < best_ratio
+                        or (rule == "bland" and ratio == best_ratio
+                            and basis[i] < basis[best_i])):
                     best_ratio, best_i = ratio, i
         if best_i < 0:
             return "unbounded", None, None, pivots, (T, z), basis, False
@@ -61,6 +66,7 @@ def simplex(A, b, c, rule="dantzig", rng=None, exact=False, cap=100000):
             f = z[enter]
             z = [a - f * bv for a, bv in zip(z, T[best_i])]
         basis[best_i] = enter
+        assert all(row[-1] >= (0 if exact else -1e-7) for row in T), "pivot must preserve feasibility"
         pivots += 1
         key = tuple(sorted(basis))
         if key in seen:
@@ -195,6 +201,11 @@ if __name__ == "__main__":
     assert status_b == "optimal", status_b
     best_beale, _ = enumerate_optimum(BEALE_A, BEALE_B, BEALE_C)
     assert obj_b == best_beale == Fraction(1, 20), (obj_b, best_beale)
+    assert piv_b == 6
+    # A tied ratio after the first pivot leaves basis [2, 0]. Bland must
+    # remove variable 0 in the second row, not variable 2 in the first.
+    tied = simplex([[0, 1], [1, 1]], [1, 1], [2, 3], rule="bland", exact=True)
+    assert tied[0] == "optimal" and tied[1] == 3 and tied[5] == [2, 1], tied
 
     # Oracle 4: the cube. Dantzig's pivots on Klee-Minty grow as ~2^n.
     km_counts = {}
@@ -204,14 +215,15 @@ if __name__ == "__main__":
         assert status == "optimal"
         assert abs(obj - 5.0 ** n) < 1e-3 * 5.0 ** n, (n, obj)  # optimum is x_n = 5^n
         km_counts[n] = piv
-        assert piv >= 2 ** (n - 1), (n, piv)
+        assert piv == 2 ** n - 1, (n, piv)
     A, b, c = klee_minty(12)
     _, _, _, piv_bland, _, _, _ = simplex(A, b, c, rule="bland", cap=100000)
     _, _, _, piv_rand, _, _, _ = simplex(A, b, c, rule="random", rng=random.Random(7), cap=100000)
+    assert piv_bland == 465 and piv_rand == 39, (piv_bland, piv_rand)
 
     # Oracle 5: the contest on realistic ground: median pivots over 30
     # random LPs (m=30, n=60) per rule.
-    med = lambda xs: sorted(xs)[len(xs) // 2]
+    med = median
     pivots = {"dantzig": [], "bland": [], "random": []}
     for trial in range(30):
         A, b, c = random_lp(30, 60, random.Random(5000 + trial))
@@ -220,6 +232,7 @@ if __name__ == "__main__":
             assert status == "optimal"
             pivots[rule].append(piv)
     assert med(pivots["dantzig"]) <= med(pivots["bland"]), "greed should beat humility on random ground"
+    assert [med(pivots[rule]) for rule in ("dantzig", "bland", "random")] == [9, 33.5, 28.5]
 
     print("contest: pivots to the proven optimum;")
     print(f"  {'pivot rule':<22} {'random LPs (median of 30)':>26} {'Klee-Minty cube n=12':>21}")

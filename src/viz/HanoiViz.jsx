@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -114,7 +115,7 @@ export default function HanoiViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`the recursive solution, one move per tick; amber: the disk that just moved; right: the same move read off the binary counter`, 12, 18);
+        ctx.fillText(`recursive Hanoi; amber: moved disk; right: the same move from the binary counter`, 12, 18);
         const baseY = 230;
         const pegX = [90, 210, 330];
         ctx.strokeStyle = `${dim}aa`;
@@ -166,12 +167,12 @@ export default function HanoiViz() {
           ctx.fillText(String(d), x + 5, 149);
         }
         ctx.fillStyle = dim;
-        ctx.fillText('set bits: disks moved an odd number of times', tx, 170);
+        ctx.fillText('set bits: odd disk-move counts', tx, 170);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? 'every move legal; ruler and Gray code agree' : 'INVARIANT BROKEN', tx, 196);
+        ctx.fillText(sc.ok ? 'legal; ruler and Gray code agree' : 'INVARIANT BROKEN', tx, 196);
         ctx.fillStyle = dim;
         ctx.fillText(`the file: 1,048,575 moves at n = 20,`, tx, 222);
-        ctx.fillText('optimal by breadth-first search to n = 8', tx, 238);
+        ctx.fillText('BFS proves optimum through n=8', tx, 238);
         let line;
         if (s.done) {
           line = sc.last;
@@ -189,7 +190,9 @@ export default function HanoiViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

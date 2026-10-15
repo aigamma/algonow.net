@@ -6,10 +6,11 @@
 # substream, and combine the registers with a harmonic mean (plus a
 # small-range fallback). The heuristic is the observable each register
 # stores: the longest run of leading zeros ever seen in that substream's
-# hashes. A run of r leading zeros appears about once per 2^r distinct
+# hashes, plus one; zero means untouched. A run of at least r leading zeros appears about once per 2^r distinct
 # hashes, so the maximum run is a witness statement about how many distinct
-# values went by, and 1,024 witnesses averaged together pin the count to
-# about three percent using 768 bytes.
+# values went by. With 1,024 registers, relative standard error is about
+# 3.3%, not a bound. Six-bit packed storage is 768 bytes; this Python
+# bytearray uses 1,024 payload bytes plus object overhead.
 import math
 import random
 
@@ -66,7 +67,7 @@ class HyperLogLog:
         return out
 
     def bytes_used(self):
-        return self.m * 6 // 8  # 6-bit registers packed
+        return self.m * 6 // 8  # modeled packed storage, not this bytearray allocation
 
 
 # ---------------------------------------------------------------- the rivals
@@ -179,7 +180,7 @@ def stream(seed=20260827):
 
 
 def contest():
-    hll = HyperLogLog(p=10)  # 1,024 registers, 768 B
+    hll = HyperLogLog(p=10)  # 1,024 registers, 768 B packed; 1,024 B payload here
     fm = FlajoletMartin(m=256)  # 1,024 B
     kmv = KMinimumValues(k=128)  # 1,024 B
     lc = LinearCounting(m_bits=8192)  # 1,024 B
@@ -190,6 +191,8 @@ def contest():
         kmv.add(x)
         lc.add(x)
         exact.add(x)
+    # Storage models below exclude Python object/container overhead.
+    # The exact set row assumes 16 bytes per distinct key.
     rows = [
         ("HyperLogLog, 1,024 registers", hll.estimate(), hll.bytes_used()),
         ("Flajolet-Martin, 256 bitmaps", fm.estimate(), fm.bytes_used()),
@@ -267,7 +270,7 @@ if __name__ == "__main__":
 
     print(
         f"contest: {STREAM_LEN:,}-item stream, exactly {TRUE_DISTINCT:,} distinct; "
-        f"every sketch holds about 1 KB:"
+        f"modeled packed sketch storage is about 1 KB, excluding Python overhead:"
     )
     for name, est, mem in rows:
         if est is None:

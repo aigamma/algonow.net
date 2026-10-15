@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -227,7 +228,7 @@ export default function FibHeapViz() {
         const h = sc.h;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('the root list, left to right; green ring: the minimum; amber: marked (lost one child); one operation per tick', 12, 18);
+        ctx.fillText('roots left to right; green: minimum; amber: marked after losing one child', 12, 18);
         // layout: x by DFS order, y by depth
         const nodes = allNodes(h);
         const positions = new Map();
@@ -294,13 +295,13 @@ export default function FibHeapViz() {
         ctx.fillText(`cascading ${h.cascading}  marks ${h.marks}`, tx, 84);
         ctx.fillText(`max degree ${sc.ok.maxDegree}, bound ${Math.floor(Math.log(Math.max(h.n, 2)) / Math.log((1 + Math.sqrt(5)) / 2))}`, tx, 100);
         ctx.fillStyle = sc.ok.heapOrder && sc.ok.fibonacci && sc.ok.minOk ? good : warn;
-        ctx.fillText(sc.ok.heapOrder && sc.ok.fibonacci && sc.ok.minOk ? 'heap order, Fibonacci property,' : 'INVARIANT BROKEN', tx, 124);
-        if (sc.ok.heapOrder && sc.ok.fibonacci && sc.ok.minOk) ctx.fillText('and the min pointer all hold', tx, 140);
+        ctx.fillText(sc.ok.heapOrder && sc.ok.fibonacci && sc.ok.minOk ? 'heap order + Fibonacci' : 'INVARIANT BROKEN', tx, 124);
+        if (sc.ok.heapOrder && sc.ok.fibonacci && sc.ok.minOk) ctx.fillText('and minimum pointer hold', tx, 140);
         ctx.fillStyle = dim;
         ctx.fillText(`operation ${sc.tick} of ${TICKS}`, tx, 166);
-        ctx.fillText('the file: 0.27 cuts per decrease-key,', tx, 196);
-        ctx.fillText('5.3 links per delete-min at n = 14,873;', tx, 212);
-        ctx.fillText('without marks the property breaks', tx, 228);
+        ctx.fillText('solution: 0.27 cuts/dec-key', tx, 196);
+        ctx.fillText('5.3 links/del-min; n=14,873', tx, 212);
+        ctx.fillText('unmarked: property breaks', tx, 228);
         let line;
         if (s.done) {
           line = `after ${sc.tick} operations: ${h.links} links, ${h.cuts} cuts (${h.cascading} cascading), ${h.marks} marks; max degree ${sc.ok.maxDegree} on ${h.n} nodes; every invariant held on every tick`;
@@ -318,7 +319,9 @@ export default function FibHeapViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

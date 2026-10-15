@@ -68,8 +68,14 @@ def quicksort(a, lt, choose):
                 a[i], a[j] = a[j], a[i]
                 i += 1
         a[i], a[hi] = a[hi], a[i]
-        stack.append((lo, i - 1))
-        stack.append((i + 1, hi))
+        # Process the smaller side next. Only nontrivial ranges are saved,
+        # so pending ranges use O(log n) space even on degenerate splits.
+        left, right = (lo, i - 1), (i + 1, hi)
+        larger, smaller = (left, right) if i - lo >= hi - i else (right, left)
+        if larger[0] < larger[1]:
+            stack.append(larger)
+        if smaller[0] < smaller[1]:
+            stack.append(smaller)
 
 
 # ---------------------------------------------------------------- the rivals

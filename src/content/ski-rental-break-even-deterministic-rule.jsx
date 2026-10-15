@@ -338,7 +338,7 @@ export const content = {
               <polyline points={poly((t) => rr * Math.min(t, B))} fill="none" stroke="#f0b94b" strokeWidth="1.5" strokeDasharray="4 3" />
               <polyline points={poly((t) => (t < B ? t : 2 * B - 1))} fill="none" stroke="#5da2ff" strokeWidth="2" />
               <polyline points={poly((t) => Math.min(t, B))} fill="none" stroke="#62d98a" strokeWidth="2" />
-              <text x="520" y={qy(20) + 4} fill="#9aa5bd" fontFamily={mono} fontSize="9">never buy: T</text>
+              <text x="520" y={qy(20) - 18} fill="#9aa5bd" fontFamily={mono} fontSize="9">never buy: T</text>
               <text x="540" y={qy(19) - 6} fill="#5da2ff" fontFamily={mono} fontSize="9">break-even: 19</text>
               <text x="540" y={qy(rr * B) - 4} fill="#f0b94b" fontFamily={mono} fontSize="9">randomized: 15.35</text>
               <text x="540" y={qy(B) + 12} fill="#62d98a" fontFamily={mono} fontSize="9">clairvoyant: 10</text>
@@ -346,7 +346,7 @@ export const content = {
               {[1, 5, 10, 15, 20].map((t) => (
                 <text key={t} x={qx(t) - 3} y="246" fill="#9aa5bd" fontFamily={mono} fontSize="9">{t}</text>
               ))}
-              <text x="350" y="262" fill="#9aa5bd" fontFamily={mono} fontSize="10">season length T; the worst case is T = 10, the day the skis are bought</text>
+              <text x="350" y="262" fill="#9aa5bd" fontFamily={mono} fontSize="10">season T; worst case: buy day T=10</text>
             </g>
           );
         })()}

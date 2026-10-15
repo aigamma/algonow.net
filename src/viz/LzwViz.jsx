@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -188,7 +189,7 @@ export default function LzwViz() {
         ctx.fillStyle = over ? warn : algo;
         ctx.fillRect(18, 206, outBits * scale, 10);
         ctx.fillStyle = over ? warn : algo;
-        ctx.fillText(`codes out: ${outBits} bits`, 18 + Math.max(outBits, 1) * scale + 8, 215);
+        ctx.fillText(`codes out: ${outBits} bits`, 18, 236);
 
         ctx.fillStyle = dim;
         ctx.font = '11px ui-monospace, monospace';
@@ -224,7 +225,9 @@ export default function LzwViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

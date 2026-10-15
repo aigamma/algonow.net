@@ -340,7 +340,7 @@ export const content = {
               <text x={x0 + 110} y="22" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="10">blue: after the prune</text>
               <text x={x0 + 270} y="22" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">green: frequent</text>
               <text x={x0 + 400} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">below: tests pruned / unpruned</text>
-              <text x={x0} y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">total 10,710,000 tests pruned vs 19,805,000 unpruned; brute force over all 2- and 3-subsets: 6,666,500,000</text>
+              <text x={x0} y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">tests: 10,710,000 pruned vs 19,805,000 unpruned · brute force: 6,666,500,000</text>
             </g>
           );
         })()}

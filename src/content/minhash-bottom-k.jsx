@@ -46,8 +46,7 @@ export const content = {
       Bottom-k keeps the k smallest values of <em>one</em> hash: 10,000
       hashes, <strong>256× cheaper</strong>, counted: one pass, and the
       union&apos;s sketch is exactly the merge of the sketches (asserted
-      as list equality, 100/100 pairs). The error law is the binomial
-      one, measured: RMSE 0.0961 → 0.0115 as k climbs 16 → 1,024,
+      as list equality, 100/100 pairs). The binomial error is an upper reference; bottom-k sampling without replacement has a finite-population correction. Measured: RMSE 0.0961 → 0.0115 as k climbs 16 → 1,024,
       tracking 1/√k.
     </p>
   ),
@@ -84,7 +83,7 @@ export const content = {
       exactly: distributed corpora sketch shard-by-shard.
     </>,
     <>
-      <strong>Search with bands:</strong> split signatures into bands;
+      <strong>Search with bands:</strong> build a separate signature from independent MinHash functions, then split it into bands;
       only band-collisions become candidate pairs: 5/5 planted
       duplicates found at 3,980× fewer comparisons, measured.
     </>,
@@ -113,7 +112,7 @@ export const content = {
       also this page&apos;s referee (every estimate is checked against
       full set ops, including on this repository&apos;s own prose). For
       one pair it is cheap and right. The wall is pairs: 19,900
-      intersections for 200 documents, ten billion for 100,000: the
+      intersections for 200 documents, 4,999,950,000 for 100,000: the
       sketch does not beat the set on accuracy: it beats the{' '}
       <em>quadratic</em> on existence.
     </>
@@ -132,7 +131,7 @@ export const content = {
   weakness: (
     <>
       <strong>Jaccard only, k hashes of noise, and tiny-J
-      blindness.</strong> The estimate carries √(J(1−J)/k) noise, so
+      blindness.</strong> The estimate has standard error at most √(J(1−J)/k), assuming uniform sampling without hash collisions, so
       distinguishing J = 0.02 from 0.04 (this site&apos;s two narrations
       measured 0.034) needs k in the thousands; weighted similarity
       wants SimHash or weighted MinHash variants; and banding&apos;s
@@ -148,7 +147,7 @@ export const content = {
       name: 'MinHash × bottom-k signatures',
       isThisUnit: true,
       algoName: 'MinHash',
-      cost: 'O(|S|) sketch, O(k) compare',
+      cost: 'O(|S| log k) sketch, O(k log k) compare here',
       wins: (
         <>
           One hash per element (<strong>256× cheaper</strong> than
@@ -211,7 +210,7 @@ export const content = {
         Exact Jaccard is this page&apos;s <em>referee</em>: per pair it
         is the right tool. As a corpus strategy it is a quadratic bill
         for mostly-zero answers: 19,900 full intersections for 200
-        documents, ten billion for 100,000, almost all of them
+        documents, 4,999,950,000 for 100,000, almost all of them
         confirming that two unrelated pages are unrelated. The banding
         demo did the same job with 5 candidate comparisons and perfect
         recall. Spending exactness on pairs that a 32-byte sketch could
@@ -257,7 +256,7 @@ export const content = {
     <Figure
       id="fig-minhash-collision"
       aspect="16 / 7"
-      caption="The collision theorem. Hash every element of both sets with one random function; the minimum of the union is a uniformly random element of the union, so the two sets report the same minimum exactly when that element is shared: P[collision] = J. Measured here at 0.3340 against a true 1/3 over 2,000 independent hash functions. Bottom-k runs k such lotteries from one drawing; banding turns agreement into an index."
+      caption="The collision theorem. Hash every element of both sets with one random function; the minimum of the union is a uniformly random element of the union, so the two sets report the same minimum exactly when that element is shared: P[collision] = J. Measured here at 0.3340 against a true 1/3 over 2,000 independent hash functions. Bottom-k retains the k lowest distinct hashes from one shared ordering. It samples without replacement; conventional banding instead groups signatures from independent hash functions."
       cite={{
         text: 'Broder, "On the resemblance and containment of documents", SEQUENCES 1997 (the AltaVista dedup work); LSH: Indyk & Motwani, STOC 1998. The genomics reading is Mash (Ondov et al. 2016), its own atlas entry.',
         href: 'https://doi.org/10.1109/SEQUEN.1997.666900',

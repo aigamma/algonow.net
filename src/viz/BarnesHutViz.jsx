@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -142,11 +143,11 @@ export function forceOn(sc, b) {
 
 export function sceneTick(sc) {
   if (sc.done) return true;
-  sc.current += 1;
-  if (sc.current >= 40) {
+  if (sc.current >= 39) {
     sc.done = true;
     return true;
   }
+  sc.current += 1;
   const b = sc.bodies[(sc.current * 5) % N];
   const r = forceOn(sc, b);
   sc.accepted = r.accepted;
@@ -204,23 +205,28 @@ export default function BarnesHutViz() {
         const sc = s.scene;
         const ox = 20;
         const oy = 36;
-        const size = 248;
-        const X = (v) => ox + v * size;
-        const Y = (v) => oy + v * size;
+        const size = 230;
+        const scale = size - 12;
+        const X = (v) => ox + 6 + v * scale;
+        const Y = (v) => oy + 6 + v * scale;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`${N} bodies in a quadtree; per tick, the force on one body by direct summation and by the tree at theta ${THETA}`, 12, 18);
+        ctx.fillText(`${N} bodies; per tick: direct vs quadtree force on one body, θ = ${THETA}`, 12, 18);
         ctx.strokeStyle = `${dim}44`;
         ctx.strokeRect(ox, oy, size, size);
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(ox, oy, size, size);
+        ctx.clip();
         for (const c of sc.opened) {
           ctx.strokeStyle = `${dim}33`;
-          ctx.strokeRect(X(c.cx - c.half), Y(c.cy - c.half), 2 * c.half * size, 2 * c.half * size);
+          ctx.strokeRect(X(c.cx - c.half), Y(c.cy - c.half), 2 * c.half * scale, 2 * c.half * scale);
         }
         for (const c of sc.accepted) {
           ctx.fillStyle = `${heur}22`;
-          ctx.fillRect(X(c.cx - c.half), Y(c.cy - c.half), 2 * c.half * size, 2 * c.half * size);
+          ctx.fillRect(X(c.cx - c.half), Y(c.cy - c.half), 2 * c.half * scale, 2 * c.half * scale);
           ctx.strokeStyle = heur;
-          ctx.strokeRect(X(c.cx - c.half), Y(c.cy - c.half), 2 * c.half * size, 2 * c.half * size);
+          ctx.strokeRect(X(c.cx - c.half), Y(c.cy - c.half), 2 * c.half * scale, 2 * c.half * scale);
           ctx.fillStyle = heur;
           ctx.beginPath();
           ctx.arc(X(c.comx), Y(c.comy), 2 + Math.sqrt(c.count), 0, Math.PI * 2);
@@ -251,6 +257,7 @@ export default function BarnesHutViz() {
           arrow(sc.direct, good, 3);
           arrow(sc.tree, warn, 1.5);
         }
+        ctx.restore();
         const tx = 290;
         ctx.fillStyle = heur;
         ctx.fillText('amber: cells accepted as one point mass', tx, 50);
@@ -267,7 +274,7 @@ export default function BarnesHutViz() {
           const meanCount = sc.counts.reduce((a, b) => a + b, 0) / sc.counts.length;
           const sorted = sc.errors.slice().sort((a, b) => a - b);
           ctx.fillStyle = dim;
-          ctx.fillText(`so far: mean ${meanCount.toFixed(0)} interactions, median error ${(sorted[Math.floor(sorted.length / 2)] * 100).toFixed(2)}%, worst ${(sorted[sorted.length - 1] * 100).toFixed(2)}%`, tx, 172);
+          ctx.fillText(`mean ${meanCount.toFixed(0)} interactions; error median ${(sorted[Math.floor(sorted.length / 2)] * 100).toFixed(2)}%, max ${(sorted[sorted.length - 1] * 100).toFixed(2)}%`, tx, 172);
         }
         ctx.fillStyle = dim;
         ctx.fillText('the file, 3-D, 1,000 bodies: theta 0.5 median error', tx, 206);
@@ -292,7 +299,9 @@ export default function BarnesHutViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

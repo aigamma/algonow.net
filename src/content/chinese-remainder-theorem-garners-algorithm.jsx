@@ -5,10 +5,10 @@ import { narration } from './chinese-remainder-theorem-garners-algorithm.narrati
 
 export const content = {
   given:
-    'A large integer x is known only by its remainders r₁ … r_k modulo pairwise coprime moduli m₁ … m_k. Reconstruct it. The Chinese remainder theorem promises that x is determined uniquely modulo M = m₁ ⋯ m_k and gives a formula: x = Σ rᵢ Mᵢ (Mᵢ⁻¹ mod mᵢ) mod M, with Mᵢ = M / mᵢ. Correct, and every one of its operations is on numbers the size of M: a 704-bit product for ten 64-bit moduli.',
-  task: 'Garner’s algorithm. Build x in mixed radix, x = v₁ + v₂ m₁ + v₃ m₁ m₂ + ⋯, one digit per modulus: v₁ = r₁, and each later digit v_j comes from r_j by subtracting the earlier digits and multiplying by one small inverse, all modulo m_j. No intermediate exceeds one modulus until the final assembly, the inverses are between pairs of small moduli, and the digits come out one at a time.',
+    'A large integer x is known only by its remainders r₁ … r_k modulo pairwise coprime moduli m₁ … m_k. Reconstruct it. The Chinese remainder theorem promises that x is determined uniquely modulo M = m₁ ⋯ m_k and gives a formula: x = Σ rᵢ Mᵢ (Mᵢ⁻¹ mod mᵢ) mod M, with Mᵢ = M / mᵢ. For ten 64-bit moduli, M is 640 bits; this direct implementation forms terms up to 704 bits and a running sum up to 706 bits.',
+  task: 'Garner’s algorithm. Build x in mixed radix, x = v₁ + v₂ m₁ + v₃ m₁ m₂ + ⋯, one digit per modulus: v₁ = r₁, and each later digit v_j comes from r_j by subtracting each earlier digit and multiplying by the corresponding small inverse, modulo m_j after each update. Reduced digits stay below their moduli; products before reduction can need twice the largest modulus’s bit width, and final assembly uses full-width integers.',
   constraint:
-    'Measured: 2,000 random integers below a 100-bit M (five moduli near 10⁶) rebuilt exactly by Garner and by the direct formula, every residue of the result checked. Uniqueness verified exhaustively: all 1,155 integers below 3 · 5 · 7 · 11 have distinct residue tuples, and with moduli 6 and 10 (a shared factor) 0 and 30 collide. On ten 64-bit moduli, Garner’s largest intermediate is 64 bits in 90 small operations against the direct formula’s 704 bits in 30 big ones. A 640-bit product computed as ten 64-bit residue products and reassembled equals the integer product. RSA-512 decryption by CRT across p and q recovers the message at 25% of the multiplication cost of plain exponentiation. The textbook sieve finds the same digits in 2,181,053 additions where Garner spends 20 operations.',
+    'Measured: 2,000 random integers below a 100-bit M (five moduli near 10⁶) rebuilt exactly by Garner and by the direct formula, every residue of the result checked. Uniqueness verified exhaustively: all 1,155 integers below 3 · 5 · 7 · 11 have distinct residue tuples, and with moduli 6 and 10 (a shared factor) 0 and 30 collide. On ten 64-bit moduli, Garner uses 64-bit reduced digits, 128-bit update products, and 640-bit final assembly; direct CRT uses 704-bit terms and a 706-bit sum. Both reduce inverse inputs to at most 64 bits. Garner computes 45 updates and 45 inversions per call, versus 10 terms and 10 inversions for direct CRT. A 638-bit product reconstructed from ten modular residue products equals the integer product. RSA-512 decryption by CRT recovers the message at 25% of the modeled schoolbook exponentiation multiplication cost, excluding recombination. The sieve takes 2,181,053 additions where Garner uses 10 updates and 10 inversions; these are not equal-cost operations.',
 
   origins: (
     <p>
@@ -25,10 +25,10 @@ export const content = {
       convert out; Knuth made it the standard presentation in The Art
       of Computer Programming (volume 2, 4.3.2). Quisquater and
       Couvreur (1982) applied it to RSA decryption for a fourfold
-      speedup, which every RSA library now ships; Boneh, DeMillo, and
+      speedup; Boneh, DeMillo, and
       Lipton (1997) showed that one faulty half of that computation
-      leaks the private key, which is why every RSA library also
-      checks the result before releasing it. Computer algebra systems
+      can leak a private factor, which is why implementations must
+      check the result before releasing it. Computer algebra systems
       compute determinants and polynomial products modulo many
       word-sized primes and reassemble the same way.
     </p>
@@ -47,28 +47,30 @@ export const content = {
       precondition is shown to matter, since with moduli 6 and 10 the
       integers 0 and 30 have the same pair of residues and no formula
       can tell them apart. The theorem is also what makes residue
-      arithmetic legal: a 640-bit product computed as ten 64-bit
-      products of residues reassembles to the true product, because
+      arithmetic legal: the measured 638-bit product computed through
+      ten pairs of 64-bit residues reassembles to the true product, because
       the ring of integers mod M is the product of the rings mod mᵢ.
     </p>
   ),
   heurRole: (
     <p>
       Supplies the <strong>mixed-radix ladder</strong>. The direct
-      formula&apos;s terms rᵢ Mᵢ yᵢ are each the size of M and then some:
-      on ten 64-bit moduli its largest intermediate is{' '}
-      <strong>704 bits</strong>, and every inverse is of a 576-bit
-      number. Garner never leaves one modulus until the end: largest
-      intermediate <strong>64 bits</strong>, 90 small operations, and
-      the 45 inverses are between pairs of 64-bit moduli, computed once
-      per modulus set. The digits also carry meaning as they arrive:
+      formula&apos;s terms rᵢ Mᵢ yᵢ can exceed the size of M:
+      on ten 64-bit moduli its largest term is{' '}
+      <strong>704 bits</strong>, and the running sum reaches 706 bits.
+      Both methods reduce inverse inputs to at most 64 bits. Garner uses
+      <strong>64-bit digits and 128-bit update products</strong>, then
+      640-bit assembly. Its 45 updates each compute an inverse here;
+      those inverses could be cached for a fixed modulus set.
+      The digits also carry meaning as they arrive:
       after j digits the value is known modulo m₁ ⋯ m_j, so the
       candidates shrink from M to M / m₁ to M / m₁ m₂, and the top
       digit alone says which range x lies in, which is what a residue
       number system needs for comparison and overflow. RSA is the
       familiar payoff: decrypting modulo p and q separately costs
       388 + 375 half-size multiplications, about a quarter of the 756
-      full-size ones, and two-digit Garner glues the halves.
+      full-size ones under a schoolbook multiplication-cost model,
+      excluding recombination, and two-digit Garner glues the halves.
     </p>
   ),
 
@@ -78,8 +80,8 @@ export const content = {
       at seven, one at eleven, one at thirteen. Each reports only where
       the counter stopped. The direct formula has each clerk compute
       with the product of everyone else&apos;s limits, big numbers all
-      round. Garner&apos;s clerk reconstructs the true count without ever
-      writing a number above thirteen until the last line: take the
+      round. Garner&apos;s clerk keeps each reduced digit below its own
+      counter limit, reducing the larger multiplication results: take the
       first clerk&apos;s reading as it stands; ask how many sevens must
       have passed for the second reading to come out right, a number
       below eleven; ask how many seventy-sevens for the third, a number
@@ -93,7 +95,8 @@ export const content = {
   steps: [
     <>
       <strong>Inverses:</strong> c<sub>ij</sub> = m<sub>i</sub><sup>−1</sup>{' '}
-      mod m<sub>j</sub> for i &lt; j, once per modulus set.
+      mod m<sub>j</sub> for i &lt; j, computed as needed here; cache them
+      when reusing a modulus set.
     </>,
     <>
       <strong>First digit:</strong> v₁ = r₁.
@@ -103,8 +106,8 @@ export const content = {
       (t − v<sub>i</sub>) · c<sub>ij</sub> mod m<sub>j</sub>; v<sub>j</sub> ← t.
     </>,
     <>
-      <strong>Assemble:</strong> x = v₁ + m₁(v₂ + m₂(v₃ + ⋯)), the only
-      step that touches a number the size of M.
+      <strong>Assemble:</strong> x = v₁ + v₂ m₁ + v₃ m₁ m₂ + ⋯, using
+      full-width arithmetic.
     </>,
     <>
       <strong>Verify:</strong> x mod m<sub>i</sub> = r<sub>i</sub> for
@@ -116,12 +119,12 @@ export const content = {
     <>
       <strong>The arithmetic already happened in residues:</strong> a
       residue number system, multi-modular computer algebra, RSA-CRT;
-      reassembly is the only place the big number appears.
+      reassembly recovers the full integer from the residues.
     </>,
     <>
       <strong>Many word-sized moduli:</strong> Garner&apos;s inverses are
-      word-sized and precomputable; the direct formula&apos;s are the
-      size of M / mᵢ.
+      word-sized and precomputable, as are the direct formula&apos;s
+      reduced inverse inputs; Garner avoids its large unreduced terms.
     </>,
     <>
       <strong>You need the magnitude before the value:</strong> the
@@ -134,17 +137,18 @@ export const content = {
       The honest baseline is <strong>the direct CRT formula</strong>:
       the same answer on all 2,000 integers, k independent terms that
       can be computed in parallel, and no digit sequence. It costs
-      M-sized products and Mᵢ-sized inverses: 704-bit intermediates
-      where Garner&apos;s are 64.
+      large products: 704-bit terms and a 706-bit sum here, versus
+      Garner&apos;s 128-bit update products before full-width assembly.
     </>
   ),
 
   strength: (
     <>
-      <strong>Word-sized intermediates all the way down.</strong> 64 bits
-      against 704 on ten 64-bit moduli, 45 small precomputed inverses,
-      RSA decryption at a quarter of the cost, and a 640-bit product
-      from ten independent 64-bit pieces, all exact against the
+      <strong>Small digit updates before full-width assembly.</strong>
+      128-bit update products against 704-bit direct terms on ten 64-bit
+      moduli, 45 inverses that can be cached, RSA exponentiation at a
+      quarter of the modeled multiplication cost, and a 638-bit product
+      from ten modular residue products, all exact against the
       integer referee.
     </>
   ),
@@ -153,7 +157,7 @@ export const content = {
       <strong>Sequential, quadratic in k, and fragile to faults.</strong>{' '}
       The digits depend on each other, so the k(k − 1)/2 inner steps
       run in order while the direct formula&apos;s k terms are
-      independent; the precomputed inverse table is quadratic in the
+      independent; an optional precomputed inverse table is quadratic in the
       number of moduli; the moduli must be pairwise coprime, or
       uniqueness fails outright (0 and 30 under 6 and 10); and in
       RSA-CRT a single faulty half-exponentiation leaks the private key
@@ -172,13 +176,13 @@ export const content = {
       cost: 'k(k − 1)/2 small multiplies, one assembly',
       wins: (
         <>
-          <strong>64-bit intermediates</strong> on ten 64-bit moduli;
+          <strong>64-bit digits, 128-bit update products</strong> on ten 64-bit moduli;
           digits that mean something as they arrive.
         </>
       ),
       costs: (
         <>
-          Sequential digits; a quadratic inverse table.
+          Sequential digits; inverses recomputed here, or a quadratic cache.
         </>
       ),
       when: 'Reassembling from many word-sized moduli, or gluing RSA halves.',
@@ -186,7 +190,7 @@ export const content = {
     {
       name: 'CRT explicit sum construction',
       algoName: 'Chinese remainder theorem',
-      cost: 'k products of M-sized numbers, k big inverses',
+      cost: 'k large terms, k small modular inverses',
       wins: (
         <>
           k independent terms, trivially parallel; the Mᵢ yᵢ weights
@@ -195,8 +199,8 @@ export const content = {
       ),
       costs: (
         <>
-          704-bit intermediates on the same ten moduli; every inverse
-          is of a 576-bit number.
+          704-bit terms and a 706-bit sum on the same ten moduli;
+          inverse inputs reduced to at most 64 bits.
         </>
       ),
       when: 'Two or three moduli, or a fixed modulus set with precomputed weights and parallel hardware.',
@@ -246,7 +250,7 @@ export const content = {
         Garner in disguise, finding each digit by counting up to it one
         step at a time. Measured on the five million-sized moduli:{' '}
         <strong>2,181,053 additions</strong> to find digits that Garner
-        finds in 20 small operations, because each digit costs about
+        finds in 10 updates and 10 inversions, because each digit costs about
         half a modulus of steps. On ten 64-bit moduli that is up to
         2<sup>64</sup> steps per digit, which is not a slow method but
         no method at all. One modular inverse replaces the entire walk.
@@ -265,11 +269,11 @@ export const content = {
         verdict: 'both formulas exact; the sieve walks',
       },
       {
-        method: 'ten 64-bit moduli, 640-bit M: largest intermediate',
+        method: 'ten 64-bit moduli, 640-bit M: measured widths',
         isThisUnit: true,
-        values: ['64 bits, 90 small operations', '704 bits, 30 big operations', 'up to 2⁶⁴ steps per digit; not run'],
+        values: ['64-bit digits, 128-bit updates, 640-bit assembly', '704-bit terms, 706-bit sum; 64-bit inverse inputs', 'up to 2⁶⁴ steps per digit; not run'],
         best: 0,
-        verdict: 'the modulus is the word',
+        verdict: 'small updates, full-width assembly',
       },
       {
         method: '319-bit × 320-bit product via ten residue products',
@@ -277,25 +281,25 @@ export const content = {
         verdict: 'residue arithmetic is legal',
       },
       {
-        method: 'RSA-512 decryption, multiplications',
+        method: 'RSA-512 exponentiation, schoolbook multiplication model',
         values: ['388 + 375 half-size, ≈ 191 full (25%)', 'plain exponentiation: 756 full-size', '·'],
-        verdict: 'a quarter of the cost, same message',
+        verdict: 'a quarter of modeled multiplication cost; recombination excluded',
       },
       {
         method: 'moduli 6 and 10 (shared factor 2)',
         values: ['0 and 30 share residues (0, 0)', 'M₁ = 10 has no inverse mod 6', 'finds 0, never 30'],
-        verdict: 'pairwise coprime or nothing',
+        verdict: 'shared factors destroy uniqueness modulo the product',
       },
     ],
     source:
-      'python solutions/chinese_remainder_theorem_garners_algorithm.py prints this table and asserts: Garner and the direct formula equal the original on 2,000 random integers with every residue of the result rechecked; all 1,155 integers below 3 · 5 · 7 · 11 have distinct residue tuples and 0 and 30 collide under 6 and 10; on ten 64-bit moduli Garner’s largest intermediate is at most 64 bits and the direct formula’s exceeds 640; the residue product equals the integer product; RSA by CRT recovers the message at under 60% of the plain cost; and the sieve, exact on the small moduli exhaustively, costs more than 100 times Garner’s operations on the million-sized ones.',
+      'python solutions/chinese_remainder_theorem_garners_algorithm.py prints this table and asserts: both reconstructions equal 2,000 originals; small-modulus uniqueness and the shared-factor collision; a 640-bit modulus product, at most 64-bit reduced digits and inverse inputs, Garner update products above 64 and at most 128 bits, 640-bit assembly, and direct terms above 640 bits. It counts 45 Garner updates and inversions versus 10 direct terms and inversions, verifies the residue product and RSA recovery, and compares sieve additions with separately labeled Garner updates and inversions. Exponentiation cost uses a schoolbook model and excludes recombination.',
   },
 
   figure: (
     <Figure
       id="fig-garner-ladder"
       aspect="16 / 7"
-      caption="The integer 551 seen through moduli 7, 11, 13 (M = 1,001): residues 5, 1, 5. Garner’s ladder finds the mixed-radix digits 5, 1, 7 with one small inverse per rung and assembles 5 + 7 · 1 + 77 · 7 = 551; nothing exceeds 13 until the last line. The direct formula computes the same 551 as 5 · 143 · 5 + 1 · 91 · 4 + 5 · 77 · 12 = 8,559 mod 1,001, every term larger than M. On ten 64-bit moduli the gap is 64 bits against 704."
+      caption="The integer 551 seen through moduli 7, 11, 13 (M = 1,001): residues 5, 1, 5. Garner’s ladder finds digits 5, 1, 7 using three pairwise inverses and assembles 5 + 7 · 1 + 77 · 7 = 551. Reduced digits stay below their moduli; multiplication results can exceed them. The direct formula computes the same 551 as 5 · 143 · 5 + 1 · 91 · 4 + 5 · 77 · 12 = 8,559 mod 1,001. On ten 64-bit moduli, Garner’s update products reach 128 bits and its assembly 640; direct terms reach 704 bits and their sum 706."
       cite={{
         text: 'H. L. Garner, "The residue number system," IRE Transactions on Electronic Computers EC-8(2), 1959. DOI 10.1109/TEC.1959.5219515. D. E. Knuth, The Art of Computer Programming, vol. 2, section 4.3.2. J.-J. Quisquater, C. Couvreur, "Fast decipherment algorithm for RSA public-key cryptosystem," Electronics Letters 18(21), 1982.',
         href: 'https://doi.org/10.1109/TEC.1959.5219515',
@@ -319,20 +323,20 @@ export const content = {
             </g>
           );
         })}
-        <text x="30" y="132" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">Garner: nothing above 13 until the last line</text>
+        <text x="30" y="132" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">Garner: reduce after each update</text>
         <text x="30" y="152" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="11">v1 = 5</text>
         <text x="30" y="170" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="11">v2 = (1 − 5) · 7⁻¹ mod 11 = 7 · 8 mod 11 = 1</text>
-        <text x="30" y="188" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="11">v3 = ((5 − 5) · 7⁻¹ − 1) · 11⁻¹ mod 13 = 12 · 6 mod 13 = 7</text>
+        <text x="30" y="188" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="11">v3 = (0 − 1) · 6 mod 13 = 7</text>
         <text x="30" y="206" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">x = 5 + 7 · 1 + 77 · 7 = 551</text>
         <text x="30" y="236" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">the sieve: 5, +7 until ≡ 1 (mod 11): 12; +77 until ≡ 5 (mod 13): 551</text>
         <text x="30" y="254" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">8 additions here; 2,181,053 on the million-sized moduli</text>
-        <text x="345" y="132" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">direct formula: every term bigger than M</text>
+        <text x="345" y="132" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">direct formula: large unreduced terms</text>
         <text x="345" y="152" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="11">M1 = 143, 143⁻¹ mod 7 = 5</text>
         <text x="345" y="170" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="11">M2 = 91,  91⁻¹ mod 11 = 4</text>
         <text x="345" y="188" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="11">M3 = 77,  77⁻¹ mod 13 = 12</text>
         <text x="345" y="206" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="11">5·143·5 + 1·91·4 + 5·77·12 = 8,559</text>
         <text x="345" y="224" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">8,559 mod 1,001 = 551</text>
-        <text x="345" y="254" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">ten 64-bit moduli: 64-bit vs 704-bit intermediates</text>
+        <text x="345" y="254" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">128-bit update products; 704-bit direct terms</text>
       </svg>
     </Figure>
   ),

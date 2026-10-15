@@ -143,7 +143,7 @@ export const content = {
       of placeholders, honestly labeled. Space-Saving needs a head
       to find; where frequencies are flat, no m-counter summary can
       rank them, and this one at least confesses. Deletions are also
-      unsupported: that is the cuckoo filter&apos;s shelf.
+      unsupported: turnstile frequency sketches such as Count sketch address streams with signed updates.
     </>
   ),
 

@@ -6,9 +6,9 @@ import { narration } from './hopcrofts-minimization-partition-refinement.narrati
 export const content = {
   given:
     'A deterministic finite automaton with more states than it needs: copies, unrolled prefixes, leftovers from a construction. Two states are the same if no string can tell them apart.',
-  task: 'Start from the two-block partition {accepting, rejecting} and refine: a block splits when two of its states go to different blocks on the same letter. Hopcroft refines through inverse transitions from a queue of splitters, and after every split queues only the smaller piece.',
+  task: 'Start from the two-block partition {accepting, rejecting} and refine: a block splits when two of its states go to different blocks on the same letter. Hopcroft refines through inverse transitions from a queue of splitters, and after a split queues only the smaller piece unless the old block was already queued, when both pieces replace it.',
   constraint:
-    'Moore’s algorithm, written independently, produces the identical partition on every instance (300 to 4,800 states); a product-construction search proves each minimized machine accepts exactly the original language; table filling marks every remaining pair distinguishable and Brzozowski’s double reversal agrees on the count. Transitions examined are counted and held under 2 k n log₂ n on every instance, and the ablation that queues both halves is measured.',
+    'Moore’s algorithm, written independently, produces the identical partition on every instance (300 to 4,800 states); a product-construction search proves each minimized machine accepts exactly the original language; table filling marks every remaining pair distinguishable on quotients of at most 400 states and Brzozowski’s double reversal agrees on the count. Transitions examined are counted and held under 2 k n log₂ n on every instance, and the ablation that queues both halves is measured.',
 
   origins: (
     <p>
@@ -43,7 +43,7 @@ export const content = {
       referees agree on every instance: Moore&apos;s independent
       rounds reach the same partition, the quotient is
       language-equivalent to the original by product search, table
-      filling finds every remaining pair distinguishable, and
+      filling finds every remaining pair distinguishable on quotients of at most 400 states, and
       Brzozowski&apos;s double reversal lands on the same count. A
       bloated 12-state recognizer of binary multiples of three
       collapses to 3.
@@ -79,9 +79,10 @@ export const content = {
       questions everyone. Hopcroft&apos;s method keeps a queue of
       groups that changed. Take one, find only the people who point
       at it, and split just their groups. Then the rule that pays:
-      of the two halves produced by a split, only the smaller half
-      goes back into the queue. Anyone who lands in the queue again
-      has been halved at least once, so nobody is questioned more
+      of the two pieces produced by a split, only the smaller joins
+      the queue, unless the old block was already waiting, when both
+      replace it. After a state’s old splitter has been processed,
+      joining a new queued splitter means its block has at least halved, so nobody is questioned more
       than log₂ of the hall&apos;s size times per contact. The
       answers are the same badges Moore would issue; the questioning
       is a thousandth of the work on the deep hall.
@@ -148,8 +149,8 @@ export const content = {
       <strong>n log n with the referees lined up.</strong> Every
       minimized machine on this page matched Moore&apos;s partition
       exactly, accepted the original language under product search,
-      had no mergeable pair left under table filling, and agreed
-      with Brzozowski&apos;s count; the examination count stayed
+      had no mergeable pair under table filling when the quotient had at most 400 states; twenty small machines agreed with
+      Brzozowski&apos;s count; the examination count stayed
       under 2 k n log₂ n on every size with a flat ratio; and on
       the chain that ruins round-based refinement, it examined 2,048
       transitions where Moore examined 2,095,104.
@@ -257,7 +258,7 @@ export const content = {
         The textbook method marks distinguishable pairs of states
         until no new pair can be marked, and it is the referee for
         minimality on this page. As a minimizer it needs a table of
-        every pair: n(n − 1)/2 entries, <strong>5,118,400 for the
+        every pair: n(n − 1)/2 entries, <strong>11,517,600 for the
         4,800-state machine</strong> and about five billion for a
         hundred thousand states, each revisited every round until a
         round marks nothing. The cost is not the constant, it is the
@@ -294,14 +295,14 @@ export const content = {
       },
     ],
     source:
-      'python solutions/hopcrofts_minimization_partition_refinement.py prints these tables and asserts: Moore’s partition identical on all five random instances; every quotient language-equivalent by product search; table filling finds every remaining pair distinguishable; Brzozowski’s count agrees on 20 small machines; Hopcroft’s examinations under 2 k n log₂ n with the ratio flat; queueing both halves never cheaper; Moore quadratic on the chain while Hopcroft stays near-linear; and the bloated remainder machine minimized to 3 states.',
+      'python solutions/hopcrofts_minimization_partition_refinement.py prints these tables and asserts: Moore’s partition identical on all five random instances; every quotient language-equivalent by product search; table filling finds every remaining pair distinguishable on quotients of at most 400 states; Brzozowski’s count agrees on 20 small machines; Hopcroft’s examinations under 2 k n log₂ n with the ratio flat; queueing both halves never cheaper; Moore quadratic on the chain while Hopcroft stays near-linear; and the bloated remainder machine minimized to 3 states.',
   },
 
   figure: (
     <Figure
       id="fig-hopcroft-splitter"
       aspect="16 / 7"
-      caption="A splitter is a block and a letter. The states whose a-transitions land in the splitter (blue ring) are collected through the inverse edges, and every block they straddle splits into the part inside and the part outside. Of the two pieces, only the smaller (amber) is queued, so a state re-enters the queue at most log₂ n times per letter: O(k n log n) total. Measured: 20,105 examinations on 4,800 states under a bound of 352,190; 189,898 when both halves are queued; Moore 57,600 in 4 rounds on the same machine and 2,095,104 in 1,023 rounds on the 1,024-state chain, where Hopcroft examines 2,048."
+      caption="A splitter is a block and a letter. The states whose a-transitions land in the splitter (blue ring) are collected through the inverse edges, and every block they straddle splits into the part inside and the part outside. If the old block is already queued, both pieces replace it; otherwise only the smaller (amber) is queued, so a state re-enters the queue at most log₂ n times per letter: O(k n log n) total. Measured: 20,105 examinations on 4,800 states under a bound of 352,190; 189,898 when both halves are queued; Moore 57,600 in 4 rounds on the same machine and 2,095,104 in 1,023 rounds on the 1,024-state chain, where Hopcroft examines 2,048."
       cite={{
         text: 'J. Hopcroft, "An n log n algorithm for minimizing states in a finite automaton," in Theory of Machines and Computations, Academic Press, 1971. DOI 10.1016/B978-0-12-417750-5.50022-1. Moore 1956; Knuutila, TCS 250, 2001.',
         href: 'https://doi.org/10.1016/B978-0-12-417750-5.50022-1',
@@ -327,7 +328,7 @@ export const content = {
         <rect x="236" y="176" width="130" height="44" rx="8" fill="rgba(240,185,75,0.16)" stroke="#f0b94b" strokeWidth="1.6" />
         <text x="246" y="202" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">inside X: 2, QUEUED</text>
         <text x="60" y="250" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">a state re-enters the queue only inside a smaller piece: at most log₂ n times per letter</text>
-        <text x="60" y="272" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">measured: 20,105 examinations on 4,800 states (bound 352,190) · both halves 189,898 · Moore 57,600 in 4 rounds; on the 1,024-chain 2,095,104 vs 2,048</text>
+        <text x="60" y="272" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">4,800 states: 20,105 checks; both halves 189,898; Moore 57,600 · bound: 352,190</text>
       </svg>
     </Figure>
   ),

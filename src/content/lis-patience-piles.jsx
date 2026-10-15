@@ -39,25 +39,24 @@ export const content = {
   heurRole: (
     <p>
       Supplies the <strong>pile invariant that makes the count the
-      answer</strong>: every pile is decreasing top to bottom, so an
+      answer</strong>: each pile’s arriving values are non-increasing, so an
       increasing subsequence can take at most one card per pile: LIS
       ≤ piles: while each card&apos;s backpointer to the top of the
       pile on its left splices an increasing sequence with exactly
       one card per pile: piles ≤ LIS. Equality, constructive:
       asserted on all 400 arrays with the reconstructed witness
       checked card by card: and the piles themselves hand over
-      Erdős-Szekeres (LIS × LDS ≥ n) as a corollary, asserted every
-      trial.
+      Erdős-Szekeres (LIS × LDS ≥ n) for distinct keys as a corollary.
     </p>
   ),
 
   picture: (
     <p>
       Deal the array into solitaire. Each card goes on the leftmost
-      pile whose visible top beats it; a card too big for every top
+      pile whose visible top is at least as large; a card too big for every top
       starts a new pile on the right. Two facts, both visible on the
-      table: each pile only ever <em>decreases</em> (you place onto
-      bigger tops), so any climbing subsequence touches each pile at
+      table: each pile’s top <em>never increases</em> (you place onto
+      tops at least as large), so any climbing subsequence touches each pile at
       most once: and every new pile was forced by a card bigger than
       all the tops: a card that, chased leftward through the tops it
       beat, drags a full climbing chain behind it. The pile count is
@@ -127,15 +126,14 @@ export const content = {
       2^n referee on 50 arrays; the pile duality (count = LIS) and
       Erdős-Szekeres (LIS × LDS ≥ n) asserted on every trial; and
       Ulam&apos;s constant measured: mean LIS of a random
-      2,500-permutation = 93.7 against the 2√n = 100 ceiling: the
+      2,500-permutation = 93.7 against the 2√n = 100 asymptotic estimate: the
       shave is Tracy-Widom-sized, and the piles computed it.
     </>
   ),
   weakness: (
     <>
       <strong>Subsequence only, strictness is a footgun, and the
-      piles forget everything else.</strong> Contiguous runs are
-      Kadane&apos;s street (a live unit), not this one. The
+      piles forget everything else.</strong> Contiguous increasing runs need a simple adjacent comparison scan. Kadane&apos;s algorithm solves a different contiguous problem: maximum subarray sum. The
       bisect_left / bisect_right choice silently flips answers on
       tied data: tested here because it bites in production. And the
       tops array holds only what reconstruction needs: counting{' '}
@@ -272,14 +270,14 @@ export const content = {
       },
     ],
     source:
-      "python solutions/lis_patience_piles.py prints this table and asserts: DP equality on 400 arrays (heavy-tie cases included) with every witness verified strictly increasing and index-ordered; full-enumeration equality on 50 arrays (n ≤ 15); the pile duality (count = LIS, piles decreasing) and Erdős-Szekeres (LIS × LDS ≥ n) on every trial; the op meter (73,897 vs 49,995,000); Ulam's constant (mean LIS of random 2,500-permutations = 93.7 vs 2√n = 100); and the 200-envelope nesting client, chain 23, verified pair by pair and DP-matched.",
+      "python solutions/lis_patience_piles.py prints this table and asserts: DP equality on 400 arrays (heavy-tie cases included) with every witness verified strictly increasing and index-ordered; full-enumeration equality on 50 arrays (n ≤ 15); the pile duality (count = LIS, piles non-increasing) and Erdős-Szekeres (LIS × LDS ≥ n) for distinct keys; the op meter (73,897 vs 49,995,000); Ulam's constant (mean LIS of random 2,500-permutations = 93.7 vs 2√n = 100); and the 200-envelope nesting client, chain 23, verified pair by pair and DP-matched.",
   },
 
   figure: (
     <Figure
       id="fig-patience-piles"
       aspect="16 / 7"
-      caption="The deal is the proof. Each card lands on the leftmost pile whose top beats it, so piles only decrease: an increasing subsequence takes at most one card per pile. Each new pile was forced by a card bigger than every top: chase its backpointers leftward and a full climbing chain emerges, one card per pile. The count is squeezed to equality from both sides: and the same piles hand over Erdős-Szekeres (LIS × LDS ≥ n) and, dealt a random permutation, Ulam's 2√n: measured here at 93.7 against the ceiling of 100."
+      caption="The deal is the proof. Each card lands on the leftmost pile whose top is at least as large, so piles never increase: an increasing subsequence takes at most one card per pile. Each new pile was forced by a card bigger than every top: chase its backpointers leftward and a full climbing chain emerges, one card per pile. The count is squeezed to equality from both sides: and the same piles hand over Erdős-Szekeres for distinct keys (LIS × LDS ≥ n) and, dealt a random permutation, Ulam's 2√n: measured here at 93.7 against the asymptotic estimate of 100."
       cite={{
         text: 'Aldous & Diaconis, "Longest increasing subsequences: from patience sorting to the Baik-Deift-Johansson theorem", Bulletin of the AMS 36(4), 1999: the survey that walks from this card game to Tracy-Widom fluctuations.',
         href: 'https://doi.org/10.1090/S0273-0979-99-00796-X',
@@ -320,7 +318,7 @@ export const content = {
         <path d="M 222 152 C 190 158, 170 152, 156 132" stroke="#f0b94b" strokeWidth="1.6" fill="none" strokeDasharray="5 4" />
         <text x="180" y="196" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">the chase: 9 → 6 → 2 → 1: each backpointer recorded at deal time</text>
         <text x="40" y="226" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">witness read forward: 1 2 6 9: strictly climbing, one card per pile: piles ≤ LIS ≤ piles</text>
-        <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: 73,897 steps vs the DP’s 49,995,000 (677×) · LIS × LDS ≥ n on every trial · Ulam’s mean 93.7 vs 2√n = 100</text>
+        <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">73,897 vs DP 49,995,000 steps · LIS × LDS ≥ n · Ulam mean 93.7 vs 2√n = 100</text>
       </svg>
     </Figure>
   ),

@@ -281,16 +281,16 @@ export const content = {
         <text x="352" y="28" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="12">128 keys / page: height 3</text>
         <rect x="420" y="48" width="120" height="20" fill="rgba(98,217,138,0.15)" stroke="#62d98a" rx="3" />
         {[0, 1, 2].map((i) => (
-          <rect key={i} x={360 + i * 90} y={110} width="110" height="20" fill="rgba(93,162,255,0.12)" stroke="#5da2ff" rx="3" />
+          <rect key={i} x={344 + i * 96} y={110} width="88" height="20" fill="rgba(93,162,255,0.12)" stroke="#5da2ff" rx="3" />
         ))}
         {[0, 1, 2, 3, 4].map((i) => (
           <rect key={i} x={344 + i * 58} y={172} width="52" height="20" fill="rgba(93,162,255,0.10)" stroke="#5da2ff" rx="3" />
         ))}
-        <line x1="480" y1="68" x2="415" y2="110" stroke="#62d98a" strokeWidth="1.4" />
-        <line x1="415" y1="130" x2="380" y2="172" stroke="#62d98a" strokeWidth="1.4" />
+        <line x1="480" y1="68" x2="388" y2="110" stroke="#62d98a" strokeWidth="1.4" />
+        <line x1="388" y1="130" x2="370" y2="172" stroke="#62d98a" strokeWidth="1.4" />
         <text x="352" y="222" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">binary search inside a page is free:</text>
         <text x="352" y="240" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">the page is already in memory</text>
-        <text x="352" y="266" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="12">2.99 pages, measured · fanout dial: 13 / 5 / 3 / 2</text>
+        <text x="352" y="266" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="12">2.99 pages · dial: 13 / 5 / 3 / 2</text>
       </svg>
     </Figure>
   ),

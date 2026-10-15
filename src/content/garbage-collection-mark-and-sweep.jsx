@@ -101,8 +101,9 @@ export const content = {
       free it and coalesce the hole with its neighbors.
     </>,
     <>
-      <strong>Retry</strong> the allocation; if it still fails, the live
-      data does not fit and the heap is exhausted.
+      <strong>Retry</strong> the allocation; if it still fails, either
+      too little space remains or fragmentation leaves no hole large
+      enough, even when total free space would suffice.
     </>,
     <>
       <strong>Check:</strong> the surviving set equals reachability from
@@ -300,7 +301,7 @@ export const content = {
     <Figure
       id="fig-gc-mark-sweep"
       aspect="16 / 7"
-      caption="A small heap as a strip of cells before and after one collection. Roots point into the heap; the mark phase follows every pointer and colors the reachable objects blue, including a two-object cycle that is reachable and a two-object cycle that is not. The sweep frees the unmarked objects (amber), leaving holes of their sizes between the survivors. Below: the measured costs, mark following the live data and sweep the whole heap, and the counting collector’s leak."
+      caption="A small heap as a strip of cells before and after one collection. Roots point into the heap; the mark phase follows every pointer and colors the reachable objects blue, including the reachable two-object cycle; the unreachable two-object cycle stays unmarked. The sweep frees the unmarked objects (amber), leaving holes of their sizes between the survivors. Below: the measured costs, mark following the live data and sweep the whole heap, and the counting collector’s leak."
       cite={{
         text: 'J. McCarthy, "Recursive functions of symbolic expressions and their computation by machine, Part I," Communications of the ACM 3(4), 1960. DOI 10.1145/367177.367199. C. J. Cheney, "A nonrecursive list compacting algorithm," CACM 13(11), 1970. R. Jones, R. Lins, Garbage Collection: Algorithms for Automatic Dynamic Memory Management, Wiley, 1996.',
         href: 'https://doi.org/10.1145/367177.367199',
@@ -354,7 +355,7 @@ export const content = {
               <text x="40" y="212" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">sweep per collection: 4,268 / 4,272 / 4,390, the whole heap every time</text>
               <text x="40" y="228" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">reference counting: out of heap at step 7,839 with 4,912 cyclic objects leaked</text>
               <text x="40" y="244" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">mark and sweep: 14 collections exact against the referee, 0 leaked after 60,000 steps</text>
-              <text x="40" y="264" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">fragmentation: 13,640 free slots in 1,294 holes, largest 55; a 512-slot request fails (copying: one block of 3,640)</text>
+              <text x="40" y="264" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">free: 13,640 slots, largest hole 55 · 512-slot request fails · copying: block of 3,640</text>
             </g>
           );
         })()}

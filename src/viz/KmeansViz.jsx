@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -71,17 +72,17 @@ function seedPP(pts, rand) {
 }
 
 function makeRun(pts, centers, label) {
+  const assign = pts.map((p) => centers.reduce((best, c, i) => d2(p, c) < d2(p, centers[best]) ? i : best, 0));
   return {
     label,
     pts,
     centers: centers.map((c) => [...c]),
-    assign: new Array(pts.length).fill(0),
-    sse: 0,
+    assign,
+    sse: pts.reduce((sum, p, i) => sum + d2(p, centers[assign[i]]), 0),
     done: false,
     step() {
       if (this.done) return;
       let moved = false;
-      let sse = 0;
       for (let i = 0; i < this.pts.length; i++) {
         let best = 0;
         let bd = Infinity;
@@ -94,9 +95,7 @@ function makeRun(pts, centers, label) {
         }
         if (best !== this.assign[i]) moved = true;
         this.assign[i] = best;
-        sse += bd;
       }
-      this.sse = sse;
       const sums = Array.from({ length: K }, () => [0, 0, 0]);
       for (let i = 0; i < this.pts.length; i++) {
         const a = this.assign[i];
@@ -106,9 +105,12 @@ function makeRun(pts, centers, label) {
       }
       for (let c = 0; c < K; c++) {
         if (sums[c][2]) {
-          this.centers[c] = [sums[c][0] / sums[c][2], sums[c][1] / sums[c][2]];
+          const next = [sums[c][0] / sums[c][2], sums[c][1] / sums[c][2]];
+          if (d2(next, this.centers[c]) > 1e-20) moved = true;
+          this.centers[c] = next;
         }
       }
+      this.sse = this.pts.reduce((sum, p, i) => sum + d2(p, this.centers[this.assign[i]]), 0);
       if (!moved) this.done = true;
     },
   };
@@ -208,7 +210,7 @@ export default function KmeansViz() {
         ctx.fillStyle = colors.dim;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillText(
-          'same blobs, same descent, different openings · a doubled seed is a defect the descent cannot repair',
+          'same blobs and descent · different seeds can trap descent in different local minima',
           14,
           H - 10,
         );
@@ -221,7 +223,9 @@ export default function KmeansViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

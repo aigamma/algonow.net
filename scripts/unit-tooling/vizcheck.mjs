@@ -3,10 +3,14 @@
 // the scene reports a broken invariant (sc.ok === false).
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { checkSceneModel, sceneArgumentVariants } from './scene-check.mjs';
 
 const [vizPath, cyclesArg, seedArg] = process.argv.slice(2);
 const cycles = Number(cyclesArg || 20);
 const seed = Number(seedArg || 20261010);
+if (!vizPath || !Number.isSafeInteger(cycles) || cycles < 1 || !Number.isSafeInteger(seed)) {
+  throw new Error('Usage: node vizcheck.mjs <vizPath> [positive cycles] [integer seed]');
+}
 const out = path.resolve(process.cwd(), 'build', 'vizcheck', path.basename(vizPath).replace(/\.jsx$/, '.mjs'));
 const esbuild = await import(pathToFileURL(path.resolve(process.cwd(), 'node_modules/esbuild/lib/main.js')).href);
 await esbuild.build({
@@ -24,17 +28,17 @@ let ticks = 0;
 let broken = 0;
 let maxTicks = 0;
 const extras = {};
+const variants = sceneArgumentVariants(vizPath);
 for (let c = 0; c < cycles; c += 1) {
-  const sc = mod.makeScene(seed + c * 7919);
-  let t = 0;
-  while (!mod.sceneTick(sc)) {
-    t += 1;
-    if (sc.ok === false) broken += 1;
-    if (t > 50000) throw new Error('scene never finished');
+  for (const [variant, sceneArgs] of variants.entries()) {
+    const result = checkSceneModel(mod, { seed: seed + c * 7919, sceneArgs });
+    ticks += result.ticks;
+    maxTicks = Math.max(maxTicks, result.ticks);
+    broken += result.invariantBreaks;
+    if (c === 0 && variant === 0) extras.firstLast = result.last;
+    if (result.summary) extras[`cycle${c}${variants.length > 1 ? `variant${variant}` : ''}`] = result.summary;
   }
-  ticks += t;
-  maxTicks = Math.max(maxTicks, t);
-  if (c === 0) extras.firstLast = sc.last;
-  if (typeof mod.summarize === 'function') extras[`cycle${c}`] = mod.summarize(sc);
 }
-console.log(JSON.stringify({ cycles, ticksPerCycle: ticks / cycles, maxTicks, invariantBreaks: broken, ...extras }, null, 1));
+const modelRuns = cycles * variants.length;
+console.log(JSON.stringify({ cycles, modelRuns, ticksPerCycle: ticks / modelRuns, maxTicks, invariantBreaks: broken, ...extras }, null, 1));
+if (broken > 0) process.exitCode = 1;

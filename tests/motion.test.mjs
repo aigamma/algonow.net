@@ -18,12 +18,18 @@ function stubBrowser({ stored = null, reduce = false } = {}) {
   const store = new Map();
   if (stored) store.set('algonow:motion', stored);
   const attrs = {};
+  const systemListeners = new Set();
+  const query = {
+    matches: reduce,
+    addEventListener: (_, fn) => systemListeners.add(fn),
+    removeEventListener: (_, fn) => systemListeners.delete(fn),
+  };
   globalThis.window = {
     localStorage: {
       getItem: (k) => (store.has(k) ? store.get(k) : null),
       setItem: (k, v) => store.set(k, String(v)),
     },
-    matchMedia: (q) => ({ matches: reduce && q.includes('reduce') }),
+    matchMedia: () => query,
   };
   globalThis.document = {
     documentElement: {
@@ -32,7 +38,13 @@ function stubBrowser({ stored = null, reduce = false } = {}) {
       },
     },
   };
-  return { store, attrs };
+  return {
+    store, attrs, systemListeners,
+    setReduced(value) {
+      query.matches = value;
+      for (const fn of systemListeners) fn({ matches: value });
+    },
+  };
 }
 
 function clearBrowser() {
@@ -133,6 +145,39 @@ test('an explicit choice overrides an operating-system request', async () => {
   stubBrowser({ stored: 'standard', reduce: true });
   const m = await freshMotion();
   assert.equal(m.getLevelKey(), 'standard', 'the reader outranks the system default');
+});
+
+test('live system motion changes reach figures and the header until the reader makes a choice', async () => {
+  const browser = stubBrowser();
+  const m = await freshMotion();
+  assert.equal(m.getLevelKey(), 'calm');
+  const seen = [];
+  const off = m.subscribe((level) => seen.push(level.key));
+  browser.setReduced(true);
+  assert.equal(m.getLevelKey(), 'still');
+  assert.equal(browser.attrs['data-motion'], 'still');
+  browser.setReduced(false);
+  assert.equal(m.getLevelKey(), 'calm');
+  m.setLevel('slow');
+  browser.setReduced(true);
+  assert.equal(m.getLevelKey(), 'slow', 'an explicit page choice continues to outrank the OS');
+  assert.deepEqual(seen, ['still', 'calm', 'slow']);
+  off();
+  assert.equal(browser.systemListeners.size, 0, 'the last unmount removes the system listener');
+});
+
+test('a system change while no figures are mounted is adopted on the next subscription', async () => {
+  const browser = stubBrowser();
+  const m = await freshMotion();
+  assert.equal(m.getLevelKey(), 'calm');
+  const first = m.subscribe(() => {});
+  first();
+  browser.setReduced(true);
+  const seen = [];
+  const second = m.subscribe((level) => seen.push(level.key));
+  assert.equal(m.getLevelKey(), 'still');
+  assert.deepEqual(seen, ['still']);
+  second();
 });
 
 test('unknown or absent storage falls back to the calm default', async () => {

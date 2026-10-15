@@ -6,7 +6,7 @@ import { narration } from './template-matching-normalized-cross-correlation.narr
 export const content = {
   given:
     'A small reference patch and a larger scene captured under different lighting, with noise: where does the patch appear, to the pixel and below, and how do you know the answer is not a bright patch of nothing?',
-  task: 'Template matching. The algorithm: slide the template over every position of the scene and score the window under it; the best score is the match. The heuristic is normalized cross-correlation (Lewis 1995): subtract each window’s mean and divide by the window’s and the template’s standard deviations, so the score is a correlation coefficient in [−1, 1] that ignores any gain and offset of the scene’s brightness, and read the window mean and variance from two summation tables in O(1) per position instead of O(template area). A variance floor refuses to score untextured windows; a quadratic fit over the 3 × 3 neighbourhood of the peak places the match below the pixel.',
+  task: 'Template matching. The algorithm: slide the template over every position of the scene and score the window under it; the best score is the match. The heuristic is normalized cross-correlation (Lewis 1995): subtract each window’s mean and divide by the window’s and the template’s standard deviations, so the score is a correlation coefficient in [−1, 1] that ignores any positive gain and offset of the scene’s brightness, and read the window mean and variance from two summation tables in O(1) per position instead of O(template area). A variance floor refuses to score untextured windows; a quadratic fit over the 3 × 3 neighbourhood of the peak places the match below the pixel.',
   constraint:
     'Measured on 64 × 64 synthetic scenes with a 12 × 12 pattern planted at a known position (2,809 candidate positions): NCC is exactly 1.000000 at every exact copy and never leaves [−1, 1] on any map. With the scene’s brightness rescaled by a random gain (0.4 to 2.5) and offset (±60 grey levels), NCC finds the plant 24 of 24 times against 8 for the sum of squared differences, 6 for the sum of absolute differences, and 22 for raw correlation; under additive noise of σ = 80 grey levels NCC finds 6 of 6 where SSD finds 1. The summation-table map equals the direct map to 1.2 × 10⁻¹³ and replaces 404,496 window multiplications per match with 4,096 (one squared image), while an FFT numerator costs 1,441,792 multiplications against 404,496 for the direct dot products at this size. The quadratic peak fit lands 0.314 px from a planted fractional shift where the integer peak lands 0.640 px away. Rotating the planted pattern: 6 of 6 found at 0°, 5°, and 10°, then 0 of 6 at 15°; scaling it by 0.8 to 1.25: 6 of 6 at every scale. An untextured template with no variance floor is found 0 of 6 times with a mean peak of 0.26; the floor flags all 6; a flat 20 × 20 block in the scene floors exactly its 81 windows.',
 
@@ -42,8 +42,8 @@ export const content = {
   heurRole: (
     <p>
       Owns the <strong>score</strong>. Subtracting the window mean removes an
-      offset, dividing by the standard deviations removes a gain, so the same
-      pattern under any linear lighting change scores exactly 1:{' '}
+      offset, dividing by the standard deviations removes a positive gain, so the same
+      pattern under a positive gain and any offset scores exactly 1:{' '}
       <strong>24 of 24 found against SSD&apos;s 8</strong>. The two summation
       tables make the mean and variance of any window four lookups each,{' '}
       <strong>4,096 multiplications</strong> for the squared image against
@@ -116,7 +116,7 @@ export const content = {
 
   strength: (
     <>
-      <strong>Exactly invariant to gain and offset, with a bounded score and
+      <strong>Exactly invariant to positive gain and offset, with a bounded score and
       O(1) normalization.</strong> 24 of 24 under random lighting, 6 of 6 at
       σ = 80, a correlation coefficient you can threshold, and 4,096
       multiplications where the naive denominator costs 404,496.
@@ -271,7 +271,7 @@ export const content = {
     <Figure
       id="fig-ncc-lighting"
       aspect="16 / 7"
-      caption="Left: of 24 scenes whose brightness was rescaled by a random gain and offset, how many times each score put its best window on the planted pattern. Normalized cross-correlation is exactly invariant to the change; the sum of squared differences and the sum of absolute differences are not; raw correlation mostly survives because the pattern’s own dot product still dominates. Right: multiplications per full match on a log scale. The summation tables cut the normalization from 404,496 to 4,096; the FFT numerator costs more than the direct dot products at this scene size."
+      caption="Left: of 24 scenes whose brightness was rescaled by a random gain and offset, how many times each score put its best window on the planted pattern. Normalized cross-correlation is exactly invariant to a positive gain and an offset; the sum of squared differences and the sum of absolute differences are not; raw correlation mostly survives because the pattern’s own dot product still dominates. Right: multiplications per full match on a log scale. The summation tables cut the normalization from 404,496 to 4,096; the FFT numerator costs more than the direct dot products at this scene size."
       cite={{
         text: 'J. P. Lewis, "Fast Normalized Cross-Correlation," Vision Interface, 1995. K. Briechle and U. D. Hanebeck, "Template matching using fast normalized cross correlation," Proc. SPIE 4387, 2001. R. Brunelli, Template Matching Techniques in Computer Vision, Wiley, 2009.',
         href: 'https://doi.org/10.1117/12.421129',
@@ -284,7 +284,7 @@ export const content = {
           const hgt = (v) => (Math.log10(v) / Math.log10(2000000)) * 170;
           return (
             <g fontFamily="ui-monospace, monospace">
-              <text x="20" y="22" fill="#9aa5bd" fontSize="10">hits on the plant out of 24 scenes under random gain and offset</text>
+              <text x="20" y="22" fill="#9aa5bd" fontSize="10">hits / 24 scenes; gain and offset varied</text>
               {hits.map(([name, v, c], i) => (
                 <g key={name}>
                   <rect x={30 + i * 70} y={230 - v * 7.5} width="46" height={v * 7.5} fill={c} fillOpacity="0.85" />
@@ -292,8 +292,8 @@ export const content = {
                   <text x={30 + i * 70} y="246" fill="#9aa5bd" fontSize="9">{name}</text>
                 </g>
               ))}
-              <text x="20" y="268" fill="#62d98a" fontSize="10">NCC: exactly 1.000000 at the plant under any gain and offset</text>
-              <text x="340" y="22" fill="#9aa5bd" fontSize="10">multiplications per match, 2,809 windows of 12 x 12 (log)</text>
+              <text x="20" y="268" fill="#62d98a" fontSize="10">NCC at plant: 1 under positive gain + offset</text>
+              <text x="340" y="22" fill="#9aa5bd" fontSize="10">mults (log): 2,809 windows, each 12 × 12</text>
               {mults.map(([name, v, c], i) => (
                 <g key={name}>
                   <rect x={350 + i * 70} y={230 - hgt(v)} width="46" height={hgt(v)} fill={c} fillOpacity="0.85" />
@@ -301,7 +301,7 @@ export const content = {
                   <text x={350 + i * 70 - 6} y="246" fill="#9aa5bd" fontSize="7">{name}</text>
                 </g>
               ))}
-              <text x="340" y="268" fill="#f0b94b" fontSize="10">the tables, not the FFT, carry the speed at this size</text>
+              <text x="340" y="268" fill="#f0b94b" fontSize="10">summed-area tables give the speedup</text>
             </g>
           );
         })()}

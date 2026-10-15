@@ -320,7 +320,7 @@ export const content = {
         <text x="250" y="40" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">hash(key) % k routes BOTH sides the same way</text>
         <text x="342" y="120" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">the hot key: 13× the mean</text>
         <text x="250" y="222" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">union of partition joins == full join, asserted</text>
-        <text x="40" y="272" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: all-pairs 10,000,000 · sort-merge 245,177 · build+probe 20,500 (488×) · constant hash: 400,000, exactly |R|·|S|</text>
+        <text x="40" y="272" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">touches: pairs 10,000,000 · sort-merge 245,177 · hash 20,500 · constant hash: |R|·|S|</text>
       </svg>
     </Figure>
   ),

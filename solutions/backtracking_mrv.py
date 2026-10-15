@@ -31,12 +31,14 @@ def solve(board, use_mrv=True, counter=None):
 
     empties = [i for i in range(81) if board[i] == 0]
     if not empties:
-        return True
+        return is_valid_solution(board)
 
     if use_mrv:
         cell = min(empties, key=lambda i: len(candidates(board, i)))
     else:
         cell = empties[0]
+    # Keep only the chosen cell while descending, not a list per frame.
+    del empties
 
     for digit in candidates(board, cell):
         board[cell] = digit

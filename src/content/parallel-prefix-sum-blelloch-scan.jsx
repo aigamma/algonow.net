@@ -290,10 +290,10 @@ export const content = {
         ))}
         {[[0, 1], [2, 3], [4, 5], [6, 7]].map(([a, b], i) => <line key={`u1-${i}`} x1={51 + a * 48} y1="90" x2={51 + b * 48} y2="136" stroke="#f0b94b" strokeWidth="1.5" />)}
         {[[1, 3], [5, 7]].map(([a, b], i) => <line key={`u2-${i}`} x1={51 + a * 48} y1="90" x2={51 + b * 48} y2="136" stroke="#f0b94b" strokeWidth="1.5" strokeDasharray="4 3" />)}
-        <text x="430" y="50" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">amber: the up-sweep tree (solid d = 1, dashed d = 2; d = 4 joins 3 and 7)</text>
-        <text x="430" y="230" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">3 up levels, root cleared, 3 down levels: 14 operations for 8 values</text>
-        <text x="430" y="248" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">n = 16,384: 32,766 / 28 vs Hillis-Steele 212,993 / 14</text>
-        <text x="430" y="266" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">naive independent prefixes at 1,024: 523,776 operations</text>
+        <text x="430" y="50" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">up-sweep: solid d=1; dashed d=2</text>
+        <text x="430" y="230" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">3 up + 3 down levels: 14 ops</text>
+        <text x="430" y="248" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">n=16,384: 32,766 ops, 28 levels</text>
+        <text x="430" y="266" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">naive, n=1,024: 523,776 ops</text>
       </svg>
     </Figure>
   ),

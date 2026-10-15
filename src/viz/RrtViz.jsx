@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -88,7 +89,8 @@ export function grow(t, rand, voronoi) {
     base = nodes[ni];
     const d = dist(base, target);
     if (d < 1e-9) return;
-    next = [base[0] + ((target[0] - base[0]) * STEP) / d, base[1] + ((target[1] - base[1]) * STEP) / d];
+    const step = Math.min(STEP, d);
+    next = [base[0] + ((target[0] - base[0]) * step) / d, base[1] + ((target[1] - base[1]) * step) / d];
   } else {
     ni = Math.floor(rand() * nodes.length);
     base = nodes[ni];
@@ -195,10 +197,10 @@ export default function RrtViz() {
         const ink = css.getPropertyValue('--ink').trim() || '#e9edf6';
 
         const panels = [
-          { x0: 24, tree: s.v, color: algo, label: 'Voronoi-biased: nearest node to a uniform dart' },
-          { x0: 344, tree: s.d, color: dim, label: 'ablated: random node, random direction (diffusion)' },
+          { x0: 24, tree: s.v, color: algo, label: 'Voronoi: nearest to a uniform dart' },
+          { x0: 344, tree: s.d, color: dim, label: 'random node + direction (diffusion)' },
         ];
-        const size = 236;
+        const size = 210;
         const y0 = 34;
         const sx = (x) => (x / WORLD) * size;
         const sy = (y) => y0 + (1 - y / WORLD) * size;
@@ -252,11 +254,11 @@ export default function RrtViz() {
           ctx.arc(x0 + sx(GOAL[0]), sy(GOAL[1]), sx(GOAL_R), 0, Math.PI * 2);
           ctx.stroke();
           ctx.fillStyle = color === dim ? dim : algo;
-          ctx.font = '10px ui-monospace, monospace';
+          ctx.font = '11px ui-monospace, monospace';
           ctx.fillText(label, x0, y0 + size + 14);
           ctx.fillStyle = ink;
           ctx.fillText(
-            `${tree.nodes.length} nodes · ${Math.round(coverage(tree.nodes) * 100)}% of cells${tree.found ? ` · goal at iteration ${tree.foundAt}` : ''}`,
+            `${tree.nodes.length} nodes · cover ${Math.round(coverage(tree.nodes) * 100)}%${tree.found ? ` · goal ${tree.foundAt}` : ''}`,
             x0,
             y0 + size + 27,
           );
@@ -265,10 +267,10 @@ export default function RrtViz() {
         let line;
         if (s.v.found) {
           const len = pathLength(s.v.path) + GOAL_R;
-          line = `biased tree: goal at iteration ${s.v.foundAt}, path ${Math.round(len)} units for an ${Math.round(dist(START, GOAL))} unit crow flight · diffusion: ${s.d.found ? `also arrived (iteration ${s.d.foundAt})` : `${Math.round(coverage(s.d.nodes) * 100)}% coverage, no path`}`;
+          line = `RRT: goal at ${s.v.foundAt}, length ${Math.round(len)} (direct ${Math.round(dist(START, GOAL))}); diffusion: ${s.d.found ? `arrived at ${s.d.foundAt}` : `${Math.round(coverage(s.d.nodes) * 100)}% coverage, no path`}`;
           ctx.fillStyle = good;
         } else {
-          line = 'the dart lands in some node’s Voronoi cell, and that node steps toward it: frontier nodes own the biggest cells';
+          line = 'the nearest node steps toward the dart; large frontier cells attract more darts';
           ctx.fillStyle = ink;
         }
         ctx.font = '11px ui-monospace, monospace';
@@ -285,7 +287,9 @@ export default function RrtViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

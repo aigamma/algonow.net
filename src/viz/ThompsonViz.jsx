@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -281,7 +282,7 @@ export default function ThompsonViz() {
           statsRef.current = { line };
         } else {
           const t = done ? 200 : Math.min(s.tick, 200);
-          ctx.fillText('act 2 · the regret race: same seeded instances, four policies, cumulative regret (10-run mean, T = 2,000)', 14, 20);
+          ctx.fillText('act 2 · cumulative regret, four policies · 10-run mean, T = 2,000', 14, 20);
           const frac = Math.min(1, t / 200);
           const T = sc.act2.ts.length;
           const upto = Math.max(2, Math.floor(frac * T));
@@ -317,7 +318,7 @@ export default function ThompsonViz() {
           ctx.fillText(`thompson ${sc.act2.ts[upto - 1].toFixed(0)}`, 550, Y(sc.act2.ts[upto - 1]) + 12);
           let line;
           if (done || t >= 200) {
-            line = 'straight lines pay forever; bending curves stop: the bend is the product (53 vs 95 vs 177 at T = 10,000 in the solution)';
+            line = 'flattening means regret grows more slowly · at T=10,000: 53 vs 95 vs 177';
             ctx.fillStyle = good;
           } else {
             line = 'every policy faces the same coins: only the visit discipline differs';
@@ -338,7 +339,9 @@ export default function ThompsonViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

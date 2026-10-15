@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks } from './useCanvasLoop.js';
 
@@ -62,7 +63,7 @@ export function sceneTick(sc) {
   }
   sc.ok = sc.ok && !sc.seen.has(gray(to));
   sc.seen.add(gray(to));
-  sc.last = `position ${from} to ${to}: Gray flips bit ${Math.log2(gray(from) ^ gray(to))} (one reading possible beyond the two ends); binary flips ${b.flips} bit${b.flips === 1 ? '' : 's'}, ${b.readings} possible readings, worst misread ${b.worst}`;
+  sc.last = `position ${from} to ${to}: Gray flips bit ${Math.log2(gray(from) ^ gray(to))} (only the two endpoint readings are possible); binary flips ${b.flips} bit${b.flips === 1 ? '' : 's'}, ${b.readings} possible readings, worst misread ${b.worst}`;
   return false;
 }
 
@@ -111,7 +112,7 @@ export default function GrayCodeViz() {
         const { n, size } = sc;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`two ${n}-bit encoder dials, one position per tick; rings are bit tracks (filled = 1); amber: the bits that just changed`, 12, 18);
+        ctx.fillText(`${n}-bit encoder dials; rings: bits (filled = 1); amber: changed bits`, 12, 18);
         const drawDial = (cx, cy, encode, title, color) => {
           const rOuter = 92;
           const ring = (rOuter - 24) / n;
@@ -154,18 +155,19 @@ export default function GrayCodeViz() {
         ctx.fillText(`position ${sc.pos} of ${size}`, tx, 60);
         ctx.fillStyle = algo;
         ctx.fillText(`Gray: ${sc.grayFlips} bit changed`, tx, 84);
-        ctx.fillText('reading: one of the two ends', tx, 100);
+        ctx.fillText('previous or next code', tx, 100);
         ctx.fillStyle = dim;
         ctx.fillText(`binary: ${popcount(((sc.pos - 1 + size) % size) ^ sc.pos)} bits changed`, tx, 124);
         ctx.fillText(`${sc.binReadings} possible readings`, tx, 140);
         ctx.fillStyle = sc.binWorst > 0 ? warn : dim;
         ctx.fillText(`worst misread ${sc.binWorst}`, tx, 156);
         ctx.fillStyle = dim;
-        ctx.fillText(`totals so far: Gray ${sc.grayFlipsTotal}, binary ${sc.binFlipsTotal} flips`, tx, 184);
-        ctx.fillText('the file: 8 bits, binary misreads', tx, 212);
-        ctx.fillText('up to 127 positions; Gray never', tx, 228);
+        ctx.fillText(`total Gray flips: ${sc.grayFlipsTotal}`, tx, 184);
+        ctx.fillText(`binary flips: ${sc.binFlipsTotal}`, tx, 200);
+        ctx.fillText('8-bit binary misreads', tx, 224);
+        ctx.fillText('up to 127; Gray never', tx, 240);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? 'one flip per step, all codes distinct' : 'INVARIANT BROKEN', tx, 256);
+        ctx.fillText(sc.ok ? '1 flip; codes distinct' : 'INVARIANT BROKEN', tx, 266);
         let line;
         if (s.done) {
           line = sc.last;
@@ -183,7 +185,9 @@ export default function GrayCodeViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

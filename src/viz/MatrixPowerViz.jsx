@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -137,7 +138,7 @@ export default function MatrixPowerViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('the Fibonacci matrix to the power n mod 1,000,000,007, one bit of n per tick, lowest bit first; amber bits multiply, every bit squares', 12, 18);
+        ctx.fillText('Fibonacci matrix Mⁿ mod 1,000,000,007; low bits first; square each bit, multiply on 1', 12, 18);
         const total = sc.bits.length;
         const bw = Math.min(12, Math.floor(600 / total));
         const x0 = 20;
@@ -189,7 +190,9 @@ export default function MatrixPowerViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

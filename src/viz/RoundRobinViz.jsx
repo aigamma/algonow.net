@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -54,7 +55,7 @@ export function makeScene(seed) {
     jobs, q, t: 0, lastJob: null, ready: [], pending: [...jobs].sort((a, b) => a.arrival - b.arrival || a.id - b.id),
     remaining: jobs.map((j) => j.burst), firstRun: jobs.map(() => null), finish: jobs.map(() => null),
     segments: [], switches: 0, idle: 0, done: false, ok: true, fcfsResp: simulateFcfs(jobs),
-    last: `quantum ${q === Infinity ? 'infinite (FCFS)' : q}: eight jobs, two of them long; one dispatch per tick`,
+    last: `quantum ${q === Infinity ? 'infinite (FCFS)' : q}: eight jobs, ${jobs.filter((j) => j.kind === 'batch').length} of them long; one dispatch per tick`,
   };
 }
 
@@ -207,10 +208,10 @@ export default function RoundRobinViz() {
         });
         ctx.fillStyle = dim;
         ctx.fillText(`switches ${sc.switches}, idle ${sc.idle}`, 400, ty + 48);
-        ctx.fillText(`FCFS on these jobs: interactive response ${sc.fcfsResp.toFixed(1)}`, 400, ty + 64);
-        ctx.fillText('the file: 11.8 at q = 4 against 38.0 under FCFS', 400, ty + 80);
+        ctx.fillText(`FCFS interactive response: ${sc.fcfsResp.toFixed(1)}`, 400, ty + 64);
+        ctx.fillText('solution: q=4 11.8 vs FCFS 38.0', 400, ty + 80);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? 'legal, fair: no job ran twice while another waited' : 'INVARIANT BROKEN', 400, ty + 104);
+        ctx.fillText(sc.ok ? 'legal; no waiting job skipped' : 'INVARIANT BROKEN', 400, ty + 104);
         let line;
         if (s.done) {
           line = sc.last;
@@ -228,7 +229,9 @@ export default function RoundRobinViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -302,7 +302,7 @@ export const content = {
           const measured = [[0, 0.333], [0.3, 0.3859], [0.5, 0.4181], [0.7, 0.3674]];
           return (
             <g fontFamily="ui-monospace, monospace">
-              <text x="30" y="20" fill="#9aa5bd" fontSize="10">payoff of a bidder with value 0.8 against the highest rival bid 0.5</text>
+              <text x="30" y="20" fill="#9aa5bd" fontSize="10">value 0.8; highest rival bid 0.5</text>
               <line x1="30" y1="236.5" x2="300" y2="236.5" stroke="#9aa5bd" strokeOpacity="0.5" />
               <line x1="30" y1="60" x2="30" y2="236" stroke="#9aa5bd" strokeOpacity="0.5" />
               <line x1={lx(m)} y1="60" x2={lx(m)} y2="236" stroke="#9aa5bd" strokeOpacity="0.4" strokeDasharray="3 3" />

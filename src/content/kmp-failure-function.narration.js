@@ -34,7 +34,7 @@ export const narration = [
   {
     section: 'tradeoffs',
     text:
-      'The strength is that the guarantee travels. At most two n plus m comparisons on any input whatsoever, overlapping matches included, and the text finger never backs up. The failure table is also reusable structure in its own right: it is the border array, it detects periodicity in strings, and it is the skeleton that the Aho Corasick automaton grows into when you need to match a whole dictionary at once. The weakness is that it reads everything. There is no skipping ahead, so on ordinary prose, Boyer Moore examines about nine times fewer characters. And the subtlety is a real cost: this is the algorithm that has been getting repaired into bugs since Morris’s own editor.',
+      'The strength is that the guarantee travels. A linear number of comparisons in text plus pattern length, including preprocessing, on any input whatsoever, overlapping matches included, and the text finger never backs up. The failure table is also reusable structure in its own right: it is the border array, it detects periodicity in strings, and it is the skeleton that the Aho Corasick automaton grows into when you need to match a whole dictionary at once. The weakness is that it reads everything. There is no skipping ahead, so on ordinary prose, Boyer Moore examines about nine times fewer characters. And the subtlety is a real cost: this is the algorithm that has been getting repaired into bugs since Morris’s own editor.',
   },
   {
     section: 'tradeoffs',

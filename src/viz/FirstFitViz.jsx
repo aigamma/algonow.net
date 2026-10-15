@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -89,7 +90,7 @@ export default function FirstFitViz() {
         ctx.fillText(`${N} items, unit bins, one item per tick; lower bound ceil(sum) = ${sc.lower} bins`, 12, 18);
         const panels = [
           { x0: 12, P: sc.ff, name: 'first fit, arrival order', color: dim },
-          { x0: 330, P: sc.ffd, name: 'first fit decreasing (largest first)', color: algo },
+          { x0: 330, P: sc.ffd, name: 'first fit decreasing', color: algo },
         ];
         const binH = 150;
         const y0 = 36;
@@ -124,7 +125,7 @@ export default function FirstFitViz() {
           line = b < a
             ? `sorted first: ${b} bins (lower bound ${sc.lower}); arrival order: ${a}; the same rule, one sort apart`
             : b === a
-              ? `both packings used ${a} bins this time (lower bound ${sc.lower}); the sort cannot lose, and here it did not win`
+              ? `both packings used ${a} bins this time (lower bound ${sc.lower}); sorting made no difference here`
               : `arrival order won this instance, ${a} to ${b}: the sort is a bound, not a promise`;
           ctx.fillStyle = good;
         } else {
@@ -140,7 +141,9 @@ export default function FirstFitViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

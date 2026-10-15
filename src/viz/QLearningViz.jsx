@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -202,7 +203,7 @@ export default function QLearningViz() {
           ctx.font = '11px ui-monospace, monospace';
           ctx.fillStyle = p.routeColor;
           const len = p.L.route.length - 1;
-          ctx.fillText(`${p.name}: greedy route ${p.L.ok ? `${len} steps` : 'not yet reaching the goal'}`, p.x0, y0 + 4 * cell + 16);
+          ctx.fillText(`${p.name}: greedy route ${p.L.ok ? `${len} steps` : 'unfinished'}`, p.x0, y0 + 4 * cell + 16);
           ctx.fillStyle = warn;
           ctx.fillText(`falls while learning: ${p.L.falls}`, p.x0, y0 + 4 * cell + 32);
         }
@@ -228,11 +229,11 @@ export default function QLearningViz() {
           const q = sc.q;
           const sa = sc.sarsa;
           line = q.ok && q.route.length - 1 === 13
-            ? `Q-learning walks the 13-step edge after ${q.episodes} episodes and ${q.falls} falls; SARSA settled on the ${sa.ok ? `${sa.route.length - 1}-step safe route` : 'high ground'} with ${sa.falls} falls`
+            ? `Q: 13-step edge, ${q.falls} falls; SARSA: ${sa.ok ? `${sa.route.length - 1} steps` : 'unfinished'}, ${sa.falls} falls; ${q.episodes} episodes`
             : `${MAX_EPISODES} episodes: Q-learning route ${q.ok ? `${q.route.length - 1} steps` : 'unfinished'} with ${q.falls} falls; SARSA ${sa.ok ? `${sa.route.length - 1} steps` : 'unfinished'} with ${sa.falls} falls`;
           ctx.fillStyle = good;
         } else {
-          line = 'the off-policy update learns the edge while the feet lurch; the on-policy rival learns to walk where lurching is safe';
+          line = 'Q-learning values the greedy route; SARSA values the route with exploration risk';
           ctx.fillStyle = ink;
         }
         ctx.font = '11px ui-monospace, monospace';
@@ -245,7 +246,9 @@ export default function QLearningViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

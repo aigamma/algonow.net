@@ -138,7 +138,7 @@ export const content = {
   weakness: (
     <>
       <strong>Acceptance is not progress.</strong> At ρ = 0.995 every
-      draw is still accepted and the chain still crawls: mixing time{' '}
+      draw is still accepted and the chain still crawls: integrated autocorrelation time{' '}
       <strong>199 sweeps</strong> against 2.1 at ρ = 0.6: a measured
       94× collapse dictated by geometry, not bugs. The staircase
       cannot walk diagonally: strongly coupled coordinates demand
@@ -279,7 +279,7 @@ export const content = {
     <Figure
       id="fig-gibbs-staircase"
       aspect="16 / 7"
-      caption="The staircase and the ridge. Gibbs moves only along the axes: freeze y and redraw x from its conditional, then the reverse. On a round target the staircase strides anywhere in a couple of sweeps. On a ρ = 0.995 ridge every legal move is nearly perpendicular to the ridge direction, so the chain shuffles: acceptance 1.000, mixing time 199 sweeps, both measured. Acceptance is a property of the proposal; mixing is a property of the geometry."
+      caption="The staircase and the ridge. Gibbs moves only along the axes: freeze y and redraw x from its conditional, then the reverse. On a round target the staircase strides anywhere in a couple of sweeps. On a ρ = 0.995 ridge every legal move is nearly perpendicular to the ridge direction, so the chain shuffles: acceptance 1.000, integrated autocorrelation time about 199 sweeps, both measured. Acceptance is a property of the proposal; mixing is a property of the geometry."
       cite={{
         text: 'Geman & Geman, "Stochastic Relaxation, Gibbs Distributions, and the Bayesian Restoration of Images", IEEE TPAMI 6(6), 1984: pixels as spins, denoising as sampling; the sampler named for the physicist of the distributions it draws.',
         href: 'https://doi.org/10.1109/TPAMI.1984.4767596',
@@ -298,7 +298,7 @@ export const content = {
         <polyline points="410,185 419,185 419,177 428,177 428,170 437,170 437,163 446,163 446,157 455,157" fill="none" stroke="#f0b94b" strokeWidth="2" />
         <circle cx="410" cy="185" r="4" fill="#f0b94b" />
         <text x="360" y="252" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">τ = 199 (theory 200) · acceptance still 1.000</text>
-        <text x="46" y="278" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured on this page: every draw accepted in both panels · the geometry, not the proposal, sets the speed</text>
+        <text x="46" y="278" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">every draw accepted in both panels · correlation controls mixing speed</text>
       </svg>
     </Figure>
   ),

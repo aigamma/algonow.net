@@ -6,7 +6,7 @@ import { narration } from './fibonacci-heap-lazy-consolidation-with-marking.narr
 export const content = {
   given:
     'A priority queue with insert, find-min, delete-min, and decrease-key, where decrease-key must be cheap: Dijkstra performs one for every edge that improves a distance, and with a binary heap each costs O(log n), so Dijkstra is O(m log n) instead of the O(m + n log n) that constant-time decrease-key allows.',
-  task: 'The Fibonacci heap (Fredman and Tarjan). A forest of heap-ordered trees in a circular root list with a pointer to the minimum. The heuristic is laziness plus marking: insert adds a one-node tree; decrease-key cuts the node from its parent into the root list; delete-min is the only tidying operation, consolidating the root list by linking trees of equal degree until every degree is unique. A node that loses a second child is cut from its own parent (a cascading cut), which guarantees that a node of degree k has at least F(k + 2) descendants, so the maximum degree is at most log_φ n.',
+  task: 'The Fibonacci heap (Fredman and Tarjan). A forest of heap-ordered trees in a circular root list with a pointer to the minimum. The heuristic is laziness plus marking: insert adds a one-node tree; decrease-key cuts the node from its parent into the root list; delete-min is the only tidying operation, consolidating the root list by linking trees of equal degree until every degree is unique. A node that loses a second child is cut from its own parent (a cascading cut), which guarantees that a node of degree k has at least F(k + 2) nodes in its subtree, including itself, so the maximum degree is at most log_φ n.',
   constraint:
     'Measured on a random workload of 60,000 operations (26,916 inserts, 21,041 decrease-keys, 12,043 delete-mins): 0 mismatches against a sorted reference for the Fibonacci heap, a binary heap with a position map, and a pairing heap; the final heap of 14,873 nodes satisfies the Fibonacci property at every node with maximum degree 13 against the bound 19. Amortized accounting: 0.274 cuts per decrease-key (the potential argument allows 2; 933 cascading cuts, 4,678 marks), 5.3 links per delete-min against log₂ n = 14.7, actual work 212,721 against an amortized total of 1,026,348. An adversary that strips grandchildren over 30 rounds on 8,192 nodes: with marks 0 violations and max degree 13; without marks 16 violations and max degree 17. Dijkstra, distances checked against an array-based oracle: complete graph n = 1,000 (499,500 edges): Fibonacci 24,692 primitive steps in 0.13 s, binary 11,359 in 0.12 s, pairing 26,368 in 0.13 s, lazy heapq 11,925 in 0.11 s; sparse n = 3,000, m = 11,994: 82,208 / 33,524 / 57,375 / 10,721 steps; the cascade graph with a decrease-key on every one of 499,500 edges: Fibonacci 6,914 steps in 0.09 s, binary 7,317 in 0.11 s, pairing 998,002 in 0.19 s, lazy 999,001 in 0.43 s.',
 
@@ -40,7 +40,7 @@ export const content = {
       returned the reference minimum (<strong>0 mismatches</strong>, as
       for the binary and pairing heaps), and the final heap of 14,873
       nodes satisfied the Fibonacci property at every node, F(k + 2)
-      descendants for degree k, with maximum degree 13 against the bound
+      nodes in each degree-k subtree, including its root, with maximum degree 13 against the bound
       19.
     </p>
   ),
@@ -281,7 +281,7 @@ export const content = {
     <Figure
       id="fig-fib-heap-cascade"
       aspect="16 / 7"
-      caption="Left: a cascading cut. Node 9 is decreased to 2, below its parent 7, so it is cut into the root list. Its parent 7 was already marked (it had lost a child before), so 7 is cut too and unmarked; 7’s parent 4 was unmarked, so 4 is marked and the walk stops. Two cuts, one mark, no tree left thinner than its degree allows. Right: the measured shape of the workload, per operation: cuts per decrease-key against the bound of 2, and links per delete-min against log₂ n."
+      caption="Left: a cascading cut. Node 9 is decreased to 2, below its parent 7, so it is cut into the root list. Its parent 7 was already marked (it had lost a child before), so 7 is cut too and unmarked; 7’s parent 4 was unmarked, so 4 is marked and the walk stops. Two cuts, one mark, no tree left thinner than its degree allows. Right: the measured shape of the workload, per operation: mean cuts per decrease-key against an amortized reference of 2, and mean links per delete-min against log₂ n for scale."
       cite={{
         text: 'M. L. Fredman and R. E. Tarjan, "Fibonacci heaps and their uses in improved network optimization algorithms," Journal of the ACM 34(3), 1987, pp. 596-615. DOI 10.1145/28869.28874. M. L. Fredman, R. Sedgewick, D. D. Sleator, and R. E. Tarjan, "The pairing heap: a new form of self-adjusting heap," Algorithmica 1, 1986. J. Vuillemin, "A data structure for manipulating priority queues," Communications of the ACM 21(4), 1978.',
         href: 'https://doi.org/10.1145/28869.28874',
@@ -300,7 +300,7 @@ export const content = {
           );
           return (
             <g>
-              <text x="20" y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">before: decrease 9 to 2 (amber = marked)</text>
+              <text x="20" y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">before: 9 → 2</text>
               {edge(80, 60, 80, 110)}
               {edge(80, 110, 50, 160)}
               {edge(80, 110, 110, 160)}
@@ -313,7 +313,7 @@ export const content = {
               {node(110, 160, '7', '#f0b94b')}
               {node(110, 210, '9', '#5da2ff', '#e2606c')}
               <text x="20" y="252" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">9 &lt; 7: cut 9; 7 marked: cut 7; 4 unmarked: mark 4</text>
-              <text x="200" y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">after: three roots, one new mark</text>
+              <text x="200" y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">after: 3 roots, 1 mark</text>
               {edge(240, 60, 240, 110)}
               {edge(240, 110, 240, 160)}
               {edge(240, 60, 300, 110)}
@@ -324,16 +324,16 @@ export const content = {
               {node(350, 60, '7', '#5da2ff')}
               {node(400, 60, '2', '#5da2ff', '#62d98a')}
               <text x="200" y="200" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">root list: 1, 7, 2 (2 is the new minimum)</text>
-              <text x="200" y="216" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">every node still has F(degree + 2) descendants</text>
+              <text x="200" y="216" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">subtree size ≥ F(degree + 2)</text>
               <text x="440" y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">measured per operation (60,000 ops)</text>
               <rect x="450" y={200 - 0.274 * 80} width="34" height={0.274 * 80} fill="#f0b94b" fillOpacity="0.85" />
               <rect x="490" y={200 - 2 * 80} width="34" height={2 * 80} fill="#f0b94b" fillOpacity="0.25" />
-              <text x="446" y="216" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="9">cuts/dk 0.27</text>
-              <text x="490" y="216" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">bound 2</text>
+              <text x="446" y="216" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="9">cuts 0.27</text>
+              <text x="490" y="232" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">bound 2</text>
               <rect x="550" y={200 - 5.3 * 10} width="34" height={5.3 * 10} fill="#5da2ff" fillOpacity="0.85" />
               <rect x="590" y={200 - 14.7 * 10} width="34" height={14.7 * 10} fill="#5da2ff" fillOpacity="0.25" />
-              <text x="544" y="216" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="9">links/dm 5.3</text>
-              <text x="588" y="216" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">log2 n 14.7</text>
+              <text x="544" y="216" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="9">links 5.3</text>
+              <text x="560" y="232" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">log2 n 14.7</text>
               <text x="440" y="252" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">max degree 13, bound log_phi n = 19</text>
             </g>
           );

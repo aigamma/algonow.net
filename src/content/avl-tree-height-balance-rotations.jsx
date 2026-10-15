@@ -6,9 +6,9 @@ import { narration } from './avl-tree-height-balance-rotations.narration.js';
 export const content = {
   given:
     'A sorted set of keys under insert, delete, and lookup, in whatever order the keys arrive: random, already sorted, or chosen by someone who has read your code.',
-  task: 'AVL tree. The binary search tree is the algorithm: smaller keys left, larger keys right, one comparison per level. The heuristic is the height-balance rule of Adelson-Velsky and Landis (1962): every node stores the height of its subtree, the two children of any node may differ in height by at most one, and an insertion or deletion that breaks the rule is repaired on the way back up by a single or double rotation at the lowest unbalanced node. The rule pins the height below 1.4405 log₂(n + 2) − 0.328, so no lookup costs more than about 1.44 log₂ n comparisons, and an insertion is repaired by at most one rotation.',
+  task: 'AVL tree. The binary search tree is the algorithm: smaller keys left, larger keys right, one comparison per level. The heuristic is the height-balance rule of Adelson-Velsky and Landis (1962): every node stores the height of its subtree, the two children of any node may differ in height by at most one, and an insertion or deletion that breaks the rule is repaired on the way back up by a single or double rotation at the lowest unbalanced node. The rule pins the height below 1.4405 log₂(n + 2) − 0.328, so no lookup costs more than about 1.44 log₂ n comparisons, and an insertion is repaired by at most one rebalancing, using one or two rotations.',
   constraint:
-    'Measured on 20,000 keys with a Python set as referee (in-order walk equal to the sorted set at every checkpoint, every lookup matched, heights and balance factors audited at every node): under random arrival the AVL tree reaches height 17 against the bound 20.3 and the perfect-balance floor 15, with 4,732 single and 4,708 double rotations over 20,000 insertions and never more than one per insertion; under sorted arrival height 15, the floor itself, at one rotation per insertion; deleting 10,000 keys costs 0.369 rotations each. Lookups: 14.11 node visits against 14.29 for a left-leaning red-black tree, 17.79 for a treap, and 18.03 for the plain tree, whose height is 38. The plain tree under sorted arrival: height 4,000 at n = 4,000, 2,053 visits per lookup.',
+    'Measured on 20,000 keys with a Python set as referee (in-order walk equal to the sorted set at every checkpoint, every lookup matched, heights and balance factors audited at every node): under random arrival the AVL tree reaches height 17 against the bound 20.3 and the perfect-balance floor 15, with 4,732 single and 4,708 double rotations over 20,000 insertions and never more than one rebalancing per insertion; under sorted arrival height 15, the floor itself, at 19,985 rotations over 20,000 insertions; deleting 10,000 keys costs 0.369 rotations each. Lookups: 14.11 node visits against 14.29 for a left-leaning red-black tree, 17.79 for a treap, and 18.03 for the plain tree, whose height is 38. The plain tree under sorted arrival: height 4,000 at n = 4,000, 2,053 visits per lookup.',
 
   origins: (
     <p>
@@ -34,7 +34,7 @@ export const content = {
       Owns the <strong>search</strong>: one comparison per level, left or
       right, until the key or an empty slot. Everything the tree can do
       (membership, predecessor, successor, a range walk) is that descent
-      plus an in-order walk, so its cost is the height. The referee is a
+      plus an in-order walk: point queries cost O(log n), and reporting k range results costs O(log n + k). The referee is a
       Python set shadowing every operation: 20,000 insertions, 2,000
       lookups half present and half absent, 6,666 deletions, and 6,666
       reinsertions, with the in-order walk compared to the sorted set at
@@ -49,9 +49,9 @@ export const content = {
       rotation at the lowest node that breaks it. Measured against the
       theorems: height <strong>17 under the bound 20.3</strong> and above
       the floor 15 at n = 20,000; 4,732 single and 4,708 double rotations
-      over 20,000 random insertions, never two on one insertion; sorted
+      over 20,000 random insertions, never two rebalancings on one insertion; sorted
       arrival, the order that stretches a plain tree into a list, builds
-      height 15 at exactly one rotation per insertion. Take the rule away
+      height 15 at 19,985 rotations over 20,000 insertions. Take the rule away
       and the same keys build height 38 (random) or 4,000 (sorted).
     </p>
   ),
@@ -63,7 +63,7 @@ export const content = {
       she walks back up the path she came down, relabels, and the moment
       one shelf&apos;s two sides differ in height by two she swings the
       heavier side up with a single twist, or two twists when the weight
-      sits on the inner grandchild. One twist and the walk is over; the
+      sits on the inner grandchild. One rebalancing, using one or two twists, and the walk is over; the
       labels above cannot have changed. The shelves never get more than
       forty-four percent taller than a perfectly packed stack, however
       the books arrive.
@@ -91,7 +91,7 @@ export const content = {
       here; the inner grandchild becomes the root.
     </>,
     <>
-      <strong>Stop:</strong> after one rotation an insertion is done (the
+      <strong>Stop:</strong> after one rebalancing (one or two rotations) an insertion is done (the
       subtree height is what it was). A deletion swaps in the in-order
       successor and may repair every level: measured, 0.369 rotations per
       deletion.
@@ -125,8 +125,7 @@ export const content = {
 
   strength: (
     <>
-      <strong>The shortest tree for any arrival order, with one rotation
-      per insertion.</strong> Height 17 at n = 20,000 (bound 20.3, floor
+      <strong>A logarithmic height bound for any arrival order, with at most one rebalancing per insertion.</strong> Height 17 at n = 20,000 (bound 20.3, floor
       15); 14.11 visits per lookup against 14.29 for red-black, 17.79 for
       the treap, and 18.03 for the plain tree; sorted arrival builds the
       floor itself.
@@ -153,7 +152,7 @@ export const content = {
       wins: (
         <>
           <strong>Height 17 at n = 20,000</strong>, the shortest of the
-          four; 14.11 visits per lookup; one rotation per insertion.
+          four; 14.11 visits per lookup; at most one rebalancing per insertion.
         </>
       ),
       costs: (
@@ -229,7 +228,7 @@ export const content = {
         <strong>height 4,000 and 2,053 node visits per lookup</strong>,
         against 13.88 for the AVL tree built from the same sorted keys at
         n = 20,000; at 20,000 keys the plain tree would not finish the
-        workload. One stored height and one rotation per insertion turn
+        workload. One stored height and at most one rebalancing per insertion turn
         the worst order into the best tree.
       </>
     ),
@@ -287,13 +286,13 @@ export const content = {
             </g>
           );
           const edge = (x1, y1, x2, y2) => <line key={`${x1}-${y1}-${x2}-${y2}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#9aa5bd" strokeOpacity="0.7" />;
-          const bars = [['floor', 15, '#62d98a'], ['AVL', 17, '#5da2ff'], ['bound', 20.3, '#9aa5bd'], ['red-black', 21, '#f0b94b'], ['treap', 33, '#f0b94b'], ['plain', 38, '#e2606c']];
+          const bars = [['floor', 15, '#62d98a'], ['AVL', 17, '#5da2ff'], ['bound', 20.3, '#9aa5bd'], ['RB', 21, '#f0b94b'], ['treap', 33, '#f0b94b'], ['plain', 38, '#e2606c']];
           const bx = 430;
           const by = 236;
           const hgt = (v) => (v / 40) * 180;
           return (
             <g>
-              <text x="24" y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">before: 20 has balance +2, its left child 10 has balance −1</text>
+              <text x="24" y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">before: balance +2 / −1</text>
               {edge(90, 70, 50, 120)}
               {edge(50, 120, 90, 170)}
               {edge(90, 70, 130, 120)}
@@ -302,13 +301,13 @@ export const content = {
               {node(130, 120, '30', '#5da2ff')}
               {node(90, 170, '15', '#5da2ff', 'new')}
               <text x="170" y="120" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="14">⟹</text>
-              <text x="200" y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">after: rotate left at 10, then right at 20</text>
+              <text x="200" y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">after: left 10, right 20</text>
               {edge(290, 70, 250, 120)}
               {edge(290, 70, 330, 120)}
               {node(290, 70, '15', '#62d98a', '0')}
               {node(250, 120, '10', '#5da2ff', '0')}
               {node(330, 120, '20', '#5da2ff', '0')}
-              <text x="24" y="226" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">one rotation (single or double) per insertion; the</text>
+              <text x="24" y="226" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">one rebalancing per insertion; the</text>
               <text x="24" y="240" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">subtree is as tall as before, so the walk up stops</text>
               <text x="24" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">measured: 4,732 single, 4,708 double over 20,000 inserts</text>
               <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">height at n = 20,000, random arrival</text>
@@ -319,7 +318,7 @@ export const content = {
                   <text x={bx + i * 34} y={by + 12} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="8">{name}</text>
                 </g>
               ))}
-              <text x={bx} y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">bound 1.4405 log2(n + 2) − 0.328 = 20.3; floor 15</text>
+              <text x={bx} y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">AVL bound 20.3; perfect height 15</text>
             </g>
           );
         })()}

@@ -37,7 +37,7 @@ export const content = {
       one window, and a candidate list that only fingerprint
       matches can enter. A hash match is never trusted: the
       window is verified letter by letter before it counts, so a
-      collision costs one cheap verification, never a wrong
+      collision costs a verification of up to m characters, never a wrong
       answer. The referee held everywhere: on 300 randomized
       cases and all three contest instances, the occurrence lists
       equal str.find&apos;s exactly, overlaps included, even with
@@ -68,16 +68,15 @@ export const content = {
       essay and compare word by word. The fingerprint way: add up
       the sentence into one checksum, then slide along the essay
       keeping a running checksum of the last twelve words: as the
-      window slides one word, subtract the word that left,
-      add the word that entered: a two-touch update however long
+      window slides one word, subtract the leaving word&apos;s weighted term,
+      multiply by the base, and add the word that entered: a two-touch update however long
       the window. Only when the two checksums agree does the
       teacher stop and actually read the passage. Almost every
       stop is a real hit: with a wide checksum, false alarms are
       measured at zero. And the same trick scales to a hundred
       suspect sentences at once: pool their hundred fingerprints
       in one lookup set and the essay still gets read{' '}
-      <em>once</em>: that pooling is what plodding letter-matchers
-      cannot do.
+      <em>once</em>, avoiding a separate single-pattern scan for each sentence.
     </p>
   ),
 
@@ -106,8 +105,8 @@ export const content = {
     </>,
     <>
       <strong>Size the modulus:</strong> the dial is measured: 0
-      spurious at 61 bits, 6,573 at mod 31: wide enough and the
-      bet simply never loses.
+      spurious at 61 bits, 6,573 at mod 31 on this instance.
+      A wide modulus lowers collision risk; it does not eliminate it.
     </>,
   ],
 
@@ -115,8 +114,8 @@ export const content = {
     <>
       <strong>Many patterns, one text:</strong> plagiarism
       k-grams, signature scans, dictionary hits: fingerprints
-      pool into one set; letter-matchers must re-walk the text
-      per pattern.
+      pool into one set; separate single-pattern matchers re-walk the text
+      per pattern. Aho-Corasick also searches many patterns in one pass.
     </>,
     <>
       <strong>The window slides:</strong> rsync-style sync,
@@ -124,8 +123,8 @@ export const content = {
       O(1) roll is the primitive everything else rides on.
     </>,
     <>
-      <strong>Adversarial or repetitive input:</strong> on a^n
-      data the naive scan quietly goes quadratic (25× here);
+      <strong>Repetitive input with a rare or absent pattern:</strong> on a^n
+      data and pattern a^(m−1)b the naive scan pays O(nm) (25× here);
       the fingerprint never re-reads a window it can rule out
       arithmetically.
     </>,
@@ -149,7 +148,7 @@ export const content = {
       bet.</strong> The multi-pattern dividend is the headline:
       100 patterns found in 445,048 touches against 21.7 million
       for repeated naive scans and 21.2 million for repeated KMP
-      (49× and 48×, measured). The worst case is tamed: the
+      (49× and 48×, measured). This naive-search adversary is tamed: the
       adversary that drives naive to 5.0 million touches costs
       the fingerprint 200,000. And the bet is quantified: 0
       spurious hits at 61 bits on this instance; even sabotaged
@@ -163,11 +162,13 @@ export const content = {
       ground.</strong> Single rare pattern on English text: naive
       beats it (207,971 vs 400,504) and KMP matches naive with a
       worst-case guarantee attached: paying 2n touches to roll a
-      hash you almost never need is a real cost. The linearity is
-      probabilistic, not promised: an adversary who knows your
-      modulus can manufacture collisions (production rotates
-      random bases per run, and this page measures the collision
-      dial at mod 31 to show why the width matters). KMP&apos;s
+      hash you almost never need is a real cost. Reporting z true matches
+      adds O(zm) verification work. Text a^n and pattern a^m therefore cost
+      O(nm) even with no collisions. Expected O(n+m+zm) also assumes
+      controlled collision probabilities, usually from randomized hash
+      parameters; this fixed-base demonstration supplies measurements,
+      not a probabilistic guarantee. Known hash parameters can also permit
+      adversarial collisions. KMP&apos;s
       O(n+m) needs no luck; Boyer-Moore skips most of the text on
       large alphabets; and for variable-length pattern sets,
       Aho-Corasick&apos;s automaton is the industrial answer
@@ -182,7 +183,7 @@ export const content = {
       name: 'Rabin-Karp × fingerprints',
       isThisUnit: true,
       algoName: 'Rabin-Karp',
-      cost: 'O(n + m) expected',
+      cost: 'O(n + m + zm) expected, z true matches',
       wins: (
         <>
           <strong>Pools patterns</strong>: 100 in one pass for
@@ -192,11 +193,12 @@ export const content = {
       ),
       costs: (
         <>
-          2n touches on text where naive pays ~n; linear in
-          expectation only: the guarantee is the modulus width.
+          2n touches on text where naive pays ~n, plus m touches per true
+          match and any false-candidate checks. Worst case O(nm), even
+          without collisions when every window matches.
         </>
       ),
-      when: 'Many equal-length patterns, sliding-window jobs, or input you do not trust.',
+      when: 'Many equal-length patterns or sliding-window jobs, with verification costs accounted for.',
     },
     {
       name: 'Knuth-Morris-Pratt',
@@ -354,7 +356,7 @@ export const content = {
         <text x="362" y="194" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">no -&gt; slide on: the window is never read</text>
         <text x="362" y="216" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">mod 31 dial: 6,573 false candidates, +1.7% tax,</text>
         <text x="362" y="230" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">answer still exact: verification catches every lie</text>
-        <text x="34" y="268" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">measured: 100 patterns in one pass 445,048 touches vs 21,739,295 naive (49×) · adversary 25× · roll beats fresh hashing 6.0×</text>
+        <text x="34" y="268" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">100 patterns: 445,048 vs 21,739,295 touches · adversary: 25× · rolling hash: 6×</text>
       </svg>
     </Figure>
   ),

@@ -70,8 +70,7 @@ export const content = {
 
   steps: [
     <>
-      <strong>Bracket:</strong> lo = 0, hi = n. The claim, forever: the
-      answer&apos;s index lies in [lo, hi).
+      <strong>Bracket:</strong> lo = 0, hi = n. The claim, forever: the insertion index lies in [lo, hi], including hi; the unexamined elements lie in [lo, hi).
     </>,
     <>
       <strong>Probe the midpoint:</strong> mid = (lo + hi) / 2, rounded
@@ -275,7 +274,7 @@ export const content = {
     <Figure
       id="fig-binary-invariant"
       aspect="16 / 7"
-      caption="The invariant is the algorithm. The claim [lo, hi) contains the answer is restored after every probe: a[mid] < target discards mid itself (lo = mid + 1), anything else keeps mid as a candidate (hi = mid). Both famous failures are clause violations: dropping the +1 stops the bracket from shrinking, and on two elements the loop spins forever; computing the midpoint as (lo+hi)/2 in fixed-width arithmetic overflowed Java's library for nine years."
+      caption="The invariant is the algorithm. The insertion-index interval [lo, hi] contains the answer after every probe: a[mid] < target discards mid itself (lo = mid + 1), anything else keeps mid as a candidate (hi = mid). Both famous failures are clause violations: dropping the +1 stops the bracket from shrinking, and on two elements the loop spins forever; computing the midpoint as (lo+hi)/2 in fixed-width arithmetic overflowed Java's library for nine years."
       cite={{
         text: 'Bentley, "Programming Pearls: Writing Correct Programs", CACM 26(12), 1983 (the ninety-percent study). The 1946-to-1962 history is Knuth, TAOCP volume 3, §6.2.1; the library overflow is Bloch, 2006.',
         href: 'https://doi.org/10.1145/358476.358484',

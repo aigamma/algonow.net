@@ -273,7 +273,7 @@ export const content = {
     <Figure
       id="fig-sharding-move-cost"
       aspect="16 / 7"
-      caption="Left: the fraction of keys re-homed when one shard joins, against the shard count: modulo (amber curve, N/(N + 1); measured dots at 4, 8, 16, 32 shards) against a consistent-hashing ring or jump consistent hash (blue, 1/(N + 1); measured at 16). Right: a Zipf workload on 16 shards, loads as multiples of the mean: the hottest key alone (8.3% of traffic) puts its shard at 2.58 × (red); salting the 13 hottest keys into 16 sub-keys each flattens it to 1.19 × (green)."
+      caption="Left: the fraction of keys re-homed when one shard joins, against the shard count: modulo (amber curve, N/(N + 1); measured dots at 4, 8, 16, 32 shards) against a consistent-hashing ring or jump consistent hash (blue, expected 1/(N + 1); measured at 16). Right: a Zipf workload on 16 shards, loads as multiples of the mean: the hottest key alone (8.3% of traffic) puts its shard at 2.58 × (red); salting the 13 hottest keys into 16 sub-keys each flattens it to 1.19 × (green)."
       cite={{
         text: 'M. Stonebraker, "The Case for Shared Nothing," IEEE Database Engineering Bulletin 9(1), 1986. D. Karger, E. Lehman, T. Leighton, R. Panigrahy, M. Levine, D. Lewin, "Consistent Hashing and Random Trees," STOC 1997, DOI 10.1145/258533.258660. G. DeCandia et al., "Dynamo: Amazon\'s Highly Available Key-value Store," SOSP 2007, DOI 10.1145/1294261.1294281. J. C. Corbett et al., "Spanner: Google\'s Globally-Distributed Database," OSDI 2012. J. Lamping, E. Veach, "A Fast, Minimal Memory, Consistent Hash Algorithm," 2014.',
         href: 'https://doi.org/10.1145/258533.258660',

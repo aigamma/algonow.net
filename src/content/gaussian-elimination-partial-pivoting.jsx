@@ -5,7 +5,7 @@ import { narration } from './gaussian-elimination-partial-pivoting.narration.js'
 
 export const content = {
   given:
-    'A dense n × n matrix A and a right-hand side b, in floating point. Solve A x = b to the precision of the arithmetic, and do it in about n³/3 multiply-adds.',
+    'A dense n × n matrix A and a right-hand side b, in floating point. Solve A x = b in floating point; assess the residual and conditioning before trusting the forward accuracy, and do it in about n³/3 multiply-adds.',
   task: 'Gaussian elimination: subtract multiples of each row from the rows below it until the matrix is upper triangular, then back-substitute. Partial pivoting: before eliminating column k, swap up the row with the largest entry in that column at or below the diagonal, so every multiplier has size at most 1.',
   constraint:
     'On the classic 2 × 2 [[ε, 1], [1, 1]] x = (1, 2) with ε = 10⁻¹⁷, elimination without pivoting returns (0, 1), 100% wrong in its first component; with pivoting, (1, 1) to full precision. On a system whose first pivot is exactly zero, no pivoting cannot proceed at all. On random 80 × 80 systems the relative residual with pivoting is 1.3 × 10⁻¹⁶, without it 2.0 × 10⁻¹⁴; against exact rational arithmetic on 30 integer systems, the pivoted solution agrees to 10⁻¹⁴. The known bad day is measured too: Wilkinson’s matrix of order 24 drives the element growth to exactly 2²³ = 8,388,608, where complete pivoting holds it at 2 and random matrices never exceeded 8.',
@@ -299,11 +299,11 @@ export const content = {
         <rect x="390" y="66" width="50" height="164" fill="#5da2ff" opacity="0.85" />
         <rect x="470" y="223" width="50" height="7" fill="#62d98a" opacity="0.9" />
         <rect x="550" y="209" width="50" height="21" fill="#9aa5bd" opacity="0.8" />
-        <text x="384" y="248" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="10">Wilkinson, partial</text>
-        <text x="384" y="262" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="10">2²³ = 8,388,608</text>
-        <text x="466" y="248" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">Wilkinson, complete</text>
+        <text x="384" y="248" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="10">partial</text>
+        <text x="384" y="262" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="10">2²³</text>
+        <text x="466" y="248" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">complete</text>
         <text x="466" y="262" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">2</text>
-        <text x="546" y="248" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">random 80 × 80</text>
+        <text x="546" y="248" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">random</text>
         <text x="546" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">at most 8</text>
       </svg>
     </Figure>

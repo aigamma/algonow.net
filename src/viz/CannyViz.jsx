@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -194,7 +195,7 @@ export default function CannyViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('hysteresis one wave per tick: blue above the high threshold, amber reached from blue, gray above low but unanchored', 12, 18);
+        ctx.fillText('hysteresis: blue strong pixels, amber connected weak pixels, gray unanchored weak', 12, 18);
         const cell = 5;
         const ox = 20;
         const oy = 36;
@@ -246,7 +247,9 @@ export default function CannyViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

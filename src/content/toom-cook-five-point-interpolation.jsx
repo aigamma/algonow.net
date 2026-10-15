@@ -283,7 +283,7 @@ export const content = {
     <Figure
       id="fig-toom-five-points"
       aspect="16 / 7"
-      caption="Five posts pin a quartic. Multiplying polynomials coefficient-wise is nine cross products; multiplying their values at a point is one number times one number. Evaluate both factors at 0, 1, −1, 2, ∞, multiply heights post by post, and the five product points determine the degree-4 product polynomial completely: interpolate back with a fixed 5×5 unwind whose divisions by 2 and 3 are exact (asserted). Five recursive multiplications instead of nine: the exponent falls from log₂3 = 1.585 to log₃5 = 1.465."
+      caption="Five posts pin a quartic. Multiplying two three-coefficient polynomials directly uses nine cross products; multiplying their values at a point is one number times one number. Evaluate both factors at 0, 1, −1, 2, ∞, multiply heights post by post, and the five product points determine the degree-4 product polynomial completely: interpolate back with a fixed 5×5 unwind whose divisions by 2 and 3 are exact (asserted). Five recursive multiplications instead of nine: the exponent falls from log₂3 = 1.585 to log₃5 = 1.465."
       cite={{
         text: 'Toom 1963 (Moscow) and Cook 1966 (Harvard thesis) built the family; Bodrato, "Towards Optimal Toom-Cook Multiplication", WAIFI 2007, gives the operation sequences GMP ships. The rung between the live Karatsuba and FFT units.',
         href: 'https://doi.org/10.1007/978-3-540-73074-3_10',

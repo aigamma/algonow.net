@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -232,7 +233,7 @@ export default function TreapViz() {
           });
           let line;
           if (finalPhase) {
-            line = 'identical, node for node: the shape is a function of the set, not of the arrival: the theorem, drawn';
+            line = 'same (key, priority) set: identical tree under every arrival order';
             ctx.fillStyle = good;
           } else {
             line = 'three builds, three different insertion sequences, one lottery: watch them converge';
@@ -253,7 +254,9 @@ export default function TreapViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

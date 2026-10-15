@@ -211,13 +211,13 @@ export default function Home({ day: stamped = null }) {
             the loop, the trade-offs, the code. The <strong>▶ Listen</strong>{' '}
             button plays the <strong>spoken form</strong>: a longer narration
             written for the ear, with numbers spelled out and symbols read as
-            words, delivered by your browser&apos;s own speech engine.
+            words. Lessons with recorded voices stream their audio; other
+            lessons use your browser&apos;s speech engine.
           </p>
           <p>
-            Listening is free and private: synthesis runs entirely on your
-            device, nothing is streamed, and no account exists to stream it to.
-            Pick a voice and pace you like; the player follows the page as it
-            reads.
+            Listening is free for readers and requires no account. Pick a
+            voice and pace in the player. Recorded lessons offer two voices;
+            browser narration uses the voices available on your device.
           </p>
         </section>
       </div>

@@ -160,7 +160,7 @@ export const content = {
       Floyd-Warshall&apos;s three bare loops, with no heap
       traffic and no tuple unpacking, close much of that in wall
       time: for dense graphs or small n, the referee is the
-      right tool. A negative cycle anywhere poisons every answer,
+      right tool. A negative cycle anywhere makes Johnson reject the graph; shortest paths are undefined only for pairs that can route through such a cycle,
       so the tripwire aborts the whole computation rather than
       returning a matrix. And if you only need one source, this
       whole page is overkill: that is Bellman-Ford&apos;s own

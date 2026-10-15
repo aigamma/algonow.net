@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:differential-privacy-laplace-mechanism",
   "source_path": "src/content/differential-privacy-laplace-mechanism.narration.js",
-  "source_sha256": "c0cda238a84883b18642d691a368be939d13958dadf85059da1b0da20f525d2e",
-  "source_characters": 12078,
+  "source_sha256": "47e3a2a7a00661f6095cb008b87401e063f4764b3156896e4cfade8cfa05d51a",
+  "source_characters": 12236,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -57,9 +57,9 @@
     }
   },
   "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
-  "release_sha256": "4d56223d9123e6b1f528fe14d044d6322f55d93c1af2ff5909021dbe81773e75",
-  "generated_at": "2026-10-10T22:53:42.490Z",
-  "generated_characters": 24156,
+  "release_sha256": "f6ecb954e2be460331ca544026f6d3587bbf4d7a3bf2ad1f22d79b82fa6c9517",
+  "generated_at": "2026-10-15T22:53:19.263Z",
+  "generated_characters": 24472,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -84,16 +84,16 @@
     {
       "id": "request-001",
       "index": 1,
-      "characters": 4839,
-      "utf8_bytes": 4853,
-      "sha256": "76df4cdc50bfeacf86bba5467958f3e4f3da0e5aafedacf2def30f414d2e06f0"
+      "characters": 4890,
+      "utf8_bytes": 4902,
+      "sha256": "e1c71e6afb1faa14fc7dc744d285859443bcc399c2c5e3055bbf148c7cffe6bd"
     },
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4685,
-      "utf8_bytes": 4693,
-      "sha256": "5db9266eba461ad2be5aa005824b800613479fc0162e2f7b16424e0b88466dbf"
+      "characters": 4792,
+      "utf8_bytes": 4800,
+      "sha256": "503ebfa2e7e3d61c67d04125db067f7c5a60b9bc66e5fc901443331d50340701"
     },
     {
       "id": "request-003",
@@ -156,8 +156,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1467,
-      "sha256": "e67adab7c486ceddc67a6816eea8948234e6066e9580177e3caba381cb6ac365"
+      "utf8_bytes": 1516,
+      "sha256": "206c17f21cf4ad31e5f2e6fd0dd9fbdc78b8e9520c3b8dcf5b654d00c7b86cab"
     },
     {
       "id": "differential-privacy-laplace-mechanism.02-origins",
@@ -248,8 +248,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1009,
-      "sha256": "5c7e8aa9297caa316062b40468eed0aa0d66a06a1cec12422c3e8c4651bfd273"
+      "utf8_bytes": 1116,
+      "sha256": "9e40d76315edd51d0d4e1d24c3ad99eb371276a87f4e934f3d483b844befb3e5"
     },
     {
       "id": "differential-privacy-laplace-mechanism.06-signals",
@@ -373,23 +373,23 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/differential-privacy-laplace-mechanism/4d56223d9123e6b1f528/aoede-4f8d26963fb3bfe2.mp3",
+      "object_key": "narration/v1/puzzles/differential-privacy-laplace-mechanism/f6ecb954e2be460331ca/aoede-28e9e44104f7bee5.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2976236,
-      "sha256": "4f8d26963fb3bfe213a0bff247bfc0c2f4b46b0bb8164c3d500b6681df420fca",
+      "bytes": 3047372,
+      "sha256": "28e9e44104f7bee51f51ad1c8e6dd503c92e915481bfb7560a14ebe58e7b2311",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "76df4cdc50bfeacf86bba5467958f3e4f3da0e5aafedacf2def30f414d2e06f0",
-          "bytes": 1193376,
-          "sha256": "b0da7d3ead02982c536d26bae76f035b7b172edc253eddeee578a3267a989967"
+          "request_sha256": "e1c71e6afb1faa14fc7dc744d285859443bcc399c2c5e3055bbf148c7cffe6bd",
+          "bytes": 1212192,
+          "sha256": "52238fcb73f7208c1418c3ef6dd42da741c9325a1464d817291663f4035ef1c4"
         },
         {
           "request_index": 2,
-          "request_sha256": "5db9266eba461ad2be5aa005824b800613479fc0162e2f7b16424e0b88466dbf",
-          "bytes": 1161504,
-          "sha256": "8ba26493a2e37a9a00f15f52490f3b288930c3a3ef326cc00428710d82fcce43"
+          "request_sha256": "503ebfa2e7e3d61c67d04125db067f7c5a60b9bc66e5fc901443331d50340701",
+          "bytes": 1211232,
+          "sha256": "8e49e0273a5ea6b484efe568d3a0b8e017b59b1e4b0d94eb6e1621ef4ccc1821"
         },
         {
           "request_index": 3,
@@ -400,8 +400,8 @@
         {
           "request_index": 4,
           "request_sha256": "86847aeb93c77b0d035591815ee82696de71cd5ac071fd8d02fdcfc2aa3cdd49",
-          "bytes": 175584,
-          "sha256": "574ff26651989beeada134dc17716617db202d8529b146ffeb87125296c4a1ad"
+          "bytes": 178176,
+          "sha256": "1607fc2998a7e03d818dd1ec2985ed740000786443ede6b99225cbc72fa1225c"
         }
       ]
     },
@@ -410,35 +410,35 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/differential-privacy-laplace-mechanism/4d56223d9123e6b1f528/algieba-96c23b155888786b.mp3",
+      "object_key": "narration/v1/puzzles/differential-privacy-laplace-mechanism/f6ecb954e2be460331ca/algieba-540777a07233607a.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 3127916,
-      "sha256": "96c23b155888786bbb66e6aadb9b89d55eae56e17e28c6f399766afacd0174c1",
+      "bytes": 3185804,
+      "sha256": "540777a07233607a602370fc5387be9d10c2f65a7f5cca0802ab909ee065fdef",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "76df4cdc50bfeacf86bba5467958f3e4f3da0e5aafedacf2def30f414d2e06f0",
-          "bytes": 1265664,
-          "sha256": "1496e46f834abeb4e82b217a11fd6770e95cf13be78ba163556f1e8bc53513e4"
+          "request_sha256": "e1c71e6afb1faa14fc7dc744d285859443bcc399c2c5e3055bbf148c7cffe6bd",
+          "bytes": 1265472,
+          "sha256": "b4753de7c56d7545f65cb55c279463e5a5b4d042f4c2186c769c3888c5c295d7"
         },
         {
           "request_index": 2,
-          "request_sha256": "5db9266eba461ad2be5aa005824b800613479fc0162e2f7b16424e0b88466dbf",
-          "bytes": 1232256,
-          "sha256": "c15aa77a266b56f12d6896d0efd9e54654b3fe95759722db07b346b90a72adf3"
+          "request_sha256": "503ebfa2e7e3d61c67d04125db067f7c5a60b9bc66e5fc901443331d50340701",
+          "bytes": 1268064,
+          "sha256": "2555c2067c978826326894b42e66ef8c0a4508727cae17963f413526db94c156"
         },
         {
           "request_index": 3,
           "request_sha256": "adea184e2db4f97ff4403f22e9410d0122394c479aa0cfe7290c565c866b6900",
-          "bytes": 451296,
-          "sha256": "e4da1688a0fd7a623f4a7b8bdfa024319a7866bd44899d7458b8bbf7a78e7001"
+          "bytes": 468576,
+          "sha256": "95cb038e51972ba5e6e035efae7d5f9a3c03ac6e1415ca40a2716cd5175c1bdd"
         },
         {
           "request_index": 4,
           "request_sha256": "86847aeb93c77b0d035591815ee82696de71cd5ac071fd8d02fdcfc2aa3cdd49",
-          "bytes": 178464,
-          "sha256": "bf38941271c20775b0497c082231574be66827e3318bbc54ee7748912cb1067d"
+          "bytes": 183456,
+          "sha256": "eb166b6a66abeed1c70aed5a62f19957c3f74d3739e17e0079098186e28f2a03"
         }
       ]
     }

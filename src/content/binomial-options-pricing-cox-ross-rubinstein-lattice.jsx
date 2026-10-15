@@ -307,12 +307,12 @@ export const content = {
           for (let step = 0; step <= 4; step++) {
             for (let j = 0; j <= step; j++) {
               const x = 40 + step * 70;
-              const y = 140 - (2 * j - step) * 28;
+              const y = 132 - (2 * j - step) * 23;
               const s = 100 * u ** (2 * j - step);
               nodes.push({ x, y, s, step });
               if (step < 4) {
-                lines.push([x, y, x + 70, y - 28]);
-                lines.push([x, y, x + 70, y + 28]);
+                lines.push([x, y, x + 70, y - 23]);
+                lines.push([x, y, x + 70, y + 23]);
               }
             }
           }
@@ -337,7 +337,7 @@ export const content = {
         <text x="400" y="144" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="11">American put, N = 1,000</text>
         <text x="400" y="164" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">6.0896 (reference 6.0902)</text>
         <text x="400" y="180" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">European put 5.5715; premium 0.52</text>
-        <text x="400" y="196" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">Black-Scholes for it: 5.5735, wrong contract</text>
+        <text x="400" y="196" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">Black-Scholes: 5.5735, wrong contract</text>
         <text x="400" y="228" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">N = 16 maturity prices: CRR 17, JR 17,</text>
         <text x="400" y="244" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">refitted factors 65,536</text>
       </svg>

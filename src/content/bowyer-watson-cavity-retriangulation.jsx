@@ -320,13 +320,13 @@ export const content = {
           <line key={i} x1="238" y1="160" x2={x} y2={y} stroke="#f0b94b" strokeWidth="1.6" strokeDasharray="5 3" />
         ))}
         <text x="370" y="60" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">red: circumcircle contains the new point (bad)</text>
-        <text x="370" y="80" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">amber: the rim of the cavity fanned to the point</text>
+        <text x="370" y="80" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">amber: cavity rim joins the new point</text>
         <text x="370" y="100" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">blue: untouched, still Delaunay by proof</text>
-        <text x="370" y="140" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">40 points: output = brute-force triple set (67)</text>
+        <text x="370" y="140" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">40 points: all 67 triangles match brute force</text>
         <text x="370" y="160" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">400 points: cavity 160,000 tests · flips 231,242</text>
         <text x="370" y="176" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">rebuild after each insertion: 20,219,600</text>
         <text x="370" y="204" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">super-triangle at 1× the spread: 5 hull edges lost</text>
-        <text x="370" y="220" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">at 10×: 3 lost · at 1000×: none (Euler and hull exact)</text>
+        <text x="370" y="220" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">10×: 3 lost · 1000×: hull and Euler exact</text>
         <text x="40" y="272" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">every triangle count = 2n − 2 − h with h from an independent hull; Lawson’s flips agree on every triangle</text>
       </svg>
     </Figure>

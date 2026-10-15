@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -127,7 +128,7 @@ export default function HoltWintersViz() {
         const sc = s.scene;
         const ox = 36;
         const oy = 30;
-        const pw = 440;
+        const pw = 390;
         const ph = 210;
         const n = TRAIN + HOLD;
         let lo = Infinity;
@@ -142,7 +143,7 @@ export default function HoltWintersViz() {
         const Y = (v) => oy + ph - ((v - lo) / (hi - lo)) * ph;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('a monthly series, one month per tick: level, trend, and seasonal index updated; blue: the forecast from now', 12, 18);
+        ctx.fillText('monthly level, trend and season updates; blue: the forecast from now', 12, 18);
         ctx.fillStyle = `${dim}18`;
         ctx.fillRect(X(TRAIN), oy, X(n) - X(TRAIN), ph);
         ctx.strokeStyle = `${dim}66`;
@@ -176,24 +177,24 @@ export default function HoltWintersViz() {
         }
         if (s.done && sc.score) {
           ctx.fillStyle = good;
-          ctx.fillText(`held-out: Holt-Winters RMSE ${sc.score.hw.toFixed(1)} vs seasonal naive ${sc.score.naive.toFixed(1)}`, X(TRAIN) - 150, oy + ph + 14);
+          ctx.fillText(`held-out RMSE: HW ${sc.score.hw.toFixed(1)}, seasonal naive ${sc.score.naive.toFixed(1)}`, ox, oy + ph + 14);
         }
         // seasonal indices as bars on the right
-        const bx = 500;
-        const by = 150;
+        const bx = 450;
+        const by = 163;
         ctx.fillStyle = dim;
         ctx.fillText('seasonal index by month', bx - 4, 50);
         const sMax = Math.max(1, ...sc.season.map((v) => Math.abs(v)), ...sc.pattern.map((v) => Math.abs(v)));
         for (let i = 0; i < M; i++) {
-          const hgt = (sc.season[i] / sMax) * 60;
-          const tgt = (sc.pattern[i] / sMax) * 60;
+          const hgt = (sc.season[i] / sMax) * 38;
+          const tgt = (sc.pattern[i] / sMax) * 38;
           ctx.fillStyle = `${heur}cc`;
           ctx.fillRect(bx + i * 10, by - Math.max(0, hgt), 6, Math.abs(hgt));
           ctx.fillStyle = `${good}99`;
           ctx.fillRect(bx + i * 10 + 6, by - Math.max(0, tgt), 2, Math.abs(tgt));
         }
         ctx.fillStyle = dim;
-        ctx.fillText('amber: estimate, green: truth', bx - 4, by + 30);
+        ctx.fillText('amber: fit; green: truth', bx - 4, by + 52);
         ctx.fillStyle = ink;
         ctx.fillText(`month ${sc.t} of ${TRAIN}`, bx - 4, 70);
         ctx.fillStyle = heur;
@@ -203,12 +204,12 @@ export default function HoltWintersViz() {
         ctx.fillStyle = Math.abs(sc.lastErr) > 2.5 * sc.sigma ? warn : dim;
         ctx.fillText(`one-step error ${sc.lastErr >= 0 ? '+' : ''}${sc.lastErr.toFixed(1)}`, bx - 4, 116);
         ctx.fillStyle = dim;
-        ctx.fillText(`alpha ${ALPHA} beta ${BETA} gamma ${GAMMA}`, bx - 4, 216);
+        ctx.fillText(`α ${ALPHA}  β ${BETA}  γ ${GAMMA}`, bx - 4, 232);
         ctx.fillText('the file: 1.17x the noise floor,', bx - 4, 246);
         ctx.fillText('Holt 109.9 vs 3.3', bx - 4, 262);
         let line;
         if (s.done && sc.score) {
-          line = `after ${TRAIN} months: held-out RMSE over ${HOLD} months ${sc.score.hw.toFixed(2)} (Holt-Winters) vs ${sc.score.naive.toFixed(2)} (seasonal naive), noise ${sc.sigma.toFixed(1)}; fitted trend ${sc.trend.toFixed(2)} vs true ${sc.drift.toFixed(2)}`;
+          line = `${HOLD}-month held-out RMSE: HW ${sc.score.hw.toFixed(2)} vs seasonal naive ${sc.score.naive.toFixed(2)}; noise ${sc.sigma.toFixed(1)}`;
           ctx.fillStyle = sc.score.hw < sc.score.naive ? good : heur;
         } else {
           line = `month ${sc.t}: one-step RMSE so far ${sc.t > M ? Math.sqrt(sc.sse / (sc.t - M)).toFixed(2) : '·'}; level ${sc.level.toFixed(1)}, trend ${sc.trend.toFixed(2)} a month`;
@@ -223,7 +224,9 @@ export default function HoltWintersViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

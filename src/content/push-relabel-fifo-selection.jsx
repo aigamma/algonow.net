@@ -309,7 +309,7 @@ export const content = {
         </defs>
         <rect x="290" y="112" width="70" height="10" fill="none" stroke="#e2606c" strokeDasharray="4 3" />
         <text x="252" y="106" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">relabel: jack the stuck terrace one notch</text>
-        <text x="60" y="284" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">push: one level downhill only · relabel: heights only climb · end state: no puddles, cut = flow (asserted)</text>
+        <text x="60" y="284" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">push one level downhill · relabel raises height · final excess = 0, cut = flow</text>
       </svg>
     </Figure>
   ),

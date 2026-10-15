@@ -82,7 +82,7 @@ export const content = {
     </>,
     <>
       <strong>Guarantee:</strong> P(any false rejection) ≤ Σ P(pᵢ ≤ α/m over a
-      true null) = m₀ · α/m ≤ α, for any dependence among the tests.
+      true null) ≤ m₀ · α/m ≤ α, for any dependence among the tests.
     </>,
     <>
       <strong>Sharpen if you can:</strong> Holm&apos;s step-down (sort the
@@ -91,8 +91,7 @@ export const content = {
     </>,
     <>
       <strong>Change the target if you may:</strong> when a few false
-      discoveries among many are acceptable, Benjamini-Hochberg controls
-      the expected false fraction at α and finds far more.
+      discoveries among many are acceptable, under independence or suitable positive dependence, Benjamini-Hochberg controls the expected false fraction at α and finds far more.
     </>,
   ],
 
@@ -310,7 +309,7 @@ export const content = {
               <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">P(any false claim) vs number of null tests m</text>
               <text x={x0} y="36" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">gray: no correction, 1 - 0.95^m; blue: Bonferroni at alpha</text>
               <text x={x0} y={y0 + 30} fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">green: Bonferroni under a common factor, conservative</text>
-              <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">10 real effects in 100: power (bars), FWER (dots)</text>
+              <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">10/100 real: power bars, FWER dots</text>
               {bars.map(([name, pow, fwer, c], i) => (
                 <g key={name}>
                   <rect x={bx + i * 60} y={by - pow * 180} width="36" height={pow * 180} fill={c} fillOpacity="0.8" />

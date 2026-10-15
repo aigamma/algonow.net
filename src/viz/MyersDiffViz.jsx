@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -164,7 +165,7 @@ export default function MyersDiffViz() {
         ctx.fillStyle = dim;
         ctx.fillText(act === 0
           ? `act 1 · the full table: every one of ${n} × ${m} cells, similar files or not`
-          : `act 2 · Myers: one frontier per edit count D, sliding along matches; stop at the first frontier that reaches the corner`, 14, 18);
+          : `act 2 · Myers: extend the edit frontier, slide along matches, stop at the corner`, 14, 18);
 
         // labels: a along the top (x), b down the side (y)
         ctx.fillStyle = ink;
@@ -235,7 +236,7 @@ export default function MyersDiffViz() {
         ctx.fillStyle = ink;
         ctx.fillText(`A = ${sc.a.join('')}   B = ${sc.b.join('')}`, lx, 52);
         ctx.fillStyle = dim;
-        ctx.fillText(`right = delete from A, down = insert from B, diagonal = match`, lx, 72);
+        ctx.fillText(`right: delete; down: insert; diagonal: match`, lx, 72);
         ctx.fillStyle = algo;
         ctx.fillText(`DP table: ${sc.dp.order.length} cells, D = ${sc.dp.d}`, lx, 100);
         ctx.fillStyle = heur;
@@ -255,7 +256,9 @@ export default function MyersDiffViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:nelder-mead-reflect-expand-contract-simplex",
   "source_path": "src/content/nelder-mead-reflect-expand-contract-simplex.narration.js",
-  "source_sha256": "93a98b33ee76b1423aa0d7e9819c53dd9d0b86c7dba8caeb84761f4ec4ed32b4",
-  "source_characters": 10472,
+  "source_sha256": "dbc0606e955fe6d47befe62871367e3cd72b0b967998d46ebf1bd2aeeb1bf66e",
+  "source_characters": 10532,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -57,9 +57,9 @@
     }
   },
   "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
-  "release_sha256": "6f44f75d5e202132af0abc6264d2f4229d4f16a739328062c16ec03688ab0c40",
-  "generated_at": "2026-09-27T03:40:36.561Z",
-  "generated_characters": 20944,
+  "release_sha256": "0f2597fbfef9884e33581a947de3e1440d47fadf9a3936c6ed1784f3643d262e",
+  "generated_at": "2026-10-15T22:40:54.624Z",
+  "generated_characters": 21064,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -91,9 +91,9 @@
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4021,
-      "utf8_bytes": 4027,
-      "sha256": "523006f37a02b2d294f3473b4a62422e244572cbfa88c9cf0a61874255c84158"
+      "characters": 4081,
+      "utf8_bytes": 4087,
+      "sha256": "0eb63d3064b33b783a37ccdbabd63b4306ddc3b628b5815f03e1663aa88c7b49"
     },
     {
       "id": "request-003",
@@ -248,8 +248,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 927,
-      "sha256": "dbb6ed441f1b9f6b916ad44c68e4053f5c34728a5b7c0e7a17a51257e60575ae"
+      "utf8_bytes": 987,
+      "sha256": "5cf17386ca8821cefaee624bc9c5f0d87af2561560def632bbfcbf24f464deb4"
     },
     {
       "id": "nelder-mead-reflect-expand-contract-simplex.06-signals",
@@ -373,29 +373,29 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/nelder-mead-reflect-expand-contract-simplex/6f44f75d5e202132af0a/aoede-b0a1bb42b113216c.mp3",
+      "object_key": "narration/v1/puzzles/nelder-mead-reflect-expand-contract-simplex/0f2597fbfef9884e3358/aoede-c85c9a19260dfa4a.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2630540,
-      "sha256": "b0a1bb42b113216cf506f04b4e7a7b5c3c191a6c84a3ab38b4cdf48b745d109d",
+      "bytes": 2670188,
+      "sha256": "c85c9a19260dfa4aea9e7ae931aef886ea987fd7f0994ca5a278e8b29701cd77",
       "request_parts": [
         {
           "request_index": 1,
           "request_sha256": "ac54f6532d6cd8399f638b31470edd85501087bd79c1da4fc2c38d00a762da92",
-          "bytes": 1182432,
-          "sha256": "976fc084af704e77451787c9078f64c16357ef873e7f7bd1f7c391b48872c801"
+          "bytes": 1244832,
+          "sha256": "396062da6aba4514032a7fb6f154af620a7a65e1913468647aa43470fd18b509"
         },
         {
           "request_index": 2,
-          "request_sha256": "523006f37a02b2d294f3473b4a62422e244572cbfa88c9cf0a61874255c84158",
-          "bytes": 1031904,
-          "sha256": "aaeecc11ab030f03f769a4e1f0e1ab98dedce61fb16878b7606e2827c8bf7d90"
+          "request_sha256": "0eb63d3064b33b783a37ccdbabd63b4306ddc3b628b5815f03e1663aa88c7b49",
+          "bytes": 1027584,
+          "sha256": "0536eddb31680e0ae2000079bf8c23eeae2b623d6ce4193ec7f4a5c3b2300872"
         },
         {
           "request_index": 3,
           "request_sha256": "cf49a0a19c9326d84c79849ef18904c2f13c0462a57c57e5f36255f88b55fb94",
-          "bytes": 271104,
-          "sha256": "4f01a39dc37163124b73c4d46c3cbe542b5e7f1ae5f809c813bb683f4865ef8a"
+          "bytes": 252672,
+          "sha256": "5b8ed9f5e1a12cbd13bd2a01ff577011ccf47b32e7e88b7fa9fa5f83da98d9c3"
         },
         {
           "request_index": 4,
@@ -410,35 +410,35 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/nelder-mead-reflect-expand-contract-simplex/6f44f75d5e202132af0a/algieba-b4fdef63c0d15002.mp3",
+      "object_key": "narration/v1/puzzles/nelder-mead-reflect-expand-contract-simplex/0f2597fbfef9884e3358/algieba-b6a35f145f243d5e.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2829644,
-      "sha256": "b4fdef63c0d15002cb27efe3eba38f2cf75369d4bdb1021514be56baec9d3fd8",
+      "bytes": 2804108,
+      "sha256": "b6a35f145f243d5ed5418c0f96424199740d6bf5106bb668736182358312322c",
       "request_parts": [
         {
           "request_index": 1,
           "request_sha256": "ac54f6532d6cd8399f638b31470edd85501087bd79c1da4fc2c38d00a762da92",
-          "bytes": 1299456,
-          "sha256": "611eda8cdb2321682c145d6d3ccabf92e82939a88541a7c285e1dcc17dad3d11"
+          "bytes": 1286016,
+          "sha256": "fe0b37f1aae68b06d2fe4ef4da2cd4ade71ea6d5a2a52348234c734f68f5f3bd"
         },
         {
           "request_index": 2,
-          "request_sha256": "523006f37a02b2d294f3473b4a62422e244572cbfa88c9cf0a61874255c84158",
-          "bytes": 1101504,
-          "sha256": "b84e7d06bcc0fb00bea665b59a84763d49a30fe7b239ee1f1dc689fe138e4c3e"
+          "request_sha256": "0eb63d3064b33b783a37ccdbabd63b4306ddc3b628b5815f03e1663aa88c7b49",
+          "bytes": 1111104,
+          "sha256": "6ce30f6748eb44adc2b29ceac57afc9d28b86957eda0d5ec1f79289b10b09b54"
         },
         {
           "request_index": 3,
           "request_sha256": "cf49a0a19c9326d84c79849ef18904c2f13c0462a57c57e5f36255f88b55fb94",
-          "bytes": 273504,
-          "sha256": "82959e09c35ee809073b7090f3920c7af95c299b0c021ba4d50ab362116bb977"
+          "bytes": 245376,
+          "sha256": "4e2a2615fb85eba41be905ea8c2dc7dc00fc2e70b1831f536318e514c82aa059"
         },
         {
           "request_index": 4,
           "request_sha256": "bb21d64a40b602113371dc71c1643a80928adbd45f3896e5eb017c5a56832412",
-          "bytes": 154944,
-          "sha256": "1bb6126a0e487079f35e7da3dd55f49945c265d0c32bdd92be11123d3b3a92c6"
+          "bytes": 161376,
+          "sha256": "65a9d5f3c8d95bac46c5bd154b45e76aa36ce38587ce30460d8d9e2aeb7d22f4"
         }
       ]
     }

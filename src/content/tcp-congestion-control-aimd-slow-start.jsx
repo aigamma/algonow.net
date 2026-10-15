@@ -94,7 +94,7 @@ export const content = {
       loss, cwnd ← cwnd + 1.
     </>,
     <>
-      <strong>Loss:</strong> ssthresh ← cwnd / 2; cwnd ← cwnd / 2.
+      <strong>Loss in this simplified round model:</strong> ssthresh ← cwnd / 2; cwnd ← cwnd / 2.
     </>,
     <>
       <strong>Share:</strong> in the two-sender plane, increases move
@@ -142,8 +142,7 @@ export const content = {
   weakness: (
     <>
       <strong>Loss as the only signal, and a bias toward the near.</strong>{' '}
-      The sawtooth needs drops to learn, so a full queue is the
-      steady state (81% here, the textbook 75% of the peak); senders
+      The sawtooth needs drops to learn, and the window cycles rather than settling. Link utilization is 81% here; the ideal half-to-full window sawtooth averages 75% of its peak; senders
       with short round trips run the loop more often and win, 88% to
       12% at round-trip times 1 and 4; a sender that ignores loss takes
       everything; and on links where loss is noise rather than

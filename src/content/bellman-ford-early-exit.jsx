@@ -289,7 +289,7 @@ export const content = {
         {['≤1 edge', '≤2 edges', '≤3 edges', '…'].map((s, i) => (
           <text key={i} x={118 + (i === 3 ? 130 : 30 + i * 34)} y={i === 3 ? 130 : 128 - 0} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10" transform={`translate(0 ${-30 - i * 33})`}>{i < 3 ? s : ''}</text>
         ))}
-        <text x="140" y="66" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">round i finalizes ≤ i-edge paths</text>
+        <text x="30" y="246" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">round i: paths with ≤ i edges</text>
         <text x="330" y="60" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="12">early exit: a silent round is a fixpoint</text>
         <text x="330" y="82" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="12">measured: 9 rounds where 999 were allowed</text>
         <text x="330" y="104" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="12">45,000 relaxations instead of 5,000,000</text>

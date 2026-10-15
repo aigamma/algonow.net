@@ -316,7 +316,7 @@ export const content = {
     <Figure
       id="fig-paxos-quorums"
       aspect="16 / 7"
-      caption="Any two majorities of five share at least one acceptor, and that acceptor remembers. Proposer P1 wins promises from {a0, a1, a2} and lands accept(1, A) on a majority: A is chosen. P2 arrives with ballot 2 and collects promises from {a2, a3, a4}; the overlap a2 reports (1, A), so P2 is bound to propose A, and the second majority re-chooses it. Checked exhaustively: 1,439,849 states, one value ever chosen. Shrink the quorum to two of five and the pairs stop overlapping: two values in 453 states."
+      caption="Any two majorities of five share at least one acceptor, and that acceptor remembers. Proposer P1 wins promises from {a0, a1, a2} and lands accept(1, A) on a majority: A is chosen. P2 arrives with ballot 2 and collects promises from {a2, a3, a4}; the overlap a2 reports (1, A), so P2 is bound to propose A, and the second majority re-chooses it. Checked exhaustively: 1,439,849 states, one value ever chosen. Shrink the quorum to two of five and the pairs can be disjoint: two values in 453 states."
       cite={{
         text: 'L. Lamport, "The Part-Time Parliament," ACM TOCS 16(2), 1998. DOI 10.1145/279227.279229. Also "Paxos Made Simple," 2001; Fischer-Lynch-Paterson, JACM 1985.',
         href: 'https://doi.org/10.1145/279227.279229',
@@ -336,7 +336,7 @@ export const content = {
         <text x="300" y="264" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">so P2 must propose A: chosen again, never B</text>
         <text x="30" y="200" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">the overlap is the memory: every majority of five meets every other</text>
         <text x="30" y="24" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">exhaustive: 1,439,849 states, one value ever chosen · 2 of 5 crashed: 40/40 decided</text>
-        <text x="30" y="286" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">ablation: quorum = 2 of 5 → two values in 453 states · no prepare → two values in 731 · 2PC coordinator crash → 5/5 blocked</text>
+        <text x="30" y="286" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">broken quorum: 453 unsafe states · no prepare: 731 · 2PC crash: all 5 blocked</text>
       </svg>
     </Figure>
   ),

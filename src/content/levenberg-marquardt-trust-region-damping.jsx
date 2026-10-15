@@ -5,10 +5,10 @@ import { narration } from './levenberg-marquardt-trust-region-damping.narration.
 
 export const content = {
   given:
-    'Fit a model with a few parameters to noisy data by minimizing the sum of squared residuals, when the model is nonlinear in its parameters so no closed form exists. The model here is a sum of two exponentials, y = a e^(−bt) + c e^(−dt), the classic ill-conditioned fit: 60 points on t ∈ [0, 3], noise 0.02, truth (3, 1, 2, 5), so the residual floor at the truth is known, 0.0208, and any fit can be judged against it.',
+    'Fit a model with a few parameters to noisy data by minimizing the sum of squared residuals, when the model is nonlinear in its parameters so no closed form exists. The model here is a sum of two exponentials, y = a e^(−bt) + c e^(−dt), the classic ill-conditioned fit: 60 points on t ∈ [0, 3], noise 0.02, truth (3, 1, 2, 5), so the residual cost at the truth is known, 0.0208; local refinement gives a reference cost of 0.0203, not a proven lower bound.',
   task: 'Levenberg-Marquardt. At each iterate, linearize the residuals with the Jacobian J and solve the damped normal equations (JᵀJ + λ·diag(JᵀJ)) δ = −Jᵀr. The heuristic is the damping: a large λ makes δ a short step down the gradient, a λ near zero makes it the full Gauss-Newton step, and λ is multiplied by ten after a rejected step and divided by ten after an accepted one, so the method behaves like a trust region that grows while the linear model keeps its promises.',
   constraint:
-    'Measured from 100 random starts in [0.2, 8]⁴: Levenberg-Marquardt reaches within 1% of the floor on 98, in 9.2 iterations on average; undamped Gauss-Newton on 29, diverging on 71; gradient descent with backtracking on 81, in 2,936 iterations on average with a cap of 5,000. On one far start, (6, 0.3, 0.5, 2): 8 accepted steps in 8 iterations, λ falling from 1e-2 to 1e-6 at its most Gauss-Newton-like, 3 rejected steps raising it tenfold each, final cost 0.02027. Near the solution the parameter error shrinks by factors of 2.3e-2, 3.5e-2, 7.0e-3 per accepted step; gradient descent’s successive ratios are 0.9999 after 3,000 steps. The condition number of JᵀJ at the far start is 3.6e5, and the damping caps it: 1.0e5 at λ = 0.01, 1.5e4 at 1, 1.1e4 at 100.',
+    'Measured from 100 random starts in [0.2, 8]⁴: Levenberg-Marquardt reaches at most 1% above the reference cost on 98, in 9.2 iterations on average; undamped Gauss-Newton on 29, diverging on 71; gradient descent with backtracking on 81, in 2,936 iterations on average with a cap of 5,000. On one far start, (6, 0.3, 0.5, 2): 8 accepted steps in 8 iterations, λ falling from 1e-2 to 1e-6 at its most Gauss-Newton-like, 3 rejected steps raising it tenfold each, final cost 0.02027. Near the solution the parameter error shrinks by factors of 2.3e-2, 3.5e-2, 7.0e-3 per accepted step; gradient descent’s successive ratios are 0.9999 after 3,000 steps. The condition number of JᵀJ at the far start is 3.6e5, and the damping caps it: 1.0e5 at λ = 0.01, 1.5e4 at 1, 1.1e4 at 100.',
 
   origins: (
     <p>
@@ -37,8 +37,8 @@ export const content = {
       residuals by their tangent plane, r(p + δ) ≈ r + Jδ, and the
       least-squares step for the linear model is the solution of the
       normal equations, exact and cheap for a handful of parameters.
-      The referee is the residual floor at the true parameters, 0.0208
-      (0.0203 after local refinement), and the method reaches within 1%
+      The referee is the locally refined fit, with reference cost 0.0203
+      (0.0208 at the true parameters), and the method reaches within 1%
       of it from <strong>98 of 100 far starts</strong> in 9 iterations on
       average. The algorithm also owns the rate: once the linear model
       is faithful, each accepted step shrinks the parameter error by
@@ -102,7 +102,7 @@ export const content = {
       justify.
     </>,
     <>
-      <strong>Check:</strong> the cost against a known floor or a
+      <strong>Check:</strong> the cost against a reference fit or a
       multi-start, and the ratio of actual to predicted reduction at
       each step.
     </>,
@@ -143,7 +143,7 @@ export const content = {
   ),
   weakness: (
     <>
-      <strong>Local, quadratic in the parameters, and blind to the
+      <strong>Local, cubic in the parameters for the dense solve, and blind to the
       sign of the step.</strong> It finds the nearest minimum, and the
       double exponential has a swapped twin and a valley of near-ties;
       each iteration forms and solves JᵀJ, which is n³ in the
@@ -237,7 +237,7 @@ export const content = {
       <>
         The gradient is available, so descend it. Measured with a
         backtracking line search from the same 100 starts: 81 reach the
-        floor, at <strong>2,936 iterations on average against 9</strong>,
+        reference cost, at <strong>2,936 iterations on average against 9</strong>,
         and near the solution the parameter error shrinks by a factor of
         0.9999 per step where Levenberg-Marquardt shrinks it by 0.02.
         The double exponential&apos;s cost surface is a long curved
@@ -253,8 +253,8 @@ export const content = {
 
   contest: {
     instance:
-      'y = a e^(−bt) + c e^(−dt) on 60 points, noise 0.02, truth (3, 1, 2, 5); 100 random starts in [0.2, 8]⁴; referee: the residual floor at the truth, 0.0208 (0.0203 refined)',
-    columns: ['starts reaching within 1% of the floor', 'iterations (mean)', 'note'],
+      'y = a e^(−bt) + c e^(−dt) on 60 points, noise 0.02, truth (3, 1, 2, 5); 100 random starts in [0.2, 8]⁴; referee: the locally refined reference cost, 0.0203 (0.0208 at the truth)',
+    columns: ['starts reaching at most 1% above the reference cost', 'iterations (mean)', 'note'],
     rows: [
       {
         method: 'Levenberg-Marquardt',
@@ -285,14 +285,14 @@ export const content = {
       },
     ],
     source:
-      'python solutions/levenberg_marquardt_trust_region_damping.py prints this table and asserts: Levenberg-Marquardt within 1% of the floor on at least 90 of 100 starts; Gauss-Newton diverging on at least 20 with fewer successes than the hero; gradient descent either fewer successes or more than twenty times the iterations; the traced run’s smallest λ at least a thousand times below its first and its final cost within 1% of the floor; the last error ratios under 0.2 for the hero and above 0.9 for gradient descent; and λ = 100 cutting the condition number of JᵀJ by more than ten.',
+      'python solutions/levenberg_marquardt_trust_region_damping.py prints this table and asserts: Levenberg-Marquardt at most 1% above the reference cost on at least 90 of 100 starts; Gauss-Newton diverging on at least 20 with fewer successes than the hero; gradient descent either fewer successes or more than twenty times the iterations; the traced run’s smallest λ at least a thousand times below its first and its final cost at most 1% above the reference cost; the last error ratios under 0.2 for the hero and above 0.9 for gradient descent; and λ = 100 cutting the condition number of JᵀJ by more than ten.',
   },
 
   figure: (
     <Figure
       id="fig-lm-damping"
       aspect="16 / 7"
-      caption="The damping dial on the traced run from (6, 0.3, 0.5, 2). Each accepted step (blue) divides λ by ten; each rejected trial (red) multiplies it by ten and is thrown away. The cost falls from 74 to the floor of 0.0203 in eight accepted steps, and λ ends four orders of magnitude below where it started: the last steps are pure Gauss-Newton, taken only once the model had earned the trust. Right: what each method made of the same hundred starts."
+      caption="The damping dial on the traced run from (6, 0.3, 0.5, 2). Each accepted step (blue) divides λ by ten; each rejected trial (red) multiplies it by ten and is thrown away. The cost falls from 74 to the fitted cost of 0.0203 in eight accepted steps, and λ ends four orders of magnitude below where it started: the last steps approach Gauss-Newton, taken only once the model had earned the trust. Right: what each method made of the same hundred starts."
       cite={{
         text: 'K. Levenberg, "A method for the solution of certain non-linear problems in least squares," Quarterly of Applied Mathematics 2(2), 1944. DOI 10.1090/qam/10666. D. W. Marquardt, "An algorithm for least-squares estimation of nonlinear parameters," SIAM Journal on Applied Mathematics 11(2), 1963. J. J. Moré, "The Levenberg-Marquardt algorithm: implementation and theory," Lecture Notes in Mathematics 630, 1978.',
         href: 'https://doi.org/10.1090/qam/10666',
@@ -334,7 +334,7 @@ export const content = {
                     <text x="380" y={60 + i * 44 - 5} fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="10">{`${name}: ${n} of 100`}</text>
                   </g>
                 ))}
-                <text x="380" y="200" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">starts reaching within 1% of the floor</text>
+                <text x="380" y="200" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">starts with cost ≤ 1.01 × reference</text>
                 <text x="380" y="216" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">iterations: 9 / 2,936 / (71 diverged)</text>
                 <text x="380" y="244" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">cond(JᵀJ) 3.6e5 → 1.5e4 at λ = 1</text>
               </g>

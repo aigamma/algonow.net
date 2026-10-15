@@ -7,15 +7,15 @@
 # binary search: each value lands on the LEFTMOST pile whose top is
 # >= it, or starts a new pile: n bisect steps total. The heuristic is
 # the patience-pile invariant that makes the pile COUNT the answer:
-# every pile is decreasing top-to-bottom, so an increasing
+# every pile is non-increasing in arrival order, so an increasing
 # subsequence can take at most one card per pile (LIS <= piles):
 # while backpointers from each card to the top of the pile to its
 # left splice together an increasing sequence one card per pile
 # (piles <= LIS): equality, constructive, reconstructed and verified
 # here card by card. The referees: the O(n^2) DP on 400 arrays with
 # the witness subsequence checked; FULL 2^n enumeration on 50 small
-# arrays (the absolute referee); the duality corollary LIS x LDS >=
-# n asserted on every trial (each pile is a decreasing subsequence);
+# arrays (the absolute referee); the duality corollary LIS x LNIS >=
+# n asserted on every trial (each pile is non-increasing);
 # Ulam's problem measured (mean LIS of a random n-permutation ~
 # 2 sqrt n); and the op meter: 50 million DP comparisons vs 13
 # bisect-steps-per-item at n = 10,000.
@@ -49,7 +49,7 @@ def lis_patience(a, counter=None):
     return len(tops), out[::-1]
 
 
-def lis_dp(a, counter=None):
+def lis_dp(a, counter=None, *, strict=True):
     n = len(a)
     if n == 0:
         return 0
@@ -58,7 +58,7 @@ def lis_dp(a, counter=None):
         for j in range(i):
             if counter is not None:
                 counter["cmps"] = counter.get("cmps", 0) + 1
-            if a[j] < a[i]:
+            if a[j] < a[i] or (not strict and a[j] == a[i]):
                 best[i] = max(best[i], best[j] + 1)
     return max(best)
 
@@ -103,14 +103,20 @@ if __name__ == "__main__":
         assert all(w[k] < w[k + 1] for k in range(L - 1))
         assert all(a[w[k]] < a[w[k + 1]] for k in range(L - 1))
 
-        # The duality, every trial: piles are decreasing subsequences
-        # covering the array, so LIS * LDS >= n: with pile count == L.
+        # Piles are non-increasing subsequences covering the array,
+        # so LIS * LNIS >= n, including when input values repeat.
         piles = piles_of(a)
         assert len(piles) == L
         for p in piles:
             assert all(p[k] >= p[k + 1] for k in range(len(p) - 1))
-        lds = lis_dp([-x for x in a])
-        assert L * lds >= n  # Erdos-Szekeres, constructive form
+        lnis = lis_dp([-x for x in a], strict=False)
+        assert L * lnis >= n  # Erdos-Szekeres with ties accounted for
+
+    # Equal values disprove the strict-LIS times strict-LDS variant.
+    ties = [1, 1, 1]
+    assert lis_patience(ties)[0] == lis_dp(ties) == 1
+    assert lis_dp([-x for x in ties]) == 1
+    assert lis_dp([-x for x in ties], strict=False) == 3
 
     # Oracle 2: the absolute referee: full subsequence enumeration on
     # 50 arrays of n <= 15.

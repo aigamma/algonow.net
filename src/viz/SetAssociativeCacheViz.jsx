@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks } from './useCanvasLoop.js';
 
@@ -237,7 +238,7 @@ export default function SetAssociativeCacheViz() {
         ctx.fillText(`access ${sc.i} of ${sc.trace.length}: hits ${sc.hits}, misses ${sc.misses}`, ax, ay + 114);
         ctx.fillStyle = dim;
         ctx.fillText(`tag compares ${sc.compares} (${c.ways} per access)`, ax, ay + 130);
-        ctx.fillText('the file: 6,144 of 6,144 miss at 1 and 2 ways', ax, ay + 154);
+        ctx.fillText('solution: all 6,144 miss at 1/2 ways', ax, ay + 154);
         ctx.fillStyle = sc.ok ? good : warn;
         ctx.fillText(sc.ok ? 'reference agrees on every access' : 'INVARIANT BROKEN', ax, ay + 184);
         const line = sc.last;
@@ -251,7 +252,9 @@ export default function SetAssociativeCacheViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

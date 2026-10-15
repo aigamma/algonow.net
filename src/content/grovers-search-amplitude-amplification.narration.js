@@ -39,7 +39,7 @@ export const narration = [
   {
     section: 'tradeoffs',
     text:
-      'The honest weaknesses of the hero. Quadratic, not exponential, and that is a ceiling, not a current limit: no version of this reaches polynomial time on hard search problems. Overshoot is real, with the probability at nine parts in ten thousand at twice the optimum. The wrong count of marked items is fatal, two parts in ten thousand, and the fix for an unknown count costs a constant factor, fifty two calls against fifty. The oracle must be a reversible circuit, and loading a classical database into it costs the N operations you were trying to save.',
+      'The honest weaknesses of the hero. Quadratic, not exponential: the square root of N is a query lower bound for black box unstructured search. Searching two to the n candidates this way still takes exponential queries. This bound does not cover algorithms that exploit problem structure. Overshoot is real, with the probability at nine parts in ten thousand at twice the optimum. The wrong count of marked items is fatal, two parts in ten thousand, and the fix for an unknown count costs a constant factor, fifty two calls against fifty. The oracle must be a reversible circuit, and loading a classical database into it costs the N operations you were trying to save.',
   },
   {
     section: 'tradeoffs',

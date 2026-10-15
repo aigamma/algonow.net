@@ -330,7 +330,7 @@ export const content = {
         <path d="M 70 150 L 150 70 L 250 130 L 330 60 L 420 120 L 500 160 L 340 200 L 170 210 Z" fill="none" stroke="#62d98a" strokeWidth="1.6" opacity="0.9" />
         <text x="30" y="250" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">tree ≤ OPT (measured 0.796)</text>
         <text x="230" y="250" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">matching on the odd cities ≤ OPT/2 (0.339)</text>
-        <text x="30" y="272" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">Euler walk shortcut = tour ≤ 1.5 OPT: measured 1.066 mean, 1.133 worst · double-tree 1.199 · 2-opt polish reaches 1.000</text>
+        <text x="30" y="272" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">tour ≤ 1.5 OPT · mean 1.066, worst 1.133 · double-tree 1.199 · polished 1.000</text>
         <text x="30" y="24" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">an optimal tour through the odd cities is an even cycle: two perfect matchings, the cheaper at most half of it</text>
       </svg>
     </Figure>

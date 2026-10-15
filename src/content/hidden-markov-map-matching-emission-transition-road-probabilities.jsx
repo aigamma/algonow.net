@@ -285,7 +285,7 @@ export const content = {
           const BY = (v) => by - (v / 1.3) * 170;
           return (
             <g fontFamily="ui-monospace, monospace" fontSize="10">
-              <text x="30" y="22" fill="#9aa5bd">blue: the avenue; grey: frontage road, 18 m away, joined at its ends</text>
+              <text x="30" y="22" fill="#9aa5bd">avenue blue; frontage road gray, 18 m away</text>
               <path d={`M30 ${y}H330M60 ${y}V${yf}H300V${y}`} fill="none" stroke="#9aa5bd" strokeWidth="2" />
               <line x1="30" y1={y} x2="330" y2={y} stroke="#5da2ff" strokeWidth="3" />
               <polyline points={fixes.map(([x]) => `${x},${y}`).join(' ')} fill="none" stroke="#5da2ff" strokeWidth="1.5" strokeDasharray="5 3" />
@@ -296,7 +296,7 @@ export const content = {
                   {fy > y + 18 && <rect x={x - 4} y={yf - 4} width="8" height="8" fill="#e2606c" />}
                 </g>
               ))}
-              <text x="30" y="262" fill="#e2606c">red: fixes snapping sends to the frontage road (83 of 800 at σ 10)</text>
+              <text x="30" y="262" fill="#e2606c">red: wrong snap (83 / 800 at σ 10)</text>
               <text x="30" y="276" fill="#5da2ff">dashed blue: the matched route, 1 flip in 800</text>
               <text x={bx} y="22" fill="#9aa5bd">route-length error vs the hidden route</text>
               <line x1={bx} y1={by} x2={bx + 230} y2={by} stroke="#9aa5bd" strokeOpacity="0.6" />

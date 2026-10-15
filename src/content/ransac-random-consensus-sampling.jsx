@@ -102,7 +102,7 @@ export const content = {
     </>,
     <>
       <strong>Refit:</strong> least squares on the winning consensus
-      set; the outliers never enter the final fit.
+      set; points outside the consensus are excluded, though outliers inside the threshold can still enter.
     </>,
   ],
 
@@ -293,7 +293,7 @@ export const content = {
     <Figure
       id="fig-ransac-vote"
       aspect="16 / 7"
-      caption="One draw: two random points (amber rings) fix a candidate line; the points within the threshold band (blue) are its consensus. A draw that includes an outlier (dashed amber) fits almost nobody and is discarded. After N draws the largest consensus is refit by least squares; the outliers never enter it. Least squares on all 200 points (red dashed) is pulled toward the scatter: 0.278 mean slope error at 40% outliers against RANSAC’s worst of 0.023 over 200 trials."
+      caption="One draw: two random points (amber rings) fix a candidate line; the points within the threshold band (blue) are its consensus. The illustrated draw that includes an outlier (dashed amber) fits almost nobody and is discarded. After N draws the largest consensus is refit by least squares; only points within its threshold enter it, which can include some outliers. Least squares on all 200 points (red dashed) is pulled toward the scatter: 0.278 mean slope error at 40% outliers against RANSAC’s worst of 0.023 over 200 trials."
       cite={{
         text: 'M. A. Fischler, R. C. Bolles, "Random sample consensus: a paradigm for model fitting with applications to image analysis and automated cartography," Communications of the ACM 24(6), 1981. DOI 10.1145/358669.358692. P. H. S. Torr, A. Zisserman, "MLESAC," CVIU 78(1), 2000. O. Chum, J. Matas, "Matching with PROSAC," CVPR 2005.',
         href: 'https://doi.org/10.1145/358669.358692',

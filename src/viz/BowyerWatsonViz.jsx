@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -250,7 +251,7 @@ export default function BowyerWatsonViz() {
           }
           ctx.fillStyle = act === 0 && !finished && phase < 4 ? warn : phase < 8 && !finished ? heur : good;
         } else {
-          ctx.fillText('act 2 · the same points with a tight super-triangle: the fake corners are close enough to steal hull edges', 14, 18);
+          ctx.fillText('act 2 · a tight super-triangle: nearby fake corners steal hull edges', 14, 18);
           drawTris(sc.tight.tris, `${dim}AA`, 1.2);
           drawHull(`${good}66`, [4, 4]);
           ctx.strokeStyle = warn;
@@ -264,7 +265,7 @@ export default function BowyerWatsonViz() {
           ctx.stroke();
           shown = N;
           line = sc.missing.length
-            ? `${sc.missing.length} hull edge${sc.missing.length === 1 ? '' : 's'} missing (red) and ${sc.good.tris.length - sc.tight.tris.length} triangles short: the super-triangle must be far away, or the mesh lies at its edge`
+            ? `${sc.missing.length} hull edges lost (red), ${sc.good.tris.length - sc.tight.tris.length} triangles short: move the super-triangle farther away`
             : 'this seed happened to survive the tight super-triangle: the trap is probabilistic, the fix is a huge triangle';
           ctx.fillStyle = sc.missing.length ? warn : dim;
         }
@@ -283,7 +284,7 @@ export default function BowyerWatsonViz() {
         ctx.fillStyle = algo;
         ctx.fillText(`far super-triangle: ${sc.good.tris.length} triangles, hull intact`, lx, 100);
         ctx.fillStyle = sc.missing.length ? warn : dim;
-        ctx.fillText(`tight super-triangle: ${sc.tight.tris.length} triangles, ${sc.missing.length} hull edges lost`, lx, 120);
+        ctx.fillText(`tight: ${sc.tight.tris.length} triangles; ${sc.missing.length} hull edges lost`, lx, 120);
         ctx.fillStyle = dim;
         ctx.font = '10px ui-monospace, monospace';
         ctx.fillText('red: circumcircle holds the new point (the cavity)', lx, 148);
@@ -300,7 +301,9 @@ export default function BowyerWatsonViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

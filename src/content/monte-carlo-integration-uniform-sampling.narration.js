@@ -24,7 +24,7 @@ export const narration = [
   {
     section: 'run',
     text:
-      'Here is the run. Sample: draw N points independently and uniformly in the box. Evaluate the function at each, keeping the running sum and the running sum of squares. Estimate: the integral is the volume of the box times the mean of the values. Error bar: the volume times the sample standard deviation over the square root of N, and a ninety five percent interval is plus or minus one point nine six of that, valid when the function has finite variance. Refine: four times the samples halve the error, in every dimension. To do better than that, change the points, to stratified or quasi random ones, or change the measure, by importance sampling; the law itself does not change.',
+      'Here is the run. Sample: draw N points independently and uniformly in the box. Evaluate the function at each, keeping the running sum and the running sum of squares. Estimate: the integral is the volume of the box times the mean of the values. Error bar: the volume times the sample standard deviation over the square root of N, and a ninety five percent interval is plus or minus one point nine six of that, an asymptotic normal approximation for independent samples with finite variance, not a finite sample guarantee. Refine: four times the samples halve the error, in every dimension. To do better than that, change the points, to stratified or quasi random ones, or change the measure, by importance sampling; the law itself does not change.',
   },
   {
     section: 'signals',

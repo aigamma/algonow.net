@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -229,7 +230,7 @@ export default function KalmanViz() {
 
           let line;
           if (finished) {
-            line = `the computed gain wins: ${sc.kfMse[N1 - 1].toFixed(1)} vs ${sc.jittery[N1 - 1].mse.toFixed(1)} (copy) and ${sc.sluggish[N1 - 1].mse.toFixed(1)} (lag): trust arithmetic beats both instincts`;
+            line = `MSE: Kalman ${sc.kfMse[N1 - 1].toFixed(1)} · copy ${sc.jittery[N1 - 1].mse.toFixed(1)} · lag ${sc.sluggish[N1 - 1].mse.toFixed(1)}`;
             ctx.fillStyle = good;
           } else {
             line = `step ${n}/${N1}: red chases every lie, amber trusts yesterday, blue splits by covariance`;
@@ -250,7 +251,9 @@ export default function KalmanViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

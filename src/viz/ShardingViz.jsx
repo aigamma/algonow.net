@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -164,7 +165,7 @@ export default function ShardingViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('left: shard = h(key) mod N (amber); right: consistent hashing ring (blue); red: keys re-homed when a shard joins', 12, 18);
+        ctx.fillText('amber: h(key) mod N; blue: consistent ring; red: keys moved when a shard joins', 12, 18);
         const panel = (x0, assign, color, label, moved) => {
           const ld = loads(assign, sc.n);
           const bw = Math.floor(280 / sc.n);
@@ -192,7 +193,7 @@ export default function ShardingViz() {
         panel(20, sc.mod, heur, `modulo: theory N/(N+1) = ${(100 * sc.n0 / (sc.n0 + 1)).toFixed(1)}% move`, sc.movedMod);
         panel(340, sc.ring, algo, `ring, ${V} virtual nodes: theory 1/(N+1) = ${(100 / (sc.n0 + 1)).toFixed(1)}%`, sc.movedRing);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? 'invariants: every key on one shard in both schemes; modulo moves N/(N+1); ring moves only onto the new shard' : 'INVARIANT BROKEN', 12, 258);
+        ctx.fillText(sc.ok ? 'one shard per key; modulo moves ~N/(N+1); ring moves only to the new shard' : 'INVARIANT BROKEN', 12, 258);
         const line = sc.last;
         ctx.fillStyle = s.done ? (sc.ok ? good : warn) : ink;
         ctx.fillText(line.length > 96 ? `${line.slice(0, 95)}…` : line, 12, H - 6);
@@ -204,7 +205,9 @@ export default function ShardingViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

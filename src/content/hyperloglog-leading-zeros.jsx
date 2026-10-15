@@ -17,7 +17,7 @@ export const content = {
       needed distinct counts without the memory to count distinctly. Twenty
       years of refinement followed: LogLog in 2003, then{' '}
       <strong>HyperLogLog in 2007</strong>, whose harmonic mean pushed the
-      error to 1.04/√m, provably near the floor for the memory. Google&apos;s
+      relative standard error to 1.04/√m, near the floor for the memory. Google&apos;s
       2013 HyperLogLog++ (sparse mode, bias correction) is what answers
       BigQuery&apos;s APPROX_COUNT_DISTINCT; Redis ships it behind PFADD and
       PFCOUNT at twelve kilobytes per counter. The PF prefix is a tribute:
@@ -41,7 +41,8 @@ export const content = {
   heurRole: (
     <p>
       Chooses <strong>what each register remembers</strong>: the longest run
-      of leading zeros ever seen in that substream&apos;s hashes. A run of r
+      of leading zeros ever seen in that substream&apos;s hashes, plus one.
+      This rank is zero only for an untouched register. A run of at least r
       zeros appears about once per <strong>2^r distinct hashes</strong>, so
       the maximum run is a witness statement about how many went by. And a
       maximum is <strong>repeat-proof by construction</strong>: the same item
@@ -69,8 +70,8 @@ export const content = {
       1,024 registers; the remaining bits are inspected for leading zeros.
     </>,
     <>
-      <strong>Witness:</strong> if this hash&apos;s zero-run beats the
-      register&apos;s stored maximum, store it. Six bits per register
+      <strong>Witness:</strong> add one to this hash&apos;s zero-run length;
+      if that rank beats the register&apos;s stored maximum, store it. Six bits per register
       suffice.
     </>,
     <>
@@ -111,25 +112,27 @@ export const content = {
   baseline: (
     <>
       The exact hash set is the honest baseline: the true 200,000, for{' '}
-      <strong>3.2 megabytes</strong>, more than four thousand times this
-      sketch&apos;s 768 bytes, growing without bound, and unmergeable across
+      <strong>3.2 megabytes at an assumed 16 bytes per key</strong>, more than four thousand times this
+      sketch&apos;s 768-byte packed representation, growing with the distinct count, and unmergeable across
       shards short of shipping the sets themselves. The sketch answers{' '}
       <strong>204,358</strong>, off by 2.2 percent, from memory that will
-      never grow again.
+      never grow again. These are storage models: the Python HyperLogLog uses
+      a 1,024-byte register payload plus object overhead, and the Python set
+      has its own larger overhead.
     </>
   ),
 
   strength: (
     <>
-      <strong>Fixed, tiny, and mergeable.</strong> 768 bytes at ±3.3
-      percent, O(1) per item, repeat-blind by construction, and the union of
+      <strong>Fixed, tiny, and mergeable.</strong> 768 packed bytes with about 3.3
+      percent relative standard error, not a guaranteed error bound; O(1) per item, repeat-blind by construction, and the union of
       shards is register-wise max, proven exact in the tested solution. This
       is why every distributed analytics engine carries it.
     </>
   ),
   weakness: (
     <>
-      <strong>It only ever estimates, and it only counts.</strong> The band
+      <strong>It only ever estimates, and it only counts.</strong> The standard error
       shrinks as 1/√m, so each halving of error costs 4× the memory. No
       membership, no frequencies, no deletion, no listing; intersections
       come only from inclusion-exclusion, which amplifies the error.
@@ -143,17 +146,17 @@ export const content = {
       name: 'HyperLogLog × zero runs',
       isThisUnit: true,
       algoName: 'HyperLogLog',
-      cost: 'O(1)/item · 768 B',
+      cost: 'O(1)/item · 768 B packed',
       wins: (
         <>
-          <strong>+2.2%</strong> on a million-item stream from 768 bytes,
+          <strong>+2.2%</strong> on a million-item stream from 768 packed bytes,
           and shards merge exactly. The near-optimal error per bit of
           memory.
         </>
       ),
       costs: (
         <>
-          Always an estimate (±3.3% here), and halving the band costs four
+          Always an estimate (about 3.3% relative standard error here), and halving that error costs four
           times the memory. Counts, and nothing else.
         </>
       ),
@@ -190,7 +193,7 @@ export const content = {
       ),
       costs: (
         <>
-          ±8.8% at this memory, and the draw below shows it:{' '}
+          About 8.9% relative standard error at this memory, and the draw below shows it:{' '}
           <strong>−15.0%</strong>. Eight bytes per stored minimum is an
           expensive witness.
         </>
@@ -222,13 +225,13 @@ export const content = {
       cost: 'O(1)/item · 16 B/key',
       wins: (
         <>
-          <strong>200,000, exactly</strong>, plus membership, frequencies,
+          <strong>200,000, exactly</strong>, plus membership
           and listing: everything the sketches gave up.
         </>
       ),
       costs: (
         <>
-          3.2 megabytes here and growing forever, and shard union means
+          3.2 megabytes at the assumed 16 bytes per key, and shard union means
           shipping the shards.
         </>
       ),
@@ -253,15 +256,15 @@ export const content = {
 
   contest: {
     instance:
-      'a 1,000,000-item stream holding exactly 200,000 distinct ids (about five appearances each); every sketch is granted about one kilobyte',
-    columns: ['estimate', 'memory'],
+      'a 1,000,000-item stream holding exactly 200,000 distinct ids (about five appearances each); storage is modeled packed state, excluding Python object overhead',
+    columns: ['estimate', 'modeled memory'],
     rows: [
       {
         method: 'HyperLogLog, 1,024 registers',
         isThisUnit: true,
         values: ['204,358 (+2.2%)', '768 B'],
         best: 1,
-        verdict: 'within 2.2% from 768 bytes, and shards merge exactly',
+        verdict: 'within 2.2% from 768 packed bytes, and shards merge exactly',
       },
       {
         method: 'Flajolet-Martin, 256 bitmaps',
@@ -271,7 +274,7 @@ export const content = {
       {
         method: 'K-minimum values, k = 128',
         values: ['170,006 (−15.0%)', '1,024 B'],
-        verdict: 'an 8.8% band at this memory, and this draw shows it',
+        verdict: 'about 8.9% relative standard error at this memory; this draw is 15.0% low',
       },
       {
         method: 'Linear counting, 8,192 bits',
@@ -293,7 +296,7 @@ export const content = {
     <Figure
       id="fig-hll-witness"
       aspect="16 / 7"
-      caption="Rarity as a census. Each hash is a run of fair coin flips; a run of r leading zeros appears about once per 2^r distinct hashes, so the longest run a register has ever seen testifies to how many passed through it. Repeats are powerless: the same item produces the same bits, and a maximum cannot be raised by what it already saw. One witness is noisy; 1,024 of them, combined by a harmonic mean that refuses to be impressed by a single lucky run, land within a few percent."
+      caption="Rarity as a census. Each hash is a run of fair coin flips; a run of at least r leading zeros appears about once per 2^r distinct hashes. A register stores the maximum run length plus one, with zero reserved for an untouched register. Repeats are powerless: the same item produces the same bits, and a maximum cannot be raised by what it already saw. One witness is noisy; 1,024 of them, combined by a harmonic mean that refuses to be impressed by a single lucky run, give about 3.3% relative standard error, not a guaranteed error bound."
       cite={{
         text: 'Flajolet, Fusy, Gandouet, and Meunier, "HyperLogLog: the analysis of a near-optimal cardinality estimation algorithm", DMTCS proceedings, AofA 2007. The observable is Flajolet and Martin, JCSS 30(2), 1985; the small-range fallback is Whang, Vander-Zanden, and Taylor, ACM TODS 15(2), 1990.',
         href: 'https://doi.org/10.46298/dmtcs.3545',
@@ -324,13 +327,13 @@ export const content = {
               </text>
             ))}
             <text x={392} y={62 + row * 30} fill={run === 5 ? '#62d98a' : '#9aa5bd'} fontFamily="ui-monospace, monospace" fontSize="12">
-              {run === 5 ? 'run of 5 · the register keeps this' : `run of ${run}`}
+              {run === 5 ? 'run of 5 · stores rank 6' : `run of ${run} · rank ${run + 1}`}
             </text>
           </g>
         ))}
         <line x1="24" y1="248" x2="616" y2="248" stroke="#232c40" strokeWidth="1.2" />
-        <text x="24" y="272" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="12">a run of 5 appears about once per 2⁵ = 32 distinct hashes</text>
-        <text x="24" y="290" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="12">1,024 registers testify · harmonic mean · ±3.3%</text>
+        <text x="24" y="272" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="12">at least 5 leading zeros: about once per 2⁵ = 32 distinct hashes</text>
+        <text x="24" y="290" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="12">1,024 registers · harmonic mean · 3.3% relative standard error</text>
       </svg>
     </Figure>
   ),

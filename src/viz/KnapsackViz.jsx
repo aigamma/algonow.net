@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -88,6 +89,10 @@ export default function KnapsackViz() {
               st.phase = 'rest';
               st.rest = holdTicks(st);
               st.decision.set(st.bestSet);
+              st.weight = st.items.reduce((sum, item, i) => sum + (st.bestSet[i] ? item.w : 0), 0);
+              st.value = st.best;
+              st.bound = st.best;
+              st.flash = 0;
               if (st.stopAtRest) return false;
               break;
             }
@@ -233,7 +238,7 @@ export default function KnapsackViz() {
 
         ctx.textAlign = 'left';
         ctx.fillStyle = '#f0b94b';
-        ctx.fillText('– ceiling (bound)', 540, my + 8);
+        ctx.fillText('– upper bound', 540, my + 8);
         ctx.fillStyle = '#62d98a';
         ctx.fillText('– best bag', 540, my + 26);
         if (st.flash > 0) {
@@ -258,7 +263,9 @@ export default function KnapsackViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         {MODES.map((m) => (
           <button

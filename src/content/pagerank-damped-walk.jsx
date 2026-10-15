@@ -274,7 +274,7 @@ export const content = {
     <Figure
       id="fig-pagerank-teleport"
       aspect="16 / 7"
-      caption="What the damping dial buys. Left: a spider trap under the pure walk: probability flows in, circulates, and never leaves, so the loop's share of the ranking grows without bound (84.7% measured). Right: the same trap under the damped walk: every page continuously exhales 15% of its mass to everywhere, so the trap leaks exactly as fast as any neighborhood its size deserves, and the chain acquires a unique stationary answer reachable at a known geometric rate."
+      caption="What the damping dial buys. Left: a spider trap under the pure walk: probability flows in, circulates, and never leaves, so the loop's share of the ranking accumulates toward its limiting value, bounded by 100% (84.7% measured here). Right: the same trap under the damped walk: every page continuously exhales 15% of its mass to everywhere, so the trap leaks exactly as fast as any neighborhood its size deserves, and the chain acquires a unique stationary answer reachable at a known geometric rate."
       cite={{
         text: 'Brin and Page, "The Anatomy of a Large-Scale Hypertextual Web Search Engine", Computer Networks 30, 1998. The rival lens is Kleinberg, "Authoritative Sources in a Hyperlinked Environment", JACM 46(5), 1999; the repair is Lempel and Moran’s SALSA, 2000.',
         href: 'https://doi.org/10.1016/S0169-7552(98)00110-X',
@@ -310,7 +310,7 @@ export const content = {
             <path d={`M ${x + 8} ${y + 14} C ${x + 30} ${y + 46}, ${x + 42} ${y + 58}, ${x + 58} ${y + 62}`} fill="none" stroke="#f0b94b" strokeWidth="1.5" strokeDasharray="4 4" />
           </g>
         ))}
-        <text x="356" y="266" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">teleports leak it back out · 2.7% · unique answer, rate 0.85 per pass</text>
+        <text x="356" y="266" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">teleports: 2.7% in trap · rate 0.85</text>
       </svg>
     </Figure>
   ),

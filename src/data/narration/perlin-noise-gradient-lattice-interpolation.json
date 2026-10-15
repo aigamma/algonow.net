@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:perlin-noise-gradient-lattice-interpolation",
   "source_path": "src/content/perlin-noise-gradient-lattice-interpolation.narration.js",
-  "source_sha256": "acedcc8ee0a6987a91e0cd195f21941c57896f94f2d8f7732f41f5b40c3720ba",
-  "source_characters": 12194,
+  "source_sha256": "1ccbea07cdbfc2b8d9043708c55193cead6996ef6130b759c6e5bbe9b7f780e3",
+  "source_characters": 12279,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -57,9 +57,9 @@
     }
   },
   "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
-  "release_sha256": "88ca09ea7d3df832c6183cdb46b8ebb443b2adedc50152c27493b5d0995b471c",
-  "generated_at": "2026-10-11T01:18:38.994Z",
-  "generated_characters": 24388,
+  "release_sha256": "91cdca54a58dc9ed74194ef0fe0ae0f0f4644596b66b2e58b6aa10fd502f3230",
+  "generated_at": "2026-10-15T23:05:36.171Z",
+  "generated_characters": 24558,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -91,9 +91,9 @@
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4940,
-      "utf8_bytes": 4942,
-      "sha256": "e4923cc9a3b15f9f036302b951e7ea9e4d03dfdbdcff43c45a82cd375b6fce18"
+      "characters": 4989,
+      "utf8_bytes": 4991,
+      "sha256": "1c43327ef131450006581f037f291f655d24ac1e10b397357d75bf336ba5b98e"
     },
     {
       "id": "request-003",
@@ -105,9 +105,9 @@
     {
       "id": "request-004",
       "index": 4,
-      "characters": 988,
-      "utf8_bytes": 990,
-      "sha256": "1501a82c5cb57ea90672993241ac908280e95409e27c74e924231aaba0d6ee18"
+      "characters": 1024,
+      "utf8_bytes": 1026,
+      "sha256": "ac2fef79f761abe6d462544fc8c22523468249acf8992f4bc1432d1b19484a67"
     }
   ],
   "assembly": {
@@ -248,8 +248,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1180,
-      "sha256": "5026f5b53f267fc3c1dbb1127b6ea971fda4600599821e649ccead20cdc02a36"
+      "utf8_bytes": 1210,
+      "sha256": "a17538cb909dab575598d85917d91d1ec1fdb088c7a9b75d7df298001da1210c"
     },
     {
       "id": "perlin-noise-gradient-lattice-interpolation.06-signals",
@@ -317,8 +317,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 893,
-      "sha256": "429e6c38b2774751194f82aaca8ff32fbd64b14398bf530143fc541b583d6d55"
+      "utf8_bytes": 912,
+      "sha256": "cca5f40a85ef73e3f9c1391cec183127d33ed5a211e176d07d523f2deb3cd94b"
     },
     {
       "id": "perlin-noise-gradient-lattice-interpolation.09-tradeoffs",
@@ -363,8 +363,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1969,
-      "sha256": "dad320b94ca185e2317ba4e8731542dc4f12893178123d492371a07bfc3c9970"
+      "utf8_bytes": 2005,
+      "sha256": "f4db28b693d2856d196edd755f73cd64dd1674c94f0f107816c00c8214ca9819"
     }
   ],
   "tracks": {
@@ -373,35 +373,35 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/perlin-noise-gradient-lattice-interpolation/88ca09ea7d3df832c618/aoede-7ae437ea11e76a74.mp3",
+      "object_key": "narration/v1/puzzles/perlin-noise-gradient-lattice-interpolation/91cdca54a58dc9ed7419/aoede-51e7b4904dbab142.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 3022412,
-      "sha256": "7ae437ea11e76a74c46bb1d6c610154e885381125fcde3c6d2d115626d887e33",
+      "bytes": 3109196,
+      "sha256": "51e7b4904dbab1420bf3b2fd42a8658a43502b0afef3b251f0aaccb9014c027a",
       "request_parts": [
         {
           "request_index": 1,
           "request_sha256": "28d30fceafbff34bcf97d3c6b830b757e9bc66680381e0d750a94b4207e2faa2",
-          "bytes": 1056384,
-          "sha256": "470fbb64db0a4164078c8524369a98a0774f931b829b918fbf12a628b1e31c9b"
+          "bytes": 1117632,
+          "sha256": "8d15eca16b5a7deea0f03d9114e014d39e8d0d955c2029a1dcce99e39b83096e"
         },
         {
           "request_index": 2,
-          "request_sha256": "e4923cc9a3b15f9f036302b951e7ea9e4d03dfdbdcff43c45a82cd375b6fce18",
-          "bytes": 1263552,
-          "sha256": "1d19efa73c6763fa77300a02b11817b0cb7e038dc4dca32268cf319331955e06"
+          "request_sha256": "1c43327ef131450006581f037f291f655d24ac1e10b397357d75bf336ba5b98e",
+          "bytes": 1293024,
+          "sha256": "f2ee06306cb621c66a0bda5e47481601c8c5b7495bcea807662e795a0b9b8df9"
         },
         {
           "request_index": 3,
           "request_sha256": "09cc120c9504a8d667dc2010f0d8120e72dc0bfacc7df8c6ff888df0a41d658b",
-          "bytes": 457536,
-          "sha256": "cc9461327978bade1142fafc2d3f28c47eb1972aa6786f4108d2cadefe68c0c6"
+          "bytes": 455232,
+          "sha256": "53c697b52309c3bda68f782f081ae15a0cbc2e4fee52fd1e3eb23f4477e5d837"
         },
         {
           "request_index": 4,
-          "request_sha256": "1501a82c5cb57ea90672993241ac908280e95409e27c74e924231aaba0d6ee18",
-          "bytes": 244704,
-          "sha256": "08bc300959b2c4115ff5147b8d9b9f55577ddefb4e7236c45f9199116fbbb6f9"
+          "request_sha256": "ac2fef79f761abe6d462544fc8c22523468249acf8992f4bc1432d1b19484a67",
+          "bytes": 243072,
+          "sha256": "f6f705a76193c8b8f543846a72f76b812a562c2616bf83e30d73ca90e12e14dd"
         }
       ]
     },
@@ -410,11 +410,11 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/perlin-noise-gradient-lattice-interpolation/88ca09ea7d3df832c618/algieba-6a0f4c5def791c84.mp3",
+      "object_key": "narration/v1/puzzles/perlin-noise-gradient-lattice-interpolation/91cdca54a58dc9ed7419/algieba-5f747430c8a762fe.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 3165356,
-      "sha256": "6a0f4c5def791c84914abd0f82ee6d8a1c6814a2d33d25828ad8729667de99b0",
+      "bytes": 3166412,
+      "sha256": "5f747430c8a762feacecbc1fbec0915df2c1825d96b12e3a559670fe96cef551",
       "request_parts": [
         {
           "request_index": 1,
@@ -424,21 +424,21 @@
         },
         {
           "request_index": 2,
-          "request_sha256": "e4923cc9a3b15f9f036302b951e7ea9e4d03dfdbdcff43c45a82cd375b6fce18",
-          "bytes": 1301856,
-          "sha256": "53a1fe6cd2d1389cb9e958324621ec24ca49358fee5c6e35f015939799f249b7"
+          "request_sha256": "1c43327ef131450006581f037f291f655d24ac1e10b397357d75bf336ba5b98e",
+          "bytes": 1322592,
+          "sha256": "9cac17c9edadc2b4cc406a32e2a03af6cbc1dce677126fa1ccaae1997f0610ca"
         },
         {
           "request_index": 3,
           "request_sha256": "09cc120c9504a8d667dc2010f0d8120e72dc0bfacc7df8c6ff888df0a41d658b",
-          "bytes": 469824,
-          "sha256": "d7a2ddae66e598281457b751a77087886688768e6cd5f86e6329e64cf2b9f736"
+          "bytes": 458784,
+          "sha256": "1aa9e83c7e6f59a3188426e049fa1a525e45762eec53eca9ac8f49046749c1ca"
         },
         {
           "request_index": 4,
-          "request_sha256": "1501a82c5cb57ea90672993241ac908280e95409e27c74e924231aaba0d6ee18",
-          "bytes": 261216,
-          "sha256": "cefff562448440d3076452607ecf4acb0b254f08d5a133f00e0d3ba02c2ae6f7"
+          "request_sha256": "ac2fef79f761abe6d462544fc8c22523468249acf8992f4bc1432d1b19484a67",
+          "bytes": 252576,
+          "sha256": "7846485265a48561fad4486de5ebf488344713190746b74f54918b1b386731ec"
         }
       ]
     }

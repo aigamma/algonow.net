@@ -223,16 +223,19 @@ code, kbd, pre { font-family: var(--font-mono); }
   display: inline-flex;
   align-items: center;
   gap: 0.4em;
+  min-width: 0;
+  max-width: 100%;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.3;
   padding: 0.42em 0.7em;
   border-radius: 999px;
   border: 1px solid var(--line);
   color: var(--ink-dim);
   background: var(--panel);
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 /* Homepage category grouping (G7): the pairs section is grouped by atlas
@@ -312,6 +315,7 @@ code, kbd, pre { font-family: var(--font-mono); }
   background: rgba(var(--heur-rgb), 0.07);
 }
 .chip-dot {
+  flex-shrink: 0;
   width: 0.5em;
   height: 0.5em;
   border-radius: 999px;
@@ -570,6 +574,26 @@ code, kbd, pre { font-family: var(--font-mono); }
 }
 .viz-stat b { color: var(--ink); font-weight: 600; }
 
+.diagram-viewer { min-width: 0; }
+.diagram-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.8rem;
+  padding: 0 0 0.65rem;
+}
+.diagram-tools .btn { font-size: 0.78rem; }
+.diagram-hint { color: var(--ink-dim); font-size: 0.78rem; }
+.diagram-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: 6px;
+}
+.diagram-content { width: 100%; }
+.is-enlarged > .diagram-scroll > .diagram-content {
+  width: max(100%, var(--diagram-detail-width));
+}
+
 .puzzle-card {
   background: var(--panel);
   border: 1px solid var(--line-soft);
@@ -673,6 +697,9 @@ code, kbd, pre { font-family: var(--font-mono); }
   margin: 1.1rem 0;
 }
 .metric {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   background: var(--panel);
   border: 1px solid var(--line-soft);
   border-radius: 8px;

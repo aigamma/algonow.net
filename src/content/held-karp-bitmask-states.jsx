@@ -135,8 +135,7 @@ export const content = {
   weakness: (
     <>
       <strong>The exponent is tamed, not slain.</strong> 2ⁿ⁻¹·(n−1)
-      states cost memory as well as time: n = 25 wants ~800MB of
-      floats: and past ~30 cities no amount of tuning saves the
+      states cost memory as well as time: n = 25 wants ~3.2 GB for a dense table of eight-byte values (before backpointers or Python object overhead): and past ~30 cities no amount of tuning saves the
       subset table: Concorde-style branch-and-bound (powered by the{' '}
       <em>other</em> Held-Karp: the 1-tree bound) owns exact TSP
       from there, and the metaheuristic shelf owns the rest. The DP

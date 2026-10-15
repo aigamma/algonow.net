@@ -7,6 +7,7 @@ import ContestTable from './ContestTable.jsx';
 import { initTelemetry } from '../lib/telemetry.js';
 import { ttsAvailable } from '../lib/tts.js';
 import { nextPuzzle, pairTitle, puzzlePath } from '../data/puzzles.js';
+import narrationRevisions from '../data/narration-revisions.json';
 
 function listen(section) {
   window.dispatchEvent(new CustomEvent('algonow:listen', { detail: { section } }));
@@ -69,11 +70,19 @@ export default function PuzzlePage({ puzzle, content, narrationPlayer = null }) 
   const num = String(puzzle.number).padStart(2, '0');
   const PreservedPlayer = narrationPlayer?.Component || null;
   const hasPreservedNarration = Boolean(PreservedPlayer);
-  const canListen = hasPreservedNarration || ttsAvailable();
+  // Corrections pin the required narration source until a replacement release
+  // matches it. Block both playback paths while the recording is out of date.
+  const expectedNarrationSource = narrationRevisions[puzzle.slug];
+  const narrationAwaitingUpdate = Object.hasOwn(narrationRevisions, puzzle.slug) && (
+    !hasPreservedNarration
+    || !/^[a-f0-9]{64}$/.test(expectedNarrationSource)
+    || narrationPlayer.manifest?.source_sha256 !== expectedNarrationSource
+  );
+  const canListen = !narrationAwaitingUpdate && (hasPreservedNarration || ttsAvailable());
   const sectionHeadProps = {
     // Whole-track preserved MP3s do not carry exact section offsets. Keep the
     // old section entry points off instead of offering an approximate seek.
-    canListen: !hasPreservedNarration && ttsAvailable(),
+    canListen: !narrationAwaitingUpdate && !hasPreservedNarration && ttsAvailable(),
   };
 
   return (
@@ -98,7 +107,11 @@ export default function PuzzlePage({ puzzle, content, narrationPlayer = null }) 
             </span>
             <span className="chip">time {puzzle.time}</span>
             <span className="chip">space {puzzle.space}</span>
-            {hasPreservedNarration ? (
+            {narrationAwaitingUpdate ? (
+              <span className="chip" role="status">
+                Recorded narration is awaiting an update after a lesson correction.
+              </span>
+            ) : hasPreservedNarration ? (
               <PreservedPlayer
                 label={`Listen to ${puzzle.algorithm} × ${puzzle.heuristic}`}
                 listenMinutes={puzzle.listenMinutes}
@@ -259,7 +272,7 @@ export default function PuzzlePage({ puzzle, content, narrationPlayer = null }) 
           </a>
         </div>
       </div>
-      {!hasPreservedNarration ? (
+      {!narrationAwaitingUpdate && !hasPreservedNarration ? (
         <ListenPlayer
           narration={narration}
           listenMinutes={puzzle.listenMinutes}

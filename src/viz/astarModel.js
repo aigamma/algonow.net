@@ -1,6 +1,6 @@
 // A* grid engine for the live visualizations. Deterministic given a seed;
 // stepped one heap-pop at a time so the animation IS the algorithm, not a
-// recording of it. `hWeight` 0 gives Dijkstra, 1 admissible A*, >1 greedy.
+// recording of it. `hWeight` 0 gives Dijkstra, 1 admissible A*, >1 weighted A*.
 
 import { mulberry32 } from './useCanvasLoop.js';
 

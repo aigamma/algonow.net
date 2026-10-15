@@ -324,7 +324,7 @@ export const content = {
                 <g key={name}>
                   <polyline fill="none" stroke={c} strokeWidth="2" points={ys.map((v, i) => `${px(divs[i])},${py(v)}`).join(' ')} />
                   {ys.map((v, i) => <circle key={i} cx={px(divs[i])} cy={py(v)} r="2.5" fill={c} />)}
-                  <text x={44} y={262 + 0 * k} dx={k * 62} fill={c} fontSize="9">{name}</text>
+                  <text x={44 + (k === 0 ? 0 : 94 + (k - 1) * 52)} y={262} fill={c} fontSize="9">{name}</text>
                 </g>
               ))}
               <text x={bx} y="22" fill="#9aa5bd" fontSize="10">cells of work, log scale (328 sequences)</text>

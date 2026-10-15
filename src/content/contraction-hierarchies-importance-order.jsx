@@ -88,8 +88,8 @@ export const content = {
     </>,
     <>
       <strong>Contract the cheapest:</strong> for each neighbor pair,
-      a bounded witness search; shortcut only where the node was the
-      only way through.
+      a bounded witness search; shortcut when the search finds
+      no equally short bypass.
     </>,
     <>
       <strong>Rank and keep the upward edges:</strong> the node
@@ -300,7 +300,7 @@ export const content = {
     <Figure
       id="fig-contraction-hierarchy"
       aspect="16 / 7"
-      caption="Contract a node, keep a shortcut only where it was the only way through, and rank nodes by contraction time; then a query climbs from both ends. Cheap nodes (few neighbors, dead ends) go first and reveal nothing; interchanges go last and carry the shortcuts. Measured on 1,600 nodes and 200 queries: importance order settles 76 nodes per query against Dijkstra’s 837 with 2,883 shortcuts for 2,857 edges; random order 210 settled and 10,427 shortcuts; no witness search 29,135 shortcuts. Every answer exact, every path unpacked onto original edges."
+      caption="Contract a node, keep a shortcut when the witness search finds no equally short bypass, and rank nodes by contraction time; then a query climbs from both ends. Cheap nodes (few neighbors, dead ends) go first and reveal nothing; interchanges go last and carry the shortcuts. Measured on 1,600 nodes and 200 queries: importance order settles 76 nodes per query against Dijkstra’s 837 with 2,883 shortcuts for 2,857 edges; random order 210 settled and 10,427 shortcuts; no witness search 29,135 shortcuts. Every answer exact, every path unpacked onto original edges."
       cite={{
         text: 'R. Geisberger, P. Sanders, D. Schultes, D. Delling, "Contraction Hierarchies: Faster and Simpler Hierarchical Routing in Road Networks," WEA 2008, LNCS 5038. DOI 10.1007/978-3-540-68552-4_24.',
         href: 'https://doi.org/10.1007/978-3-540-68552-4_24',
@@ -321,13 +321,13 @@ export const content = {
         <path d="M 60 110 Q 150 40 240 110" fill="none" stroke="#f0b94b" strokeWidth="2" strokeDasharray="6 4" />
         <text x="100" y="50" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">shortcut 9 (via v)</text>
         <text x="60" y="186" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">u–x–w costs 6 + 6 = 12 &gt; 9: no witness, so the shortcut is needed</text>
-        <text x="330" y="60" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">query: climb ranks from s (blue) and from t (amber), meet at the top</text>
+        <text x="330" y="60" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">query: climb from s and t, meet above</text>
         {[[350, 190, '#5da2ff'], [390, 160, '#5da2ff'], [430, 120, '#5da2ff'], [470, 90, '#62d98a'], [510, 120, '#f0b94b'], [550, 160, '#f0b94b'], [590, 190, '#f0b94b']].map(([x, y, c], i) => (
           <circle key={i} cx={x} cy={y} r="6" fill={c} />
         ))}
         <path d="M 350 190 L 390 160 L 430 120 L 470 90 L 510 120 L 550 160 L 590 190" fill="none" stroke="#62d98a" strokeWidth="1.6" />
-        <text x="340" y="215" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">s → up → up → meet ← up ← up ← t   (then unpack every shortcut)</text>
-        <text x="30" y="246" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">measured: 76 settled per query vs Dijkstra 837 and bidirectional 528 · 2,883 shortcuts for 2,857 edges · 200/200 exact</text>
+        <text x="340" y="215" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">s → up → meet ← up ← t; unpack shortcuts</text>
+        <text x="30" y="246" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">settled: 76 vs 837 / 528 · 2,883 shortcuts, 2,857 edges · 200/200 exact</text>
         <text x="30" y="268" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">random order: 210 settled, 10,427 shortcuts · no witness search: 29,135 shortcuts</text>
       </svg>
     </Figure>

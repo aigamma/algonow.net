@@ -132,7 +132,7 @@ export const content = {
       <strong>Static, integer-hungry at giant scale, and log-factored.</strong>{' '}
       Edit the text and the array rebuilds (suffix trees and automata
       handle online growth: Ukkonen&apos;s construction is the t1
-      sibling); n log n loses to the 2003 linear-time constructions on
+      sibling); the comparison-sorted build here costs O(n log² n); radix sorting the rank pairs gives O(n log n), while the 2003 constructions are linear on
       billion-character genomes; and each query pays log n where the
       FM-index&apos;s backward search pays O(m): compressed, which is
       why bioinformatics moved there.
@@ -280,7 +280,7 @@ export const content = {
             <text x="30" y={98 + r * 40} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">{`round ${r}:`}</text>
             <rect x="120" y={84 + r * 40} width={span * 28} height="20" fill="rgba(93,162,255,0.15)" stroke="#5da2ff" rx="3" />
             <rect x={120 + span * 28} y={84 + r * 40} width={span * 28} height="20" fill="rgba(240,185,75,0.15)" stroke="#f0b94b" rx="3" />
-            <text x={132 + span * 56} y={98 + r * 40} fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">{`= ${2 * span} chars as 2 ints`}</text>
+            <text x={132 + span * 56} y={98 + r * 40} fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">{`${2 * span} chars`}</text>
           </g>
         ))}
         <text x="30" y="262" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="12">measured: 7 rounds for 65,995 chars · max repeat 78 &lt; 2⁷ = 128 · the same fact twice</text>

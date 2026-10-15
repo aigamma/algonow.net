@@ -293,7 +293,7 @@ export const content = {
     <Figure
       id="fig-dancing-links"
       aspect="16 / 7"
-      caption="A node leaves its row by two pointer writes and returns by two more. Removed: x.left.right = x.right and x.right.left = x.left; the node itself still holds both neighbors. Restored, in reverse order of removal: x.left.right = x and x.right.left = x. Covering a column unlinks its header and every colliding row this way; uncovering replays it backwards. Measured: 8-queens 1,198 nodes with the smallest-column rule against 2,056 without; the sudoku 2,740 against unfinished at 200,000; copying instead of dancing costs 31.8× the undo work at 561 rows."
+      caption="A node leaves its row by two pointer writes and returns by two more. Removed: x.left.right = x.right and x.right.left = x.left; the node itself still holds both neighbors. Restored, in reverse order of removal: x.left.right = x and x.right.left = x. Covering a column unlinks its header horizontally and the colliding rows from other columns vertically; uncovering replays it backwards. Measured: 8-queens 1,198 nodes with the smallest-column rule against 2,056 without; the sudoku 2,740 against unfinished at 200,000; copying instead of dancing costs 31.8× the undo work at 561 rows."
       cite={{
         text: 'D. E. Knuth, "Dancing Links," in Millennial Perspectives in Computer Science, 2000 (arXiv cs/0011047); heuristic S after Golomb and Baumert, JACM 12(4), 1965. Also The Art of Computer Programming, Vol. 4B, 2022.',
         href: 'https://arxiv.org/abs/cs/0011047',
@@ -317,8 +317,8 @@ export const content = {
         <text x="60" y="150" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">unlinked: x.left.right = x.right;  x.right.left = x.left  (the list closes over x)</text>
         <text x="60" y="170" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">x keeps its own left and right, so restoring is  x.left.right = x;  x.right.left = x</text>
         <text x="60" y="196" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">the rule: undo in the exact reverse order of the removals, and every hole is still where the node left it</text>
-        <text x="60" y="232" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">measured: 8-queens 1,198 nodes (smallest column) vs 2,056 · sudoku 2,740 vs unfinished at 200,000 · undo 31.8× cheaper than copying at 561 rows</text>
-        <text x="60" y="256" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">referees: 92 and 724 queens (backtracking counter + published), sudoku unique and equal to a cell-by-cell solver, 8 tilings of 3 × 20, every link restored</text>
+        <text x="60" y="232" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">nodes: queens 1,198 vs 2,056 · sudoku 2,740 vs &gt;200,000 · undo saves 31.8×</text>
+        <text x="60" y="256" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">checked: 92 / 724 queens · unique sudoku · 8 tilings of 3 × 20 · all links restored</text>
       </svg>
     </Figure>
   ),

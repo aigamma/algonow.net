@@ -44,8 +44,8 @@ export const content = {
       is. The algorithm also owns its robustness curve, measured: with
       800 clutter points, twenty for every line point, the weakest line
       still out-polls the tallest clutter peak, 122 to 91, because
-      clutter votes land in a different cell every time and line votes
-      land in the same one. And it owns what least squares cannot: 6
+      clutter spreads its votes while line votes
+      concentrate near shared parameters. And it owns what least squares cannot: 6
       of 320 points near the single fitted line, against 40 near each
       elected one.
     </p>
@@ -295,7 +295,7 @@ export const content = {
     <Figure
       id="fig-hough-sinusoids"
       aspect="16 / 7"
-      caption="Left: six edge points, three on each of two lines. Right: each point’s votes in (θ, ρ) space form one sinusoid, ρ = x cos θ + y sin θ. The three sinusoids of a line’s points cross at one cell, the line’s (ρ, θ); the crossings are marked. Clutter would add sinusoids that cross the others once each, never three in the same cell. In the file, 40-point lines make peaks of 86 to 101 summed votes while 200 clutter points manage 50."
+      caption="Left: six edge points, three on each of two lines. Right: each point’s votes in (θ, ρ) space form one sinusoid, ρ = x cos θ + y sin θ. The three sinusoids of a line’s points cross at one cell, the line’s (ρ, θ); the crossings are marked. Clutter adds sinusoids whose accidental intersections can also form peaks; the line must stand above that background. In the file, 40-point lines make peaks of 86 to 101 summed votes while 200 clutter points manage 50."
       cite={{
         text: 'R. O. Duda, P. E. Hart, "Use of the Hough transformation to detect lines and curves in pictures," Communications of the ACM 15(1), 1972. DOI 10.1145/361237.361242. P. V. C. Hough, "Method and means for recognizing complex patterns," US Patent 3,069,654, 1962. D. H. Ballard, "Generalizing the Hough transform to detect arbitrary shapes," Pattern Recognition 13(2), 1981.',
         href: 'https://doi.org/10.1145/361237.361242',

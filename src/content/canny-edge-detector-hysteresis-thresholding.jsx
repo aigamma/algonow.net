@@ -314,7 +314,7 @@ export const content = {
               <polyline points={profile} fill="none" stroke="#62d98a" strokeWidth="2.5" />
               {spikes.map(([t, v]) => <line key={t} x1={X(t)} y1={y0} x2={X(t)} y2={Y(v)} stroke="#9aa5bd" strokeWidth="2" />)}
               <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">gradient along the ramped edge (green) and noise peaks (gray)</text>
-              <text x={x0} y={y0 + 16} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">faint end: above low, below high; kept only through its connection</text>
+              <text x={x0} y={y0 + 16} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">weak edge: kept through its connection</text>
               <text x={x0} y={y0 + 30} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">to the strong end; the spikes have no such connection</text>
               <line x1={bx} y1={by} x2={bx + bw} y2={by} stroke="#9aa5bd" strokeOpacity="0.6" />
               {series.map(([c, vals]) => (

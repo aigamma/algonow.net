@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks } from './useCanvasLoop.js';
 
@@ -16,7 +17,7 @@ const PANEL_W = COLS * CELL;
 const PANEL_H = ROWS * CELL;
 const MARGIN = 12;
 const GAP = 26;
-const LABEL_H = 18;
+const LABEL_H = 38;
 const W = MARGIN * 2 + PANEL_W * 2 + GAP;
 const H = 8 + LABEL_H + PANEL_H + 12;
 const SEED = 20260827;
@@ -104,10 +105,11 @@ function drawPanel(ctx, f, x0, colors) {
       : `stranger ${f.queried + 1}/${STRANGERS}`;
   const fill = Math.round((f.setCount / M) * 100);
   ctx.fillText(
-    `${f.label} · fill ${fill}% · lies ${f.lies} · ${phase}`,
+    `${f.label} · fill ${fill}% · false ${f.lies}`,
     x0,
     8 + 11,
   );
+  ctx.fillText(phase, x0, 33);
   const y0 = 8 + LABEL_H;
   for (let i = 0; i < M; i++) {
     const x = x0 + (i % COLS) * CELL;
@@ -199,7 +201,9 @@ export default function BloomViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

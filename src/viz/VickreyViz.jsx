@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -12,7 +13,7 @@ import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.j
 // auction and for a first-price auction with equilibrium shading against
 // the theory (n - 1) / (n + 1), which both must approach.
 const W = 640;
-const H = 300;
+const H = 340;
 const SEED = 20261010;
 const N = 3;
 const ROUNDS = 60;
@@ -134,7 +135,7 @@ export default function VickreyViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('one sealed-bid auction per tick, three bidders with uniform values; blue bids, green winner, amber price = the second bid', 12, 18);
+        ctx.fillText('3 uniform values; blue: bids; green: winner; amber: second-highest bid paid', 12, 18);
 
         // left: the current auction as three bars with the price line
         const lx = 30;
@@ -153,7 +154,7 @@ export default function VickreyViz() {
             ctx.fillStyle = ink;
             ctx.fillText(`bid ${v.toFixed(2)}`, x, yOf(v) - 4);
             ctx.fillStyle = dim;
-            ctx.fillText(i === sc.probe ? `bidder ${i + 1} (probed)` : `bidder ${i + 1}`, x - 4, base + 13);
+            ctx.fillText(`bidder ${i + 1}${i === sc.probe ? ' *' : ''}`, x - 4, base + 13);
           });
           ctx.strokeStyle = heur;
           ctx.lineWidth = 2;
@@ -174,14 +175,21 @@ export default function VickreyViz() {
         // bottom left: the probed bidder's payoff against every bid (a step, flat above m)
         const px0 = 30;
         const px1 = 300;
-        const py0 = 284;
-        const py1 = 214;
+        const py0 = 302;
+        const py1 = 238;
         ctx.fillStyle = dim;
-        ctx.fillText('probed bidder: payoff against every bid; flat above the rival bid, so the bid only decides win or lose', 12, 206);
+        ctx.fillText('* probed bidder payoff vs bid', 12, 208);
+        ctx.fillText('flat once the bid wins', 12, 224);
         if (sc.t > 0) {
           const v = sc.values[sc.probe];
           const span = Math.max(0.05, Math.abs(v - sc.probeM));
-          const yP = (u) => py0 - (Math.max(u, 0) / span) * (py0 - py1);
+          const yP = (u) => (py0 + py1) / 2 - (u / span) * (py0 - py1) / 2;
+          ctx.strokeStyle = `${dim}66`;
+          ctx.beginPath();
+          ctx.moveTo(px0, yP(0));
+          ctx.lineTo(px1, yP(0));
+          ctx.stroke();
+          ctx.fillText('0', px0 - 12, yP(0) + 4);
           ctx.strokeStyle = heur;
           ctx.lineWidth = 2;
           ctx.beginPath();
@@ -240,9 +248,9 @@ export default function VickreyViz() {
         ctx.fillStyle = heur;
         ctx.fillText(`first price at equilibrium ${sc.t > 0 ? (sc.firstSum / sc.t).toFixed(3) : '...'}`, rx0, 211);
         ctx.fillStyle = dim;
-        ctx.fillText('the file: 60,000 draws, 0.4997 against 0.4994, theory 0.500', rx0, 229);
+        ctx.fillText('solution: 0.4997 vs 0.4994; theory 0.500', rx0, 229);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? `invariant: highest value wins, pays the second; ${sc.deviationsChecked} deviations, none pays` : 'INVARIANT BROKEN', rx0, 247);
+        ctx.fillText(sc.ok ? `${sc.deviationsChecked} deviations: no profitable deviation` : 'INVARIANT BROKEN', rx0, 247);
         const line = sc.last;
         ctx.fillStyle = s.done ? (sc.ok ? good : warn) : ink;
         ctx.fillText(line.length > 96 ? `${line.slice(0, 95)}…` : line, 12, H - 6);
@@ -254,7 +262,9 @@ export default function VickreyViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -276,7 +276,7 @@ export const content = {
     <Figure
       id="fig-gas-adversary"
       aspect="16 / 7"
-      caption="Two fates for the same skeleton. Left: a random pivot shrinks the survivor geometrically, and the passes sum to ~5n. Right: McIlroy's gas adversary watches a fixed rule's comparisons, freezes whichever value the rule is about to crown to the smallest unused rank, and the survivor shrinks by a constant instead: n passes, quadratic total. The killer is not found, it is manufactured: and it cannot be manufactured against a coin."
+      caption="Two fates for the same skeleton. Left: a random pivot shrinks the survivor geometrically, and the passes sum to ~5n. Right: McIlroy's gas adversary watches a fixed rule's comparisons, freezes whichever value the rule is about to crown to the smallest unused rank, and the survivor shrinks by a constant instead: n passes, quadratic total. This fixed killer is manufactured against the deterministic rule; it does not force the same behavior under independent random pivots."
       cite={{
         text: 'Hoare, "Algorithm 65: FIND", CACM 4(7), 1961; Blum-Floyd-Pratt-Rivest-Tarjan 1973 for the deterministic guarantee; the live construction is McIlroy, "A Killer Adversary for Quicksort", Software: Practice & Experience 29(4), 1999.',
         href: 'https://doi.org/10.1145/366622.366647',

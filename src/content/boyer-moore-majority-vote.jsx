@@ -5,7 +5,7 @@ import { narration } from './boyer-moore-majority-vote.narration.js';
 
 export const content = {
   given:
-    'A stream of values, read once, in order: too long to store, too wide to tally.',
+    'A sequence of values, scanned in order and available for a verification pass: too long to store, too wide to tally.',
   task: 'The majority element: the value holding MORE than half the positions: or the news that none exists.',
   constraint:
     'Two words of memory: a candidate and a counter. A dictionary tally holds one key per distinct value (measured: half a million); this method holds two, and the pairing theory that lets it is asserted on every trial.',
@@ -41,7 +41,7 @@ export const content = {
       Supplies <strong>pairwise cancellation</strong>: every decrement
       pairs one occurrence of the candidate with one non-candidate
       element and discards both. Deleting two <em>different</em> values
-      can never change who holds a majority, and a value with more
+      preserves any existing majority, and a value with more
       than half the positions cannot be paired away: at most n−m pairs
       can each destroy one copy, leaving a surplus of at least 2m−n.
       Measured: the bound held on all 300 adversarial layouts, and the
@@ -60,7 +60,7 @@ export const content = {
       partners first. The counter is just the bookkeeping of this
       brawl run left to right: it counts the current faction&apos;s
       unpaired surplus. And if <em>no</em> faction held a majority,
-      someone still remains standing at the end: the hall empties into
+      someone may still remain standing at the end: the hall can empty into
       a lie, and only a headcount (the verify pass) can tell.
     </p>
   ),
@@ -278,7 +278,7 @@ export const content = {
     <Figure
       id="fig-majority-cancellation"
       aspect="16 / 7"
-      caption="Pairwise cancellation. Every decrement pairs one copy of the candidate with one different element and discards both: and deleting two different values never changes who holds a majority. A faction with m > n/2 members cannot be paired away: at most n−m pairs each destroy one copy, leaving a surplus of at least 2m−n standing. The counter is just this brawl's bookkeeping, run left to right in two words of memory."
+      caption="Pairwise cancellation. Every decrement pairs one copy of the candidate with one different element and discards both: and deleting two different values preserves any existing majority. A faction with m > n/2 members cannot be paired away: at most n−m pairs each destroy one copy, leaving a surplus of at least 2m−n standing. The counter is just this brawl's bookkeeping, run left to right in two words of memory."
       cite={{
         text: 'Boyer & Moore, "MJRTY: A Fast Majority Vote Algorithm", in Automated Reasoning: Essays in Honor of Woody Bledsoe, 1991 (written 1980). The Fortran was mechanically proved correct; the abstract advertises an efficient use of magnetic tape.',
         href: 'https://doi.org/10.1007/978-94-011-3488-0_5',

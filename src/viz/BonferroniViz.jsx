@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -107,7 +108,7 @@ export default function BonferroniViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('one experiment per tick: twenty null p-values on a log scale; amber below alpha (a false claim uncorrected), red below alpha / 20', 12, 18);
+        ctx.fillText('20 null p-values, log scale; amber: false claim at α; red: false claim at α/20', 12, 18);
         // left: the p-values of the current experiment
         const x0 = 40;
         const y0 = 240;
@@ -151,7 +152,7 @@ export default function BonferroniViz() {
           ['Bonferroni', sc.bonferroniFamilies / k, 1 - (1 - ALPHA / M) ** M, algo],
         ];
         ctx.fillStyle = dim;
-        ctx.fillText('families with a false claim so far (bar) vs exact (tick)', tx, 60);
+        ctx.fillText('false-claim rate: bar vs exact tick', tx, 60);
         bars.forEach(([name, rate, exact, color], i) => {
           const y = 80 + i * 70;
           ctx.fillStyle = dim;
@@ -171,10 +172,10 @@ export default function BonferroniViz() {
           ctx.fillText(`${(rate * 100).toFixed(0)}% of ${sc.k} (exact ${(exact * 100).toFixed(1)}%)`, tx, y + 42);
         });
         ctx.fillStyle = dim;
-        ctx.fillText('the file: 63.9% and 4.73% over 3,000 families;', tx, 236);
+        ctx.fillText('solution: 63.9% vs 4.73% (3,000)', tx, 236);
         ctx.fillText('99.2% and 5.07% at m = 100', tx, 252);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? 'every Bonferroni claim is also an uncorrected claim' : 'INVARIANT BROKEN', tx, 272);
+        ctx.fillText(sc.ok ? 'corrected claims ⊆ uncorrected' : 'INVARIANT BROKEN', tx, 272);
         let line;
         if (s.done) {
           line = sc.last;
@@ -192,7 +193,9 @@ export default function BonferroniViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

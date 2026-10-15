@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -171,7 +172,7 @@ export default function BankersViz() {
         const { world } = sc;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`${NP} processes, ${NR} resource types (${world.total.join(', ')} units); one request per tick; declared maxima, actual needs below them`, 12, 18);
+        ctx.fillText(`${NP} processes, ${NR} resources (${world.total.join(', ')}); requests stay within declared maxima`, 12, 18);
         const panels = [
           { x0: 12, R: sc.banker, name: 'banker: grant only if the state stays safe', color: algo },
           { x0: 330, R: sc.naive, name: 'grant whatever is free', color: dim },
@@ -214,7 +215,7 @@ export default function BankersViz() {
           ctx.fillText(R.status === 'deadlock' ? `DEADLOCK after ${R.grants} grants: nobody can move` : R.status === 'finished' ? `all ${NP} finished after ${R.grants} grants` : `${R.grants} grants${R.kind === 'banker' ? `, ${R.deferrals} refused as unsafe` : ''}`, p.x0, yb + 18);
         }
         ctx.fillStyle = heur;
-        ctx.fillText('bars: allocation (color) inside actual need (gray) inside declared max (outline); amber digits: the finishing order the check found', 12, 250);
+        ctx.fillText('bars: allocation / actual need / declared max; amber digits: safe finishing order', 12, 250);
         let line;
         if (s.done) {
           const b = sc.banker;
@@ -224,7 +225,7 @@ export default function BankersViz() {
             : `both finished this time: the banker paid ${b.deferrals} refusals for a guarantee the naive granter got by luck`;
           ctx.fillStyle = good;
         } else {
-          line = 'safe means some finishing order exists if everyone claims their declared maximum; the check finds it greedily';
+          line = 'safe: a finishing order exists even if every process claims its declared maximum';
           ctx.fillStyle = ink;
         }
         ctx.fillText(line, 12, H - 8);
@@ -236,7 +237,9 @@ export default function BankersViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:lexicographic-permutations-next-permutation-algorithm",
   "source_path": "src/content/lexicographic-permutations-next-permutation-algorithm.narration.js",
-  "source_sha256": "ae6557a14ecfaa62a0523c6646be84b7b14c5f2644611d71b7e9421934f6a876",
-  "source_characters": 10939,
+  "source_sha256": "04ce4a8fed5f31094cb8453bbda0abbb6d9e144e4fa4cecf10ae29aaa5611f95",
+  "source_characters": 11122,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -57,9 +57,9 @@
     }
   },
   "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
-  "release_sha256": "10932af01f5cd94efd3dbf5c7ef00ba3176d802cd88f1d813b4fc0c5be49159c",
-  "generated_at": "2026-10-11T02:22:07.133Z",
-  "generated_characters": 21878,
+  "release_sha256": "81b3ca92b05233854ab1470035d38e66ba3fe67b6d492e6b6eeab7c837d8d576",
+  "generated_at": "2026-10-15T23:13:32.598Z",
+  "generated_characters": 22244,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -84,23 +84,23 @@
     {
       "id": "request-001",
       "index": 1,
-      "characters": 4916,
-      "utf8_bytes": 4916,
-      "sha256": "15f31258efaa393a130ea61c374e919293b3f52670b39b66989865aa7cab4540"
+      "characters": 4380,
+      "utf8_bytes": 4380,
+      "sha256": "ab7a6138f377f98c5e1127032d2b0e6d83ddb8ffd3cef1d41e531ed27476df9b"
     },
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4419,
-      "utf8_bytes": 4421,
-      "sha256": "7be0720a177e4dc990ef061eb1a23586e65f7c4769f7d501a4ae7d9013f49324"
+      "characters": 4268,
+      "utf8_bytes": 4270,
+      "sha256": "d53722717e749b04586869a8e36934ef3f4260270d945bf9785013d46b69eb6b"
     },
     {
       "id": "request-003",
       "index": 3,
-      "characters": 924,
-      "utf8_bytes": 926,
-      "sha256": "0d6c8f1fbb1f2c67ffafa7295ee07c5218dce47ec0adbec4bb462e99a293a6bf"
+      "characters": 1794,
+      "utf8_bytes": 1796,
+      "sha256": "ef31f849b6e42e048e21d26865b74f3097e1c25ae4be786f389d621924861d5d"
     },
     {
       "id": "request-004",
@@ -156,8 +156,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1430,
-      "sha256": "5a13e5afe6cb4688fd56df9b752eb7dd5f57ec007e59c6c56d39d97413758e68"
+      "utf8_bytes": 1536,
+      "sha256": "6447ee375d66fadb37d11c64cc93f0879cf4489d039e76e19f89155b67c5fa16"
     },
     {
       "id": "lexicographic-permutations-next-permutation-algorithm.02-origins",
@@ -271,8 +271,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 594,
-      "sha256": "44a763b3e0c743db731e14794e22bf46f3ea22c693305fbd31f131650ba9a64d"
+      "utf8_bytes": 658,
+      "sha256": "a6e7c23ea21d0718df8eaa6581115b27abe755b4f837639aa452497b51c01c53"
     },
     {
       "id": "lexicographic-permutations-next-permutation-algorithm.07-tradeoffs",
@@ -294,8 +294,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1297,
-      "sha256": "cde80f9153d82f29a1866ee8cc54ab67095c879862b689742cf42aa814b1a78a"
+      "utf8_bytes": 1310,
+      "sha256": "45729d01ff8721a9af7c18ade44d5d9f0bc959d538c7710071138ace39bcd59b"
     },
     {
       "id": "lexicographic-permutations-next-permutation-algorithm.08-tradeoffs",
@@ -373,29 +373,29 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/lexicographic-permutations-next-permutation-algorithm/10932af01f5cd94efd3d/aoede-f017733f8e049049.mp3",
+      "object_key": "narration/v1/puzzles/lexicographic-permutations-next-permutation-algorithm/81b3ca92b05233854ab1/aoede-35494e381eef7bbf.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2613164,
-      "sha256": "f017733f8e049049c7599ee09f52630e776982afa423ec712c5d94409f667ac6",
+      "bytes": 2663276,
+      "sha256": "35494e381eef7bbf110f55235de3fd8f58c4bd884249faf4124438a0614d52e9",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "15f31258efaa393a130ea61c374e919293b3f52670b39b66989865aa7cab4540",
-          "bytes": 1179744,
-          "sha256": "a7bbbd9061f20fabeacdc192f8d54d862e7b1ad8e1058925409ee8b6f2118259"
+          "request_sha256": "ab7a6138f377f98c5e1127032d2b0e6d83ddb8ffd3cef1d41e531ed27476df9b",
+          "bytes": 1075296,
+          "sha256": "5eccf7b3397a95d3ea5bedec620a513f925bafe29352e994dc769ea0c1beba25"
         },
         {
           "request_index": 2,
-          "request_sha256": "7be0720a177e4dc990ef061eb1a23586e65f7c4769f7d501a4ae7d9013f49324",
-          "bytes": 1062624,
-          "sha256": "6656ec86a6a594c14b532b3f49f02b68f113168dd4085bc7ceacaa6287bcd54a"
+          "request_sha256": "d53722717e749b04586869a8e36934ef3f4260270d945bf9785013d46b69eb6b",
+          "bytes": 1022304,
+          "sha256": "1aee7f8634b0dcf9c20d4ef961c8384eb8e4d0b54b828192f3f48ac3ac755f57"
         },
         {
           "request_index": 3,
-          "request_sha256": "0d6c8f1fbb1f2c67ffafa7295ee07c5218dce47ec0adbec4bb462e99a293a6bf",
-          "bytes": 207936,
-          "sha256": "2e624ea67d62e2baa89c45eab46d90cf92207e470f3f623f30ab334db310cb66"
+          "request_sha256": "ef31f849b6e42e048e21d26865b74f3097e1c25ae4be786f389d621924861d5d",
+          "bytes": 402816,
+          "sha256": "66d52a0f38b745cb91fe896cb150d722f35ce265ffa62b659d1d356b39e9dae9"
         },
         {
           "request_index": 4,
@@ -410,35 +410,35 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/lexicographic-permutations-next-permutation-algorithm/10932af01f5cd94efd3d/algieba-79fff3cccba5e018.mp3",
+      "object_key": "narration/v1/puzzles/lexicographic-permutations-next-permutation-algorithm/81b3ca92b05233854ab1/algieba-131c30e66ca2ceaf.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2809100,
-      "sha256": "79fff3cccba5e018388bc0890a9f24d37315b7cd48dbe36be370d7c180674bf5",
+      "bytes": 2778092,
+      "sha256": "131c30e66ca2ceaf6cadb968b991d9075cb8d5145f47b8dc18cf4ae236973188",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "15f31258efaa393a130ea61c374e919293b3f52670b39b66989865aa7cab4540",
-          "bytes": 1269024,
-          "sha256": "854caf073ec159493c1dcf2ac217a0bcc886f2a906d21b49effc4b41afc8e1ba"
+          "request_sha256": "ab7a6138f377f98c5e1127032d2b0e6d83ddb8ffd3cef1d41e531ed27476df9b",
+          "bytes": 1080192,
+          "sha256": "309c3cddd4e757203b5febed2c5f2a88d98c795386159b59989757caa5c49790"
         },
         {
           "request_index": 2,
-          "request_sha256": "7be0720a177e4dc990ef061eb1a23586e65f7c4769f7d501a4ae7d9013f49324",
-          "bytes": 1140096,
-          "sha256": "27bd68a9d79adfa17d4314d110113cc961bfe6e5b1dec465964bb240009ebd80"
+          "request_sha256": "d53722717e749b04586869a8e36934ef3f4260270d945bf9785013d46b69eb6b",
+          "bytes": 1095264,
+          "sha256": "04049488f2be7515c2ab24bb0029711a14a116d719677ca9bb4d870470294d29"
         },
         {
           "request_index": 3,
-          "request_sha256": "0d6c8f1fbb1f2c67ffafa7295ee07c5218dce47ec0adbec4bb462e99a293a6bf",
-          "bytes": 210432,
-          "sha256": "5d0005bcd84f65778ba65815eeda08f55424306342af1b3b836187e966294de8"
+          "request_sha256": "ef31f849b6e42e048e21d26865b74f3097e1c25ae4be786f389d621924861d5d",
+          "bytes": 425184,
+          "sha256": "b897eb7d268b78f6547a71dbaa4fca2bdfe10cf61c11a947884b569a147a4752"
         },
         {
           "request_index": 4,
           "request_sha256": "aca9341d0b41ddfb0c6ed6c7f02112fdedd773194279300c09091c4bc6a572e8",
-          "bytes": 189312,
-          "sha256": "66ef267dde4ac614ab56ff6f0df22eb20751a1529524dec5c8f9fd4fdab737fd"
+          "bytes": 177216,
+          "sha256": "164ec649b0b8e3459589df9077491c6360287c592c803e3e08feba659dc88a52"
         }
       ]
     }

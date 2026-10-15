@@ -19,7 +19,7 @@ export const narration = [
   {
     section: 'picture',
     text:
-      'Picture a library reshelved by what comes after. Sorting the rotations lines up every occurrence of each context: all the rotations beginning h e, all the ones beginning t h: and the last column reads the letter standing just before each context. The letter before h e is nearly always t: so the column comes out in long runs: all the t’s of all the the’s standing shoulder to shoulder, sorted into each other’s company by their shared future. Nothing was deleted. The same letters, every one of them, rearranged by a rule so rigid it can be run backward. But now a coder with no memory whatsoever walks the shelf and meets the same letter, again and again: which is exactly the world a memoryless coder was built for.',
+      'Picture a library reshelved by what comes after. Sorting the rotations lines up every occurrence of each context: all the rotations beginning h e, all the ones beginning t h: and the last column reads the letter standing just before each context. The letter before h e is nearly always t: so the column comes out in long runs: all the t’s of all the the’s standing shoulder to shoulder, sorted into each other’s company by their shared future. Nothing was deleted. The same letters, every one of them, rearranged by a rule so rigid it can be run backward. Move to front and run length coding turn those runs into a skewed stream that a memoryless coder can compress. The transform alone preserves the symbol counts.',
   },
   {
     section: 'run',

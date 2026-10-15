@@ -6,7 +6,7 @@ import { narration } from './lexicographic-permutations-next-permutation-algorit
 export const content = {
   given:
     'One arrangement of a sequence (letters, digits, the cities of a tour) and the need for the arrangement that follows it in dictionary order, then the next, until every arrangement has been visited exactly once, with nothing stored and no duplicates.',
-  task: 'Lexicographic permutation generation. The algorithm: visit the arrangements in sorted order, so the enumeration has a first (sorted), a last (reverse sorted), and a rank for everything between. The heuristic is the next-permutation rule (Narayana Pandita 1356; Knuth TAOCP 4A, Algorithm L): scan from the right for the longest non-increasing suffix; the element before it is the pivot; swap the pivot with the rightmost suffix element larger than it; reverse the suffix. In place, two indices of extra memory, O(1) amortized work per step.',
+  task: 'Lexicographic permutation generation. The algorithm: visit the arrangements in sorted order, so the enumeration has a first (sorted), a last (reverse sorted), and a rank for everything between. The heuristic is the next-permutation rule (Narayana Pandita 1356; Knuth TAOCP 4A, Algorithm L): scan from the right for the longest non-increasing suffix; the element before it is the pivot; swap the pivot with the rightmost suffix element larger than it; reverse the suffix. In place, two indices of extra memory, O(1) amortized work per step over all permutations of distinct keys; repeated keys can raise the average to O(n).',
   constraint:
     'Measured: the rule equals itertools.permutations (lexicographic from sorted input) for every n from 1 to 8, 40,320 arrangements at n = 8, each strictly greater than the one before; it lists every distinct arrangement of four multisets once, 34,650 for MISSISSIPPI, equal to the multinomial. Over the full enumeration at n = 9 (362,880 arrangements, 0.12 s) the scanned suffix averaged 1.718 elements, e − 1 to three decimals, with 3.08 comparisons and 1.54 swaps per step. Heap’s algorithm and Steinhaus-Johnson-Trotter each visit all 5,040 arrangements of 7 exactly once with 5,039 swaps (adjacent for Johnson-Trotter) but break sorted order 2,513 and 2,519 times; Algorithm L breaks it 0 times. Lehmer unranking returned the k-th sequential arrangement on 2,000 random k at n = 8 and ranking inverted it. The copying recursion moved 38.7 elements per arrangement at n = 8; the rule agreed with brute force on 300 next-bigger-number cases (52 with no answer). 12! = 479,001,600 would take about 3 minutes at the measured pace, 20! about 26,000 years.',
 
@@ -17,7 +17,7 @@ export const content = {
       order. Rediscovered repeatedly in the computing era, it is Algorithm L
       in Knuth&apos;s Art of Computer Programming, vol. 4A, 7.2.1.2, with the
       analysis that the scanned suffix has expected length e − 1 ≈ 1.72, so
-      the amortized cost per step is constant. Sedgewick&apos;s 1977 survey of
+      the amortized cost per step is constant for distinct keys. Repeated keys do not share that bound. Sedgewick&apos;s 1977 survey of
       permutation generation methods set it beside the swap-based orders:
       Heap&apos;s single-swap method (1963) and the adjacent-transposition
       order of Johnson (1963) and Trotter (1962), both faster per step and
@@ -86,7 +86,7 @@ export const content = {
     </>,
     <>
       <strong>Repeat:</strong> from the sorted start, every arrangement of the
-      multiset exactly once; the rank of any arrangement is its Lehmer code.
+      multiset exactly once; ordinary Lehmer ranking applies to distinct keys; repeated-key arrangements need multiset ranking.
     </>,
   ],
 
@@ -115,7 +115,7 @@ export const content = {
 
   strength: (
     <>
-      <strong>Sorted, in place, constant amortized cost.</strong> Equal to the
+      <strong>Sorted and in place; constant amortized cost for distinct keys.</strong> Equal to the
       library for every n to 8 and to the multinomial on multisets; suffix
       1.718 = e − 1 and 1.54 swaps per step at n = 9; two indices of extra
       memory; one step answers the next-bigger-number question.
@@ -137,7 +137,7 @@ export const content = {
       name: 'Lexicographic permutations × Next-permutation algorithm',
       isThisUnit: true,
       algoName: 'Lexicographic permutations',
-      cost: 'O(1) amortized per step, O(1) extra memory',
+      cost: 'O(1) amortized for distinct keys, O(1) extra memory',
       wins: (
         <>
           <strong>Sorted order, 0 descents</strong>; equal to itertools for
@@ -299,7 +299,7 @@ export const content = {
               ))}
               <text x={x0} y="252" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">amber: pivot and partner; blue: the suffix</text>
               <text x={x0} y="268" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">in place, two indices, sorted order kept</text>
-              <text x="330" y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">per step at n = 9 (362,880 arrangements)</text>
+              <text x="330" y="12" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">n = 9: operations per step</text>
               {costs.map(([name, v, c], i) => (
                 <g key={name}>
                   <rect x={330 + i * 50} y={120 - v * 28} width="36" height={v * 28} fill={c} fillOpacity="0.85" />

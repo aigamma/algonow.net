@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -156,7 +157,9 @@ function layout(root) {
 function drawTree(ctx, root, ox, areaW, top, rowH, colors, pivot, labelNodes) {
   const { pos, cols } = layout(root);
   const X = (x) => ox + ((x + 0.5) / Math.max(cols, 1)) * areaW;
-  const Y = (y) => top + y * rowH;
+  const depth = Math.max(0, ...[...pos.values()].map((p) => p.y));
+  const fittedRowH = Math.min(rowH, 180 / Math.max(1, depth));
+  const Y = (y) => top + y * fittedRowH;
   ctx.strokeStyle = `${colors.dim}88`;
   for (const [n, p] of pos) {
     for (const c of [n.left, n.right]) {
@@ -168,7 +171,7 @@ function drawTree(ctx, root, ox, areaW, top, rowH, colors, pivot, labelNodes) {
       ctx.stroke();
     }
   }
-  const radius = rowH > 20 ? 9 : 5;
+  const radius = Math.min(rowH > 20 ? 9 : 5, fittedRowH * 0.42, areaW / Math.max(cols, 1) * 0.42);
   for (const [n, p] of pos) {
     ctx.beginPath();
     ctx.arc(X(p.x), Y(p.y), radius, 0, Math.PI * 2);
@@ -233,13 +236,14 @@ export default function AvlTreeViz() {
         const n = sc.i;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`the same keys into both trees, one per tick: ${SHUFFLED} shuffled, then ${ASCENDING} ascending; red ring: the node that rotated`, 12, 18);
+        ctx.fillText(`same keys: ${SHUFFLED} shuffled, then ${ASCENDING} ascending; red ring: rotated node`, 12, 18);
         ctx.fillStyle = heur;
         ctx.fillText('AVL tree (height-balance rule)', 20, 40);
         ctx.fillStyle = dim;
         ctx.fillText('plain binary search tree (no rule)', 350, 40);
         drawTree(ctx, sc.avl, 16, 300, 60, 24, { dim, fill: algo, ink, warn }, sc.pivot, true);
         drawTree(ctx, sc.bst, 346, 290, 60, 11, { dim, fill: `${algo}99`, ink, warn }, null, false);
+        ctx.font = '11px ui-monospace, monospace';
         const ha = height(sc.avl);
         const hb = height(sc.bst);
         const bound = n > 0 ? 1.4405 * Math.log2(n + 2) - 0.328 : 0;
@@ -268,7 +272,9 @@ export default function AvlTreeViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

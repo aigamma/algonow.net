@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -169,7 +170,7 @@ export default function BrentViz() {
         const colorOf = { 'inverse quadratic': algo, secant: heur, bisection: warn, start: dim };
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`${sc.pick.name}, one evaluation per tick; blue: parabola step, amber: secant, red: bisection fallback`, 12, 18);
+        ctx.fillText(`${sc.pick.name}; blue: parabola, amber: secant, red: bisection fallback`, 12, 18);
         // left: the function over the starting bracket, y clipped to a symmetric range
         const x0 = 30;
         const y0 = 40;
@@ -221,7 +222,7 @@ export default function BrentViz() {
         ctx.stroke();
         ctx.setLineDash([]);
         ctx.fillStyle = dim;
-        ctx.fillText('green: the bracket [b, c], and the true root (dashed); |f| clipped to 3', x0, y0 + ph + 14);
+        ctx.fillText('green: bracket; dashed: root; |f| ≤ 3', x0, y0 + ph + 14);
         // right: bracket width per evaluation, log scale
         const bx = 440;
         const by = 240;
@@ -249,9 +250,9 @@ export default function BrentViz() {
         ctx.fillStyle = dim;
         ctx.fillText('bisection alone: 1/2 per step', bx, by + 14);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? 'bracket holds the root' : 'ROOT LOST', bx, by + 28);
+        ctx.fillText(sc.ok ? 'root held' : 'ROOT LOST', bx, by + 28);
         ctx.fillStyle = ink;
-        ctx.fillText(`${st.evals} evaluations`, bx + 110, by + 28);
+        ctx.fillText(`${st.evals} evals`, bx + 100, by + 28);
         let line;
         if (s.done) {
           line = sc.last;
@@ -269,7 +270,9 @@ export default function BrentViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

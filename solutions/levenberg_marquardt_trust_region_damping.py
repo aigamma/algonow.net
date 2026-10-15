@@ -4,7 +4,7 @@
 # nonlinear in its parameters so no closed form exists. The model here
 # is a sum of two exponentials, y = a exp(-b t) + c exp(-d t), the
 # classic ill-conditioned fit, with the true parameters known so that
-# the noise floor of the residual is known too. Levenberg-Marquardt is
+# the residual at the truth supplies a reference. Levenberg-Marquardt is
 # the algorithm: at each iterate, linearize the residuals with the
 # Jacobian J and solve the damped normal equations (J^T J + lambda
 # D) step = -J^T r. The heuristic is the damping: lambda large makes
@@ -14,9 +14,9 @@
 # trust region that grows when the linear model is trustworthy.
 #
 # Referees:
-# (1) THE FLOOR: the residual norm at the true parameters is the noise
-#     floor; from 100 random starts in a box far from the truth, the
-#     fraction of runs that reach within 1% of the floor (a success)
+# (1) THE REFERENCE: a local fit initialized at the true parameters
+#     supplies a comparison cost, not a proven lower bound. From 100
+#     starts, the fraction reaching within 1% of that cost (a success)
 #     is measured for Levenberg-Marquardt, undamped Gauss-Newton, and
 #     gradient descent with backtracking, along with the iterations
 #     each needs;
@@ -301,8 +301,8 @@ if __name__ == '__main__':
         kappas.append((lam, cond_number(A)))
     assert kappas[-1][1] < kappa / 10, (kappa, kappas)
 
-    print(f'contest: fit y = a exp(-b t) + c exp(-d t) to 60 points on t in [0, 3] with noise {NOISE}; truth (a, b, c, d) = {tuple(TRUE)}; referee: the residual floor at the truth, {floor:.5f} (refined to {floor_fit:.5f})')
-    print(f'100 random starts in [0.2, 8]^4: Levenberg-Marquardt reaches within 1% of the floor on {lm_ok} (mean {mean(lm_iters):.1f} iterations); undamped Gauss-Newton on {gn_ok}, diverging on {gn_diverged}; gradient descent with backtracking on {gd_ok} (mean {mean(gd_iters):,.0f} iterations, capped at 5,000)')
+    print(f'contest: fit y = a exp(-b t) + c exp(-d t) to 60 points on t in [0, 3] with noise {NOISE}; truth (a, b, c, d) = {tuple(TRUE)}; reference cost at the truth, {floor:.5f} (locally refined to {floor_fit:.5f})')
+    print(f'100 random starts in [0.2, 8]^4: Levenberg-Marquardt reaches within 1% of the refined reference cost on {lm_ok} (mean {mean(lm_iters):.1f} iterations); undamped Gauss-Newton on {gn_ok}, diverging on {gn_diverged}; gradient descent with backtracking on {gd_ok} (mean {mean(gd_iters):,.0f} iterations, capped at 5,000)')
     print(f'damping trace from {start}: {len(accepted)} accepted steps in {it} iterations, lambda from {lam_first:.0e} down to {lam_min:.0e} at its most Gauss-Newton-like; {len(rejected_steps)} rejected steps raised it tenfold each; final cost {c:.5f}')
     print(f'rate near the solution: Levenberg-Marquardt successive error ratios {", ".join(f"{r:.2e}" for r in lm_ratios)}; gradient descent {", ".join(f"{r:.4f}" for r in gd_ratios)} after 3,000 steps (error {gd_hist[-1]:.2e})')
     print(f'conditioning at the far start: cond(J^T J) = {kappa:.1e}; with lambda 0.01 / 1 / 100: ' + ', '.join(f'{k:.1e}' for _, k in kappas))

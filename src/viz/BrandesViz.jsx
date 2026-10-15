@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -205,10 +206,10 @@ export default function BrandesViz() {
           const def = byDefinition(g);
           const worst = Math.max(...sc.cb.map((v, i) => Math.abs(v - def[i])));
           const order = [...Array(g.n).keys()].sort((a, b) => sc.cb[b] - sc.cb[a]);
-          line = `all ${g.n} sources done: the bridge endpoints ${order[0]} and ${order[1]} rank first (${sc.cb[order[0]].toFixed(1)}, ${sc.cb[order[1]].toFixed(1)}); agreement with the definition ${worst.toExponential(0)}`;
+          line = `${g.n} sources: bridge nodes ${order[0]}, ${order[1]} lead (${sc.cb[order[0]].toFixed(1)}, ${sc.cb[order[1]].toFixed(1)}); oracle error ${worst.toExponential(0)}`;
           ctx.fillStyle = good;
         } else {
-          line = 'delta(v) = sum over successors w of (sigma(v) / sigma(w)) (1 + delta(w)): every path counted, none listed';
+          line = 'δ(v) = Σ over successors w: (σ(v)/σ(w)) (1 + δ(w)); paths counted, not listed';
           ctx.fillStyle = ink;
         }
         ctx.fillText(line, 12, H - 8);
@@ -220,7 +221,9 @@ export default function BrandesViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -178,7 +179,7 @@ export default function IdaViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`8-puzzle scrambled by ${SCRAMBLE} moves; depth-first search under f = g + Manhattan ≤ bound, ${NODES_PER_TICK} nodes per tick, restart with a larger bound`, 12, 18);
+        ctx.fillText(`8-puzzle, ${SCRAMBLE}-move scramble: DFS with g + Manhattan ≤ bound; ${NODES_PER_TICK} nodes/tick`, 12, 18);
         const drawBoard = (state, x, y, cell, label) => {
           for (let i = 0; i < 9; i++) {
             const r = Math.floor(i / N);
@@ -222,10 +223,10 @@ export default function IdaViz() {
         let line;
         if (s.done) {
           const ok = sc.found === sc.optimal;
-          line = `solved in ${sc.found} moves, ${ok ? 'equal to the breadth-first distance' : 'NOT the breadth-first distance'}; ${sc.nodes.toLocaleString()} nodes over ${sc.iters.length} bounds, never more than ${sc.maxDepth} states in memory`;
+          line = `${sc.found} moves (${ok ? 'BFS agrees' : 'BFS DISAGREES'}); ${sc.nodes.toLocaleString()} nodes, ${sc.iters.length} bounds, peak memory ${sc.maxDepth} states`;
           ctx.fillStyle = ok ? good : heur;
         } else {
-          line = `bound ${sc.bound}: every node with g + h above the bound is cut; the smallest cut f becomes the next bound (${sc.nextBound === Infinity ? 'none yet' : sc.nextBound})`;
+          line = `bound ${sc.bound}: prune g+h above it; next bound = smallest cut f (${sc.nextBound === Infinity ? 'none yet' : sc.nextBound})`;
           ctx.fillStyle = ink;
         }
         ctx.fillText(line, 12, H - 8);
@@ -237,7 +238,9 @@ export default function IdaViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

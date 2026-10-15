@@ -19,7 +19,8 @@ export const content = {
       H(d) = 1 + ½ + … + 1/d of optimal, where d is the largest
       set&apos;s size. Two decades later the story closed from the
       other side: Feige (1998) proved that (1 − o(1))·ln n is the
-      best any polynomial algorithm can do unless P = NP: the
+      best any polynomial algorithm can do unless NP has
+      n^(O(log log n))-time algorithms: the
       humble argmax is <em>essentially unbeatable</em>. The same
       marginal-gain rule, analyzed through submodularity
       (Nemhauser-Wolsey-Fisher 1978), gives the (1 − 1/e) coverage
@@ -294,7 +295,7 @@ export const content = {
     <Figure
       id="fig-setcover-trap"
       aspect="16 / 7"
-      caption="The trap that prices myopia. Two rows cover the whole 2×(2ᵏ−1) universe: OPT = 2. But the widest column block covers 2ᵏ elements while each row's remaining share is 2ᵏ−1: the argmax takes the bait: and after it does, the next block out-bids the rows again, all the way down. Greedy pays k picks for a 2-pick universe: measured here for k = 2..9, reaching 4.5× at n = 1,022. Feige's theorem turns the trap into a boundary: no polynomial algorithm essentially beats ln n, so the humble argmax, H(d)-certified on all 300 refereed instances, is about as good as this problem allows anyone to be."
+      caption="The trap that prices myopia. Two rows cover the whole 2×(2ᵏ−1) universe: OPT = 2. But the widest column block covers 2ᵏ elements while each row's remaining share is 2ᵏ−1: the argmax takes the bait: and after it does, the next block out-bids the rows again, all the way down. Greedy pays k picks for a 2-pick universe: measured here for k = 2..9, reaching 4.5× at n = 1,022. Feige's theorem turns the trap into a boundary: under standard complexity assumptions, no polynomial algorithm essentially beats ln n, so the humble argmax, H(d)-certified on all 300 refereed instances, is about as good as this problem allows anyone to be."
       cite={{
         text: 'Chvátal, "A Greedy Heuristic for the Set-Covering Problem", Mathematics of Operations Research 4(3), 1979: the H(d) guarantee in three pages. Feige (1998) closed the gap from the other side.',
         href: 'https://doi.org/10.1287/moor.4.3.233',
@@ -313,7 +314,7 @@ export const content = {
           </g>
         ))}
         <text x="40" y="180" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">each block covers one more than either row's remainder: the argmax takes the bait, k times</text>
-        <text x="40" y="212" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: greedy k picks vs OPT 2 for k = 2..9 (4.5× at n = 1,022) · yet H(d)-certified on all 300 random instances</text>
+        <text x="40" y="212" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">trap: k picks vs OPT 2, k = 2..9 · H(d) certificate holds on 300 random instances</text>
         <text x="40" y="236" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">and exactly optimal on 85% of them: the trap is real, and rare</text>
         <text x="40" y="268" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">budgeted coverage: greedy ≥ (1−1/e) of every brute best-b optimum: worst 88.9%, mean 99.2% of 200</text>
       </svg>

@@ -34,7 +34,7 @@ export const MOTION_LEVELS = [
   {
     key: 'slow',
     label: 'slow',
-    hint: 'Half speed drawing, with the same two minute pause before anything repeats.',
+    hint: 'Drawing at 40% speed, with the same two minute pause before anything repeats.',
     stepScale: 2.5,
     restSeconds: 120,
   },
@@ -60,6 +60,8 @@ export function systemPrefersReduced() {
 }
 
 let current = null;
+let explicitChoice = false;
+let stopWatchingSystem = null;
 
 function readStored() {
   if (typeof window === 'undefined') return null;
@@ -75,8 +77,10 @@ function readStored() {
 // reduced motion means still, and everybody else gets the calm default.
 export function getLevel() {
   if (current) return current;
+  const stored = readStored();
+  explicitChoice = Boolean(stored);
   current =
-    readStored() ||
+    stored ||
     byKey(systemPrefersReduced() ? 'still' : DEFAULT_LEVEL) ||
     byKey(DEFAULT_LEVEL);
   return current;
@@ -88,16 +92,40 @@ export function getLevelKey() {
 
 const listeners = new Set();
 
+function watchSystemPreference() {
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return;
+  const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const update = () => {
+    if (explicitChoice) return;
+    const next = byKey(query.matches ? 'still' : DEFAULT_LEVEL);
+    if (next === current) return;
+    current = next;
+    applyAttr();
+    listeners.forEach((fn) => fn(next));
+  };
+  query.addEventListener?.('change', update);
+  stopWatchingSystem = () => query.removeEventListener?.('change', update);
+  // The system setting may have changed while no figure was mounted.
+  update();
+}
+
 export function subscribe(fn) {
+  getLevel();
   listeners.add(fn);
+  if (listeners.size === 1) watchSystemPreference();
   return () => {
     listeners.delete(fn);
+    if (!listeners.size) {
+      stopWatchingSystem?.();
+      stopWatchingSystem = null;
+    }
   };
 }
 
 export function setLevel(key) {
   const next = byKey(key);
   if (!next) return;
+  explicitChoice = true;
   current = next;
   try {
     if (typeof window !== 'undefined') window.localStorage.setItem(STORAGE_KEY, next.key);

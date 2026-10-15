@@ -308,10 +308,10 @@ export const content = {
         <polyline points="60,205 200,178 300,150" fill="none" stroke="#5da2ff" strokeWidth="2.5" />
         <text x="60" y="250" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">conjugate gradient: 101 steps (2 here, N = 2)</text>
         <text x="380" y="60" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="11">uniform grids: 51 / 101 / 199 iterations</text>
-        <text x="380" y="78" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">bounds 103 / 201 / 396 from κ = 116 / 441 / 1,712</text>
+        <text x="380" y="78" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">κ: 116 / 441 / 1,712; bounds: 103 / 201 / 396</text>
         <text x="380" y="110" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">10⁴ jump: plain 1,082, Jacobi 103</text>
         <text x="380" y="128" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">uniform: Jacobi changes nothing (101 = 101)</text>
-        <text x="380" y="256" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">64 unknowns: elimination matched to 5e-14 in 31 steps</text>
+        <text x="380" y="256" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">64 unknowns: 31 steps, error 5e-14</text>
       </svg>
     </Figure>
   ),

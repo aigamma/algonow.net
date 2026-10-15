@@ -88,7 +88,7 @@ export const content = {
     </>,
     <>
       <strong>Certify:</strong> the cycle property (every non-tree edge is
-      the strict maximum on the cycle it closes) is checked for 500 sampled
+      the maximum (not necessarily unique) on the cycle it closes) is checked for 500 sampled
       edges in the tested solution.
     </>,
   ],
@@ -270,7 +270,7 @@ export const content = {
     <Figure
       id="fig-kruskal-cut"
       aspect="16 / 7"
-      caption="The cut property, the one-sentence proof behind the greedy. Slice the vertices into two sides any way you like: the lightest edge crossing the slice belongs to every minimum spanning tree, because a tree omitting it must cross the slice somewhere heavier, and swapping the two strictly improves it. Kruskal's scan order makes every accepted edge the lightest crossing of the cut between the components it joins, so every acceptance is this argument, applied."
+      caption="The cut property, the one-sentence proof behind the greedy. Slice the vertices into two sides any way you like: a uniquely lightest edge crossing the slice belongs to every minimum spanning tree, because a tree omitting it must cross the slice somewhere heavier, and swapping the two strictly improves it. With tied lightest edges, any one can be included in some minimum spanning tree. Kruskal's scan order makes every accepted edge a lightest crossing of the cut between the components it joins, so each acceptance preserves a minimum spanning tree extension."
       cite={{
         text: 'Kruskal, "On the Shortest Spanning Subtree of a Graph and the Traveling Salesman Problem", Proceedings of the AMS 7, 1956, written in answer to Borůvka’s 1926 electrification paper. The union-find analysis is Tarjan, 1975.',
         href: 'https://doi.org/10.1090/S0002-9939-1956-0078686-7',

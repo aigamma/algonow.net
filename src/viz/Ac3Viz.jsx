@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -151,7 +152,7 @@ export default function Ac3Viz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('AC-3, one arc revision per tick: amber arc being revised, red values just pruned; squares are the surviving values', 12, 18);
+        ctx.fillText('AC-3: amber arc revised, red values pruned; squares: surviving values', 12, 18);
         const cx = 200;
         const cy = 160;
         const r = 100;
@@ -196,7 +197,7 @@ export default function Ac3Viz() {
           ctx.fillStyle = sc.ok ? good : warn;
           ctx.fillText(sc.wiped !== null ? 'wipeout: unsatisfiable, no search' : (sc.ok ? 'arc consistent: every survivor supported' : 'CONSISTENCY CHECK FAILED'), tx, 150);
           ctx.fillStyle = dim;
-          ctx.fillText(sc.wiped !== null ? 'plain backtracking would search to prove it' : 'the search that follows branches only on survivors', tx, 168);
+          ctx.fillText(sc.wiped !== null ? 'plain backtracking would search to prove it' : 'search branches only on survivors', tx, 168);
         } else {
           ctx.fillStyle = dim;
           ctx.fillText('the file: 6 nodes vs 93 (forward checking)', tx, 150);
@@ -219,7 +220,9 @@ export default function Ac3Viz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

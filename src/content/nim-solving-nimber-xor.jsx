@@ -270,7 +270,7 @@ export const content = {
     <Figure
       id="fig-nim-binary"
       aspect="16 / 7"
-      caption="Left: heaps of 7, 10, and 12 in binary. The column for 2 has three ones, the column for 1 has one, so the nim-sum is 0110 = 6 and the position is a win for the player to move; the heap with a one in the highest unbalanced column (the 4s column: heaps 7 and 12 both have it, either works) is reduced by XOR with 6: 12 becomes 10, every column balances, and the opponent faces a nim-sum of zero. Right: nodes visited by plain minimax on three equal heaps (red) against the memoized position count (gray) and the three XOR operations (blue), log scale."
+      caption="Left: heaps of 7, 10, and 12 in binary. The 8s, 4s, and 2s columns each have two ones; only the 1s column is unbalanced, so the nim-sum is 0001 = 1 and the position is a win for the player to move. The heap of 7 is reduced by XOR with 1 to 6: every column balances, and the opponent faces a nim-sum of zero. Right: nodes visited by plain minimax on three equal heaps (red) against the memoized position count (gray) and the three XOR operations (blue), log scale."
       cite={{
         text: 'C. L. Bouton, "Nim, a game with a complete mathematical theory," Annals of Mathematics 3(1/4), 1901, pp. 35-39, DOI 10.2307/1967631. R. P. Sprague, "Uber mathematische Kampfspiele," Tohoku Mathematical Journal 41, 1935. P. M. Grundy, "Mathematics and games," Eureka 2, 1939.',
         href: 'https://doi.org/10.2307/1967631',
@@ -306,9 +306,9 @@ export const content = {
               {bits(xor).map((b, c) => (
                 <text key={c} x={x0 + c * cw + 8} y={y0 + 3 * rh + 20} fill={b ? '#f0b94b' : '#9aa5bd'} fontFamily={mono} fontSize="13" fontWeight={b ? '700' : '400'}>{b}</text>
               ))}
-              <text x={x0 + 4 * cw + 12} y={y0 + 3 * rh + 20} fill="#f0b94b" fontFamily={mono} fontSize="10">nim-sum 6: the mover wins</text>
-              <text x={x0 - 28} y={y0 + 4 * rh + 34} fill="#9aa5bd" fontFamily={mono} fontSize="10">Bouton: 12 ⊕ 6 = 10 &lt; 12, so take two from the heap of 12</text>
-              <text x={x0 - 28} y={y0 + 4 * rh + 50} fill="#62d98a" fontFamily={mono} fontSize="10">7 ⊕ 10 ⊕ 10 = 7 ⊕ 0 ... = 0: every column balanced</text>
+              <text x={x0 + 4 * cw + 12} y={y0 + 3 * rh + 20} fill="#f0b94b" fontFamily={mono} fontSize="10">nim-sum {xor}: the mover wins</text>
+              <text x={x0 - 28} y={y0 + 4 * rh + 34} fill="#9aa5bd" fontFamily={mono} fontSize="10">Bouton: 7 ⊕ 1 = 6 &lt; 7, so take one from the heap of 7</text>
+              <text x={x0 - 28} y={y0 + 4 * rh + 50} fill="#62d98a" fontFamily={mono} fontSize="10">6 ⊕ 10 ⊕ 12 = 0: every column balanced</text>
               <text x={x0 - 28} y={y0 + 4 * rh + 66} fill="#9aa5bd" fontFamily={mono} fontSize="10">the file checked this on 1,407 N-positions</text>
               <text x={bx} y="24" fill="#9aa5bd" fontFamily={mono} fontSize="10">three heaps of n: nodes to decide (log)</text>
               {costs.map(([n, plain, memo], i) => (

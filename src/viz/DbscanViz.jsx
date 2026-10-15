@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -179,7 +180,7 @@ export default function DbscanViz() {
         const x0 = 12;
         const y0 = 30;
         const pw = 420;
-        const ph = 262;
+        const ph = 242;
         const sx = (x) => x0 + ((x + 1.6) / 6.3) * pw;
         const sy = (y) => y0 + ph - ((y + 1.6) / 4.2) * ph;
         const scale = pw / 6.3;
@@ -251,10 +252,10 @@ export default function DbscanViz() {
           line = `${sm.clusters} clusters, ${sm.noise} noise points; ${sc.distances.toLocaleString()} distances through the eps grid vs ${sc.brute.toLocaleString()} brute force`;
           ctx.fillStyle = good;
         } else {
-          line = 'a crescent is one cluster because dense neighborhoods chain along it; a stray point has no chain to join';
+          line = 'dense neighborhoods chain into crescents; isolated points remain noise';
           ctx.fillStyle = ink;
         }
-        ctx.fillText(line, tx, 270);
+        ctx.fillText(line, 12, 292);
         statsRef.current = { line };
       },
     },
@@ -263,7 +264,9 @@ export default function DbscanViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

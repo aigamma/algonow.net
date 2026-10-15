@@ -96,6 +96,7 @@ export function createNarrator(paragraphs, callbacks) {
   let sinceEvent = 0;
   let playing = false;
   let watchdog = 0;
+  let utteranceVersion = 0;
   let voice = null;
   let rate = 1;
 
@@ -122,8 +123,13 @@ export function createNarrator(paragraphs, callbacks) {
     const u = new SpeechSynthesisUtterance(chunk.text);
     if (voice) u.voice = voice;
     u.rate = rate;
+    const version = ++utteranceVersion;
     const advance = () => {
-      if (!playing) return;
+      // Canceled speech can report an error after a new utterance starts, and
+      // an end event can arrive after its watchdog. Only the current utterance
+      // may advance, once, so neither case skips text or duplicates progress.
+      if (!playing || version !== utteranceVersion) return;
+      utteranceVersion += 1;
       clearWatchdog();
       spoken += chunk.text.length;
       sinceEvent += chunk.text.length;
@@ -161,6 +167,8 @@ export function createNarrator(paragraphs, callbacks) {
     },
     playFrom(chunkIndex) {
       if (!synth) return;
+      utteranceVersion += 1;
+      clearWatchdog();
       synth.cancel();
       at = Math.max(0, Math.min(chunkIndex, chunks.length - 1));
       spoken = chunks.slice(0, at).reduce((n, c) => n + c.text.length, 0);
@@ -174,6 +182,7 @@ export function createNarrator(paragraphs, callbacks) {
     pause() {
       if (!synth || !playing) return;
       playing = false;
+      utteranceVersion += 1;
       clearWatchdog();
       synth.cancel();
       callbacks.onProgress?.(spoken, totalChars, sinceEvent);
@@ -189,6 +198,7 @@ export function createNarrator(paragraphs, callbacks) {
     stop(silent) {
       if (!synth) return;
       playing = false;
+      utteranceVersion += 1;
       clearWatchdog();
       synth.cancel();
       if (!silent) {

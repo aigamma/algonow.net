@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:monte-carlo-integration-uniform-sampling",
   "source_path": "src/content/monte-carlo-integration-uniform-sampling.narration.js",
-  "source_sha256": "588ced15d6d0bfa8aceddef5f4715ee382d97112b481c91ffed6338340a86d0e",
-  "source_characters": 11337,
+  "source_sha256": "7cbce571d428b67d3321aeb1abb92c61b3b4f66c1d8067108703cde759c162bb",
+  "source_characters": 11404,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -57,9 +57,9 @@
     }
   },
   "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
-  "release_sha256": "efe6a0fc9f36d6624014c83fac3ba2c9f1daae9c21ff6e218356150d04cb6650",
-  "generated_at": "2026-10-10T23:24:55.146Z",
-  "generated_characters": 22674,
+  "release_sha256": "67b347648eb1b2e37270108a6044e27474daff81e3bc802496a6834f52c374b0",
+  "generated_at": "2026-10-15T22:57:14.636Z",
+  "generated_characters": 22808,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -91,9 +91,9 @@
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4431,
-      "utf8_bytes": 4439,
-      "sha256": "f8c3e2260b9f7432d354dd1be3a5c041c460d8d4d45f50243db4eb134dba560b"
+      "characters": 4498,
+      "utf8_bytes": 4506,
+      "sha256": "14b48d9f0abcff7f1a26d73a37b13c870be3f07b9aa0ac3822144320bbbd0585"
     },
     {
       "id": "request-003",
@@ -248,8 +248,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 679,
-      "sha256": "2b587f203439cc80ae9145f67bf50d6a5e6a969183448d773184d701d1575065"
+      "utf8_bytes": 746,
+      "sha256": "80d2d5070f67e5127062da7b7130b0d5110c47a0e80515beb343169625d020a0"
     },
     {
       "id": "monte-carlo-integration-uniform-sampling.06-signals",
@@ -373,29 +373,29 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/monte-carlo-integration-uniform-sampling/efe6a0fc9f36d6624014/aoede-6ad06175f08ce98c.mp3",
+      "object_key": "narration/v1/puzzles/monte-carlo-integration-uniform-sampling/67b347648eb1b2e37270/aoede-1255d2b1c45f4a9e.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2795564,
-      "sha256": "6ad06175f08ce98ca79f47bca3deb1749d723870517500981a3ab93c85831339",
+      "bytes": 2782700,
+      "sha256": "1255d2b1c45f4a9e9e9670cfdc79ab3d3b41db1c9053fbbf29cc74650ce2df80",
       "request_parts": [
         {
           "request_index": 1,
           "request_sha256": "3eb9dd3815c4fc1fbd2f29c052f605357f97f028d4105b13f8a5dcd301b98e66",
-          "bytes": 1189536,
-          "sha256": "9f019498f98ea9fe707b4c917a5a5c505981f44fd04b0eaa4dd0efbf98ff9532"
+          "bytes": 1155552,
+          "sha256": "201236780229300ef171ac298363476b163fa5a53cb59989559e8fc75860a6ab"
         },
         {
           "request_index": 2,
-          "request_sha256": "f8c3e2260b9f7432d354dd1be3a5c041c460d8d4d45f50243db4eb134dba560b",
-          "bytes": 1114176,
-          "sha256": "7b5a403f70d407ffefdf7fb03debea8fe6a4e0a2663007ebf603c4e980f367ae"
+          "request_sha256": "14b48d9f0abcff7f1a26d73a37b13c870be3f07b9aa0ac3822144320bbbd0585",
+          "bytes": 1126752,
+          "sha256": "d149250d2f0abf1195945522b6ce0d49df3af87dca7237d31d0ec4085393967b"
         },
         {
           "request_index": 3,
           "request_sha256": "e04da92e54a304cb872cadefd426225803bb615f63e751ca81333d0d8f24991a",
-          "bytes": 310272,
-          "sha256": "a4fccde74161ff7f7392ba5f637fc53c7a08df5b8445d082a3df166018b227ad"
+          "bytes": 318816,
+          "sha256": "1b4488d2cc20482d04a412fc4df52a0830a7209bcbd1e726ffcf8675b05b4ee8"
         },
         {
           "request_index": 4,
@@ -410,35 +410,35 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/monte-carlo-integration-uniform-sampling/efe6a0fc9f36d6624014/algieba-d5f2e285ffc19012.mp3",
+      "object_key": "narration/v1/puzzles/monte-carlo-integration-uniform-sampling/67b347648eb1b2e37270/algieba-bd5d408151ecba9d.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2926700,
-      "sha256": "d5f2e285ffc190120d133453a82a99906c4767ff771b97ad12aa7801b79f05fb",
+      "bytes": 2954156,
+      "sha256": "bd5d408151ecba9d56beb306d711566e08b199ae6ca26ae68b87851a59497810",
       "request_parts": [
         {
           "request_index": 1,
           "request_sha256": "3eb9dd3815c4fc1fbd2f29c052f605357f97f028d4105b13f8a5dcd301b98e66",
-          "bytes": 1281792,
-          "sha256": "2209f4d40a5cc51dea877e7067a9e26513df34d8572199eb7a5d616d99e7ac29"
+          "bytes": 1244352,
+          "sha256": "6c861d4895d001f5478b0d4f160f20ac436ae6c4ee063dd77b80cf9c047a24c6"
         },
         {
           "request_index": 2,
-          "request_sha256": "f8c3e2260b9f7432d354dd1be3a5c041c460d8d4d45f50243db4eb134dba560b",
-          "bytes": 1154304,
-          "sha256": "b903649b123a532149f4145dbfade8c13c695b054cc0990ca5d1784931db610c"
+          "request_sha256": "14b48d9f0abcff7f1a26d73a37b13c870be3f07b9aa0ac3822144320bbbd0585",
+          "bytes": 1199616,
+          "sha256": "1dfbf00013b7d749cc0e7ca4b5e5b6bc9b1dd0cfc34a99b89ab7f125088af376"
         },
         {
           "request_index": 3,
           "request_sha256": "e04da92e54a304cb872cadefd426225803bb615f63e751ca81333d0d8f24991a",
-          "bytes": 316224,
-          "sha256": "ba3e7a188c036d12ed460a2114ad5ff3d84cfce8d5590f5066a0603fc21a429c"
+          "bytes": 318336,
+          "sha256": "c77224aa68cd18f8db4196f6993705265bc269a4b90096618be6600444252fb9"
         },
         {
           "request_index": 4,
           "request_sha256": "026e425ddbf0522ad0b0e1a438dea5e989d1c87e14d548afcb089a9d18c838d8",
-          "bytes": 174144,
-          "sha256": "0c5fd484b1303dc3cff4eb36ad42e58c1cfadace3cedccf87f945514e9b7be4d"
+          "bytes": 191616,
+          "sha256": "70cb7f0774c7c376277ce21c8e9eb69ea436383bf2bbb623abae152c69fcd2ae"
         }
       ]
     }

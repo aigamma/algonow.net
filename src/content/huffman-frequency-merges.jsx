@@ -301,7 +301,7 @@ export const content = {
         <g>
           <circle cx="75" cy="204" r="16" fill="rgba(224,103,103,0.2)" stroke="#e06767" strokeWidth="1.6" />
           <text x="75" y="209" textAnchor="middle" fill="#e06767" fontFamily="ui-monospace, monospace" fontSize="13">e·40</text>
-          <text x="99" y="209" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">common, deep?</text>
+          <text x="40" y="240" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">common?</text>
         </g>
         <circle cx="145" cy="204" r="16" fill="rgba(240,185,75,0.16)" stroke="#f0b94b" strokeWidth="1.4" />
         <text x="145" y="209" textAnchor="middle" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="13">q·1</text>

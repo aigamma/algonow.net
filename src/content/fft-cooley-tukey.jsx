@@ -122,8 +122,9 @@ export const content = {
       referee agrees.</strong> (n/2)·log₂ n butterflies asserted to the
       integer; three planted tones found as the top three spectrum bins
       with amplitude recovered to 0.999; convolution coefficient-exact
-      against schoolbook; Parseval and 50 round-trips hold. The same
-      transform underlies JPEG, WiFi, and MRI: one idea, a civilization
+      against schoolbook; Parseval and 50 round-trips hold. The Fourier
+      transform underlies WiFi and MRI; JPEG uses the related discrete
+      cosine transform: one idea, a civilization
       of uses.
     </>
   ),
@@ -293,7 +294,7 @@ export const content = {
         <line x1="430" y1="195" x2="500" y2="170" stroke="#f0b94b" strokeWidth="1.2" strokeDasharray="4 3" />
         <text x="512" y="124" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="12">X[k] = E+W·O</text>
         <text x="512" y="174" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="12">X[k+n/2] = E−W·O</text>
-        <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">T(n) = 2·T(n/2) + n/2 multiplications  ⇒  exactly (n/2)·log₂ n · at n=1,024: 5,120 vs the definition’s 1,048,576</text>
+        <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">T(n) = 2T(n/2) + n/2 · at n = 1,024: 5,120 multiplications vs DFT 1,048,576</text>
       </svg>
     </Figure>
   ),

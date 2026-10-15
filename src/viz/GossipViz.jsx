@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -100,7 +101,7 @@ export default function GossipViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`${N} nodes, one update starting at node 0, one round per tick; estimate for random push: log₂N + ln N = ${sc.estimate.toFixed(1)} rounds`, 12, 18);
+        ctx.fillText(`${N} nodes, update starts at 0; random-push estimate: log₂N + ln N = ${sc.estimate.toFixed(1)} rounds`, 12, 18);
         const panels = [
           { cx: 150, R: sc.push, name: 'random peer each round' },
           { cx: 470, R: sc.ring, name: 'fixed peer (ring neighbor)' },
@@ -131,7 +132,7 @@ export default function GossipViz() {
           ctx.fillStyle = ink;
           ctx.fillText(p.name, p.cx - 80, 262);
           ctx.fillStyle = dim;
-          ctx.fillText(`round ${R.rounds}: ${R.count} of ${N} informed${R.doneAt ? ` (complete at round ${R.doneAt})` : ''}`, p.cx - 80, 278);
+          ctx.fillText(`round ${R.rounds}: ${R.count}/${N} informed${R.doneAt ? `; done ${R.doneAt}` : ''}`, p.cx - 80, 278);
         }
         let line;
         if (s.done) {
@@ -150,7 +151,9 @@ export default function GossipViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

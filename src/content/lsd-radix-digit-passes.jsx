@@ -311,7 +311,7 @@ export const content = {
     <Figure
       id="fig-radix-passes"
       aspect="16 / 7"
-      caption="Order assembled, never discovered. Each pass buckets all keys by one digit, least significant first, and gathers the buckets stably: equal digits keep arrival order, so pass k fixes digit k while preserving everything passes 1..k-1 built. After the last pass the keys are sorted and no comparison ever happened: 1,601,024 work units against the referee's 3,257,989 comparisons at n = 200,000, with the log2(n!) = 3,233,399 lower bound binding every comparison sort and not this one. Sabotaging stability broke 200 of 200 arrays: the invariant is the algorithm."
+      caption="Order assembled, never discovered. Each pass buckets all keys by one digit, least significant first, and gathers the buckets stably: equal digits keep arrival order, so pass k fixes digit k while preserving everything passes 1..k-1 built. After the last pass the keys are sorted and no comparison ever happened: 1,601,024 work units against the referee's 3,257,989 comparisons at n = 200,000, with the log2(n!) = 3,233,399 worst-case lower bound binding comparison sorting and not this one. Sabotaging stability broke 200 of 200 arrays: the invariant is the algorithm."
       cite={{
         text: 'Card-sorter lineage: Hollerith tabulators, 1890 census; formalized in H. H. Seward\'s 1954 MIT thesis; documented in D. E. Knuth, The Art of Computer Programming, Vol. 3, §5.2.5.',
         href: 'https://www-cs-faculty.stanford.edu/~knuth/taocp.html',
@@ -320,7 +320,7 @@ export const content = {
       <svg viewBox="0 0 640 290" role="img" aria-label="Three stable digit passes sorting three-digit numbers, with the comparison lower bound shown as a wall radix walks under">
         <text x="30" y="28" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">pass 1 · ones digit</text>
         <text x="240" y="28" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">pass 2 · tens digit</text>
-        <text x="450" y="28" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">pass 3 · hundreds digit</text>
+        <text x="450" y="28" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">pass 3 · hundreds</text>
         {[['329', '457', '657', '839', '436', '720', '355'],
           ['720', '355', '436', '457', '657', '329', '839'],
           ['720', '329', '436', '839', '355', '457', '657']].map((col, ci) => (
@@ -342,7 +342,7 @@ export const content = {
         <text x="560" y="28" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">sorted</text>
         <path d="M 150 110 h 60 M 360 110 h 60 M 530 110 h 20" stroke="#f0b94b" strokeWidth="1.4" />
         <text x="30" y="188" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">the invariant: after pass k, sorted by the k lowest digits: equal digits keep arrival order (stability)</text>
-        <text x="30" y="212" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">sabotage: shuffle inside one bucket and 200 of 200 arrays come out wrong: the invariant IS the algorithm</text>
+        <text x="30" y="212" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">shuffle within one bucket: all 200 arrays fail · stability is required</text>
         <line x1="30" y1="232" x2="610" y2="232" stroke="rgba(226,96,108,0.5)" strokeWidth="1.4" strokeDasharray="6 4" />
         <text x="30" y="250" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">the wall: log2(n!) = 3,233,399 comparisons binds every comparison sort (referee paid 3,257,989)</text>
         <text x="30" y="272" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">radix walked under it: 1,601,024 work units, zero comparisons: 2.0× at 32 bits, 5.9× at 8 bits</text>

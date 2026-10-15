@@ -10,7 +10,7 @@ export const content = {
     'A rectangular grid of open cells and walls, a start cell, and a goal cell.',
   task: 'Return a provably shortest route from start to goal, or report that none exists.',
   constraint:
-    'Moves are up, down, left, right, each costing 1. Optimality must be guaranteed without settling the whole map.',
+    'Moves are up, down, left, right, each costing 1. Optimality must be guaranteed; the heuristic aims to reduce how much of the map is settled.',
 
   origins: (
     <p>
@@ -18,9 +18,8 @@ export const content = {
       Stanford Research Institute, where it routed an early mobile robot named{' '}
       <strong>Shakey</strong> through rooms and corridors. The idea joined two
       traditions: Dijkstra&apos;s guarantee of shortest paths, and informed
-      search&apos;s habit of looking toward the goal. Among algorithms given the
-      same heuristic information, A* expands the fewest nodes while still
-      guaranteeing the best answer.
+      search&apos;s habit of looking toward the goal. With a consistent heuristic, A* is optimally efficient among admissible
+      forward searches using the same information, up to tie-breaking.
     </p>
   ),
 
@@ -93,17 +92,17 @@ export const content = {
   baseline: (
     <>
       BFS and Dijkstra are correct here, and wasteful: they expand rings of
-      cells that lead away from the goal. The exponential worst case belongs to
-      deceptive mazes; on realistic maps an accurate heuristic compresses the
-      work toward the length of the answer itself.
+      cells that lead away from the goal. On this finite grid, each cell is
+      settled at most once: O(V log V) time and O(V) space with a heap.
+      An accurate heuristic can reduce the explored region.
     </>
   ),
 
   strength: (
     <>
       <strong>Optimal efficiency.</strong> With an admissible, consistent
-      heuristic, A* provably expands the fewest nodes of any algorithm that
-      guarantees the best path from the same information.
+      heuristic, A* is optimally efficient among admissible forward searches
+      using the same information, up to tie-breaking at the optimal cost.
     </>
   ),
   weakness: (
@@ -120,12 +119,12 @@ export const content = {
     {
       name: 'A* search',
       isThisUnit: true,
-      cost: 'O(b^d) worst case, near-linear in the answer with a sharp heuristic',
+      cost: 'O(V log V) time and O(V) space on this grid',
       wins: (
         <>
-          Optimal, and provably the cheapest way to be optimal from this
-          information. It settles cells only where{' '}
-          <strong>g + h</strong> can still beat the answer.
+          Optimal, with optimal efficiency subject to the forward-search and
+          tie-breaking conditions above. It settles cells only where{' '}
+          <strong>g + h</strong> can still reach or beat the answer.
         </>
       ),
       costs: (
@@ -183,7 +182,7 @@ export const content = {
       costs: (
         <>
           Wrong. On the instance below it returns a{' '}
-          <strong>203-step path where 147 exists</strong>, a 38 percent detour,
+          <strong>202-step path where 146 exists</strong>, a 38 percent detour,
           because a concave pocket looks like progress the whole way in.
         </>
       ),
@@ -213,25 +212,25 @@ export const content = {
       {
         method: 'A* × Manhattan',
         isThisUnit: true,
-        values: ['4,350', '147'],
+        values: ['4,350', '146'],
         best: 1,
         verdict: 'optimal, and 3.1× cheaper than the blind method that ties it',
       },
       {
         method: "Dijkstra's algorithm",
-        values: ['13,665', '147'],
+        values: ['13,665', '146'],
         best: 1,
         verdict: 'same answer, three times the work',
       },
       {
         method: 'Breadth-first search',
-        values: ['13,659', '147'],
+        values: ['13,659', '146'],
         best: 1,
         verdict: 'same answer again, and only because every edge costs 1',
       },
       {
         method: 'Greedy best-first',
-        values: ['1,451', '203'],
+        values: ['1,451', '202'],
         best: 0,
         verdict: 'cheapest search, 56 steps of detour, no guarantee',
       },
@@ -265,10 +264,10 @@ export const content = {
           A* · h = Manhattan
         </text>
         <path d="M96 176 L176 96 L256 176 L176 256 Z" fill="rgba(240,185,75,0.16)" stroke="rgba(240,185,75,0.55)" strokeWidth="1.5" />
-        <path d="M96 176 L136 136 L176 176 L136 216 Z" fill="rgba(240,185,75,0.22)" stroke="rgba(240,185,75,0.4)" strokeWidth="1" />
+        <path d="M136 176 L176 136 L216 176 L176 216 Z" fill="rgba(240,185,75,0.22)" stroke="rgba(240,185,75,0.4)" strokeWidth="1" />
         <path d="M422 160 L500 138 L578 160 L500 182 Z" fill="url(#astar-corr)" stroke="rgba(93,162,255,0.6)" strokeWidth="1.5" />
         <line x1="422" y1="160" x2="578" y2="160" stroke="var(--path, #62d98a)" strokeWidth="2.5" strokeDasharray="6 5" />
-        <circle cx="96" cy="176" r="6" fill="#62d98a" />
+        <circle cx="176" cy="176" r="6" fill="#62d98a" />
         <circle cx="256" cy="176" r="6" fill="#e06767" />
         <circle cx="422" cy="160" r="6" fill="#62d98a" />
         <circle cx="578" cy="160" r="6" fill="#e06767" />
@@ -278,7 +277,7 @@ export const content = {
         <text x="430" y="288" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="12">
           161 cells settled
         </text>
-        <text x="84" y="196" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">start</text>
+        <text x="164" y="196" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">start</text>
         <text x="244" y="196" fill="#e06767" fontFamily="ui-monospace, monospace" fontSize="11">goal</text>
       </svg>
     </Figure>

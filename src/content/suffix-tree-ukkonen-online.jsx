@@ -309,7 +309,7 @@ export const content = {
         <text x="440" y="30" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">→E: open leaves,</text>
         <text x="440" y="44" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">grown free by one</text>
         <text x="440" y="58" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">global pointer</text>
-        <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: 2.33 extension steps/char at 199,589 chars · every build ≤ 2(n+1) nodes · a 20-char query walks 20 comparisons</text>
+        <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">2.33 steps/char at n = 199,589 · ≤ 2(n+1) nodes · 20-char lookup: 20 comparisons</text>
       </svg>
     </Figure>
   ),

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -142,7 +143,7 @@ export default function DtwViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`two ${N}-sample series, one a random time warp of the other; the grid fills ${ROWS_PER_TICK} rows per tick inside a band of ±${WINDOW}`, 12, 18);
+        ctx.fillText(`two ${N}-sample series, one warped; ${ROWS_PER_TICK} rows per tick within the ±${WINDOW} band`, 12, 18);
         // the grid
         const gx = 40;
         const gy = 40;
@@ -234,14 +235,14 @@ export default function DtwViz() {
         let line;
         if (s.done) {
           const { mean, worst } = pathError(sc);
-          line = `DTW ${sc.dist.toFixed(2)} vs Euclidean ${sc.euclid.toFixed(2)}; the path tracks the true warp within ${mean.toFixed(1)} samples on average (worst ${worst.toFixed(0)}); ${sc.cells.toLocaleString()} cells of ${N * N}`;
+          line = `DTW ${sc.dist.toFixed(2)} vs Euclidean ${sc.euclid.toFixed(2)}; warp error: mean ${mean.toFixed(1)}, max ${worst.toFixed(0)} samples`;
           ctx.fillStyle = good;
         } else {
-          line = `filling row ${Math.min(sc.row, N)} of ${N}: each cell is the local cost plus the cheapest of its three predecessors`;
+          line = `row ${Math.min(sc.row, N)}/${N}: local cost +; cheapest of three predecessors`;
           ctx.fillStyle = ink;
         }
         ctx.fillStyle = s.done ? good : ink;
-        ctx.fillText(line, sx, 230);
+        line.split('; ').forEach((part, i) => ctx.fillText(part, sx, 230 + i * 16));
         statsRef.current = { line };
       },
     },
@@ -250,7 +251,9 @@ export default function DtwViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

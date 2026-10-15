@@ -20,7 +20,7 @@ export const content = {
       past a few thousand, until Ulrik Brandes (2001, Journal of
       Mathematical Sociology) noticed that the dependencies of one
       source on all targets could be accumulated in a single pass back
-      over the breadth-first search tree: O(VE) for unweighted graphs,
+      over the shortest-path DAG: O(VE) for unweighted graphs,
       O(VE + V² log V) weighted. Girvan and Newman (2002) built
       community detection on the edge version (remove the highest
       betweenness edge, repeat); Bader, Kintali, Madduri, and Mihail
@@ -35,7 +35,7 @@ export const content = {
       Owns the <strong>path counting</strong>: a breadth-first search
       from s that records, for every vertex w, its distance and the
       number of shortest paths σ<sub>sw</sub> = Σ over predecessors v of
-      σ<sub>sv</sub>, so that counts multiply along the search tree
+      σ<sub>sv</sub>, so that counts sum across predecessors in the shortest-path DAG
       instead of being enumerated. Measured: on the 10 × 10 grid the
       corner-to-corner count is 48,620 = C(18, 9); a recursive walker
       listed every one of those paths to check it, and one search
@@ -284,7 +284,7 @@ export const content = {
     <Figure
       id="fig-brandes-accumulation"
       aspect="16 / 7"
-      caption="One source, two passes. Left: the breadth-first search from s labels each vertex with its distance and σ, the number of shortest paths from s, which adds up along the tree (σ of a vertex is the sum of σ over its predecessors). Right: the accumulation walks the same tree backward, each vertex passing (σ(v)/σ(w))(1 + δ(w)) to each predecessor v, so δ at a vertex is its share of every shortest path from s that passes through it. Summed over sources: betweenness. Measured: 15.1× fewer operations than the definition at n = 240, and 48,620 grid paths counted from one search."
+      caption="One source, two passes. Left: the breadth-first search from s labels each vertex with its distance and σ, the number of shortest paths from s, which adds up along the shortest-path DAG (σ of a vertex is the sum of σ over its predecessors). Right: the accumulation walks the same DAG backward, each vertex passing (σ(v)/σ(w))(1 + δ(w)) to each predecessor v, so δ at a vertex is its share of every shortest path from s that passes through it. Summed over sources: betweenness. Measured: 15.1× fewer operations than the definition at n = 240, and 48,620 grid paths counted from one search."
       cite={{
         text: 'U. Brandes, "A faster algorithm for betweenness centrality," Journal of Mathematical Sociology 25(2), 2001. DOI 10.1080/0022250X.2001.9990249. L. C. Freeman, "A set of measures of centrality based on betweenness," Sociometry 40(1), 1977.',
         href: 'https://doi.org/10.1080/0022250X.2001.9990249',
@@ -305,7 +305,7 @@ export const content = {
         <text x="40" y="250" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">σ(c) = σ(a) + σ(b) = 2: two shortest paths from s reach c, and both continue to e</text>
         <text x="40" y="266" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">δ(a) = (1/2)(1 + δ(c)) + (1/1)(1 + δ(d)) = 1 + 1 = 2.5 with δ(c) = 1: a’s share of the paths through it</text>
         <text x="420" y="60" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="11">measured</text>
-        <text x="420" y="82" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="10">n = 240: 455,625 vs 6,883,200 ops (15.1×)</text>
+        <text x="420" y="82" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="10">n=240: 455,625 vs 6,883,200 ops</text>
         <text x="420" y="100" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">agreement with the definition: 9e-14</text>
         <text x="420" y="118" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">path, star, complete, cycle: exact</text>
         <text x="420" y="146" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">10 × 10 grid: 48,620 paths, one BFS</text>

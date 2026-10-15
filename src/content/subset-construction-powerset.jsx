@@ -320,7 +320,7 @@ export const content = {
           );
         })}
         <text x="360" y="218" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">exactly 2ⁿ reachable, Moore-verified minimal</text>
-        <text x="40" y="258" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">referee: 511,750 exhaustive short-string checks + 20,000 long: DFA == frontier simulation, no exceptions</text>
+        <text x="40" y="258" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">511,750 short strings + 20,000 long: DFA equals the frontier simulation</text>
       </svg>
     </Figure>
   ),

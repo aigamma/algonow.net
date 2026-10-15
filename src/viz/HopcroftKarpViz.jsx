@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -5,7 +6,7 @@ import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.j
 // BFS wave sweeps the layers (amber rings ripple outward from the free
 // workers), then the harvested batch of vertex-disjoint shortest
 // augmenting paths draws in amber and flips green together. When no
-// wave reaches a free job, the final search's reachable set becomes the
+// wave reaches a free job, the final search's reached vertices determine the
 // König cover: red rings whose count equals the matching: certified on
 // canvas. The instance is seeded-searched for at least two phases with
 // a real batch.
@@ -36,15 +37,16 @@ function runHK(adj) {
         layers[0].push(u);
       }
     }
-    let found = false;
+    let shortest = Infinity;
     let qi = 0;
     const layerR = new Map();
     while (qi < q.length) {
       const u = q[qi++];
+      if (dist[u] >= shortest) continue;
       for (const v of adj[u]) {
         if (!layerR.has(v)) layerR.set(v, dist[u]);
         const w = matchR[v];
-        if (w === -1) found = true;
+        if (w === -1) shortest = Math.min(shortest, dist[u] + 1);
         else if (dist[w] === Infinity) {
           dist[w] = dist[u] + 1;
           (layers[dist[w]] = layers[dist[w]] || []).push(w);
@@ -52,7 +54,7 @@ function runHK(adj) {
         }
       }
     }
-    if (!found) {
+    if (shortest === Infinity) {
       // König: Z = reachable set of the failed search.
       const zl = new Set(layers.flat());
       const zr = new Set(layerR.keys());
@@ -65,13 +67,12 @@ function runHK(adj) {
     const dfs = (u) => {
       for (const v of adj[u]) {
         const w = matchR[v];
-        if (w === -1) {
+        if (w === -1 && dist[u] + 1 === shortest) {
           matchL[u] = v;
           matchR[v] = u;
           return [u, v];
         }
-        if (dist[w] === dist[u] + 1) {
-          dist[w] = Infinity;
+        if (w !== -1 && dist[w] === dist[u] + 1) {
           const deeper = dfs(w);
           if (deeper) {
             matchL[u] = v;
@@ -340,7 +341,9 @@ export default function HopcroftKarpViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

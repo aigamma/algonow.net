@@ -5,7 +5,7 @@ import { narration } from './differential-privacy-laplace-mechanism.narration.js
 
 export const content = {
   given:
-    'A database of a thousand people, each with a sensitive bit. Publish how many have it, usefully, so that nobody who sees the published number can tell whether any one person’s record was in the data, even an attacker who knows every other record.',
+    'A database of a thousand people, each with a sensitive bit. Publish how many have it, usefully, while bounding how much the release changes the evidence about one record, even for an attacker who knows every other record. This limits disclosure; it does not make inference impossible.',
   task: 'Differential privacy. The algorithm is a definition with a release procedure attached (Dwork, McSherry, Nissim, Smith 2006): a randomized release M is ε-differentially private when for every two databases differing in one record and every set of outputs S, Pr[M(D) ∈ S] ≤ e^ε Pr[M(D′) ∈ S]. The heuristic is the Laplace mechanism: add noise drawn from the Laplace distribution with scale b = Δf / ε, where the global sensitivity Δf is the most one record can change the true answer. Two Laplace densities one sensitivity apart have a ratio of at most e^ε everywhere, which is exactly the guarantee, and the price is a mean absolute error of b, no more and no less.',
   constraint:
     'Measured on a count over 1,000 records and its neighbor one record away: 200,000 noisy releases of each, histogrammed, give a worst ratio of empirical probabilities of 2.785 in the ten bins holding at least 2,000 releases, against e¹ = 2.718 (inside a 10% statistical margin), and the exact Laplace density ratio evaluated on a grid peaks at 2.718282 and never above: the bound is tight. The mean absolute error is the scale: 9.994, 1.986, 1.004, 0.503 at ε = 0.1, 0.5, 1, 2 against b = 10, 2, 1, 0.5, with variances 199.2, 7.89, 2.00, 0.51 against 2b². Ten releases at ε = 0.1 each never let the adversary’s log-likelihood ratio exceed the composed 1.0 (mean 0.048, 99th percentile 0.80). An attacker who knows both neighbors identifies the true one 0.698 of the time against Laplace at ε = 1 (the theorem allows at most 0.731), 0.526 at ε = 0.1, 0.952 against uncalibrated noise of standard deviation 0.3, and 1.000 against exact release. The Gaussian mechanism at (ε = 1, δ = 10⁻⁵) has error 3.86 on one count against 1.00, and 27.3 against 50.1 on fifty counts under one budget.',
@@ -79,12 +79,10 @@ export const content = {
   steps: [
     <>
       <strong>Sensitivity:</strong> Δf = max over neighboring databases of
-      |f(D) − f(D′)|: 1 for a count, the range for a sum, range/n for a
-      mean.
+      |f(D) − f(D′)|: 1 for a count, the range for a bounded sum and range/n for a bounded mean under fixed-size replace-one adjacency.
     </>,
     <>
-      <strong>Budget:</strong> choose ε; smaller is more private; the
-      attacker&apos;s best success against one bit is at most e^ε/(1 + e^ε).
+      <strong>Budget:</strong> choose ε; smaller is more private; for two equally likely neighboring databases, the attacker&apos;s best distinguishing success is at most e^ε/(1 + e^ε).
     </>,
     <>
       <strong>Noise:</strong> draw Lap(b) with b = Δf/ε (density e^{'{−|x|/b}'}/2b):

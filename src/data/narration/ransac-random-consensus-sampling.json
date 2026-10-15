@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:ransac-random-consensus-sampling",
   "source_path": "src/content/ransac-random-consensus-sampling.narration.js",
-  "source_sha256": "62fb5fca515be8a7671e93ef3828fed8f87c13465aa7577665f9417eb7ef029f",
-  "source_characters": 10493,
+  "source_sha256": "ed93e54e512aaf3aea867e0a360c1161fde9e8a27438b5448917349bb4f34594",
+  "source_characters": 10544,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -42,9 +42,9 @@
     }
   },
   "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
-  "release_sha256": "696a3c81e80f81a71cd5bf8e5e5979de7c77698117de5058f41ac0bb29a803e8",
-  "generated_at": "2026-09-27T01:34:33.844Z",
-  "generated_characters": 20986,
+  "release_sha256": "4b46b48f24c4aac1224a894f6d24254f96b28f679bb34a5955bb7c19ff6df560",
+  "generated_at": "2026-10-15T22:25:14.953Z",
+  "generated_characters": 21088,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -76,9 +76,9 @@
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4756,
-      "utf8_bytes": 4758,
-      "sha256": "04aea101bd3d597bc78a00103ac8168b6b9fce5a6c879c122b74606ce7504501"
+      "characters": 4807,
+      "utf8_bytes": 4809,
+      "sha256": "0159132f60dce3b8d13b26db0c8dac4ad78c7a229de7c31205908fa23ab82c93"
     },
     {
       "id": "request-003",
@@ -226,8 +226,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 827,
-      "sha256": "03a9fbed24274dd3085144f4f47795aa8a51f83c0a6988e57f871c9a99263979"
+      "utf8_bytes": 878,
+      "sha256": "1a64b0bf1b80756df50c768997a9d69b04e2c6356ad8534716e79e9502fe07f8"
     },
     {
       "id": "ransac-random-consensus-sampling.06-signals",
@@ -351,29 +351,29 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/ransac-random-consensus-sampling/696a3c81e80f81a71cd5/aoede-6c6035ef351aea87.mp3",
+      "object_key": "narration/v1/puzzles/ransac-random-consensus-sampling/4b46b48f24c4aac1224a/aoede-c1229c5778c01e47.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2597324,
-      "sha256": "6c6035ef351aea87a862432c9cdc28eb1d6f0874c8ac99337c24e941f755d2b7",
+      "bytes": 2587148,
+      "sha256": "c1229c5778c01e47a0c8e1858ef5c37989e46d70c7269147ea6fac547ba74959",
       "request_parts": [
         {
           "request_index": 1,
           "request_sha256": "a666b3bd16abe50e778efa0e753c219e0cd6bc31ee74b66e7f4c46491a184b6f",
-          "bytes": 1121664,
-          "sha256": "6f55a1980b5809802e8f26310e764c25a9816aa499d06561cf2eee2524df3dc4"
+          "bytes": 1091424,
+          "sha256": "e0e40ad869f6cd789c3393b1be63f5c68101fdcd1c0733721e7041a303cd8fd9"
         },
         {
           "request_index": 2,
-          "request_sha256": "04aea101bd3d597bc78a00103ac8168b6b9fce5a6c879c122b74606ce7504501",
-          "bytes": 1216032,
-          "sha256": "9ecb8f9037b063f5707a307a8ba5e98a813e6733f574186324cf13c29701cd69"
+          "request_sha256": "0159132f60dce3b8d13b26db0c8dac4ad78c7a229de7c31205908fa23ab82c93",
+          "bytes": 1225344,
+          "sha256": "961c6d42d1fc0ce1e62b901053785778667385705f7fbd0d7f0326c4c8229f8c"
         },
         {
           "request_index": 3,
           "request_sha256": "b17602874b4be65302e48ebc9bc7ced75073f4a1dea25f9ac390225286bcd8aa",
-          "bytes": 259392,
-          "sha256": "efb2b2784dab20fad29ed637a8da8d41e1de9ec11715fc09d40fe617f61195ba"
+          "bytes": 270144,
+          "sha256": "7a78e8350474acc888ac557eeb8c795b135a246fffbf74a95b4cbe9c50a607cc"
         }
       ]
     },
@@ -382,29 +382,29 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/ransac-random-consensus-sampling/696a3c81e80f81a71cd5/algieba-f9c6708cfe017428.mp3",
+      "object_key": "narration/v1/puzzles/ransac-random-consensus-sampling/4b46b48f24c4aac1224a/algieba-732666bcc2c711df.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2665196,
-      "sha256": "f9c6708cfe0174285e415c082ec5a407b3a525d258c9f45b7393eb1999ae9668",
+      "bytes": 2801324,
+      "sha256": "732666bcc2c711dfc173a1ff6ad7d800eff18b45c0f485804103c630fbf1217f",
       "request_parts": [
         {
           "request_index": 1,
           "request_sha256": "a666b3bd16abe50e778efa0e753c219e0cd6bc31ee74b66e7f4c46491a184b6f",
-          "bytes": 1117824,
-          "sha256": "a0a30495c9c539e668cc75aaef518e27bf6c24ef5fdd1ed4aa913f45d9abefe3"
+          "bytes": 1167552,
+          "sha256": "f1e74cc8b68ad573ed2c9ca16d41592757201553a6c4a35cf45e4e3edf177da4"
         },
         {
           "request_index": 2,
-          "request_sha256": "04aea101bd3d597bc78a00103ac8168b6b9fce5a6c879c122b74606ce7504501",
-          "bytes": 1272192,
-          "sha256": "25521eadcc91758f061e75ebf1573db8d8a21408b598bda78214573a2ef18972"
+          "request_sha256": "0159132f60dce3b8d13b26db0c8dac4ad78c7a229de7c31205908fa23ab82c93",
+          "bytes": 1353984,
+          "sha256": "de8942f949bdac08a7da4f16e7c3ee2b3bb4254241b1c2df2bf6beced81803c2"
         },
         {
           "request_index": 3,
           "request_sha256": "b17602874b4be65302e48ebc9bc7ced75073f4a1dea25f9ac390225286bcd8aa",
-          "bytes": 274944,
-          "sha256": "a97091650bb16725b3ce4b29b282202f759e12a032ee3a81e1b6297c47b39d3e"
+          "bytes": 279552,
+          "sha256": "441116f47a3626ee43892edf42fb0c1dba07cf97bdafc5462d6552d83f214d31"
         }
       ]
     }

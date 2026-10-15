@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -218,7 +219,7 @@ export default function GcViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`a ${SLOTS}-slot heap; the program allocates linked objects, keeps ${KEEP} roots, and builds cycles; a failed allocation triggers mark, then sweep`, 12, 18);
+        ctx.fillText(`${SLOTS}-slot heap, ${KEEP} roots, linked cycles; failed allocation triggers mark then sweep`, 12, 18);
         const drawHeap = (h, y, label, markedSet, live) => {
           const cw = (W - 24) / SLOTS;
           for (let i = 0; i < SLOTS; i++) {
@@ -240,12 +241,12 @@ export default function GcViz() {
         const rcLive = reachable(sc.rc);
         drawHeap(sc.rc, 120, `reference counting: ${sc.rc.objects.size} objects, ${sc.rc.objects.size - rcLive.size} unreachable but never freed${sc.rc.failedAt !== null ? `; OUT OF MEMORY at step ${sc.rc.failedAt}` : ''}`, null, rcLive);
         ctx.fillStyle = dim;
-        ctx.fillText('blue: reachable from the roots (marked); amber: unreachable, awaiting the sweep or leaked for good; red: about to be swept', 12, 200);
-        ctx.fillText('the file: 14 collections exact against an independent traversal; reference counting exhausts a 20,000-slot heap at step 7,839', 12, 218);
+        ctx.fillText('blue: root-reachable; amber: unreachable; red: about to be swept', 12, 200);
+        ctx.fillText('solution: 14 exact collections; reference counting exhausts 20,000 slots at step 7,839', 12, 218);
         ctx.fillText('with 4,912 cyclic objects leaked; sweep 4,459 vs mark 298 per collection at 10% live', 12, 234);
         let line;
         if (s.done) {
-          line = `${sc.step} steps: mark and sweep ran ${sc.ms.collections} collections and freed ${sc.ms.freed} objects; reference counting ${sc.rc.failedAt !== null ? `ran out of memory at step ${sc.rc.failedAt} with ${sc.rc.leaked} leaked` : `holds ${sc.rc.objects.size - rcLive.size} unreachable objects`}`;
+          line = `${sc.step} steps: ${sc.ms.collections} collections, ${sc.ms.freed} freed; RC ${sc.rc.failedAt !== null ? `exhausted at ${sc.rc.failedAt}, ${sc.rc.leaked} leaked` : `holds ${sc.rc.objects.size - rcLive.size} unreachable`}`;
           ctx.fillStyle = good;
         } else {
           line = sc.log || 'starting';
@@ -260,7 +261,9 @@ export default function GcViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

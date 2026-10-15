@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -125,7 +126,7 @@ export default function ImportanceSamplingViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`P(Z > ${sc.a}): plain draws from N(0,1) count hits; the proposal N(${sc.a},1) lands on the event and pays by weight`, 12, 18);
+        ctx.fillText(`P(Z>${sc.a}): count N(0,1) hits, or draw N(${sc.a},1) and weight hits`, 12, 18);
         // left: densities over [-4, a + 3] with the proposal histogram
         const lx = 20;
         const lw = 300;
@@ -154,8 +155,8 @@ export default function ImportanceSamplingViz() {
         ctx.fillRect(X(sc.a), 40, 1, ly - 40);
         ctx.fillStyle = dim;
         ctx.fillText(`a = ${sc.a}`, X(sc.a) + 4, 50);
-        ctx.fillText('blue: the target N(0,1); amber: where the proposal put its draws; bright amber: hits', lx, ly + 16);
-        ctx.fillText(`weights on hits: phi(x)/phi(x - a) = exp(-a x + a^2/2), all below one`, lx, ly + 30);
+        ctx.fillText('blue: N(0,1); amber: proposal draws', lx, ly + 16);
+        ctx.fillText('bright amber: hits, weighted by p/q', lx, ly + 30);
         // right: running estimates over ticks, log scale around the truth
         const rx = 350;
         const rw = 270;
@@ -184,9 +185,9 @@ export default function ImportanceSamplingViz() {
         trace(sc.plainTrace, algo);
         trace(sc.isTrace, heur);
         ctx.fillStyle = dim;
-        ctx.fillText('running estimates (log scale, one decade each way); green: the exact truth', rx, ry0 - 8);
-        ctx.fillText(`blue: plain hits / n (${sc.plainHits} hits); amber: weighted`, rx, ry0 + rh + 14);
-        ctx.fillText(`ESS of the weighted hits: ${(sc.isSum2 > 0 ? (sc.isSum * sc.isSum) / sc.isSum2 : 0).toFixed(0)} of ${sc.isHits}`, rx, ry0 + rh + 28);
+        ctx.fillText('log estimates ±1 decade; green: truth', rx, ry0 - 8);
+        ctx.fillText(`blue: plain (${sc.plainHits} hits); amber: weighted`, rx, ry0 + rh + 14);
+        ctx.fillText(`weighted-hit ESS: ${(sc.isSum2 > 0 ? (sc.isSum * sc.isSum) / sc.isSum2 : 0).toFixed(0)} of ${sc.isHits}`, rx, ry0 + rh + 28);
         ctx.fillStyle = sc.ok ? good : warn;
         ctx.fillText(sc.ok ? 'invariant: weights nonnegative, estimates finite, final within six standard errors' : 'INVARIANT BROKEN', 12, 262);
         ctx.fillStyle = s.done ? (sc.ok ? good : warn) : ink;
@@ -200,7 +201,9 @@ export default function ImportanceSamplingViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

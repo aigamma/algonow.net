@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -167,10 +168,10 @@ export default function GroverViz() {
         if (s.done) {
           const pStar = sc.trace[sc.tStar];
           const p2 = sc.trace[Math.min(sc.trace.length - 1, 2 * sc.tStar + 1)];
-          line = `at t* = ${sc.tStar} the marked probability was ${pStar.toFixed(3)} (closed form ${closedForm(sc, sc.tStar).toFixed(3)}); at 2t* + 1 it had fallen to ${p2.toFixed(3)}: measure at the peak`;
+          line = `marked probability: ${pStar.toFixed(3)} at t*=${sc.tStar} (formula ${closedForm(sc, sc.tStar).toFixed(3)}), then ${p2.toFixed(3)} at 2t*+1`;
           ctx.fillStyle = good;
         } else {
-          line = 'each round rotates the state by 2θ toward the marked items; the probability climbs as sin² and falls again if you keep going';
+          line = 'each round rotates by 2θ; marked probability rises as sin², then falls again';
           ctx.fillStyle = ink;
         }
         ctx.fillText(line, 12, H - 8);
@@ -182,7 +183,9 @@ export default function GroverViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

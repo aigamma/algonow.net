@@ -6,9 +6,9 @@
 # x = sum of r_i * M_i * (M_i^-1 mod m_i), with M_i = M / m_i, reduced
 # mod M. Garner's algorithm is the heuristic for computing it: build x
 # in the mixed-radix form x = v_1 + v_2 m_1 + v_3 m_1 m_2 + ..., where
-# each digit v_j is found by one small modular inverse and arithmetic
-# that stays below m_j until the final assembly. No big products of
-# all the moduli, no big inverses, and the digits come out one modulus
+# each digit v_j is found by updates using earlier digits and modular
+# inverses. Reduced digits stay below m_j, but products before reduction
+# can need twice the largest modulus's bit width. The digits come out one modulus
 # at a time, so the reconstruction can stop early when the value is
 # already determined.
 #
@@ -19,15 +19,15 @@
 #     the reverse check that the rebuilt value has every residue;
 # (2) THE UNIQUENESS: two distinct integers below M never share all
 #     five residues (checked exhaustively for small moduli);
-# (3) THE COST, counted in big-number operations: the direct formula
-#     multiplies M-sized numbers and inverts M_i-sized ones; Garner
-#     works in numbers the size of one modulus until the last step,
-#     with the operand sizes measured in bits;
-# (4) THE APPLICATION: a 640-bit product of two 320-bit integers
+# (3) THE SIZES: measure reduced digits, products before reduction,
+#     inverse input operands, direct terms and sums, and final assembly
+#     separately. Both methods reduce inverse inputs modulo m_i;
+# (4) THE APPLICATION: a product of two integers of up to 320 bits
 #     computed in ten 64-bit moduli by residue arithmetic and
 #     reassembled by Garner, equal to Python's own product; and RSA
 #     decryption by CRT (Garner across p and q) equal to plain modular
-#     exponentiation while costing a quarter of the multiplications;
+#     exponentiation at about a quarter of the modeled schoolbook
+#     multiplication cost, excluding recombination and inverse work;
 # (5) THE FAILURE, exact: with moduli that share a factor, the
 #     reconstruction is not unique, shown by a pair of integers with
 #     identical residues;
@@ -36,7 +36,7 @@
 #     finds each mixed-radix digit by walking to it, one step per unit
 #     of the digit, so it costs about half a modulus per digit: about
 #     two million steps for the five million-sized moduli where Garner
-#     spends ten small operations.
+#     uses ten digit updates and ten modular inversions.
 import math
 import random
 import time
@@ -57,39 +57,58 @@ def inv(a, m):
     return x % m
 
 
+def record_bits(counter, key, *values):
+    if counter is not None:
+        counter[key] = max(counter.get(key, 0), *(abs(value).bit_length() for value in values))
+
+
 def crt_direct(residues, moduli, counter=None):
     M = 1
     for m in moduli:
         M *= m
+        record_bits(counter, 'modulus_product_bits', M)
     x = 0
     for r, m in zip(residues, moduli):
         Mi = M // m
-        yi = inv(Mi % m, m)
+        inverse_input = Mi % m
+        yi = inv(inverse_input, m)
+        record_bits(counter, 'inverse_operand_bits', inverse_input, m)
         term = r * Mi * yi
         if counter is not None:
-            counter['bits'] = max(counter['bits'], term.bit_length())
-            counter['ops'] += 3
+            counter['terms'] = counter.get('terms', 0) + 1
+            counter['inversions'] = counter.get('inversions', 0) + 1
+        record_bits(counter, 'term_bits', r * Mi, term)
         x += term
+        record_bits(counter, 'sum_bits', x)
     return x % M
 
 
 def garner(residues, moduli, counter=None):
-    """Mixed-radix digits v_j, then assemble."""
+    """Mixed-radix digits v_j, then assemble; inverses computed per call."""
     k = len(moduli)
     v = []
     for j in range(k):
         t = residues[j]
+        record_bits(counter, 'digit_bits', t)
         for i in range(j):
-            t = ((t - v[i]) * inv(moduli[i] % moduli[j], moduli[j])) % moduli[j]
+            inverse_input = moduli[i] % moduli[j]
+            inverse = inv(inverse_input, moduli[j])
+            difference = t - v[i]
+            product = difference * inverse
+            record_bits(counter, 'inverse_operand_bits', inverse_input, moduli[j])
+            record_bits(counter, 'update_bits', difference, inverse, product)
+            t = product % moduli[j]
+            record_bits(counter, 'digit_bits', t)
             if counter is not None:
-                counter['bits'] = max(counter['bits'], t.bit_length())
-                counter['ops'] += 2
+                counter['updates'] = counter.get('updates', 0) + 1
+                counter['inversions'] = counter.get('inversions', 0) + 1
         v.append(t)
     x = 0
     scale = 1
     for j in range(k):
         x += v[j] * scale
         scale *= moduli[j]
+        record_bits(counter, 'assembly_bits', x, scale)
     return x
 
 
@@ -193,13 +212,18 @@ if __name__ == '__main__':
     Mb = math.prod(big_moduli)
     x = rng.randrange(Mb)
     residues = [x % m for m in big_moduli]
-    cd = {'bits': 0, 'ops': 0}
-    cg = {'bits': 0, 'ops': 0}
+    cd = {}
+    cg = {}
     assert crt_direct(residues, big_moduli, cd) == x
     assert garner(residues, big_moduli, cg) == x
-    assert cg['bits'] <= 64 and cd['bits'] > 640, (cg['bits'], cd['bits'])
+    assert Mb.bit_length() == 640
+    assert cg['digit_bits'] <= 64 and 64 < cg['update_bits'] <= 128, cg
+    assert cg['assembly_bits'] == 640 and cd['term_bits'] > 640, (cg, cd)
+    assert cg['inverse_operand_bits'] <= 64 and cd['inverse_operand_bits'] <= 64
+    assert cg['updates'] == cg['inversions'] == 45
+    assert cd['terms'] == cd['inversions'] == 10
 
-    # Oracle 4a: a 640-bit product by residue arithmetic.
+    # Oracle 4a: a product of up to 640 bits by residue arithmetic.
     a = rng.getrandbits(320)
     b = rng.getrandbits(320)
     prod_residues = [(a % m) * (b % m) % m for m in big_moduli]
@@ -242,16 +266,17 @@ if __name__ == '__main__':
     t0 = time.perf_counter()
     assert sieve(residues, moduli, steps) == x
     sieve_seconds = time.perf_counter() - t0
-    cs = {'bits': 0, 'ops': 0}
+    cs = {}
     assert garner(residues, moduli, cs) == x
-    assert steps[0] > 100 * cs['ops'], (steps[0], cs['ops'])
+    assert steps[0] > 100 * (cs['updates'] + cs['inversions']), (steps[0], cs)
 
     print(f'contest: rebuild an integer from its residues; referee: the original integer, the direct CRT formula, and exhaustive uniqueness on small moduli')
     print(f'reconstruction: 2,000 random integers below M = {M:,} ({M.bit_length()} bits) from residues mod {moduli}: Garner and the direct formula both exact, every residue of the result checked')
     print(f'uniqueness: all {Ms} integers below 3 x 5 x 7 x 11 have distinct residue tuples; with moduli 6 and 10 (shared factor 2), {collide[0]} and {collide[1]} share (r mod 6, r mod 10)')
-    print(f'operand sizes on ten 64-bit moduli ({Mb.bit_length()}-bit M): Garner\'s largest intermediate {cg["bits"]} bits in {cg["ops"]} small operations; the direct formula\'s largest {cd["bits"]} bits in {cd["ops"]} big operations')
-    print(f'a 640-bit product: {a.bit_length()}-bit x {b.bit_length()}-bit computed as ten 64-bit residue products and reassembled by Garner, equal to the integer product ({(a * b).bit_length()} bits)')
+    print(f'operand sizes on ten 64-bit moduli ({Mb.bit_length()}-bit M): Garner reduced digits {cg["digit_bits"]} bits, pre-reduction updates {cg["update_bits"]} bits, final assembly {cg["assembly_bits"]} bits; direct terms {cd["term_bits"]} bits, running sum {cd["sum_bits"]} bits; inverse inputs at most {cg["inverse_operand_bits"]} bits in both methods')
+    print(f'top-level work (not equivalent-cost operations): Garner {cg["updates"]} digit updates and {cg["inversions"]} inversions per call; direct CRT {cd["terms"]} terms and {cd["inversions"]} inversions per call; inverse internals and final assembly excluded from these counts')
+    print(f'a {(a * b).bit_length()}-bit product: {a.bit_length()}-bit x {b.bit_length()}-bit computed through ten pairs of 64-bit residues and reassembled by Garner, equal to the integer product ({(a * b).bit_length()} bits)')
     print(f'RSA-512 decryption: plain exponentiation {mults_plain} full-size multiplications; CRT across p and q {mults_p} + {mults_q} half-size ones, about {crt_cost:.0f} full-size equivalents ({crt_cost / mults_plain:.0%}); both recover the message')
-    print(f'the sieve on the five million-sized moduli: {steps[0]:,} additions ({sieve_seconds:.2f}s) to find the digits Garner finds in {cs["ops"]} small operations; on the 64-bit moduli it would need up to 2^64 steps per digit (not run)')
+    print(f'the sieve on the five million-sized moduli: {steps[0]:,} additions ({sieve_seconds:.2f}s) to find the digits Garner finds in {cs["updates"]} updates and {cs["inversions"]} inversions; on the 64-bit moduli it would need up to 2^64 steps per digit (not run)')
     print(f'OK: Garner rebuilt 2,000 integers exactly and matched the direct formula; uniqueness exhaustive on {Ms} values and broken by moduli 6 and 10 at {collide}; '
-          f'intermediates {cg["bits"]} bits vs {cd["bits"]}; the 640-bit product and RSA decryption by CRT ({crt_cost / mults_plain:.0%} of the cost) both exact; the sieve {steps[0]:,} steps vs {cs["ops"]}')
+          f'reduced digits {cg["digit_bits"]} bits, pre-reduction updates {cg["update_bits"]}, assembly {cg["assembly_bits"]}, direct terms {cd["term_bits"]}; the residue product and RSA decryption by CRT ({crt_cost / mults_plain:.0%} of the modeled multiplication cost) both exact; the sieve {steps[0]:,} additions vs {cs["updates"]} updates and {cs["inversions"]} inversions')

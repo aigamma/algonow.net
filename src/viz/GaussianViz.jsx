@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -188,8 +189,8 @@ export default function GaussianViz() {
           const a = sc.none;
           const b = sc.partial;
           line = a.failed
-            ? `no pivoting died on the zero pivot; partial pivoting solved it with residual ${b.residual.toExponential(1)} and multipliers at most ${b.maxMult.toFixed(2)}`
-            : `no pivoting: multipliers up to ${a.maxMult.toExponential(1)}, residual ${a.residual.toExponential(1)}; partial pivoting: multipliers at most ${b.maxMult.toFixed(2)}, residual ${b.residual.toExponential(1)}`;
+            ? `zero pivot stops the naive run; pivoted residual ${b.residual.toExponential(1)}, max multiplier ${b.maxMult.toFixed(2)}`
+            : `max multiplier / residual: no pivot ${a.maxMult.toExponential(1)} / ${a.residual.toExponential(1)}; pivot ${b.maxMult.toFixed(2)} / ${b.residual.toExponential(1)}`;
           ctx.fillStyle = good;
         } else {
           line = 'the largest entry of the column becomes the pivot, so every multiplier is at most one in size';
@@ -204,7 +205,9 @@ export default function GaussianViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

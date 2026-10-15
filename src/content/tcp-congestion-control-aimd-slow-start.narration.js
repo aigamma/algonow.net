@@ -24,7 +24,7 @@ export const narration = [
   {
     section: 'run',
     text:
-      'Here is the run. Slow start: the window begins at one, and each round trip without loss doubles it, until it reaches the threshold. Congestion avoidance: each round trip without loss adds one. Loss: the threshold becomes half the window, and the window halves. Share: in the two sender plane, increases move parallel to the line of equal windows and halvings move along a ray to the origin, so the pair converges to the line. Check: utilization against capacity, Jain’s index across senders, and the two invariants on every step. On this page, one sender alone runs a sawtooth between fifty five and one hundred ten packets with a drop every fifty six round trips, and keeps the link eighty one percent busy, a little above the textbook three quarters of the peak. Two senders from one and forty are fair by round trip five. The three alternative rules run on the same link, and only one of them arrives.',
+      'Here is the run. Slow start: the window begins at one, and each round trip without loss doubles it, until it reaches the threshold. Congestion avoidance: each round trip without loss adds one. Loss in this simplified round model: the threshold becomes half the window, and the window halves. Real TCP distinguishes fast recovery from a retransmission timeout, which restarts slow start with a one-segment congestion window. Share: in the two sender plane, increases move parallel to the line of equal windows and halvings move along a ray to the origin, so the pair converges to the line. Check: utilization against capacity, Jain’s index across senders, and the two invariants on every step. On this page, one sender alone runs a sawtooth between fifty five and one hundred ten packets with a drop every fifty six round trips, and keeps the link eighty one percent busy, a little above the textbook three quarters of the peak. Two senders from one and forty are fair by round trip five. The three alternative rules run on the same link, and only one of them arrives.',
   },
   {
     section: 'signals',
@@ -39,7 +39,7 @@ export const narration = [
   {
     section: 'tradeoffs',
     text:
-      'The honest weaknesses of the hero: loss as the only signal, and a bias toward the near. The sawtooth needs drops to learn, so a full queue is the steady state, eighty one percent here against the textbook three quarters of the peak. Senders with short round trips run the loop more often and win, eighty eight to twelve at round trip times one and four. A sender that ignores loss takes everything. And on links where loss is noise rather than congestion, wireless or very long pipes, halving on every drop starves the sender, which is why CUBIC and B B R exist.',
+      'The honest weaknesses of the hero: loss as the only signal, and a bias toward the near. The sawtooth needs drops to learn. Link utilization is eighty one percent here; the ideal window sawtooth averages three quarters of its peak. Neither number is a queue-occupancy guarantee. Senders with short round trips run the loop more often and win, eighty eight to twelve at round trip times one and four. A sender that ignores loss takes everything. And on links where loss is noise rather than congestion, wireless or very long pipes, halving on every drop starves the sender, which is why CUBIC and B B R exist.',
   },
   {
     section: 'tradeoffs',

@@ -114,7 +114,7 @@ export const content = {
 
   strength: (
     <>
-      <strong>The guarantee travels.</strong> At most 2n + m comparisons on
+      <strong>The guarantee travels.</strong> O(n + m) comparisons, including preprocessing, on
       any input whatsoever, overlaps included, and the text finger never
       backs up, so the same twenty lines run on a string, a tape, or a live
       socket. The table itself is reusable structure: it is the border array,
@@ -286,7 +286,7 @@ export const content = {
             <text x={36 + i * 44} y={139} textAnchor="middle" fill={i < 6 ? '#62d98a' : '#ff6b6b'} fontFamily="ui-monospace, monospace" fontSize="16">{ch}</text>
           </g>
         ))}
-        <text x={300} y={139} fill="#ff6b6b" fontFamily="ui-monospace, monospace" fontSize="13">× mismatch</text>
+        <text x={360} y={139} fill="#ff6b6b" fontFamily="ui-monospace, monospace" fontSize="13">mismatch</text>
         <path d="M 60 168 C 90 184, 130 184, 148 170" fill="none" stroke="#f0b94b" strokeWidth="1.8" markerEnd="none" />
         <text x="160" y="184" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="12">fail[6] = 4 · the border CACA re-aligns itself</text>
         <text x="16" y="212" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="12">second try · slide 6 − 4 = 2, resume at the same text character</text>

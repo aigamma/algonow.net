@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -172,7 +173,7 @@ export default function TreeViz() {
         const Y = (y) => py + (1 - y) * size;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`${N} training points, ${Math.round(NOISE * 100)}% labels flipped; each tick splits the impurest leaf at the threshold of largest information gain`, 12, 18);
+        ctx.fillText(`${N} points, ${Math.round(NOISE * 100)}% label noise; split the impurest leaf at maximum information gain`, 12, 18);
         for (const leaf of sc.leaves) {
           const m = majority(sc, leaf);
           ctx.fillStyle = m === 1 ? `${algo}22` : `${heur}22`;
@@ -235,7 +236,7 @@ export default function TreeViz() {
         ctx.fillText('pruned to 6 leaves at 89.0%', tx, 272);
         let line;
         if (s.done) {
-          line = `${sc.leaves.length} leaves: training ${(trainAcc * 100).toFixed(1)}%, held-out ${(testAcc * 100).toFixed(1)}%; the best held-out was ${(s.best.test * 100).toFixed(1)}% at ${s.best.leaves} leaves, before the tree started fitting the flipped labels`;
+          line = `${sc.leaves.length} leaves: train ${(trainAcc * 100).toFixed(1)}%, test ${(testAcc * 100).toFixed(1)}%; best test ${(s.best.test * 100).toFixed(1)}% at ${s.best.leaves} leaves`;
           ctx.fillStyle = good;
         } else {
           line = `${sc.leaves.length} leaves: training ${(trainAcc * 100).toFixed(1)}%, held-out ${(testAcc * 100).toFixed(1)}%`;
@@ -250,7 +251,9 @@ export default function TreeViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -46,10 +47,7 @@ export function chromaticNumber(adj, upper) {
   const color = new Array(n).fill(-1);
   const sat = Array.from({ length: n }, () => new Set());
   let best = upper;
-  let nodes = 0;
   const rec = (colored, used) => {
-    nodes += 1;
-    if (nodes > 200000) return;
     if (used >= best) return;
     if (colored === n) {
       best = used;
@@ -103,7 +101,7 @@ export function makeScene(seed) {
   // largest-first state
   const order = [...Array(n).keys()].sort((a, b) => adj[b].length - adj[a].length || a - b);
   const lf = { color: new Array(n).fill(-1), order, i: 0, used: 0 };
-  const chi = crown ? 2 : chromaticNumber(adj, 10);
+  const chi = crown ? 2 : chromaticNumber(adj, n);
   return { adj, n, crown, ds, lf, chi, tick: 0, lastDs: -1, lastLf: -1, done: false, ok: true, last: crown ? 'the crown graph: bipartite, every degree 7; largest-first falls back to index order' : `a random graph on ${n} vertices; exact chromatic number ${chi}` };
 }
 
@@ -244,9 +242,9 @@ export default function DsaturViz() {
         drawGraph(150, 150, 85, sc.ds.color, sc.lastDs, 'DSatur order (saturation first)', sc.ds.used);
         drawGraph(430, 150, 85, sc.lf.color, sc.lastLf, 'largest-first order (static)', sc.lf.used);
         ctx.fillStyle = dim;
-        ctx.fillText(`exact chromatic number ${sc.chi}`, 560, 40);
+        ctx.fillText(`exact chromatic number ${sc.chi}`, 12, 278);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? 'both colorings proper' : 'IMPROPER COLORING', 560, 56);
+        ctx.fillText(sc.ok ? 'both colorings proper' : 'IMPROPER COLORING', 350, 278);
         let line;
         if (s.done) {
           line = sc.last;
@@ -264,7 +262,9 @@ export default function DsaturViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -124,7 +125,8 @@ export default function VertexCoverViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('any uncovered edge: take both ends (amber edge, blue vertices), delete what they touch; the kept edges are a matching', 12, 18);
+        ctx.fillText('take both ends of an uncovered edge; delete incident edges; kept edges form a matching', 12, 18);
+        const pos = sc.pos.map(([x, y]) => [x + 170, y]);
         sc.edges.forEach(([u, v], k) => {
           const st = sc.state[k];
           ctx.strokeStyle = st === 'kept' ? heur : st === 'deleted' ? `${warn}55` : `${dim}99`;
@@ -134,11 +136,11 @@ export default function VertexCoverViz() {
             ctx.lineWidth = 2;
           }
           ctx.beginPath();
-          ctx.moveTo(sc.pos[u][0], sc.pos[u][1]);
-          ctx.lineTo(sc.pos[v][0], sc.pos[v][1]);
+          ctx.moveTo(pos[u][0], pos[u][1]);
+          ctx.lineTo(pos[v][0], pos[v][1]);
           ctx.stroke();
         });
-        sc.pos.forEach(([x, y], i) => {
+        pos.forEach(([x, y], i) => {
           ctx.beginPath();
           ctx.arc(x, y, 9, 0, Math.PI * 2);
           ctx.fillStyle = sc.cover.has(i) ? algo : '#2a3142';
@@ -152,10 +154,12 @@ export default function VertexCoverViz() {
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
         ctx.fillText(`edges alive ${sc.state.filter((t) => t === 'alive').length}, kept ${sc.kept.length}, deleted ${sc.state.filter((t) => t === 'deleted').length}`, 12, 44);
-        ctx.fillText(`cover ${sc.cover.size} = 2 x ${sc.kept.length}; exact optimum ${sc.opt}; bound 2 x OPT = ${2 * sc.opt}`, 12, 60);
-        ctx.fillText('the file: 1.495 x OPT mean, 2.000 worst, on 300 random graphs', 12, 76);
+        ctx.fillText(`cover ${sc.cover.size} = 2 × ${sc.kept.length}; OPT ${sc.opt}; bound ${2 * sc.opt}`, 12, 60);
+        ctx.fillText('file: 300 random graphs', 12, 88);
+        ctx.fillText('1.495 × OPT mean, 2.000 worst', 12, 104);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? 'invariant: deleted edges touch the cover; |cover| = 2|M|' : 'INVARIANT BROKEN', 12, 92);
+        ctx.fillText(sc.ok ? 'deleted edges touch the cover' : 'INVARIANT BROKEN', 12, 136);
+        ctx.fillText('|cover| = 2|matching|', 12, 152);
         const line = sc.last;
         ctx.fillStyle = s.done ? (sc.ok ? good : warn) : ink;
         ctx.fillText(line.length > 96 ? `${line.slice(0, 95)}…` : line, 12, H - 6);
@@ -167,7 +171,9 @@ export default function VertexCoverViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

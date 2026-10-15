@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -103,8 +104,7 @@ export function sceneTick(sc) {
   const n = sc.n;
   const xs = sc.xs.slice(0, n);
   const ys = sc.ys.slice(0, n);
-  const kk = xs.map((x) => xs.map((z) => k(x, z) + (x === z ? NOISE2 : 0)));
-  for (let i = 0; i < n; i += 1) kk[i][i] = 1 + NOISE2;
+  const kk = xs.map((x, i) => xs.map((z, j) => k(x, z) + (i === j ? NOISE2 : 0)));
   const l = cholesky(kk);
   if (!l) {
     sc.ok = false;
@@ -192,7 +192,7 @@ export default function GaussianProcessViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('RBF kernel, length scale 1, noise 0.15: blue mean and 95% band refit by Cholesky after every amber point; dashed: the truth', 12, 18);
+        ctx.fillText('RBF: scale 1, noise 0.15; blue: mean + 95% band; amber: data; dashed: truth', 12, 18);
         // band
         ctx.fillStyle = `${algo}33`;
         ctx.beginPath();
@@ -236,7 +236,9 @@ export default function GaussianProcessViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

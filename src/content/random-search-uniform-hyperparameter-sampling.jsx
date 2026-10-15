@@ -318,8 +318,8 @@ export const content = {
               {rnd.map(([x], i) => (
                 <rect key={`rt${i}`} x={sx(x) - 1} y="242" width="2" height="10" fill="#5da2ff" />
               ))}
-              <text x="140" y="270" fill="#9aa5bd">grid: 4 distinct x values in 16 trials</text>
-              <text x="500" y="270" fill="#5da2ff" textAnchor="end">random: 16 distinct x values in 16 trials</text>
+              <text x="140" y="270" fill="#9aa5bd">grid: 4 x-values / 16 trials</text>
+              <text x="500" y="270" fill="#5da2ff" textAnchor="end">random: 16 x-values / 16 trials</text>
             </g>
           );
         })()}

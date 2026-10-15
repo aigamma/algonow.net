@@ -311,7 +311,7 @@ export const content = {
         <path d="M 105 228 C 300 240, 430 220, 535 176" fill="none" stroke="#e2606c" strokeWidth="1.6" strokeDasharray="4 4" />
         <text x="250" y="252" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">rejected: forever: a4 crosses to the next name</text>
         <text x="60" y="24" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">proposers go in heart-order · receivers hold exactly one hand · silence = stability</text>
-        <text x="60" y="282" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: 0 blocking pairs (300/300) · proposer-optimal, receiver-pessimal (enumerated) · proposing worth 3.01 ranks</text>
+        <text x="60" y="282" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">300/300 stable · proposer-optimal, receiver-pessimal · proposing gains 3.01 ranks</text>
       </svg>
     </Figure>
   ),

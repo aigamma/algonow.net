@@ -320,8 +320,8 @@ export const content = {
               <polyline points={pts((t) => bm(t, 3))} fill="none" stroke="#f0b94b" strokeWidth="2" />
               {[0, 5, 10, 15, 20].map((t) => <text key={t} x={X(t) - 4} y={y0 + 14} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{t}</text>)}
               {[1, 2, 3].map((w) => <text key={w} x={x0 - 16} y={Y(w) + 3} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{w}</text>)}
-              <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">weight of one term vs its count: gray raw tf, blue BM25 (avg length), amber BM25 (3x length)</text>
-              <text x={x0} y={y0 + 30} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">measured: 1.000, 1.375, 1.774, 2.075, 2.187 at tf = 1, 2, 5, 20, 200</text>
+              <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">term weight: raw tf gray; BM25 blue / amber</text>
+              <text x={x0} y={y0 + 30} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">BM25: 1.000 → 2.187 as tf rises 1 → 200</text>
               <text x={bx} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">queries topped by a stuffed doc (of 200)</text>
               {bars.map(([name, v, c], i) => (
                 <g key={name}>

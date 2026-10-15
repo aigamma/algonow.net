@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -205,7 +206,7 @@ export default function WorkStealViz() {
           const last = sc.snaps.length - 1;
           const idx = done ? last : Math.min(s.tick * 2, last);
           const st = sc.snaps[idx];
-          ctx.fillText(`act 1 · 8 workers, one skewed fork-join tree: owners pop their bottoms, thieves rob random tops (step ${idx + 1}/${sc.snaps.length})`, 14, 20);
+          ctx.fillText(`act 1 · 8 workers: owners pop bottoms, thieves steal random tops; step ${idx + 1}/${sc.snaps.length}`, 14, 20);
           for (let wI = 0; wI < NW; wI++) {
             const x = 46 + wI * 72;
             // deque stack
@@ -243,7 +244,7 @@ export default function WorkStealViz() {
           const stolen = sc.steals.filter((e) => e.t <= stepNow).length;
           ctx.fillStyle = ink;
           ctx.font = '12px ui-monospace, monospace';
-          ctx.fillText(`steals so far: ${stolen} / ${sc.tree.tasks.length} tasks`, 470, 44);
+          ctx.fillText(`steals: ${stolen}/${sc.tree.tasks.length} tasks`, 470, 44);
           let line;
           if (done || idx >= last) {
             line = `finished in ${sc.ms.random} steps with ${sc.steals.length} steals (${Math.round((100 * sc.steals.length) / sc.tree.tasks.length)}% of tasks): migration priced by the critical path`;
@@ -318,7 +319,9 @@ export default function WorkStealViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

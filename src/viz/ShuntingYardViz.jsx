@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -188,7 +189,7 @@ export default function ShuntingYardViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('one token per tick: blue numbers go to the output, amber operators wait on the stack until something looser arrives', 12, 18);
+        ctx.fillText('one token per tick: blue numbers to output; amber operators wait on the stack', 12, 18);
         // input tape
         const cw = Math.min(36, Math.floor(600 / Math.max(sc.tokens.length, 1)));
         ctx.fillText('input', 12, 44);
@@ -207,7 +208,7 @@ export default function ShuntingYardViz() {
         });
         // operator stack
         ctx.fillStyle = dim;
-        ctx.fillText('operator stack (top at top)', 12, 92);
+        ctx.fillText('stack (top ↑)', 12, 92);
         sc.stack.forEach((t, k) => {
           const y = 230 - k * 22;
           ctx.fillStyle = t === '(' ? `${dim}66` : `${heur}cc`;
@@ -219,7 +220,7 @@ export default function ShuntingYardViz() {
         ctx.strokeRect(16, 96, 68, 156);
         // output queue
         ctx.fillStyle = dim;
-        ctx.fillText('output queue (postfix)', 120, 92);
+        ctx.fillText('output (postfix)', 120, 92);
         sc.out.forEach((t, k) => {
           const x = 120 + (k % 14) * 36;
           const y = 100 + Math.floor(k / 14) * 24;
@@ -232,10 +233,10 @@ export default function ShuntingYardViz() {
         ctx.fillText(`${sc.popped} pops so far for ${sc.i} tokens read; the file: at most 1.50 stack operations per token`, 120, 200);
         if (s.done) {
           ctx.fillStyle = sc.ok ? good : warn;
-          ctx.fillText(sc.ok ? `postfix evaluates to ${fmt(sc.result)} = the infix referee; output is the input without parentheses` : 'MISMATCH WITH THE REFEREE', 120, 222);
+          ctx.fillText(sc.ok ? `postfix value ${fmt(sc.result)} agrees with the infix referee` : 'MISMATCH WITH THE REFEREE', 120, 222);
         } else {
           ctx.fillStyle = dim;
-          ctx.fillText('at the end the postfix is run on a one-stack machine and checked against a recursive evaluator', 120, 222);
+          ctx.fillText('postfix runs on one stack; checked against a recursive evaluator', 120, 222);
         }
         let line;
         if (s.done) {
@@ -254,7 +255,9 @@ export default function ShuntingYardViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

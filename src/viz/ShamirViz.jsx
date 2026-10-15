@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -76,8 +77,8 @@ export function fitThree(pts) {
 
 export function makeScene(seed) {
   const rand = mulberry32(seed);
-  const secret = 5 + Math.floor(rand() * (P - 10));
-  const coeffs = [secret, 1 + Math.floor(rand() * (P - 1)), 1 + Math.floor(rand() * (P - 1))];
+  const secret = Math.floor(rand() * P);
+  const coeffs = [secret, Math.floor(rand() * P), Math.floor(rand() * P)];
   const shares = [];
   for (let x = 1; x <= 5; x++) shares.push([x * 3, evalPoly(coeffs, x * 3)]);
   const chosen = [0, 2, 4].map((i) => shares[i]);
@@ -275,7 +276,7 @@ export default function ShamirViz() {
 
           let line;
           if (done || ci >= sc.candidates.length - 1) {
-            line = `the x = 0 axis fills uniformly: with k-1 shares, the true secret is one red dot among ${P}: exhausted flat`;
+            line = `k−1 shares: all ${P} secrets remain equally possible at x=0`;
             ctx.fillStyle = warn;
           } else {
             line = `candidate secret ${sc.candidates[ci].sPrime}: one parabola fits it perfectly through both shares`;
@@ -296,7 +297,9 @@ export default function ShamirViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

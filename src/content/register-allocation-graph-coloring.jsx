@@ -306,7 +306,7 @@ export const content = {
                   <text x={X(b + 1) + 4} y={66 + i * 21} fill={reg === 'spill' ? '#e2606c' : '#9aa5bd'} fontFamily="ui-monospace, monospace" fontSize="9">{`${reg}, ${note}`}</text>
                 </g>
               ))}
-              <text x="8" y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">K = 3; pressure 4 at positions 5 and 6; spill the smallest cost / degree</text>
+              <text x="8" y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">K = 3; pressure 4; spill by cost / degree</text>
               <text x="8" y="216" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">A: 2 accesses, in the way of 4: 0.5; D: 20 in the loop: 5.0</text>
               <line x1={gx} y1={gy} x2={gx + 260} y2={gy} stroke="#9aa5bd" strokeOpacity="0.5" />
               {groups.map(([label, vals], g) => (

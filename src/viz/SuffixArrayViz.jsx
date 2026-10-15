@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -193,7 +194,8 @@ export default function SuffixArrayViz() {
         ctx.fillText(line, 14, H - 12);
         ctx.fillStyle = dim;
         ctx.font = '10px ui-monospace, monospace';
-        ctx.fillText(`text: "${sc.text}" · amber = rank badge · bright = certified prefix`, 330, 20);
+        ctx.fillText(`text: "${sc.text}"`, 330, 52);
+        ctx.fillText('amber: rank · bright: certified prefix', 330, 70);
 
         statsRef.current = {
           line: showOcc && s.tick > act1
@@ -207,7 +209,9 @@ export default function SuffixArrayViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

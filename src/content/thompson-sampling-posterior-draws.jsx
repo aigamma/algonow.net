@@ -330,9 +330,9 @@ export const content = {
         ))}
         <text x="40" y="34" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">the round&apos;s draws: one sample per posterior: highest draw gets the pull</text>
         <text x="40" y="196" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">wide posterior: occasional high draws: still explored · sharp winner: draws stop losing: exploited</text>
-        <text x="40" y="222" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">audited: α,β = 1+wins, 1+losses exactly · 95% intervals covered truth 97.3% · best arm most-pulled 100/100</text>
+        <text x="40" y="222" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">α=1+wins, β=1+losses · interval coverage: 97.3% · best arm most-pulled: 100/100</text>
         <text x="40" y="244" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">regret at T=10,000: thompson 53.0 · ε-greedy 95.3 · UCB1 176.6 · greedy 470 (65% stuck forever)</text>
-        <text x="40" y="266" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">second-half increments: ε pays its floor of 25 forever · thompson pays 8 and falling: the bend is the product</text>
+        <text x="40" y="266" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">second-half regret: ε-greedy adds 25; Thompson adds 8 and is still flattening</text>
       </svg>
     </Figure>
   ),

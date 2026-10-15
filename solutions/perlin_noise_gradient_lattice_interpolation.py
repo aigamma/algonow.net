@@ -15,7 +15,8 @@
 # 0.7071, attained exactly in the inward and outward cells. The draft also
 # called the noise band-pass; along a generic line about two fifths of the
 # power sits below a quarter cycle per cell, because each cell carries a
-# random mean, so the page says band-limited above, not band-pass.
+# random mean. A small nonzero high-frequency tail also rules out a strict
+# band limit; this is smooth, predominantly low-frequency noise.
 import math
 import random
 import time

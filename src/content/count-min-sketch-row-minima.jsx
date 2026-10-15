@@ -73,7 +73,7 @@ export const content = {
     </>,
     <>
       <strong>Size by promise:</strong> w = 2/ε for error εN;
-      d = log(1/δ) for confidence: the dial measured below (mean
+      d = ⌈log₂(1/δ)⌉ for confidence: the dial measured below (mean
       overcount 3,085 → 207 → 10.2 as w grows 10×, 10×).
     </>,
     <>

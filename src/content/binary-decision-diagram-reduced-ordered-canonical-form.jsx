@@ -388,7 +388,7 @@ export const content = {
               {L}
               {R}
               <text x="30" y="262" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="10">interleaved: 6 nodes</text>
-              <text x="260" y="262" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">odd variables first: 14 nodes (levels 1, 2, 4, 4, 2, 1), edges schematic</text>
+              <text x="260" y="262" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">odd-first: 14 nodes (1,2,4,4,2,1); edges schematic</text>
               <text x="30" y="276" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">dashed: 0 branch; solid: 1 branch. Eight pairs in the file: 16 vs 510 nodes</text>
             </g>
           );

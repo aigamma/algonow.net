@@ -245,7 +245,7 @@ export const content = {
     <Figure
       id="fig-kahn-frontier"
       aspect="16 / 7"
-      caption="The frontier is the algorithm. At any moment the tasks with no unmet arrows (amber) are exactly the ones safe to start, and finishing a task changes the eligibility of only the tasks that listed it. Taking the frontier generation by generation produces the waves; the number of waves is forced to equal the longest prerequisite chain, because each wave shortens every surviving chain by exactly one."
+      caption="The frontier is the algorithm. At any moment the tasks with no unmet arrows (amber) are exactly the ones safe to start, and finishing a task changes the eligibility of only the tasks that listed it. Taking the frontier generation by generation produces the waves; the number of waves is forced to equal the longest prerequisite chain, because each vertex enters the wave one greater than its latest predecessor."
       cite={{
         text: 'Kahn, "Topological Sorting of Large Networks", Communications of the ACM 5(11), 1962, written for the PERT project-scheduling networks of the aerospace era. The depth-first dialect is Tarjan, 1976.',
         href: 'https://doi.org/10.1145/368996.369025',

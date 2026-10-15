@@ -40,7 +40,7 @@ export const content = {
   heurRole: (
     <p>
       Supplies the <strong>growing phrase dictionary</strong>: each
-      emission registers one new phrase (the emitted phrase plus the
+      emission except the final one registers a new phrase (the emitted phrase plus the
       byte that broke it), so the table ends at exactly 256 + codes −
       1 entries: asserted. The decoder replays the same rule one step
       behind and builds the <em>identical</em> table from the codes
@@ -279,7 +279,7 @@ export const content = {
     <Figure
       id="fig-lzw-dictionary"
       aspect="16 / 7"
-      caption="The dictionary rides inside the data. Every emission mints one new phrase: the emitted phrase plus the byte that broke it: so the decoder, replaying the same rule one step behind, reconstructs the identical table from the codes alone. The one corner is the code used the instant it is minted: the decoder has not built it yet, but the timing forces its value: the last phrase plus that phrase's own first byte. Nothing is transmitted but the codes; the codebook is a shadow both sides compute."
+      caption="The dictionary rides inside the data. Every emission except the final one mints a new phrase: the emitted phrase plus the byte that broke it: so the decoder, replaying the same rule one step behind, reconstructs the identical table from the codes alone. The one corner is the code used the instant it is minted: the decoder has not built it yet, but the timing forces its value: the last phrase plus that phrase's own first byte. Nothing is transmitted but the codes; the codebook is a shadow both sides compute."
       cite={{
         text: 'Welch, "A Technique for High-Performance Data Compression", IEEE Computer 17(6), 1984: the hardware-friendly form of Ziv-Lempel 1978. Unix compress, GIF, and TIFF shipped it; the Unisys patents made DEFLATE (and PNG) the world\'s answer.',
         href: 'https://doi.org/10.1109/MC.1984.1659158',

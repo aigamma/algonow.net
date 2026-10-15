@@ -310,7 +310,7 @@ export const content = {
           const bw = 290;
           return (
             <g>
-              <text x={x0} y="20" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">reflect: blue half is the shorter list with 0, amber half is its mirror with 1</text>
+              <text x={x0} y="20" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">prefix 0; reverse and prefix 1</text>
               {cols.map((list, c) => (
                 <g key={c}>
                   <text x={x0 + c * 72} y="40" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="10">{c + 1} bit{c ? 's' : ''}</text>

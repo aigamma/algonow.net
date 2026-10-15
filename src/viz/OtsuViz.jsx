@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -158,7 +159,7 @@ export default function OtsuViz() {
         const tNow = s.done ? sc.best.t : Math.min(255, sc.t);
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`${N} x ${N} noisy image, the mask known; the threshold sweeps ${STEP} levels per tick and the between-class variance is plotted`, 12, 18);
+        ctx.fillText(`${N} × ${N} image; threshold sweeps ${STEP} levels/tick; plot: between-class variance`, 12, 18);
         // image and the mask at the current threshold
         const ix = 20;
         const iy = 40;
@@ -220,12 +221,12 @@ export default function OtsuViz() {
         ctx.strokeStyle = `${dim}55`;
         ctx.strokeRect(hx, hy, hw, hh);
         ctx.fillStyle = dim;
-        ctx.fillText('gray level 0 to 255; bars: histogram; amber: between-class variance', hx, hy + hh + 14);
+        ctx.fillText('levels 0..255; bars: counts; amber: variance', hx, hy + hh + 14);
         ctx.fillText(`best so far: t = ${sc.best.t}, variance ${sc.best.v.toFixed(0)}`, hx, hy + hh + 30);
-        ctx.fillText('the file: 128 x 128 image, Otsu 121 vs the Bayes threshold 115, 98.4% of pixels right', hx, hy + hh + 46);
+        ctx.fillText('solution: Otsu 121 vs Bayes 115; 98.4% correct', hx, hy + hh + 46);
         let line;
         if (s.done) {
-          line = `maximum at t = ${sc.best.t}: the mask matches the truth on ${(sc.accuracy * 100).toFixed(1)}% of ${N * N} pixels; the same t minimizes the within-class variance`;
+          line = `best t = ${sc.best.t}: ${(sc.accuracy * 100).toFixed(1)}% pixels correct; also minimizes within-class variance`;
           ctx.fillStyle = good;
         } else {
           line = `t = ${tNow}: between-class variance ${sc.curve[Math.max(0, tNow - 1)].toFixed(0)}; mask accuracy right now ${(accuracy(sc, tNow) * 100).toFixed(1)}%`;
@@ -240,7 +241,9 @@ export default function OtsuViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

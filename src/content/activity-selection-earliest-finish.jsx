@@ -272,7 +272,7 @@ export const content = {
         <path d="M 70 118 C 80 92, 60 78, 70 64" fill="none" stroke="#f0b94b" strokeWidth="1.8" markerEnd="none" />
         <text x="86" y="92" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">swap: free (g blocks no more)</text>
         <text x="24" y="182" fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="12">⇒ some optimal solution starts with g ⇒ recurse on the rest</text>
-        <text x="24" y="222" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">the four compasses, measured: finish ✓ 2,000/2,000 · conflicts 499/500 · short 1,689/2,000 · start 572/2,000</text>
+        <text x="24" y="222" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">optimal: finish 2,000/2,000 · conflicts 499/500 · short 1,689/2,000 · start 572/2,000</text>
         <text x="24" y="244" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">three of them look reasonable in a meeting: one of them is a theorem</text>
         <text x="24" y="272" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">boundary: add values and ALL cardinality greed dies: DP keeps the other 17.9%</text>
       </svg>

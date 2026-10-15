@@ -362,7 +362,7 @@ export const content = {
               <polyline points={sizes.map((n, i) => `${X(n)},${Y(lr[i])}`).join(' ')} fill="none" stroke="#9aa5bd" strokeWidth="1.5" strokeDasharray="4 3" />
               <text x={X(50) + 6} y={Y(89.1) - 8} fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="9">naive Bayes 89.1% at 50</text>
               <text x={X(50) + 6} y={Y(82.8) + 14} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">logistic 82.8% at 50</text>
-              <text x={X(500) - 20} y={Y(90.9) - 20} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">90.9 vs 90.2 at 1,000</text>
+              <text x={X(500) - 20} y={Y(90.9) - 20} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">90.9 vs 90.2; n=1k</text>
               {sizes.map((n) => (
                 <text key={n} x={X(n) - 10} y={y0 + 12} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{n}</text>
               ))}

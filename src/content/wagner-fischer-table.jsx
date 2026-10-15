@@ -282,7 +282,7 @@ export const content = {
     <Figure
       id="fig-wf-recurrence"
       aspect="16 / 7"
-      caption="One cell, three histories. The distance between prefixes s[..i] and t[..j] must end in one of three moves: substitute-or-match (diagonal), delete from s (above), insert from t (left), each landing on a strictly smaller prefix pair. That exhaustiveness is the whole proof, the argmin arrows are the edit script waiting to be walked, and the same three-arrow cell, reweighted, becomes Needleman-Wunsch, gap-affine alignment, and the rest of the alignment family."
+      caption="One cell, three histories. The distance between prefixes s[..i] and t[..j] must end in one of three moves: substitute-or-match (diagonal), delete from s (above), insert from t (left), each landing on a strictly smaller prefix pair. That exhaustiveness is the whole proof, the argmin arrows are the edit script waiting to be walked, and the same three-arrow cell, reweighted, becomes Needleman-Wunsch, alignment with affine gap costs (using additional gap states), and other alignment methods."
       cite={{
         text: 'Wagner and Fischer, "The String-to-String Correction Problem", JACM 21(1), 1974. The distance is Levenshtein, 1965; the same table was found independently by Vintsyuk (1968, speech) and Needleman-Wunsch (1970, biology); the conditional quadratic lower bound is Backurs and Indyk, 2015.',
         href: 'https://doi.org/10.1145/321796.321811',

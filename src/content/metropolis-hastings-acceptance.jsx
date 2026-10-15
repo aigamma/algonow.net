@@ -42,7 +42,7 @@ export const content = {
   heurRole: (
     <p>
       Supplies the <strong>acceptance ratio</strong>: take the proposed
-      move with probability min(1, π(y)/π(x)). One formula, two miracles.
+      move with probability min(1, π(y)/π(x)) for a symmetric proposal. One formula, two miracles.
       First, it makes detailed balance hold for <em>any</em> target with
       no knowledge beyond pointwise evaluation. Second, the unknown
       constant <em>cancels in the ratio</em>: proven here by running the
@@ -275,7 +275,7 @@ export const content = {
     <Figure
       id="fig-mh-balance"
       aspect="16 / 7"
-      caption="Detailed balance, the design condition: flow i→j equals flow j→i under the target, and then the target is stationary. The acceptance ratio min(1, π(y)/π(x)) manufactures this for any target from pointwise evaluations alone, with the normalizing constant cancelling. This page does not cite the balance: it verifies all 144 terms of an exact chain, then watches occupancy converge to π by algebra and by simulation."
+      caption="Detailed balance, the design condition: flow i→j equals flow j→i under the target, and then the target is stationary. The acceptance ratio min(1, π(y)/π(x)) for a symmetric proposal manufactures this for any target from pointwise evaluations alone, with the normalizing constant cancelling. This page does not cite the balance: it verifies all 144 terms of an exact chain, then watches occupancy converge to π by algebra and by simulation."
       cite={{
         text: 'Metropolis, Rosenbluth, Rosenbluth, Teller & Teller, "Equation of State Calculations by Fast Computing Machines", J. Chem. Phys. 21, 1953; Hastings, Biometrika 57, 1970; optimal scaling: Roberts, Gelman & Gilks, 1997.',
         href: 'https://doi.org/10.1063/1.1699114',

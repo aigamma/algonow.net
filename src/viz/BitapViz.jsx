@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -39,7 +40,7 @@ function makeScene(seed) {
   });
   const accept = 1 << (M - 1);
   let R0 = 0;
-  let R1 = 0;
+  let R1 = 1; // The empty text matches a one-character prefix by one deletion.
   const frames = [];
   text.forEach((c, i) => {
     const Bc = B[c];
@@ -212,7 +213,9 @@ export default function BitapViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

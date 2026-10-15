@@ -385,7 +385,7 @@ export const content = {
               ))}
               <text x={cx0} y={cy0 + 14} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">interactions per evaluation, 28k to 342k (log)</text>
               <text x={cx0 + 6} y={cy0 - chh + 10} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">median force error, 1e-3 to 1 (log)</text>
-              <text x={cx0} y={cy0 + 30} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">direct: 999,000 interactions, error 0; θ = 0.5 is a fifth of that at 0.6%</text>
+              <text x={cx0} y={cy0 + 30} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">direct: 999,000 · θ=0.5: 1/5 work, 0.6% error</text>
             </g>
           );
         })()}

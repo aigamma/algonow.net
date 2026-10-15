@@ -328,16 +328,16 @@ export const content = {
         <path d="M 60 30 L 254 30 L 254 116 L 310 128 L 310 200 L 338 212 L 352 220" fill="none" stroke="#f0b94b" strokeWidth="2" strokeDasharray="6 3" />
         <circle cx="352" cy="220" r="6" fill="none" stroke="#62d98a" strokeWidth="2" />
         <text x="360" y="224" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">query</text>
-        <text x="440" y="40" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">amber: greedy descent, one nearest hop per step</text>
+        <text x="440" y="40" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">amber: greedy nearest hop</text>
         <text x="440" y="60" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">bottom: beam search, ef candidates</text>
         <text x="440" y="96" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">recall@10: 0.997 / 0.992 / 0.987</text>
         <text x="440" y="114" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">at 1,000 / 2,000 / 4,000 points</text>
-        <text x="440" y="140" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">work vs brute force: 40.8% → 24.4% → 13.6%</text>
+        <text x="440" y="140" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">brute work: 40.8% → 24.4% → 13.6%</text>
         <text x="440" y="170" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">ef = 1 (no beam): recall 0.843</text>
         <text x="440" y="186" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">nearest-M lists: recall 0.955</text>
         <text x="440" y="202" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">flat graph: 463 vs 487 (parity here)</text>
         <text x="440" y="218" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">k-d tree, 16 dims: all 2,000 visited</text>
-        <text x="440" y="250" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">layer sizes 4,000 / 520 / 71 / 16 / 2 / 1</text>
+        <text x="440" y="250" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">layers: 4000 / 520 / 71 / 16 / 2 / 1</text>
       </svg>
     </Figure>
   ),

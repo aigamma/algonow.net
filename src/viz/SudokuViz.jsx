@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -120,7 +121,7 @@ export default function SudokuViz() {
                   if (len < bestLen) {
                     bestLen = len;
                     cell = e;
-                    if (len <= 1) break;
+                    if (len === 0) break;
                   }
                 }
               }
@@ -252,7 +253,9 @@ export default function SudokuViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         {MODES.map((m) => (
           <button

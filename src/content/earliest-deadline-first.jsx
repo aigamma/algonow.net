@@ -5,10 +5,10 @@ import { narration } from './earliest-deadline-first.narration.js';
 
 export const content = {
   given:
-    'Periodic tasks: each needs C ticks of CPU every T ticks: on one preemptive processor.',
+    'Independent periodic tasks: each needs C ticks of CPU every T ticks, with deadline equal to period: on one preemptive processor, ignoring scheduling overhead.',
   task: 'Meet every deadline whenever ΣC/T ≤ 100%: which is the best any scheduler can promise.',
   constraint:
-    'Fixed priorities cannot make that promise: they are safe only to ln 2 ≈ 69.3%, and the gap is measured here as a falling curve: at 97-100% utilization, rate-monotonic drops 62 of 120 real task sets while EDF schedules all of them.',
+    'Fixed priorities cannot make that promise for every task set: rate-monotonic guarantees utilization up to n(2^(1/n) - 1) for n tasks, tending to ln 2 ≈ 69.3% as n grows. Above that sufficient bound, some sets still succeed: at 97-100% utilization, rate-monotonic drops 62 of 120 real task sets while EDF schedules all of them.',
 
   origins: (
     <p>
@@ -84,8 +84,9 @@ export const content = {
       load explicitly instead.
     </>,
     <>
-      <strong>Fixed-priority alternative:</strong> above 69.3%, RM needs
-      a per-set response-time analysis: exact, but per-set: the
+      <strong>Fixed-priority alternative:</strong> above its n-task
+      utilization bound, RM needs a stronger per-set check such as
+      response-time analysis: exact, but per-set: the
       one-line test is EDF&apos;s luxury.
     </>,
   ],
@@ -179,9 +180,9 @@ export const content = {
       ),
       costs: (
         <>
-          Safe only to 69.3% by the bound: above it, 62 of 120 sets
-          dropped in the hottest bin: unless you pay for per-set
-          response-time analysis.
+          The sufficient bound is n(2^{'{1/n}'}−1), approaching 69.3%
+          as n grows. Above it, check each set: 62 of 120 sets
+          dropped in the hottest bin.
         </>
       ),
       when: 'Certified and safety-critical systems where predictable degradation outbids throughput: avionics’ fifty-year answer.',
@@ -210,7 +211,7 @@ export const content = {
     name: 'Fixed priorities past the bound, unanalyzed',
     why: (
       <>
-        Between 69.3% and 100% utilization there is no blanket safety:
+        Above the n-task utilization bound there is no blanket safety:
         rate-monotonic dropped <strong>22 of 120</strong> sets in the
         90-97% bin and <strong>62 of 120</strong> at 97-100%, measured:
         and a dropped set fails deterministically, every hyperperiod,
@@ -237,7 +238,7 @@ export const content = {
       },
       {
         method: 'Rate-monotonic',
-        values: ['safe to 69.3%; then the curve', 'shield: [0, 4]'],
+        values: ['universal guarantee to 69.3%; finite-n bound higher', 'shield: [0, 4]'],
         verdict: 'bins: 120/120 · 119/120 · 98/120 · 58/120 as U climbs to 1',
       },
     ],
@@ -249,7 +250,7 @@ export const content = {
     <Figure
       id="fig-edf-gap"
       aspect="16 / 7"
-      caption="The gap, drawn. Below ln 2 ≈ 69.3%, both policies are perfect (measured). Above it, fixed priorities enter the conditional zone: the measured survival curve falls to 48% by full load, while EDF holds 100% all the way to U = 1: Liu and Layland's two theorems as one picture. Past U = 1 nobody is safe, and the two policies fail in opposite styles: EDF sprays, RM shields its favorites."
+      caption="The gap, drawn. Below ln 2 ≈ 69.3%, both policies are perfect (measured). Rate-monotonic's finite-n sufficient bound is higher, n(2^(1/n) - 1); above that, schedulability depends on the set. The measured survival curve falls to 48% by full load, while EDF holds 100% all the way to U = 1. Past U = 1 nobody is safe, and these two policies fail in opposite styles on the measured example: EDF sprays, RM shields its favorites."
       cite={{
         text: 'Liu & Layland, "Scheduling Algorithms for Multiprogramming in a Hard-Real-Time Environment", JACM 20(1), 1973. The honest modern comparison is Buttazzo, "Rate Monotonic vs. EDF: Judgment Day", Real-Time Systems 29, 2005.',
         href: 'https://doi.org/10.1145/321738.321743',
@@ -258,7 +259,7 @@ export const content = {
       <svg viewBox="0 0 640 290" role="img" aria-label="Schedulability versus utilization: EDF flat at one hundred percent until U equals one; rate-monotonic falling past the Liu-Layland bound">
         <line x1="60" y1="230" x2="600" y2="230" stroke="#2a3450" />
         <line x1="60" y1="230" x2="60" y2="40" stroke="#2a3450" />
-        <text x="300" y="256" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">utilization ΣC/T →</text>
+        <text x="240" y="256" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">ΣC/T →</text>
         <text x="26" y="60" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">100%</text>
         <line x1="60" y1="52" x2="512" y2="52" stroke="#62d98a" strokeWidth="2.4" />
         <line x1="512" y1="52" x2="512" y2="230" stroke="#62d98a" strokeWidth="2.4" />

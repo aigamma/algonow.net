@@ -274,7 +274,7 @@ export const content = {
     <Figure
       id="fig-ffd-worst-case"
       aspect="16 / 7"
-      caption="Johnson’s family, the tight worst case. Thirty items: six of 1/2+ε, six of 1/4+2ε, six of 1/4+ε, twelve of 1/4−2ε (ε = 0.01). Left: the optimal packing, 9 bins, each verified to hold at most 1: six bins of {1/2+ε, 1/4+ε, 1/4−2ε} and three of two 1/4+2ε with two 1/4−2ε. Right: first fit decreasing opens 11: the six largest each take one 1/4+2ε and then nothing else fits beside them, the 1/4+ε items go three to a bin, and the twelve smallest four to a bin. 11/9 exactly, and Dósa proved nothing worse can happen."
+      caption="Johnson’s construction, the asymptotic worst case. Thirty items: six of 1/2+ε, six of 1/4+2ε, six of 1/4+ε, twelve of 1/4−2ε (ε = 0.01). Left: the optimal packing, 9 bins, each verified to hold at most 1: six bins of {1/2+ε, 1/4+ε, 1/4−2ε} and three of two 1/4+2ε with two 1/4−2ε. Right: first fit decreasing opens 11: the six largest each take one 1/4+2ε and then nothing else fits beside them, the 1/4+ε items go three to a bin, and the twelve smallest four to a bin. 11/9 on this construction; Dósa’s tight general bound is FFD ≤ (11/9) OPT + 6/9."
       cite={{
         text: 'D. S. Johnson, A. Demers, J. D. Ullman, M. R. Garey, R. L. Graham, "Worst-case performance bounds for simple one-dimensional packing algorithms," SIAM J. Computing 3(4), 1974. DOI 10.1137/0203025. G. Dósa, "The tight bound of first fit decreasing bin-packing algorithm is FFD(I) ≤ 11/9 OPT(I) + 6/9," 2007.',
         href: 'https://doi.org/10.1137/0203025',
@@ -310,7 +310,7 @@ export const content = {
         <text x="110" y="246" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">■ 1/4+2ε</text>
         <text x="200" y="246" fill="#c792ea" fontFamily="ui-monospace, monospace" fontSize="10">■ 1/4+ε</text>
         <text x="280" y="246" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">■ 1/4−2ε</text>
-        <text x="30" y="268" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">200 random instances: FFD optimal on 200, arrival order on 138, next fit on 33; 2,000 items: 1,025 bins vs bound 1,011</text>
+        <text x="30" y="268" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">optimal / 200: FFD 200, arrival 138, next fit 33 · 2,000 items: 1,025 bins, bound 1,011</text>
       </svg>
     </Figure>
   ),

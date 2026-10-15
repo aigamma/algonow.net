@@ -19,10 +19,9 @@ export const content = {
       with Swope et al. (1982). The <em>why</em> came a decade
       later: Verlet&apos;s rule is <strong>symplectic</strong>: it
       preserves phase-space volume exactly, like the true flow: so
-      by backward-error analysis it follows the exact trajectory of
-      a slightly-wrong Hamiltonian rather than a slightly-wrong
-      trajectory of the exact one. Energy cannot drift secularly,
-      because a nearby conserved quantity is being conserved. The
+      backward-error analysis relates it to a nearby modified
+      Hamiltonian. At suitable stable step sizes this explains
+      bounded energy errors over long integrations. The
       same insight now runs celestial mechanics (gigayear solar
       system integrations) and, as the leapfrog inside Hamiltonian
       Monte Carlo, modern Bayesian statistics.
@@ -90,8 +89,7 @@ export const content = {
       velocity: one force evaluation per step, total.
     </>,
     <>
-      <strong>Trust the band, not the step:</strong> per-step error
-      is second order (measured 2.00), but the energy error{' '}
+      <strong>Trust the band, not the step:</strong> global trajectory error is second order (measured 2.00); local truncation error is O(dt³), but the energy error{' '}
       <em>orbits</em>: 3×10⁻⁵ band across 200 periods, never
       widening.
     </>,
@@ -299,7 +297,7 @@ export const content = {
     <Figure
       id="fig-verlet-band"
       aspect="16 / 7"
-      caption="Three integrators, one gravity. Euler's error compounds outward: the spiral of death, ×10⁴³ measured. RK4's fourth-order error is tiny and biased: it marches monotonically, draining the orbit: precision is not conservation. Verlet's second-order error is larger per step and structurally unbiased: symplecticity means it follows the exact physics of a slightly-wrong Hamiltonian, so the energy error orbits in a band that never widens: 3×10⁻⁵ across 200 periods, angular momentum at machine roundoff, and the whole run reversible to 10⁻¹². For marathons, the shape of the error matters more than its size."
+      caption="Three integrators, one gravity. Euler's error compounds outward: the spiral of death, ×10⁴³ measured. RK4's fourth-order error is tiny and biased: it marches monotonically, draining the orbit: precision is not conservation. Verlet's second-order error is larger per step and structurally unbiased: backward error analysis relates it to a nearby Hamiltonian, so at stable step sizes the energy error can stay bounded over long integrations: 3×10⁻⁵ across 200 periods, angular momentum at machine roundoff, and the whole run reversible to 10⁻¹². For marathons, the shape of the error matters more than its size."
       cite={{
         text: 'Verlet, "Computer ‘Experiments’ on Classical Fluids. I.", Physical Review 159, 1967: 864 argon atoms and the update rule molecular dynamics still runs: the symplectic explanation came two decades later.',
         href: 'https://doi.org/10.1103/PhysRev.159.98',
@@ -314,8 +312,8 @@ export const content = {
         <text x="440" y="216" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">RK4: small, monotone, fatal</text>
         <path d="M 50 150 C 80 138, 110 162, 140 150 S 200 138, 230 150 S 290 162, 320 150 S 380 138, 410 150 S 470 162, 500 150 S 560 138, 590 150" fill="none" stroke="#5da2ff" strokeWidth="2.2" />
         <text x="80" y="122" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">Verlet: the error orbits in a band, forever</text>
-        <text x="50" y="252" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: band 3×10⁻⁵ over 200 orbits · L to 4×10⁻¹⁴ · reversal to 1.3×10⁻¹² · orders 1.02 / 2.00 / 4.00</text>
-        <text x="50" y="274" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">the mirror test: 20,000 steps out, flip velocities, 20,000 home: Verlet re-arrives: Euler misses by 2.45</text>
+        <text x="50" y="252" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">200-orbit band: 3×10⁻⁵ · L: 4×10⁻¹⁴ · reversal: 1.3×10⁻¹² · orders: 1 / 2 / 4</text>
+        <text x="50" y="274" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">20,000 steps out and back: Verlet returns within 1.3×10⁻¹²; Euler misses by 2.45</text>
       </svg>
     </Figure>
   ),

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -224,11 +225,11 @@ export default function HopcroftViz() {
           title = `act 2 · Hopcroft: splitter ${idx + 1} of ${sc.hop.steps.length}: the states leading into the amber block on letter ${step.letter === 0 ? 'a' : 'b'}`;
           const finished = done || idx === sc.hop.steps.length - 1 && s.tick >= sc.hop.steps.length * 14;
           if (finished) {
-            line = `same ${sc.hop.blocks} blocks as Moore, ${sc.hop.examined} transitions examined against ${sc.moore.examined}: the smaller half rule pays log n per state, not n`;
+            line = `same ${sc.hop.blocks} blocks; ${sc.hop.examined} transitions vs Moore ${sc.moore.examined}; smaller halves limit repeat work`;
           } else if (step.splits.length) {
             const sp = step.splits[0];
-            const which = sp.queued === 'both' ? 'both pieces (the block was already queued)' : `only the smaller piece (${Math.min(sp.inside.length, sp.outside.length)} states)`;
-            line = `${step.x.length} states lead in; a block splits ${sp.inside.length} | ${sp.outside.length} and ${which} joins the queue (${step.queue} waiting)`;
+            const which = sp.queued === 'both' ? 'both (already queued)' : `smaller piece (${Math.min(sp.inside.length, sp.outside.length)})`;
+            line = `${step.x.length} lead in; split ${sp.inside.length} | ${sp.outside.length}; queue ${which} (${step.queue} waiting)`;
           } else {
             line = `${step.x.length} states lead into the splitter, and every block they touch is already pure: nothing splits`;
           }
@@ -264,7 +265,7 @@ export default function HopcroftViz() {
         const lx = 330;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = ink;
-        ctx.fillText(`${n} states (${BASE} plus ${DUPS} duplicates), ${K} letters, * = accepting`, lx, 52);
+        ctx.fillText(`${n} states (${DUPS} duplicates), ${K} letters; * accepts`, lx, 52);
         ctx.fillStyle = dim;
         ctx.fillText(`blocks now: ${total}`, lx, 74);
         ctx.fillStyle = algo;
@@ -273,11 +274,11 @@ export default function HopcroftViz() {
         ctx.fillText(`Hopcroft: ${sc.hop.blocks} blocks, ${sc.hop.steps.length} splitters, ${sc.hop.examined} transitions`, lx, 124);
         ctx.fillStyle = dim;
         ctx.font = '10px ui-monospace, monospace';
-        ctx.fillText('amber ring: the splitter block · blue ring: states with a transition into it', lx, 150);
-        ctx.fillText('a block that straddles the blue set splits; only its smaller piece is queued', lx, 164);
+        ctx.fillText('amber: splitter; blue: transitions into it', lx, 150);
+        ctx.fillText('split mixed blocks; queue the smaller piece', lx, 164);
         ctx.fillStyle = good;
         ctx.font = '11px ui-monospace, monospace';
-        if (done) ctx.fillText(`both minimizers agree: ${sc.hop.blocks} states in the minimal machine`, lx, 196);
+        if (done) ctx.fillText(`both agree: ${sc.hop.blocks} minimal states`, lx, 196);
         ctx.fillStyle = act === 0 ? algo : heur;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillText(line, 14, H - 8);
@@ -289,7 +290,9 @@ export default function HopcroftViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

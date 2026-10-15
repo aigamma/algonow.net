@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -174,11 +175,11 @@ export default function SkiRentalViz() {
         ctx.fillStyle = good;
         ctx.fillText(`clairvoyant min(day, B) = ${sc.opt}`, 12, 240);
         ctx.fillStyle = warn;
-        ctx.fillText(`red dashes: (2 - 1/B) x clairvoyant = ${((2 - 1 / B) * sc.opt).toFixed(1)}; the break-even bar never crosses it`, 196, 240);
+        ctx.fillText(`red bound: (2 - 1/B) × OPT = ${((2 - 1 / B) * sc.opt).toFixed(1)}`, 196, 240);
         ctx.fillStyle = sc.ok ? good : warn;
         ctx.fillText(
           sc.ok
-            ? `invariants: break-even <= (2 - 1/B) x clairvoyant every day; randomized expectation = ${sc.ratioRand.toFixed(4)} x clairvoyant every day`
+            ? `every day: break-even ≤ (2 - 1/B) × OPT; randomized expected cost = ${sc.ratioRand.toFixed(4)} × OPT`
             : 'INVARIANT BROKEN',
           12,
           262,
@@ -194,7 +195,9 @@ export default function SkiRentalViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

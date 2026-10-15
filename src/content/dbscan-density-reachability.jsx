@@ -275,7 +275,7 @@ export const content = {
     <Figure
       id="fig-dbscan-scene"
       aspect="16 / 7"
-      caption="The scene and the rule. Two crescents (blue and green), a blob (purple), and stray noise (red crosses). The amber circle is one density test: ε = 0.2 around a point, minPts = 5 inside it makes the point core. Chains of core points at most ε apart carry membership along each crescent and never across the gap, which is wider than ε; a stray point with fewer than 5 neighbors has no chain to join. Measured: 3 clusters, 73 noise, 521 cores, 6 borders, ARI 0.901; k-means 0.372."
+      caption="The scene and the rule. Two crescents (blue and green), a blob (purple), and stray noise (red crosses). The amber circle is one density test: ε = 0.2 around a point, minPts = 5 inside it makes the point core. Chains of core points at most ε apart carry membership along each crescent and never across the gap, which is wider than ε; a stray point outside every core point’s ε-neighborhood has no chain to join. Measured: 3 clusters, 73 noise, 521 cores, 6 borders, ARI 0.901; k-means 0.372."
       cite={{
         text: 'M. Ester, H.-P. Kriegel, J. Sander, X. Xu, "A density-based algorithm for discovering clusters in large spatial databases with noise," KDD 1996. E. Schubert et al., "DBSCAN Revisited, Revisited," ACM TODS 42(3), 2017. DOI 10.1145/3068335.',
         href: 'https://doi.org/10.1145/3068335',

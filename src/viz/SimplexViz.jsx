@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -13,42 +14,83 @@ const TICKS_PER_PIVOT = 26;
 
 function makeScene(seed) {
   const rand = mulberry32(seed);
-  // Random convex polygon: points on a jittered circle, hull order.
-  const k = 7 + Math.floor(rand() * 4);
-  const verts = [];
-  for (let i = 0; i < k; i++) {
-    const a = (i / k) * Math.PI * 2 + rand() * 0.4;
-    const r = 90 + rand() * 55;
-    verts.push([320 + Math.cos(a) * r * 1.5, 152 + Math.sin(a) * r * 0.75]);
+  const bounds = [8 + 3 * rand(), 6 + 2 * rand()];
+  const constraints = [[1, 0, bounds[0]], [0, 1, bounds[1]]];
+  for (let i = 0; i < 6; i++) {
+    const a = 0.15 + rand();
+    const b = 0.15 + rand();
+    constraints.push([a, b, (a * bounds[0] + b * bounds[1]) * (0.5 + 0.35 * rand())]);
   }
-  // Objective direction.
-  const th = rand() * Math.PI * 2;
-  const obj = [Math.cos(th), Math.sin(th)];
-  const score = ([x, y]) => x * obj[0] + y * obj[1];
-  // Start at the WORST vertex; walk Dantzig-style: among the two
-  // neighboring edges, take the one with the steeper immediate rate.
-  let cur = 0;
-  for (let i = 1; i < k; i++) if (score(verts[i]) < score(verts[cur])) cur = i;
-  const path = [cur];
-  for (let steps = 0; steps < k + 2; steps++) {
-    const nb = [(cur + 1) % k, (cur + k - 1) % k];
-    let best = null;
-    let bestRate = 1e-9;
-    for (const v of nb) {
-      const dx = verts[v][0] - verts[cur][0];
-      const dy = verts[v][1] - verts[cur][1];
-      const len = Math.hypot(dx, dy);
-      const rate = (dx * obj[0] + dy * obj[1]) / len;
-      if (rate > bestRate && score(verts[v]) > score(verts[cur])) {
-        bestRate = rate;
-        best = v;
+  // Intersect half-planes, so every displayed edge belongs to a convex LP.
+  let polygon = [[0, 0], [bounds[0], 0], bounds.slice(), [0, bounds[1]]];
+  for (const [a, b, limit] of constraints) {
+    const clipped = [];
+    for (let i = 0; i < polygon.length; i++) {
+      const p = polygon[i];
+      const q = polygon[(i + 1) % polygon.length];
+      const dp = a * p[0] + b * p[1] - limit;
+      const dq = a * q[0] + b * q[1] - limit;
+      if (dp <= 1e-9) clipped.push(p);
+      if ((dp < -1e-9 && dq > 1e-9) || (dp > 1e-9 && dq < -1e-9)) {
+        const t = dp / (dp - dq);
+        clipped.push([p[0] + t * (q[0] - p[0]), p[1] + t * (q[1] - p[1])]);
       }
     }
-    if (best === null) break;
-    path.push(best);
-    cur = best;
+    polygon = clipped;
   }
-  return { verts, obj, path, score };
+  const objective = [0.5 + 2 * rand(), 0.5 + 2 * rand()];
+  const m = constraints.length;
+  const tableau = constraints.map(([a, b, limit], i) =>
+    [a, b, ...Array.from({ length: m }, (_, j) => Number(i === j)), limit]);
+  const reduced = [-objective[0], -objective[1], ...Array(m + 1).fill(0)];
+  const basis = Array.from({ length: m }, (_, i) => i + 2);
+  const points = [[0, 0]];
+  const pivots = [];
+  // Actual Dantzig pivots: most negative reduced cost, then minimum ratio.
+  for (let guard = 0; guard < 30; guard++) {
+    let enter = -1;
+    for (let j = 0; j < m + 2; j++) {
+      if (reduced[j] < -1e-9 && (enter < 0 || reduced[j] < reduced[enter])) enter = j;
+    }
+    if (enter < 0) break;
+    let leave = -1;
+    for (let i = 0; i < m; i++) {
+      if (tableau[i][enter] > 1e-9 && (leave < 0
+        || tableau[i].at(-1) / tableau[i][enter] < tableau[leave].at(-1) / tableau[leave][enter])) leave = i;
+    }
+    if (leave < 0) throw new Error('The bounded visualization LP became unbounded');
+    const rates = reduced.slice(0, m + 2);
+    const pivot = tableau[leave][enter];
+    tableau[leave] = tableau[leave].map((value) => value / pivot);
+    for (let i = 0; i < m; i++) {
+      if (i === leave) continue;
+      const factor = tableau[i][enter];
+      tableau[i] = tableau[i].map((value, j) => value - factor * tableau[leave][j]);
+    }
+    const factor = reduced[enter];
+    for (let j = 0; j < reduced.length; j++) reduced[j] -= factor * tableau[leave][j];
+    basis[leave] = enter;
+    const point = [0, 0];
+    basis.forEach((variable, i) => { if (variable < 2) point[variable] = tableau[i].at(-1); });
+    points.push(point);
+    pivots.push({ enter, rates });
+  }
+  const sx = 390 / bounds[0];
+  const sy = 200 / bounds[1];
+  const toCanvas = ([x, y]) => [100 + x * sx, 260 - y * sy];
+  const verts = polygon.map(toCanvas);
+  const path = points.map((point) => {
+    let nearest = 0;
+    for (let i = 1; i < polygon.length; i++) {
+      if (Math.hypot(polygon[i][0] - point[0], polygon[i][1] - point[1])
+        < Math.hypot(polygon[nearest][0] - point[0], polygon[nearest][1] - point[1])) nearest = i;
+    }
+    return nearest;
+  });
+  const norm = Math.hypot(objective[0] / sx, objective[1] / sy);
+  const obj = [objective[0] / sx / norm, -objective[1] / sy / norm];
+  const score = ([x, y]) => x * obj[0] + y * obj[1];
+  return { verts, obj, path, score, polygon, constraints, objective, points, pivots };
 }
 
 export default function SimplexViz() {
@@ -181,7 +223,9 @@ export default function SimplexViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

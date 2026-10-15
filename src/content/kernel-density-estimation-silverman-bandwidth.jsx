@@ -330,14 +330,14 @@ export const content = {
               <polyline points={curve((x) => kde(x, 0.453))} fill="none" stroke="#f0b94b" strokeWidth="2" />
               <polyline points={curve((x) => kde(x, 0.227))} fill="none" stroke="#5da2ff" strokeWidth="2" />
               {pts.map((p, i) => <circle key={i} cx={X(p)} cy={y0 - 3} r="1.5" fill="#e9edf6" fillOpacity="0.7" />)}
-              <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">two modes at ±1.5, width 0.5 (gray); KDE at h = 0.227 (blue), 0.453 (amber), 0.03 (red)</text>
+              <text x={x0} y="22" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">two modes; KDE h: blue .227, amber .453, red .03</text>
               <text x={x0} y={y0 + 16} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">the rule measures the gap between the modes and softens too far</text>
               <line x1={bx} y1={by} x2={bx + bw} y2={by} stroke="#9aa5bd" strokeOpacity="0.6" />
               <polyline points={hs.map((h, i) => `${XH(h)},${YI(ise[i])}`).join(' ')} fill="none" stroke="#62d98a" strokeWidth="2" />
               <circle cx={XH(0.227)} cy={YI(0.0033)} r="4" fill="#5da2ff" />
               <circle cx={XH(0.453)} cy={YI(0.0165)} r="4" fill="#f0b94b" />
               <circle cx={XH(0.198)} cy={YI(0.0034)} r="3" fill="#e9edf6" />
-              <text x={XH(0.453) + 6} y={YI(0.0165)} fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="9">Silverman 0.453: 5.0x</text>
+              <text x={XH(0.453) + 6} y={YI(0.0165)} fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="9">rule 0.453: 5.0x</text>
               <text x={XH(0.227) - 10} y={YI(0.0033) + 16} fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="9">oracle 0.227</text>
               <text x={XH(0.198) - 70} y={YI(0.0034) - 6} fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="9">LSCV 0.198: 1.03x</text>
               {[0.05, 0.2, 0.5, 1.5].map((h) => <text key={h} x={XH(h) - 8} y={by + 14} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="9">{h}</text>)}

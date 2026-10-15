@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -135,7 +136,7 @@ export default function NextPermutationViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('Algorithm L: find the pivot, swap it with its partner (amber), reverse the suffix (blue); one arrangement per tick', 12, 18);
+        ctx.fillText('Algorithm L: find pivot, swap partner (amber), reverse suffix (blue)', 12, 18);
         const bw = 56;
         const x0 = 40;
         const drawRow = (arr, y, label, strong) => {
@@ -186,7 +187,9 @@ export default function NextPermutationViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

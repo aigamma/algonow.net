@@ -314,7 +314,7 @@ export const content = {
         {[7, 13, 27, 33, 40, 34, 67, 73, 6.5, 13.5, 27.5, 33.5].map((x, k) => Array.from({ length: 5 }, (_, j) => <circle key={`${k}-${j}`} cx={40 + (x + (j - 2) * 0.4) * 5.6} cy={200 - 16 - (j % 3) * 3} r="2" fill="#5da2ff" opacity="0.8" />))}
         <text x="40" y="174" fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="11">resample: the cloud gathers where the weights were, at every door 3 m fits</text>
         <text x="40" y="244" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">measured: 0.39 m steady error, 0.02 m from the exact grid, converged by step 6</text>
-        <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">50 particles: 14.04 m; no resampling: ESS 1.0; kidnapped: plain never recovers, 2% random particles recover in 18 steps</text>
+        <text x="40" y="262" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">50 particles: 14.04 m · no resampling: ESS 1 · kidnapping: 2% random recovers in 18 steps</text>
       </svg>
     </Figure>
   ),

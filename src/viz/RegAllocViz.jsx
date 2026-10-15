@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -198,7 +199,7 @@ export default function RegAllocViz() {
         ctx.fillText('blue: pushed with fewer than K', tx, 150);
         ctx.fillText('neighbors; amber: spill candidate', tx, 166);
         ctx.fillText('the file: 1,998 loads and stores', tx, 196);
-        ctx.fillText('at K = 12 vs 15,485 for linear scan', tx, 212);
+        ctx.fillText('K=12; linear scan: 15,485', tx, 212);
         let line;
         if (s.done) {
           line = `done: ${sc.color.size} values in ${K} registers, ${sc.spilled.size} spilled (cost ${spillCost}) at pressure ${sc.pressure}; at least ${Math.max(0, sc.pressure - K)} had to go`;
@@ -216,7 +217,9 @@ export default function RegAllocViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

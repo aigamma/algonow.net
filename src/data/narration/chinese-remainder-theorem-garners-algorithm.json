@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:chinese-remainder-theorem-garners-algorithm",
   "source_path": "src/content/chinese-remainder-theorem-garners-algorithm.narration.js",
-  "source_sha256": "e467e0c146a97af932be747073a3ffd278e248476b9b50147ef4c399e6f9a76b",
-  "source_characters": 10962,
+  "source_sha256": "395bbbada0bc44b90227946a45b6602367888638455a3b2bd37a44a8808c0648",
+  "source_characters": 11870,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -39,12 +39,27 @@
       "mode": "ffmpeg-concat-remux-v1",
       "audio_codec": "copy",
       "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
     }
   },
-  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
-  "release_sha256": "f44cb0ba624c25cf13a9255c8e184cc8a9704889c1faccb805991323d5c35539",
-  "generated_at": "2026-09-27T01:47:19.869Z",
-  "generated_characters": 21924,
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "9efed5819d9e9ca994f93e8978c7c89f95fefec9c650e573921bab4897ee6d74",
+  "generated_at": "2026-10-15T22:29:40.919Z",
+  "generated_characters": 23740,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -69,23 +84,37 @@
     {
       "id": "request-001",
       "index": 1,
-      "characters": 4788,
-      "utf8_bytes": 4800,
-      "sha256": "b0b1db3b41ff57080076920852f02a3009aa8accfc08c52fb038c4d2046608de"
+      "characters": 2835,
+      "utf8_bytes": 2845,
+      "sha256": "1c05c041b4865cda621fe44608e808cc9d5903c0ad1c2b3d486a4705ff803a17"
     },
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4831,
-      "utf8_bytes": 4848,
-      "sha256": "5fce431fbe351477695d05dbdc7368475f70669670e91f383937d433dd7f8a16"
+      "characters": 4481,
+      "utf8_bytes": 4497,
+      "sha256": "b0565f4536bc5678fc33322843af06d829e19b53165626ca7bcb25a589cf4504"
     },
     {
       "id": "request-003",
       "index": 3,
-      "characters": 1343,
-      "utf8_bytes": 1351,
-      "sha256": "38a63d2c0069b9340f6fd39d0e5491c1d4a6760711b0924ebbd8a6df4fe8b42b"
+      "characters": 3630,
+      "utf8_bytes": 3635,
+      "sha256": "0aa40c68490a6b795b567ccef5679143467583d505159750748f976aaec0121b"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 534,
+      "utf8_bytes": 542,
+      "sha256": "66c8d8f57cc29818b823cd95a50e18f7a2290d2e4c7b98ca446768333d2d3667"
+    },
+    {
+      "id": "request-005",
+      "index": 5,
+      "characters": 390,
+      "utf8_bytes": 392,
+      "sha256": "e24e37624ee563f8b50e2d43c44068e67a26846199156e33722c3015ca0a1988"
     }
   ],
   "assembly": {
@@ -134,8 +163,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1277,
-      "sha256": "db67ac95c0053d0aa5d50630de03304452c35196f406104b4bbe135e896d8dc6"
+      "utf8_bytes": 1413,
+      "sha256": "f313bf65c6fe5082adc18784c3e6076261c85bb8ff085302805abb2f0811f044"
     },
     {
       "id": "chinese-remainder-theorem-garners-algorithm.02-origins",
@@ -157,8 +186,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1337,
-      "sha256": "972b0a46d2b47fb637a9d6df9fafe02674f0a03cf7f4f34078dbbd9b86cd49ff"
+      "utf8_bytes": 1303,
+      "sha256": "12cc7950cc85df76712142b391b6931d2380d184c37f4b3f166fae9e4ec66e19"
     },
     {
       "id": "chinese-remainder-theorem-garners-algorithm.03-pair",
@@ -180,8 +209,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 2055,
-      "sha256": "30103c989dc3a3410b5b6ce930d59c765c0837e7092f2b7e6978fa5a31674196"
+      "utf8_bytes": 2193,
+      "sha256": "04e62bb5600b888eaa8f1d5240346c40d3989c61b383f5ab0dc96f4b7c5f29b6"
     },
     {
       "id": "chinese-remainder-theorem-garners-algorithm.04-picture",
@@ -203,8 +232,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 766,
-      "sha256": "47367ff08d867b7df51500d197e85115c734cda6dbc3bd8391155be8d4be2470"
+      "utf8_bytes": 770,
+      "sha256": "c07efeccb6997da007b7861cb24b6eddeb4ef30a8a2f8b2e612a6b8ea5bc8c76"
     },
     {
       "id": "chinese-remainder-theorem-garners-algorithm.05-run",
@@ -226,8 +255,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1027,
-      "sha256": "bb9a6b953cb2bdac2ebea86e666b01c5abcb5d66458ea2d288ca75300ee6e776"
+      "utf8_bytes": 977,
+      "sha256": "7ec443e7290072c5c092bc146c2b5792e086dfac16abdc9907478df6a88f88ca"
     },
     {
       "id": "chinese-remainder-theorem-garners-algorithm.06-signals",
@@ -249,8 +278,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 532,
-      "sha256": "b390398d538e8a405a5cfbec0a49c44118ce1841c127731155f34a4c8b6104c2"
+      "utf8_bytes": 549,
+      "sha256": "fe960ecbabfd04faca67fde2ed71804eaf3c325f79855489655b6f3db1f7334f"
     },
     {
       "id": "chinese-remainder-theorem-garners-algorithm.07-tradeoffs",
@@ -272,8 +301,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1152,
-      "sha256": "6b788635869aca32be025fec24a7b655b545d57f7ce04dced889fcc086be1b4a"
+      "utf8_bytes": 1172,
+      "sha256": "932229131f98a83324f78e89d7b041bbb91ae2bd37fe17536b7b2a07b2819809"
     },
     {
       "id": "chinese-remainder-theorem-garners-algorithm.08-tradeoffs",
@@ -295,8 +324,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 569,
-      "sha256": "884011471edcf82916b186122f6513e5abcb2d2c8c65660a2b466deb378cc052"
+      "utf8_bytes": 641,
+      "sha256": "31037a6c6b71056a178087dbe30313bd55364cb1c584d5599083d86b2db78870"
     },
     {
       "id": "chinese-remainder-theorem-garners-algorithm.09-tradeoffs",
@@ -318,8 +347,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 790,
-      "sha256": "76cd1c43d6d26cb7e86875b4916908e04712a2bfc33189e3e10312e346d8f441"
+      "utf8_bytes": 834,
+      "sha256": "1a68a21dec345abfef0b0d154e37274855d87ee70e03fc156842bf2e62f05bd6"
     },
     {
       "id": "chinese-remainder-theorem-garners-algorithm.10-code",
@@ -341,8 +370,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1351,
-      "sha256": "38a63d2c0069b9340f6fd39d0e5491c1d4a6760711b0924ebbd8a6df4fe8b42b"
+      "utf8_bytes": 1916,
+      "sha256": "4dcd29e84dbc3f2f420310b56113e618bbc1301f1b7cf5dabcbdef2babf3f870"
     }
   ],
   "tracks": {
@@ -351,29 +380,41 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/chinese-remainder-theorem-garners-algorithm/f44cb0ba624c25cf13a9/aoede-51b0ff9bd227e78d.mp3",
+      "object_key": "narration/v1/puzzles/chinese-remainder-theorem-garners-algorithm/9efed5819d9e9ca994f9/aoede-61f6e3f3227cb9b5.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2713292,
-      "sha256": "51b0ff9bd227e78d6d434677511df3b9d7f6ef82e98a7e79598004bddc4d64f9",
+      "bytes": 3123884,
+      "sha256": "61f6e3f3227cb9b5384819411bc5fab857e6c759f5a527b09d089d67ff6b6d61",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "b0b1db3b41ff57080076920852f02a3009aa8accfc08c52fb038c4d2046608de",
-          "bytes": 1168512,
-          "sha256": "8629eacee6e37b625f2b5f69eb63745a615cfe39f512e9b891cb3255c592c3c3"
+          "request_sha256": "1c05c041b4865cda621fe44608e808cc9d5903c0ad1c2b3d486a4705ff803a17",
+          "bytes": 716736,
+          "sha256": "4b9b81be35aafeb96049a3587ed8e8d2dc25f9760d56baeb8e699f57740845b8"
         },
         {
           "request_index": 2,
-          "request_sha256": "5fce431fbe351477695d05dbdc7368475f70669670e91f383937d433dd7f8a16",
-          "bytes": 1263552,
-          "sha256": "d9022aaebfbf77d0c8c5326658a70ecd1e375b2bf1d3ec26cd2f36a2745083d2"
+          "request_sha256": "b0565f4536bc5678fc33322843af06d829e19b53165626ca7bcb25a589cf4504",
+          "bytes": 1203264,
+          "sha256": "f9da70778382224f5fbabee2c57d1a432203baa838cab3c0a24e2a7c469ac619"
         },
         {
           "request_index": 3,
-          "request_sha256": "38a63d2c0069b9340f6fd39d0e5491c1d4a6760711b0924ebbd8a6df4fe8b42b",
-          "bytes": 280992,
-          "sha256": "90402aa1b607c63b860c51479ef382b86d752512e4424f8850335160360cf979"
+          "request_sha256": "0aa40c68490a6b795b567ccef5679143467583d505159750748f976aaec0121b",
+          "bytes": 980544,
+          "sha256": "c635d1de082e33a1f4707d9d9fd04807bd3bb074fd5577f7a787741c853f12f3"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "66c8d8f57cc29818b823cd95a50e18f7a2290d2e4c7b98ca446768333d2d3667",
+          "bytes": 120192,
+          "sha256": "321efc8687df80fff19ac529b4d007b191904aaa5386e9f0eaf53b6c1aef19ba"
+        },
+        {
+          "request_index": 5,
+          "request_sha256": "e24e37624ee563f8b50e2d43c44068e67a26846199156e33722c3015ca0a1988",
+          "bytes": 102912,
+          "sha256": "81e29ce3030118013fa7ad1c41474d327122d9278a339d93e925431ababc5fc9"
         }
       ]
     },
@@ -382,29 +423,41 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/chinese-remainder-theorem-garners-algorithm/f44cb0ba624c25cf13a9/algieba-63795c515a9411af.mp3",
+      "object_key": "narration/v1/puzzles/chinese-remainder-theorem-garners-algorithm/9efed5819d9e9ca994f9/algieba-1818cbeaf715881f.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 2862572,
-      "sha256": "63795c515a9411af39cffab46b30d9f2e35ab5c854bef80038cc7bd31509fc27",
+      "bytes": 3264140,
+      "sha256": "1818cbeaf715881f4006c8ace3ee9b0ec5989da67f1b70ad930a48438d4961f2",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "b0b1db3b41ff57080076920852f02a3009aa8accfc08c52fb038c4d2046608de",
-          "bytes": 1212672,
-          "sha256": "3554f0d78109c2fa54b9783ff0670d6c14c8eef98884cda96d22ae1f00e0a931"
+          "request_sha256": "1c05c041b4865cda621fe44608e808cc9d5903c0ad1c2b3d486a4705ff803a17",
+          "bytes": 754464,
+          "sha256": "945c18d6d14f46a7ebc42b29e93ff2f4abb847915a56c9e9435098b1b9b2e238"
         },
         {
           "request_index": 2,
-          "request_sha256": "5fce431fbe351477695d05dbdc7368475f70669670e91f383937d433dd7f8a16",
-          "bytes": 1373952,
-          "sha256": "d22f38e96b785546ebd1f2f942961979209ecd02ad82c32b1798293b5d8e66a1"
+          "request_sha256": "b0565f4536bc5678fc33322843af06d829e19b53165626ca7bcb25a589cf4504",
+          "bytes": 1259232,
+          "sha256": "2fe7fc215dc49ff182313eee2ea921a78f1f764ac46ed3ea19da7c1736b315f3"
         },
         {
           "request_index": 3,
-          "request_sha256": "38a63d2c0069b9340f6fd39d0e5491c1d4a6760711b0924ebbd8a6df4fe8b42b",
-          "bytes": 275712,
-          "sha256": "a48bf41d23ca63e62d387be3c354069ad728b956c3470855994ef7f068051db0"
+          "request_sha256": "0aa40c68490a6b795b567ccef5679143467583d505159750748f976aaec0121b",
+          "bytes": 1028544,
+          "sha256": "fd37a6e52b93078e320492e67703c72d9a9606dd26e0abdb1b19dde41b1f490b"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "66c8d8f57cc29818b823cd95a50e18f7a2290d2e4c7b98ca446768333d2d3667",
+          "bytes": 120192,
+          "sha256": "1f6ca19e053d5bbe9e16d23ce46418d6a83f102fb34e0d0487d49d8e4f1b7eca"
+        },
+        {
+          "request_index": 5,
+          "request_sha256": "e24e37624ee563f8b50e2d43c44068e67a26846199156e33722c3015ca0a1988",
+          "bytes": 101472,
+          "sha256": "5b2e494ac7118926169a88af95828099fc30381a5a42ae7d97008efab836e792"
         }
       ]
     }

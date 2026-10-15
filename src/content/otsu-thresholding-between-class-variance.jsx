@@ -334,11 +334,11 @@ export const content = {
               <polyline points={curve.map((v, i) => `${X(i)},${y0 - (v / cmax) * h}`).join(' ')} fill="none" stroke="#f0b94b" strokeWidth="2" />
               <line x1={X(121)} y1={y0} x2={X(121)} y2={y0 - h} stroke="#62d98a" strokeWidth="1.5" />
               <line x1={X(115)} y1={y0} x2={X(115)} y2={y0 - h} stroke="#e9edf6" strokeWidth="1" strokeDasharray="3 3" />
-              <text x={X(121) + 6} y={y0 - h + 12} fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">Otsu t = 121 (curve maximum)</text>
-              <text x={X(115) - 130} y={y0 - h + 30} fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="10">Bayes t = 115 (dashed)</text>
+              <text x={X(121) + 6} y={y0 - h + 12} fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">Otsu t = 121</text>
+              <text x={X(115) - 130} y={y0 - h + 24} fill="#e9edf6" fontFamily="ui-monospace, monospace" fontSize="10">Bayes t = 115</text>
               <text x={X(60)} y={y0 - h * 0.78} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">background N(80, 15)</text>
               <text x={X(150)} y={y0 - h * 0.62} fill="#5da2ff" fontFamily="ui-monospace, monospace" fontSize="10">objects N(160, 20)</text>
-              <text x={X(180)} y={y0 - h * 0.98} fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">amber: between-class variance σ²ᵦ(t)</text>
+              <text x={X(180)} y={y0 - h * 0.98} fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">between-class variance</text>
               <text x={x0} y={y0 + 14} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">0</text>
               <text x={x0 + w - 20} y={y0 + 14} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">255</text>
               <text x={x0 + 200} y={y0 + 14} fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="10">gray level t</text>

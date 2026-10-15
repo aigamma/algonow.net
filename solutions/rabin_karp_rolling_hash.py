@@ -12,7 +12,10 @@
 # fingerprint itself: the guiding rule that a 61-bit modular
 # fingerprint stands in for the window, with collisions rare
 # enough to bet on and cheap enough to survive (a false positive
-# costs one verification, never a wrong answer).
+# costs up to m comparisons, never a wrong answer).
+# For z true matches and c spurious candidates, total work is bounded by
+# O(n + m + (z+c)*m). Even c=0 is quadratic when every long window matches.
+# The fixed base here is deterministic; collision counts are measurements.
 #
 # The referees, all counted in ONE currency (character touches: a
 # roll touches 2 characters, a comparison touches 1):
@@ -97,7 +100,8 @@ def rk_search(text, pat, touch, mod=P_BIG, base=None, stats=None):
 
     Currency: a roll touches 2 characters (leaving + entering),
     the initial window costs m touches, and each verification
-    touches every character it compares. `stats` collects
+    touches every character it compares. All z true matches cost z*m
+    additional touches, even without collisions. `stats` collects
     {'hash_matches', 'spurious'} when provided.
     """
     n, m = len(text), len(pat)

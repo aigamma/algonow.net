@@ -301,8 +301,8 @@ export const content = {
           <line key={i} x1={a} y1={b} x2={c2} y2={d2} stroke="#f0b94b" strokeWidth="1.4" strokeDasharray="4 3" />
         ))}
         <text x="90" y="210" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">amber: dense internal edges, where random draws land</text>
-        <text x="40" y="246" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: single-run success 31.3% (bound: 1.5%) · failure 70% → 0.1% by R = 64 · n−2 merges per run, exact</text>
-        <text x="40" y="270" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">the build lesson: the brute referee shipped buggy, and Karger found the smaller cut: the defendant corrected the judge</text>
+        <text x="40" y="246" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">one-run success: 31.3% (bound 1.5%) · 64-run failure: 0.1% · n−2 merges per run</text>
+        <text x="40" y="270" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">referee repair: Karger exposed a missed cut in the original brute-force test</text>
       </svg>
     </Figure>
   ),

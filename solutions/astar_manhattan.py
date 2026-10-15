@@ -229,7 +229,7 @@ def contest(grid=None, start=None, goal=None):
     for name, fn in METHODS:
         counter = {}
         path = fn(grid, start, goal, counter)
-        results.append((name, counter.get("expanded", 0), len(path)))
+        results.append((name, counter.get("expanded", 0), len(path) - 1 if path else None))
     return results
 
 

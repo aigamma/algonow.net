@@ -301,7 +301,7 @@ export const content = {
         <text x="30" y="70" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">after 2 and 3 have swept: green doors open, dark doors slammed</text>
         <path d="M 96 150 C 200 190, 380 190, 512 122" fill="none" stroke="#f0b94b" strokeWidth="1.8" strokeDasharray="6 4" />
         <text x="220" y="196" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="11">5 walks past 10, 15, 20 (already slammed) to its square: 25</text>
-        <text x="30" y="240" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">the shave: exactly Σ(p−2) = 75,791 crossings at n = 10⁶ · the proof: past √n, every sweep starts beyond the hall</text>
+        <text x="30" y="240" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">saved: Σ(p−2) = 75,791 crossings at n = 10⁶ · past √n, every p² exceeds n</text>
         <text x="30" y="266" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: Mertens invoice 0.17% · π(10⁶) = 78,498 exact · trial division 14.2× dearer</text>
       </svg>
     </Figure>

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -189,8 +190,8 @@ export default function HnswViz() {
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
         ctx.fillText(act === 0
-          ? `act 1 · build: ${shown} of ${N} points inserted; big dots were drawn into the upper layers (about 1 in ${M} per level)`
-          : 'act 2 · query: greedy hops down the sparse layers (amber), then a beam search at the bottom (blue), then the answer (green)', 14, 18);
+          ? `act 1 · build ${shown}/${N} points; large dots reach upper layers (about 1/${M} per level)`
+          : 'act 2 · greedy descent (amber), bottom beam (blue), answer (green)', 14, 18);
 
         // bottom-layer edges among shown points
         ctx.strokeStyle = `${dim}33`;
@@ -268,7 +269,7 @@ export default function HnswViz() {
         ctx.fillStyle = ink;
         ctx.fillText(`${N} points, layers ${sc.sizes.join(' / ')}`, lx, 52);
         ctx.fillStyle = dim;
-        ctx.fillText(`M = ${M} neighbors per layer (${2 * M} at the bottom), beam ef = ${EF}`, lx, 72);
+        ctx.fillText(`M = ${M} (${2 * M} at bottom); beam ef = ${EF}`, lx, 72);
         ctx.fillStyle = heur;
         ctx.fillText(`build: ${sc.buildCount.toLocaleString()} distance computations`, lx, 100);
         ctx.fillStyle = algo;
@@ -278,12 +279,12 @@ export default function HnswViz() {
         ctx.fillStyle = dim;
         ctx.font = '10px ui-monospace, monospace';
         ctx.fillText('amber dots: points present in an upper layer', lx, 168);
-        ctx.fillText('amber path: the greedy descent, one nearest hop at a time', lx, 182);
-        ctx.fillText('blue: bottom-layer beam · green ring: exact answer · green dot: returned', lx, 196);
+        ctx.fillText('amber path: greedy descent', lx, 182);
+        ctx.fillText('blue: beam; green ring/dot: exact/returned', lx, 196);
         let line;
-        if (act === 0) line = shown < N ? 'insert: descend to the point’s level, then connect it to a diverse handful of near neighbors on each layer' : `built: every node keeps at most ${2 * M} bottom-layer neighbors, chosen for diversity, not just nearness`;
+        if (act === 0) line = shown < N ? 'insert: descend to its level; connect diverse near neighbors on each layer' : `built: every node keeps at most ${2 * M} bottom-layer neighbors, chosen for diversity, not just nearness`;
         else if (!finished) line = stepIdx < sc.trace.length && sc.trace[stepIdx - 1] && sc.trace[stepIdx - 1].layer > 0 ? `layer ${sc.trace[stepIdx - 1].layer}: hop to the neighbor nearest the query, stop when none is nearer` : `bottom layer: a beam of ${EF} candidates, expanding the best until nothing in reach improves it`;
-        else line = `${sc.queryCount} distances for ${sc.hits}/${K} exact neighbors, where brute force pays ${sc.bruteCount}: the layers bought the entry point, the beam bought the recall`;
+        else line = `${sc.hits}/${K} exact neighbors: ${sc.queryCount} distances vs brute force ${sc.bruteCount}; layers guide the beam`;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = finished ? good : act === 1 ? heur : ink;
         ctx.fillText(line, 14, H - 8);
@@ -295,7 +296,9 @@ export default function HnswViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

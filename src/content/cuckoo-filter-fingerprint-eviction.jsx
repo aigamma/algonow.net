@@ -313,7 +313,7 @@ export const content = {
         <text x="255" y="100" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">⊕ hash(fp)</text>
         <text x="255" y="142" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">⊕ hash(fp)</text>
         <text x="60" y="196" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">the involution: either home computes the other from the fingerprint alone: no item needed</text>
-        <text x="60" y="222" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">measured: 97.1% fill (b=4) vs 52.1% (b=1) · FPR 0.1535% vs law 0.1490% · 25,000 deletes, zero collateral</text>
+        <text x="60" y="222" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">fill: 97.1% vs 52.1% · FPR: 0.1535% vs 0.1490% law · 25,000 deletes, no collateral</text>
         <text x="60" y="248" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">the Bloom contrast: naive deletion false-negatived 96% of the surviving members</text>
       </svg>
     </Figure>

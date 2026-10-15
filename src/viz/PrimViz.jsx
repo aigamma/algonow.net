@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -227,7 +228,7 @@ export default function PrimViz() {
           ctx.fillStyle = good;
         } else {
           const ratio = sc.dijk.total / sc.prim.total;
-          line = `same seed, same map: shortest-path tree ${sc.dijk.total.toFixed(0)} vs MST ${sc.prim.total.toFixed(0)} (${ratio.toFixed(2)}x): a different question, answered perfectly`;
+          line = `same graph: shortest-path tree ${sc.dijk.total.toFixed(0)} vs MST ${sc.prim.total.toFixed(0)} (${ratio.toFixed(2)}x): different objectives`;
           ctx.fillStyle = warn;
         }
         ctx.font = '12px ui-monospace, monospace';
@@ -243,7 +244,9 @@ export default function PrimViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

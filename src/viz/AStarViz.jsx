@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks } from './useCanvasLoop.js';
 import { makeGrid, makeSearch, drawSearch } from './astarModel.js';
@@ -12,7 +13,7 @@ const SEED = 20260720;
 const MODES = [
   { key: 'dijkstra', label: 'no heuristic', weight: 0 },
   { key: 'astar', label: 'manhattan · a*', weight: 1 },
-  { key: 'greedy', label: '3× manhattan', weight: 3 },
+  { key: 'weighted', label: '3× manhattan', weight: 3 },
 ];
 
 // The live searcher. One maze at a time; switching modes re-runs the SAME
@@ -54,7 +55,7 @@ export default function AStarViz() {
               st.reveal = 1;
               countsRef.current[st.search.hWeight] = {
                 explored: st.search.explored,
-                len: st.search.path.length,
+                len: st.search.path.length - 1,
               };
               break;
             }
@@ -110,14 +111,16 @@ export default function AStarViz() {
   const cmp = [
     dijkstra != null && `dijkstra ${dijkstra}`,
     astar != null && `a* ${astar}`,
-    greedy != null && `greedy ${greedy}`,
+    greedy != null && `weighted a* ${greedy}`,
   ]
     .filter(Boolean)
     .join(' · ');
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         {MODES.map((m) => (
           <button

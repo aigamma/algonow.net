@@ -79,8 +79,7 @@ export const content = {
       final sorted position and never moves again.
     </>,
     <>
-      <strong>Recurse</strong> on the left part and the right part. An
-      explicit stack works as well as recursion and survives bad splits.
+      <strong>Recurse</strong> on the left part and the right part. Process the smaller side first and save only nontrivial ranges, keeping the explicit stack within O(log n).
     </>,
     <>
       <strong>Stop</strong> when ranges reach size one. Every element became
@@ -298,7 +297,7 @@ export const content = {
     <Figure
       id="fig-quicksort-shape"
       aspect="16 / 7"
-      caption="The pivot does not decide whether quicksort is correct; it decides the shape of the recursion. Median-ish pivots produce the left shape: log n levels, n work per level. A near-minimum pivot produces the right shape: each partition retires one element, n levels deep, n²/2 total. Median-of-three spends three comparisons per partition to buy the left shape on the inputs production actually serves: sorted, reversed, and nearly ordered data."
+      caption="The pivot does not decide whether quicksort is correct; it decides the shape of the recursion. Median-ish pivots produce the left shape: log n levels, n work per level. A near-minimum pivot produces the right shape: each partition retires one element, n levels deep, n²/2 total. Median-of-three spends two or three comparisons per partition to buy the left shape on the inputs production actually serves: sorted, reversed, and nearly ordered data."
       cite={{
         text: 'Hoare, "Quicksort", The Computer Journal 5(1), 1962. Median-of-three sampling is Singleton, CACM Algorithm 347, 1969, analyzed in Sedgewick, CACM 21(10), 1978; the adversary is McIlroy, "A Killer Adversary for Quicksort", Software: Practice and Experience 29(4), 1999.',
         href: 'https://doi.org/10.1093/comjnl/5.1.10',
@@ -330,7 +329,7 @@ export const content = {
         ))}
         <text x="404" y="66" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">one element retired,</text>
         <text x="404" y="80" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">a full sweep paid</text>
-        <text x="384" y="286" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="12">sorted input hands the first-element rule this shape</text>
+        <text x="384" y="286" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="12">sorted input: first-pivot worst case</text>
       </svg>
     </Figure>
   ),

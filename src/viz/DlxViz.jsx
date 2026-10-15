@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -268,13 +269,13 @@ export default function DlxViz() {
         const b = replay(sc.naive, s.tick);
         let line;
         if (a.finished && b.finished) {
-          line = `finished: ${sc.smartTotal.nodes.toLocaleString()} nodes with the smallest column against ${sc.naiveTotal.nodes.toLocaleString()} without: every node undone in two pointer writes per link`;
+          line = `finished: smallest column ${sc.smartTotal.nodes.toLocaleString()} nodes vs first column ${sc.naiveTotal.nodes.toLocaleString()}; undo uses two writes per link`;
           ctx.fillStyle = good;
         } else if (a.finished) {
           line = `the smallest-column search is done at ${sc.smartTotal.nodes.toLocaleString()} nodes; the first-column search is still at ${b.nodes.toLocaleString()}`;
           ctx.fillStyle = heur;
         } else {
-          line = 'cover a column, try a row, cover its other columns, recurse, uncover in reverse: x.left.right = x, x.right.left = x';
+          line = 'cover column, try row, cover its columns, recurse; uncover in reverse order';
           ctx.fillStyle = ink;
         }
         ctx.font = '11px ui-monospace, monospace';
@@ -291,7 +292,9 @@ export default function DlxViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

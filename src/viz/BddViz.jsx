@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -8,7 +9,7 @@ import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.j
 // walk both from root to terminal (dashed low edge for 0, solid high
 // edge for 1) and the two answers are compared with the formula.
 const W = 640;
-const H = 300;
+const H = 320;
 const SEED = 20260926;
 const PAIRS = 3;
 const NV = 2 * PAIRS;
@@ -187,7 +188,7 @@ export default function BddViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('x1 x2 + x3 x4 + x5 x6 as one reduced ordered diagram per variable order; levels revealed per tick, then random inputs walk both', 12, 18);
+        ctx.fillText('x1 x2 + x3 x4 + x5 x6: two variable orders, then random inputs walk both diagrams', 12, 18);
         const x = sc.walk >= 0 && sc.walk < WALKS ? sc.inputs[sc.walk] : null;
         const drawDiagram = (bdd, root, order, lay, ox, width, label) => {
           const pathSet = new Set();
@@ -254,10 +255,10 @@ export default function BddViz() {
         ctx.fillText('dashed: the 0 branch; solid: the 1 branch; nodes with equal branches are gone, equal subgraphs merged', 12, 280);
         let line;
         if (s.done) {
-          line = `${sc.layoutGood.size} nodes vs ${sc.layoutBad.size} for the same function; ${sc.agreed} of ${WALKS} random inputs gave the same answer on both, equal to the formula; the file: 16 vs 510 at eight pairs`;
+          line = `${sc.layoutGood.size} vs ${sc.layoutBad.size} nodes; ${sc.agreed}/${WALKS} inputs agree with the formula; solution: 16 vs 510 at 8 pairs`;
           ctx.fillStyle = sc.agreed === WALKS ? good : warn;
         } else if (x) {
-          line = `input (${x.join('')}): both diagrams answer ${formula(x)} along the green paths; canonical form makes equivalence a pointer test`;
+          line = `input (${x.join('')}): both diagrams answer ${formula(x)} along the green paths`;
           ctx.fillStyle = ink;
         } else {
           line = `revealing level ${Math.min(sc.revealed, NV)} of ${NV}: the order decides how many distinct subfunctions each level must remember`;
@@ -272,7 +273,9 @@ export default function BddViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

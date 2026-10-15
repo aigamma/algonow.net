@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -119,7 +120,7 @@ export default function NimViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('the XOR player (blue, moves first) against a random mover (amber), one move per tick; right: the heaps in binary and their nim-sum', 12, 18);
+        ctx.fillText('XOR player (blue) vs random mover (amber); right: binary heaps and their nim-sum', 12, 18);
         const rowY = (r) => 52 + r * 44;
         const s_ = nimSum(sc.heaps);
         sc.heaps.forEach((h, r) => {
@@ -151,7 +152,7 @@ export default function NimViz() {
         ctx.lineTo(500, yS - 14);
         ctx.stroke();
         ctx.fillStyle = s_ === 0 ? good : heur;
-        ctx.fillText(`nim-sum ${s_}`, 350, yS + 4);
+        ctx.fillText(`xor ${s_}`, 350, yS + 4);
         [8, 4, 2, 1].forEach((b, c) => {
           ctx.font = 'bold 13px ui-monospace, monospace';
           ctx.fillStyle = s_ & b ? heur : good;
@@ -159,14 +160,14 @@ export default function NimViz() {
         });
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(s_ === 0 ? 'every column balanced: the player to move is lost' : 'a column is unbalanced: the player to move can win', 350, yS + 22);
+        ctx.fillText(s_ === 0 ? 'all columns balanced: losing position' : 'unbalanced column: winning position', 350, yS + 22);
         ctx.fillStyle = dim;
         ctx.fillText('columns 8 4 2 1', 400, 40);
         ctx.fillStyle = sc.ok ? good : warn;
-        ctx.fillText(sc.ok ? 'invariant: zero after every XOR move' : 'INVARIANT BROKEN', 520, 52);
+        ctx.fillText(sc.ok ? 'XOR move leaves 0' : 'INVARIANT BROKEN', 520, 52);
         ctx.fillStyle = dim;
-        ctx.fillText('the file: 8,000 of 8,000', 520, 70);
-        ctx.fillText('games, 1,531 positions', 520, 84);
+        ctx.fillText('solution: 8k wins', 520, 70);
+        ctx.fillText('1,531 positions', 520, 84);
         let line;
         if (s.done) {
           line = sc.last;
@@ -184,7 +185,9 @@ export default function NimViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

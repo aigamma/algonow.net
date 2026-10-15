@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks } from './useCanvasLoop.js';
 
@@ -35,6 +36,35 @@ function makeGraph(seed) {
 
 const idx = (r, c) => r * COLS + c;
 
+function heapPush(heap, item) {
+  heap.push(item);
+  let at = heap.length - 1;
+  while (at > 0) {
+    const parent = (at - 1) >> 1;
+    if (heap[parent][0] <= item[0]) break;
+    heap[at] = heap[parent];
+    at = parent;
+  }
+  heap[at] = item;
+}
+
+function heapPop(heap) {
+  const result = heap[0];
+  const tail = heap.pop();
+  if (heap.length) {
+    let at = 0;
+    while (2 * at + 1 < heap.length) {
+      let child = 2 * at + 1;
+      if (child + 1 < heap.length && heap[child + 1][0] < heap[child][0]) child += 1;
+      if (tail[0] <= heap[child][0]) break;
+      heap[at] = heap[child];
+      at = child;
+    }
+    heap[at] = tail;
+  }
+  return result;
+}
+
 // Edge weight between a cell and its right (dir 0) or down (dir 1) neighbour.
 const wAt = (weight, r, c, dir) => weight[(idx(r, c) * 2) + dir];
 
@@ -68,13 +98,7 @@ function makeRun(weight, useHeap) {
       let u = -1;
       if (this.useHeap) {
         while (this.heap.length) {
-          // A real binary heap is unnecessary at this size; the counter is
-          // what the panel is about, so the cost model is what must be right.
-          let best = 0;
-          for (let i = 1; i < this.heap.length; i++) {
-            if (this.heap[i][0] < this.heap[best][0]) best = i;
-          }
-          const [d, v] = this.heap.splice(best, 1)[0];
+          const [d, v] = heapPop(this.heap);
           this.work += 1;
           if (!this.settled[v] && d <= this.dist[v]) { u = v; break; }
         }
@@ -93,7 +117,7 @@ function makeRun(weight, useHeap) {
         const nd = this.dist[u] + w;
         if (nd < this.dist[v]) {
           this.dist[v] = nd;
-          if (this.useHeap) { this.heap.push([nd, v]); this.work += 1; }
+          if (this.useHeap) { heapPush(this.heap, [nd, v]); this.work += 1; }
         }
       }
     },
@@ -196,7 +220,9 @@ export default function DijkstraViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

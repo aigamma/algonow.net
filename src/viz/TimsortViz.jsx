@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -215,7 +216,7 @@ export default function TimsortViz() {
           }
           let line;
           if (done || t >= 260) {
-            line = `sorted: ${sc.det.runs.length} natural runs found and merged: comparisons stay near n on nearly-sorted data (9.7x under mergesort, measured)`;
+            line = `sorted: ${sc.det.runs.length} natural runs merged · nearly sorted: 9.7× fewer comparisons`;
             ctx.fillStyle = good;
           } else if (phase === 0) {
             line = 'the raw array: mostly ascending, one descending stretch, a couple of swaps';
@@ -278,7 +279,9 @@ export default function TimsortViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

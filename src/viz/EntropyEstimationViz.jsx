@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -72,7 +73,7 @@ export function sceneTick(sc) {
   sc.trail.push({ n: sc.n, h, mm: sc.mm });
   if (sc.n >= TARGET) {
     sc.done = true;
-    sc.last = `done: n = ${sc.n.toLocaleString()}; plug-in ${h.toFixed(3)} bits (bias ${(h - sc.truth).toFixed(3)}), Miller-Madow ${sc.mm.toFixed(3)} (${(sc.mm - sc.truth).toFixed(3)}), truth ${sc.truth.toFixed(3)}; first-order bias ${(-(sc.k - 1) / (2 * sc.n * Math.LN2)).toFixed(4)}; invariants held on ${sc.checks} ticks: ${sc.ok ? 'yes' : 'NO'}`;
+    sc.last = `done: n = ${sc.n.toLocaleString()}; plug-in ${h.toFixed(3)} bits (error ${(h - sc.truth).toFixed(3)}), Miller-Madow ${sc.mm.toFixed(3)} (${(sc.mm - sc.truth).toFixed(3)}), truth ${sc.truth.toFixed(3)}; first-order bias ${(-(sc.k - 1) / (2 * sc.n * Math.LN2)).toFixed(4)}; invariants held on ${sc.checks} ticks: ${sc.ok ? 'yes' : 'NO'}`;
     return true;
   }
   sc.last = `n = ${sc.n.toLocaleString()}: ${sc.distinct} of ${sc.k} symbols seen; plug-in ${h.toFixed(3)} bits, ceiling log2(seen) = ${ceiling.toFixed(3)}, truth ${sc.truth.toFixed(3)}, gap ${(h - sc.truth).toFixed(3)}`;
@@ -127,7 +128,7 @@ export default function EntropyEstimationViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText('blue outlines: the true distribution; amber: empirical frequencies; right: the plug-in climbing toward the truth', 12, 18);
+        ctx.fillText('blue: true distribution; amber: observed frequencies; right: plug-in estimate', 12, 18);
         // left: distribution bars
         const lx = 20;
         const lw = 280;
@@ -206,7 +207,9 @@ export default function EntropyEstimationViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

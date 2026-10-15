@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -31,22 +32,22 @@ function makeAlmostSorted(seed) {
   return a;
 }
 
-function medianOfThree(a, lo, hi) {
+function medianOfThree(a, lo, hi, less) {
   const mid = (lo + hi) >> 1;
   const x = a[lo];
   const y = a[mid];
   const z = a[hi];
-  // The 2-3 comparisons this rule spends are charged in setup below.
-  if (x < y) {
-    if (y < z) return mid;
-    return x < z ? hi : lo;
+  // Charge the comparisons actually executed, including two-comparison cases.
+  if (less(x, y)) {
+    if (less(y, z)) return mid;
+    return less(x, z) ? hi : lo;
   }
-  if (x < z) return lo;
-  return y < z ? hi : mid;
+  if (less(x, z)) return lo;
+  return less(y, z) ? hi : mid;
 }
 
-// A comparison-granular Lomuto quicksort: one step() is one comparison, so
-// the two panels advance in honest lockstep.
+// Each step advances one partition comparison and charges any pivot-sampling
+// comparisons needed to open that partition.
 function makeSorter(values, useMedian, label) {
   return {
     label,
@@ -75,8 +76,10 @@ function makeSorter(values, useMedian, label) {
         }
         let p = lo;
         if (useMedian && hi - lo >= 2) {
-          p = medianOfThree(this.a, lo, hi);
-          this.work += 3; // the insurance premium, charged honestly
+          p = medianOfThree(this.a, lo, hi, (x, y) => {
+            this.work += 1;
+            return x < y;
+          });
         }
         [this.a[p], this.a[hi]] = [this.a[hi], this.a[p]];
         this.cur = { lo, hi, i: lo, j: lo };
@@ -189,7 +192,9 @@ export default function QuicksortViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

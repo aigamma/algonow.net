@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -42,9 +43,13 @@ function makeScene(seed) {
       Z[i] = free;
     }
     let paid = 0;
-    while (i + Z[i] < n && s[Z[i]] === s[i + Z[i]]) {
-      Z[i] += 1;
-      paid += 1;
+    // A copied match ending strictly inside the box also copies its mismatch.
+    if (!(i <= R && Z[i - L] < R - i + 1)) {
+      while (i + Z[i] < n) {
+        paid += 1;
+        if (s[Z[i]] !== s[i + Z[i]]) break;
+        Z[i] += 1;
+      }
     }
     paidTotal += paid;
     freeTotal += free;
@@ -156,7 +161,7 @@ export default function ZboxViz() {
           ctx.stroke();
           ctx.fillStyle = algo;
           ctx.font = '10px ui-monospace, monospace';
-          ctx.fillText('the Z-box: a certified copy of the prefix', (xl + xr) / 2 - 90, BASE + 52);
+          ctx.fillText('Z-box: prefix copy', Math.min((xl + xr) / 2 - 48, W - 130), BASE + 52);
         }
 
         ctx.fillStyle = dim;
@@ -170,7 +175,7 @@ export default function ZboxViz() {
           ctx.fillStyle = cur.paid === 0 && cur.free > 0 ? good : heur;
         } else {
           const f = sc.frames[sc.n - 1];
-          line = `done: ${f.paidTotal} comparisons paid, ${f.freeTotal} values inherited: nothing inside a certified copy inspected twice`;
+          line = `done: ${f.paidTotal} comparisons · ${f.freeTotal} values inherited from verified copies`;
           ctx.fillStyle = good;
         }
         ctx.font = '12px ui-monospace, monospace';
@@ -184,7 +189,9 @@ export default function ZboxViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

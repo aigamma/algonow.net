@@ -121,7 +121,7 @@ export const content = {
   strength: (
     <>
       <strong>Guaranteed phases, practical speed.</strong> At most V phases
-      on anything (two here, measured), O(E√V) on unit capacities, the min
+      on anything (two here, measured), O(E√V) on unit networks such as bipartite-matching networks, the min
       cut certificate free at the end, and the whole thing fits in sixty
       lines with one subtle pointer.
     </>

@@ -330,8 +330,8 @@ export const content = {
           <path key={i} d={`M ${60 + (o - 1) * 8} 200 q ${o * 4} -26 ${o * 8} 0`} fill="none" stroke="#f0b94b" strokeWidth="1.8" />
         ))}
         <text x="30" y="224" fill="#f0b94b" fontFamily="ui-monospace, monospace" fontSize="10">the gallop: probes at 1, 3, 7, 15 bracket the streak, binary search pins it, the block moves whole</text>
-        <text x="30" y="252" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: nearly-sorted 52,884 vs 514,838 (9.7×) · random parity 0.99× · gallop 4.4× · hysteresis tax +1.2%</text>
-        <text x="30" y="274" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">stability exact on 4,000 tagged records · 500 arrays equal to sorted() · the sort your page load already ran</text>
+        <text x="30" y="252" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">nearly sorted: 52,884 vs 514,838 · random: 0.99× · gallop: 4.4× · hysteresis: +1.2%</text>
+        <text x="30" y="274" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="11">stable on 4,000 tagged records · 500 arrays match sorted()</text>
       </svg>
     </Figure>
   ),

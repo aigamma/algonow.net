@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -252,7 +253,7 @@ export default function SetCoverViz() {
 
           let line;
           if (done || phase >= sc.K + 1) {
-            line = `greedy: ${sc.K} picks · optimum: 2 · the widest block always out-bids a half-covered row: log(n) is a real place`;
+            line = `greedy: ${sc.K} picks · optimum: 2 · wide blocks out-bid rows; the logarithmic gap is real`;
             ctx.fillStyle = warn;
           } else if (phase === 0) {
             line = 'the two blue rows would finish it in two picks…';
@@ -277,7 +278,9 @@ export default function SetCoverViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

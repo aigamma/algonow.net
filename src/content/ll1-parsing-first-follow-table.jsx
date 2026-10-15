@@ -310,7 +310,7 @@ export const content = {
           const mono = 'ui-monospace, monospace';
           const gx = 330;
           const gy = 60;
-          const cw = 50;
+          const cw = 44;
           const ch = 36;
           return (
             <g fontFamily={mono}>

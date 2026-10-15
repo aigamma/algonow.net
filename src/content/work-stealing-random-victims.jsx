@@ -34,10 +34,10 @@ export const content = {
     <p>
       Owns the <strong>deque discipline</strong>: fork pushes
       the child on the owner&apos;s bottom; the owner pops from
-      the bottom (depth-first, cache-hot, and uncontended:
+      the bottom (depth-first, cache-hot, and usually uncontended:
       no lock on the common path); a thief takes from the{' '}
-      <em>top</em>: the oldest fork, hence the biggest unstarted
-      subtree, so one migration buys the most work. The
+      <em>top</em>: the oldest fork, often a large unstarted
+      subtree; the final deque item can be contested by owner and thief. The
       referee is conservation: on every scheduler raced here,
       every one of the 1,461 tasks executed exactly once and
       the 11,688 units of work summed exactly: then the clock
@@ -292,7 +292,7 @@ export const content = {
     <Figure
       id="fig-worksteal-deques"
       aspect="16 / 7"
-      caption="Owners at the bottom, thieves at the top, victims by lottery. Forks land on the owner's deque bottom and are popped from it: depth-first, cache-hot, and never contended. An idle worker steals from the TOP of a random victim's deque: the oldest fork, the biggest unstarted subtree: so 109 thefts moved all the imbalance of 1,461 tasks (7.5%). The measured clock sits inside the theory's squeeze: max(W/P, T∞) = 730 ≤ 774 ≤ W/P + 3T∞ = 1,138: while the central lock paid 1,507 and, at fine grain, collapsed to 3.9× speedup against stealing's 11.8×. The coarse-grain row is conceded in print: fat tasks forgive the lock."
+      caption="Owners at the bottom, thieves at the top, victims by lottery. Forks land on the owner's deque bottom and are popped from it: depth-first and usually uncontended, except at the last item. An idle worker steals from the TOP of a random victim's deque: the oldest fork, often a large unstarted subtree: so 109 thefts moved all the imbalance of 1,461 tasks (7.5%). The measured clock sits inside the theory's squeeze: max(W/P, T∞) = 730 ≤ 774 ≤ W/P + 3T∞ = 1,138: while the central lock paid 1,507 and, at fine grain, collapsed to 3.9× speedup against stealing's 11.8×. The coarse-grain row is conceded in print: fat tasks forgive the lock."
       cite={{
         text: 'R. D. Blumofe, C. E. Leiserson, "Scheduling multithreaded computations by work stealing," JACM 46(5), 1999 (FOCS 1994). DOI 10.1145/324133.324234. Cilk-5: Frigo-Leiserson-Randall, PLDI 1998.',
         href: 'https://doi.org/10.1145/324133.324234',
@@ -311,9 +311,9 @@ export const content = {
         <path d="M 72 178 v -6" stroke="#62d98a" strokeWidth="2" />
         <text x="40" y="212" fill="#62d98a" fontFamily="ui-monospace, monospace" fontSize="10">owner pops the BOTTOM: hot, uncontended</text>
         <path d="M 520 74 C 480 30, 260 26, 210 66" fill="none" stroke="#e2606c" strokeWidth="1.8" strokeDasharray="5 4" />
-        <text x="330" y="24" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">idle worker 3 robs a RANDOM victim&apos;s TOP: the oldest, biggest subtree</text>
-        <text x="40" y="238" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">measured: random 774 · fixed-order convoy 793 · central lock 1,507 · squeeze 730 ≤ 774 ≤ 1,138 · steals 7.5% of tasks</text>
-        <text x="40" y="262" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">fine grain: central collapses to 3.9× vs stealing’s 11.8× · coarse grain: the lock is idle and central edges it (said plainly)</text>
+        <text x="330" y="24" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="10">worker 3 steals a random victim’s oldest task</text>
+        <text x="40" y="238" fill="#9aa5bd" fontFamily="ui-monospace, monospace" fontSize="11">random 774 · fixed-order 793 · central 1,507 · bounds: 730 ≤ 774 ≤ 1,138</text>
+        <text x="40" y="262" fill="#e2606c" fontFamily="ui-monospace, monospace" fontSize="11">fine grain: central 3.9× vs stealing 11.8× · coarse grain favors the central queue</text>
       </svg>
     </Figure>
   ),

@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -7,8 +8,8 @@ import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.j
 // tick. Two running log-odds are kept: with Laplace smoothing (blue),
 // every word moves the needle by a bounded amount; without it (amber),
 // a word never seen in one class drives that class's probability to
-// zero and pins the verdict to the other class for good, whatever the
-// rest of the document says.
+// zero. Later words can also zero the other class, leaving both raw
+// likelihoods zero and the unsmoothed verdict undefined.
 const W = 640;
 const H = 300;
 const SEED = 20260926;
@@ -69,12 +70,10 @@ export function sceneTick(sc) {
   sc.smooth += step;
   const seen0 = sc.counts[0][w] > 0;
   const seen1 = sc.counts[1][w] > 0;
-  if (sc.rawDead === null) {
-    if (!seen0 && !seen1) sc.rawDead = 'both';
-    else if (!seen0) sc.rawDead = 0;
-    else if (!seen1) sc.rawDead = 1;
-    else sc.raw += logp(sc.counts, 0, w, 0) - logp(sc.counts, 1, w, 0);
-  }
+  // A later token can also annihilate the class that survived the first zero.
+  if (!seen0) sc.rawDead = sc.rawDead === 1 || sc.rawDead === 'both' ? 'both' : 0;
+  if (!seen1) sc.rawDead = sc.rawDead === 0 || sc.rawDead === 'both' ? 'both' : 1;
+  if (sc.rawDead === null) sc.raw += logp(sc.counts, 0, w, 0) - logp(sc.counts, 1, w, 0);
   sc.lastWord = w;
   sc.lastStep = step;
   sc.pos += 1;
@@ -135,7 +134,7 @@ export default function NaiveBayesViz() {
         const sc = s.scene;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`${V}-word vocabulary, ${TRAIN_TOKENS} training tokens per class; a ${DOC_LEN}-word document arrives one word per tick; the needle is the log-odds for class A`, 12, 18);
+        ctx.fillText(`${V} words, ${TRAIN_TOKENS} training tokens/class; read ${DOC_LEN} words; needle: log-odds for class A`, 12, 18);
         // the document as a row of word cells
         const cellW = 19;
         const rowY = 44;
@@ -188,14 +187,14 @@ export default function NaiveBayesViz() {
           line = `truth: class ${sc.truth === 0 ? 'A' : 'B'}; smoothed verdict ${smooth === 0 ? 'A' : 'B'} (${sOk ? 'right' : 'wrong'}); unsmoothed ${raw === 'undecidable' ? 'no verdict' : `${raw === 0 ? 'A' : 'B'} (${rOk ? 'right' : 'wrong'})`}${sc.rawDead !== null ? ', decided by a single unseen word' : ''}`;
           ctx.fillStyle = sOk ? good : warn;
         } else if (sc.lastWord !== null) {
-          line = `word ${sc.pos}: w${sc.lastWord} moves the smoothed log-odds by ${sc.lastStep >= 0 ? '+' : ''}${sc.lastStep.toFixed(2)}${sc.counts[0][sc.lastWord] === 0 || sc.counts[1][sc.lastWord] === 0 ? '; unseen in one class: the unsmoothed model has just decided' : ''}`;
+          line = `word ${sc.pos}: w${sc.lastWord} moves the smoothed log-odds by ${sc.lastStep >= 0 ? '+' : ''}${sc.lastStep.toFixed(2)}${sc.counts[0][sc.lastWord] === 0 || sc.counts[1][sc.lastWord] === 0 ? '; unseen word zeroes an unsmoothed class' : ''}`;
           ctx.fillStyle = ink;
         } else {
           line = 'reading the document';
           ctx.fillStyle = ink;
         }
         ctx.fillStyle = dim;
-        ctx.fillText('the file measures: alpha 0 zeroes a class in 96% of documents (50.2%); alpha 1 scores 90.3% against a 95.6% ceiling', 12, 262);
+        ctx.fillText('solution accuracy: α=0 50.2%, α=1 90.3%, Bayes 95.6%; α=0 zeroes a class in 96%', 12, 262);
         ctx.fillStyle = s.done ? (smooth === sc.truth ? good : warn) : ink;
         ctx.fillText(line, 12, H - 8);
         statsRef.current = { line };
@@ -206,7 +205,9 @@ export default function NaiveBayesViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

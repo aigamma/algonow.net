@@ -128,7 +128,7 @@ export const content = {
   ),
   weakness: (
     <>
-      <strong>Enumeration is O(k log n), not O(log n + k), and one
+      <strong>Enumeration is O((k + 1) log n), not O(log n + k), and one
       dimension only.</strong> The simple augmentation re-descends per
       answer cluster (the centered interval tree of
       Edelsbrunner/McCreight buys the tight bound with two sorted
@@ -145,7 +145,7 @@ export const content = {
       name: 'Interval tree × max-end pruning',
       isThisUnit: true,
       algoName: 'Interval tree',
-      cost: 'O(log n) find, O(k log n) enumerate',
+      cost: 'O(log n) find, O((k + 1) log n) enumerate',
       wins: (
         <>
           <strong>33 visits/query</strong> vs the scan&apos;s 20,000;
@@ -242,7 +242,7 @@ export const content = {
       },
     ],
     source:
-      'python solutions/interval_tree_max_endpoint.py prints this table and asserts: 20,000 refereed point and window queries across 100 random sets (exact set equality with the brute scan); the max-end invariant re-verified recursively at every node of every tree; scale agreement on all 2,500 queries; the tree’s average visits inside its O(k log n) family bound; and the adversary measured: the sorted scan above 70% of the set per query while the tree stays 25× below it (measured 114×).',
+      'python solutions/interval_tree_max_endpoint.py prints this table and asserts: 20,000 refereed point and window queries across 100 random sets (exact set equality with the brute scan); the max-end invariant re-verified recursively at every node of every tree; scale agreement on all 2,500 queries; the tree’s average visits inside its O((k + 1) log n) family bound; and the adversary measured: the sorted scan above 70% of the set per query while the tree stays 25× below it (measured 114×).',
   },
 
   figure: (

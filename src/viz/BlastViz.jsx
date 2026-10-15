@@ -1,3 +1,4 @@
+import DiagramViewport from '../components/DiagramViewport.jsx';
 import { useEffect, useRef, useState } from 'react';
 import { useCanvasLoop, isStill, holdTicks, mulberry32 } from './useCanvasLoop.js';
 
@@ -73,7 +74,7 @@ export function sceneTick(sc) {
   if (sc.qp + WORD > QL) {
     sc.done = true;
     const full = QL * SL;
-    sc.last = `done: ${sc.hits} hits, ${sc.hsps.length} extensions, ${sc.cells} cells against ${full} for the full matrix; best HSP ${sc.best} against Smith-Waterman ${sc.sw}${sc.best === 0 ? ' (no seed fired: the homolog is invisible to this word size)' : ''}; invariant ${sc.ok ? 'holds' : 'BROKEN'}`;
+    sc.last = `done: ${sc.hits} hits, ${sc.hsps.length} extensions, ${sc.cells} cells against ${full} for the full matrix; best HSP ${sc.best}; SW ${sc.sw}${sc.best === 0 ? ' (no seed fired: the homolog is invisible to this word size)' : ''}; invariant ${sc.ok ? 'holds' : 'BROKEN'}`;
     return true;
   }
   const qp = sc.qp;
@@ -168,7 +169,7 @@ export default function BlastViz() {
         const ch = 5;
         ctx.font = '11px ui-monospace, monospace';
         ctx.fillStyle = dim;
-        ctx.fillText(`subject (${SL}) across, query (${QL}) down; grey: matching bases, amber: ${WORD}-base word hits, blue: ungapped extensions`, 12, 18);
+        ctx.fillText(`subject ${SL} × query ${QL}; gray: matches; amber: ${WORD}-base hits; blue: ungapped extensions`, 12, 18);
         for (let i = 0; i < QL; i += 1) {
           for (let j = 0; j < SL; j += 1) {
             if (sc.q[i] === sc.s[j]) {
@@ -201,7 +202,7 @@ export default function BlastViz() {
         ctx.fillStyle = algo;
         ctx.fillText(`extensions ${sc.hsps.length}, cells ${sc.cells} (full matrix ${QL * SL})`, 170, ty);
         ctx.fillStyle = sc.best > 0 ? good : dim;
-        ctx.fillText(`best HSP ${sc.best} against Smith-Waterman ${sc.sw}`, 420, ty);
+        ctx.fillText(`best HSP ${sc.best}; SW ${sc.sw}`, 420, ty);
         ctx.fillStyle = sc.ok ? good : warn;
         ctx.fillText(sc.ok ? 'invariant: every HSP recounts and never exceeds Smith-Waterman' : 'INVARIANT BROKEN', 40, ty + 16);
         ctx.fillStyle = dim;
@@ -217,7 +218,9 @@ export default function BlastViz() {
 
   return (
     <>
-      <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      <DiagramViewport width={W}>
+        <canvas ref={canvasRef} style={{ aspectRatio: `${W} / ${H}` }} aria-hidden="true" />
+      </DiagramViewport>
       <div className="viz-controls">
         <button
           type="button"

@@ -50,6 +50,7 @@ body {
   font-family: var(--font-body);
   font-size: 1.0625rem;
   line-height: 1.65;
+  overflow-wrap: anywhere;
   color: var(--ink);
   background:
     radial-gradient(90rem 40rem at 85% -10%, rgba(var(--algo-rgb), 0.05), transparent 60%),
@@ -417,12 +418,13 @@ code, kbd, pre { font-family: var(--font-mono); }
 
 .pairs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(17rem, 100%), 1fr));
   gap: 1rem;
   margin: 0 0 3.5rem;
 }
 
 .pair-card {
+  min-width: 0;
   display: block;
   background: var(--panel);
   border: 1px solid var(--line-soft);
@@ -824,6 +826,7 @@ code, kbd, pre { font-family: var(--font-mono); }
 .lp-close:hover { color: var(--ink); }
 .lp-settings {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.55rem;
   margin-top: 0.65rem;
@@ -832,16 +835,18 @@ code, kbd, pre { font-family: var(--font-mono); }
   color: var(--ink-dim);
 }
 .lp-settings select, .lp-settings input[type='range'] {
+  min-width: 0;
   accent-color: var(--heur);
   background: var(--panel);
   color: var(--ink-dim);
   border: 1px solid var(--line);
   border-radius: 6px;
   font: inherit;
-  max-width: 9.5rem;
+  max-width: min(9.5rem, 100%);
   padding: 0.2rem 0.3rem;
 }
 .lp-settings input[type='range'] { flex: 1; border: none; padding: 0; background: transparent; }
+.lp-settings > label { min-width: 0; max-width: 100%; }
 
 /* Preserved two-voice narration pilot. The trigger stays in the hero while
    the expanded transport keeps the site's established floating geometry. */
@@ -1117,7 +1122,8 @@ code, kbd, pre { font-family: var(--font-mono); }
 }
 .atlas-search {
   flex: 1;
-  min-width: 14rem;
+  min-width: min(14rem, 100%);
+  max-width: 100%;
   font-family: var(--font-mono);
   font-size: 0.9rem;
   padding: 0.6em 0.9em;
@@ -1127,7 +1133,7 @@ code, kbd, pre { font-family: var(--font-mono); }
   border-radius: 8px;
 }
 .atlas-search::placeholder { color: var(--ink-faint); }
-.atlas-tiers { display: flex; gap: 0.4rem; }
+.atlas-tiers { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .atlas-tiers .btn { font-size: 0.78rem; padding: 0.5em 0.8em; }
 .atlas-count {
   font-family: var(--font-mono);
@@ -1143,6 +1149,8 @@ code, kbd, pre { font-family: var(--font-mono); }
   margin: 0 0 2.2rem;
 }
 .cat-chip {
+  min-width: 0;
+  max-width: 100%;
   font-family: var(--font-mono);
   font-size: 0.76rem;
   color: var(--ink-dim);
@@ -1180,7 +1188,7 @@ code, kbd, pre { font-family: var(--font-mono); }
   color: var(--ink-dim);
   border: 1px solid var(--line);
   border-radius: 8px;
-  max-width: 15rem;
+  max-width: min(15rem, 100%);
 }
 
 .atlas-pick {
@@ -1231,6 +1239,7 @@ code, kbd, pre { font-family: var(--font-mono); }
   border-radius: 6px;
 }
 .atlas-entry:nth-child(odd) { background: rgba(255, 255, 255, 0.015); }
+.atlas-entry > *, .atlas-pick > * { min-width: 0; }
 .atlas-entry.atlas-live { background: rgba(var(--path-rgb), 0.07); outline: 1px solid rgba(var(--path-rgb), 0.2); }
 .atlas-entry .ae-pair { font-family: var(--font-mono); font-size: 0.88rem; line-height: 1.4; }
 .atlas-entry .ae-pair .t-x { color: var(--ink-faint); }
@@ -1260,7 +1269,7 @@ code, kbd, pre { font-family: var(--font-mono); }
   .puzzle-card .pz-row { grid-template-columns: 1fr; gap: 0.15rem; }
   .listen-player { right: 0.6rem; bottom: 0.6rem; }
   .preserved-listen-player {
-    width: calc(100vw - 1.2rem);
+    width: calc(100% - 1.2rem);
     max-height: calc(100vh - 1.2rem);
     overflow-y: auto;
   }
@@ -1271,7 +1280,7 @@ code, kbd, pre { font-family: var(--font-mono); }
   .plp-position { align-items: flex-start; flex-direction: column; gap: 0; }
   .plp-position input[type='range'] { width: 100%; }
   .atlas-entry {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 0.15rem 0.8rem;
   }
   .atlas-entry .ae-domain { grid-column: 1; color: var(--ink-faint); font-size: 0.84rem; }
@@ -1292,7 +1301,7 @@ code, kbd, pre { font-family: var(--font-mono); }
 .rivals-problem strong { color: var(--ink); }
 .rival-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
   gap: 0.9rem;
 }
 .rival {
@@ -1646,7 +1655,7 @@ code, kbd, pre { font-family: var(--font-mono); }
   padding: 0.05em 0.35em;
   color: var(--ink-dim);
 }
-.lp-rate { flex: 1; display: inline-flex; align-items: center; gap: 0.4em; }
+.lp-rate { flex: 1 1 9rem; display: inline-flex; align-items: center; gap: 0.4em; }
 .lp-follow { display: inline-flex; align-items: center; gap: 0.35em; }
 .lp-follow input { accent-color: var(--heur); }
 .lp-follow span {

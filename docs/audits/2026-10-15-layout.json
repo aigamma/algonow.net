@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-15",
+  "scope": "Website text containment and responsive layout",
+  "changes": [
+    "Allow long names and formulas to wrap in both shared page stylesheets.",
+    "Bound homepage and rival grid minimum widths by the available container width.",
+    "Allow atlas rows, category labels, search inputs and tier controls to shrink or wrap.",
+    "Constrain generated catalog entries, index links and phrase badges to their containers.",
+    "Wrap legacy narration settings while preserving a usable speed slider.",
+    "Account for the scrollbar when sizing the floating narration panel on narrow screens."
+  ],
+  "verification": {
+    "viewportWidths": [320, 390, 760, 1130, 1536],
+    "homeCards": 249,
+    "atlasRows": 3263,
+    "lessonLayouts": 205,
+    "lessonFixture": "Actual server-rendered PuzzlePage markup. Large preformatted code bodies were replaced inside their original wrappers; code headers, prose, cards and other layout markup were retained. No scripts, API requests or audio ran in this fixture.",
+    "lessonBoxCountAt320": 3888,
+    "lessonTextFragmentsAt320": 44032,
+    "escapedLessonTextFragments": 0,
+    "unexpectedHorizontalOverflows": 0,
+    "generatedPageTemplates": [
+      "category index",
+      "category detail",
+      "topic detail",
+      "algorithm detail",
+      "problem index",
+      "problem detail"
+    ],
+    "additionalChecks": [
+      "Nested semantic-search results with long catalog labels.",
+      "Expanded legacy narration settings with a long voice name.",
+      "Expanded preserved narration controls without starting playback.",
+      "Intentional navigation, code, table and enlarged-diagram scrolling retained."
+    ],
+    "build": "passed",
+    "automatedTestsPassed": 99,
+    "automatedTestsFailed": 0
+  }
+}

@@ -48,7 +48,8 @@
     "sitemapUrls": 3978,
     "allSitemapTargetsExist": true,
     "changedTextDashScan": "passed",
-    "narrationSourceHashesPreserved": true
+    "narrationSourceHashesPreserved": true,
+    "legacyBookmarks": "Initial navigation and same-document anchor changes verified"
   },
   "notes": [
     "The scenario registry intentionally contains no authored exercises.",

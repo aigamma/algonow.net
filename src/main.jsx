@@ -12,10 +12,14 @@ import Home from './pages/Home.jsx';
 // is the dev server, where #root is empty and there is nothing to match.
 const container = document.getElementById('root');
 // Keep bookmarks into the former homepage's classic collection useful.
-const hash = window.location.hash;
-if (['#pairs', '#new', '#listen'].includes(hash) || hash.startsWith('#cat-')) {
-  window.location.replace(`/legacy/${hash === '#new' ? '#pairs' : hash}`);
+function redirectLegacyBookmark() {
+  const hash = window.location.hash;
+  if (['#pairs', '#new', '#listen'].includes(hash) || hash.startsWith('#cat-')) {
+    window.location.replace(`/legacy/${hash === '#new' ? '#pairs' : hash}`);
+  }
 }
+redirectLegacyBookmark();
+window.addEventListener('hashchange', redirectLegacyBookmark);
 const app = (
   <React.StrictMode>
     <Home />

@@ -6,7 +6,7 @@ import { pathToFileURL } from 'node:url';
 import { build } from 'esbuild';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
-import { LIVE_SCENARIOS, publishedScenarios } from '../src/data/engineering.js';
+import { LIVE_SCENARIOS, SCENARIOS, publishedScenarios } from '../src/data/engineering.js';
 
 const cacheFiles = [];
 async function loadUiModule(source, name) {
@@ -87,6 +87,11 @@ test('Home reports the published catalog honestly and links classics through the
   assert.match(html, /href="\/legacy\/"/);
   assert.match(html, /id="scenarios"/);
   assert.match(html, /id="tracks"/);
+  assert.doesNotMatch(html, /class="track-card"/);
+  for (const draft of SCENARIOS.filter((scenario) => scenario.status === 'draft')) {
+    assert.ok(!html.includes(draft.title), 'draft metadata must stay off Home');
+    assert.ok(!html.includes(`/scenarios/${draft.slug}/`), 'draft routes must stay off Home');
+  }
   if (LIVE_SCENARIOS.length === 0) {
     assert.doesNotMatch(html, /class="scenario-card"/);
     assert.match(html, /The first AI engineering scenarios are coming/);
@@ -117,9 +122,28 @@ test('published scenario metadata produces canonical cards while draft fixtures 
   assert.match(html, /Retrieval and RAG/);
   assert.match(html, /Distillation/);
   assert.match(html, /advanced · 45 min · Python/);
-  assert.match(html, /<label>Practice area<select/);
-  assert.match(html, /<label>Find a scenario<input type="search"/);
+  assert.match(html, /role="group" aria-label="Practice area"/);
+  assert.match(html, /aria-pressed="true">All areas/);
+  assert.match(html, /aria-pressed="false">Distillation/);
+  assert.match(html, /role="img" aria-label="Retrieval and RAG: Documents to Chunks to Retrieval"/);
+  assert.match(html, /aria-label="Skills practiced"><li>unit-test-marker/);
+  assert.doesNotMatch(html, /type="search"|>Fine-tuning</);
   assert.doesNotMatch(html, /DRAFT_CARD_FIXTURE|unit-test-draft|class="collection-empty"/);
+});
+
+test('a single published scenario gets the wide card without unnecessary filter controls', () => {
+  const html = render(ScenarioCatalog, { scenarios: publishedScenarios([metadata]) });
+  assert.match(html, /class="scenario-grid" data-count="1"/);
+  assert.match(html, /id="tracks"/);
+  assert.match(html, /Open scenario/);
+  assert.doesNotMatch(html, /aria-pressed|type="search"/);
+});
+
+test('search appears as the published collection grows', () => {
+  const scenarios = publishedScenarios(Array.from({ length: 4 }, (_, index) => ({ ...metadata, slug: `unit-test-${index}` })));
+  const html = render(ScenarioCatalog, { scenarios });
+  assert.match(html, /Find a scenario<input type="search"/);
+  assert.match(html, /4 published · Python/);
 });
 
 test('ScenarioPage renders the brief, evidence, visual, and working files without inventing a player', () => {

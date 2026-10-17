@@ -41,6 +41,16 @@ Do not invent algorithm/heuristic pairs to fit the old registry. New routes are
 contains only published records and derives `href`, `html`, and `vite`.
 Home, build entries, and discovery consume this published projection.
 
+Home leads with scenario cards, not empty category panels. Each card renders
+the registry title, summary, first three skills, difficulty, and task duration,
+alongside a small conceptual workflow for its practice area. These workflow
+icons are navigation cues, not the scenario's checked teaching visual or a
+claim about measured results. No extra card assets are required from Fable.
+One published scenario gets a wide card; larger collections use a responsive
+grid. Area filters list only populated tracks, and search appears at four
+published scenarios. Drafts remain absent, with a compact empty state until
+the first publication. Keep the `scenarios` and `tracks` anchors stable.
+
 Each authored registry record has these fields:
 
 | Field | Contract |

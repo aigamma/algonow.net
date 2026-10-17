@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import SiteShell from '../components/SiteShell.jsx';
+import ScenarioThumbnail from '../components/ScenarioThumbnail.jsx';
 import HeroDemo from '../viz/HeroDemo.jsx';
 import { ENGINEERING_TRACKS, LIVE_SCENARIOS } from '../data/engineering.js';
 import './engineering.css';
@@ -14,41 +15,55 @@ const PRACTICE_STEPS = [
 export function ScenarioCatalog({ scenarios = LIVE_SCENARIOS }) {
   const [track, setTrack] = useState('all');
   const [query, setQuery] = useState('');
+  const populatedTracks = ENGINEERING_TRACKS.filter((area) => scenarios.some((s) => s.track === area.id));
   const visible = scenarios.filter((s) => (track === 'all' || s.track === track)
     && `${s.title} ${s.summary} ${s.skills.join(' ')}`.toLowerCase().includes(query.trim().toLowerCase()));
   return (
     <section id="scenarios" className="engineering-section" aria-labelledby="scenario-heading">
       <div className="section-heading">
-        <div><p className="section-kicker">the new collection</p><h2 id="scenario-heading">Engineering scenarios</h2></div>
+        <div><p className="section-kicker">pick a problem. write the fix.</p><h2 id="scenario-heading">Engineering scenarios</h2></div>
         <span className="collection-count">{scenarios.length} published · Python</span>
       </div>
       {scenarios.length > 0 ? (
         <>
-          <div className="scenario-filters">
-            <label>Practice area<select value={track} onChange={(event) => setTrack(event.target.value)}>
-              <option value="all">All areas</option>
-              {ENGINEERING_TRACKS.map((area) => <option key={area.id} value={area.id}>{area.title}</option>)}
-            </select></label>
-            <label>Find a scenario<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search tasks or skills" /></label>
+          <div id="tracks" className="scenario-toolbar">
+            <div className="track-filters" role="group" aria-label="Practice area">
+              {populatedTracks.length > 1 && <button type="button" aria-pressed={track === 'all'} onClick={() => setTrack('all')}>All areas <span>{scenarios.length}</span></button>}
+              {populatedTracks.map((area) => populatedTracks.length > 1
+                ? <button type="button" key={area.id} aria-pressed={track === area.id} onClick={() => setTrack(area.id)}>{area.title} <span>{scenarios.filter((s) => s.track === area.id).length}</span></button>
+                : <span className="track-label" key={area.id}>{area.title}</span>)}
+            </div>
+            {scenarios.length > 3 && <label className="scenario-search">Find a scenario<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search tasks or skills" /></label>}
           </div>
           <p className="result-count" role="status">{visible.length} scenario{visible.length === 1 ? '' : 's'}</p>
-          <div className="scenario-grid">{visible.map((s) => (
-            <a className="scenario-card" key={s.slug} href={s.href}>
-              <span className="section-kicker">{ENGINEERING_TRACKS.find((area) => area.id === s.track)?.title}</span>
-              <h3>{s.title}</h3><p>{s.summary}</p>
-              <span className="scenario-meta">{s.difficulty} · {s.durationMinutes} min · Python <span aria-hidden="true">↗</span></span>
-            </a>
-          ))}</div>
-          {visible.length === 0 && <p>No scenarios match those filters. Try another area or search term.</p>}
+          <div className="scenario-grid" data-count={visible.length}>{visible.map((s) => {
+            const area = ENGINEERING_TRACKS.find((item) => item.id === s.track);
+            return <a className="scenario-card" key={s.slug} href={s.href}>
+              <ScenarioThumbnail track={s.track} title={area?.title || 'AI engineering'} />
+              <div className="scenario-card-body">
+                <span className="section-kicker">{area?.title}</span>
+                <h3>{s.title}</h3><p>{s.summary}</p>
+                <ul className="scenario-skills" aria-label="Skills practiced">{s.skills.slice(0, 3).map((skill) => <li key={skill}>{skill}</li>)}</ul>
+                <div className="scenario-card-footer">
+                  <span className="scenario-meta">{s.difficulty} · {s.durationMinutes} min · Python</span>
+                  <span className="scenario-open">Open scenario <span aria-hidden="true">↗</span></span>
+                </div>
+              </div>
+            </a>;
+          })}</div>
+          {visible.length === 0 && <div className="scenario-no-results"><p>No scenarios match those filters. Try another area or search term.</p><button type="button" className="btn" onClick={() => { setTrack('all'); setQuery(''); }}>Clear filters</button></div>}
         </>
       ) : (
-        <div className="collection-empty">
-          <span className="empty-symbol" aria-hidden="true">[ ]</span>
-          <div><h3>The first AI engineering scenarios are coming.</h3>
-            <p>All new puzzles will focus on building, troubleshooting, or evaluating AI systems in Python. The practice areas below define the new collection.</p>
+        <>
+          <div className="collection-empty">
+            <p><strong>The first AI engineering scenarios are coming.</strong> Published puzzles will appear here with their task, skills, and Python files.</p>
+            <a href="#tracks">Practice areas <span aria-hidden="true">↓</span></a>
           </div>
-          <a href="#tracks">Explore the areas <span aria-hidden="true">↓</span></a>
-        </div>
+          <div id="tracks" className="planned-tracks">
+            <span>Planned practice areas</span>
+            <ul>{ENGINEERING_TRACKS.map((area) => <li key={area.id}>{area.title}</li>)}</ul>
+          </div>
+        </>
       )}
     </section>
   );
@@ -67,35 +82,20 @@ export default function Home() {
               <a className="btn btn-primary" href="#scenarios">Explore AI scenarios <span aria-hidden="true">↓</span></a>
               <a className="text-link" href="#practice">How you&apos;ll practice →</a>
             </div>
-            <p className="hero-footnote">Hands-on tasks. Runnable Python. Decisions you can explain.</p>
           </div>
           <HeroDemo />
         </section>
         <ScenarioCatalog />
-        <section id="tracks" className="engineering-section" aria-labelledby="tracks-heading">
-          <div className="section-heading"><div><p className="section-kicker">what you&apos;ll work on</p><h2 id="tracks-heading">The systems behind the model</h2></div></div>
-          <div className="track-grid">
-            {ENGINEERING_TRACKS.map((track, index) => (
-              <article className="track-card" key={track.id}>
-                <span className="track-number">0{index + 1}</span>
-                <h3>{track.title}</h3><p>{track.description}</p>
-                <span className="track-status">{LIVE_SCENARIOS.some((s) => s.track === track.id)
-                  ? `${LIVE_SCENARIOS.filter((s) => s.track === track.id).length} published scenarios`
-                  : 'Planned practice area'}</span>
-              </article>
-            ))}
-          </div>
-        </section>
-        <section id="practice" className="engineering-section practice-section" aria-labelledby="practice-heading">
-          <div><p className="section-kicker">practice with a purpose</p><h2 id="practice-heading">Write the code.<br />Explain why it works.</h2>
-            <p>Prepare for the moment when someone is watching you solve a problem: understand the task, make a change, test it, and talk through your reasoning.</p>
-            <p className="practice-note">The scenario format includes a brief, starter files, testable outcomes, a system visual, and a reference solution to reveal when you are ready.</p>
-          </div>
-          <ol className="practice-steps">{PRACTICE_STEPS.map(([title, description], index) => <li key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}</ol>
+        <section id="practice" className="engineering-section practice-section" aria-label="How to practice">
+          <details>
+            <summary>Practicing for an interview? <span>Read, build, test, explain.</span></summary>
+            <p>Work with the supplied Python files, validate the result, and explain your decisions before revealing the reference solution.</p>
+            <ol className="practice-steps">{PRACTICE_STEPS.map(([title, description], index) => <li key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}</ol>
+          </details>
         </section>
         <aside className="legacy-entrance" aria-labelledby="legacy-heading">
           <div><p className="section-kicker">the original collection · legacy</p><h2 id="legacy-heading">Classic algorithms &amp; heuristics</h2>
-            <p>The original puzzles, Python solutions, visualizations, and recordings now live together in the legacy collection.</p></div>
+            <p>The original puzzles, Python solutions, visualizations, and recordings.</p></div>
           <a className="btn" href="/legacy/">Browse legacy classics →</a>
         </aside>
       </div>

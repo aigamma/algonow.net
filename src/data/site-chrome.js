@@ -4,7 +4,7 @@
 export const HEADER_LINKS = [
   { href: '/#scenarios', label: 'AI scenarios', tone: 'blue' },
   { href: '/#tracks', label: 'practice areas', tone: 'white' },
-  { href: '/legacy/', label: 'legacy classics', tone: 'white' },
+  { href: '/legacy/', label: 'algo puzzles', tone: 'white' },
 ];
 
 export const RELATED_LINKS = [

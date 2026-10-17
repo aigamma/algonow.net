@@ -96,7 +96,7 @@ export default function Home() {
         <aside className="legacy-entrance" aria-labelledby="legacy-heading">
           <div><p className="section-kicker">the original collection · legacy</p><h2 id="legacy-heading">Classic algorithms &amp; heuristics</h2>
             <p>The original puzzles, Python solutions, visualizations, and recordings.</p></div>
-          <a className="btn" href="/legacy/">Browse legacy classics →</a>
+          <a className="btn" href="/legacy/">Browse algo puzzles →</a>
         </aside>
       </div>
     </SiteShell>

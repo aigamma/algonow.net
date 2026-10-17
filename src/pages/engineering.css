@@ -88,9 +88,10 @@
 .project-download-note p { margin: .6rem 0; }
 .scenario-visual { min-width: 0; max-width: 100%; }
 .scenario-visual svg, .scenario-visual img { max-width: 100%; height: auto; }
-.scenario-page table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .88rem; }
-.scenario-page th, .scenario-page td { padding: .45rem .7rem; border-bottom: 1px solid var(--line-soft); text-align: left; vertical-align: top; }
-.scenario-page th { font: 600 .7rem/1.5 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); }
+.scenario-page table { display: block; border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .88rem; overflow-x: auto; }
+.scenario-page th, .scenario-page td { padding: .45rem .7rem; border-bottom: 1px solid var(--line-soft); text-align: left; vertical-align: top; overflow-wrap: normal; }
+.scenario-page th { font: 600 .7rem/1.5 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); white-space: nowrap; }
+.scenario-page .expected-output { white-space: pre-wrap; overflow-wrap: anywhere; }
 .scenario-page td:first-child { color: var(--ink); }
 .scenario-tradeoffs { padding-left: 1.2rem; }
 .scenario-tradeoffs li { margin: 1.2rem 0; }

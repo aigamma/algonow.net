@@ -1,22 +1,22 @@
-"""The fixed retrieval harness every chunker is measured with. Do not change it.
+"""Behind-the-scenes harness. The lesson never needs it.
 
-Runbooks become Documents, a chunker turns each into Chunks, BM25 ranks the
-chunks, and evaluate() reports answer recall at k (the whole labeled answer is
-inside one of the top k chunks) and the intact rate (it is inside some chunk
-at all). The prompt budget is enforced here, so recall cannot be bought with
-giant chunks.
+It parses the six runbook fixtures into the blocks the worked example assumes
+(dictionaries with a heading trail and a text), runs a packer over them, indexes
+the chunks with BM25, and measures two things on the labeled questions: answer
+recall at k (the whole labeled answer sits inside one of the top k retrieved
+chunks) and the intact rate (it sits inside some chunk at all, the packer's own
+job). The budget is enforced here, so recall cannot be bought with giant chunks.
 """
 from __future__ import annotations
 
 import json
 import math
-import re
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 
 FIXTURES = Path(__file__).resolve().parents[2] / "fixtures"
-MAX_CHARS = 500   # characters of chunk text the prompt builder will paste
+MAX_CHARS = 500   # the corpus budget; the worked example uses 200 on its tiny input
 TOP_K = 3         # chunks handed to the answering model
 
 
@@ -28,29 +28,77 @@ class Document:
 
 
 @dataclass(frozen=True)
-class Chunk:
+class IndexedChunk:
     doc_id: str
-    breadcrumb: str   # heading trail such as "API keys > Scopes"; empty if unknown
-    start: int        # offsets into Document.text, so citations can be exact
-    end: int
-    body: str         # must equal text[start:end]
+    heading: str
+    body: str
 
     @property
     def text(self) -> str:
-        """What the index sees and what the prompt builder pastes."""
-        return f"{self.breadcrumb}\n{self.body}" if self.breadcrumb else self.body
+        return f"{self.heading}\n{self.body}" if self.heading else self.body
 
 
 class BudgetError(ValueError):
     """A chunk is larger than the prompt budget allows."""
 
 
+def parse_blocks(text: str) -> list[dict]:
+    """Markdown runbook to blocks. A heading line (one or more '#') sets the heading
+    trail, titles joined from the top level down with ' > '. Blank lines separate
+    blocks, and a run of non-blank lines is one block, so a numbered procedure stays
+    whole. Each block is {"heading": trail, "text": lines}, the shape pack_blocks takes."""
+    blocks: list[dict] = []
+    trail: dict[int, str] = {}
+    lines: list[str] = []
+
+    def flush() -> None:
+        if lines:
+            heading = " > ".join(trail[level] for level in sorted(trail))
+            blocks.append({"heading": heading, "text": "\n".join(lines)})
+            lines.clear()
+
+    for raw in text.splitlines():
+        line = raw.strip()
+        if not line:
+            flush()
+        elif line.startswith("#"):
+            flush()
+            level = len(line) - len(line.lstrip("#"))
+            for deeper in [known for known in trail if known >= level]:
+                del trail[deeper]
+            trail[level] = line[level:].strip()
+        else:
+            lines.append(line)
+    flush()
+    return blocks
+
+
+def packed(pack_blocks):
+    """Adapt the lesson's pack_blocks(blocks, max_chars) into a document chunker."""
+    def chunk_document(doc: Document, max_chars: int = MAX_CHARS) -> list[IndexedChunk]:
+        return [IndexedChunk(doc.id, chunk["heading"], chunk["text"])
+                for chunk in pack_blocks(parse_blocks(doc.text), max_chars)]
+    return chunk_document
+
+
+def fixed_window_chunks(doc: Document, max_chars: int = MAX_CHARS, overlap: int = 0) -> list[IndexedChunk]:
+    """The chunker that shipped, as the baseline, with the overlap variant the team proposed first."""
+    if max_chars <= 0 or overlap < 0 or overlap >= max_chars:
+        raise ValueError("need 0 <= overlap < max_chars")
+    chunks = []
+    for start in range(0, len(doc.text), max_chars - overlap):
+        body = doc.text[start:start + max_chars]
+        if body.strip():
+            chunks.append(IndexedChunk(doc.id, "", body))
+    return chunks
+
+
 def load_runbooks(root: Path = FIXTURES / "runbooks") -> list[Document]:
     docs = []
     for path in sorted(root.glob("*.md")):
         text = path.read_text(encoding="utf-8")
-        title = re.search(r"^# (.+)$", text, flags=re.M)
-        docs.append(Document(path.stem, title.group(1).strip() if title else path.stem, text))
+        title = next((line[2:].strip() for line in text.splitlines() if line.startswith("# ")), path.stem)
+        docs.append(Document(path.stem, title, text))
     if not docs:
         raise FileNotFoundError(f"no runbooks under {root}")
     return docs
@@ -81,7 +129,6 @@ STOPWORDS = frozenset(
     "a an and are as at be by can do does for from how i if in is it my of on or our "
     "should that the their there this to we what when where which with you your".split()
 )
-TOKEN = re.compile(r"[a-z0-9]+")
 SUFFIXES = (("ied", "y"), ("ies", "y"), ("ing", ""), ("ed", ""), ("es", ""), ("s", ""))
 
 
@@ -94,7 +141,8 @@ def stem(token: str) -> str:
 
 
 def tokenize(text: str) -> list[str]:
-    return [stem(t) for t in TOKEN.findall(text.lower()) if t not in STOPWORDS]
+    words = "".join(ch if ch.isalnum() else " " for ch in text.lower()).split()
+    return [stem(word) for word in words if word not in STOPWORDS]
 
 
 class BM25Index:
@@ -117,24 +165,10 @@ class BM25Index:
         norm = self.k1 * (1 - self.b + self.b * length / self.avg_len) if self.avg_len else self.k1
         return sum(self.idf[t] * tf[t] * (self.k1 + 1) / (tf[t] + norm) for t in terms if t in tf)
 
-    def search(self, query: str, k: int = TOP_K) -> list[Chunk]:
+    def search(self, query: str, k: int = TOP_K) -> list[IndexedChunk]:
         terms = tokenize(query)
         ranked = sorted(range(len(self.chunks)), key=lambda i: (-self.score(terms, i), i))
         return [self.chunks[i] for i in ranked[:k] if self.score(terms, i) > 0]
-
-
-def fixed_window_chunks(doc: Document, max_chars: int = MAX_CHARS, overlap: int = 0) -> list[Chunk]:
-    """The chunker that shipped: character windows with no idea of structure."""
-    if not isinstance(doc.text, str):
-        raise TypeError("document text must be a string")
-    if max_chars <= 0 or overlap < 0 or overlap >= max_chars:
-        raise ValueError("need 0 <= overlap < max_chars")
-    chunks = []
-    for start in range(0, len(doc.text), max_chars - overlap):
-        body = doc.text[start:start + max_chars]
-        if body.strip():
-            chunks.append(Chunk(doc.id, "", start, start + len(body), body))
-    return chunks
 
 
 def normalize(text: str) -> str:
@@ -144,7 +178,7 @@ def normalize(text: str) -> str:
 @dataclass
 class Evaluation:
     recall: float               # answer intact inside one of the top k retrieved chunks
-    intact: float               # answer intact inside some chunk at all: the chunker's own job
+    intact: float               # answer intact inside some chunk at all: the packer's own job
     hits: dict[str, bool]
     intact_by_query: dict[str, bool]
     chunk_count: int
@@ -155,9 +189,9 @@ def evaluate(chunker, docs: list[Document], queries: list[dict], k: int = TOP_K,
              max_chars: int = MAX_CHARS) -> Evaluation:
     """Answer recall at k with the budget enforced. An answer that is intact
     but outranked is a retrieval problem, not a boundary problem."""
-    chunks: list[Chunk] = []
+    chunks: list[IndexedChunk] = []
     for doc in docs:
-        for chunk in chunker(doc):
+        for chunk in chunker(doc, max_chars):
             if len(chunk.text) > max_chars:
                 raise BudgetError(f"{doc.id}: a {len(chunk.text)} character chunk exceeds the {max_chars} budget")
             chunks.append(chunk)

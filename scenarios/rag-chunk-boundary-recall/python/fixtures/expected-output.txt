@@ -1,0 +1,25 @@
+5 blocks in, 4 chunks out, budget 200 characters per chunk
+
+--- chunk 1: 106 characters
+API keys
+Keys are shown once at creation and stored hashed. A lost key cannot be recovered, only replaced.
+
+--- chunk 2: 195 characters
+Rotate a key
+Rotation keeps the old key valid while the new one rolls out.
+
+1. Create a replacement key with the same scopes.
+2. Deploy it to every caller.
+3. Revoke the old key after seven days.
+
+--- chunk 3: 110 characters
+Rotate a key
+Before revoking, confirm in the request log that the old key's request count has dropped to zero.
+
+--- chunk 4: 88 characters
+Scopes
+The read scope covers list and get calls. The write scope adds create and delete.
+
+rejected: a block under 'Incident call' needs 281 characters, over the budget of 200
+
+OK

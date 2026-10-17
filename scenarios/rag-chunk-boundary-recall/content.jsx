@@ -1,174 +1,220 @@
 import DiagramViewport from '../../src/components/DiagramViewport.jsx';
-import pipelineSource from './python/src/rag_chunking/pipeline.py?raw';
-import starterSource from './python/src/rag_chunking/starter.py?raw';
 import solutionSource from './python/src/rag_chunking/solution.py?raw';
-import chunkingTests from './python/tests/test_chunking.py?raw';
-import retrievalTests from './python/tests/test_retrieval.py?raw';
-import queriesFixture from './python/fixtures/queries.json?raw';
-import apiKeysRunbook from './python/fixtures/runbooks/api-keys.md?raw';
-import webhooksRunbook from './python/fixtures/runbooks/webhooks.md?raw';
-import dataExportRunbook from './python/fixtures/runbooks/data-export.md?raw';
-import ssoRunbook from './python/fixtures/runbooks/sso.md?raw';
-import rateLimitsRunbook from './python/fixtures/runbooks/rate-limits.md?raw';
-import incidentsRunbook from './python/fixtures/runbooks/incidents.md?raw';
-import diagram from './visuals/chunk-boundaries.svg?raw';
+import starterSource from './python/src/rag_chunking/starter.py?raw';
+import answerSource from './python/src/rag_chunking/practice_answer.py?raw';
+import lessonTests from './python/tests/test_lesson.py?raw';
+import expectedOutput from './python/fixtures/expected-output.txt?raw';
+import expectedPracticeOutput from './python/fixtures/expected-practice-output.txt?raw';
+import diagram from './visuals/pack-blocks.svg?raw';
 
-// Authored by Claude Fable 5 in the main thread. Every number below was
-// measured by running the package in this directory; nothing is predicted.
+// Authored by Claude Fable 5 in the main thread. Every number on this page was
+// produced by running the files below; the expected outputs are the files'
+// actual output, compared byte for byte by the tests.
+const answerSnippet = answerSource.split('# --- answer begins ---\n')[1].split('# --- answer ends ---')[0].trim();
+
 export const content = {
   brief: (
     <>
       <p>
-        Orbit runs an internal support assistant over six Markdown runbooks: API keys, webhooks,
-        data export, single sign-on, rate limits, and incident response. Ingest splits each runbook
-        into chunks, a BM25 index ranks chunks against the question, and the top three chunks are
-        pasted into the answering model&apos;s prompt. Each chunk may use at most{' '}
-        <strong>500 characters</strong>; the budget is fixed and the product will not raise it.
+        Orbit&apos;s support assistant answers questions from runbooks. Ingest cuts each runbook into chunks, an
+        index ranks the chunks against the question, and the top few are pasted into the model&apos;s prompt, each
+        under a fixed budget. Last sprint ingest switched to fixed-size character windows, and multi-step answers
+        started arriving in halves: the best chunk for &quot;how do I rotate a key&quot; ends in the middle of step
+        two, and the model answers confidently from half a procedure.
       </p>
       <p>
-        Last sprint, ingest was &quot;simplified&quot;: the chunker became a plain character window,
-        500 characters and then the next 500, blind to headings and numbered lists. Ask how to rotate
-        an API key without downtime and the best chunk holds steps one through three, then stops in
-        the middle of step four, mid-word. The model, being helpful, answers confidently from most of
-        a procedure.
-      </p>
-      <p>
-        <strong>Your request:</strong> rebuild <code>chunk_document</code> in the starter so retrieval
-        returns whole answers again, inside the same budget, and prove it on the labeled question set.
-        The interface the rest of the pipeline relies on:
+        <strong>The action to practice:</strong> pack blocks that a parser already found (one paragraph or one
+        numbered procedure, each under its section heading) into chunks under a budget, so that a block is never
+        cut and a chunk never mixes sections. The rules are small:
       </p>
       <ul>
-        <li>Each chunk is a contiguous span of the original text, <code>body == doc.text[start:end]</code>, so a citation can point at exact offsets.</li>
-        <li><code>chunk.text</code> is the heading trail, a newline, then the body (for example <code>API keys &gt; Scopes</code>), and never exceeds <code>max_chars</code>.</li>
-        <li>A numbered procedure is never split; a block larger than the budget splits at sentence ends with no character lost.</li>
-        <li>Bad budgets and non-string text raise; an empty or heading-only document yields no chunks.</li>
+        <li>A chunk&apos;s text is its heading, a newline, and its body. The budget is measured on that text.</li>
+        <li>Consecutive blocks under one heading join into one chunk, separated by a blank line, while the text still fits.</li>
+        <li>A heading change, or a block that would push the text over the budget, opens a new chunk.</li>
+        <li>A block that cannot fit on its own is rejected with a <code>ValueError</code> that says how big it is. The practice variation changes that one rule.</li>
       </ul>
       <p>
-        <strong>Success:</strong> all 23 labeled answers intact inside some chunk, answer recall at three of at least
-        0.9, and no chunk over budget. Fixed windows measure 9 of 23 intact and 8 of 23 recalled; the reference measures
-        23 of 23 and 21 of 23.
+        <strong>Input.</strong> Five blocks from a shortened API keys runbook, each a dictionary with a heading and a
+        text, and a budget of 200 characters (a stand-in for the token budget a real prompt builder counts). The
+        sizes decide the packing:
       </p>
+      <table>
+        <thead><tr><th>block</th><th>heading</th><th>text</th><th>chars</th><th>with heading</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>API keys</td><td>Keys are shown once at creation and stored hashed...</td><td>97</td><td>106</td></tr>
+          <tr><td>2</td><td>Rotate a key</td><td>Rotation keeps the old key valid while the new one rolls out.</td><td>61</td><td>74</td></tr>
+          <tr><td>3</td><td>Rotate a key</td><td>1. Create a replacement key... (three numbered steps)</td><td>119</td><td>132</td></tr>
+          <tr><td>4</td><td>Rotate a key</td><td>Before revoking, confirm in the request log...</td><td>97</td><td>110</td></tr>
+          <tr><td>5</td><td>Scopes</td><td>The read scope covers list and get calls...</td><td>81</td><td>88</td></tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Expected output.</strong> <code>python solution.py</code> prints exactly this. The file holds its own
+        input, so nothing else is needed:
+      </p>
+      <pre className="expected-output"><code>{expectedOutput}</code></pre>
     </>
   ),
 
   starter: (
     <>
       <p>
-        Python 3.11 or newer, standard library only: nothing to install, no credentials, no network. From{' '}
-        <code>python/</code>, run the suite against the reference to see the bar, then point{' '}
-        <code>RAG_CHUNKER</code> at the starter and watch eight tests fail:
-      </p>
-      <pre><code>{`PYTHONPATH=src python -m unittest discover -s tests -p "test_*.py"
-RAG_CHUNKER=rag_chunking.starter PYTHONPATH=src python -m unittest discover -s tests`}</code></pre>
-      <p>
-        The harness in <code>pipeline.py</code> is fixed. It loads the runbooks, resolves each labeled answer to a
-        verbatim span, indexes <code>chunk.text</code> with BM25, and reports <strong>recall at three</strong> (is the
-        whole answer inside one of the top three chunks?) and the <strong>intact rate</strong> (is it inside any chunk
-        at all?). The second number isolates the chunker&apos;s job from the ranker&apos;s. A chunk over 500 characters
-        raises <code>BudgetError</code>, so nobody can buy recall with giant chunks.
+        Change one behavior. The worked solution rejects a block that cannot fit on its own. Make it split such a
+        block at its line breaks instead, so each line becomes its own block under the same heading, and then pack
+        as before. The file below is the worked solution with the five-step incident block added to its input and
+        a check for the new behavior. As shipped it prints <code>NOT OK</code> and stops.
       </p>
       <p>
-        The starter&apos;s <code>chunk_document</code> delegates to <code>fixed_window_chunks</code>, the code that
-        shipped. Rewrite that one function: find the document&apos;s own blocks (headings, paragraphs, lists) with
-        their offsets, carry the heading trail, pack whole blocks greedily up to the budget, split only an oversized
-        block at sentence ends, and validate inputs. Keep the chunking tests green, then see whether recall follows.
+        <strong>Hint.</strong> Do the splitting before the loop decides anything: build a new list of blocks in
+        which only the oversized ones are replaced by one block per line, then let the existing loop pack that
+        list. <code>text.split(&quot;\n&quot;)</code> turns a multi-line string into a list of lines. The{' '}
+        <code>raise</code> can stay as the guard for a single line that is still too long.
       </p>
+      <p>
+        <strong>Expected result.</strong> Six chunks: the four from the worked example, then the incident steps
+        one to three (136 characters) and steps four to five (161 characters). The file ends with <code>OK</code>.
+      </p>
+      <details>
+        <summary>Show the answer</summary>
+        <pre><code>{answerSnippet}</code></pre>
+        <p>
+          One new function and one new line at the top of <code>pack_blocks</code>. The split lines are ordinary
+          blocks from then on, so they rejoin with blank lines like any other blocks, and a single line over the
+          budget is still rejected. Everything outside the marked region is the practice file unchanged.
+        </p>
+      </details>
     </>
   ),
 
   files: [
-    { path: 'python/src/rag_chunking/starter.py', role: 'starter', language: 'python', source: starterSource,
-      description: 'The function to rewrite. It delegates to the fixed-window chunker that shipped.' },
-    { path: 'python/src/rag_chunking/pipeline.py', role: 'starter', language: 'python', source: pipelineSource,
-      description: 'The fixed harness: records, tokenizer, BM25, fixed_window_chunks, and evaluate() with the budget enforced. Read it; do not change it.' },
-    { path: 'python/fixtures/queries.json', role: 'fixture', language: 'json', source: queriesFixture,
-      description: 'Twenty-three natural questions, each naming its runbook and the first and last words of the verbatim answer span.' },
-    { path: 'python/fixtures/runbooks/api-keys.md', role: 'fixture', language: 'text', source: apiKeysRunbook,
-      description: 'The runbook in the diagram: create, rotate, and revoke procedures, and scopes.' },
-    { path: 'python/fixtures/runbooks/webhooks.md', role: 'fixture', language: 'text', source: webhooksRunbook,
-      description: 'Retry schedule, signature verification, and replaying missed events.' },
-    { path: 'python/fixtures/runbooks/data-export.md', role: 'fixture', language: 'text', source: dataExportRunbook,
-      description: 'Requesting an export, file layout, scheduled exports, and stuck exports.' },
-    { path: 'python/fixtures/runbooks/sso.md', role: 'fixture', language: 'text', source: ssoRunbook,
-      description: 'SAML configuration, enforcement, and break-glass access.' },
-    { path: 'python/fixtures/runbooks/rate-limits.md', role: 'fixture', language: 'text', source: rateLimitsRunbook,
-      description: 'Default limits, limit headers, handling a 429, and requesting a higher limit.' },
-    { path: 'python/fixtures/runbooks/incidents.md', role: 'fixture', language: 'text', source: incidentsRunbook,
-      description: 'Severity levels, declaring an incident, communication cadence, and the postmortem.' },
-    { path: 'python/tests/test_chunking.py', role: 'test', language: 'python', source: chunkingTests,
-      description: 'Structural checks on the chunker RAG_CHUNKER names: offsets, budget, whole procedures, heading trail, sentence splits, line endings, determinism, bad input.' },
-    { path: 'python/tests/test_retrieval.py', role: 'test', language: 'python', source: retrievalTests,
-      description: 'Fixture integrity, BM25 sanity, the measured fixed-window regression, the whole-document rejection, and the intact and recall bars.' },
-    { path: 'python/src/rag_chunking/solution.py', role: 'reference', language: 'python', source: solutionSource,
-      description: 'The reference repair: blocks with offsets, heading trail, greedy packing, sentence-level splits, loud failures.' },
+    { path: 'python/src/rag_chunking/solution.py', role: 'reference', language: 'python', source: solutionSource, primary: true,
+      description: 'The complete worked example: the five blocks, chunk_text, pack_blocks, and a demonstration that prints the chunks, the rejected block, and OK. Runs alone with Python 3.11 or newer.' },
+    { path: 'python/src/rag_chunking/starter.py', role: 'starter', language: 'python', source: starterSource, primary: true,
+      description: 'The practice file: the worked solution plus the oversized incident block and a check for the new behavior. Prints NOT OK until pack_blocks splits that block at its line breaks.' },
+    { path: 'python/src/rag_chunking/practice_answer.py', role: 'reference', language: 'python', source: answerSource,
+      description: 'The completed practice variation; the page shows the region between its answer markers.' },
+    { path: 'python/fixtures/expected-output.txt', role: 'fixture', language: 'text', source: expectedOutput,
+      description: 'What solution.py prints, byte for byte. The test runs the file alone and compares.' },
+    { path: 'python/fixtures/expected-practice-output.txt', role: 'fixture', language: 'text', source: expectedPracticeOutput,
+      description: 'What practice_answer.py prints, byte for byte.' },
+    { path: 'python/tests/test_lesson.py', role: 'test', language: 'python', source: lessonTests,
+      description: 'Runs the three lesson files alone and checks the packing rules, the exact budget boundary, the rejection, and that the input is never modified.' },
   ],
 
   evidence: (
     <>
       <p>
-        All expectations are exact: the fixtures are deterministic text and the harness has no randomness. Measured
-        with the shipped harness, same tokenizer for every row:
-      </p>
-      <table>
-        <thead><tr><th>chunker</th><th>chunks</th><th>longest text</th><th>answers intact</th><th>recall at 3</th></tr></thead>
-        <tbody>
-          <tr><td>fixed 500-char windows</td><td>22</td><td>500</td><td>9 / 23</td><td>8 / 23 (0.35)</td></tr>
-          <tr><td>fixed windows, 100-char overlap</td><td>26</td><td>500</td><td>12 / 23</td><td>12 / 23 (0.52)</td></tr>
-          <tr><td>structure-aware (reference)</td><td>30</td><td>494</td><td>23 / 23</td><td>21 / 23 (0.91)</td></tr>
-        </tbody>
-      </table>
-      <p>
-        Fixed windows cut 14 of the 23 answers: the chunker, not the ranker, is the failure. Overlap rescues some
-        and still cuts nearly half. The reference leaves every answer intact; its two misses are ranking failures, and
-        the tests name them so a regression cannot hide behind them. <strong>q01</strong> (a key pasted into a public
-        issue): the revoke procedure is intact in its own chunk, but the section&apos;s intro paragraph, which talks
-        about public repositories and pasted keys, outranks it and the steps land fifth. <strong>q19</strong> (an outage
-        described in plain words) shares no vocabulary with the declare-an-incident procedure, so a lexical ranker
-        scores it zero.
+        <strong>What the file checks</strong> before it prints <code>OK</code>: every chunk text is within 200
+        characters, there are four chunks, and the three-step procedure sits whole inside chunk 2. Run your copy and
+        compare its output with the expected output above; they must match line for line.
       </p>
       <p>
-        Failure cases covered: bad budgets (zero, negative, too small, boolean, fractional), bytes instead of text,
-        empty and heading-only documents, a 20-sentence paragraph under a 200-character budget, Windows line endings,
-        and a whole-document chunker that would score perfectly and is rejected by the budget. Two facts for honesty:
-        stripping word suffixes in the tokenizer rescued two questions that had failed on plurals and tense, so part of
-        the gain is retrieval hygiene (the fixed-window rows use the same tokenizer); and the heading trail did not
-        change recall at three here (21 of 23 either way), so it stays for the prompt builder and the citation, not for
-        the metric. Not proven: generation quality, other corpora, or rankers other than BM25.
+        <strong>The failure case.</strong> The incident block&apos;s five steps make 267 characters, 281 with the
+        heading, so <code>pack_blocks</code> raises; the demonstration catches the error and prints the rejected
+        line. The budget is never raised to make a block fit, and a chunk may reach the budget exactly: the tests
+        pack a block that lands on 200 and one that lands on 201.
+      </p>
+      <p>
+        <strong>Behind the scenes,</strong> the same function was run over six full runbooks and 23 labeled
+        questions through a BM25 index, with the budget enforced at 500: every answer stayed whole (23 of 23,
+        against 9 of 23 for the fixed windows that shipped), and 21 of 23 were retrieved in the top three. The two
+        misses are ranking misses, not cuts. Those tests live in the full project download, not in the lesson.
       </p>
     </>
   ),
 
   solution: (
     <>
-      <p>The reference follows the document&apos;s own structure, because Markdown already marks the meaning boundaries.</p>
-      <ol>
-        <li><strong>Blocks with offsets.</strong> Walk the text line by line: a heading is a block of its own, a blank line closes whatever is open, consecutive list lines form one list block, other lines form a paragraph. Each block records the offsets of its first and last character.</li>
-        <li><strong>Headings become context, never body.</strong> A heading updates a small table of levels; the breadcrumb is the titles joined from the top down, so a chunk under the rotation section is prefixed <code>API keys &gt; Rotate a key without downtime</code>. Intro text before the first section carries only the title.</li>
-        <li><strong>Greedy packing over whole blocks.</strong> The budget for a chunk is <code>max_chars</code> minus the breadcrumb and a newline. A block that fits is appended; one that would not fit closes the chunk and opens the next. A numbered procedure is one block, so packing can never cut it.</li>
-        <li><strong>Oversized blocks split at sentence ends.</strong> Prefer the last sentence end inside the window, then the last whitespace, then a hard cut; pieces never start or end with whitespace and together cover every character.</li>
-        <li><strong>Loud failures.</strong> Non-string text raises <code>TypeError</code>; a budget that cannot hold the trail plus 40 characters raises <code>ValueError</code>; empty or heading-only input returns an empty list.</li>
-      </ol>
       <p>
-        Debugging followed the numbers. The first run scored 19 of 23; printing the rank of the gold chunk for each
-        miss showed two plural and tense mismatches, fixed by the suffix stripper, and the two cases above. No overlap
-        was added: with whole blocks as the unit no labeled answer straddles a boundary, and overlap would duplicate
-        text in the index and the prompt for nothing. Raising the budget was not an option, and the budget check in{' '}
-        <code>evaluate</code> exists so that nobody quietly makes it one.
+        Read the file top to bottom: the input, one helper, the one function that does the work, and a
+        demonstration. Here is its Python, construct by construct.
+      </p>
+      <ol>
+        <li>
+          <strong>Records as dictionaries in a list.</strong> <code>BLOCKS</code> is a list, written with square
+          brackets. Each element is a dictionary, written with braces, holding two keys. <code>block[&quot;heading&quot;]</code>{' '}
+          reads a value by its key. This is the shape of almost every dataset an AI engineer touches: a list of
+          records, usually loaded from JSON. Adjacent string literals inside parentheses are glued into one string,
+          which is how the three-step procedure is written on three lines.
+        </li>
+        <li>
+          <strong>A helper that names a rule.</strong> <code>chunk_text(heading, text)</code> returns{' '}
+          <code>heading + &quot;\n&quot; + text</code>. Plus joins strings and <code>&quot;\n&quot;</code> is a newline.
+          The budget is measured on this string in three places, and a reader learns the rule once.
+        </li>
+        <li>
+          <strong>The loop.</strong> <code>chunks = []</code> starts with an empty list. <code>for block in blocks:</code>{' '}
+          visits each record in order, and <code>heading = block[&quot;heading&quot;]</code> copies a value into a short
+          name so the lines below read plainly.
+        </li>
+        <li>
+          <strong>The guard.</strong> <code>len(...)</code> counts characters. If the block&apos;s own chunk text is
+          over the budget, <code>raise ValueError(f&quot;...&quot;)</code> stops the function with an error. An f-string,
+          marked by the <code>f</code> before the quote, puts the variables in braces straight into the message.
+        </li>
+        <li>
+          <strong>The join decision.</strong> <code>if chunks and chunks[-1][&quot;heading&quot;] == heading:</code> An empty
+          list counts as false, so the line reads &quot;if there is an open chunk and its heading matches&quot;.{' '}
+          <code>chunks[-1]</code> is the last element; negative indexes count from the end. <code>joined</code> is the
+          candidate body: the open chunk&apos;s text, a blank line, this block. If its chunk text fits,{' '}
+          <code>chunks[-1][&quot;text&quot;] = joined</code> replaces the body of the last chunk in place, and{' '}
+          <code>continue</code> jumps to the next block, skipping the append below.
+        </li>
+        <li>
+          <strong>Otherwise a new chunk.</strong> <code>chunks.append({'{'}...{'}'})</code> adds a new dictionary to the
+          end of the list. It is a new record built from the two values, not the input block itself, so the
+          caller&apos;s list is never modified. <code>return chunks</code> hands the list back.
+        </li>
+        <li>
+          <strong>The demonstration.</strong> <code>if __name__ == &quot;__main__&quot;:</code> runs only when the file is
+          executed directly, not when a test imports it. <code>enumerate(chunks, start=1)</code> yields a number and a
+          chunk together. <code>try</code> and <code>except ValueError as error</code> catch the rejection and print
+          it instead of crashing. Each <code>assert</code> makes the file check one of its own claims before it
+          prints <code>OK</code>.
+        </li>
+      </ol>
+      <p><strong>Trace the variables.</strong> Follow <code>chunks</code> through the five blocks:</p>
+      <table>
+        <thead><tr><th>block</th><th>open chunk</th><th>test</th><th>result</th><th>chunks</th></tr></thead>
+        <tbody>
+          <tr><td>1 API keys (97)</td><td>none</td><td>list is empty</td><td>open chunk 1: 106</td><td>1</td></tr>
+          <tr><td>2 Rotate a key (61)</td><td>API keys</td><td>heading differs</td><td>open chunk 2: 74</td><td>2</td></tr>
+          <tr><td>3 Rotate a key (119)</td><td>Rotate a key</td><td>74 + 2 + 119 = 195 ≤ 200</td><td>join: chunk 2 is now 195</td><td>2</td></tr>
+          <tr><td>4 Rotate a key (97)</td><td>Rotate a key</td><td>195 + 2 + 97 = 294 &gt; 200</td><td>open chunk 3: 110</td><td>3</td></tr>
+          <tr><td>5 Scopes (81)</td><td>Rotate a key</td><td>heading differs (193 would have fit)</td><td>open chunk 4: 88</td><td>4</td></tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Why these decisions.</strong> Blocks are the unit because the parser already found the boundaries
+        that matter: a numbered procedure is one block, so it can only enter a chunk whole. The heading rides inside
+        the chunk text because the index scores it (a question that says &quot;rotate&quot; matches the heading even
+        when the body says &quot;replacement&quot;) and the model reads it as context. Packing is greedy and in document
+        order, rather than an optimal rearrangement, because reading order and citations survive, the pass is
+        linear, and a reader can predict where a boundary falls. Rejecting an oversized block is a deliberate
+        policy: a loud failure at ingest beats a silently truncated answer at query time, and the right split
+        depends on the content, which is what the practice variation decides.
+      </p>
+      <p>
+        <strong>The pattern, and its limits.</strong> This is greedy packing of ordered units under a budget. The
+        same loop batches requests under a token limit, groups log lines into one alert, and fills a context window
+        with retrieved passages. Characters stand in for tokens here; a real prompt builder measures with the serving
+        model&apos;s tokenizer, and the decisions carry over unchanged while the numbers do not. The never-cut rule
+        holds only because the budget wins by rejecting; if blocks can exceed it, decide where they may be split
+        before you decide how a chunk grows. Nothing here ranks chunks: retrieval quality is the next lesson.
       </p>
     </>
   ),
 
   visual: (
     <figure className="fig">
-      <DiagramViewport width={900} aspect="900 / 540" frameClassName="fig-canvas">
+      <DiagramViewport width={900} aspect="900 / 470" frameClassName="fig-canvas">
         <div dangerouslySetInnerHTML={{ __html: diagram }} />
       </DiagramViewport>
       <figcaption className="fig-cap">
         <span className="fig-caption-text">
-          Measured, not illustrative: the api-keys runbook (1,851 characters) as a character ruler. Fixed windows end
-          at 500, 1,000, and 1,500 characters, each inside a procedure, so three of its four labeled answers are cut
-          (red); the six structure-aware chunks keep all four intact (green). The bars cover all 23 questions: filled is
-          recall at three, the dashed outline is answers intact in any chunk.
+          The exact example. Input blocks on the left are drawn to scale; the four chunks on the right show how much
+          of the 200-character budget each text uses; the label on each connector is the decision the loop made for
+          that block. The incident block at the bottom, 281 characters with its heading, is the rejected case.
         </span>
       </figcaption>
     </figure>
@@ -176,19 +222,19 @@ RAG_CHUNKER=rag_chunking.starter PYTHONPATH=src python -m unittest discover -s t
 
   tradeoffs: [
     {
-      name: 'Parent-section retrieval (small-to-big)',
-      preferWhen: 'Index small chunks for ranking but hand the model the whole enclosing section. The natural fix for q01, where the intro and the procedure of one section should travel together, and for corpora whose sections are short.',
-      cost: 'The budget moves to the section level: the revoke section is 545 characters before its heading trail, already over the limit, so oversized sections still need a splitter exactly like this one, and prompts grow for every hit.',
+      name: 'Fixed windows with overlap (what shipped, plus the first proposal)',
+      preferWhen: 'Text with no structure at all, such as a transcript or an OCR dump, where there are no headings or blocks to pack and something is needed today.',
+      cost: 'On these runbooks a 100-character overlap recalled 12 of 23 answers and still cut nearly half of them, while duplicating text in both the index and the prompt. A boundary problem is not fixed by a bandage over the boundary.',
     },
     {
-      name: 'Embedding retrieval, or hybrid BM25 plus embeddings',
-      preferWhen: 'Questions share little vocabulary with their answers, as in q19, where an outage described in plain words scores zero against the declare-an-incident procedure. Fusing BM25 and embedding ranks keeps exact-term wins while covering paraphrase.',
-      cost: 'An embedding model or a provider call for every chunk and every query, a full re-index when the model changes, latency, and money. It fixes nothing about cut answers: a split procedure is split in any index, so chunking is repaired first.',
+      name: 'Sentence-level splitting for oversized blocks',
+      preferWhen: 'Paragraphs that routinely exceed the budget, where rejecting at ingest is not an option and a cut at a sentence end is acceptable.',
+      cost: 'A sentence splitter (a regular expression or a tokenizer), pieces that lose the context of their list numbering, and chunks that still end mid-procedure when a single step is long. It replaces one policy with a more complex one; it does not remove the decision.',
     },
     {
-      name: 'Fixed windows with overlap (the team’s first proposal)',
-      preferWhen: 'Text with no structure at all, such as a transcript or an OCR dump, where there are no headings or lists to follow and something is needed today.',
-      cost: 'On structured runbooks it measured 12 of 23 recalled, duplicated text in both the index and the prompt, and carried no heading context: a bandage over a boundary problem whose boundaries were already written down in the Markdown.',
+      name: 'Parent-section retrieval (small to big)',
+      preferWhen: 'Questions whose answer spans a whole section: index small chunks for ranking, then hand the model the enclosing section instead of the chunk.',
+      cost: 'The budget moves to the section level, so a section over the budget still needs a packer exactly like this one, and every hit costs more prompt. Worth it when sections are short and questions are broad.',
     },
   ],
 };

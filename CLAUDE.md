@@ -25,20 +25,20 @@ visuals, and narration. Metadata, validation, and delivery infrastructure may
 be maintained separately. This prospective policy takes precedence over the
 legacy pair template below.
 
-Owner refinement, October 17, 2026: each engineering puzzle must provide one
-self-contained Python starter and one complete, self-contained Python
-solution as the primary learning path. Both run when copied to a clean
-directory, without a package layout, relative imports, external fixtures,
-credentials, or PYTHONPATH setup. Keep the larger project, data, and evaluation
-suite as optional supporting material. The exercise's difficulty comes from
-the engineering decision and code, not from assembling its files. Follow the
-single-file practice contract in `docs/FABLE_AI_ENGINEERING.md`. Fable remains
-the author of examples, Python code, explanations, tests, and narration.
-The purpose includes studying workable solutions until the owner can think
-and strategize directly in Python as an AI architect. Exam practice is one
-use, not the whole purpose. Keep the full solution easy to find and read,
-optionally behind one clearly labeled spoiler; do not require an attempt,
-quiz, or directory exploration before it can be studied.
+Owner refinement, October 17, 2026: the learner is an expert systems engineer
+and a novice at independently writing Python syntax. Teach reusable Python
+patterns through small, complete worked examples for AI engineering tasks.
+The purpose includes thinking and strategizing directly in Python, alongside
+weekly proctored exams. Lead with the worked solution and explain its Python;
+offer a small practice variation afterward. No guessing prerequisite.
+Follow the teaching master prompt in `docs/FABLE_AI_ENGINEERING.md`.
+One self-contained solution, tiny inline inputs, visible expected output,
+and one optional self-contained practice file form the learning path. Both
+files run alone without setup or other files. Do not show a working-file
+inventory, fixtures, test modules, or project navigation on the lesson page.
+Supporting verification may remain in the repository and a separate optional
+download. Fable remains the author of examples, code, explanations, tests,
+visuals, and narration.
 
 ## Hard rules
 

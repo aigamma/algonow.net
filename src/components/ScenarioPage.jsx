@@ -27,8 +27,8 @@ function PrimaryPythonFile({ file }) {
   </div>;
 }
 
-// Fable supplies the authored brief, evidence, code and explanation. This
-// shared frame keeps solutions closed until the learner chooses to reveal them.
+// Fable supplies the authored brief, evidence, code and explanation. Primary
+// files present a worked example first, with practice available separately.
 export default function ScenarioPage({ scenario, content, narrationPlayer }) {
   useEffect(() => { initTelemetry(scenario.slug); }, [scenario.slug]);
   const track = ENGINEERING_TRACKS.find((area) => area.id === scenario.track);
@@ -37,24 +37,29 @@ export default function ScenarioPage({ scenario, content, narrationPlayer }) {
   const primaryStarter = content.files.find((file) => file.primary && file.role === 'starter');
   const primaryReference = referenceFiles.find((file) => file.primary);
   const singleFile = Boolean(primaryStarter && primaryReference);
-  const supportingFiles = content.files.filter((file) => file.role !== 'reference' && (!singleFile || !file.primary));
+  const workingFiles = content.files.filter((file) => file.role !== 'reference');
+  const sections = singleFile
+    ? [['brief', 'Brief'], ['solution', 'Worked solution'], ['visual', 'System view'], ['evidence', 'Validation'], ['tradeoffs', 'Alternatives'], ['starter', 'Practice']]
+    : [['brief', 'Brief'], ['starter', 'Get started'], ['solution', 'Solution'], ['visual', 'System view'], ['evidence', 'Validation'], ['files', 'Files']];
   const tradeoffs = <ul className="scenario-tradeoffs">{content.tradeoffs.map((alternative) => <li key={alternative.name}>
     <strong>{alternative.name}</strong><p>{alternative.preferWhen}</p><p>{alternative.cost}</p>
   </li>)}</ul>;
-  const solution = <section id="solution" aria-labelledby="solution-heading"><h2 className="eyebrow" id="solution-heading">{singleFile ? 'The complete Python solution' : 'Reference solution'}</h2>
-    <details><summary>{singleFile ? 'Reveal the complete solution' : 'Reveal the solution and reasoning'}</summary>
+  const solution = <section id="solution" aria-labelledby="solution-heading"><h2 className="eyebrow" id="solution-heading">{singleFile ? 'Worked solution' : 'Reference solution'}</h2>
+    <details open={singleFile}><summary>{singleFile ? 'Complete Python code and explanation' : 'Reveal the solution and reasoning'}</summary>
       {singleFile && <PrimaryPythonFile file={primaryReference} />}
       {content.solution}
-      {referenceFiles.filter((file) => !singleFile || !file.primary).map((file) => <ScenarioFile key={file.path} file={file} />)}
-      {singleFile && <p className="project-download"><a className="btn" href={`/downloads/${scenario.slug}-project.zip`} download>Download full project (includes solution)</a></p>}
+      {!singleFile && referenceFiles.map((file) => <ScenarioFile key={file.path} file={file} />)}
     </details>
   </section>;
+  const starter = <section id="starter" aria-labelledby="starter-heading"><h2 className="eyebrow" id="starter-heading">{singleFile ? 'Practice this pattern' : 'Get started in Python'}</h2>
+    {singleFile ? <details><summary>Open optional practice</summary>
+      {content.starter}<PrimaryPythonFile file={primaryStarter} />
+    </details> : content.starter}
+  </section>;
   const visual = <section id="visual" aria-labelledby="visual-heading"><h2 className="eyebrow" id="visual-heading">System view</h2><div className="scenario-visual">{content.visual}</div></section>;
-  const files = <section id="files" aria-labelledby="files-heading"><h2 className="eyebrow" id="files-heading">{singleFile ? 'Optional supporting project' : 'Working files'}</h2>
-    {singleFile ? <details className="supporting-project"><summary>Explore supporting files, fixtures, and tests</summary>
-      <p>These files support the larger project. The starter and solution above run on their own.</p>
-      {supportingFiles.map((file) => <ScenarioFile key={file.path} file={file} />)}
-    </details> : supportingFiles.map((file) => <ScenarioFile key={file.path} file={file} />)}
+  const files = <section id="files" className={singleFile ? 'project-download-note' : undefined} aria-labelledby="files-heading"><h2 className="eyebrow" id="files-heading">{singleFile ? 'Optional full project' : 'Working files'}</h2>
+    {singleFile ? <p><a href={`/downloads/${scenario.slug}-project.zip`} download>Download full project ZIP (includes solution)</a></p>
+      : workingFiles.map((file) => <ScenarioFile key={file.path} file={file} />)}
   </section>;
   return (
     <SiteShell>
@@ -68,23 +73,20 @@ export default function ScenarioPage({ scenario, content, narrationPlayer }) {
             listenMinutes={scenario.listenMinutes} mediaBaseUrl={narrationPlayer.mediaBaseUrl} narration={narrationPlayer.narration} />}
         </header>
         <nav className="cat-strip" aria-label="Scenario sections">
-          <a className="chip" href="#brief">Brief</a>
-          <a className="chip" href="#starter">{singleFile ? 'Your Python' : 'Get started'}</a>
-          <a className="chip" href="#solution">{singleFile ? 'Study solution' : 'Solution'}</a><a className="chip" href="#visual">System view</a>
-          <a className="chip" href="#evidence">Validation</a><a className="chip" href="#files">{singleFile ? 'Optional project' : 'Files'}</a>
+          {sections.map(([id, label]) => <a className="chip" href={`#${id}`} key={id}>{label}</a>)}
         </nav>
         <section id="brief" aria-labelledby="brief-heading"><h2 className="eyebrow" id="brief-heading">The engineering task</h2>{content.brief}</section>
+        {singleFile && solution}
         {!singleFile && visual}
-        <section id="starter" aria-labelledby="starter-heading"><h2 className="eyebrow" id="starter-heading">{singleFile ? 'Your Python file' : 'Get started in Python'}</h2>{content.starter}
-          {singleFile && <PrimaryPythonFile file={primaryStarter} />}
-        </section>
-        {singleFile ? solution : files}
+        {!singleFile && starter}
+        {!singleFile && files}
         {singleFile && visual}
         <section id="evidence" aria-labelledby="evidence-heading"><h2 className="eyebrow" id="evidence-heading">Check your result</h2>{content.evidence}</section>
         {!singleFile && solution}
         <section id="tradeoffs" aria-labelledby="tradeoffs-heading"><h2 className="eyebrow" id="tradeoffs-heading">Compare the alternatives</h2>
           {singleFile ? tradeoffs : <details><summary>Reveal the engineering tradeoffs</summary>{tradeoffs}</details>}
         </section>
+        {singleFile && starter}
         {singleFile && files}
         <a className="btn" href="/#scenarios">All AI engineering scenarios →</a>
       </article>

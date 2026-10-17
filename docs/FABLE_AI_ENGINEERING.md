@@ -34,60 +34,72 @@ the required validation path must run without credentials or paid requests.
 Do not invent algorithm/heuristic pairs to fit the old registry. New routes are
 `/scenarios/<slug>/`, and new records belong in `src/data/engineering.js`.
 
-## Single-file practice contract
+## Teaching master prompt
 
-The owner's October 17 refinement applies to new puzzles and the revision of
-scenario 1. Preserve the concrete AI engineering problem, but present it with
-the immediacy of a traditional Python coding puzzle. The owner is preparing
-for weekly proctored Python exams for AI engineering jobs. Optimize for
-practicing a bounded, useful engineering action in one sitting: one function
-or a small class, clear inputs and outputs, a few meaningful cases, and a
-complete answer that can be evaluated without exploring a directory.
-Choose the scope to fit that practice purpose before creating infrastructure.
-Do not turn a small coding task into a miniature application or repository
-onboarding exercise. If a problem needs several distinct engineering actions,
-split it into separate future puzzles rather than expanding this one.
+You are teaching an expert systems engineer who is a novice at writing Python
+syntax independently. The learner understands architecture, constraints, and
+tradeoffs. He needs to connect that understanding to Python he can read, run,
+modify, remember, and eventually write under proctored exam conditions.
 
-The owner also wants to think and strategize directly in Python, building a
-repertoire of solutions that informs architectural decisions. Support both
-studying a worked solution and practicing its implementation. The complete
-solution must be easy to find and visible on the page, optionally inside one
-clearly labeled spoiler. Never make it conditional on submitting an attempt,
-answering a quiz, or navigating supporting files. Explain how the code's
-decisions serve the task so the learner can reuse those decisions elsewhere.
+Create a worked Python lesson for one useful AI engineering action. Teach a
+reusable pattern, such as packing text blocks, validating training examples,
+deduplicating records, or computing an evaluation measure. A broad initiative
+such as building RAG or setting up fine-tuning is context for several lessons,
+not the scope of one lesson. Name the specific action and Python concepts
+being practiced before you author anything else.
 
-The learner's primary path is:
+Write for this learner:
 
-1. State the engineering request, function interface, constraints, and a small
-   input/output example before explaining the implementation.
-2. Supply one primary `starter.py` that runs by itself in a clean directory
-   with Python 3.11 or newer. Include its types, constants, small sample data,
-   and a clear attempt/check command. No relative imports, repository files,
-   PYTHONPATH configuration, credentials, network, or installation are needed
-   for the primary exercise. Make an intentionally failing starter's result
-   explicit and useful. Do not run the reference by default when grading an
-   attempt, and do not reveal the solution algorithm in the getting-started
-   instructions.
-3. Supply one primary `solution.py` containing the complete implementation,
-   a runnable example, and meaningful independent self-checks. A learner can
-   copy or download that file, run `python solution.py`, and see its example
-   and successful checks. Reveal the complete code once, alongside its
-   explanation, without another nested file disclosure.
-4. Keep the full corpus, retrieval harness, detailed tests, and project setup
-   together in optional supporting material below the primary learning path.
-   Do not concatenate the entire repository into the primary file. Clearly
-   separate the small example's results from full-corpus evaluation claims.
-   Reproduce every stated metric using the exact package and fixtures that
-   support it. A package download that contains the reference answer must
-   remain behind the solution reveal.
-5. Preserve substantive edge cases. State how oversized indivisible units,
-   separators, offsets, and budgets behave; do not make guarantees the code
-   and checks cannot support. Keep assertions independent of the implementation.
+- Lead with the complete working solution. The learner may study it before
+  attempting anything. Show all the code together, visible by default, with
+  copy and download controls. A single collapsible container is acceptable;
+  never hide the answer behind several files, quizzes, or required attempts.
+- Use one short function when practical, ordinary variables, lists, strings,
+  dictionaries, loops, and conditionals. Use explicit, readable steps. Avoid
+  classes, decorators, regular expressions, clever comprehensions, frameworks,
+  and abstractions unless one is the concept being taught. Explain every
+  unfamiliar Python construct the lesson actually uses.
+- Put a tiny realistic input directly in the same file. Usually three to five
+  short records are enough. Show the exact expected output and run the code to
+  verify it. No external fixtures, environment variables, installation,
+  credentials, network access, or repository navigation in the learning path.
+- Keep the file short enough to study as one example. Do not move an entire
+  project into a single large script. Keep the sample and assertions compact;
+  comprehensive regression tests belong in the repository, off the lesson page.
+- Explain both the Python and the engineering decision. For example, describe
+  what a list starts with, what each loop iteration processes, when a value is
+  appended, and why that branch protects the system's constraint. Trace a small
+  example through the changing variables. Do not merely paraphrase the code.
+- State the input assumptions and the important failure policy. Keep the policy
+  simple and honest. Rejecting an oversized unit can be the right lesson; do not
+  add a parser and fallback framework just to cover every production situation.
+- After the worked example, offer one small variation that changes one behavior.
+  Supply an optional self-contained starter for that variation. Include a hint,
+  the expected result, and an answer that is easy to reveal. No directory maze.
+- Finish by naming the reusable pattern and where it helps in AI engineering.
+  Identify limits without turning the lesson into a production system design.
 
-Fable authors the revised example, code, checks, explanations, and narration
-directly. Codex may maintain the shared presentation and validation machinery.
-No arbitrary line limit applies: keep enough code to understand and run the
-repair, and move unrelated infrastructure into the optional project.
+Use this order: short engineering context; tiny input and expected output;
+complete runnable solution; Python walkthrough and a concrete execution trace;
+one optional practice variation; the reusable pattern and its limits.
+Any visual must clarify this exact small example, with matching values and
+labels. Large-corpus charts do not belong in the primary worked lesson.
+
+Do not show a Working files section, module inventory, fixture listing, test
+source, or setup tour. Authoring and verification may use multiple files behind
+the scenes. The learner should not need to see them. An optional advanced
+download at the end is sufficient when that material is worth retaining.
+
+Before delivering, check: Can this learner understand the input immediately,
+read the full solution in one place, run it alone, follow its Python syntax,
+and make one small change without opening another file? If not, reduce the
+scope. Passing repository checks does not establish teaching quality.
+
+Fable authors the example, code, checks, explanation, visual, and narration in
+its main thread. Codex may review correctness and maintain shared delivery
+infrastructure. Do not invent a measured learning gain or guarantee exam results.
+
+## Delivery mechanics for worked lessons
 
 Mark the two primary records in `content.files` with literal `primary: true`,
 one with role `starter` and one with role `reference`. Their sources are still
@@ -95,8 +107,9 @@ imported using `?raw` from the actual Python files, including when those files
 live under `python/src/<package>/` for compatibility with the full suite.
 Every primary script must also work after copying that file alone elsewhere.
 Other file roles and the existing package/fixture/test contract are preserved.
-The shared page renders the primary starter directly, then one reference
-disclosure, and groups the remaining files under optional project details.
+The shared page renders the complete solution first, then the optional practice
+file. Supporting files remain in the repository and advanced download; their
+paths and source are not rendered as a lesson-page inventory.
 Existing unmarked scenarios retain their previous presentation.
 
 Validation must copy each primary script to its own temporary directory with
@@ -107,7 +120,7 @@ set `python.starterExitCode: 0` in `scenario.json` only when the authored
 starter intentionally reports its unfinished state without a failing exit.
 Keep the optional full-project regression suite passing too. Builds generate
 `/downloads/<slug>-project.zip` from the checked Python package; the shared
-page exposes this answer-containing archive inside the solution disclosure.
+page may expose this answer-containing archive as an optional advanced download.
 
 ## Registry and discovery
 
@@ -200,11 +213,11 @@ narration is hash-bound once generated and only the page can be trimmed.
 
 | Key | Value and purpose |
 | --- | --- |
-| `brief` | React content describing the request, context, interfaces, constraints, and success criteria |
-| `starter` | React content explaining environment setup, the starting state, and how to attempt the work |
-| `files` | Literal array of actual source/fixture files, described below |
-| `evidence` | React content explaining checks, measured outputs, failure cases, and limits |
-| `solution` | React content explaining the reference approach and debugging decisions |
+| `brief` | Short engineering context, tiny inline input, expected output, and relevant constraint |
+| `starter` | One optional practice variation, a hint, expected result, and an easy-to-reveal answer |
+| `files` | Internal literal source inventory for validation and downloads; never a learner-facing file list in worked lessons |
+| `evidence` | Concise checks on the small example and its important failure case; comprehensive reports remain off the main lesson page |
+| `solution` | Python syntax walkthrough, a concrete execution trace, and the engineering reason for the decisions |
 | `visual` | React content rendering a pertinent checked diagram or animation |
 | `tradeoffs` | Two or three `{ name, preferWhen, cost }` string records comparing viable alternatives |
 
@@ -213,12 +226,12 @@ is relative to the scenario directory. Import `source` from that exact file
 with `?raw`; do not maintain a copied snippet that can drift from executable
 code. Languages are `python`, `json`, `toml`, or `text`. Roles are `starter`,
 `fixture`, `test`, or `reference`. Include at least one of each role. Starter,
-reference, and test code must be Python under `python/`. Use the reference
-role for solutions so presentation can keep them behind an explicit reveal.
+reference, and test code must be Python under `python/`. The reference role
+identifies the complete solution; the primary reference is visible by default.
 
 React and JavaScript are delivery infrastructure, not alternative exercise
-languages. Reference disclosure controls prevent accidental exposure, not
-inspection of downloaded page assets. Do not advertise a secure interview
+languages. Collapsible code is a reading convenience, not an assessment gate.
+Solutions are available for study from the start. Do not advertise a secure interview
 assessment unless the runtime actually isolates reference answers. Likewise,
 a code listing or editable scratchpad is not an execution environment. Never
 label prepared output as a fresh execution or display an unperformed pass.
@@ -290,6 +303,14 @@ array of `{ section, text }` records. Use only `brief`, `starter`, `files`,
 many prose records as needed. Speak the code explanation and alternatives,
 not executable code, file contents, or interface chrome. Write numbers and
 symbols for listening. Preserve the no-U+2014 rule.
+
+These are storage keys, not a requirement to narrate the old page structure.
+Use the worked-example teaching order. The `starter` material explains the
+optional variation; `files` can briefly establish that the example includes
+all its inputs and runs on its own. Never narrate a directory inventory or
+project setup tour to fill that key. Explain the Python syntax in words under
+`solution`, preserving the complete useful walkthrough without reading code
+punctuation aloud.
 
 The existing narration pipeline supports these section names. It retains the
 internal `puzzle:<slug>` identity and existing source/manifest/receipt paths

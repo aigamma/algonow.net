@@ -40,7 +40,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'A support assistant stopped finding multi-step runbook procedures after ingest switched to fixed-size character windows. Rebuild the chunker so retrieval returns whole answers inside a fixed prompt budget, and prove it on a labeled question set.',
     track: 'rag',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-17', listenMinutes: 10,
     difficulty: 'intermediate',
     durationMinutes: 60,
     skills: ['Structure-aware document chunking', 'BM25 retrieval diagnostics', 'Answer recall at k on labeled spans', 'Prompt budget tradeoffs', 'Offset provenance for citations'],

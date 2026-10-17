@@ -87,6 +87,7 @@ export default function PuzzlePage({ puzzle, content, narrationPlayer = null }) 
 
   return (
     <SiteShell>
+      <div className="wrap legacy-notice"><a href="/legacy/">Legacy classic puzzles</a><span>New: <a href="/">Python AI engineering</a></span></div>
       <div className="wrap">
         <section className="puzzle-hero">
           <p className="eyebrow">
@@ -267,8 +268,8 @@ export default function PuzzlePage({ puzzle, content, narrationPlayer = null }) 
               </a>
             )}
           </div>
-          <a className="btn" href="/#pairs">
-            all pairs
+          <a className="btn" href="/legacy/#pairs">
+            all legacy pairs
           </a>
         </div>
       </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import './theme.css';
 import Home from './pages/Home.jsx';
-import { stampedDay } from './lib/day.js';
 
 // The build prerenders this page into #root, so first paint no longer waits
 // for React to download, parse, and run: the browser paints the header and the
@@ -12,10 +11,14 @@ import { stampedDay } from './lib/day.js';
 // Hydrate when that markup is there and render normally when it is not, which
 // is the dev server, where #root is empty and there is nothing to match.
 const container = document.getElementById('root');
-const day = stampedDay(container);
+// Keep bookmarks into the former homepage's classic collection useful.
+const hash = window.location.hash;
+if (['#pairs', '#new', '#listen'].includes(hash) || hash.startsWith('#cat-')) {
+  window.location.replace(`/legacy/${hash === '#new' ? '#pairs' : hash}`);
+}
 const app = (
   <React.StrictMode>
-    <Home day={day} />
+    <Home />
   </React.StrictMode>
 );
 

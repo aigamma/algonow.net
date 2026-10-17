@@ -5,14 +5,14 @@
 export const SITE_NAME = 'algonow';
 export const SITE_HOST = 'https://algonow.net';
 export const SITE_TAGLINE =
-  'Classical algorithms, paired with the heuristics that steer them.';
+  'AI engineering, solved in Python.';
 export const SOCIAL_CARD = Object.freeze({
-  path: '/social-card-v1.jpg',
-  url: `${SITE_HOST}/social-card-v1.jpg`,
+  path: '/social-card-ai-v1.jpg',
+  url: `${SITE_HOST}/social-card-ai-v1.jpg`,
   width: 1200,
   height: 627,
   type: 'image/jpeg',
-  alt: 'algonow: algorithms, heuristics, and a solved path.',
+  alt: 'algonow: AI engineering, solved in Python. RAG, fine-tuning, distillation, evaluation, and serving.',
 });
 
 // Live pairs, keyed by URL path. `algorithm` is always the control structure
@@ -3638,12 +3638,13 @@ export const LIVE_PUZZLES = Object.values(PUZZLES).sort((a, b) => a.number - b.n
 
 export const VITE_ENTRIES = {
   main: 'index.html',
+  legacy: 'legacy/index.html',
   atlas: 'atlas/index.html',
   ...Object.fromEntries(LIVE_PUZZLES.map((p) => [p.vite, p.html])),
 };
 
 // Non-puzzle pages that still belong in the sitemap.
-export const EXTRA_PAGES = ['/atlas/'];
+export const EXTRA_PAGES = ['/atlas/', '/legacy/'];
 
 export function pairTitle(p) {
   return `${p.algorithm} × ${p.heuristic}`;

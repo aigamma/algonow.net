@@ -1,116 +1,65 @@
-// The homepage ships its markup prerendered, and the browser hydrates it. That
-// only works while one property holds: the markup is a function of the stamped
-// day and nothing else. If any part of the page reads the wall clock during
-// render, the prerendered HTML and the first client render disagree, React
-// throws the prerender away, re-renders the whole tree, and logs a console
-// error, which costs the paint we bought and an audit besides. So the property
-// is tested rather than assumed.
-
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import path from 'node:path';
 import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
-import { LIVE_PUZZLES } from '../src/data/puzzles.js';
+import { build } from 'esbuild';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import { LIVE_PUZZLES, VITE_ENTRIES } from '../src/data/puzzles.js';
 
 let nonce = 0;
-
-async function loadHome(t) {
-  let esbuild;
-  try {
-    esbuild = await import('esbuild');
-  } catch {
-    t.skip('esbuild unavailable');
-    return null;
-  }
-  // Inside the project so the bundle's `react` import resolves normally.
+async function loadPage(name) {
   const cacheDir = path.join('node_modules', '.cache');
   fs.mkdirSync(cacheDir, { recursive: true });
-  const outfile = path.join(cacheDir, `algonow-home-${process.pid}-${nonce++}.mjs`);
-  await esbuild.build({
-    entryPoints: ['src/pages/Home.jsx'],
-    bundle: true,
-    format: 'esm',
-    platform: 'node',
-    jsx: 'automatic',
-    outfile,
-    external: ['react', 'react-dom', 'react/jsx-runtime'],
-    logLevel: 'silent',
+  const outfile = path.join(cacheDir, `algonow-${name}-${process.pid}-${nonce++}.mjs`);
+  await build({
+    entryPoints: [`src/pages/${name}.jsx`], bundle: true, format: 'esm', platform: 'node',
+    jsx: 'automatic', outfile,
+    loader: { '.css': 'empty' },
+    external: ['react', 'react-dom', 'react/jsx-runtime'], logLevel: 'silent',
   });
-  const [{ default: React }, { renderToString }, mod] = await Promise.all([
-    import('react'),
-    import('react-dom/server'),
-    import(pathToFileURL(outfile).href),
-  ]);
+  const { default: Page } = await import(pathToFileURL(outfile).href);
   return {
-    render: (day) =>
-      renderToString(
-        React.createElement(React.StrictMode, null, React.createElement(mod.default, { day })),
-      ),
+    render: () => renderToString(React.createElement(React.StrictMode, null, React.createElement(Page))),
     cleanup: () => fs.rmSync(outfile, { force: true }),
   };
 }
 
-const DAY = 20700; // a fixed day, so the expectations here never drift
-
-test('the prerendered homepage is a function of its stamped day, not of the clock', async (t) => {
-  const home = await loadHome(t);
-  if (!home) return;
-  const realNow = Date.now;
-  try {
-    const first = home.render(DAY);
-    // Set the clock TO the stamped day. This is the pair of readings that has
-    // teeth: the new-puzzle window is open on one side of it and shut on the
-    // other, so a render path that reaches for the clock instead of the day it
-    // was handed produces visibly different markup here.
-    Date.now = () => DAY * 86400000 + 3600000;
-    const onThatDay = home.render(DAY);
-    assert.equal(
-      onThatDay,
-      first,
-      'same day, different clock: the markup must be identical or hydration discards it',
-    );
-    // And a visitor arriving long after the build, the normal case for a static
-    // deploy, must still get exactly what was prerendered.
-    Date.now = () => realNow() + 45 * 86400000;
-    assert.equal(home.render(DAY), first, 'a stale deploy must still render its stamped day');
-  } finally {
-    Date.now = realNow;
-    home.cleanup();
-  }
-});
-
-test('the prerendered homepage carries the whole catalog and an LCP heading', async (t) => {
-  const home = await loadHome(t);
-  if (!home) return;
-  try {
-    const html = home.render(DAY);
-    assert.match(html, /<h1>/, 'the hero heading is the largest paint, so it must be in the HTML');
-    for (const p of LIVE_PUZZLES) {
-      assert.ok(
-        html.includes(`href="/${p.slug}/"`),
-        `${p.slug} is missing from the prerendered homepage`,
-      );
+for (const name of ['Home', 'Legacy']) {
+  test(`${name} prerender remains identical across the build and visitor clocks`, async () => {
+    const page = await loadPage(name);
+    const realNow = Date.now;
+    try {
+      Date.now = () => Date.UTC(2026, 9, 10);
+      const first = page.render();
+      Date.now = () => Date.UTC(2027, 9, 10);
+      assert.ok(page.render() === first, 'later visits must hydrate the original markup without a date stamp');
+      assert.match(first, /<h1(?:\s[^>]*)?>/, 'the collection heading must be present before JavaScript runs');
+    } finally {
+      Date.now = realNow;
+      page.cleanup();
     }
-  } finally {
-    home.cleanup();
-  }
-});
+  });
+}
 
-test('the daily pair advances with the day', async (t) => {
-  const home = await loadHome(t);
-  if (!home) return;
+test('legacy prerender preserves every published lesson URL and retires future-pair promises', async () => {
+  const page = await loadPage('Legacy');
   try {
-    const today = home.render(DAY);
-    const tomorrow = home.render(DAY + 1);
-    const pick = (html) => html.match(/pc-today[\s\S]*?<h3>([\s\S]*?)<\/h3>/)?.[1] ?? null;
-    assert.ok(pick(today), 'the today card renders a pair title');
-    assert.notEqual(
-      pick(tomorrow),
-      pick(today),
-      'a new day must select a new pair, which is what the client corrects after hydration',
-    );
+    const html = page.render();
+    assert.equal(VITE_ENTRIES.legacy, 'legacy/index.html');
+    assert.equal((html.match(/class="pair-card"/g) || []).length, LIVE_PUZZLES.length);
+    for (const puzzle of LIVE_PUZZLES) {
+      assert.ok(html.includes(`href="/${puzzle.slug}/"`), `${puzzle.slug} is missing from the legacy catalog`);
+    }
+    for (const target of ['/atlas/', '/problem/', '/category/', '#listen']) {
+      assert.ok(html.includes(`href="${target}"`), `missing legacy reference link ${target}`);
+    }
+    assert.match(html, /legacy collection/);
+    assert.match(html, /id="pairs"/);
+    assert.match(html, /id="listen"/);
+    assert.doesNotMatch(html, /pc-today|pc-new|on the bench|new this week|ten new puzzles|data-day=/i);
   } finally {
-    home.cleanup();
+    page.cleanup();
   }
 });

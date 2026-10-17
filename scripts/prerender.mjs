@@ -1,17 +1,16 @@
-// The data surface: turn the atlas into thousands of navigable pages.
+// The legacy reference surface: preserve the atlas as navigable pages.
 //
 // Why a separate prerender step rather than Vite entries: 3,500 Rollup inputs
 // would be unbuildable, and these pages need no client JavaScript at all.
 // They are read-only views of committed data, so they ship as static HTML
-// with one shared stylesheet and no application bundle. The only script is a
-// tiny shared helper that expires the new-puzzle pill without hydration.
+// with one shared stylesheet and no application bundle.
 //
 // Run after `vite build`. Emits into dist/.
 import { readdirSync, readFileSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { CATEGORIES, CATEGORY_OF_TOPIC } from '../src/data/atlas-categories.js';
 import { REGISTRY_KEYS } from '../src/data/atlas-registry.js';
+import { LIVE_SCENARIOS } from '../src/data/engineering.js';
 import {
-  NEW_WINDOW_MS,
   PUZZLES,
   SITE_HOST,
   SITE_NAME,
@@ -51,23 +50,11 @@ const esc = (s) =>
 
 const normPhrase = (s) => String(s ?? '').toLowerCase().replace(/\s+/g, ' ').trim();
 
-const recentPuzzleTimes = Object.values(PUZZLES)
-  .map((p) => Date.parse(p.added))
-  .filter((t) => Number.isFinite(t) && Date.now() - t < NEW_WINDOW_MS);
-const newPuzzleScriptTag = recentPuzzleTimes.length
-  ? '<script defer src="/new-puzzles.js"></script>'
-  : '';
-
 function dataNav() {
-  // The shared helper keeps this count synchronized with the auto-expiring
-  // React pill without loading the full registry into thousands of pages.
-  const newPill = recentPuzzleTimes.length
-    ? `<a class="nn" href="/#new">new · <b>${recentPuzzleTimes.length}</b></a>`
-    : '';
   const stable = HEADER_LINKS.map(
     (link) => `<a class="n${link.tone[0]}" href="${link.href}">${esc(link.label)}</a>`,
   ).join('');
-  return `<nav class="dn" aria-label="Site">${newPill}${stable}</nav>`;
+  return `<nav class="dn" aria-label="Site">${stable}</nav>`;
 }
 
 // The same pair normalizer the atlas page and the live-pair check use, so a
@@ -75,10 +62,8 @@ function dataNav() {
 const normPair = (s) =>
   String(s ?? '').toLowerCase().replace(/['’]s\b/g, '').replace(/[^a-z0-9+*]+/g, ' ').trim();
 
-// Normalized (algorithm, heuristic) -> the live lesson. This is the funnel
-// from the prerendered reference surface into the eight real units: an entry
-// that is live as a lesson carries a visible link to it, and the check fails
-// if a live pair ever stops producing one.
+// Normalized (algorithm, heuristic) -> the preserved legacy lesson. Existing
+// lessons keep their original URLs and links from the reference index.
 const LIVE_LESSON = new Map(
   Object.values(PUZZLES).map((p) => [
     `${normPair(p.algorithm)}|${normPair(p.heuristic)}`,
@@ -124,6 +109,8 @@ function loadAtlas() {
 const STYLE = '/data.css';
 
 function page({ title, description, canonical, crumbs, body, head = '' }) {
+  title = `${title.replace(/ · algonow$/, '')} · Legacy atlas · algonow`;
+  description = `Legacy algorithm reference. ${description}`;
   // Head hygiene on every data page: a favicon link (without it, browsers
   // probe /favicon.ico and 404) and, on indexable pages, the same Open Graph
   // and Twitter set the app pages carry so shares unfurl with real text. The
@@ -149,13 +136,14 @@ function page({ title, description, canonical, crumbs, body, head = '' }) {
 <link rel="canonical" href="${SITE_HOST}${canonical}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="${STYLE}">
-${newPuzzleScriptTag}${og}${head}</head><body>
+${og}${head}</head><body>
 <header class="dh"><a class="wm" href="/"><span class="wa">algo</span>now<span class="wt">.net</span></a>${dataNav()}</header>
 <main class="dw">
+<nav class="legacy-nav" aria-label="Legacy reference"><strong>Legacy reference</strong><a href="/legacy/">lessons</a><a href="/atlas/">atlas</a><a href="/problem/">problems</a><a href="/category/">fields</a></nav>
 <nav class="crumbs">${crumbs.map((c) => (c.href ? `<a href="${c.href}">${esc(c.label)}</a>` : `<span>${esc(c.label)}</span>`)).join('<i aria-hidden="true">/</i>')}</nav>
 ${body}
 </main>
-<footer class="df"><p>Every entry is a real named method. Pairs that share a problem are rivals; that is the point. <a href="/">The live lessons ▸</a></p><a class="fa" href="${CREATOR_LINK.href}">${CREATOR_LINK.label}</a></footer>
+<footer class="df"><p>Preserved classic algorithm reference. <a href="/legacy/">Legacy lessons ▸</a> · <a href="/">AI engineering in Python ▸</a></p><a class="fa" href="${CREATOR_LINK.href}">${CREATOR_LINK.label}</a></footer>
 </body></html>`;
 }
 
@@ -170,7 +158,7 @@ function entryLine(e, { showAlgo = true } = {}) {
     : '';
   const heur = e.h ? `<span class="eh">${esc(e.h)}</span>` : '<span class="eh none">standalone</span>';
   const lesson = lessonOf(e.a, e.h);
-  const lessonLink = lesson ? `<a class="lesson" href="${lesson.path}">full lesson ▸</a>` : '';
+  const lessonLink = lesson ? `<a class="lesson" href="${lesson.path}">legacy lesson ▸</a>` : '';
   return `<li>${algo}${heur}${tierTag(e.t)}${lessonLink}<a class="et" href="/topic/${e.topic}/">${esc(e.topic)}</a></li>`;
 }
 
@@ -256,7 +244,7 @@ ${alias?.note ? `<p class="note">${esc(alias.note)}</p>` : ''}
 <section><h2>Pairings in the atlas</h2><ul class="entries">
 ${info.pairs.map((p) => {
   const lesson = lessonOf(p.a, p.h);
-  return `<li><span class="eh">${p.h ? esc(p.h) : 'standalone'}</span>${tierTag(p.t)}<a class="ed" href="${problemHref(p, phraseOwner)}">${esc(p.d)}</a>${lesson ? `<a class="lesson" href="${lesson.path}">full lesson ▸</a>` : ''}<a class="et" href="/topic/${p.topic}/">${esc(p.topic)}</a></li>`;
+  return `<li><span class="eh">${p.h ? esc(p.h) : 'standalone'}</span>${tierTag(p.t)}<a class="ed" href="${problemHref(p, phraseOwner)}">${esc(p.d)}</a>${lesson ? `<a class="lesson" href="${lesson.path}">legacy lesson ▸</a>` : ''}<a class="et" href="/topic/${p.topic}/">${esc(p.topic)}</a></li>`;
 }).join('\n')}
 </ul></section>
 ${rivals.length ? `<section><h2>Rivals: other methods for the same problems</h2><ul class="rivals">
@@ -268,7 +256,7 @@ ${rivals.map((r) => `<li><a href="/algo/${slugify(r)}/">${esc(r)}</a></li>`).joi
       title: `${info.display} · algonow`,
       description: `${info.display}: its pairings, the problems it attacks, and the rival methods that attack the same problems.`,
       canonical: `/algo/${slug}/`,
-      crumbs: [{ label: 'algonow', href: '/' }, { label: 'algorithms', href: '/atlas/' }, { label: info.display }],
+      crumbs: [{ label: 'legacy', href: '/legacy/' }, { label: 'algorithms', href: '/atlas/' }, { label: info.display }],
       body,
     }));
     count++;
@@ -288,7 +276,7 @@ ${rivals.map((r) => `<li><a href="/algo/${slugify(r)}/">${esc(r)}</a></li>`).joi
         title: `${aka} · see ${info.display}`,
         description: `${aka} is another name for ${info.display}.`,
         canonical: `/algo/${slug}/`,
-        crumbs: [{ label: 'algonow', href: '/' }, { label: info.display, href: `/algo/${slug}/` }],
+        crumbs: [{ label: 'legacy', href: '/legacy/' }, { label: info.display, href: `/algo/${slug}/` }],
         head: `<meta http-equiv="refresh" content="0; url=/algo/${slug}/"><meta name="robots" content="noindex,follow">`,
         body: `<h1>${esc(aka)}</h1><p class="aka">Another name for <a href="/algo/${slug}/"><b>${esc(info.display)}</b></a>. Redirecting.</p>`,
       }));
@@ -320,7 +308,7 @@ ${es.map((e) => entryLine(e)).join('\n')}
       title: `${meta.label} · algonow`,
       description: `${entries.length} rival methods for ${meta.label}, with the topic and tier of each.`,
       canonical: `/problem/${slug}/`,
-      crumbs: [{ label: 'algonow', href: '/' }, { label: 'problems', href: '/problem/' }, { label: meta.label }],
+      crumbs: [{ label: 'legacy', href: '/legacy/' }, { label: 'problems', href: '/problem/' }, { label: meta.label }],
       body,
     }));
     count++;
@@ -345,7 +333,7 @@ ${es.map((e) => entryLine(e)).join('\n')}
       title: `${m.retiredLabel} · see ${destLabel}`,
       description: `${m.retiredLabel} was consolidated into ${destLabel}; its phrasings and methods live there.`,
       canonical: `/problem/${m.into}/`,
-      crumbs: [{ label: 'algonow', href: '/' }, { label: 'problems', href: '/problem/' }, { label: destLabel, href: `/problem/${m.into}/` }],
+      crumbs: [{ label: 'legacy', href: '/legacy/' }, { label: 'problems', href: '/problem/' }, { label: destLabel, href: `/problem/${m.into}/` }],
       head: `<meta http-equiv="refresh" content="0; url=/problem/${m.into}/"><meta name="robots" content="noindex,follow">`,
       body: `<h1>${esc(m.retiredLabel)}</h1><p class="aka">Now part of <a href="/problem/${m.into}/"><b>${esc(destLabel)}</b></a>. The problems were one computational contract under two names; every phrasing and method moved there. Redirecting.</p>`,
     }));
@@ -401,7 +389,7 @@ ${es.map((e) => entryLine(e)).join('\n')}
     title: 'Every problem in the atlas · algonow',
     description: `${problemList.length} problems, each with the rival methods that attack it.`,
     canonical: '/problem/',
-    crumbs: [{ label: 'algonow', href: '/' }, { label: 'problems' }],
+    crumbs: [{ label: 'legacy', href: '/legacy/' }, { label: 'problems' }],
     head: '<base href="/problem/">',
     body: `<h1>Problems</h1><p class="lede">${statsLede}</p>\n${azBar}\n<ul class="index">${sections}</ul>`,
   }));
@@ -415,7 +403,7 @@ ${es.map((e) => entryLine(e)).join('\n')}
     title: 'Problems by rival depth · algonow',
     description: 'Every problem in the atlas, deepest rival set first.',
     canonical: '/problem/',
-    crumbs: [{ label: 'algonow', href: '/' }, { label: 'problems', href: '/problem/' }, { label: 'by rivals' }],
+    crumbs: [{ label: 'legacy', href: '/legacy/' }, { label: 'problems', href: '/problem/' }, { label: 'by rivals' }],
     head: '<base href="/problem/"><meta name="robots" content="noindex,follow">',
     body: `<h1>Problems by rival depth</h1><p class="lede">Deepest comparisons first. The same ${byRivals.length} problems <a href="/problem/">A to Z</a>.</p>
 <ul class="index">${byRivals.map((p) => `<li><a href="${p.slug}/">${esc(p.label)}</a><b>${p.n}</b>`).join('')}</ul>`,
@@ -432,7 +420,7 @@ ${es.map((e) => entryLine(e)).join('\n')}
       title: `${key} · algonow`,
       description: `${entries.length} algorithms and algorithm-heuristic pairs in ${key}.`,
       canonical: `/topic/${key}/`,
-      crumbs: [{ label: 'algonow', href: '/' }, { label: cat ? cat.label : 'topics', href: cat ? `/category/${cat.key}/` : '/atlas/' }, { label: key }],
+      crumbs: [{ label: 'legacy', href: '/legacy/' }, { label: cat ? cat.label : 'topics', href: cat ? `/category/${cat.key}/` : '/atlas/' }, { label: key }],
       body,
     }));
     count++;
@@ -466,7 +454,7 @@ ${es.map((e) => entryLine(e)).join('\n')}
       title: `${cat.label} · algonow`,
       description: `${cat.blurb} ${total} entries across ${rows.length} topics.`,
       canonical: `/category/${cat.key}/`,
-      crumbs: [{ label: 'algonow', href: '/' }, { label: 'categories', href: '/category/' }, { label: cat.label }],
+      crumbs: [{ label: 'legacy', href: '/legacy/' }, { label: 'categories', href: '/category/' }, { label: cat.label }],
       body: `<h1>${esc(cat.label)}</h1><p class="lede">${esc(cat.blurb)}</p>
 <section><h2>Topics</h2><ul class="index">${rows.map((r) => `<li><a href="/topic/${r.t}/">${esc(r.t)}</a><b>${r.n}</b></li>`).join('')}</ul></section>
 ${probRows.length ? `<section><h2>Problems attacked from this category</h2><ul class="index">${probRows.map((p) => `<li><a href="/problem/${p.slug}/">${esc(p.label)}</a><b>${p.n}</b></li>`).join('')}</ul></section>` : ''}`,
@@ -477,18 +465,17 @@ ${probRows.length ? `<section><h2>Problems attacked from this category</h2><ul c
     title: 'Categories · algonow',
     description: 'The twenty top-level fields of the atlas.',
     canonical: '/category/',
-    crumbs: [{ label: 'algonow', href: '/' }, { label: 'categories' }],
+    crumbs: [{ label: 'legacy', href: '/legacy/' }, { label: 'categories' }],
     body: `<h1>Categories</h1><ul class="index">${CATEGORIES.map((c) => `<li><a href="/category/${c.key}/">${esc(c.label)}</a><b>${c.topics.length}</b></li>`).join('')}</ul>`,
   }));
   count += 1;
 
   writeFileSync(`${OUT}/data.css`, DATA_CSS);
-  // Always emit this helper because the standalone 404 carries a hidden
-  // placeholder that it reveals only while the current new-puzzle window is
-  // active. The data pages include the script only when they render the pill.
+  // Keep the old helper URL available for cached pages, but retire their
+  // classic-puzzle new badges now that the collection is a legacy archive.
   writeFileSync(
     `${OUT}/new-puzzles.js`,
-    `(()=>{const e=document.querySelector('.nn');if(!e)return;const n=[${recentPuzzleTimes.join(',')}].filter(t=>Date.now()-t<${NEW_WINDOW_MS}).length;e.hidden=!n;n?e.querySelector('b').textContent=n:e.remove()})();`,
+    `document.querySelectorAll('.nn').forEach(e=>e.remove());`,
   );
 
   // ---- sitemaps. One file per 40,000 URLs, well inside the 50,000 limit,
@@ -497,9 +484,11 @@ ${probRows.length ? `<section><h2>Problems attacked from this category</h2><ul c
   // crawlers to fetch pages we have already told them to ignore.
   const urls = [
     '/',
+    '/legacy/',
     '/atlas/',
     '/category/',
     '/problem/',
+    ...LIVE_SCENARIOS.map((scenario) => scenario.href),
     ...Object.keys(PUZZLES),
     ...CATEGORIES.map((c) => `/category/${c.key}/`),
     ...topics.map((t) => `/topic/${t.key}/`),
@@ -549,6 +538,7 @@ a{color:var(--algo);text-decoration:none}a:hover{text-decoration:underline}
 .wm{display:inline-flex;align-items:center;min-height:1.46rem;font-size:1.2rem;font-weight:700;letter-spacing:-.02em;line-height:1;color:var(--ink)}.wm .wa{color:var(--algo)}.wm .wt{color:var(--heur)}
 .dn{display:flex;align-items:center;gap:.4rem;min-width:0;overflow-x:auto;scrollbar-width:none}.dn::-webkit-scrollbar{display:none}.dn a{flex:none;border:1px solid;border-radius:99px;padding:.12rem .55rem;font:700 .82rem/1.45 ui-monospace,monospace}.dn a:hover{text-decoration:none}.dn .nb{color:var(--algo);border-color:rgba(93,162,255,.5);background:rgba(93,162,255,.09)}.dn .nw{color:var(--ink);border-color:rgba(232,237,247,.34);background:rgba(232,237,247,.055)}.dn .nn{color:var(--path);border-color:rgba(98,217,138,.5);background:rgba(98,217,138,.1)}
 .dw{max-width:60rem;margin:0 auto;padding:1.5rem 1.25rem 3rem}
+.legacy-nav{display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin-bottom:1rem;font-size:.88rem}.legacy-nav strong{color:var(--dim);font-weight:600}
 .crumbs{font:12px/1.4 ui-monospace,monospace;color:var(--dim);margin-bottom:1.25rem}.crumbs i{margin:0 .5rem;font-style:normal;opacity:.5}
 h1{font-size:1.9rem;letter-spacing:-.02em;margin:.2rem 0 .6rem}
 h2{font:12px/1.4 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:1.8rem 0 .7rem}

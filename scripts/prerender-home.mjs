@@ -1,115 +1,51 @@
-// Prerender the homepage's React tree into dist/index.html.
-//
-// Why: the homepage shipped as an empty <div id="root">, so nothing appeared
-// until React, the vendor chunk, and the 114-pair registry had all downloaded,
-// parsed, and run. Vite already preloads those in parallel, so the cost is not
-// a request waterfall, it is simply that first paint waited on ~80KB of
-// JavaScript. Measured against algonow.net on a throttled phone profile, the
-// prerendered reference surface at /problem/ painted at 1568ms while this page
-// painted at 2422ms: 854ms spent waiting for a framework to draw markup that
-// never changes between visitors. Lighthouse's Speed Index is a blend that
-// weights the observed number at 1.4, so that gap alone was worth roughly 1.2
-// seconds of Speed Index and the difference between 98 and 100 on mobile.
-//
-// This emits markup, not a second implementation: the same components render
-// here and in the browser, and main.jsx hydrates what lands. Hydration only
-// keeps prerendered markup when the first client render reproduces it exactly,
-// so the day this HTML was rendered for is stamped onto #root and the client
-// opens on it. See src/lib/day.js.
-//
-// Run after `vite build`. Rewrites dist/index.html in place.
+// Prerender both collection pages from their real React trees. Neither page
+// depends on the current day, so client hydration needs no date stamp.
+// Run after Vite; lesson pages retain their existing client entry points.
 import { readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { gzipSync } from 'node:zlib';
-import { dayNow } from '../src/lib/day.js';
+import { build } from 'esbuild';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
 
-const PAGE = 'dist/index.html';
+const PAGES = [
+  { name: 'home', source: 'src/pages/Home.jsx', html: 'dist/index.html' },
+  { name: 'legacy', source: 'src/pages/Legacy.jsx', html: 'dist/legacy/index.html' },
+];
 const ROOT_TAG = '<div id="root"></div>';
-const BUNDLE = 'dist/.home-ssr.mjs';
-
 let failures = 0;
-const ok = (msg) => console.log(`PASS ${msg}`);
-const fail = (msg) => {
-  failures += 1;
-  console.error(`FAIL ${msg}`);
-};
 
-const esbuild = await import('esbuild');
+for (const page of PAGES) {
+  const bundle = `dist/.${page.name}-ssr.mjs`;
+  try {
+    await build({
+      entryPoints: [page.source], bundle: true, format: 'esm', platform: 'node',
+      jsx: 'automatic', outfile: bundle,
+      // Vite links the production CSS. Server rendering only needs the tree.
+      loader: { '.css': 'empty' },
+      external: ['react', 'react-dom', 'react/jsx-runtime'], logLevel: 'silent',
+    });
+    const { default: Page } = await import(pathToFileURL(bundle).href);
+    const markup = renderToString(React.createElement(React.StrictMode, null, React.createElement(Page)));
+    const html = readFileSync(page.html, 'utf8');
+    if (!html.includes(ROOT_TAG)) throw new Error(`${page.html} has no empty root to fill`);
+    if (!/<h1(?:\s[^>]*)?>/.test(markup)) throw new Error('rendered markup has no h1');
 
-// Bundle the page for node with React left external, the same shape the
-// motion test uses, so the SSR pass runs the real component tree rather than a
-// copy of it.
-await esbuild.build({
-  entryPoints: ['src/pages/Home.jsx'],
-  bundle: true,
-  format: 'esm',
-  platform: 'node',
-  jsx: 'automatic',
-  outfile: BUNDLE,
-  external: ['react', 'react-dom', 'react/jsx-runtime'],
-  logLevel: 'silent',
-});
-
-try {
-  const [{ default: React }, { renderToString }, page] = await Promise.all([
-    import('react'),
-    import('react-dom/server'),
-    import(pathToFileURL(BUNDLE).href),
-  ]);
-
-  const day = dayNow();
-  // StrictMode here too: it does not change the output, but the client tree is
-  // wrapped in it and the two trees should differ in nothing at all.
-  const markup = renderToString(
-    React.createElement(
-      React.StrictMode,
-      null,
-      React.createElement(page.default, { day }),
-    ),
-  );
-
-  const html = readFileSync(PAGE, 'utf8');
-
-  // Vite modulepreloads the whole module graph, which is right for a page that
-  // cannot paint without it and wrong for this one now. Measured on a
-  // throttled phone profile, ~82KB of preloaded JavaScript shared the pipe with
-  // the render-blocking stylesheet and pushed it from arriving ~40ms after the
-  // HTML to arriving 717ms after it, delaying a paint that no longer needed a
-  // single byte of that JavaScript. Dropping to fetchpriority=low keeps the
-  // early discovery and the parallelism, and just lets the stylesheet go first.
-  // Puzzle pages are still client-rendered and keep their preloads at full
-  // priority, which is why this is done here and not in the Vite config.
-  //
-  // Deleting the preload links outright was measured too, and is worse: the
-  // stylesheet lands 62ms sooner but the chunks are not discovered until
-  // main.js has been fetched and parsed, which pushed hydration out past two
-  // seconds and cost more Speed Index than the paint gained. Observed on the
-  // throttled phone profile: preloads at low priority gave FCP 1983ms and
-  // Speed Index 2278ms, no preloads at all gave 2000ms and 2423ms.
-  const preloads = (html.match(/<link rel="modulepreload"[^>]*>/g) || []).length;
-  const deprioritized = html.replace(
-    /<link rel="modulepreload"/g,
-    '<link rel="modulepreload" fetchpriority="low"',
-  );
-
-  if (!deprioritized.includes(ROOT_TAG)) {
-    fail(`prerender home: ${PAGE} has no ${ROOT_TAG} to fill`);
-  } else if (!markup.includes('<h1>')) {
-    fail('prerender home: rendered markup carries no <h1>, refusing to ship it');
-  } else {
-    const filled = deprioritized.replace(
-      ROOT_TAG,
-      `<div id="root" data-day="${day}">${markup}</div>`,
-    );
-    writeFileSync(PAGE, filled);
+    // Prerendered HTML can paint before JavaScript arrives. Keep modulepreloads
+    // discoverable while yielding network priority to the stylesheet.
+    const preloads = (html.match(/<link rel="modulepreload"[^>]*>/g) || []).length;
+    const filled = html.replace(/<link rel="modulepreload"/g, '<link rel="modulepreload" fetchpriority="low"')
+      .replace(ROOT_TAG, `<div id="root">${markup}</div>`);
+    writeFileSync(page.html, filled);
     const gz = (gzipSync(Buffer.from(filled)).length / 1024).toFixed(1);
-    ok(
-      `prerender home: day ${day}, ${markup.length} bytes of markup, ` +
-        `${preloads} preloads yielded to the stylesheet, ${gz}KB gz page`,
-    );
+    console.log(`PASS prerender ${page.name}: ${markup.length} markup characters, ${preloads} preloads at low priority, ${gz}KB gz page`);
+  } catch (error) {
+    failures += 1;
+    console.error(`FAIL prerender ${page.name}: ${error.message}`);
+  } finally {
+    rmSync(bundle, { force: true });
+    rmSync(bundle.replace(/\.mjs$/, '.css'), { force: true });
   }
-} finally {
-  rmSync(BUNDLE, { force: true });
 }
 
-process.exit(failures ? 1 : 0);
+process.exitCode = failures ? 1 : 0;

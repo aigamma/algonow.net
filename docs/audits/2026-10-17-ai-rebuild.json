@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-17",
+  "scope": "Rebuild the primary site for Python AI architecture and engineering; preserve the entire classic catalog as legacy.",
+  "baseCommit": "572080a614f7ea4ce5465a9115d6794afb55edf3",
+  "repository": "https://github.com/aigamma/algonow.net",
+  "workspace": "C:/projects/algonow.net",
+  "legacy": {
+    "lessons": 205,
+    "collection": "/legacy/",
+    "originalLessonUrlsPreserved": true,
+    "lessonContentModified": false,
+    "recordingsModified": false
+  },
+  "engineering": {
+    "registry": "src/data/engineering.js",
+    "route": "/scenarios/<slug>/",
+    "publishedScenarios": 0,
+    "tracks": [
+      "rag",
+      "data-pipelines",
+      "fine-tuning",
+      "distillation",
+      "evaluation",
+      "serving"
+    ],
+    "authoringGuide": "docs/FABLE_AI_ENGINEERING.md",
+    "contentAuthor": "Fable"
+  },
+  "verification": {
+    "build": "passed",
+    "tests": 117,
+    "testsFailed": 0,
+    "primaryAndReferenceLayoutCases": 35,
+    "legacyLayoutCases": 410,
+    "layoutWidths": [
+      320,
+      375,
+      768,
+      1172,
+      1280,
+      1440
+    ],
+    "overflowFailures": 0,
+    "browserErrors": 0,
+    "publishedCatalogFilterFixture": "passed",
+    "internalAnchorsChecked": 110889,
+    "missingInternalTargets": 0,
+    "sitemapUrls": 3978,
+    "allSitemapTargetsExist": true,
+    "changedTextDashScan": "passed",
+    "narrationSourceHashesPreserved": true
+  },
+  "notes": [
+    "The scenario registry intentionally contains no authored exercises.",
+    "The catalog and scenario UI were tested using isolated fixtures, which are not published content.",
+    "Existing atlas planning warnings were retained.",
+    "Generated narration manifests are independently cached chunks; each recorded lesson loads one additional small module."
+  ]
+}

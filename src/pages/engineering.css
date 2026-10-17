@@ -1,0 +1,100 @@
+/* The AI collection uses its own layout; classic lessons keep their geometry. */
+.engineering-home { max-width: 74rem; }
+.engineering-home section, .scenario-page section { scroll-margin-top: 7rem; }
+.engineering-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 4rem; align-items: center; padding: 5rem 0 4.5rem; }
+.section-kicker { font: 600 .72rem/1.5 var(--font-mono); letter-spacing: .09em; text-transform: uppercase; color: var(--ink-dim); margin: 0 0 1rem; }
+.python-tag { display: inline-block; color: var(--path); border: 1px solid #365b46; border-radius: 4px; padding: .2em .55em; margin-right: .5rem; }
+.engineering-hero h1 { font: 750 clamp(2.6rem, 4.6vw, 3.7rem)/1.12 var(--font-mono); letter-spacing: -.06em; margin: 0 0 1.4rem; }
+.engineering-hero h1 > span { color: var(--algo); }
+.engineering-intro { color: var(--ink-dim); font-size: 1.12rem; line-height: 1.75; max-width: 37rem; }
+.engineering-home .hero-ctas { gap: 1rem 1.4rem; align-items: center; }
+.engineering-home .btn { white-space: normal; text-align: center; }
+.text-link { font: 600 .82rem/1.5 var(--font-mono); }
+.hero-footnote { color: var(--ink-faint); font-size: .8rem; margin: 1.2rem 0 0; }
+.system-map { margin: 0; padding: 1.3rem; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); min-width: 0; box-shadow: 0 22px 70px #0003; }
+.system-map figcaption { display: flex; align-items: center; gap: .55rem; font: 600 .78rem/1.5 var(--font-mono); margin-bottom: 1.8rem; }
+.system-map figcaption > span:last-child { margin-left: auto; font-size: .65rem; color: var(--ink-faint); font-weight: 400; }
+.map-dot { background: var(--algo); width: .45rem; height: .45rem; border-radius: 50%; flex: none; }
+.map-label { font: .65rem/1.5 var(--font-mono); color: var(--ink-dim); letter-spacing: .05em; text-transform: uppercase; }
+.map-lane ol { padding: 0; margin: .6rem 0 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; }
+.map-lane li { position: relative; min-width: 0; padding: .8rem .5rem; background: var(--bg); border: 1px solid #344058; border-radius: 6px; }
+.map-lane li + li::before { content: '→'; position: absolute; left: -.77rem; top: 1.1rem; font-size: .8rem; color: var(--ink-faint); }
+.map-lane b { display: block; font: 600 .73rem/1.6 var(--font-mono); color: var(--ink); }
+.map-lane li span { display: block; font-size: .65rem; line-height: 1.5; color: var(--ink-dim); }
+.map-connection { display: flex; justify-content: flex-end; padding: .55rem 0; font: .65rem/1.5 var(--font-mono); color: var(--algo); }
+.map-check { margin: 1.2rem 0 0; padding-top: .9rem; border-top: 1px solid var(--line); font: .7rem/1.6 var(--font-mono); color: var(--path); }
+.map-check span { margin-right: .5rem; }
+.engineering-section { padding: 2.7rem 0; border-top: 1px solid var(--line-soft); }
+.section-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1rem; margin-bottom: 1.8rem; }
+.section-heading .section-kicker { margin-bottom: .5rem; }
+.engineering-home h2 { font: 700 clamp(1.4rem, 2.5vw, 1.8rem)/1.35 var(--font-mono); letter-spacing: -.04em; margin: 0; }
+.collection-count, .result-count { font: .75rem/1.5 var(--font-mono); color: var(--ink-dim); }
+.collection-empty { display: flex; align-items: center; gap: 1.5rem; border: 1px dashed #374358; padding: 1.7rem; border-radius: 9px; background: #11162270; }
+.empty-symbol { color: var(--algo); font: 1.5rem var(--font-mono); white-space: nowrap; }
+.collection-empty h3 { font: 600 .98rem/1.5 var(--font-mono); margin: 0 0 .45rem; }
+.collection-empty p { max-width: 40rem; margin: 0; color: var(--ink-dim); font-size: .9rem; }
+.collection-empty > a { flex-shrink: 0; margin-left: auto; font: .78rem/1.6 var(--font-mono); }
+.track-grid, .scenario-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.track-card, .scenario-card { min-width: 0; padding: 1.5rem; border: 1px solid var(--line); border-radius: 9px; background: var(--panel); }
+.track-number { font: .75rem/1.5 var(--font-mono); color: var(--algo); }
+.track-card h3, .scenario-card h3 { font: 650 1rem/1.45 var(--font-mono); letter-spacing: -.02em; margin: .9rem 0 .65rem; color: var(--ink); }
+.track-card p, .scenario-card p { color: var(--ink-dim); font-size: .9rem; line-height: 1.7; margin: 0 0 1.4rem; }
+.track-card { display: flex; flex-direction: column; }
+.track-status { font: .68rem/1.6 var(--font-mono); color: var(--ink-faint); margin-top: auto; padding-top: .7rem; border-top: 1px solid var(--line-soft); }
+.practice-section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 5rem; padding-top: 3.4rem; padding-bottom: 3.4rem; }
+.practice-section > div > p:not(.section-kicker) { color: var(--ink-dim); font-size: .95rem; }
+.practice-section > div > .practice-note { font-size: .85rem; color: var(--ink-faint); }
+.practice-steps { list-style: none; margin: 0; padding: 0; }
+.practice-steps li { display: flex; align-items: baseline; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--line-soft); }
+.practice-steps li:first-child { padding-top: 0; }
+.practice-steps li > span { color: var(--algo); font: .75rem var(--font-mono); }
+.practice-steps h3 { font: 600 .9rem/1.6 var(--font-mono); margin: 0 0 .3rem; }
+.practice-steps p { color: var(--ink-dim); font-size: .85rem; margin: 0; }
+.legacy-entrance { border: 1px solid var(--line); background: #11162270; padding: 1.8rem; border-radius: 10px; display: flex; align-items: center; gap: 2rem; margin: 1.4rem 0 0; }
+.legacy-entrance .section-kicker { color: var(--heur); margin-bottom: .6rem; }
+.legacy-entrance h2 { font-size: 1.1rem; }
+.legacy-entrance p:last-child { color: var(--ink-dim); font-size: .88rem; max-width: 43rem; margin-bottom: 0; }
+.legacy-entrance > a { flex-shrink: 0; }
+.scenario-filters { display: flex; flex-wrap: wrap; gap: 1rem; }
+.scenario-filters label { flex: 1 1 14rem; font: .8rem/1.5 var(--font-mono); color: var(--ink-dim); }
+.scenario-filters input, .scenario-filters select { display: block; margin-top: .45rem; padding: .7rem; width: 100%; min-width: 0; font: inherit; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--ink); }
+.scenario-card { display: flex; flex-direction: column; }
+.scenario-card:hover { border-color: var(--algo); text-decoration: none; }
+.scenario-card .section-kicker { margin-bottom: 0; }
+.scenario-meta { color: var(--ink-dim); font: .75rem/1.6 var(--font-mono); margin-top: auto; }
+.scenario-meta > span { float: right; color: var(--algo); }
+.scenario-page { max-width: 66rem; padding-top: 2rem; }
+.scenario-page h1 { font: 700 clamp(1.8rem, 5vw, 2.7rem)/1.25 var(--font-mono); }
+.scenario-page .scenario-lead { color: var(--ink-dim); }
+.scenario-page section { margin: 2.6rem 0; }
+.scenario-page details { margin: 1rem 0; padding: 1.2rem; border: 1px solid var(--line); border-radius: 8px; min-width: 0; }
+.scenario-page summary { cursor: pointer; font: 600 .9rem/1.6 var(--font-mono); color: var(--algo); }
+.scenario-page pre { overflow: auto; max-width: 100%; }
+.scenario-visual { min-width: 0; max-width: 100%; }
+.scenario-visual svg, .scenario-visual img { max-width: 100%; height: auto; }
+.scenario-tradeoffs { padding-left: 1.2rem; }
+.scenario-tradeoffs li { margin: 1.2rem 0; }
+.scenario-tradeoffs p { margin: .3rem 0; }
+@media (max-width: 960px) {
+  .engineering-hero { gap: 2rem; }
+  .collection-empty { flex-wrap: wrap; }
+  .collection-empty > div { flex: 1; min-width: 12rem; }
+  .collection-empty > a { margin-left: 0; }
+  .practice-section { gap: 2.5rem; }
+  .legacy-entrance { align-items: flex-start; flex-direction: column; gap: 1.2rem; }
+}
+@media (max-width: 700px) {
+  .engineering-hero { grid-template-columns: minmax(0, 1fr); padding: 2.5rem 0; }
+  .engineering-hero h1 { font-size: clamp(2.1rem, 8vw, 3.2rem); }
+  .system-map { width: 100%; max-width: 32rem; }
+  .track-grid, .scenario-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .practice-section { grid-template-columns: minmax(0, 1fr); }
+  .engineering-section { padding: 2rem 0; }
+}
+@media (max-width: 450px) {
+  .track-grid, .scenario-grid { grid-template-columns: minmax(0, 1fr); }
+  .collection-empty { padding: 1.2rem; gap: .8rem; }
+  .empty-symbol { display: none; }
+  .system-map { padding: 1rem; }
+  .legacy-entrance { padding: 1.2rem; }
+}

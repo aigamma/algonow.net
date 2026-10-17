@@ -1,225 +1,128 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import SiteShell from '../components/SiteShell.jsx';
-import HeroDemo from '../viz/HeroDemo.jsx';
-import { LIVE_PUZZLES, ROADMAP, pairTitle, puzzlePath, isNewPuzzle } from '../data/puzzles.js';
-import { CATEGORIES } from '../data/atlas-categories.js';
-import { dayNow, dayStart } from '../lib/day.js';
+import { ENGINEERING_TRACKS, LIVE_SCENARIOS } from '../data/engineering.js';
+import './engineering.css';
 
-function PairTitle({ algorithm, heuristic }) {
+const PRACTICE_STEPS = [
+  ['Understand the system', 'Read the brief, trace the data, and identify the constraints.'],
+  ['Work in Python', 'Build or repair the implementation using the supplied files.'],
+  ['Prove the result', 'Run tests, inspect failures, and check the quality of the output.'],
+  ['Explain the choices', 'Compare alternatives and defend the engineering tradeoffs.'],
+];
+
+function SystemMap() {
   return (
-    <h3>
-      <span className="t-algo">{algorithm}</span>
-      <span className="t-x">×</span>
-      <span className="t-heur">{heuristic}</span>
-    </h3>
+    <figure className="system-map">
+      <figcaption><span className="map-dot" /> RAG architecture <span>example</span></figcaption>
+      <div className="map-lane">
+        <span className="map-label">prepare the knowledge</span>
+        <ol>
+          <li><b>Documents</b><span>load &amp; clean</span></li>
+          <li><b>Chunks</b><span>split &amp; embed</span></li>
+          <li><b>Index</b><span>store vectors + text</span></li>
+        </ol>
+      </div>
+      <div className="map-connection"><span>retrieval searches the prepared index</span></div>
+      <div className="map-lane">
+        <span className="map-label">answer a question</span>
+        <ol>
+          <li><b>Retrieve</b><span>embed query &amp; search</span></li>
+          <li><b>Context</b><span>select evidence</span></li>
+          <li><b>Generate</b><span>model + context</span></li>
+        </ol>
+      </div>
+      <p className="map-check"><span aria-hidden="true">↳</span> Evaluate retrieval and answer quality</p>
+    </figure>
   );
 }
 
-// `compact` drops the two meta chips (time, baseline). The full catalog below
-// renders every live pair as prerendered HTML on the homepage, and the chips
-// were about half of each card's gzipped bytes: at 204 pairs the homepage
-// crossed its 24 KB budget (2026-10-10). Of the three remedies the budget
-// comment in scripts/check.mjs names (paginate, trim the cards, accept the
-// slower paint), trimming the catalog cards is the smallest reversible one;
-// the daily pick and the "new this week" cards keep their chips, and every
-// puzzle page still shows its time and baseline.
-function PairCard({ p, now, compact = false }) {
+export function ScenarioCatalog({ scenarios = LIVE_SCENARIOS }) {
+  const [track, setTrack] = useState('all');
+  const [query, setQuery] = useState('');
+  const visible = scenarios.filter((s) => (track === 'all' || s.track === track)
+    && `${s.title} ${s.summary} ${s.skills.join(' ')}`.toLowerCase().includes(query.trim().toLowerCase()));
   return (
-    <a className="pair-card" href={puzzlePath(p)}>
-      <span className="pc-number">
-        <span>
-          puzzle {String(p.number).padStart(2, '0')}
-          {isNewPuzzle(p, now) && <span className="pc-new">new</span>}
-        </span>
-        <span>▶ ~{p.listenMinutes} min</span>
-      </span>
-      <PairTitle algorithm={p.algorithm} heuristic={p.heuristic} />
-      <p className="pc-domain">{p.domain}</p>
-      {!compact && (
-        <span className="pc-meta">
-          <span className="chip">time {p.time}</span>
-          <span className="chip">vs {p.baseline}</span>
-        </span>
+    <section id="scenarios" className="engineering-section" aria-labelledby="scenario-heading">
+      <div className="section-heading">
+        <div><p className="section-kicker">the new collection</p><h2 id="scenario-heading">Engineering scenarios</h2></div>
+        <span className="collection-count">{scenarios.length} published · Python</span>
+      </div>
+      {scenarios.length > 0 ? (
+        <>
+          <div className="scenario-filters">
+            <label>Practice area<select value={track} onChange={(event) => setTrack(event.target.value)}>
+              <option value="all">All areas</option>
+              {ENGINEERING_TRACKS.map((area) => <option key={area.id} value={area.id}>{area.title}</option>)}
+            </select></label>
+            <label>Find a scenario<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search tasks or skills" /></label>
+          </div>
+          <p className="result-count" role="status">{visible.length} scenario{visible.length === 1 ? '' : 's'}</p>
+          <div className="scenario-grid">{visible.map((s) => (
+            <a className="scenario-card" key={s.slug} href={s.href}>
+              <span className="section-kicker">{ENGINEERING_TRACKS.find((area) => area.id === s.track)?.title}</span>
+              <h3>{s.title}</h3><p>{s.summary}</p>
+              <span className="scenario-meta">{s.difficulty} · {s.durationMinutes} min · Python <span aria-hidden="true">↗</span></span>
+            </a>
+          ))}</div>
+          {visible.length === 0 && <p>No scenarios match those filters. Try another area or search term.</p>}
+        </>
+      ) : (
+        <div className="collection-empty">
+          <span className="empty-symbol" aria-hidden="true">[ ]</span>
+          <div><h3>The first AI engineering scenarios are coming.</h3>
+            <p>All new puzzles will focus on building, troubleshooting, or evaluating AI systems in Python. The practice areas below define the new collection.</p>
+          </div>
+          <a href="#tracks">Explore the areas <span aria-hidden="true">↓</span></a>
+        </div>
       )}
-    </a>
+    </section>
   );
 }
 
-// The pairs section groups by atlas category (G7): the registry declares each
-// pair's category and the check derives the truth from the atlas, so this
-// grouping scales without importing atlas data into the homepage chunk. The
-// jump strip means a growing catalog is navigated, not scrolled.
-const GROUPS = CATEGORIES.map((c) => ({
-  key: c.key,
-  label: c.label,
-  pairs: LIVE_PUZZLES.filter((p) => p.category === c.key),
-})).filter((g) => g.pairs.length > 0);
-
-// The daily anchor: the site's purpose is daily exposure, so every visitor
-// sees the same deterministic pick on the same day, with zero storage and
-// zero fetches. UTC days-since-epoch keeps the pick identical across
-// timezones and across visitors.
-export function todaysPair(day = dayNow()) {
-  return LIVE_PUZZLES[day % LIVE_PUZZLES.length];
-}
-
-// `stamped` is the day the served markup was rendered for, handed down from
-// the root element by main.jsx. The first client render has to reproduce that
-// markup exactly or hydration throws it away, so the page opens on the stamped
-// day and only then looks at the clock.
-//
-// The two date-driven things on this page correct differently, on purpose.
-// The daily pair is the site's whole premise, so it adopts the reader's real
-// day one effect after hydration: that swaps text inside a card whose box is
-// already laid out, measured at 0.0004 CLS on a five day stale build.
-//
-// The new-this-week section does not correct, because it is structure rather
-// than text. Letting it appear or vanish after hydration moves every section
-// below it: measured at 0.1209 desktop CLS, over the 0.1 threshold, on top of
-// being a worse thing to watch happen. It is a build-time fact instead, and
-// the next deploy replaces it. A batch of about ten ships every week and the
-// deploy rides along with it, so "the batch this build knows about" and "the
-// batch still inside its seven day window" are the same set except in the day
-// or so before a deploy lands, where a badge lingers rather than flickering.
-export default function Home({ day: stamped = null }) {
-  const buildDay = stamped ?? dayNow();
-  const [day, setDay] = useState(buildDay);
-  useEffect(() => setDay(dayNow()), []);
-
-  const now = dayStart(buildDay);
-  const today = todaysPair(day);
-  const fresh = LIVE_PUZZLES.filter((p) => isNewPuzzle(p, now));
+export default function Home() {
   return (
-    <SiteShell newCount={fresh.length}>
-      <div className="wrap">
-        <section className="home-hero">
+    <SiteShell>
+      <div className="wrap engineering-home">
+        <section className="engineering-hero">
           <div>
-            <h1>
-              Every algorithm worth knowing
-              <br />
-              travels with a <span className="t-heur" style={{ color: 'var(--heur)' }}>heuristic</span>.
-            </h1>
-            <p className="hero-sub">
-              algonow teaches the classics as <strong>pairs</strong>: the control
-              structure that does the bookkeeping, and the guiding rule that
-              gives it direction. Watch each one run live, take the tested
-              Python solution, and <strong>listen</strong> to the whole lesson
-              when your eyes are busy.
-            </p>
+            <p className="section-kicker"><span className="python-tag">Python</span> AI architecture &amp; engineering</p>
+            <h1>AI engineering.<br /><span>Solved in Python.</span></h1>
+            <p className="engineering-intro">Build a RAG pipeline. Troubleshoot retrieval. Set up fine-tuning and distillation. Practice the engineering work that makes AI systems useful.</p>
             <div className="hero-ctas">
-              <a className="btn btn-primary" href="/astar-manhattan/">
-                Start with puzzle 01 · A*
-              </a>
-              <a className="btn" href="#listen">
-                How listening works
-              </a>
+              <a className="btn btn-primary" href="#scenarios">Explore AI scenarios <span aria-hidden="true">↓</span></a>
+              <a className="text-link" href="#practice">How you&apos;ll practice →</a>
             </div>
+            <p className="hero-footnote">Hands-on tasks. Runnable Python. Decisions you can explain.</p>
           </div>
-          <HeroDemo />
+          <SystemMap />
         </section>
-
-        <section id="pairs">
-          <h2 className="eyebrow">today&apos;s pair</h2>
-          <a className="pair-card pc-today" href={puzzlePath(today)}>
-            <span className="pc-number">
-              <span>
-                puzzle {String(today.number).padStart(2, '0')} · today
-                {isNewPuzzle(today, now) && <span className="pc-new">new</span>}
-              </span>
-              <span>▶ Listen · ~{today.listenMinutes} min</span>
-            </span>
-            <PairTitle algorithm={today.algorithm} heuristic={today.heuristic} />
-            <p className="pc-domain">{today.oneLiner}</p>
-          </a>
-
-          {fresh.length > 0 && (
-            <>
-              <h2 className="eyebrow nav-new-target" id="new">
-                new this week
-              </h2>
-              <div className="pairs-grid">
-                {fresh.map((p) => (
-                  <PairCard key={p.slug} p={p} now={now} />
-                ))}
-              </div>
-            </>
-          )}
-
-          <h2 className="eyebrow">the pairs · {LIVE_PUZZLES.length} live</h2>
-          <nav className="cat-strip" aria-label="Jump to a category">
-            {GROUPS.map((g) => (
-              <a key={g.key} className="chip" href={`#cat-${g.key}`}>
-                {g.label} <b className="cat-count">{g.pairs.length}</b>
-              </a>
+        <ScenarioCatalog />
+        <section id="tracks" className="engineering-section" aria-labelledby="tracks-heading">
+          <div className="section-heading"><div><p className="section-kicker">what you&apos;ll work on</p><h2 id="tracks-heading">The systems behind the model</h2></div></div>
+          <div className="track-grid">
+            {ENGINEERING_TRACKS.map((track, index) => (
+              <article className="track-card" key={track.id}>
+                <span className="track-number">0{index + 1}</span>
+                <h3>{track.title}</h3><p>{track.description}</p>
+                <span className="track-status">{LIVE_SCENARIOS.some((s) => s.track === track.id)
+                  ? `${LIVE_SCENARIOS.filter((s) => s.track === track.id).length} published scenarios`
+                  : 'Planned practice area'}</span>
+              </article>
             ))}
-          </nav>
-          {GROUPS.map((g) => (
-            <section key={g.key} className="pairs-group" aria-labelledby={`cat-${g.key}`}>
-              <h3 className="eyebrow cat-head" id={`cat-${g.key}`}>
-                {g.label}
-              </h3>
-              <div className="pairs-grid">
-                {g.pairs.map((p) => (
-                  <PairCard key={p.slug} p={p} now={now} compact />
-                ))}
-              </div>
-            </section>
-          ))}
-
-          {ROADMAP.length > 0 && (
-            <>
-              <h2 className="eyebrow">on the bench</h2>
-              <div className="pairs-grid">
-                {ROADMAP.map((p) => (
-                  <div key={pairTitle(p)} className="pair-card pc-bench" aria-disabled="true">
-                    <span className="pc-number">
-                      <span>soon</span>
-                    </span>
-                    <PairTitle algorithm={p.algorithm} heuristic={p.heuristic} />
-                    <p className="pc-domain">{p.domain}</p>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-        </section>
-
-        <a href="/atlas/" className="atlas-teaser">
-          <div>
-            <span className="at-eyebrow">the atlas</span>
-            <p className="at-headline">
-              Every puzzle above is one pairing from the atlas, this site&apos;s map of
-              real named algorithms and heuristics.{' '}
-              <b>{LIVE_PUZZLES.length} pairings are built out as full lessons</b>, and
-              roughly <b>ten new puzzles land each week</b>.
-            </p>
-            <p className="at-sub">
-              The rest of the map is the queue, not the content: index-card entries with
-              nothing to learn from yet, each already wired to its rivals so tomorrow&apos;s
-              lessons arrive connected. The atlas lives at the link below and in the
-              header on every page.
-            </p>
           </div>
-          <span className="at-cta">browse the atlas →</span>
-        </a>
-
-        <section id="listen" className="doctrine">
-          <h2 className="eyebrow">written twice</h2>
-          <p>
-            Every unit on this site exists in two forms. The page you read is
-            the <strong>tight form</strong>: puzzle card, the pair, the picture,
-            the loop, the trade-offs, the code. The <strong>▶ Listen</strong>{' '}
-            button plays the <strong>spoken form</strong>: a longer narration
-            written for the ear, with numbers spelled out and symbols read as
-            words. Lessons with recorded voices stream their audio; other
-            lessons use your browser&apos;s speech engine.
-          </p>
-          <p>
-            Listening is free for readers and requires no account. Pick a
-            voice and pace in the player. Recorded lessons offer two voices;
-            browser narration uses the voices available on your device.
-          </p>
         </section>
+        <section id="practice" className="engineering-section practice-section" aria-labelledby="practice-heading">
+          <div><p className="section-kicker">practice with a purpose</p><h2 id="practice-heading">Write the code.<br />Explain why it works.</h2>
+            <p>Prepare for the moment when someone is watching you solve a problem: understand the task, make a change, test it, and talk through your reasoning.</p>
+            <p className="practice-note">The scenario format includes a brief, starter files, testable outcomes, a system visual, and a reference solution to reveal when you are ready.</p>
+          </div>
+          <ol className="practice-steps">{PRACTICE_STEPS.map(([title, description], index) => <li key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}</ol>
+        </section>
+        <aside className="legacy-entrance" aria-labelledby="legacy-heading">
+          <div><p className="section-kicker">the original collection · legacy</p><h2 id="legacy-heading">Classic algorithms &amp; heuristics</h2>
+            <p>The original puzzles, Python solutions, visualizations, and recordings now live together in the legacy collection.</p></div>
+          <a className="btn" href="/legacy/">Browse legacy classics →</a>
+        </aside>
       </div>
     </SiteShell>
   );

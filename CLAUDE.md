@@ -3,22 +3,47 @@
 Read this in full at session start. Skim `git log --oneline -15` before
 interpreting any build prompt; recent commits are the canonical disambiguator.
 
+## New learning direction, October 17, 2026
+
+All NEW puzzles are Python AI architecture or AI engineering scenarios:
+retrieval and RAG, data pipelines, fine-tuning, distillation, evaluation, and
+serving. A learner frames an engineering request, works with actual files,
+writes or repairs Python, validates behavior, and explains tradeoffs.
+
+The entire existing 205-lesson algorithm catalog is legacy reference material.
+It remains available but is not the template or backlog for new learning
+content. Unregistered algorithm WIP is also legacy material. Do not publish a
+new standalone algorithm/heuristic pair or rename one as an engineering
+scenario without authoring the actual engineering work.
+
+Use `src/data/engineering.js`, `/scenarios/<slug>/`, and the shared
+`ScenarioPage` contract in `docs/FABLE_AI_ENGINEERING.md`. `LIVE_SCENARIOS`
+drives discovery; it stays empty until a real Fable-authored scenario passes
+all checks. Do not manufacture completed examples to populate the homepage.
+Fable authors exercises, fixtures, Python solutions/tests, explanations,
+visuals, and narration. Metadata, validation, and delivery infrastructure may
+be maintained separately. This prospective policy takes precedence over the
+legacy pair template below.
+
 ## Hard rules
 
 1. **One linear history on `main`. No branches, no PRs, no worktrees.**
    Commit after every completed, verified unit and PUSH IMMEDIATELY; verify
    HEAD==origin. Verbose commit messages: what, where, why, how verified.
-2. **One pair per unit of work, strictly sequential.** Build a puzzle, verify
-   it, commit and push it, then start the next. Never fan out parallel agents
+2. **One authored scenario per unit of work, strictly sequential.** Build a
+   scenario, verify it, commit and push it, then start the next. Never fan out parallel agents
    over the catalog.
 3. **Evidence over assurance.** A unit is done when `npm run build` exits 0,
    `npm run check` passes, and `python solutions/<slug>.py` prints OK. Say
    what was verified and how. `npm run check` runs `npm test` last, which
    SSR-loads the real page data modules: a green build does NOT prove a page
-   renders, since Vite never executes client code at build time.
+   renders, since Vite never executes client code at build time. New scenarios
+   also require `node scripts/check-engineering.mjs --run-python` against the
+   complete authored package; the single-file command above is for legacy units.
 4. **Preserved narration is part of every new puzzle.** The production Kalman
-   pilot is the reference implementation. Starting with puzzle 115, a
-   Fable-authored page is not complete until it has two validated, published
+   pilot is the reference implementation. Every new engineering scenario,
+   as well as legacy puzzles from number 115 onward, is incomplete until it
+   has two validated, published
    Chirp 3 HD tracks over the same complete canonical narration array: female
    Aoede and male Algieba. Aoede is the fresh-reader default. Selecting either
    voice, including returning to Aoede, resets playback to `1.25x`. The only
@@ -48,7 +73,7 @@ interpreting any build prompt; recent commits are the canonical disambiguator.
 7. **Narration is written for the ear.** Spelled-out numbers ("nineteen
    sixty eight"), symbols read as words ("big O of b to the d"), one idea per
    sentence. Visible page text stays tight and may use symbols freely.
-8. **The atlas is the build map, three tiers deep.** CATEGORY (~20, broad, in
+8. **The legacy atlas is a reference map, three tiers deep.** CATEGORY (~20, broad, in
    `atlas-categories.js`) -> TOPIC (one JSON file in `src/data/atlas/`, a
    specific subtopic, target ~100) -> ENTRY (`{a,h,d,t}`, thousands). Keep the
    tiers ~5x apart; grow entries freely, split a topic file past ~60 entries
@@ -88,7 +113,11 @@ interpreting any build prompt; recent commits are the canonical disambiguator.
    other engines are expected and welcome: they audit, they do not author.
    Take as long as this needs. Slow and correct beats fast and padded.
 
-## The unit template
+## The legacy unit template
+
+Use this only when maintaining existing algorithm lessons. New scenarios
+follow `docs/FABLE_AI_ENGINEERING.md` and do not use algorithm/heuristic
+registry fields.
 
 Every pair page renders through `src/components/PuzzlePage.jsx`. A new pair
 includes these authored files (`scripts/check.mjs` enforces lockstep):

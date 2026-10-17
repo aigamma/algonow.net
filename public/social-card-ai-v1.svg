@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627" viewBox="0 0 1200 627">
+  <rect width="1200" height="627" fill="#0a0d13"/>
+  <g font-family="Consolas, monospace">
+    <text x="64" y="82" fill="#e9edf6" font-size="28" font-weight="700"><tspan fill="#5da2ff">algo</tspan>now<tspan fill="#f0b94b">.net</tspan></text>
+    <path d="M64 112H1136" stroke="#232c40"/>
+    <text x="64" y="180" fill="#62d98a" font-size="17" letter-spacing="2">PYTHON AI ARCHITECTURE &amp; ENGINEERING</text>
+    <text x="60" y="278" fill="#e9edf6" font-size="65" font-weight="700" letter-spacing="-3">AI engineering.</text>
+    <text x="60" y="355" fill="#5da2ff" font-size="65" font-weight="700" letter-spacing="-3">Solved in Python.</text>
+    <text x="64" y="416" fill="#9aa5bd" font-family="Segoe UI, sans-serif" font-size="24">Build, troubleshoot, and evaluate AI systems.</text>
+    <g font-size="18" fill="#e9edf6">
+      <rect x="795" y="203" width="341" height="61" rx="8" fill="#111622" stroke="#232c40"/>
+      <text x="817" y="241">RAG &amp; data pipelines</text>
+      <rect x="795" y="278" width="341" height="61" rx="8" fill="#111622" stroke="#232c40"/>
+      <text x="817" y="316">Fine-tuning &amp; distillation</text>
+      <rect x="795" y="353" width="341" height="61" rx="8" fill="#111622" stroke="#232c40"/>
+      <text x="817" y="391">Evaluation &amp; serving</text>
+    </g>
+    <path d="M64 501H1136" stroke="#232c40"/>
+    <text x="64" y="551" fill="#9aa5bd" font-size="18">Engineering scenarios. Runnable Python. Decisions you can explain.</text>
+  </g>
+</svg>

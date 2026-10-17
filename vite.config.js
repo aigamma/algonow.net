@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { LIVE_SCENARIOS } from './src/data/engineering.js';
 import {
   PUZZLES,
   SOCIAL_CARD,
@@ -44,7 +45,15 @@ function seoChromePlugin() {
         const desc = escapeAttr(descMatch[2]);
 
         const puzzle = PUZZLES[path];
-        const jsonLd = puzzle
+        const scenario = LIVE_SCENARIOS.find((entry) => entry.href === path);
+        const jsonLd = scenario
+          ? {
+              '@context': 'https://schema.org', '@type': 'LearningResource',
+              url, name: titleMatch[1], description: descMatch[2],
+              learningResourceType: 'coding exercise', educationalLevel: scenario.difficulty,
+              teaches: scenario.skills, programmingLanguage: 'Python', isAccessibleForFree: true,
+            }
+          : puzzle
           ? {
               '@context': 'https://schema.org',
               '@type': 'LearningResource',
@@ -94,7 +103,10 @@ function seoChromePlugin() {
     <meta name="theme-color" content="#0a0d13" />
 ${jsonLdTag}`;
 
-        return html.replace('</head>', `${inject}  </head>`);
+        // Scaffolds may already declare a canonical. Emit exactly one using
+        // the same derived route as the build and discovery registry.
+        return html.replace(/<link\b(?=[^>]*\brel=["']canonical["'])[^>]*>/gi, '')
+          .replace('</head>', `${inject}  </head>`);
       },
     },
   };
@@ -115,7 +127,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: Object.fromEntries(
-        Object.entries(VITE_ENTRIES).map(([entry, html]) => [
+        Object.entries({ ...VITE_ENTRIES, ...Object.fromEntries(LIVE_SCENARIOS.map(s => [s.vite, s.html])) }).map(([entry, html]) => [
           entry,
           fileURLToPath(new URL(`./${html}`, import.meta.url)),
         ])
@@ -125,6 +137,10 @@ export default defineConfig({
           if (id.includes('node_modules/react-dom/')) return 'vendor';
           if (id.includes('node_modules/react/')) return 'vendor';
           if (id.includes('node_modules/scheduler/')) return 'vendor';
+          // Keep each dependency-free recorded-narration manifest independently
+          // cacheable, outside the lesson's code and authored text chunk.
+          const manifest = id.replace(/\\/g, '/').match(/\/src\/data\/narration\/([a-z0-9-]+)\.json$/);
+          if (manifest) return `narration-${manifest[1]}`;
           return undefined;
         },
       },

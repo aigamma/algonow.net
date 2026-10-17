@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
 import MotionControl from './MotionControl.jsx';
-import { CREATOR_LINK, HEADER_LINKS } from '../data/site-chrome.js';
+import { CREATOR_LINK, HEADER_LINKS, RELATED_LINKS } from '../data/site-chrome.js';
 
 export function Wordmark() {
   return (
@@ -11,29 +10,7 @@ export function Wordmark() {
   );
 }
 
-export default function SiteShell({ children, newCount: given = null }) {
-  // The header's new-puzzle count loads lazily in the browser so the
-  // registry never joins SiteShell's shared chunk (it blew the 20KB
-  // page budget when imported statically); the chunk it lives in is
-  // already cached by every hydrated page.
-  //
-  // A page that already holds the registry passes the count in instead. The
-  // homepage does, which is what lets the pill be prerendered: arriving in the
-  // markup rather than after a dynamic import, it cannot reflow the header.
-  const [loaded, setLoaded] = useState(0);
-  const newCount = given ?? loaded;
-  useEffect(() => {
-    if (given !== null) return undefined;
-    let alive = true;
-    import('../data/puzzles.js')
-      .then(({ LIVE_PUZZLES, isNewPuzzle }) => {
-        if (alive) setLoaded(LIVE_PUZZLES.filter((p) => isNewPuzzle(p)).length);
-      })
-      .catch(() => {});
-    return () => {
-      alive = false;
-    };
-  }, [given]);
+export default function SiteShell({ children }) {
   return (
     <>
       <header className="site-header">
@@ -41,11 +18,6 @@ export default function SiteShell({ children, newCount: given = null }) {
           <Wordmark />
           <div className="site-header-right">
             <nav className="site-nav" aria-label="Site">
-              {newCount > 0 && (
-                <a className="nav-pill nav-new" href="/#new">
-                  new · {newCount}
-                </a>
-              )}
               {HEADER_LINKS.map((link) => (
                 <a
                   key={link.href}
@@ -63,11 +35,14 @@ export default function SiteShell({ children, newCount: given = null }) {
       <main>{children}</main>
       <footer className="site-footer">
         <div className="wrap">
-          <span>algonow.net · algorithms, paired with the heuristics that steer them</span>
+          <span>algonow.net · AI engineering, solved in Python</span>
           <span>
-            written twice: once for your eyes, once for your ears · solutions in{' '}
+            Build, troubleshoot, and evaluate AI systems with{' '}
             <a href="https://www.python.org" rel="noopener">Python</a>
           </span>
+          <nav className="related-links" aria-label="Related sites">
+            {RELATED_LINKS.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
+          </nav>
           <a className="site-footer-author" href={CREATOR_LINK.href}>
             {CREATOR_LINK.label}
           </a>

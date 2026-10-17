@@ -68,12 +68,12 @@ function EntryRow({ e }) {
       </span>
       <span className="ae-domain">{e.d}</span>
       <span className={`ae-tier ae-tier-${e.t}`}>{TIER_LABEL[e.t]}</span>
-      {lesson && <a className="ae-live-tag" href={lesson}>live ▸</a>}
+      {lesson && <a className="ae-live-tag" href={lesson}>legacy lesson ▸</a>}
     </li>
   );
 }
 
-// The atlas: the site's build map, three tiers deep (Category -> Topic ->
+// The legacy atlas: a reference index, three tiers deep (Category -> Topic ->
 // Entry). Instant client-side filter by text (alias-aware), category, and
 // tier, plus a random button that surfaces one algorithm to learn.
 export default function Atlas() {
@@ -120,25 +120,28 @@ export default function Atlas() {
     <SiteShell>
       <div className="wrap">
         <section className="puzzle-hero" style={{ paddingBottom: '0.8rem' }}>
-          <p className="eyebrow" style={{ marginBottom: '0.9rem' }}>the atlas</p>
+          <p className="eyebrow" style={{ marginBottom: '0.9rem' }}>legacy collection</p>
           <h1 style={{ fontSize: 'clamp(1.7rem, 4.5vw, 2.5rem)' }}>
-            <span className="t-algo">{atlasSummary.livePuzzles}</span> puzzles, and the map
-            behind them
+            Classic algorithm atlas
           </h1>
           <p className="hero-oneliner">
-            Every lesson on this site is one pairing from this map: a real named algorithm
-            joined to the heuristic that makes it fly.{' '}
-            <b>{atlasSummary.livePuzzles} pairings are built out as full puzzles</b>: a
-            verified solution, a live figure, a spoken walkthrough: and roughly{' '}
-            <b>ten new puzzles join them each week</b>.
+            The original collection preserves <b>{atlasSummary.livePuzzles} algorithm puzzles</b>,
+            each pairing a named algorithm with a heuristic, a verified Python solution,
+            an interactive figure, and a spoken walkthrough. Browse the{' '}
+            <a href="/legacy/">legacy lessons</a> or explore their reference atlas here.
           </p>
           <p className="hero-oneliner" style={{ marginTop: '0.6rem' }}>
-            The remaining entries: {TOTAL.toLocaleString()} pairings across {TOPIC_COUNT}{' '}
-            topics in {CATEGORY_COUNT} categories: are the queue, not the content. Each is
-            an index card with nothing to learn from yet: an empty pointer, already meshed
-            with its rivals, so each week&apos;s puzzles land connected to the ones before.
-            The categories and problems indexes in the header walk the same map.
+            This reference index contains {TOTAL.toLocaleString()} pairings across{' '}
+            {TOPIC_COUNT} topics in {CATEGORY_COUNT} categories. Some entries link to
+            complete legacy lessons; the rest are reference cards for comparing methods
+            and their rivals. AlgoNow now focuses on{' '}
+            <a href="/">AI engineering in Python</a>.
           </p>
+          <nav aria-label="Legacy reference" style={{ marginTop: '0.8rem' }}>
+            <a href="/legacy/">Legacy lessons</a>{' · '}
+            <a href="/category/">Classic fields</a>{' · '}
+            <a href="/problem/">Classic problems</a>
+          </nav>
         </section>
 
         {pick && (
@@ -152,7 +155,7 @@ export default function Atlas() {
                   <span className="t-heur">{pick.h}</span>
                 </>
               )}
-              {livePath(pick) && <a className="ae-live-tag" href={livePath(pick)}> live ▸</a>}
+              {livePath(pick) && <a className="ae-live-tag" href={livePath(pick)}> legacy lesson ▸</a>}
             </span>
             <span className="ap-meta">
               {pick.topicLabel} · {pick.d} · {TIER_LABEL[pick.t]}
@@ -171,7 +174,7 @@ export default function Atlas() {
             placeholder="filter by name, alias, heuristic, or domain…"
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            aria-label="Filter the atlas"
+            aria-label="Filter the legacy atlas"
           />
           <button type="button" className="btn btn-listen" onClick={roll}>🎲 random</button>
           <button

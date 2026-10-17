@@ -220,7 +220,7 @@ function* walk(dir) {
     else if (/\.(jsx?|mjs|py|md|html|css|toml)$/.test(name)) yield path;
   }
 }
-const EM_DASH = '—';
+const EM_DASH = String.fromCharCode(0x2014);
 let emDashHits = [];
 let banHits = [];
 for (const file of walk('.')) {
@@ -313,12 +313,21 @@ if (!existsSync('dist/assets')) {
   // decision is still the owner's and is flagged in that session's report.
   const homeHtml = readFileSync('dist/index.html', 'utf8');
   budget('html index.html', gz('dist/index.html'), 24 * 1024);
-  if (!/<div id="root" data-day="\d+">\s*<header/.test(homeHtml)) {
-    fail('html index.html: homepage is not prerendered (empty #root or missing day stamp)');
+  if (!/<div id="root">\s*<header/.test(homeHtml)) {
+    fail('html index.html: homepage is not prerendered');
   } else if (!homeHtml.includes('<h1>')) {
     fail('html index.html: prerendered homepage carries no <h1>, so it has no LCP text');
   } else {
-    ok('html index.html: prerendered with a day stamp and an h1');
+    ok('html index.html: prerendered with an h1');
+  }
+  if (!existsSync('dist/legacy/index.html')) fail('legacy collection has no built page');
+  else {
+    const legacyHtml = readFileSync('dist/legacy/index.html', 'utf8');
+    budget('html legacy/index.html', gz('dist/legacy/index.html'), 24 * 1024);
+    for (const p of Object.values(PUZZLES)) {
+      if (!legacyHtml.includes(`href="/${p.slug}/"`)) fail(`legacy collection is missing ${p.slug}`);
+    }
+    if (!/<div id="root">\s*<header/.test(legacyHtml)) fail('legacy collection is not prerendered');
   }
   for (const p of Object.values(PUZZLES)) {
     budget(`html ${p.slug}`, gz(`dist/${p.slug}/index.html`), 2 * 1024);

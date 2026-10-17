@@ -20,6 +20,12 @@ export const PUZZLE_NARRATION_EXCLUDED_FIELDS = Object.freeze([
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 const SECTION_LABELS = Object.freeze({
+  brief: 'Engineering Brief',
+  starter: 'Starting Point',
+  files: 'Working Files',
+  evidence: 'Validation Evidence',
+  solution: 'Reference Approach',
+  visual: 'System Diagram',
   puzzle: 'The Puzzle',
   origins: 'Origins',
   pair: 'The Pair',

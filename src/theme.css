@@ -187,6 +187,8 @@ code, kbd, pre { font-family: var(--font-mono); }
   justify-content: space-between;
 }
 .site-footer a { color: var(--ink-dim); }
+.related-links { display: flex; flex-wrap: wrap; gap: 1rem; flex-basis: 100%; }
+.legacy-notice { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1rem; padding-top: 1rem; font: .75rem/1.5 var(--font-mono); color: var(--ink-dim); }
 .site-footer .site-footer-author {
   flex-basis: 100%;
   margin-top: 0.2rem;
@@ -1592,6 +1594,9 @@ code, kbd, pre { font-family: var(--font-mono); }
     grid-column: 1 / -1;
     grid-row: 2;
     padding-bottom: 0.08rem;
+    flex-wrap: wrap;
+    overflow: visible;
+    font-size: .73rem;
   }
   .motion-ctl {
     grid-column: 3;

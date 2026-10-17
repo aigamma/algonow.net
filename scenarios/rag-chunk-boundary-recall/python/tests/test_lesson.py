@@ -143,5 +143,42 @@ class PracticeVariation(unittest.TestCase):
         self.assertEqual(segment(answer, 'if __name__ == "__main__":'), segment(starter, 'if __name__ == "__main__":'))
 
 
+def fixed_windows(text, size, overlap=0):
+    """The approach that shipped: slide a window over the joined text, blind to blocks."""
+    step = size - overlap
+    return [text[start:start + size] for start in range(0, len(text), step)]
+
+
+class ShippedApproachOnTheSameInput(unittest.TestCase):
+    """The evaluation that separates the repair from the bug, on the five blocks."""
+    JOINED = "\n\n".join(block["text"] for block in BLOCKS)   # 463 characters, headings dropped
+
+    def test_fixed_windows_cut_two_of_the_five_blocks(self):
+        self.assertEqual(len(self.JOINED), 463)
+        windows = fixed_windows(self.JOINED, MAX_CHARS)
+        self.assertEqual(len(windows), 3)
+        whole = [number for number, block in enumerate(BLOCKS, start=1)
+                 if any(block["text"] in window for window in windows)]
+        self.assertEqual(whole, [1, 2, 4], "the procedure and the scopes paragraph are cut")
+        self.assertTrue(windows[0].endswith("1. Create a replacement key with the s"), "cut inside step one")
+        self.assertTrue(windows[1].endswith("The read scope cov"), "cut inside the scopes paragraph")
+        packed = pack_blocks(BLOCKS, MAX_CHARS)
+        for block in BLOCKS:
+            self.assertTrue(any(block["text"] in chunk["text"] for chunk in packed), "pack_blocks keeps every block whole")
+
+    def test_overlap_rescues_this_example_only_by_alignment(self):
+        windows = fixed_windows(self.JOINED, MAX_CHARS, overlap=100)
+        self.assertEqual(len(windows), 5)
+        self.assertEqual(sum(len(window) for window in windows), 826, "826 characters indexed for 463 of text")
+        for block in BLOCKS:
+            self.assertTrue(any(block["text"] in window for window in windows))
+        # an overlap of n guarantees whole blocks only up to n + 1 characters: a block that
+        # starts one character before a window boundary is cut by every window that touches it
+        unlucky = "a" * 197 + "\n\n" + "b" * 102 + "\n\n" + "c" * 50
+        self.assertFalse(any("b" * 102 in window for window in fixed_windows(unlucky, 200, overlap=100)))
+        lucky = "a" * 197 + "\n\n" + "b" * 101 + "\n\n" + "c" * 50
+        self.assertTrue(any("b" * 101 in window for window in fixed_windows(lucky, 200, overlap=100)))
+
+
 if __name__ == "__main__":
     unittest.main()

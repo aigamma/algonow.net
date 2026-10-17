@@ -115,10 +115,12 @@ export const content = {
         pack a block that lands on 200 and one that lands on 201.
       </p>
       <p>
-        <strong>Behind the scenes,</strong> the same function was run over six full runbooks and 23 labeled
-        questions through a BM25 index, with the budget enforced at 500: every answer stayed whole (23 of 23,
-        against 9 of 23 for the fixed windows that shipped), and 21 of 23 were retrieved in the top three. The two
-        misses are ranking misses, not cuts. Those tests live in the full project download, not in the lesson.
+        <strong>The shipped approach on the same input.</strong> Join the five texts (463 characters, headings
+        dropped) and cut fixed 200-character windows, and two of the five blocks are cut: the first window ends
+        inside step one of the procedure, the second inside the scopes paragraph. <code>pack_blocks</code> keeps all
+        five whole. A 100-character overlap happens to rescue both on this input, at the price of indexing 826
+        characters for 463 of text; it guarantees only blocks of 101 characters or fewer, and the procedure is 119.
+        Both facts are checked by the tests in the project download.
       </p>
     </>
   ),
@@ -224,7 +226,7 @@ export const content = {
     {
       name: 'Fixed windows with overlap (what shipped, plus the first proposal)',
       preferWhen: 'Text with no structure at all, such as a transcript or an OCR dump, where there are no headings or blocks to pack and something is needed today.',
-      cost: 'On these runbooks a 100-character overlap recalled 12 of 23 answers and still cut nearly half of them, while duplicating text in both the index and the prompt. A boundary problem is not fixed by a bandage over the boundary.',
+      cost: 'On the five-block example a 100-character overlap rescues the cut procedure only by alignment: an overlap of n characters guarantees whole blocks of at most n plus 1, the procedure is 119, and the index holds 826 characters for 463 of text. A boundary problem is not fixed by a bandage over the boundary.',
     },
     {
       name: 'Sentence-level splitting for oversized blocks',

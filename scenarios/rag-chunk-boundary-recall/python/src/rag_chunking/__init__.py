@@ -2,7 +2,7 @@
 
 solution.py is the worked example: it runs alone and prints its exact output.
 starter.py is the optional practice variation (it prints NOT OK as shipped) and
-practice_answer.py is its completed answer. pipeline.py is the behind-the-scenes
-harness that runs the same pack_blocks over six full runbooks and twenty-three
-labeled questions; the tests use it, the lesson does not.
+practice_answer.py is its completed answer. tests/test_lesson.py runs the three
+files alone, compares their output with the fixtures byte for byte, and checks
+the packing rules against the fixed windows that shipped. Nothing else is needed.
 """

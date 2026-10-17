@@ -16,8 +16,30 @@ fail() { echo "SHIP FAILED [$SLUG] at: $1"; exit 1; }
 
 # 0. release state and session
 RDIR="build/narration/releases/$SLUG"
-REL=""; for d in $(ls "$RDIR" 2>/dev/null); do [ -f "$RDIR/$d/manifest-entry.json" ] && REL="$d"; done
-[ -n "$REL" ] || fail "no release directory with a manifest-entry.json (generate first)"
+# The release is the one the CURRENT narration text hashes to, never "the last
+# directory": a rebuilt page leaves its previous release directory in place.
+REL=$(node --input-type=module -e "
+import { buildPuzzleNarrationPlan } from './scripts/narration/puzzle-narration-pipeline.mjs';
+const { narration } = await import('./src/content/$SLUG.narration.js');
+console.log(buildPuzzleNarrationPlan({ slug: '$SLUG', narration, sourcePath: 'src/content/$SLUG.narration.js' }).releasePrefix);" 2>/dev/null)
+[ -n "$REL" ] && [ -f "$RDIR/$REL/manifest-entry.json" ] || fail "release ${REL:-?} for the current narration has no manifest-entry.json (generate first)"
+# A receipt from a previous release of this page would make publish refuse
+# (it is a single-release document). Retire it beside the new one so the
+# bucket's unreferenced objects stay documented, then publish fresh.
+RECEIPT="infra/narration/receipts/$SLUG.json"
+if [ -f "$RECEIPT" ] && ! grep -q "/$REL/" "$RECEIPT"; then
+  OLDREL=$(grep -oE "narration/v1/puzzles/$SLUG/[0-9a-f]+/" "$RECEIPT" | head -1 | awk -F/ '{print $5}')
+  mkdir -p infra/narration/receipts/retired
+  git mv -f "$RECEIPT" "infra/narration/receipts/retired/$SLUG-${OLDREL:-previous}.json" || fail "retire previous receipt"
+  echo "retired the previous release receipt (${OLDREL:-previous}); its objects stay in the bucket unreferenced"
+fi
+# Likewise the public manifest is one release's document: install refuses while
+# a previous release's manifest is on disk, and writes the new one when absent.
+MANIFEST="src/data/narration/$SLUG.json"
+if [ -f "$MANIFEST" ] && ! grep -q "\"release_sha256\": \"$REL" "$MANIFEST"; then
+  git rm -q -f "$MANIFEST" || fail "remove previous public manifest"
+  echo "removed the previous release's public manifest; install writes the new one"
+fi
 STATUSES=$(node -e "const j=require('./$RDIR/$REL/attempt-journal.json');const a=j.attempts;const c={};for(const x of a)c[x.status]=(c[x.status]||0)+1;console.log(a.length+' attempts: '+Object.entries(c).map(([k,v])=>v+' '+k).join(', '))")
 echo "$STATUSES" | grep -q ambiguous && fail "ambiguous attempt present: owner reconciliation only"
 echo "release $REL; $STATUSES"
@@ -25,7 +47,7 @@ aws sts get-caller-identity --region us-east-2 >/dev/null 2>&1 || fail "privileg
 
 # 1. authorize (privileged root session; optional broker rotation)
 AUTH=$(node scripts/narration/authorize-release-objects.mjs --slug "$SLUG" --execute ${BROKER_ARN:+--broker-arn "$BROKER_ARN"} 2>&1)
-echo "$AUTH" | grep -q '"updated": true' || { echo "$AUTH" | tail -8; fail "authorize"; }
+echo "$AUTH" | grep -qE '"(updated|already_authorized)": true' || { echo "$AUTH" | tail -8; fail "authorize"; }   # a rerun finds the objects already authorized
 
 # 2. publish / install / verify as the publisher role
 export AWS_PROFILE=algonow-narration-publisher
@@ -65,7 +87,7 @@ grep -q "/scenarios/$SLUG/" dist/index.html || fail "prerendered home does not l
 echo "build 0; check 0; $CHUNK"
 
 # 5. commit + push
-git add src/data/engineering.js "infra/narration/receipts/$SLUG.json" "src/data/narration/$SLUG.json" || fail "git add"
+git add src/data/engineering.js infra/narration/receipts "src/data/narration/$SLUG.json" || fail "git add"
 git commit -q -F - <<EOF || fail "git commit"
 Scenario published: $SLUG
 
@@ -90,9 +112,9 @@ HEADSHA=$(git rev-parse --short HEAD); OSHA=$(git rev-parse --short origin/main)
 echo "committed $HEADSHA == origin/main"
 
 # 6. deploy to the algonow-net site explicitly, then live verify with retries
-DEP=$(netlify deploy --prod --dir=dist --site "$NETLIFY_SITE_ID" 2>&1); DX=$?
+DEP=$(netlify deploy --prod --dir=dist --site "$NETLIFY_SITE_ID" --no-build --message "Scenario published: $SLUG ($HEADSHA)" 2>&1); DX=$?   # upload the checked dist as is; never let the CLI rebuild
 [ $DX -eq 0 ] || { echo "$DEP" | tail -6; fail "netlify deploy exit $DX"; }
-echo "$DEP" | grep -q "Deploy complete" || { echo "$DEP" | tail -6; fail "netlify deploy did not report completion"; }
+echo "$DEP" | grep -qiE "deploy complete|deploy is live|deployed to production" || { echo "$DEP" | tail -6; fail "netlify deploy did not report completion"; }
 HOME_OK=""; for i in 1 2 3 4 5 6 7 8 9; do
   curl -s -H 'Cache-Control: no-cache' "https://algonow.net/" | grep -q "/scenarios/$SLUG/" && { HOME_OK=1; break; }; sleep 10; done
 [ -n "$HOME_OK" ] || fail "live home does not list the scenario after 90 seconds"

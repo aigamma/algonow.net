@@ -7,7 +7,7 @@
   "engines": { "node": ">=20" },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender.mjs && node scripts/prerender-home.mjs",
+    "build": "vite build && node scripts/prerender.mjs && node scripts/prerender-home.mjs && node scripts/package-engineering.mjs",
     "preview": "vite preview",
     "check": "node scripts/check.mjs && node scripts/check-engineering.mjs && npm test",
     "check:engineering": "node scripts/check-engineering.mjs --include-drafts --run-python",

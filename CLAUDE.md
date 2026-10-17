@@ -25,6 +25,21 @@ visuals, and narration. Metadata, validation, and delivery infrastructure may
 be maintained separately. This prospective policy takes precedence over the
 legacy pair template below.
 
+Owner refinement, October 17, 2026: each engineering puzzle must provide one
+self-contained Python starter and one complete, self-contained Python
+solution as the primary learning path. Both run when copied to a clean
+directory, without a package layout, relative imports, external fixtures,
+credentials, or PYTHONPATH setup. Keep the larger project, data, and evaluation
+suite as optional supporting material. The exercise's difficulty comes from
+the engineering decision and code, not from assembling its files. Follow the
+single-file practice contract in `docs/FABLE_AI_ENGINEERING.md`. Fable remains
+the author of examples, Python code, explanations, tests, and narration.
+The purpose includes studying workable solutions until the owner can think
+and strategize directly in Python as an AI architect. Exam practice is one
+use, not the whole purpose. Keep the full solution easy to find and read,
+optionally behind one clearly labeled spoiler; do not require an attempt,
+quiz, or directory exploration before it can be studied.
+
 ## Hard rules
 
 1. **One linear history on `main`. No branches, no PRs, no worktrees.**

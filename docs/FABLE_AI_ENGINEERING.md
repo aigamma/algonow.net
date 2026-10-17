@@ -23,8 +23,9 @@ write or repair Python, validate behavior, and explain a decision. An isolated
 algorithm problem with an AI-themed title is not sufficient. A track label does
 not prove relevance; Fable must review the actual request and work.
 
-Prefer a small, reproducible local package with real inputs, outputs, failure
-cases, and independently checked expectations. Use deterministic fixtures and
+Lead with a self-contained Python exercise with real inputs, outputs, failure
+cases, and independently checked expectations. Keep the full project package
+as optional supporting material. Use deterministic fixtures and
 explicit seeds. A fixture standing in for a provider response must be described
 as a fixture. Separate measured results from predictions. Optional expensive
 training or provider calls need their own clear prerequisites and authorization;
@@ -32,6 +33,81 @@ the required validation path must run without credentials or paid requests.
 
 Do not invent algorithm/heuristic pairs to fit the old registry. New routes are
 `/scenarios/<slug>/`, and new records belong in `src/data/engineering.js`.
+
+## Single-file practice contract
+
+The owner's October 17 refinement applies to new puzzles and the revision of
+scenario 1. Preserve the concrete AI engineering problem, but present it with
+the immediacy of a traditional Python coding puzzle. The owner is preparing
+for weekly proctored Python exams for AI engineering jobs. Optimize for
+practicing a bounded, useful engineering action in one sitting: one function
+or a small class, clear inputs and outputs, a few meaningful cases, and a
+complete answer that can be evaluated without exploring a directory.
+Choose the scope to fit that practice purpose before creating infrastructure.
+Do not turn a small coding task into a miniature application or repository
+onboarding exercise. If a problem needs several distinct engineering actions,
+split it into separate future puzzles rather than expanding this one.
+
+The owner also wants to think and strategize directly in Python, building a
+repertoire of solutions that informs architectural decisions. Support both
+studying a worked solution and practicing its implementation. The complete
+solution must be easy to find and visible on the page, optionally inside one
+clearly labeled spoiler. Never make it conditional on submitting an attempt,
+answering a quiz, or navigating supporting files. Explain how the code's
+decisions serve the task so the learner can reuse those decisions elsewhere.
+
+The learner's primary path is:
+
+1. State the engineering request, function interface, constraints, and a small
+   input/output example before explaining the implementation.
+2. Supply one primary `starter.py` that runs by itself in a clean directory
+   with Python 3.11 or newer. Include its types, constants, small sample data,
+   and a clear attempt/check command. No relative imports, repository files,
+   PYTHONPATH configuration, credentials, network, or installation are needed
+   for the primary exercise. Make an intentionally failing starter's result
+   explicit and useful. Do not run the reference by default when grading an
+   attempt, and do not reveal the solution algorithm in the getting-started
+   instructions.
+3. Supply one primary `solution.py` containing the complete implementation,
+   a runnable example, and meaningful independent self-checks. A learner can
+   copy or download that file, run `python solution.py`, and see its example
+   and successful checks. Reveal the complete code once, alongside its
+   explanation, without another nested file disclosure.
+4. Keep the full corpus, retrieval harness, detailed tests, and project setup
+   together in optional supporting material below the primary learning path.
+   Do not concatenate the entire repository into the primary file. Clearly
+   separate the small example's results from full-corpus evaluation claims.
+   Reproduce every stated metric using the exact package and fixtures that
+   support it. A package download that contains the reference answer must
+   remain behind the solution reveal.
+5. Preserve substantive edge cases. State how oversized indivisible units,
+   separators, offsets, and budgets behave; do not make guarantees the code
+   and checks cannot support. Keep assertions independent of the implementation.
+
+Fable authors the revised example, code, checks, explanations, and narration
+directly. Codex may maintain the shared presentation and validation machinery.
+No arbitrary line limit applies: keep enough code to understand and run the
+repair, and move unrelated infrastructure into the optional project.
+
+Mark the two primary records in `content.files` with literal `primary: true`,
+one with role `starter` and one with role `reference`. Their sources are still
+imported using `?raw` from the actual Python files, including when those files
+live under `python/src/<package>/` for compatibility with the full suite.
+Every primary script must also work after copying that file alone elsewhere.
+Other file roles and the existing package/fixture/test contract are preserved.
+The shared page renders the primary starter directly, then one reference
+disclosure, and groups the remaining files under optional project details.
+Existing unmarked scenarios retain their previous presentation.
+
+Validation must copy each primary script to its own temporary directory with
+PYTHONPATH unset and run it there. Verify the reference succeeds, and verify
+the starter reports the documented intentional failure without using another
+file. The default expected starter exit code is 1 for an unfinished exercise;
+set `python.starterExitCode: 0` in `scenario.json` only when the authored
+starter intentionally reports its unfinished state without a failing exit.
+Keep the optional full-project regression suite passing too. Builds generate
+`/downloads/<slug>-project.zip` from the checked Python package; the shared
+page exposes this answer-containing archive inside the solution disclosure.
 
 ## Registry and discovery
 

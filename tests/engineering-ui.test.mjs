@@ -201,3 +201,33 @@ test('ScenarioPage passes the preserved-player configuration through unchanged',
   assert.equal(received.listenMinutes, metadata.listenMinutes);
   assert.equal(received.label, `Listen to ${metadata.title}`);
 });
+
+test('single-file practice exposes the starter and reveals the complete reference in one step', () => {
+  const primaryContent = { ...content, files: content.files.map(file =>
+    file.role === 'starter' || file.role === 'reference'
+      ? { ...file, path: `python/src/example/${file.path}`, primary: true } : file) };
+  const html = render(ScenarioPage, { scenario: metadata, content: primaryContent });
+  const starter = sectionHtml(html, 'starter');
+  const solution = sectionHtml(html, 'solution');
+  const files = sectionHtml(html, 'files');
+  assert.match(starter, /STARTER_SOURCE_FIXTURE/);
+  assert.equal(disclosureAncestors(html, 'STARTER_SOURCE_FIXTURE').length, 0);
+  assert.equal(disclosureAncestors(html, 'REFERENCE_SOURCE_FIXTURE').length, 1);
+  assert.equal(disclosureAncestors(html, 'SOLUTION_FIXTURE').length, 1);
+  assert.equal(disclosureAncestors(html, 'CHECK_SOURCE_FIXTURE').length, 2);
+  assert.match(solution, /Reveal the complete solution/);
+  assert.match(html, /Study solution/);
+  assert.doesNotMatch(sectionHtml(html, 'tradeoffs'), /<details/);
+  assert.ok(html.indexOf('id="solution"') < html.indexOf('id="files"'), 'the answer must precede optional project files');
+  assert.doesNotMatch(files, /STARTER_SOURCE_FIXTURE|REFERENCE_SOURCE_FIXTURE/);
+  assert.match(files, /Explore supporting files, fixtures, and tests/);
+  for (const file of primaryContent.files.filter(file => file.primary)) {
+    const section = file.role === 'starter' ? starter : solution;
+    const href = section.match(/href="(data:text\/plain;charset=utf-8,[^"]+)"/)[1];
+    assert.equal(decodeURIComponent(href.split(',')[1]), file.source);
+    assert.ok(section.includes(`download="${file.path.split('/').pop()}"`));
+  }
+  assert.match(solution, /href="\/downloads\/unit-test-card-project.zip"/);
+  assert.equal(disclosureAncestors(html, '/downloads/unit-test-card-project.zip').length, 1, 'the archive contains answers');
+  assert.doesNotMatch(html, /<details[^>]*\sopen(?:\s|=|>)/);
+});

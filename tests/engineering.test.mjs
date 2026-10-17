@@ -59,6 +59,17 @@ tradeoffs:[{name:'A',preferWhen:'Condition A',cost:'Cost A'},{name:'B',preferWhe
   return {root,scenario,paths,directory,write,content,contract,narration,saveContract};
 }
 
+function primaryFixture(t) {
+  const f = fixture(t);
+  f.content = f.content.replace('source:f0','source:f0,primary:true').replace('source:f1','source:f1,primary:true');
+  f.write(f.paths.content,f.content);
+  f.write(`${f.paths.directory}/python/src/probe/starter.py`,"VALUE = None\nif __name__ == '__main__':\n    assert VALUE == 1, 'Implement the exercise'\n");
+  f.write(`${f.paths.directory}/python/src/probe/solution.py`,"VALUE = 1\nif __name__ == '__main__':\n    print('OK: fixture complete')\n");
+  return f;
+}
+
+const runPrimary = f => checkEngineering({root:f.root,scenarios:[f.scenario],includeDrafts:true,runPython:true});
+
 function installSyntheticAudio(f) {
   const plan = buildPuzzleNarrationPlan({slug:f.scenario.slug,narration:f.narration,sourcePath:f.paths.narration});
   const tracks = Object.fromEntries(Object.entries(PUZZLE_NARRATION_VOICES).map(([id,voice]) => {
@@ -138,6 +149,96 @@ test('content files must reference actual raw imports with Python executable rol
   assert.match(validateScenarioContent(f.content.replace('source:f0',"source:'copied snippet'"),{directory:f.directory}).join('\n'),/actual file/);
   assert.match(validateScenarioContent(f.content.replace("language:\"python\"","language:\"text\""),{directory:f.directory}).join('\n'),/must be Python/);
   assert.match(validateScenarioContent('export const content = null;',{directory:f.directory}).join('\n'),/literal content object/);
+});
+
+test('primary selection needs one literal Python starter and reference together', t => {
+  const f = primaryFixture(t);
+  const check = source => validateScenarioContent(source,{directory:f.directory}).join('\n');
+  assert.equal(check(f.content),'');
+  for (const value of ['false','"true"','1','null','undefined','!false']) {
+    assert.match(check(f.content.replace('primary:true',`primary:${value}`)),/primary must be a single literal/);
+  }
+  assert.match(check(f.content.replace('primary:true','primary:true,primary:true')),/primary must be a single literal/);
+  assert.match(check(f.content.replace('primary:true',"['primary']:true")),/primary must be a single literal/);
+  assert.match(check(f.content.replace('primary:true','primary:true,...flags')),/without spreads/);
+  assert.match(check(f.content.replace('primary:true',"primary:true,['pri'+'mary']:false")),/computed properties/);
+  assert.match(check(f.content.replace('source:f1,primary:true','source:f1')),/exactly one primary reference/);
+  assert.match(check(f.content.replace('source:f0,primary:true','source:f0')),/exactly one primary starter/);
+  assert.match(check(f.content.replace('role:"test"','role:"starter"').replace('source:f2','source:f2,primary:true')),/exactly one primary starter/);
+  assert.match(check(f.content.replace('role:"test"','role:"reference"').replace('source:f2','source:f2,primary:true')),/exactly one primary reference/);
+  assert.match(check(f.content.replace('source:f3','source:f3,primary:true')),/primary files must be Python starter or reference/);
+  assert.match(check(f.content.replace('language:"python"','language:"text"')),/primary files must be Python/);
+  assert.match(check(f.content.replace('source:f0',"source:'copied code'")),/source must be imported from the actual file/);
+});
+
+test('starter exit contract accepts only integer zero or one', t => {
+  const f = fixture(t);
+  const check = () => validateScenarioContract(f.contract,f.scenario,{directory:f.directory}).join('\n');
+  assert.equal(check(),'');
+  for (const value of [0,1]) {
+    f.contract.python.starterExitCode = value;
+    assert.equal(check(),'');
+  }
+  for (const value of [-1,2,1.5,'1',false,null]) {
+    f.contract.python.starterExitCode = value;
+    assert.match(check(),/python.starterExitCode must be integer 0 or 1/);
+  }
+});
+
+test('primary files run alone in separate clean directories without inherited Python paths or credentials', async t => {
+  const f = primaryFixture(t);
+  const isolation = "    import os, sys\n    from pathlib import Path\n    assert sys.flags.isolated == 1\n    assert sys.flags.no_site == 1\n    assert 'PYTHONPATH' not in os.environ\n    assert 'ALGONOW_ISOLATION_PROBE' not in os.environ\n    assert {p.name for p in Path.cwd().iterdir()} == {Path(__file__).name}\n";
+  f.write(`${f.paths.directory}/python/src/probe/solution.py`,"VALUE = 1\nif __name__ == '__main__':\n" + isolation + "    Path('reference-run-marker').write_text('test')\n    print('OK')\n");
+  f.write(`${f.paths.directory}/python/src/probe/starter.py`,"VALUE = None\nif __name__ == '__main__':\n" + isolation + "    print('Starter isolation checked')\n");
+  f.contract.python.starterExitCode = 0; f.saveContract();
+  const previous = {PYTHONPATH:process.env.PYTHONPATH,ALGONOW_ISOLATION_PROBE:process.env.ALGONOW_ISOLATION_PROBE};
+  const temporaryNames = () => fs.readdirSync(os.tmpdir()).filter(name => name.startsWith('algonow-standalone-')).sort();
+  const before = temporaryNames();
+  try {
+    process.env.PYTHONPATH = path.join(f.directory,'python','src');
+    process.env.ALGONOW_ISOLATION_PROBE = 'synthetic-test-value';
+    assert.deepEqual((await runPrimary(f)).errors,[]);
+    assert.deepEqual(temporaryNames(),before,'standalone temporary directories must be cleaned up');
+  } finally {
+    for (const [key,value] of Object.entries(previous)) {
+      if (value === undefined) delete process.env[key]; else process.env[key] = value;
+    }
+  }
+});
+
+test('starter intentional assertion is accepted, while a successful starter needs an explicit zero exit contract', async t => {
+  const f = primaryFixture(t);
+  assert.deepEqual((await runPrimary(f)).errors,[]);
+  f.write(`${f.paths.directory}/python/src/probe/starter.py`,'VALUE = None\n');
+  assert.match((await runPrimary(f)).errors.join('\n'),/Primary starter.*expected exit 1, got 0/);
+  f.contract.python.starterExitCode = 0; f.saveContract();
+  assert.deepEqual((await runPrimary(f)).errors,[]);
+});
+
+test('primary reference must succeed and print its own OK marker', async t => {
+  const f = primaryFixture(t);
+  f.write(`${f.paths.directory}/python/src/probe/solution.py`,"VALUE = 1\nif __name__ == '__main__':\n    print('NOT OK')\n");
+  assert.match((await runPrimary(f)).errors.join('\n'),/Primary reference.*must print an OK marker/);
+  f.write(`${f.paths.directory}/python/src/probe/solution.py`,"VALUE = 1\nif __name__ == '__main__':\n    raise AssertionError('Reference failure')\n");
+  assert.match((await runPrimary(f)).errors.join('\n'),/Primary reference.*expected exit 0, got 1/);
+});
+
+test('starter failure from missing sibling imports or fixture files is rejected instead of accepted as expected exit one', async t => {
+  const f = primaryFixture(t);
+  f.write(`${f.paths.directory}/python/src/probe/sibling.py`,'VALUE = 1\n');
+  f.write(`${f.paths.directory}/python/src/probe/fixture.json`,'[1]\n');
+  const bodies = [
+    'import sibling',
+    'from math import nonexistent_algonow_fixture',
+    "from pathlib import Path; Path(__file__).with_name('fixture.json').read_text()",
+    "raise SystemExit('Missing required fixture file: fixture.json')",
+  ];
+  for (const body of bodies) {
+    f.write(`${f.paths.directory}/python/src/probe/starter.py`,"VALUE = None\nif __name__ == '__main__':\n    " + body + '\n');
+    const errors = (await runPrimary(f)).errors.join('\n');
+    assert.match(errors,/Primary starter.*isolated run needs an unavailable import or file/);
+    assert.doesNotMatch(errors,/Python unittest failed/,'the supporting package must still pass');
+  }
 });
 
 test('published scenario is blocked by absent, stale, or incomplete recorded narration', async t => {

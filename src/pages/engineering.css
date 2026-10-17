@@ -80,6 +80,11 @@
 .scenario-page details { margin: 1rem 0; padding: 1.2rem; border: 1px solid var(--line); border-radius: 8px; min-width: 0; }
 .scenario-page summary { cursor: pointer; font: 600 .9rem/1.6 var(--font-mono); color: var(--algo); }
 .scenario-page pre { overflow: auto; max-width: 100%; }
+.primary-file-description { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .75rem; margin: 1rem 0; }
+.primary-file-description p { flex: 1 1 22rem; margin: 0; color: var(--ink-dim); font-size: .9rem; }
+.primary-file-description .btn, .project-download .btn { white-space: normal; max-width: 100%; }
+.primary-python-file { min-width: 0; }
+.scenario-page .supporting-project { background: var(--panel); }
 .scenario-visual { min-width: 0; max-width: 100%; }
 .scenario-visual svg, .scenario-visual img { max-width: 100%; height: auto; }
 .scenario-page table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .88rem; }

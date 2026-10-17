@@ -1,5 +1,6 @@
 // Credential-free publication checks for authored Python engineering scenarios.
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
@@ -43,11 +44,12 @@ function sourceObject(ast, name) {
 const property = (node, key) => node?.properties?.find(p => (p.key?.name ?? p.key?.value) === key)?.value;
 const literal = node => node?.type === 'StringLiteral' ? node.value : undefined;
 
-export function validateScenarioContent(source, { directory, filesExist = fs.existsSync } = {}) {
+function inspectScenarioContent(source, { directory, filesExist = fs.existsSync } = {}) {
   const errors = [];
+  const primaryFiles = [];
   const ast = parse(source, {sourceType:'module',plugins:['jsx']});
   const content = sourceObject(ast, 'content');
-  if (content?.type !== 'ObjectExpression') return ['content.jsx must export a literal content object'];
+  if (content?.type !== 'ObjectExpression') return { errors:['content.jsx must export a literal content object'], primaryFiles };
   for (const section of ENGINEERING_SECTIONS) {
     const value = property(content, section);
     if (!value || value.type === 'NullLiteral' || value.type === 'BooleanLiteral' || (value.type === 'StringLiteral' && !text(value.value))) errors.push(`content.${section} is missing or empty`);
@@ -57,10 +59,23 @@ export function validateScenarioContent(source, { directory, filesExist = fs.exi
   if (files?.type !== 'ArrayExpression' || !files.elements.length) errors.push('content.files must be a nonempty literal array');
   const seen = new Set();
   const roles = new Set();
+  let hasPrimaryFlag = false;
   for (const file of files?.elements || []) {
     const name = literal(property(file,'path'));
     const role = literal(property(file,'role'));
     const language = literal(property(file,'language'));
+    const primaryFlags = file?.properties?.filter(p => (p.key?.name ?? p.key?.value) === 'primary') || [];
+    if (primaryFlags.length) {
+      hasPrimaryFlag = true;
+      if (primaryFlags.length !== 1 || primaryFlags[0].computed
+          || primaryFlags[0].value?.type !== 'BooleanLiteral' || primaryFlags[0].value.value !== true
+          || file.properties.some(p => p.type === 'SpreadElement' || p.computed)) {
+        errors.push(`${name}: primary must be a single literal primary: true property without spreads or computed properties`);
+      } else {
+        if (!['starter','reference'].includes(role) || language !== 'python') errors.push(`${name}: primary files must be Python starter or reference files`);
+        primaryFiles.push({path:name,role});
+      }
+    }
     if (!name || seen.has(name)) errors.push('content.files paths must be nonempty and unique');
     seen.add(name); roles.add(role);
     if (!ROLES.has(role) || !FILE_LANGUAGES.has(language)) errors.push(`${name}: invalid file role or language`);
@@ -76,13 +91,22 @@ export function validateScenarioContent(source, { directory, filesExist = fs.exi
       if (absolute !== importedFile || !filesExist(absolute)) errors.push(`${name}: raw import does not match an existing declared file`);
     } catch (error) { errors.push(error.message); }
   }
+  if (hasPrimaryFlag) {
+    for (const role of ['starter','reference']) {
+      if (primaryFiles.filter(file => file.role === role).length !== 1) errors.push(`content.files must select exactly one primary ${role} together with one primary ${role === 'starter' ? 'reference' : 'starter'}`);
+    }
+  }
   for (const role of ROLES) if (!roles.has(role)) errors.push(`content.files needs a ${role} file`);
   const alternatives = property(content,'tradeoffs');
   if (alternatives?.type !== 'ArrayExpression' || alternatives.elements.length < 2 || alternatives.elements.length > 3) errors.push('content.tradeoffs needs two or three alternatives');
   for (const alternative of alternatives?.elements || []) {
     for (const key of ['name','preferWhen','cost']) if (!text(literal(property(alternative,key)))) errors.push(`Each alternative needs a nonempty ${key}`);
   }
-  return errors;
+  return { errors, primaryFiles };
+}
+
+export function validateScenarioContent(source, options) {
+  return inspectScenarioContent(source,options).errors;
 }
 
 export function validateScenarioContract(contract, scenario, { directory } = {}) {
@@ -95,6 +119,9 @@ export function validateScenarioContract(contract, scenario, { directory } = {})
   for (const key of ['inputs','outputs','constraints','successCriteria']) need(list(contract.system?.[key]), `system.${key} must be a nonempty string array`);
   need(/^[a-z][a-z0-9_]*$/.test(contract.python?.package || ''), 'python.package must be an importable Python package name');
   need(['stdlib','locked'].includes(contract.python?.dependencies), 'python.dependencies must be stdlib or locked');
+  if (Object.hasOwn(contract.python || {},'starterExitCode')) {
+    need(Number.isInteger(contract.python.starterExitCode) && [0,1].includes(contract.python.starterExitCode), 'python.starterExitCode must be integer 0 or 1');
+  }
   const file = relative => {
     try {
       const absolute = resolveScenarioFile(directory,relative);
@@ -169,6 +196,51 @@ function verifyReceipt(receipt,manifest) {
   if (receipt.object_count !== 2 || receipt.page_count !== 1 || receipt.release_count !== 1) throw new Error('Publication receipt counts are invalid');
 }
 
+function checkPrimaryFiles(primaryFiles, {directory,python,starterExitCode=1}) {
+  const errors = [];
+  if (!primaryFiles.length) return errors;
+  const tempRoot = fs.realpathSync(os.tmpdir());
+  // Keep only host runtime settings: no Python import path or credentials from
+  // the author's environment should be needed to run a copied exercise.
+  const runtimeKeys = new Set(['PATH','PATHEXT','SYSTEMROOT','WINDIR','SYSTEMDRIVE','COMSPEC','TEMP','TMP','LANG','LC_ALL','LC_CTYPE']);
+  const env = Object.fromEntries(Object.entries(process.env).filter(([key]) => runtimeKeys.has(key.toUpperCase())));
+  for (const role of ['reference','starter']) {
+    const file = primaryFiles.find(entry => entry.role === role);
+    if (!file) continue;
+    const prefix = `Primary ${file.role} ${file.path}`;
+    const temporary = fs.mkdtempSync(path.join(tempRoot,'algonow-standalone-'));
+    try {
+      const source = resolveScenarioFile(directory,file.path);
+      const filename = path.basename(source);
+      fs.copyFileSync(source,path.join(temporary,filename));
+      const result = spawnSync(python,['-I','-S',filename],{cwd:temporary,env,encoding:'utf8',timeout:30000,maxBuffer:1024*1024});
+      const output = `${result.stdout || ''}\n${result.stderr || ''}`;
+      const detail = (result.error?.message || output.trim() || 'no output').slice(-2000);
+      const expected = file.role === 'reference' ? 0 : starterExitCode;
+      if (result.error || result.signal || result.status !== expected) {
+        errors.push(`${prefix}: isolated run expected exit ${expected}, got ${result.status ?? result.signal ?? 'no exit code'}: ${detail}`);
+      }
+      const missingSetup = /(?:^|\n)[\s|+]*(?:ModuleNotFoundError|ImportError|FileNotFoundError|NotADirectoryError)\s*:|no such file or directory|can't open file|cannot (?:find|open) (?:the )?(?:file|fixture)|(?:^|\n)\s*(?:error:\s*)?(?:(?:missing|required)[^:\r\n]{0,80}(?:file|fixture)|(?:file|fixture)[^\r\n]{0,80}(?:missing|not found))/i;
+      if (result.status !== 0 && missingSetup.test(output)) {
+        errors.push(`${prefix}: isolated run needs an unavailable import or file; embed the required data and remove sibling/package dependencies: ${detail}`);
+      }
+      if (file.role === 'reference' && result.status === 0 && !/^\s*OK\b/m.test(result.stdout || '')) {
+        errors.push(`${prefix}: isolated run must print an OK marker to stdout`);
+      }
+    } catch (error) {
+      errors.push(`${prefix}: isolated run could not complete: ${error.message}`);
+    } finally {
+      // Verify the exact newly-created directory before recursive removal.
+      if (fs.existsSync(temporary)) {
+        const actual = fs.realpathSync(temporary);
+        if (actual !== path.resolve(temporary) || path.dirname(actual) !== tempRoot || !path.basename(actual).startsWith('algonow-standalone-')) throw new Error('Refusing to remove a path other than the standalone check temporary directory');
+        fs.rmSync(temporary,{recursive:true,force:true});
+      }
+    }
+  }
+  return errors;
+}
+
 export async function checkEngineering({root=ROOT,scenarios=SCENARIOS,tracks=ENGINEERING_TRACKS,includeDrafts=false,runPython=false,python=process.env.PYTHON || 'python'}={}) {
   root = fs.realpathSync(root);
   const errors = [], warnings = [], checked = [];
@@ -205,7 +277,8 @@ export async function checkEngineering({root=ROOT,scenarios=SCENARIOS,tracks=ENG
           const contract = JSON.parse(fs.readFileSync(path.join(root,paths.contract),'utf8'));
           local.push(...validateScenarioContract(contract,scenario,{directory}));
           const source = fs.readFileSync(path.join(root,paths.content),'utf8');
-          local.push(...validateScenarioContent(source,{directory}));
+          const contentCheck = inspectScenarioContent(source,{directory});
+          local.push(...contentCheck.errors);
           const entry = fs.readFileSync(path.join(root,paths.main),'utf8');
           for (const token of ['ScenarioPage','content','narrationPlayer','PreservedListenPlayer','narrationManifestProblem']) need(entry.includes(token),`Entry must wire ${token}`);
           need(!/\b(?:speechSynthesis|SpeechSynthesisUtterance)\b|from\s+['"][^'"]*\/ListenPlayer\.jsx/.test(entry),'Scenario narration must never fall back to browser speech');
@@ -226,6 +299,7 @@ export async function checkEngineering({root=ROOT,scenarios=SCENARIOS,tracks=ENG
               env:{...process.env,PYTHONPATH:path.join(directory,'python','src'),PYTHONDONTWRITEBYTECODE:'1'}});
             const output = `${result.stdout || ''}\n${result.stderr || ''}`;
             need(result.status === 0 && /Ran [1-9]\d* tests?/.test(output) && /\bOK\b/.test(output),`Python unittest failed or ran no tests: ${(result.error?.message || output).slice(-2000)}`);
+            local.push(...checkPrimaryFiles(contentCheck.primaryFiles,{directory,python,starterExitCode:contract.python.starterExitCode ?? 1}));
           }
         }
       } catch (error) { local.push(error.message); }

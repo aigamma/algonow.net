@@ -1,7 +1,8 @@
 /* The AI collection uses its own layout; classic lessons keep their geometry. */
 .engineering-home { max-width: 74rem; }
 .engineering-home section, .scenario-page section { scroll-margin-top: 7rem; }
-.engineering-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 4rem; align-items: center; padding: 5rem 0 4.5rem; }
+.engineering-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 340px); gap: 4rem; align-items: center; padding: 5rem 0 4.5rem; }
+.engineering-hero > .hero-demo { width: 100%; max-width: 340px; min-width: 0; }
 .section-kicker { font: 600 .72rem/1.5 var(--font-mono); letter-spacing: .09em; text-transform: uppercase; color: var(--ink-dim); margin: 0 0 1rem; }
 .python-tag { display: inline-block; color: var(--path); border: 1px solid #365b46; border-radius: 4px; padding: .2em .55em; margin-right: .5rem; }
 .engineering-hero h1 { font: 750 clamp(2.6rem, 4.6vw, 3.7rem)/1.12 var(--font-mono); letter-spacing: -.06em; margin: 0 0 1.4rem; }
@@ -11,19 +12,6 @@
 .engineering-home .btn { white-space: normal; text-align: center; }
 .text-link { font: 600 .82rem/1.5 var(--font-mono); }
 .hero-footnote { color: var(--ink-faint); font-size: .8rem; margin: 1.2rem 0 0; }
-.system-map { margin: 0; padding: 1.3rem; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); min-width: 0; box-shadow: 0 22px 70px #0003; }
-.system-map figcaption { display: flex; align-items: center; gap: .55rem; font: 600 .78rem/1.5 var(--font-mono); margin-bottom: 1.8rem; }
-.system-map figcaption > span:last-child { margin-left: auto; font-size: .65rem; color: var(--ink-faint); font-weight: 400; }
-.map-dot { background: var(--algo); width: .45rem; height: .45rem; border-radius: 50%; flex: none; }
-.map-label { font: .65rem/1.5 var(--font-mono); color: var(--ink-dim); letter-spacing: .05em; text-transform: uppercase; }
-.map-lane ol { padding: 0; margin: .6rem 0 0; list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; }
-.map-lane li { position: relative; min-width: 0; padding: .8rem .5rem; background: var(--bg); border: 1px solid #344058; border-radius: 6px; }
-.map-lane li + li::before { content: '→'; position: absolute; left: -.77rem; top: 1.1rem; font-size: .8rem; color: var(--ink-faint); }
-.map-lane b { display: block; font: 600 .73rem/1.6 var(--font-mono); color: var(--ink); }
-.map-lane li span { display: block; font-size: .65rem; line-height: 1.5; color: var(--ink-dim); }
-.map-connection { display: flex; justify-content: flex-end; padding: .55rem 0; font: .65rem/1.5 var(--font-mono); color: var(--algo); }
-.map-check { margin: 1.2rem 0 0; padding-top: .9rem; border-top: 1px solid var(--line); font: .7rem/1.6 var(--font-mono); color: var(--path); }
-.map-check span { margin-right: .5rem; }
 .engineering-section { padding: 2.7rem 0; border-top: 1px solid var(--line-soft); }
 .section-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1rem; margin-bottom: 1.8rem; }
 .section-heading .section-kicker { margin-bottom: .5rem; }
@@ -86,7 +74,6 @@
 @media (max-width: 700px) {
   .engineering-hero { grid-template-columns: minmax(0, 1fr); padding: 2.5rem 0; }
   .engineering-hero h1 { font-size: clamp(2.1rem, 8vw, 3.2rem); }
-  .system-map { width: 100%; max-width: 32rem; }
   .track-grid, .scenario-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .practice-section { grid-template-columns: minmax(0, 1fr); }
   .engineering-section { padding: 2rem 0; }
@@ -95,6 +82,5 @@
   .track-grid, .scenario-grid { grid-template-columns: minmax(0, 1fr); }
   .collection-empty { padding: 1.2rem; gap: .8rem; }
   .empty-symbol { display: none; }
-  .system-map { padding: 1rem; }
   .legacy-entrance { padding: 1.2rem; }
 }

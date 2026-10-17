@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import SiteShell from '../components/SiteShell.jsx';
+import HeroDemo from '../viz/HeroDemo.jsx';
 import { ENGINEERING_TRACKS, LIVE_SCENARIOS } from '../data/engineering.js';
 import './engineering.css';
 
@@ -9,32 +10,6 @@ const PRACTICE_STEPS = [
   ['Prove the result', 'Run tests, inspect failures, and check the quality of the output.'],
   ['Explain the choices', 'Compare alternatives and defend the engineering tradeoffs.'],
 ];
-
-function SystemMap() {
-  return (
-    <figure className="system-map">
-      <figcaption><span className="map-dot" /> RAG architecture <span>example</span></figcaption>
-      <div className="map-lane">
-        <span className="map-label">prepare the knowledge</span>
-        <ol>
-          <li><b>Documents</b><span>load &amp; clean</span></li>
-          <li><b>Chunks</b><span>split &amp; embed</span></li>
-          <li><b>Index</b><span>store vectors + text</span></li>
-        </ol>
-      </div>
-      <div className="map-connection"><span>retrieval searches the prepared index</span></div>
-      <div className="map-lane">
-        <span className="map-label">answer a question</span>
-        <ol>
-          <li><b>Retrieve</b><span>embed query &amp; search</span></li>
-          <li><b>Context</b><span>select evidence</span></li>
-          <li><b>Generate</b><span>model + context</span></li>
-        </ol>
-      </div>
-      <p className="map-check"><span aria-hidden="true">↳</span> Evaluate retrieval and answer quality</p>
-    </figure>
-  );
-}
 
 export function ScenarioCatalog({ scenarios = LIVE_SCENARIOS }) {
   const [track, setTrack] = useState('all');
@@ -94,7 +69,7 @@ export default function Home() {
             </div>
             <p className="hero-footnote">Hands-on tasks. Runnable Python. Decisions you can explain.</p>
           </div>
-          <SystemMap />
+          <HeroDemo />
         </section>
         <ScenarioCatalog />
         <section id="tracks" className="engineering-section" aria-labelledby="tracks-heading">

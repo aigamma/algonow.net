@@ -397,9 +397,12 @@ code, kbd, pre { font-family: var(--font-mono); }
   color: var(--ink-faint);
   padding: 0.5rem 0.3rem 0.1rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.6rem;
 }
+.hero-demo .legend { flex-wrap: wrap; }
+.hero-demo .legend i { white-space: nowrap; }
 
 .legend { display: inline-flex; align-items: center; gap: 0.9em; }
 .legend i {

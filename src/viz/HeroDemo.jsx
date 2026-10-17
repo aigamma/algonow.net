@@ -17,7 +17,7 @@ export default function HeroDemo() {
     {
       width: COLS * CELL,
       height: ROWS * CELL,
-      stepMs: 55,
+      stepMs: 110,
       init: () => ({
         search: makeSearch(makeGrid(COLS, ROWS, 4242 + cycle.current * 271), 1),
         phase: 'search',

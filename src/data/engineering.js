@@ -30,9 +30,23 @@ export function scenarioPaths(slug) {
   });
 }
 
-// Intentionally empty. Infrastructure is not a completed learning scenario.
-// See docs/FABLE_AI_ENGINEERING.md before adding an authored entry.
-export const SCENARIOS = Object.freeze([]);
+// Only Fable-authored scenarios belong here. See docs/FABLE_AI_ENGINEERING.md
+// before adding an entry; a draft stays off Home until its package, visual,
+// and both recorded narration tracks pass every check.
+export const SCENARIOS = Object.freeze([
+  {
+    slug: 'rag-chunk-boundary-recall',
+    title: 'Repair a RAG chunker that splits answers across chunks',
+    summary: 'A support assistant stopped finding multi-step runbook procedures after ingest switched to fixed-size character windows. Rebuild the chunker so retrieval returns whole answers inside a fixed prompt budget, and prove it on a labeled question set.',
+    track: 'rag',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'intermediate',
+    durationMinutes: 60,
+    skills: ['Structure-aware document chunking', 'BM25 retrieval diagnostics', 'Answer recall at k on labeled spans', 'Prompt budget tradeoffs', 'Offset provenance for citations'],
+    authoringModel: 'Claude Fable 5',
+  },
+].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {
   return Object.freeze(scenarios.filter(scenario => scenario.status === 'published').map(scenario => Object.freeze({

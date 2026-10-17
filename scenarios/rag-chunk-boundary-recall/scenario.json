@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "slug": "rag-chunk-boundary-recall",
+  "track": "rag",
+  "language": "python",
+  "system": {
+    "context": "Orbit's internal support assistant answers questions from six Markdown runbooks (API keys, webhooks, data export, single sign-on, rate limits, incident response). Ingest splits each runbook into chunks, a BM25 index ranks chunks against the question, and the top three chunks are pasted into the answering model's prompt under a fixed budget of 500 characters per chunk. A recent simplification replaced the ingest chunker with fixed 500-character windows. Since then, answers to multi-step procedures come back incomplete because the numbered steps are split across chunks and the model writes confident answers from half a procedure.",
+    "request": "Rebuild chunk_document so retrieval returns whole answers again without raising the prompt budget: follow the document's own structure (headings, paragraphs, numbered lists), carry the heading trail as context, keep exact offsets for citations, and prove the repair on the labeled question set with the fixed evaluation harness.",
+    "inputs": [
+      "Six Markdown runbooks under python/fixtures/runbooks/, each with a title, an intro paragraph, and sections that mix short paragraphs with numbered procedures",
+      "Twenty-three labeled questions in python/fixtures/queries.json, each naming its runbook and the first and last words of the verbatim answer span",
+      "The fixed harness in pipeline.py: Document and Chunk records, a suffix-stripping tokenizer, a BM25 index, fixed_window_chunks (the chunker that shipped), and evaluate()"
+    ],
+    "outputs": [
+      "chunk_document(doc, max_chars) returning ordered Chunk records whose body equals doc.text[start:end]",
+      "Chunk.text of at most max_chars characters: the heading trail, a newline, then the body",
+      "An evaluate() report with answer recall at three and the intact rate over the labeled questions, with the budget enforced"
+    ],
+    "constraints": [
+      "Standard library only; no provider calls, no embeddings, no credentials, no network",
+      "The 500-character prompt budget is enforced by evaluate() and must not be raised; a whole-document chunker is rejected",
+      "Chunks are contiguous spans of the original text so citations can point at exact offsets",
+      "Bad budgets and non-string text must raise; an empty or heading-only document yields no chunks"
+    ],
+    "successCriteria": [
+      "Every labeled answer is intact inside one chunk: measured 23 of 23 for the reference, 9 of 23 for fixed windows",
+      "Answer recall at three of at least 0.9: measured 21 of 23 for the reference, 8 of 23 for fixed windows, 12 of 23 for windows with a 100-character overlap",
+      "No chunk text exceeds 500 characters (reference longest: 494) and evaluate() raises BudgetError for a whole-document chunker",
+      "Numbered procedures are never split, oversized paragraphs split at sentence ends with no character lost, and offsets survive Windows line endings"
+    ]
+  },
+  "python": { "package": "rag_chunking", "dependencies": "stdlib" },
+  "fixtures": [
+    { "path": "python/fixtures/queries.json", "description": "Twenty-three labeled questions: id, natural-language query, runbook id, and the first and last words of the verbatim answer span.", "sha256": "f20e77e90160bd2cc47c99fc6544192d6fc63c7f79e23b2b3b0d7548433b82b8" },
+    { "path": "python/fixtures/runbooks/api-keys.md", "description": "Runbook: creating, rotating, and revoking API keys, and key scopes.", "sha256": "46dd9933045ea9e6b4e3c13009a34f71c1816d342f1a3c163314fe780f3335fc" },
+    { "path": "python/fixtures/runbooks/data-export.md", "description": "Runbook: requesting exports, file layout, scheduled exports, and stuck exports.", "sha256": "c941059420559da1881ccc8273503bbadee22f535eaae2b933f687fd570635e6" },
+    { "path": "python/fixtures/runbooks/incidents.md", "description": "Runbook: severity levels, declaring an incident, customer communication, and postmortems.", "sha256": "2282b0aa35041a83ac66d5ae0014082c67269b67e54c1da01278f787da3924de" },
+    { "path": "python/fixtures/runbooks/rate-limits.md", "description": "Runbook: default limits, limit headers, handling a 429, and requesting a higher limit.", "sha256": "f04f77ed6f4dd8c12f2b01eadafbae75f4faf8866c20d09161c4e9ec9be38287" },
+    { "path": "python/fixtures/runbooks/sso.md", "description": "Runbook: configuring SAML, enforcing single sign-on, and break-glass access.", "sha256": "8bd8c2082192311d900ba052d259ab19c914afd9450024ca0a0abd743c6e7949" },
+    { "path": "python/fixtures/runbooks/webhooks.md", "description": "Runbook: delivery and retries, signature verification, and replaying missed events.", "sha256": "b281523cc86989edd1c571450ee666bbdaf3bcd7135549e983368af628c016ae" }
+  ],
+  "checks": [
+    { "id": "offsets-reproduce-bodies", "kind": "correctness", "description": "Every chunk body equals doc.text[start:end], chunks are in document order, and chunk text ends with the body.", "file": "python/tests/test_chunking.py", "function": "test_offsets_reproduce_every_chunk_body" },
+    { "id": "budget-respected", "kind": "correctness", "description": "No chunk text exceeds the 500-character prompt budget on any runbook.", "file": "python/tests/test_chunking.py", "function": "test_every_chunk_fits_the_prompt_budget" },
+    { "id": "procedures-never-split", "kind": "correctness", "description": "Every run of numbered lines in every runbook is contained whole in a single chunk.", "file": "python/tests/test_chunking.py", "function": "test_numbered_procedures_are_never_split" },
+    { "id": "heading-trail", "kind": "correctness", "description": "Chunks carry the heading trail as a breadcrumb, intro text carries only the title, and heading lines never appear in bodies.", "file": "python/tests/test_chunking.py", "function": "test_chunks_carry_their_heading_trail" },
+    { "id": "oversized-paragraph", "kind": "correctness", "description": "A paragraph larger than the budget is split at sentence ends with no character lost and no leading whitespace.", "file": "python/tests/test_chunking.py", "function": "test_oversized_paragraph_is_split_at_sentence_boundaries" },
+    { "id": "crlf-offsets", "kind": "correctness", "description": "Windows line endings produce the same chunk bodies and still valid offsets.", "file": "python/tests/test_chunking.py", "function": "test_windows_line_endings_do_not_corrupt_offsets" },
+    { "id": "deterministic", "kind": "correctness", "description": "Chunking the same document twice gives identical chunks.", "file": "python/tests/test_chunking.py", "function": "test_chunking_is_deterministic" },
+    { "id": "empty-document", "kind": "failure", "description": "Empty and whitespace-only documents yield no chunks instead of an empty chunk.", "file": "python/tests/test_chunking.py", "function": "test_empty_document_yields_no_chunks" },
+    { "id": "invalid-inputs", "kind": "failure", "description": "Zero, negative, too-small, boolean, and fractional budgets raise; non-string text raises TypeError.", "file": "python/tests/test_chunking.py", "function": "test_invalid_budget_and_text_fail_loudly" },
+    { "id": "heading-only", "kind": "failure", "description": "A document made only of headings has nothing to index and yields no chunks.", "file": "python/tests/test_chunking.py", "function": "test_heading_only_document_has_nothing_to_index" },
+    { "id": "fixture-integrity", "kind": "correctness", "description": "Every labeled answer resolves to exactly one verbatim span that leaves room for a heading trail inside the budget.", "file": "python/tests/test_retrieval.py", "function": "test_every_labeled_answer_is_verbatim_and_fits_one_chunk" },
+    { "id": "no-copied-queries", "kind": "evaluation", "description": "No question is a substring of any runbook and no question quotes its answer's opening words, so lexical matching is not handed the answer.", "file": "python/tests/test_retrieval.py", "function": "test_queries_are_paraphrases_not_copied_text" },
+    { "id": "bm25-sanity", "kind": "correctness", "description": "Rarer terms carry more idf, the best lexical match ranks first, unmatched queries return nothing, and the tokenizer lowercases and strips suffixes.", "file": "python/tests/test_retrieval.py", "function": "test_rare_terms_outrank_common_ones" },
+    { "id": "fixed-window-regression", "kind": "failure", "description": "Fixed 500-character windows recall at most half the answers and leave at most half intact (measured 8 and 9 of 23); a 100-character overlap stays at or below 0.7 (measured 12 of 23).", "file": "python/tests/test_retrieval.py", "function": "test_fixed_windows_reproduce_the_reported_regression" },
+    { "id": "whole-document-rejected", "kind": "failure", "description": "A chunker that returns each whole document is rejected by the budget even though it would score perfectly.", "file": "python/tests/test_retrieval.py", "function": "test_whole_documents_are_rejected_even_though_they_would_score_perfectly" },
+    { "id": "answers-intact", "kind": "evaluation", "description": "Every one of the 23 labeled answers sits intact inside some chunk, and the longest chunk text is within budget (measured 494 for the reference).", "file": "python/tests/test_retrieval.py", "function": "test_every_answer_is_intact_in_some_chunk" },
+    { "id": "recall-at-three", "kind": "evaluation", "description": "Answer recall at three is at least 0.9 (measured 21 of 23) and the only misses are the two documented ranking failures, q01 and q19.", "file": "python/tests/test_retrieval.py", "function": "test_answer_recall_at_three_clears_the_bar" }
+  ],
+  "visuals": [
+    {
+      "kind": "svg",
+      "path": "visuals/chunk-boundaries.svg",
+      "description": "The api-keys runbook (1,851 characters) as a character ruler: its five sections and four labeled answers, the fixed 500-character window boundaries cutting three of the four answers, the six structure-aware chunks keeping all four intact, and three bars with the measured recall at three and intact counts over all 23 questions.",
+      "correctness": "Section and answer offsets, the window boundaries at 500, 1000, and 1500, and the six chunk spans (12-223, 242-544, 580-1017, 1043-1161, 1163-1588, 1601-1850) were printed from pipeline.resolve_span, fixed_window_chunks, and solution.chunk_document on the fixture and transcribed by a generator script; the cut/intact coloring follows from those offsets. The bar values 8, 12, 21 (recall) and 9, 12, 23 (intact) are the measured evaluate() results that the cited check asserts.",
+      "check": "recall-at-three"
+    }
+  ]
+}

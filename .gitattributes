@@ -1,0 +1,3 @@
+# Scenario fixtures are hash-bound in scenario.json (SHA-256 over exact bytes).
+# Keep them LF on every checkout so the binding survives core.autocrlf=true.
+scenarios/*/python/fixtures/** text eol=lf

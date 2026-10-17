@@ -96,10 +96,17 @@ node scripts/scaffold-engineering.mjs --slug <registered-draft-slug>
 This creates `index.html` and `main.jsx`, never overwrites existing files, and
 writes no exercise, solution, fixture, or narration. The entry uses
 `src/components/ScenarioPage.jsx` with `{ scenario, content, narrationPlayer }`.
-The preserved player is configured with its component, manifest, media base
-URL, and the actual canonical narration array. The entry fails closed while
-required recorded audio is missing or invalid. Validate authored content and
-Python independently while preparing the complete release.
+The preserved player is configured with its component, manifest, and media base
+URL; the actual canonical narration array is loaded together with the lazy
+player component (it is needed only for the character check and the text
+panel once a reader opens the player), so it does not ride in the page chunk
+next to the whole Python package. The manifest check still runs statically:
+the entry fails closed while required recorded audio is missing or invalid.
+Validate authored content and Python independently while preparing the
+complete release. The page chunk budget (20 KB gzipped, enforced by
+`npm run check`) covers the prose, every `?raw` file, the visual, and
+`ScenarioPage`; estimate it before paying for narration, because the
+narration is hash-bound once generated and only the page can be trimmed.
 
 ## Page content
 

@@ -4,7 +4,7 @@ import { useCanvasLoop, isStill, holdTicks } from '../../../src/viz/useCanvasLoo
 import blocksJson from '../python/fixtures/blocks.json?raw';
 import { W, H, STEP_MS, buildTrace, buildTimeline, sceneAt, drawScene } from './packBlocksModel.js';
 
-// The worked example's loop, played slowly on its own five blocks. The model
+// The worked example's loop, played at a reading pace on its own five blocks. The model
 // (packBlocksModel.js) runs the same loop as solution.py on the same records
 // and lays the decisions on a timeline; this component only drives the canvas,
 // the caption, and the step buttons. The site's motion preference sets the
@@ -102,7 +102,7 @@ export default function PackBlocksViz() {
           ref={canvasRef}
           style={{ aspectRatio: `${W} / ${H}` }}
           role="img"
-          aria-label="The packing loop from the worked example, running slowly on its five blocks"
+          aria-label="The packing loop from the worked example, running at a reading pace on its five blocks"
         />
       </DiagramViewport>
       <p className="viz-caption" aria-live="polite">{snap.caption}</p>

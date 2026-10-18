@@ -1,6 +1,6 @@
 // The lesson's animation, without a DOM: the same loop as solution.py run on the
 // same records (python/fixtures/blocks.json), recorded as a trace, laid out on a
-// slow timeline, and turned into a drawable scene for any moment. Tests compare
+// reading-pace timeline, and turned into a drawable scene for any moment. Tests compare
 // the trace with python/fixtures/expected-trace.json, which the Python suite
 // derives from the real solution, so the picture cannot drift from the code.
 
@@ -88,17 +88,19 @@ export function buildTrace(data) {
 // ---------------------------------------------------------------- timeline
 
 // Seconds at the calm setting: a reading pace, not a movie. Each decision gets
-// a short glide, a short fill, and about two seconds to read its caption; the
-// whole run stays under a minute. The slow motion setting stretches all of it.
-const INTRO = 3.5;
-const INTRO_CUTS_AT = 2;   // when the fixed-window cuts and their caption appear
-const BEAT = 4;            // one block: name it, carry it over, fill the bar, hold
-const GLIDE_AT = 0.3;      // sub-phases inside a beat
-const GLIDE = 0.9;
-const FILL = 0.9;
-const SPLIT_INTRO = 1.2;
-const LINE_BEAT = 2.6;     // the same glide and fill as a block, with a shorter hold
-const OUTRO = 2.5;
+// a short glide, a short fill, and over a second more to read its caption; the
+// whole run is about half a minute. A brisk pace suits these dense, varied
+// steps; what grates is speed applied to repetition, so the five practice
+// lines keep a steadier beat. The slow motion setting stretches all of it.
+const INTRO = 2.8;
+const INTRO_CUTS_AT = 1.5; // when the fixed-window cuts and their caption appear
+const BEAT = 3;            // one block: name it, carry it over, fill the bar, hold
+const GLIDE_AT = 0.25;     // sub-phases inside a beat
+const GLIDE = 0.7;
+const FILL = 0.7;
+const SPLIT_INTRO = 1;
+const LINE_BEAT = 2.2;     // the same glide and fill as a block, with a shorter hold
+const OUTRO = 2;
 
 const ordinal = (n) => ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'][n] || `${n + 1}th`;
 
@@ -178,8 +180,8 @@ export function sceneAt(timeline, trace, data, elapsed) {
 
   // Intro: cards fade in one by one, then the window cuts appear.
   if (beat.kind === 'intro') {
-    cards.forEach((card, index) => { card.alpha = ramp(local, 0.2 + index * 0.3, 0.4); });
-    cuts.forEach((cut, index) => { cut.alpha = ramp(local, INTRO_CUTS_AT + index * 0.4, 0.4); });
+    cards.forEach((card, index) => { card.alpha = ramp(local, 0.15 + index * 0.22, 0.3); });
+    cuts.forEach((cut, index) => { cut.alpha = ramp(local, INTRO_CUTS_AT + index * 0.3, 0.3); });
   } else {
     cuts.forEach((cut) => { cut.alpha = beat.kind === 'step' && beatIndex === 1 ? 1 - ramp(local, 0, 0.5) : 0; });
   }

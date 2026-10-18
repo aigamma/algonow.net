@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "slug": "benchmark-bootstrap-interval",
+  "track": "evaluation",
+  "language": "python",
+  "system": {
+    "context": "Orbit's new assistant model scored 18 of 25 (72 percent) on the internal support benchmark against 17 of 25 (68 percent) for the old one, and the team wanted to ship on the four-point gain. Twenty-five items cannot settle a four-point difference: the two models disagree on only five items, so a handful of lucky draws decides the sign. Shipping on the point estimate alone treats one item's worth of difference as evidence.",
+    "request": "A worked Python example of one action: bootstrap_differences(old, new, resamples, seed). Pair the two per-item result lists with a strict zip, resample the items with replacement using a seeded random.Random, score both models on each resample, collect new accuracy minus old accuracy, and report the 2.5th and 97.5th percentiles (nearest rank) of the 200 differences as a 95 percent interval; if the interval includes zero the gain is not established. The lesson leads with the complete solution over 25 inline results and its exact output, explains the Python construct by construct, traces the first four resamples, measures the ship-on-the-point-estimate decision against the interval, and offers one practice variation: the share of resamples in which the new model is better.",
+    "inputs": [
+      "Two lists of 25 results written inline in solution.py as 1 (right) or 0 (wrong), paired by position: OLD with 17 right and NEW with 18 right; 15 items right for both, 2 only for the old model, 3 only for the new one, 5 wrong for both",
+      "RESAMPLES of 200 and SEED of 5 for random.Random; the practice adds EXPECTED_BETTER, the share of resamples above zero (119 of 200)",
+      "The percentile convention: nearest rank, position round(share / 100 * (count - 1)) on the sorted differences"
+    ],
+    "outputs": [
+      "bootstrap_differences returns a list of 200 floats, new accuracy minus old accuracy per resample; percentile reads the 2.5th and 97.5th: -0.12 and 0.2 for this input",
+      "python solution.py prints the two accuracies, the observed difference of +4.0 points, the resample count and seed, the interval -12.0 to +20.0 points, the verdict that the gain is not established, the rejected shortened list, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it also prints the probability the new model is better (59.5% of resamples) and OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only (random, sys); each lesson file runs alone in an empty directory with python -I -S; no sibling imports, fixtures, credentials, or network",
+      "The resampling is paired (both models scored on the same drawn items) and seeded (the same seed replays the same draws); the generator is a random.Random object, never the module-level functions",
+      "Unequal result lists raise ValueError through zip(strict=True), and zero resamples raise ValueError; the input lists are never modified",
+      "Ordinary Python only: lists, tuples, a for loop with an unused underscore variable, += totals, division, sorted, round, f-strings with percent, sign, and whole-number formats, a chained comparison, a conditional expression, try and except, and assert; random.Random and randrange are the concepts taught; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: 68.0% and 72.0%, +4.0 points, 200 resamples with seed 5, an interval of -12.0 to +20.0 points, the not-established verdict, the rejected line, and OK",
+      "The same seed reproduces the interval (-0.12, 0.2) and seed 7 gives (-0.16, 0.24); every resample draws exactly 25 indices in range and scoring them by hand matches the recorded difference; the percentile helper returns the nearest rank on a known list with Python's round-half-to-even",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt; better_fraction equals 119/200 with the 36 zero differences not counted",
+      "The point estimate alone would ship while the interval includes zero; 1,000 resamples with the same seed still give -0.12 to 0.2; a constructed pair where the new model adds eight right answers gives an interval entirely above zero"
+    ]
+  },
+  "python": {
+    "package": "bootstrap_eval",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "c7b207d84579e69e3f8bf206c64ea0040022f8ed57187442db83ca841e70a7fc"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "f40f5ac86a6586ab4442997a9653676a1937dd3825bb5e8ca4bd65a1fe9a91fd"
+    },
+    {
+      "path": "python/fixtures/results.json",
+      "description": "The two result lists, the resample count, and the seed exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "019c69f1e7b3b3a6a2e2660e6032fc6191ae95c656011632ad32428a328d5030"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "The drawn indices and scores of the first twelve resamples, all 200 differences, the interval, the includes-zero verdict, and the better share, derived from the Python files; the animation rescores the shown resamples from the indices, recomputes the interval and the better share from the differences, and must match this exactly.",
+      "sha256": "1560c072cc0e7be1db940286dd2c5f67462740cfd8805277e537521a22c4bf39"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "accuracies-exact",
+      "kind": "correctness",
+      "description": "The two lists hold 25 results each with 17 and 18 right, accuracies 17/25 and 18/25.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_accuracies_are_seventeen_and_eighteen_of_twenty_five"
+    },
+    {
+      "id": "seeded-and-reproducible",
+      "kind": "correctness",
+      "description": "The same seed replays the same 200 differences and the interval (-0.12, 0.2); seed 7 gives a different interval (-0.16, 0.24).",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_same_seed_reproduces_the_interval_and_another_seed_changes_it"
+    },
+    {
+      "id": "resamples-scored-on-the-same-items",
+      "kind": "correctness",
+      "description": "Replaying the generator, every resample draws exactly 25 indices between 0 and 24, some items repeat, and scoring those indices by hand gives the recorded difference.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_each_resample_draws_twenty_five_indices_in_range_and_scores_them"
+    },
+    {
+      "id": "percentile-nearest-rank",
+      "kind": "correctness",
+      "description": "percentile returns the nearest rank of a sorted copy (0, 4, 9 for the 0th, 50th, and 97.5th of a ten-value list) and the positions 5 and 194 for 200 values.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_percentile_is_the_nearest_rank_of_the_sorted_list"
+    },
+    {
+      "id": "interval-brackets-and-includes-zero",
+      "kind": "correctness",
+      "description": "The interval is a real range that brackets the observed +0.04 and includes zero.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_interval_brackets_the_observed_difference_and_includes_zero"
+    },
+    {
+      "id": "guards",
+      "kind": "failure",
+      "description": "A shorter or longer result list raises ValueError from the strict zip, and zero resamples raise ValueError.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_unequal_lengths_and_zero_resamples_are_rejected"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The caller's result lists are unchanged after the bootstrap.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_lists_are_not_modified"
+    },
+    {
+      "id": "point-estimate-versus-interval",
+      "kind": "evaluation",
+      "description": "The observed difference is positive (the point estimate says ship) while the bootstrap interval includes zero (the gain is not established).",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_point_estimate_alone_would_ship_while_the_interval_does_not"
+    },
+    {
+      "id": "thousand-resamples",
+      "kind": "evaluation",
+      "description": "With 1,000 resamples and the same seed the interval is still -0.12 to 0.2 and includes zero.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_one_thousand_resamples_still_include_zero"
+    },
+    {
+      "id": "real-gain-detected",
+      "kind": "evaluation",
+      "description": "For a constructed pair where the new model is right on everything the old one got right plus eight more items, the whole interval sits above zero.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_real_gain_is_detected"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line naming the expected 59.5% share, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-better-fraction-exact",
+      "kind": "correctness",
+      "description": "The practice answer's better share equals 119/200 and the 36 zero differences are not counted.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_better_fraction_is_exact"
+    },
+    {
+      "id": "answer-better-fraction-edges",
+      "kind": "correctness",
+      "description": "All positive gives 1.0, none positive gives 0.0, and a zero difference does not count as better.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_better_fraction_edge_cases"
+    },
+    {
+      "id": "answer-matches-example",
+      "kind": "correctness",
+      "description": "The practice answer's bootstrap produces the same 200 differences as the worked solution.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_bootstrap_matches_the_worked_example"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data and functions above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "results-fixture",
+      "kind": "correctness",
+      "description": "results.json equals the two lists, the resample count, and the seed that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_results_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the first twelve resamples with their indices and scores, all 200 differences, the interval -0.12 to 0.2, includes-zero true, and the better share 0.595.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/BootstrapViz.jsx",
+      "description": "A short animation of the worked example, about two and a half seconds per shown resample and under half a minute in all: the 25 items as split squares (old and new, right or wrong), the first four resamples laid out one at a time as 25 tiles with repeats and scored (-8.0, +4.0, +8.0, +12.0 points), eight more resamples passing quickly, the remaining 188 filling the histogram of differences as a counter, the zero line and the 95% interval bracket (-12.0 to +20.0 points) with the not-established verdict, and the practice variation shading the 119 of 200 resamples above zero. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/bootstrapModel.js, which rescores the shown resamples from the indices the Python file drew (python/fixtures/expected-trace.json), recomputes the 2.5th and 97.5th percentiles with a round-half-to-even port of the solution's percentile rule, and recomputes the better share from the 200 Python differences; tests/benchmark-bootstrap-interval-viz.test.mjs asserts that result deep-equals expected-trace.json, which the cited Python check derives from the real solution. Python's seeded generator itself is not replayed in the browser, and the figure's counter says the remaining resamples are computed by the Python file. The test also checks the pace (each shown resample 2.4 to 3 seconds, the run 25 to 45 seconds), that the histogram total never exceeds the resamples completed, that the drawn tiles match the shown resample, and that the final scene shows the interval and the 119 above zero. Rendered frames were inspected at several moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

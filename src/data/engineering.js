@@ -112,7 +112,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'An assistant escalates to a human below a confidence of 0.6, but its 0.9 answers were right only seven times in ten. A worked Python example fits a two-parameter calibration to eight scored answers with the loop PyTorch runs for you, forward, loss, gradient, update, written in plain Python: math.exp and the sigmoid, a function that returns two gradients, an epoch loop with running totals, its exact output, a trace of the weights, and one practice variation that stops early when the loss stops improving.',
     track: 'fine-tuning',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-17', listenMinutes: 14,
     difficulty: 'intermediate',
     durationMinutes: 35,
     skills: ['A training loop by hand: forward, loss, gradient, update', 'math.exp and the sigmoid', 'Functions that return several values as a tuple', 'Nested loops over epochs and examples with running totals', 'Early stopping with break (practice)'],

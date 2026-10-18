@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net calibrate-confidence-by-gradient-descent preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-18T03:55:14.641Z",
+  "publication_sha256": "baf1f3b1aeaac79f161ab67ee9ba29baa120e1ce7ecaae0efdc0853550c0b477",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 8758552,
+  "objects": [
+    {
+      "stable_id": "puzzle:calibrate-confidence-by-gradient-descent",
+      "slug": "calibrate-confidence-by-gradient-descent",
+      "track_id": "algieba",
+      "source_sha256": "72eca63d14feae7cea8dd2ec5db1516b998f9cfe3d9b9e87e2b513af4b353f00",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "76716c864ddcd8b3cf68c3679776360b67493b92c747985eb5d241483050f937",
+      "object_key": "narration/v1/puzzles/calibrate-confidence-by-gradient-descent/76716c864ddcd8b3cf68/algieba-e299198515e1beef.mp3",
+      "bytes": 4559180,
+      "sha256": "e299198515e1beefea3bf02dc9aa3a193508b1f0d41fa2091ddd9cb6834a535e",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:calibrate-confidence-by-gradient-descent",
+      "slug": "calibrate-confidence-by-gradient-descent",
+      "track_id": "aoede",
+      "source_sha256": "72eca63d14feae7cea8dd2ec5db1516b998f9cfe3d9b9e87e2b513af4b353f00",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "76716c864ddcd8b3cf68c3679776360b67493b92c747985eb5d241483050f937",
+      "object_key": "narration/v1/puzzles/calibrate-confidence-by-gradient-descent/76716c864ddcd8b3cf68/aoede-0ba2277cb5d44481.mp3",
+      "bytes": 4199372,
+      "sha256": "0ba2277cb5d44481581d336124b0fdca93a43a3b5b49ddbb9f46f874f7d8a1a8",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

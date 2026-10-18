@@ -40,7 +40,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'A support assistant stopped finding multi-step runbook procedures after ingest switched to fixed-size character windows. A worked Python example packs already-parsed blocks into chunks under a budget without cutting a procedure: five inline blocks, one short function over a list of dictionaries, its exact output, a line-by-line walkthrough, and one practice variation.',
     track: 'rag',
     language: 'python',
-    status: 'published', added: '2026-10-17', listenMinutes: 11,
+    status: 'published', added: '2026-10-17', listenMinutes: 12,
     difficulty: 'intermediate',
     durationMinutes: 30,
     skills: ['Greedy packing under a prompt budget', 'Records as a list of dictionaries', 'A loop with a guard, a join test, and continue', 'Rejecting an oversized unit loudly', 'Splitting at line breaks (practice)'],

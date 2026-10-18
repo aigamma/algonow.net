@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:rag-chunk-boundary-recall",
   "source_path": "src/content/rag-chunk-boundary-recall.narration.js",
-  "source_sha256": "1d4cea91a969cf1cf3f0c90be83578e002b46c9e640abdb744ce1691ee6dc4c4",
-  "source_characters": 14113,
+  "source_sha256": "7119ed34374ad0b8227a8053ba1d544c2133f41bbb5adc980326e0c3f808025f",
+  "source_characters": 14130,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -42,9 +42,9 @@
     }
   },
   "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
-  "release_sha256": "852859a0ba1a833a25deab132129afb5a7e2797fee6cafe347dbba64475d5654",
-  "generated_at": "2026-10-18T00:42:03.123Z",
-  "generated_characters": 28226,
+  "release_sha256": "75056e553e5dc0404b358e7553f2a60323bea4d6847fe8894ac0318f7992765d",
+  "generated_at": "2026-10-18T02:00:19.196Z",
+  "generated_characters": 28260,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -76,9 +76,9 @@
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4091,
-      "utf8_bytes": 4095,
-      "sha256": "d59e8238207849cf7708270d17d4e2f885efa1307e3b25ecd45b0ccb2ee401dc"
+      "characters": 4108,
+      "utf8_bytes": 4112,
+      "sha256": "32de300fb78cef42a46ffa5ad9464d0aa72643dec4c2ca5552d2eb42ac1de57e"
     },
     {
       "id": "request-003",
@@ -210,8 +210,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1835,
-      "sha256": "eee58322893d05c3d3dfe89e3e9069a66f834c64ee933b2e4bbd2468963e6ec9"
+      "utf8_bytes": 1852,
+      "sha256": "f9a0aee911da7f691b6c9a8c31108198a1a35967a01595adc56bcafa419be0d3"
     },
     {
       "id": "rag-chunk-boundary-recall.05-evidence",
@@ -312,23 +312,23 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/rag-chunk-boundary-recall/852859a0ba1a833a25de/aoede-b243270fbe46b456.mp3",
+      "object_key": "narration/v1/puzzles/rag-chunk-boundary-recall/75056e553e5dc0404b35/aoede-cb0ce5b7be54176e.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 3569132,
-      "sha256": "b243270fbe46b456d0e18346316110f458038c3eb8434b0071c43c56b308f4d0",
+      "bytes": 3589964,
+      "sha256": "cb0ce5b7be54176e2810f48bfb06452e727e1fa034a910c25bd247b08d064f3f",
       "request_parts": [
         {
           "request_index": 1,
           "request_sha256": "8f5391750ffbd3345a3cf085775f42a21422fc514dbd134f068dcc6e257cb801",
-          "bytes": 1300704,
-          "sha256": "f51b356cd59fbc103932135620eaf017ec9da74651bededa79e2f0ec6353a1b3"
+          "bytes": 1314624,
+          "sha256": "e7838dd4b052190c3af653de2ba08b915a7f2d984bd9c4bf2a152815379f0130"
         },
         {
           "request_index": 2,
-          "request_sha256": "d59e8238207849cf7708270d17d4e2f885efa1307e3b25ecd45b0ccb2ee401dc",
-          "bytes": 1033824,
-          "sha256": "cf16c725d3032b8db44ff010a97e6d3addd3d27e5d9ac7743a1725748ee7e0fe"
+          "request_sha256": "32de300fb78cef42a46ffa5ad9464d0aa72643dec4c2ca5552d2eb42ac1de57e",
+          "bytes": 1040736,
+          "sha256": "9bb697ad438b2c4ff9b63233917860c21c08e16050f23ca8da174da3f5200334"
         },
         {
           "request_index": 3,
@@ -349,11 +349,11 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/rag-chunk-boundary-recall/852859a0ba1a833a25de/algieba-73ac0bcab99535fb.mp3",
+      "object_key": "narration/v1/puzzles/rag-chunk-boundary-recall/75056e553e5dc0404b35/algieba-953de9040bbbd234.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 3756812,
-      "sha256": "73ac0bcab99535fb4e73a1d4297017128217b944afc9dba242604ea3e802d240",
+      "bytes": 3755180,
+      "sha256": "953de9040bbbd234765ec3580adc2c97a0011ae4105a80420876cd4fca4577d8",
       "request_parts": [
         {
           "request_index": 1,
@@ -363,21 +363,21 @@
         },
         {
           "request_index": 2,
-          "request_sha256": "d59e8238207849cf7708270d17d4e2f885efa1307e3b25ecd45b0ccb2ee401dc",
-          "bytes": 1085472,
-          "sha256": "eb77e65e8be3d3b0325e1ec77be6103df5f03a65de2df07c6ea1eb925600afab"
+          "request_sha256": "32de300fb78cef42a46ffa5ad9464d0aa72643dec4c2ca5552d2eb42ac1de57e",
+          "bytes": 1083072,
+          "sha256": "f34d9df0a5f6b49da5f03a9e80453726adcd3344dee92d196c1b2396c89f870a"
         },
         {
           "request_index": 3,
           "request_sha256": "a18bb5b3b3892e9f0f63cab0a83c7fcad81522e4965dc80a38339c256595b7c3",
-          "bytes": 1212096,
-          "sha256": "12af16ee9dab982888ba6592b85d42076d11b3b3cd7cc2dad36754ab00e61e4d"
+          "bytes": 1223232,
+          "sha256": "68528123c24f9ef81f93c1270a5f48fb16ebda86600ab0e068c701a442752b8f"
         },
         {
           "request_index": 4,
           "request_sha256": "2e7694c51b23da7ea952c03130ae16dddb272695767a47da8ae3dedd9456837d",
-          "bytes": 105024,
-          "sha256": "3d2d287cc45e6d6c260b607263318cccf455088e9debb03c7591c847b3432ef0"
+          "bytes": 94656,
+          "sha256": "a674087af1908cf6c90a8c6f48b1994f5212fcdefae8a87a8c3cf313cdd05b3b"
         }
       ]
     }

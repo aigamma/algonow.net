@@ -76,7 +76,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'An assistant retried a hosted model in a tight loop, hammering a rate-limited endpoint and retrying invalid requests forever. A worked Python example wraps one call in a retry loop with exponential backoff: a scripted fake endpoint, functions passed as values, try and except on retryable errors only, a cap that gives up loudly, its exact output, and one practice variation that adds a total time budget.',
     track: 'serving',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-17', listenMinutes: 12,
     difficulty: 'intermediate',
     durationMinutes: 30,
     skills: ['Exponential backoff with a retry cap', 'Passing functions as arguments (the call and the sleep)', 'try, except on chosen exception types, and raising', 'A function that builds a scripted fake', 'A total wait budget (practice)'],

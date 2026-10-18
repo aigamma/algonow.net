@@ -1,0 +1,236 @@
+{
+  "items": [
+    {
+      "id": "t1",
+      "gold": "billing",
+      "a": "billing",
+      "b": "billing",
+      "a_right": true,
+      "b_right": true,
+      "cell": "both"
+    },
+    {
+      "id": "t2",
+      "gold": "access",
+      "a": "access",
+      "b": "access",
+      "a_right": true,
+      "b_right": true,
+      "cell": "both"
+    },
+    {
+      "id": "t3",
+      "gold": "outage",
+      "a": "outage",
+      "b": "access",
+      "a_right": true,
+      "b_right": false,
+      "cell": "only_a"
+    },
+    {
+      "id": "t4",
+      "gold": "feature",
+      "a": "billing",
+      "b": "feature",
+      "a_right": false,
+      "b_right": true,
+      "cell": "only_b"
+    },
+    {
+      "id": "t5",
+      "gold": "outage",
+      "a": "outage",
+      "b": "Outage ",
+      "a_right": true,
+      "b_right": false,
+      "cell": "only_a"
+    },
+    {
+      "id": "t6",
+      "gold": "billing",
+      "a": "access",
+      "b": "billing",
+      "a_right": false,
+      "b_right": true,
+      "cell": "only_b"
+    },
+    {
+      "id": "t7",
+      "gold": "access",
+      "a": "feature",
+      "b": "access",
+      "a_right": false,
+      "b_right": true,
+      "cell": "only_b"
+    },
+    {
+      "id": "t8",
+      "gold": "feature",
+      "a": "feature",
+      "b": "feature",
+      "a_right": true,
+      "b_right": true,
+      "cell": "both"
+    },
+    {
+      "id": "t9",
+      "gold": "outage",
+      "a": "feature",
+      "b": "billing",
+      "a_right": false,
+      "b_right": false,
+      "cell": "neither"
+    }
+  ],
+  "counts": {
+    "both": 3,
+    "only_a": 2,
+    "only_b": 3,
+    "neither": 1
+  },
+  "regressions": [
+    [
+      "t3",
+      "outage"
+    ],
+    [
+      "t5",
+      "outage"
+    ]
+  ],
+  "gains": [
+    [
+      "t4",
+      "feature"
+    ],
+    [
+      "t6",
+      "billing"
+    ],
+    [
+      "t7",
+      "access"
+    ]
+  ],
+  "accuracy": {
+    "a": 5,
+    "b": 6,
+    "n": 9
+  },
+  "normalized": {
+    "items": [
+      {
+        "id": "t1",
+        "gold": "billing",
+        "a": "billing",
+        "b": "billing",
+        "a_right": true,
+        "b_right": true,
+        "cell": "both"
+      },
+      {
+        "id": "t2",
+        "gold": "access",
+        "a": "access",
+        "b": "access",
+        "a_right": true,
+        "b_right": true,
+        "cell": "both"
+      },
+      {
+        "id": "t3",
+        "gold": "outage",
+        "a": "outage",
+        "b": "access",
+        "a_right": true,
+        "b_right": false,
+        "cell": "only_a"
+      },
+      {
+        "id": "t4",
+        "gold": "feature",
+        "a": "billing",
+        "b": "feature",
+        "a_right": false,
+        "b_right": true,
+        "cell": "only_b"
+      },
+      {
+        "id": "t5",
+        "gold": "outage",
+        "a": "outage",
+        "b": "Outage ",
+        "a_right": true,
+        "b_right": true,
+        "cell": "both"
+      },
+      {
+        "id": "t6",
+        "gold": "billing",
+        "a": "access",
+        "b": "billing",
+        "a_right": false,
+        "b_right": true,
+        "cell": "only_b"
+      },
+      {
+        "id": "t7",
+        "gold": "access",
+        "a": "feature",
+        "b": "access",
+        "a_right": false,
+        "b_right": true,
+        "cell": "only_b"
+      },
+      {
+        "id": "t8",
+        "gold": "feature",
+        "a": "feature",
+        "b": "feature",
+        "a_right": true,
+        "b_right": true,
+        "cell": "both"
+      },
+      {
+        "id": "t9",
+        "gold": "outage",
+        "a": "feature",
+        "b": "billing",
+        "a_right": false,
+        "b_right": false,
+        "cell": "neither"
+      }
+    ],
+    "counts": {
+      "both": 4,
+      "only_a": 1,
+      "only_b": 3,
+      "neither": 1
+    },
+    "regressions": [
+      [
+        "t3",
+        "outage"
+      ]
+    ],
+    "gains": [
+      [
+        "t4",
+        "feature"
+      ],
+      [
+        "t6",
+        "billing"
+      ],
+      [
+        "t7",
+        "access"
+      ]
+    ],
+    "accuracy": {
+      "a": 5,
+      "b": 7,
+      "n": 9
+    }
+  }
+}

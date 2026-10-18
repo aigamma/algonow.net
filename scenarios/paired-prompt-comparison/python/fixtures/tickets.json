@@ -1,0 +1,46 @@
+{
+  "ids": [
+    "t1",
+    "t2",
+    "t3",
+    "t4",
+    "t5",
+    "t6",
+    "t7",
+    "t8",
+    "t9"
+  ],
+  "gold": [
+    "billing",
+    "access",
+    "outage",
+    "feature",
+    "outage",
+    "billing",
+    "access",
+    "feature",
+    "outage"
+  ],
+  "prompt_a": [
+    "billing",
+    "access",
+    "outage",
+    "billing",
+    "outage",
+    "access",
+    "feature",
+    "feature",
+    "feature"
+  ],
+  "prompt_b": [
+    "billing",
+    "access",
+    "access",
+    "feature",
+    "Outage ",
+    "billing",
+    "access",
+    "feature",
+    "billing"
+  ]
+}

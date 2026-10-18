@@ -1,0 +1,15 @@
+9 tickets, gold label against prompt A and prompt B
+
+prompt A right: 5 of 9 (56%)
+prompt B right: 6 of 9 (67%)
+
+            B right   B wrong
+A right           3         2
+A wrong           3         1
+
+regressions (A right, B wrong): t3 outage, t5 outage
+gains (A wrong, B right): t4 feature, t6 billing, t7 access
+
+rejected: zip() argument 2 is shorter than argument 1
+
+OK

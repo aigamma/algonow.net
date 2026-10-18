@@ -1,0 +1,13 @@
+9 tickets, gold label against prompt A and prompt B
+
+prompt A right: 5 of 9 (56%)
+prompt B right: 7 of 9 (78%)
+
+            B right   B wrong
+A right           4         1
+A wrong           3         1
+
+regressions (A right, B wrong): t3 outage
+gains (A wrong, B right): t4 feature, t6 billing, t7 access
+
+OK

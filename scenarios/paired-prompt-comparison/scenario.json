@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "slug": "paired-prompt-comparison",
+  "track": "evaluation",
+  "language": "python",
+  "system": {
+    "context": "Orbit's support assistant routes incoming tickets into one of four categories (billing, access, outage, feature) with a classification prompt. Prompt B rewrote the instructions and scored higher than prompt A on the nine-ticket evaluation set (six right against five), so it shipped. Two outage tickets that prompt A had routed correctly then came back misrouted: aggregate accuracy had hidden a regression on the most urgent category.",
+    "request": "A worked Python example of one action: compare(ids, gold, a, b). Pair the two prompts ticket by ticket: for every ticket decide whether prompt A is right and whether prompt B is right, count the four combinations in a two-by-two table, and list the regressions (A right, B wrong) and the gains (A wrong, B right) by ticket id. The lesson leads with the complete solution over nine inline tickets and its exact output, explains the Python construct by construct (parallel lists and zip with strict=True, booleans from ==, a dictionary keyed by tuples, list comprehensions with a condition, sum over booleans, percentage and alignment format specs), traces every ticket to its cell, and offers one practice variation: normalize the labels (strip and lower) before comparing.",
+    "inputs": [
+      "Four parallel lists written inline in solution.py, one entry per ticket: IDS (t1 to t9), GOLD (the correct category), PROMPT_A and PROMPT_B (each prompt's answer)",
+      "Prompt B's answer for t5 is 'Outage ' with a capital letter and a trailing space, which exact string comparison counts as wrong; the practice variation changes that policy",
+      "No external fixture, credential, or network: the lists are the evaluation set"
+    ],
+    "outputs": [
+      "compare returns a dictionary: n (9), a_right (5), b_right (6), counts keyed by (a_right, b_right) tuples (3, 2, 3, 1), regressions [(t3, outage), (t5, outage)], and gains [(t4, feature), (t6, billing), (t7, access)]",
+      "python solution.py prints the accuracy lines with percentages (56% and 67%), the aligned two-by-two table, the regressions and gains by id, the rejected line for unequal lists, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it prints prompt B right 7 of 9 (78%), the table 4, 1, 3, 1, the single regression t3 outage, and OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no sibling imports, fixtures, credentials, or network",
+      "Lists of different lengths raise ValueError through zip(..., strict=True); zip without strict would silently stop at the shortest list and miscount",
+      "Every ticket lands in exactly one of the four cells; each prompt's accuracy equals the sum of its two cells; an empty evaluation set gives zero counts and prints 0% without a division error",
+      "The worked example compares exact strings: a label with different case or surrounding whitespace counts as wrong; the practice variation relaxes exactly that rule",
+      "Ordinary Python only: lists, tuples, dictionaries, a for loop, zip, ==, f-strings with format specs, list comprehensions, sum, try and except, and assert; no classes, regular expressions, or third-party packages"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: A right 5 of 9 (56%), B right 6 of 9 (67%), the table 3, 2, 3, 1, regressions t3 outage and t5 outage, gains t4 feature, t6 billing, t7 access, the rejected line for a shorter gold list, and OK",
+      "The two-by-two arithmetic holds: the four cells sum to nine, A's accuracy is the first row (3 plus 2), B's is the first column (3 plus 3), and gains minus regressions (3 minus 2) equals B right minus A right (6 minus 5)",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt: after strip and lower, t5 is no longer a regression, B is right 7 of 9 (78%), the table is 4, 1, 3, 1",
+      "Aggregate accuracy alone would have approved prompt B (6 beats 5) while the paired table shows two regressions, both outage tickets; the tests check that distinction on the same nine tickets"
+    ]
+  },
+  "python": {
+    "package": "paired_eval",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "a0de1720cc7f2d5fac88f3909c100cbf7f757efa9d74995f4cd4cf754a29a654"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "f6024745f7e7b51cc2c2d9f0060e5fc8e50d879c422d88c56b2ec5bed9c7d896"
+    },
+    {
+      "path": "python/fixtures/tickets.json",
+      "description": "The four parallel lists exactly as solution.py defines them; the animation runs on this copy and a test pins it to the file.",
+      "sha256": "fb8d726bf9591774f7ed28882dfc25ece80fb92d089bca96ffaf768e221faf7d"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every ticket's cell (both, only A, only B, neither), the counts, regressions, gains, and accuracy for the worked example and again after the practice variation's normalization, derived from the real compare by the Python test; the animation must replay it exactly.",
+      "sha256": "daf960746a4d77c7b927dd2753dd9d45e9ac7c5486ea9e5e2f2cc3516a93efa9"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "two-by-two-counts",
+      "kind": "correctness",
+      "description": "The nine tickets count as both right 3, only A 2, only B 3, neither 1, with A right 5 of 9 (56%) and B right 6 of 9 (67%).",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_two_by_two_counts_and_totals"
+    },
+    {
+      "id": "regressions-and-gains",
+      "kind": "correctness",
+      "description": "The regressions are t3 outage and t5 outage; the gains are t4 feature, t6 billing, and t7 access; describe joins them for the report.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_regressions_and_gains_by_ticket"
+    },
+    {
+      "id": "one-cell-per-ticket",
+      "kind": "correctness",
+      "description": "The four cells sum to nine, and each ticket compared on its own lands in exactly one cell.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_every_ticket_lands_in_exactly_one_cell"
+    },
+    {
+      "id": "accuracy-row-sums",
+      "kind": "correctness",
+      "description": "A's accuracy equals its row of the table, B's equals its column, and sum over the booleans of answer == label gives the same number.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_accuracy_equals_the_row_and_column_sums"
+    },
+    {
+      "id": "unequal-lengths-rejected",
+      "kind": "failure",
+      "description": "Lists of different lengths raise ValueError from the strict zip, whichever list is shorter or longer.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_unequal_lengths_raise_value_error"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The four caller lists are unchanged after the comparison.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_lists_are_not_modified"
+    },
+    {
+      "id": "empty-set",
+      "kind": "failure",
+      "description": "An empty evaluation set gives zero counts, empty lists, and a 0% share without a division error.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_empty_set_gives_zero_counts_and_no_division_error"
+    },
+    {
+      "id": "exact-comparison-policy",
+      "kind": "correctness",
+      "description": "The worked example compares exact strings, so 'Outage ' against outage counts as A right, B wrong.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_exact_comparison_is_case_and_whitespace_sensitive"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line naming 6 of 9, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-normalizes",
+      "kind": "correctness",
+      "description": "After strip and lower the counts are 4, 1, 3, 1, B is right 7 of 9, and the only regression is t3 outage.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_normalizes_case_and_whitespace"
+    },
+    {
+      "id": "answer-matches-example",
+      "kind": "correctness",
+      "description": "On already-clean labels the practice answer and the worked solution return the same result.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_matches_the_worked_example_on_clean_labels"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and everything from compare down are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "aggregate-hides-regressions",
+      "kind": "evaluation",
+      "description": "Aggregate accuracy alone approves prompt B (6 beats 5) while the paired table shows two regressions, both outage tickets.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_aggregate_accuracy_alone_would_have_approved_prompt_b"
+    },
+    {
+      "id": "net-change",
+      "kind": "evaluation",
+      "description": "Gains minus regressions (3 minus 2) equals B right minus A right (6 minus 5): the aggregate difference is the net of two opposite movements.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_net_change_equals_gains_minus_regressions"
+    },
+    {
+      "id": "tickets-fixture",
+      "kind": "correctness",
+      "description": "tickets.json equals the IDS, GOLD, PROMPT_A, and PROMPT_B that solution.py defines.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_tickets_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived with the real compare: each ticket's cell (both, both, only A, only B, only A, only B, only B, both, neither), the counts, regressions, gains, and accuracy, and the same after the practice answer's normalization (t5 moves to both, B right 7 of 9).",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/PairedEvalViz.jsx",
+      "description": "A short animation of the worked example, about two and a half seconds per ticket and about thirty-six seconds in all: the nine tickets queued on the left, a two-by-two grid of the four combinations on the right, each ticket carried into its cell while the caption states both answers and the verdict (both right, a regression, a gain, both wrong), then the counts (3, 2, 3, 1) and the two accuracy bars (A 5 of 9, B 6 of 9), the regressions cell framed with its two outage tickets, and finally the practice variation moving t5 from the regressions into both right after strip and lower (B 7 of 9). Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/pairedEvalModel.js, a JavaScript port of compare and normalize that runs on python/fixtures/tickets.json and records a trace; tests/paired-prompt-comparison-viz.test.mjs asserts that trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real solution, that every beat lasts at least a second and each ticket two to three seconds, that the captions carry the measured numbers (5 of 9, 6 of 9, 7 of 9, the two regressions), and that every sampled scene keeps nine chips, at most one moving, placed chips inside their cells, cells never above their traced counts, and the finished state at 4, 1, 3, 1 with B at 7. Rendered frames inspected via the viz-t deep link before publication.",
+      "check": "trace-fixture"
+    }
+  ]
+}

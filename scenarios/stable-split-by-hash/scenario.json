@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "slug": "stable-split-by-hash",
+  "track": "fine-tuning",
+  "language": "python",
+  "system": {
+    "context": "Orbit fine-tunes a small support model on transcripts. New transcripts arrive every week, and the training job re-split everything each run by shuffling the ids with a fixed seed and cutting the first fifth off as validation. Because the shuffle is a function of the whole list, adding records changed the deal: transcripts moved between training and validation from week to week, a transcript scored this week had been trained on last week, and validation scores jumped for reasons unrelated to the model.",
+    "request": "A worked Python example of one action: assign(ids, validation_share). Each id's bucket is the SHA-256 of the id, first eight hex digits as an integer, modulo 100; a bucket below the share means validation, otherwise train; the result is a dictionary of two lists in input order; a duplicate or empty id raises ValueError. The lesson leads with the complete solution over six week-one ids plus two week-two ids and its exact output, shows that adding records moves nothing, runs the seeded shuffle that shipped on the same ids to show that it does move a record, explains the Python construct by construct, traces every id from digest to side, and offers one practice variation: a third side (test) below its own share.",
+    "inputs": [
+      "Six transcript ids for week one (t-1813 to t-1818) and two for week two (t-1819 and t-1820), written inline in solution.py as lists of strings; their SHA-256 buckets are 8, 56, 19, 28, 94, 40, 47, and 7",
+      "VALIDATION_SHARE of 20: buckets 0 to 19 of 100 are validation",
+      "SEED 7 for the seeded shuffle that shipped, run on the same ids for comparison; the practice adds TEST_SHARE of 10"
+    ],
+    "outputs": [
+      "assign returns {\"train\": [...], \"validation\": [...]} in input order; week one yields train t-1814, t-1816, t-1817, t-1818 and validation t-1813, t-1815; week two adds t-1819 to train and t-1820 to validation and moves none of the six",
+      "python solution.py prints both weeks with each id's bucket and side, the seeded shuffle's validation lists for both weeks and the id it moved, the rejected duplicate, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it prints the three-way split (test t-1813 and t-1820, validation t-1815 and t-1816, train the other four) and OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only (hashlib, random, sys); each lesson file runs alone in an empty directory with python -I -S; no sibling imports, fixtures, credentials, or network",
+      "The bucket depends only on the id bytes: SHA-256, never Python's salted hash(); thresholds are strict (bucket below share); the caller's lists are never modified and the shuffle works on a copy",
+      "A duplicate id or an empty id raises ValueError naming the problem; nothing is merged or skipped silently",
+      "Ordinary Python only: lists, dictionaries of lists, strings, a for loop, if with early return, in, raise, f-strings with a width, join, sorted, try and except, and assert; hashlib, int with base 16, and the modulo operator are the concepts taught; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: week one buckets 8, 56, 19, 28, 94, 40 with two validation ids, week two buckets 47 and 7, the line unchanged: all 6 earlier assignments, the shuffle's week-one validation t-1817 and week-two validation t-1819 and t-1820 with t-1817 moved, the rejected duplicate, and OK",
+      "The eight buckets are pinned to their exact integers, the SHA-256 bucket of t-1813 is 8 in freshly started interpreters while hash() of the same string differs between them, share 0 puts everything in train and share 100 everything in validation, and bucket 8 is train under a share of 8 and validation under a share of 9",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt; the three-way assignment is exact, its thresholds are strict, and with a test share of 0 it reproduces the worked solution",
+      "On the same ids the seeded shuffle moves t-1817 from validation in week one to training in week two while the hash split moves nothing, measured by the tests"
+    ]
+  },
+  "python": {
+    "package": "stable_split",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "acd500204442b324157a4168f05f41bdfd4e48eb42cfd5c0dae296b1fe445c44"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "dfc0efc971d6ec1108507d5fa34b8bf9fc7409bd8428961824450612cce2718f"
+    },
+    {
+      "path": "python/fixtures/transcripts.json",
+      "description": "The two weeks of ids, the validation and test shares, and the shuffle seed exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "8cb8a05b75c3f27d8bb44ef775a56fafaf5ad1db0e39d5d2a0d3ffbe86c35df8"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "For each of the eight ids its first eight hex digits, their integer value, bucket, and side; the stability result; the seeded shuffle's validation lists and mover; and the three-way sides, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "4f020cb05fef1a54e72f96d2fbed3d677946db554cf88b2d0d7e343ad9c34e23"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "buckets-exact",
+      "kind": "correctness",
+      "description": "The eight ids hash to buckets 8, 56, 19, 28, 94, 40, 47, and 7, computed both through bucket and directly from hashlib.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_buckets_of_the_eight_ids_are_exact"
+    },
+    {
+      "id": "week-one-split",
+      "kind": "correctness",
+      "description": "Week one assigns t-1813 and t-1815 to validation and the other four to train, in input order.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_week_one_splits_two_validation_four_train"
+    },
+    {
+      "id": "adding-moves-nothing",
+      "kind": "correctness",
+      "description": "Assigning week one alone and then both weeks gives every week-one id the same side; week two adds t-1819 to train and t-1820 to validation.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_adding_records_never_moves_earlier_ones"
+    },
+    {
+      "id": "stable-across-processes",
+      "kind": "correctness",
+      "description": "Freshly started interpreters all compute bucket 8 for t-1813, while hash('t-1813') differs between two of them because Python salts string hashes per process.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_bucket_is_identical_in_another_process_while_builtin_hash_is_not"
+    },
+    {
+      "id": "duplicate-and-empty-rejected",
+      "kind": "failure",
+      "description": "A duplicate id raises ValueError naming it, and an empty id raises ValueError.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_duplicate_and_empty_ids_are_rejected"
+    },
+    {
+      "id": "share-extremes",
+      "kind": "correctness",
+      "description": "A share of 0 puts every id in train and a share of 100 puts every id in validation.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_share_zero_is_all_train_and_share_hundred_is_all_validation"
+    },
+    {
+      "id": "threshold-strict",
+      "kind": "correctness",
+      "description": "Bucket 8 is train under a share of 8 and validation under a share of 9: the comparison is strictly below.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_threshold_is_strict"
+    },
+    {
+      "id": "order-kept-input-unmodified",
+      "kind": "correctness",
+      "description": "Each side keeps the input order, and neither assign nor the shuffle modifies the caller's list.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_sides_keep_input_order_and_input_is_not_modified"
+    },
+    {
+      "id": "no-ids",
+      "kind": "correctness",
+      "description": "No ids yield two empty lists.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_no_ids_no_sides"
+    },
+    {
+      "id": "shuffle-moves-a-record",
+      "kind": "evaluation",
+      "description": "On the same ids the seeded shuffle (seed 7) puts t-1817 in validation in week one and in training in week two, while the hash split moves no week-one id.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_seeded_shuffle_moves_an_earlier_transcript_between_weeks"
+    },
+    {
+      "id": "shuffle-share-rounding",
+      "kind": "evaluation",
+      "description": "The shuffle's validation count is the rounded share with a floor of one: one of six, two of eight.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_shuffle_takes_at_least_one_and_rounds_the_share"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line naming the expected test ids, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-three-way-exact",
+      "kind": "correctness",
+      "description": "The practice answer assigns test t-1813 and t-1820, validation t-1815 and t-1816, and train t-1814, t-1817, t-1818, t-1819.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_three_way_assignment_is_exact"
+    },
+    {
+      "id": "answer-thresholds-strict",
+      "kind": "correctness",
+      "description": "The practice thresholds are strictly below: bucket 8 is not test under a test share of 8, and bucket 28 is train when the two shares sum to 28.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_thresholds_are_strict"
+    },
+    {
+      "id": "answer-matches-example",
+      "kind": "correctness",
+      "description": "With a test share of 0 the practice answer reproduces the worked solution's two sides exactly.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_with_no_test_share_matches_the_worked_example"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the assign function and demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "transcripts-fixture",
+      "kind": "correctness",
+      "description": "transcripts.json equals the shares, the seed, and the two weeks of ids that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_transcripts_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: each id's first eight hex digits, integer, bucket, and side (8, 56, 19, 28, 94, 40, 47, 7), unchanged true, the shuffle's lists with t-1817 moved from validation to train, and the three-way sides.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/StableSplitViz.jsx",
+      "description": "A short animation of the worked example, about two and a half seconds per placement and about half a minute in all: the eight ids as chips in arrival order, a strip of one hundred buckets with the validation band (0 to 19) on the left, each id carried to its bucket while the caption states its digest, integer, bucket, and side (t-1813 to 8 validation, t-1814 to 56 train, t-1815 to 19 validation, t-1816 to 28 train, t-1817 to 94 train, t-1818 to 40 train; then t-1819 to 47 train and t-1820 to 7 validation), a beat showing that the six earlier ids did not move, a panel of the seeded shuffle that shipped (seed 7) with t-1817 marked as the leak, and the practice variation widening the bands into test (0 to 9), validation (10 to 29), and train. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/stableSplitModel.js, which contains its own SHA-256 and a port of bucket, side_of, assign, and the practice side_of, run on python/fixtures/transcripts.json to record a trace; tests/stable-split-by-hash-viz.test.mjs pins that SHA-256 to the standard test vectors (empty string, abc, the two-block message) and asserts the trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real solution, so the browser hashes are proven equal to Python's for these ids. The seeded shuffle rows are not recomputed in the browser: the model copies them from that fixture and the panel is labeled as computed by the Python file. The test also checks the pace (each placement 2 to 3 seconds, the run 25 to 45 seconds), that every sampled scene lands ids in arrival order with non-overlapping labels, and that the final scene shows the three-way sides. Rendered frames were inspected at several moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

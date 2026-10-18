@@ -1,0 +1,10 @@
+[project]
+name = "stable-split-by-hash"
+version = "0.1.0"
+description = "Assign fine-tuning records to train and validation by hashing their ids: a worked Python example, standard library only"
+requires-python = ">=3.11"
+dependencies = []
+
+# The lesson needs none of this: copy solution.py (or starter.py) anywhere and
+# run it with python. The behind-the-scenes checks run from this directory:
+#   PYTHONPATH=src python -m unittest discover -s tests -p "test_*.py"

@@ -1,0 +1,129 @@
+{
+  "validation_share": 20,
+  "records": [
+    {
+      "id": "t-1813",
+      "week": 1,
+      "hex": "778f7950",
+      "value": 2005891408,
+      "bucket": 8,
+      "side": "validation"
+    },
+    {
+      "id": "t-1814",
+      "week": 1,
+      "hex": "1a2f9e64",
+      "value": 439328356,
+      "bucket": 56,
+      "side": "train"
+    },
+    {
+      "id": "t-1815",
+      "week": 1,
+      "hex": "aa34f6fb",
+      "value": 2855597819,
+      "bucket": 19,
+      "side": "validation"
+    },
+    {
+      "id": "t-1816",
+      "week": 1,
+      "hex": "392f2e94",
+      "value": 959393428,
+      "bucket": 28,
+      "side": "train"
+    },
+    {
+      "id": "t-1817",
+      "week": 1,
+      "hex": "48d23446",
+      "value": 1221735494,
+      "bucket": 94,
+      "side": "train"
+    },
+    {
+      "id": "t-1818",
+      "week": 1,
+      "hex": "f7b19930",
+      "value": 4155611440,
+      "bucket": 40,
+      "side": "train"
+    },
+    {
+      "id": "t-1819",
+      "week": 2,
+      "hex": "5f0e5283",
+      "value": 1594774147,
+      "bucket": 47,
+      "side": "train"
+    },
+    {
+      "id": "t-1820",
+      "week": 2,
+      "hex": "dc37b5ab",
+      "value": 3694638507,
+      "bucket": 7,
+      "side": "validation"
+    }
+  ],
+  "unchanged": true,
+  "shuffle": {
+    "seed": 7,
+    "week_one_validation": [
+      "t-1817"
+    ],
+    "week_two_validation": [
+      "t-1819",
+      "t-1820"
+    ],
+    "moved": [
+      {
+        "id": "t-1817",
+        "from": "validation",
+        "to": "train"
+      }
+    ]
+  },
+  "three_way": [
+    {
+      "id": "t-1813",
+      "bucket": 8,
+      "side": "test"
+    },
+    {
+      "id": "t-1814",
+      "bucket": 56,
+      "side": "train"
+    },
+    {
+      "id": "t-1815",
+      "bucket": 19,
+      "side": "validation"
+    },
+    {
+      "id": "t-1816",
+      "bucket": 28,
+      "side": "validation"
+    },
+    {
+      "id": "t-1817",
+      "bucket": 94,
+      "side": "train"
+    },
+    {
+      "id": "t-1818",
+      "bucket": 40,
+      "side": "train"
+    },
+    {
+      "id": "t-1819",
+      "bucket": 47,
+      "side": "train"
+    },
+    {
+      "id": "t-1820",
+      "bucket": 7,
+      "side": "test"
+    }
+  ]
+}

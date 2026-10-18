@@ -1,0 +1,14 @@
+test share: 10 of 100 buckets, validation share: 20
+
+8 transcripts
+t-1813  bucket  8  test
+t-1814  bucket 56  train
+t-1815  bucket 19  validation
+t-1816  bucket 28  validation
+t-1817  bucket 94  train
+t-1818  bucket 40  train
+t-1819  bucket 47  train
+t-1820  bucket  7  test
+train 4, validation 2, test 2
+
+OK

@@ -1,0 +1,24 @@
+validation share: 20 of 100 buckets
+
+week 1: 6 transcripts
+t-1813  bucket  8  validation
+t-1814  bucket 56  train
+t-1815  bucket 19  validation
+t-1816  bucket 28  train
+t-1817  bucket 94  train
+t-1818  bucket 40  train
+train 4, validation 2
+
+week 2: 2 more transcripts
+t-1819  bucket 47  train
+t-1820  bucket  7  validation
+unchanged: all 6 earlier assignments
+
+seeded shuffle for comparison (seed 7, same 20%)
+week 1 validation: t-1817
+week 2 validation: t-1819, t-1820
+moved: t-1817 left validation
+
+rejected: duplicate id 't-1813'
+
+OK

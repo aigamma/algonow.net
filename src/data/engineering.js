@@ -64,7 +64,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'A rewritten classification prompt scored higher on the evaluation set and shipped, then misrouted the outage tickets the old prompt got right. A worked Python example pairs the two prompts item by item: nine inline tickets, zip with strict length checking, a four-way count keyed by tuples, the regressions and gains by id, its exact output, and one practice variation that normalizes answers before comparing.',
     track: 'evaluation',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-17', listenMinutes: 12,
     difficulty: 'foundation',
     durationMinutes: 25,
     skills: ['Paired comparison of two model versions', 'zip over parallel lists with strict checking', 'Tuples as dictionary keys for a two-by-two count', 'List comprehensions with a condition', 'Formatted percentages and aligned tables', 'Normalizing answers before comparing (practice)'],

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "slug": "validate-jsonl-records",
+  "track": "data-pipelines",
+  "language": "python",
+  "system": {
+    "context": "Orbit fine-tunes a small support model on a JSONL export of resolved conversations: one JSON object per line with a prompt and an answer. The overnight job read the file with json.loads on every line and no guard, crashed on one malformed line, and after that line was deleted by hand it trained on a record with no answer key and on one whose answer was empty. The resulting model answers some questions with nothing.",
+    "request": "A worked Python example of one action: validate(lines, rejections, max_answer_chars), a generator that reads the export line by line, skips blank lines, parses each line inside try and except, checks that the value is an object with non-empty string prompt and answer fields and that the answer is within the limit, yields each good record as soon as it passes, appends (line number, reason) for every bad line, and never stops on bad content. The lesson leads with the complete solution over a nine-line inline export and its exact output, explains the Python construct by construct, traces the two outputs line by line, and offers one practice variation: reject a repeated prompt as a duplicate and keep the first.",
+    "inputs": [
+      "A nine-line export written inline in solution.py as one triple-quoted string: eight records and a final empty line; lines 1, 2, 4, and 7 are good records with answers of 115, 41, 74, and 49 characters; line 3 is missing its closing brace; line 5 has no answer key; line 6 has an empty answer; line 8 has a 345-character answer",
+      "The limit MAX_ANSWER_CHARS of 300 characters per answer, the training job's policy",
+      "For the practice variation, a ninth record line that repeats the prompt of line 1 with a different answer, so the practice file has ten physical lines"
+    ],
+    "outputs": [
+      "validate yields the kept records in order, four of them for the worked input, and appends four (line, reason) pairs: (3, malformed json), (5, missing answer), (6, empty answer), (8, answer too long)",
+      "python solution.py prints the counts, every rejection with its line, the tally by reason in most_common order, the kept records, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it prints 4 kept and 5 rejected with line 9 as a duplicate prompt and OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only (json and collections.Counter); each lesson file runs alone in an empty directory with python -I -S; no sibling imports, fixtures, credentials, or network",
+      "Nothing raises because of bad content: a bad line is recorded with its line number and one of the fixed reasons and the loop continues; a blank line is skipped and not counted; an answer of exactly the limit is kept",
+      "Kept records are the parsed dictionaries, yielded one at a time in file order, so the input never sits in memory as a whole and the caller can consume records before the file ends",
+      "Ordinary Python plus the concepts taught: a generator with yield, json.loads with except JSONDecodeError, enumerate from 1, strip, isinstance, dict.get, Counter and most_common, tuples in a list, f-strings; no classes, regular expressions, or comprehensions in the lesson files (the practice adds a set)"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: 9 lines read, 4 kept, 4 rejected, 1 blank skipped, the four rejections by line and reason, the tally, the four kept records, and OK",
+      "Every reason is produced at its boundary: malformed json, not an object (an array, a number, null), missing prompt and missing answer (absent or not a string), empty prompt and empty answer (whitespace only), answer too long (301 rejected, 300 kept); garbage never raises; the generator is lazy (line 3 is unread until the loop asks for the record after line 2)",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt: 4 kept, 5 rejected, line 9 a duplicate prompt, the first occurrence kept, and identical behavior to the worked solution on the worked input",
+      "The readers that shipped fail on the same lines: unguarded json.loads parses two records and raises on line 3 with five lines unread; guarding only the parse keeps 7 of 8 records, three of them without a usable answer; validate keeps the four good ones"
+    ]
+  },
+  "python": {
+    "package": "jsonl_validation",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "4456367e53b9afabd005ce6ba832e205497da157faa109137ba840a406664402"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "b57baeb4e26e0d09fb59106a81c3ce2f158017519a238f11f375042f7b0c170b"
+    },
+    {
+      "path": "python/fixtures/lines.json",
+      "description": "The nine lines of the worked export, the answer limit, and the ten lines of the practice export, exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "e8a7272ac5a53e43fb74680d426205cf4c892da2170e6c5530779133664479a3"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "What the generator does with every physical line of both exports (kept with the answer length, rejected with the reason, or blank), the running counts, and the tally in most_common order, derived from the real functions over growing prefixes; the animation must replay it exactly.",
+      "sha256": "e9717861e4af725e7a1a0fe18aaabb84f823bf533c66d1af4c59be94b053ab6a"
+    }
+  ],
+  "checks": [
+    { "id": "solution-exact-output", "kind": "correctness", "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.", "file": "python/tests/test_lesson.py", "function": "test_solution_prints_exactly_the_expected_output_when_run_alone" },
+    { "id": "four-good-lines-kept", "kind": "correctness", "description": "The kept records are exactly lines 1, 2, 4, and 7, parsed, each within the answer limit.", "file": "python/tests/test_lesson.py", "function": "test_keeps_exactly_the_four_good_lines" },
+    { "id": "rejections-by-line-and-reason", "kind": "correctness", "description": "The rejections are exactly (3, malformed json), (5, missing answer), (6, empty answer), (8, answer too long), and the long answer is 345 characters.", "file": "python/tests/test_lesson.py", "function": "test_each_rejection_names_its_line_and_reason" },
+    { "id": "blank-lines-skipped", "kind": "correctness", "description": "Blank and whitespace-only lines are skipped and never counted as rejections; the worked export has nine physical lines.", "file": "python/tests/test_lesson.py", "function": "test_blank_lines_are_skipped_and_not_counted" },
+    { "id": "generator-is-lazy", "kind": "correctness", "description": "Consuming records one at a time with next shows that no line past the one needed has been read: line 3 is rejected only when the loop asks for the record after line 2.", "file": "python/tests/test_lesson.py", "function": "test_generator_is_lazy" },
+    { "id": "non-object-and-non-string", "kind": "failure", "description": "An array, a number, and null are rejected as not an object; a numeric prompt and a list answer are rejected as missing; an empty object is missing its prompt.", "file": "python/tests/test_lesson.py", "function": "test_non_object_lines_and_non_string_fields" },
+    { "id": "empty-fields", "kind": "failure", "description": "A whitespace-only prompt and a whitespace-only answer are rejected as empty.", "file": "python/tests/test_lesson.py", "function": "test_empty_prompt_and_empty_answer" },
+    { "id": "answer-length-boundary", "kind": "correctness", "description": "An answer of exactly 300 characters is kept and 301 is rejected as answer too long.", "file": "python/tests/test_lesson.py", "function": "test_answer_length_boundary" },
+    { "id": "nothing-raises", "kind": "failure", "description": "Garbage, an unclosed brace, a bare string, and a truncated object are all rejected with a reason and nothing raises.", "file": "python/tests/test_lesson.py", "function": "test_nothing_raises_on_bad_content" },
+    { "id": "kept-records-are-new", "kind": "correctness", "description": "Modifying a kept record does not affect a rerun, which parses fresh dictionaries.", "file": "python/tests/test_lesson.py", "function": "test_kept_records_are_new_dictionaries" },
+    { "id": "starter-not-ok", "kind": "failure", "description": "starter.py run alone exits 1, starts with the NOT OK line naming 5 kept and 4 rejected, and writes no traceback.", "file": "python/tests/test_lesson.py", "function": "test_starter_reports_not_ok_as_shipped" },
+    { "id": "answer-exact-output", "kind": "correctness", "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.", "file": "python/tests/test_lesson.py", "function": "test_answer_prints_exactly_the_expected_output_when_run_alone" },
+    { "id": "answer-rejects-repeat", "kind": "correctness", "description": "On the ten-line practice export the answer keeps four records, rejects line 9 as a duplicate prompt, keeps the first occurrence, and leaves the other four rejections unchanged.", "file": "python/tests/test_lesson.py", "function": "test_answer_rejects_the_repeat_and_keeps_the_first" },
+    { "id": "answer-matches-example", "kind": "correctness", "description": "On the worked export the practice answer keeps and rejects exactly what the worked solution does.", "file": "python/tests/test_lesson.py", "function": "test_answer_matches_the_worked_example_on_the_worked_input" },
+    { "id": "answer-region", "kind": "correctness", "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.", "file": "python/tests/test_lesson.py", "function": "test_answer_and_starter_differ_only_inside_the_marked_region" },
+    { "id": "lines-fixture", "kind": "correctness", "description": "lines.json equals MAX_ANSWER_CHARS and the split lines of both lesson exports.", "file": "python/tests/test_lesson.py", "function": "test_lines_fixture_is_the_lesson_input" },
+    { "id": "trace-fixture", "kind": "correctness", "description": "expected-trace.json equals the trace derived by running the real generator over growing prefixes of both exports: kept, kept, rejected, kept, rejected, rejected, kept, rejected, blank for the worked export, the duplicate at line 9 for the practice, and 345 characters on line 8.", "file": "python/tests/test_lesson.py", "function": "test_expected_trace_is_what_the_solution_does" },
+    { "id": "unguarded-crash", "kind": "evaluation", "description": "json.loads on every line without a guard parses two records and raises JSONDecodeError on line 3, with the remaining lines never read.", "file": "python/tests/test_lesson.py", "function": "test_unguarded_json_loads_crashes_on_line_three" },
+    { "id": "parse-only-guard", "kind": "evaluation", "description": "Guarding only the parse keeps 7 of the 8 records, three of them without a usable answer, while validate keeps the four good ones.", "file": "python/tests/test_lesson.py", "function": "test_guarding_only_the_parse_keeps_bad_records" },
+    { "id": "counter-order", "kind": "correctness", "description": "Counter.most_common lists a repeated reason first and keeps equal counts in first-seen order.", "file": "python/tests/test_lesson.py", "function": "test_counter_orders_repeated_reasons_first_and_keeps_ties_in_order" }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/JsonlValidationViz.jsx",
+      "description": "A short animation of the worked example, about two and a half seconds per line and about half a minute in all: the nine file lines on the left, a gate in the middle listing the checks in order, the kept stack and the rejected stack on the right, and a tally by reason under the gate. Each line is carried to the gate as a chip, the checks light green in order until one lights red, the chip lands in its stack (kept rows show the prompt, rejected rows the reason), and the tally increments; the blank last line is skipped; then the practice variation adds a ninth record, the gate gains the prompt-not-seen check, and the repeat is rejected as a duplicate. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/jsonlValidationModel.js, a JavaScript port of validate (and of the practice answer's duplicate rule) that runs on python/fixtures/lines.json and records a trace; tests/validate-jsonl-records-viz.test.mjs asserts that trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real generator, that every beat lasts at least a second with the eight line beats between two and three seconds and the run between twenty-five and forty-five seconds, that captions carry the measured lines, reasons, and the 345-character length, that the outro scene holds kept lines 1, 2, 4, 7 and the four rejections, that the final scene holds five rejections with a tally that matches, and that every sampled scene keeps counts monotonic and at most one failed check. Rendered frames inspected at several moments via the viz-t deep link.",
+      "check": "trace-fixture"
+    }
+  ]
+}

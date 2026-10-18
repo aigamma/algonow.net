@@ -97,7 +97,7 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'validate-jsonl-records',
     title: 'Validate a JSONL training file line by line and count what you reject',
-    summary: 'An overnight fine-tuning job crashed on one malformed line of a JSONL export, and after a manual fix it trained on records with empty answers. A worked Python example streams the file with a generator: seven inline lines, json.loads inside try and except, checks for missing and empty fields, kept records yielded one at a time, rejections counted by reason with their line numbers, its exact output, and one practice variation that drops duplicate prompts.',
+    summary: 'An overnight fine-tuning job crashed on one malformed line of a JSONL export, and after a manual fix it trained on records with empty answers. A worked Python example streams the file with a generator: nine inline lines (eight records and a blank), json.loads inside try and except, checks for missing and empty fields, kept records yielded one at a time, rejections counted by reason with their line numbers, its exact output, and one practice variation that drops duplicate prompts.',
     track: 'data-pipelines',
     language: 'python',
     status: 'draft',

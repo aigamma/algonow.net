@@ -1,0 +1,239 @@
+{
+  "max_answer_chars": 300,
+  "steps": [
+    {
+      "line": 1,
+      "text_preview": "{\"prompt\": \"How do I rotate a key?\", \"an",
+      "outcome": "kept",
+      "reason": null,
+      "prompt_preview": "How do I rotate a key?",
+      "answer_chars": 115,
+      "kept_count": 1,
+      "rejected_count": 0
+    },
+    {
+      "line": 2,
+      "text_preview": "{\"prompt\": \"Which scope do list calls ne",
+      "outcome": "kept",
+      "reason": null,
+      "prompt_preview": "Which scope do list calls need?",
+      "answer_chars": 41,
+      "kept_count": 2,
+      "rejected_count": 0
+    },
+    {
+      "line": 3,
+      "text_preview": "{\"prompt\": \"Why was I billed twice?\", \"a",
+      "outcome": "rejected",
+      "reason": "malformed json",
+      "prompt_preview": null,
+      "answer_chars": null,
+      "kept_count": 2,
+      "rejected_count": 1
+    },
+    {
+      "line": 4,
+      "text_preview": "{\"prompt\": \"Can a lost key be recovered?",
+      "outcome": "kept",
+      "reason": null,
+      "prompt_preview": "Can a lost key be recovered?",
+      "answer_chars": 73,
+      "kept_count": 3,
+      "rejected_count": 1
+    },
+    {
+      "line": 5,
+      "text_preview": "{\"prompt\": \"How long does a hold last?\"}",
+      "outcome": "rejected",
+      "reason": "missing answer",
+      "prompt_preview": null,
+      "answer_chars": null,
+      "kept_count": 3,
+      "rejected_count": 2
+    },
+    {
+      "line": 6,
+      "text_preview": "{\"prompt\": \"What does the write scope ad",
+      "outcome": "rejected",
+      "reason": "empty answer",
+      "prompt_preview": null,
+      "answer_chars": null,
+      "kept_count": 3,
+      "rejected_count": 3
+    },
+    {
+      "line": 7,
+      "text_preview": "{\"prompt\": \"Where do I find my invoice?\"",
+      "outcome": "kept",
+      "reason": null,
+      "prompt_preview": "Where do I find my invoice?",
+      "answer_chars": 49,
+      "kept_count": 4,
+      "rejected_count": 3
+    },
+    {
+      "line": 8,
+      "text_preview": "{\"prompt\": \"What happens during rotation",
+      "outcome": "rejected",
+      "reason": "answer too long",
+      "prompt_preview": null,
+      "answer_chars": 345,
+      "kept_count": 4,
+      "rejected_count": 4
+    },
+    {
+      "line": 9,
+      "text_preview": "",
+      "outcome": "blank",
+      "reason": null,
+      "prompt_preview": null,
+      "answer_chars": null,
+      "kept_count": 4,
+      "rejected_count": 4
+    }
+  ],
+  "by_reason": [
+    [
+      "malformed json",
+      1
+    ],
+    [
+      "missing answer",
+      1
+    ],
+    [
+      "empty answer",
+      1
+    ],
+    [
+      "answer too long",
+      1
+    ]
+  ],
+  "practice": {
+    "steps": [
+      {
+        "line": 1,
+        "text_preview": "{\"prompt\": \"How do I rotate a key?\", \"an",
+        "outcome": "kept",
+        "reason": null,
+        "prompt_preview": "How do I rotate a key?",
+        "answer_chars": 115,
+        "kept_count": 1,
+        "rejected_count": 0
+      },
+      {
+        "line": 2,
+        "text_preview": "{\"prompt\": \"Which scope do list calls ne",
+        "outcome": "kept",
+        "reason": null,
+        "prompt_preview": "Which scope do list calls need?",
+        "answer_chars": 41,
+        "kept_count": 2,
+        "rejected_count": 0
+      },
+      {
+        "line": 3,
+        "text_preview": "{\"prompt\": \"Why was I billed twice?\", \"a",
+        "outcome": "rejected",
+        "reason": "malformed json",
+        "prompt_preview": null,
+        "answer_chars": null,
+        "kept_count": 2,
+        "rejected_count": 1
+      },
+      {
+        "line": 4,
+        "text_preview": "{\"prompt\": \"Can a lost key be recovered?",
+        "outcome": "kept",
+        "reason": null,
+        "prompt_preview": "Can a lost key be recovered?",
+        "answer_chars": 73,
+        "kept_count": 3,
+        "rejected_count": 1
+      },
+      {
+        "line": 5,
+        "text_preview": "{\"prompt\": \"How long does a hold last?\"}",
+        "outcome": "rejected",
+        "reason": "missing answer",
+        "prompt_preview": null,
+        "answer_chars": null,
+        "kept_count": 3,
+        "rejected_count": 2
+      },
+      {
+        "line": 6,
+        "text_preview": "{\"prompt\": \"What does the write scope ad",
+        "outcome": "rejected",
+        "reason": "empty answer",
+        "prompt_preview": null,
+        "answer_chars": null,
+        "kept_count": 3,
+        "rejected_count": 3
+      },
+      {
+        "line": 7,
+        "text_preview": "{\"prompt\": \"Where do I find my invoice?\"",
+        "outcome": "kept",
+        "reason": null,
+        "prompt_preview": "Where do I find my invoice?",
+        "answer_chars": 49,
+        "kept_count": 4,
+        "rejected_count": 3
+      },
+      {
+        "line": 8,
+        "text_preview": "{\"prompt\": \"What happens during rotation",
+        "outcome": "rejected",
+        "reason": "answer too long",
+        "prompt_preview": null,
+        "answer_chars": 345,
+        "kept_count": 4,
+        "rejected_count": 4
+      },
+      {
+        "line": 9,
+        "text_preview": "{\"prompt\": \"How do I rotate a key?\", \"an",
+        "outcome": "rejected",
+        "reason": "duplicate prompt",
+        "prompt_preview": null,
+        "answer_chars": null,
+        "kept_count": 4,
+        "rejected_count": 5
+      },
+      {
+        "line": 10,
+        "text_preview": "",
+        "outcome": "blank",
+        "reason": null,
+        "prompt_preview": null,
+        "answer_chars": null,
+        "kept_count": 4,
+        "rejected_count": 5
+      }
+    ],
+    "by_reason": [
+      [
+        "malformed json",
+        1
+      ],
+      [
+        "missing answer",
+        1
+      ],
+      [
+        "empty answer",
+        1
+      ],
+      [
+        "answer too long",
+        1
+      ],
+      [
+        "duplicate prompt",
+        1
+      ]
+    ]
+  }
+}

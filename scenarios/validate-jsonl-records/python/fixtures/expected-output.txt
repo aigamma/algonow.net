@@ -1,0 +1,25 @@
+9 lines read: 4 records kept, 4 rejected, 1 blank skipped
+
+rejected:
+  line 3: malformed json
+  line 5: missing answer
+  line 6: empty answer
+  line 8: answer too long
+
+by reason:
+  malformed json: 1
+  missing answer: 1
+  empty answer: 1
+  answer too long: 1
+
+kept:
+  1. Q: How do I rotate a key?
+     A: Create a replacement key with the same scopes, deploy it to every caller, then revoke the old key after seven days.
+  2. Q: Which scope do list calls need?
+     A: The read scope covers list and get calls.
+  3. Q: Can a lost key be recovered?
+     A: No. Keys are stored hashed; create a replacement and revoke the lost one.
+  4. Q: Where do I find my invoice?
+     A: Open Billing, then Invoices; each month is a PDF.
+
+OK

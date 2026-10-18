@@ -56,7 +56,7 @@ export default function ScenarioPage({ scenario, content, narrationPlayer }) {
       {content.starter}<PrimaryPythonFile file={primaryStarter} />
     </details> : content.starter}
   </section>;
-  const visual = <section id="visual" aria-labelledby="visual-heading"><h2 className="eyebrow" id="visual-heading">System view</h2><div className="scenario-visual">{content.visual}</div></section>;
+  const visual = <section id="visual" aria-labelledby="visual-heading"><h2 className="eyebrow" id="visual-heading">{singleFile ? 'Watch it run' : 'System view'}</h2><div className="scenario-visual">{content.visual}</div></section>;
   const files = <section id="files" className={singleFile ? 'project-download-note' : undefined} aria-labelledby="files-heading"><h2 className="eyebrow" id="files-heading">{singleFile ? 'Optional full project' : 'Working files'}</h2>
     {singleFile ? <p><a href={`/downloads/${scenario.slug}-project.zip`} download>Download full project ZIP (includes solution)</a></p>
       : workingFiles.map((file) => <ScenarioFile key={file.path} file={file} />)}

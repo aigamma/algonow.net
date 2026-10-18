@@ -138,6 +138,41 @@ const easeInOut = (p) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) 
 const clamp01 = (v) => Math.max(0, Math.min(1, v));
 const ramp = (t, from, duration) => clamp01((t - from) / duration);
 
+// The sequence of single moves that turns one order into another: for each
+// slot in turn, the document that belongs there travels from where it is and
+// the documents it passes shift by one slot.
+function moveSequence(start, target) {
+  const states = [start.slice()];
+  const movers = [];
+  let current = start.slice();
+  target.forEach((doc, slot) => {
+    const from = current.indexOf(doc);
+    if (from === slot) return;
+    current = current.slice();
+    current.splice(from, 1);
+    current.splice(slot, 0, doc);
+    states.push(current);
+    movers.push(doc);
+  });
+  return { states, movers };
+}
+
+// Positions part way through a reorder: move number k is in flight while the
+// overall progress sits in its share of the beat, eased on its own.
+function reorderAt(start, target, progress) {
+  const { states, movers } = moveSequence(start, target);
+  const final = states[states.length - 1];
+  if (!movers.length || progress >= 1) return { positions: Object.fromEntries(final.map((doc, index) => [doc, index])), traveling: null };
+  const scaled = progress * movers.length;
+  const move = Math.min(movers.length - 1, Math.floor(scaled));
+  const p = easeInOut(scaled - move);
+  const before = states[move];
+  const after = states[move + 1];
+  const positions = {};
+  before.forEach((doc) => { positions[doc] = before.indexOf(doc) + (after.indexOf(doc) - before.indexOf(doc)) * p; });
+  return { positions, traveling: movers[move] };
+}
+
 // The drawable state at `elapsed` seconds: the two card columns, the fused rows
 // with their current scores and positions, the travelling copy, and the caption.
 export function sceneAt(timeline, trace, data, elapsed) {
@@ -196,36 +231,33 @@ export function sceneAt(timeline, trace, data, elapsed) {
   }
 
   // Positions: creation order, then the fused order after the sort, then the
-  // weighted order after the practice sort. Scores move to the weighted totals
-  // during the practice re-score.
-  const finalPos = {};
-  trace.fused.forEach((entry, index) => { finalPos[entry.doc] = index; });
-  const weightedPos = {};
+  // weighted order after the practice sort. A reorder plays as a sequence of
+  // single moves (reorderAt): the row that belongs in the next slot travels
+  // there while the rows it passes shift by one, so the eye follows one mover
+  // at a time. Scores move to the weighted totals during the practice re-score.
   const weightedScore = {};
-  trace.weighted.fused.forEach((entry, index) => { weightedPos[entry.doc] = index; weightedScore[entry.doc] = entry.score; });
+  trace.weighted.fused.forEach((entry) => { weightedScore[entry.doc] = entry.score; });
+  const present = (order) => order.filter((doc) => doc in rowOf);
+  const createdOrder = rows.slice().sort((a, b) => a.created - b.created).map((row) => row.doc);
+  const fusedOrder = present(trace.fused.map((entry) => entry.doc));
+  const weightedOrder = present(trace.weighted.fused.map((entry) => entry.doc));
   let sortProgress = 0;
   let scoreProgress = 0;
   let practiceSortProgress = 0;
-  if (beat.kind === 'sort') sortProgress = easeInOut(ramp(local, 0.2, SORT - 0.7));
+  if (beat.kind === 'sort') sortProgress = ramp(local, 0.2, SORT - 0.7);
   else if (beatIndex > sortBeat) sortProgress = 1;
   if (beat.kind === 'practice-score') scoreProgress = easeInOut(ramp(local, 0.3, PRACTICE_SCORE - 1.2));
   else if (beatIndex > practiceScoreBeat) scoreProgress = 1;
-  if (beat.kind === 'practice-sort') practiceSortProgress = easeInOut(ramp(local, 0.2, PRACTICE_SORT - 0.7));
+  if (beat.kind === 'practice-sort') practiceSortProgress = ramp(local, 0.2, PRACTICE_SORT - 0.7);
   else if (beatIndex > practiceSortBeat) practiceSortProgress = 1;
+  let placement;
+  if (practiceSortProgress > 0) placement = reorderAt(fusedOrder, weightedOrder, practiceSortProgress);
+  else if (sortProgress > 0) placement = reorderAt(createdOrder, fusedOrder, sortProgress);
+  else placement = { positions: Object.fromEntries(createdOrder.map((doc, index) => [doc, index])), traveling: null };
   rows.forEach((row) => {
-    const created = row.created;
-    const final = finalPos[row.doc] === undefined ? created : finalPos[row.doc];
-    const weighted = weightedPos[row.doc] === undefined ? final : weightedPos[row.doc];
-    const sorted = created + (final - created) * sortProgress;
-    row.position = sorted + (weighted - sorted) * practiceSortProgress;
+    row.position = placement.positions[row.doc];
+    row.traveling = placement.traveling === row.doc;
     if (scoreProgress > 0) row.score = row.score + (weightedScore[row.doc] - row.score) * scoreProgress;
-    // While rows reorder, the ones moving down slide a little to the right and
-    // the ones moving up a little to the left, so crossing rows pass beside
-    // each other instead of through each other; the biggest movers draw on top.
-    const move = beat.kind === 'sort' ? final - created : beat.kind === 'practice-sort' ? weighted - final : 0;
-    const swing = beat.kind === 'sort' ? Math.sin(Math.PI * sortProgress) : beat.kind === 'practice-sort' ? Math.sin(Math.PI * practiceSortProgress) : 0;
-    row.shift = Math.sign(move) * 26 * swing;
-    row.travel = Math.abs(move) * swing;
   });
   const frameAlpha = beat.kind === 'outro' ? ramp(local, 0.2, 0.5) : (beatIndex > outroBeat ? 1 : 0);
   const practice = beatIndex >= practiceIntroBeat;
@@ -307,10 +339,10 @@ export function drawScene(ctx, scene) {
   }
 
   // The fused rows with their bars.
-  [...scene.rows].sort((a, b) => (a.travel || 0) - (b.travel || 0)).forEach((row) => {
+  [...scene.rows].sort((a, b) => (a.traveling ? 1 : 0) - (b.traveling ? 1 : 0)).forEach((row) => {
     if (row.alpha <= 0) return;
     const r = rowRect(row.position);
-    r.x += row.shift || 0;
+    if (row.traveling) r.x += 18;   // the mover steps slightly aside and draws on top
     ctx.globalAlpha = row.alpha;
     ctx.fillStyle = PANEL;
     rounded(ctx, r.x, r.y, r.w, r.h, 4); ctx.fill();
@@ -318,8 +350,10 @@ export function drawScene(ctx, scene) {
     ctx.globalAlpha = row.alpha * 0.35;
     rounded(ctx, r.x, r.y, Math.min(1, row.score / BAR_FULL) * r.w, r.h, 4); ctx.fill();
     ctx.globalAlpha = row.alpha;
-    ctx.strokeStyle = LINE;
+    ctx.strokeStyle = row.traveling ? BLUE : LINE;
+    ctx.lineWidth = row.traveling ? 1.5 : 1;
     rounded(ctx, r.x, r.y, r.w, r.h, 4); ctx.stroke();
+    ctx.lineWidth = 1;
     ctx.fillStyle = INK;
     ctx.font = `12px ${MONO}`;
     ctx.fillText(row.doc, r.x + 8, r.y + 16);

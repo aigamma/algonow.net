@@ -100,7 +100,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'An overnight fine-tuning job crashed on one malformed line of a JSONL export, and after a manual fix it trained on records with empty answers. A worked Python example streams the file with a generator: nine inline lines (eight records and a blank), json.loads inside try and except, checks for missing and empty fields, kept records yielded one at a time, rejections counted by reason with their line numbers, its exact output, and one practice variation that drops duplicate prompts.',
     track: 'data-pipelines',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-17', listenMinutes: 13,
     difficulty: 'intermediate',
     durationMinutes: 30,
     skills: ['Streaming validation of JSONL records', 'json.loads and JSONDecodeError', 'A generator function with yield', 'Counting rejections by reason with Counter', 'Skipping duplicates with a set (practice)'],

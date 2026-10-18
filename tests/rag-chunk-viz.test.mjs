@@ -16,10 +16,11 @@ test('the animation replays exactly the trace the Python solution produces', () 
   assert.deepEqual(trace, expected);
 });
 
-test('the timeline is slow and complete: no beat under three seconds, about two minutes in all', () => {
-  assert.ok(timeline.duration >= 100 && timeline.duration <= 130, `duration ${timeline.duration}`);
+test('the timeline is a reading pace and complete: no beat under a second, under a minute in all', () => {
+  assert.ok(timeline.duration >= 35 && timeline.duration <= 60, `duration ${timeline.duration}`);
   for (let index = 1; index < timeline.markers.length; index += 1) assert.ok(timeline.markers[index] > timeline.markers[index - 1]);
-  for (const beat of timeline.beats) assert.ok(beat.duration >= 3, `${beat.kind} lasts ${beat.duration} seconds`);
+  for (const beat of timeline.beats) assert.ok(beat.duration >= 1, `${beat.kind} lasts ${beat.duration} seconds`);
+  for (const beat of timeline.beats.filter((b) => b.kind === 'step' || b.kind === 'reject')) assert.ok(beat.duration >= 3.5 && beat.duration <= 5, 'about four seconds per decision');
   assert.equal(timeline.beats.filter((beat) => beat.kind === 'step').length, 5);
   assert.equal(timeline.beats.filter((beat) => beat.kind === 'reject').length, 1);
   assert.equal(timeline.beats.filter((beat) => beat.kind === 'line').length, 5);
@@ -62,7 +63,7 @@ test('drawScene runs against a bare 2D context at sampled moments', () => {
     get: (target, key) => (key === 'canvas' ? { width: W, height: H } : (...args) => { calls.add(String(key)); return undefined; }),
     set: () => true,
   });
-  for (const t of [0, 3, 9.9, 12, 14, 17, 21.9, 35, 60, 74, 78, 81.9, 83, 86, 100, 112, timeline.duration]) {
+  for (const t of [0, 1, 3.4, 4, 4.6, 5.5, 7.5, 12, 20, 24.5, 26, 27.4, 28.5, 30, 36, 42, timeline.duration]) {
     drawScene(ctx, sceneAt(timeline, trace, data, t));
   }
   for (const needed of ['fillRect', 'fillText', 'stroke', 'fill', 'beginPath']) assert.ok(calls.has(needed), needed);

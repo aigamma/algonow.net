@@ -114,9 +114,11 @@ alternatives. Supporting files remain in the repository and advanced download;
 their paths and source are not rendered as a lesson-page inventory.
 An animation must replay the real process on the lesson's own input: run the
 same loop in the browser on a fixture shared with the Python files and compare
-its trace with a fixture the Python tests derive from the solution. Keep it
-slow (movements of seconds, decisions held long enough to read twice) and let
-the site's motion preference set the pace and the rest between repeats.
+its trace with a fixture the Python tests derive from the solution. Pace it
+for reading, not for watching: movements under a second, each decision held
+about two seconds, a whole run under a minute. The owner finds slower runs
+tedious and faster ones cheap. Let the site's motion preference stretch or
+stop it and set the rest between repeats.
 Existing unmarked scenarios retain their previous presentation.
 
 Validation must copy each primary script to its own temporary directory with

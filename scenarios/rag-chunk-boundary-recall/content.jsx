@@ -217,12 +217,13 @@ export const content = {
       <PackBlocksViz />
       <figcaption className="fig-cap">
         <span className="fig-caption-text">
-          The loop from the file, run slowly on its own five blocks. Each block is carried to the chunk it lands in
-          while the caption states the decision in the words of the trace table; the chunk bars fill against the
-          200-character budget; the oversized incident block is rejected at 281; then the practice variation splits
-          it into five lines that pack into two more chunks. Step through with the buttons. The figure rests for two
-          minutes before it plays again, and the motion setting in the site header can slow or stop it. Every
-          decision and number comes from the same loop run in the browser and is checked against the Python run.
+          The loop from the file, run on its own five blocks at a reading pace: about four seconds per decision,
+          under a minute in all. Each block is carried to the chunk it lands in while the caption states the
+          decision in the words of the trace table; the chunk bars fill against the 200-character budget; the
+          oversized incident block is rejected at 281; then the practice variation splits it into five lines that
+          pack into two more chunks. Step through with the buttons. The figure rests for two minutes before it plays
+          again, and the motion setting in the site header can slow or stop it. Every decision and number comes from
+          the same loop run in the browser and is checked against the Python run.
         </span>
       </figcaption>
     </figure>

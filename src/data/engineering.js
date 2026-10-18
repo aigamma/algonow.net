@@ -88,7 +88,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'A weekly fine-tuning job reshuffled its train and validation split each run, so examples drifted between sides and validation scores jumped. A worked Python example assigns each record by hashing its id with SHA-256 into a hundred buckets: six inline transcripts, hashlib and integer conversion, a dictionary of lists, proof that new records never move old ones, a seeded shuffle for comparison, its exact output, and one practice variation that adds a test split.',
     track: 'fine-tuning',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-17', listenMinutes: 12,
     difficulty: 'intermediate',
     durationMinutes: 30,
     skills: ['Stable train and validation assignment by content hash', 'hashlib, encode, hexdigest, and int with base sixteen', 'Buckets with the modulo operator and a threshold', 'A dictionary of lists', 'Why a seeded shuffle still moves records', 'A three-way split (practice)'],

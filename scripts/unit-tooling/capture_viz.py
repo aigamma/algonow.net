@@ -14,7 +14,7 @@ EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 if not pathlib.Path(EDGE).exists():
     EDGE = r"C:\Program Files\Microsoft\Edge\Application\msedge.exe"
 BG = (13, 17, 25)
-out = pathlib.Path(sys.argv[1])
+out = pathlib.Path(sys.argv[1]).resolve()   # Edge writes a relative screenshot path relative to its own directory
 out.mkdir(parents=True, exist_ok=True)
 base = sys.argv[2]
 for t in sys.argv[3:]:

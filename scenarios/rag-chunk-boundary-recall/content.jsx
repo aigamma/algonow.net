@@ -1,11 +1,12 @@
-import DiagramViewport from '../../src/components/DiagramViewport.jsx';
+import PackBlocksViz from './visuals/PackBlocksViz.jsx';
 import solutionSource from './python/src/rag_chunking/solution.py?raw';
 import starterSource from './python/src/rag_chunking/starter.py?raw';
 import answerSource from './python/src/rag_chunking/practice_answer.py?raw';
 import lessonTests from './python/tests/test_lesson.py?raw';
 import expectedOutput from './python/fixtures/expected-output.txt?raw';
 import expectedPracticeOutput from './python/fixtures/expected-practice-output.txt?raw';
-import diagram from './visuals/pack-blocks.svg?raw';
+import blocksFixture from './python/fixtures/blocks.json?raw';
+import traceFixture from './python/fixtures/expected-trace.json?raw';
 
 // Authored by Claude Fable 5 in the main thread. Every number on this page was
 // produced by running the files below; the expected outputs are the files'
@@ -98,7 +99,11 @@ export const content = {
     { path: 'python/fixtures/expected-practice-output.txt', role: 'fixture', language: 'text', source: expectedPracticeOutput,
       description: 'What practice_answer.py prints, byte for byte.' },
     { path: 'python/tests/test_lesson.py', role: 'test', language: 'python', source: lessonTests,
-      description: 'Runs the three lesson files alone and checks the packing rules, the exact budget boundary, the rejection, and that the input is never modified.' },
+      description: 'Runs the three lesson files alone and checks the packing rules, the exact budget boundary, the rejection, that the input is never modified, and that the animation fixtures match the solution.' },
+    { path: 'python/fixtures/blocks.json', role: 'fixture', language: 'json', source: blocksFixture,
+      description: 'The five blocks, the budget, and the oversized block, exactly as solution.py defines them; the animation runs on this copy and a test pins it to the file.' },
+    { path: 'python/fixtures/expected-trace.json', role: 'fixture', language: 'json', source: traceFixture,
+      description: 'Every decision the loop makes on the example, derived from the Python solution; the animation must replay it exactly.' },
   ],
 
   evidence: (
@@ -209,14 +214,15 @@ export const content = {
 
   visual: (
     <figure className="fig">
-      <DiagramViewport width={900} aspect="900 / 470" frameClassName="fig-canvas">
-        <div dangerouslySetInnerHTML={{ __html: diagram }} />
-      </DiagramViewport>
+      <PackBlocksViz />
       <figcaption className="fig-cap">
         <span className="fig-caption-text">
-          The exact example. Input blocks on the left are drawn to scale; the four chunks on the right show how much
-          of the 200-character budget each text uses; the label on each connector is the decision the loop made for
-          that block. The incident block at the bottom, 281 characters with its heading, is the rejected case.
+          The loop from the file, run slowly on its own five blocks. Each block is carried to the chunk it lands in
+          while the caption states the decision in the words of the trace table; the chunk bars fill against the
+          200-character budget; the oversized incident block is rejected at 281; then the practice variation splits
+          it into five lines that pack into two more chunks. Step through with the buttons. The figure rests for two
+          minutes before it plays again, and the motion setting in the site header can slow or stop it. Every
+          decision and number comes from the same loop run in the browser and is checked against the Python run.
         </span>
       </figcaption>
     </figure>

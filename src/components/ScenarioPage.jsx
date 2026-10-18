@@ -39,7 +39,7 @@ export default function ScenarioPage({ scenario, content, narrationPlayer }) {
   const singleFile = Boolean(primaryStarter && primaryReference);
   const workingFiles = content.files.filter((file) => file.role !== 'reference');
   const sections = singleFile
-    ? [['brief', 'Brief'], ['solution', 'Worked solution'], ['visual', 'System view'], ['evidence', 'Validation'], ['tradeoffs', 'Alternatives'], ['starter', 'Practice']]
+    ? [['brief', 'Brief'], ['visual', 'Watch it run'], ['solution', 'Worked solution'], ['evidence', 'Validation'], ['tradeoffs', 'Alternatives'], ['starter', 'Practice']]
     : [['brief', 'Brief'], ['starter', 'Get started'], ['solution', 'Solution'], ['visual', 'System view'], ['evidence', 'Validation'], ['files', 'Files']];
   const tradeoffs = <ul className="scenario-tradeoffs">{content.tradeoffs.map((alternative) => <li key={alternative.name}>
     <strong>{alternative.name}</strong><p>{alternative.preferWhen}</p><p>{alternative.cost}</p>
@@ -76,11 +76,11 @@ export default function ScenarioPage({ scenario, content, narrationPlayer }) {
           {sections.map(([id, label]) => <a className="chip" href={`#${id}`} key={id}>{label}</a>)}
         </nav>
         <section id="brief" aria-labelledby="brief-heading"><h2 className="eyebrow" id="brief-heading">The engineering task</h2>{content.brief}</section>
+        {singleFile && visual}
         {singleFile && solution}
         {!singleFile && visual}
         {!singleFile && starter}
         {!singleFile && files}
-        {singleFile && visual}
         <section id="evidence" aria-labelledby="evidence-heading"><h2 className="eyebrow" id="evidence-heading">Check your result</h2>{content.evidence}</section>
         {!singleFile && solution}
         <section id="tradeoffs" aria-labelledby="tradeoffs-heading"><h2 className="eyebrow" id="tradeoffs-heading">Compare the alternatives</h2>

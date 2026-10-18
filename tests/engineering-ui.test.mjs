@@ -222,7 +222,7 @@ test('primary files show the worked solution first and keep practice optional', 
   assert.match(solution, /<details open=""><summary>Complete Python code and explanation<\/summary>/);
   assert.match(html, /href="#solution">Worked solution<\/a>/);
   assert.deepEqual([...html.matchAll(/<section id="([^"]+)"/g)].map(match => match[1]),
-    ['brief', 'solution', 'visual', 'evidence', 'tradeoffs', 'starter', 'files']);
+    ['brief', 'visual', 'solution', 'evidence', 'tradeoffs', 'starter', 'files']);
   assert.doesNotMatch(sectionHtml(html, 'tradeoffs'), /<details/);
   for (const marker of ['ALTERNATIVE_FIXTURE', 'PREFERENCE_FIXTURE', 'COST_FIXTURE']) {
     assert.equal(disclosureAncestors(html, marker).length, 0, 'architectural comparisons stay visible');

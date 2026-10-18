@@ -107,9 +107,16 @@ imported using `?raw` from the actual Python files, including when those files
 live under `python/src/<package>/` for compatibility with the full suite.
 Every primary script must also work after copying that file alone elsewhere.
 Other file roles and the existing package/fixture/test contract are preserved.
-The shared page renders the complete solution first, then the optional practice
-file. Supporting files remain in the repository and advanced download; their
-paths and source are not rendered as a lesson-page inventory.
+The shared page renders the brief, then the visual (a slow animation of the
+example's process when the lesson has one, otherwise the checked diagram),
+then the complete solution, and the optional practice file after the
+alternatives. Supporting files remain in the repository and advanced download;
+their paths and source are not rendered as a lesson-page inventory.
+An animation must replay the real process on the lesson's own input: run the
+same loop in the browser on a fixture shared with the Python files and compare
+its trace with a fixture the Python tests derive from the solution. Keep it
+slow (movements of seconds, decisions held long enough to read twice) and let
+the site's motion preference set the pace and the rest between repeats.
 Existing unmarked scenarios retain their previous presentation.
 
 Validation must copy each primary script to its own temporary directory with

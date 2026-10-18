@@ -5,6 +5,7 @@ would, and compares what they print with the expected-output fixtures byte for
 byte. The rest exercise pack_blocks directly. Expectations are exact: the
 inputs are fixed text and nothing is random."""
 import copy
+import json
 import os
 import shutil
 import subprocess
@@ -141,6 +142,64 @@ class PracticeVariation(unittest.TestCase):
         self.assertEqual(segment(answer, "MAX_CHARS = 200", "# --- answer begins ---"),
                          segment(starter, "MAX_CHARS = 200", "def pack_blocks"))
         self.assertEqual(segment(answer, 'if __name__ == "__main__":'), segment(starter, 'if __name__ == "__main__":'))
+
+
+def derive_trace(blocks, pack, max_chars):
+    """Trace every loop decision by packing growing prefixes with the real function.
+    The animation's JavaScript port must reproduce this exactly."""
+    def size(heading, text):
+        return len(chunk_text(heading, text))
+    steps, previous = [], []
+    for index, block in enumerate(blocks):
+        heading, text = block["heading"], block["text"]
+        try:
+            chunks = pack(blocks[:index + 1], max_chars)
+        except ValueError:
+            steps.append({"block": index, "action": "reject", "size": size(heading, text)})
+            break
+        last = chunks[-1]
+        step = {"block": index, "chunk": len(chunks) - 1, "after": size(last["heading"], last["text"])}
+        if previous and len(chunks) == len(previous):
+            prev = previous[-1]
+            step.update(action="join", before=size(prev["heading"], prev["text"]),
+                        candidate=size(heading, prev["text"] + "\n\n" + text))
+        elif not previous:
+            step.update(action="open", reason="first")
+        else:
+            prev = previous[-1]
+            if prev["heading"] != heading:
+                step.update(action="open", reason="heading", by_size=size(prev["heading"], prev["text"] + "\n\n" + text))
+            else:
+                step.update(action="open", reason="budget", candidate=size(heading, prev["text"] + "\n\n" + text))
+        steps.append(step)
+        previous = chunks
+    return steps
+
+
+class AnimationFixtures(unittest.TestCase):
+    """The page's animation runs on blocks.json and replays expected-trace.json;
+    both are pinned to the lesson files here, so the picture cannot drift."""
+
+    def test_blocks_fixture_is_the_lesson_input(self):
+        fixture = json.loads((FIXTURES / "blocks.json").read_text(encoding="utf-8"))
+        self.assertEqual(fixture, {"max_chars": MAX_CHARS, "blocks": BLOCKS, "too_long": TOO_LONG})
+
+    def test_expected_trace_is_what_the_solution_does(self):
+        fixture = json.loads((FIXTURES / "expected-trace.json").read_text(encoding="utf-8"))
+        packing = derive_trace(BLOCKS + [TOO_LONG], pack_blocks, MAX_CHARS)
+        expanded = practice_answer.split_long_blocks(practice_answer.PRACTICE_BLOCKS, MAX_CHARS)
+        split_steps = derive_trace(expanded, practice_answer.pack_blocks, MAX_CHARS)[len(BLOCKS):]
+        joined = "\n\n".join(block["text"] for block in BLOCKS)
+        cuts = []
+        for boundary in range(MAX_CHARS, len(joined), MAX_CHARS):
+            for index, block in enumerate(BLOCKS):
+                start = joined.index(block["text"])
+                if start < boundary < start + len(block["text"]):
+                    cuts.append({"boundary": boundary, "block": index, "offset": boundary - start})
+        self.assertEqual(fixture, {"max_chars": MAX_CHARS, "packing": packing, "fixed_window_cuts": cuts,
+                                   "split": {"lines": [block["text"] for block in expanded[len(BLOCKS):]], "steps": split_steps}})
+        self.assertEqual([step["action"] for step in packing], ["open", "open", "join", "open", "open", "reject"])
+        self.assertEqual([step["after"] for step in split_steps], [43, 104, 136, 108, 161])
 
 
 def fixed_windows(text, size, overlap=0):

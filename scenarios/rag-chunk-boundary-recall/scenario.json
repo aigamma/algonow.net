@@ -29,37 +29,175 @@
       "The shipped approach fails on the same input: fixed 200-character windows over the joined 463-character text cut two of the five blocks (inside step one of the procedure and inside the scopes paragraph) while pack_blocks keeps all five whole; a 100-character overlap rescues them only by alignment, indexes 826 characters for 463 of text, and guarantees only blocks of at most 101 characters"
     ]
   },
-  "python": { "package": "rag_chunking", "dependencies": "stdlib", "starterExitCode": 1 },
+  "python": {
+    "package": "rag_chunking",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
   "fixtures": [
-    { "path": "python/fixtures/expected-output.txt", "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.", "sha256": "f2805ecabe670498509b7612aef6c3dcb2054c4bbdfac72e529dc001e4c6e5bc" },
-    { "path": "python/fixtures/expected-practice-output.txt", "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.", "sha256": "eee3b1cecc09076cfcb295243456d83c28b786abdecb78fadbdb38e3be5880a3" }
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "f2805ecabe670498509b7612aef6c3dcb2054c4bbdfac72e529dc001e4c6e5bc"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "eee3b1cecc09076cfcb295243456d83c28b786abdecb78fadbdb38e3be5880a3"
+    },
+    {
+      "path": "python/fixtures/blocks.json",
+      "description": "The five blocks, the budget, and the oversized block exactly as solution.py defines them; the animation runs on this copy and a test pins it to the file.",
+      "sha256": "a59ac39bd783230129c8de2dd2fb48c31bb2e88db890588c426a6e03b4089a1b"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every decision the loop makes on the example (open, join, open on budget, open on heading, reject) and on the practice variation's five lines, derived from the Python solution; the animation must replay it exactly.",
+      "sha256": "dd557c20c156273d8f49ea90cab497a17bc1a3bfcdc2a3300823519c48c76ddb"
+    }
   ],
   "checks": [
-    { "id": "solution-exact-output", "kind": "correctness", "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.", "file": "python/tests/test_lesson.py", "function": "test_solution_prints_exactly_the_expected_output_when_run_alone" },
-    { "id": "four-chunks-within-budget", "kind": "correctness", "description": "The five blocks pack into four chunks whose texts are 106, 195, 110, and 88 characters, each within the 200-character budget.", "file": "python/tests/test_lesson.py", "function": "test_four_chunks_each_within_budget" },
-    { "id": "same-heading-join", "kind": "correctness", "description": "Blocks 2 and 3 join into one chunk (195 characters) and block 4 opens a new chunk because joining it would make 294.", "file": "python/tests/test_lesson.py", "function": "test_same_heading_blocks_join_until_the_budget_runs_out" },
-    { "id": "heading-change-opens-chunk", "kind": "correctness", "description": "The Scopes block opens a new chunk although it would fit chunk 3 by size alone (193 characters).", "file": "python/tests/test_lesson.py", "function": "test_heading_change_opens_a_new_chunk_even_when_the_text_would_fit" },
-    { "id": "exact-budget-boundary", "kind": "correctness", "description": "A chunk may reach the budget exactly (200) and one more character opens a new chunk.", "file": "python/tests/test_lesson.py", "function": "test_exact_budget_boundary" },
-    { "id": "oversized-rejected", "kind": "failure", "description": "A block that cannot fit on its own raises ValueError naming its size (281) and the budget (200), wherever it appears in the list.", "file": "python/tests/test_lesson.py", "function": "test_oversized_block_is_rejected_with_its_size" },
-    { "id": "input-not-modified", "kind": "correctness", "description": "The caller's block list is unchanged after packing and no chunk is one of the input records.", "file": "python/tests/test_lesson.py", "function": "test_input_blocks_are_not_modified" },
-    { "id": "nothing-lost", "kind": "correctness", "description": "The concatenated chunk bodies contain every non-whitespace character of the input once, in order.", "file": "python/tests/test_lesson.py", "function": "test_nothing_lost_duplicated_or_reordered" },
-    { "id": "no-blocks", "kind": "failure", "description": "No blocks yield no chunks instead of an empty chunk.", "file": "python/tests/test_lesson.py", "function": "test_no_blocks_no_chunks" },
-    { "id": "starter-not-ok", "kind": "failure", "description": "starter.py run alone exits 1, starts with the NOT OK line naming the 281-character block, and writes no traceback.", "file": "python/tests/test_lesson.py", "function": "test_starter_reports_not_ok_as_shipped" },
-    { "id": "answer-exact-output", "kind": "correctness", "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.", "file": "python/tests/test_lesson.py", "function": "test_answer_prints_exactly_the_expected_output_when_run_alone" },
-    { "id": "answer-splits-at-lines", "kind": "correctness", "description": "The practice answer yields six chunks (106, 195, 110, 88, 136, 161) with the incident steps one to three and four to five as the last two.", "file": "python/tests/test_lesson.py", "function": "test_answer_splits_an_oversized_block_at_line_breaks" },
-    { "id": "answer-matches-example", "kind": "correctness", "description": "On the five fitting blocks the practice answer packs exactly like the worked solution.", "file": "python/tests/test_lesson.py", "function": "test_answer_packs_fitting_blocks_exactly_like_the_worked_example" },
-    { "id": "answer-rejects-long-line", "kind": "failure", "description": "After the practice change a single line longer than the budget is still rejected.", "file": "python/tests/test_lesson.py", "function": "test_answer_still_rejects_a_single_line_over_budget" },
-    { "id": "answer-region", "kind": "correctness", "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.", "file": "python/tests/test_lesson.py", "function": "test_answer_and_starter_differ_only_inside_the_marked_region" },
-    { "id": "fixed-windows-cut-blocks", "kind": "evaluation", "description": "Fixed 200-character windows over the joined 463-character text cut the procedure inside step one and the scopes paragraph mid-sentence, leaving three of five blocks whole, while pack_blocks keeps all five whole.", "file": "python/tests/test_lesson.py", "function": "test_fixed_windows_cut_two_of_the_five_blocks" },
-    { "id": "overlap-by-alignment", "kind": "evaluation", "description": "A 100-character overlap rescues every block of this input only by alignment (five windows, 826 characters indexed for 463 of text); a 102-character block that starts one character before a window boundary is cut by every window, and a 101-character one is not.", "file": "python/tests/test_lesson.py", "function": "test_overlap_rescues_this_example_only_by_alignment" }
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "four-chunks-within-budget",
+      "kind": "correctness",
+      "description": "The five blocks pack into four chunks whose texts are 106, 195, 110, and 88 characters, each within the 200-character budget.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_four_chunks_each_within_budget"
+    },
+    {
+      "id": "same-heading-join",
+      "kind": "correctness",
+      "description": "Blocks 2 and 3 join into one chunk (195 characters) and block 4 opens a new chunk because joining it would make 294.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_same_heading_blocks_join_until_the_budget_runs_out"
+    },
+    {
+      "id": "heading-change-opens-chunk",
+      "kind": "correctness",
+      "description": "The Scopes block opens a new chunk although it would fit chunk 3 by size alone (193 characters).",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_heading_change_opens_a_new_chunk_even_when_the_text_would_fit"
+    },
+    {
+      "id": "exact-budget-boundary",
+      "kind": "correctness",
+      "description": "A chunk may reach the budget exactly (200) and one more character opens a new chunk.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_exact_budget_boundary"
+    },
+    {
+      "id": "oversized-rejected",
+      "kind": "failure",
+      "description": "A block that cannot fit on its own raises ValueError naming its size (281) and the budget (200), wherever it appears in the list.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_oversized_block_is_rejected_with_its_size"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The caller's block list is unchanged after packing and no chunk is one of the input records.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_blocks_are_not_modified"
+    },
+    {
+      "id": "nothing-lost",
+      "kind": "correctness",
+      "description": "The concatenated chunk bodies contain every non-whitespace character of the input once, in order.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_nothing_lost_duplicated_or_reordered"
+    },
+    {
+      "id": "no-blocks",
+      "kind": "failure",
+      "description": "No blocks yield no chunks instead of an empty chunk.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_no_blocks_no_chunks"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line naming the 281-character block, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-splits-at-lines",
+      "kind": "correctness",
+      "description": "The practice answer yields six chunks (106, 195, 110, 88, 136, 161) with the incident steps one to three and four to five as the last two.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_splits_an_oversized_block_at_line_breaks"
+    },
+    {
+      "id": "answer-matches-example",
+      "kind": "correctness",
+      "description": "On the five fitting blocks the practice answer packs exactly like the worked solution.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_packs_fitting_blocks_exactly_like_the_worked_example"
+    },
+    {
+      "id": "answer-rejects-long-line",
+      "kind": "failure",
+      "description": "After the practice change a single line longer than the budget is still rejected.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_still_rejects_a_single_line_over_budget"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "fixed-windows-cut-blocks",
+      "kind": "evaluation",
+      "description": "Fixed 200-character windows over the joined 463-character text cut the procedure inside step one and the scopes paragraph mid-sentence, leaving three of five blocks whole, while pack_blocks keeps all five whole.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_fixed_windows_cut_two_of_the_five_blocks"
+    },
+    {
+      "id": "overlap-by-alignment",
+      "kind": "evaluation",
+      "description": "A 100-character overlap rescues every block of this input only by alignment (five windows, 826 characters indexed for 463 of text); a 102-character block that starts one character before a window boundary is cut by every window, and a 101-character one is not.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_overlap_rescues_this_example_only_by_alignment"
+    },
+    {
+      "id": "blocks-fixture",
+      "kind": "correctness",
+      "description": "blocks.json equals the MAX_CHARS, BLOCKS, and TOO_LONG that solution.py defines.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_blocks_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived by packing growing prefixes with the real pack_blocks and practice answer: open first (106), open on heading (74), join (195), open on budget (294 then 110), open on heading (193 would fit, 88), reject (281), then the five lines (43, 104, 136, 108, 161), plus the fixed-window cuts at 200 and 400.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    }
   ],
   "visuals": [
     {
-      "kind": "svg",
-      "path": "visuals/pack-blocks.svg",
-      "description": "The exact worked example: the five input blocks drawn to scale on the left (text length and length with heading), the four chunks on the right against the 200-character budget (106, 195, 110, 88), a connector per block labeled with the decision the loop made (first block, heading changed, 74 + 2 + 119 = 195 join, 195 + 2 + 97 = 294 open, heading changed although 193 would fit), and the rejected 281-character incident block at the bottom.",
-      "correctness": "The diagram is generated by a script that imports solution.py, runs pack_blocks on BLOCKS, and asserts the chunk sizes 106, 195, 110, 88 and the derived sizes 195, 294, 193, and 281 before writing any label; the same sizes are asserted by the cited check and by the exact-output comparison. Rendered and inspected at 390 and 1200 pixels wide.",
-      "check": "four-chunks-within-budget"
+      "kind": "canvas",
+      "path": "visuals/PackBlocksViz.jsx",
+      "description": "A slow animation of the worked example: the five input blocks drawn to scale on the left, the chunks filling against the 200-character budget on the right, a copy of each block carried to the chunk it lands in while the caption states the decision (open first 106, heading changed 74, 74 + 2 + 119 = 195 join, 195 + 2 + 97 = 294 open 110, heading changed although 193 would fit 88), the oversized incident block rejected at 281, then the practice variation splitting it into five lines that pack into two chunks of 136 and 161. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/packBlocksModel.js, a JavaScript port of pack_blocks and split_long_blocks that runs on python/fixtures/blocks.json and records a trace; tests/rag-chunk-viz.test.mjs asserts that trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real solution, and that every sampled scene keeps bars at or below their traced sizes, ends with 106, 195, 110, 88, 136, 161, and shows the rejection reaching 281. Rendered frames inspected at 390 and 1280 pixels at several moments via the #viz-t deep link.",
+      "check": "trace-fixture"
     }
   ]
 }

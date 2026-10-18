@@ -92,6 +92,8 @@
 .scenario-page th, .scenario-page td { padding: .45rem .7rem; border-bottom: 1px solid var(--line-soft); text-align: left; vertical-align: top; overflow-wrap: normal; }
 .scenario-page th { font: 600 .7rem/1.5 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); white-space: nowrap; }
 .scenario-page .expected-output { white-space: pre-wrap; overflow-wrap: anywhere; }
+.scenario-page .viz-frame { margin: 0; }
+.scenario-page .viz-caption { margin: .75rem .2rem 0; min-height: 3em; font-size: .92rem; line-height: 1.55; color: var(--ink); }
 .scenario-page td:first-child { color: var(--ink); }
 .scenario-tradeoffs { padding-left: 1.2rem; }
 .scenario-tradeoffs li { margin: 1.2rem 0; }

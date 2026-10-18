@@ -69,10 +69,19 @@ echo "published + installed + verified (receipt, CDN, direct-origin denial)"
 python - "$SLUG" "$LISTEN" "$DATE" <<'EOF' || fail "registry flip"
 import sys, pathlib
 slug, listen, date = sys.argv[1:4]
+import re
 p = pathlib.Path("src/data/engineering.js"); s = p.read_text(encoding="utf-8")
-i = s.index(f"slug: '{slug}'"); j = s.index("status: 'draft',", i)
-s = s[:j] + f"status: 'published', added: '{date}', listenMinutes: {int(listen)}," + s[j + len("status: 'draft',"):]
-p.write_text(s, encoding="utf-8"); print("registered", slug, "published", date, "listenMinutes", listen)
+i = s.index(f"slug: '{slug}'"); end = s.index("},", i)
+record = s[i:end]
+if "status: 'draft'," in record:
+    record = record.replace("status: 'draft',", f"status: 'published', added: '{date}', listenMinutes: {int(listen)},", 1)
+    print("registered", slug, "published", date, "listenMinutes", listen)
+elif "status: 'published'," in record:   # a re-release keeps its first publication date
+    record = re.sub(r"listenMinutes: \d+", f"listenMinutes: {int(listen)}", record)
+    print("already published; listenMinutes now", listen)
+else:
+    raise SystemExit("registry record has no recognizable status")
+p.write_text(s[:i] + record + s[end:], encoding="utf-8")
 EOF
 
 # 4. checks, build, check: exit gated

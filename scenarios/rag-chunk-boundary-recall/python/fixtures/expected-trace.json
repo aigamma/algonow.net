@@ -1,0 +1,112 @@
+{
+  "max_chars": 200,
+  "packing": [
+    {
+      "block": 0,
+      "chunk": 0,
+      "after": 106,
+      "action": "open",
+      "reason": "first"
+    },
+    {
+      "block": 1,
+      "chunk": 1,
+      "after": 74,
+      "action": "open",
+      "reason": "heading",
+      "by_size": 169
+    },
+    {
+      "block": 2,
+      "chunk": 1,
+      "after": 195,
+      "action": "join",
+      "before": 74,
+      "candidate": 195
+    },
+    {
+      "block": 3,
+      "chunk": 2,
+      "after": 110,
+      "action": "open",
+      "reason": "budget",
+      "candidate": 294
+    },
+    {
+      "block": 4,
+      "chunk": 3,
+      "after": 88,
+      "action": "open",
+      "reason": "heading",
+      "by_size": 193
+    },
+    {
+      "block": 5,
+      "action": "reject",
+      "size": 281
+    }
+  ],
+  "fixed_window_cuts": [
+    {
+      "boundary": 200,
+      "block": 2,
+      "offset": 38
+    },
+    {
+      "boundary": 400,
+      "block": 4,
+      "offset": 18
+    }
+  ],
+  "split": {
+    "lines": [
+      "1. Page the on-call engineer.",
+      "2. Open a bridge and post the link in the incident channel.",
+      "3. Name an incident commander.",
+      "4. Post an update in the incident channel every thirty minutes until the incident is resolved.",
+      "5. Schedule the postmortem within two working days."
+    ],
+    "steps": [
+      {
+        "block": 5,
+        "chunk": 4,
+        "after": 43,
+        "action": "open",
+        "reason": "heading",
+        "by_size": 119
+      },
+      {
+        "block": 6,
+        "chunk": 4,
+        "after": 104,
+        "action": "join",
+        "before": 43,
+        "candidate": 104
+      },
+      {
+        "block": 7,
+        "chunk": 4,
+        "after": 136,
+        "action": "join",
+        "before": 104,
+        "candidate": 136
+      },
+      {
+        "block": 8,
+        "chunk": 5,
+        "after": 108,
+        "action": "open",
+        "reason": "budget",
+        "candidate": 232
+      },
+      {
+        "block": 9,
+        "chunk": 5,
+        "after": 161,
+        "action": "join",
+        "before": 108,
+        "candidate": 161
+      }
+    ]
+  }
+}

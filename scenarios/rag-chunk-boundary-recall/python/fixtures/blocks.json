@@ -1,0 +1,29 @@
+{
+  "max_chars": 200,
+  "blocks": [
+    {
+      "heading": "API keys",
+      "text": "Keys are shown once at creation and stored hashed. A lost key cannot be recovered, only replaced."
+    },
+    {
+      "heading": "Rotate a key",
+      "text": "Rotation keeps the old key valid while the new one rolls out."
+    },
+    {
+      "heading": "Rotate a key",
+      "text": "1. Create a replacement key with the same scopes.\n2. Deploy it to every caller.\n3. Revoke the old key after seven days."
+    },
+    {
+      "heading": "Rotate a key",
+      "text": "Before revoking, confirm in the request log that the old key's request count has dropped to zero."
+    },
+    {
+      "heading": "Scopes",
+      "text": "The read scope covers list and get calls. The write scope adds create and delete."
+    }
+  ],
+  "too_long": {
+    "heading": "Incident call",
+    "text": "1. Page the on-call engineer.\n2. Open a bridge and post the link in the incident channel.\n3. Name an incident commander.\n4. Post an update in the incident channel every thirty minutes until the incident is resolved.\n5. Schedule the postmortem within two working days."
+  }
+}

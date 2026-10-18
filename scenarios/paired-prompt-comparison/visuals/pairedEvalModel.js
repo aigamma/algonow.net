@@ -203,7 +203,8 @@ export function sceneAt(timeline, trace, data, elapsed) {
     let bValue = b * fill;
     if (beatIndex >= finalIndex) bValue = lerp(b, trace.normalized.accuracy.b, easeInOut(ramp(local, 0, FILL)));
     if (beatIndex > finalIndex) bValue = trace.normalized.accuracy.b;
-    bars = { a: { value: a * fill, max: n, label: 'prompt A right' }, b: { value: bValue, max: n, label: 'prompt B right' } };
+    const bShown = beatIndex >= finalIndex ? trace.normalized.accuracy.b : b;   // the label states the count the bar is filling toward
+    bars = { a: { value: a * fill, shown: a, max: n, label: 'prompt A right' }, b: { value: bValue, shown: bShown, max: n, label: 'prompt B right' } };
   }
 
   const caption = beat.kind === 'intro' && local >= INTRO_LATE_AT ? beat.captionLate : beat.caption;
@@ -300,7 +301,7 @@ export function drawScene(ctx, scene) {
       rounded(ctx, x, BAR_Y, BAR_W, BAR_H, 3); ctx.stroke();
       ctx.fillStyle = INK;
       ctx.font = `11px ${MONO}`;
-      ctx.fillText(`${bar.label} ${Math.round(bar.value)} of ${bar.max}`, x, BAR_Y - 6);
+      ctx.fillText(`${bar.label} ${bar.shown} of ${bar.max}`, x, BAR_Y - 6);
     }
   }
   ctx.globalAlpha = 1;

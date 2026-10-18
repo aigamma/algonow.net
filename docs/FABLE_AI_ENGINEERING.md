@@ -362,6 +362,17 @@ those gates. Do not synthesize audio while merely scaffolding infrastructure.
 6. Check the page and both audio tracks live after the explicit deployment.
    Follow the main-thread commit/push and deployment rules in `CLAUDE.md`.
 
+Main-thread tooling for this sequence lives in `scripts/unit-tooling/`:
+`integrate_lesson.sh <slug> "<title>"` runs the per-slug check with the
+Python suite, the figure's node test, `ssr_generic.mjs` (the rendered page
+against the worked-lesson contract), and `measure_chunk_for.py` (a real Vite
+build with a stub manifest that flips only that record), then commits and
+pushes the lesson files; `ship_lesson.sh <slug> <listenMinutes> [seconds...]`
+runs the credential-free narration plan, the paid generation at the exact
+pending price, `ship_scenario.sh`, and `capture_viz.py` for live frames;
+`verify_live.sh <slug>...` probes Home cards, titles, chunks, manifests, and
+both audio objects. Never run two of these at once: they share dist/ and git.
+
 The checker verifies declared scope and structural consistency, actual tests
 when requested, current narration hashes, both tracks, and the receipt's
 release inventory. It does not prove teaching quality, actual Fable provenance,

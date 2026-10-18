@@ -219,6 +219,13 @@ export function sceneAt(timeline, trace, data, elapsed) {
     const sorted = created + (final - created) * sortProgress;
     row.position = sorted + (weighted - sorted) * practiceSortProgress;
     if (scoreProgress > 0) row.score = row.score + (weightedScore[row.doc] - row.score) * scoreProgress;
+    // While rows reorder, the ones moving down slide a little to the right and
+    // the ones moving up a little to the left, so crossing rows pass beside
+    // each other instead of through each other; the biggest movers draw on top.
+    const move = beat.kind === 'sort' ? final - created : beat.kind === 'practice-sort' ? weighted - final : 0;
+    const swing = beat.kind === 'sort' ? Math.sin(Math.PI * sortProgress) : beat.kind === 'practice-sort' ? Math.sin(Math.PI * practiceSortProgress) : 0;
+    row.shift = Math.sign(move) * 26 * swing;
+    row.travel = Math.abs(move) * swing;
   });
   const frameAlpha = beat.kind === 'outro' ? ramp(local, 0.2, 0.5) : (beatIndex > outroBeat ? 1 : 0);
   const practice = beatIndex >= practiceIntroBeat;
@@ -300,9 +307,10 @@ export function drawScene(ctx, scene) {
   }
 
   // The fused rows with their bars.
-  scene.rows.forEach((row) => {
+  [...scene.rows].sort((a, b) => (a.travel || 0) - (b.travel || 0)).forEach((row) => {
     if (row.alpha <= 0) return;
     const r = rowRect(row.position);
+    r.x += row.shift || 0;
     ctx.globalAlpha = row.alpha;
     ctx.fillStyle = PANEL;
     rounded(ctx, r.x, r.y, r.w, r.h, 4); ctx.fill();

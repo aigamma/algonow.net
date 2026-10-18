@@ -122,3 +122,8 @@
   .practice-steps { grid-template-columns: minmax(0, 1fr); }
   .practice-section details > summary > span { display: block; margin-left: 0; }
 }
+
+/* The narration player stays in the page flow on lesson pages, under the
+   title: a fixed panel floated over the Python code while the reader
+   scrolled, which the owner ruled out. */
+.scenario-page .listen-player { position: static; right: auto; bottom: auto; z-index: auto; width: auto; max-width: 38rem; margin: 1rem 0 0; box-shadow: none; }

@@ -1,0 +1,19 @@
+8 reviewed answers, learning rate 0.5, 200 epochs
+epoch        a        b    loss
+    1   1.0000   0.0000  0.6941
+   50   1.5246  -0.9634  0.6129
+  100   2.1978  -1.4426  0.5856
+  150   2.7557  -1.8413  0.5668
+  200   3.2234  -2.1768  0.5535
+
+fitted: a = 3.2320, b = -2.1830
+mean loss before fitting 0.6941, after 0.5533
+
+raw score  calibrated
+     0.90       0.674
+     0.70       0.520
+     0.50       0.362
+
+rejected: zip() argument 2 is shorter than argument 1
+
+OK

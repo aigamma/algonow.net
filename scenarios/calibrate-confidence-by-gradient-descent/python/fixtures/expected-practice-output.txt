@@ -1,0 +1,16 @@
+8 reviewed answers, learning rate 0.5, up to 200 epochs, tolerance 0.0005
+epoch        a        b    loss
+    1   1.0000   0.0000  0.6941
+   50   1.5246  -0.9634  0.6129
+   87   2.0350  -1.3266  0.5917
+stopped at epoch 87: the loss improved by 0.000497, under the tolerance of 0.0005
+
+fitted: a = 2.0350, b = -1.3266
+mean loss before fitting 0.6941, after 0.5917
+
+raw score  calibrated
+     0.90       0.624
+     0.70       0.524
+     0.50       0.423
+
+OK

@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "slug": "calibrate-confidence-by-gradient-descent",
+  "track": "fine-tuning",
+  "language": "python",
+  "system": {
+    "context": "Orbit's assistant shows a confidence score with every answer and escalates to a human when the score is below 0.6. A week of reviewed answers showed that answers scored 0.9 were right about seven times in ten and answers scored 0.6 were a coin flip: the score is a learned signal, not a probability, so the threshold meant nothing.",
+    "request": "A worked Python example of one action: fit(scores, labels, learning_rate, epochs), a two-parameter calibration p = sigmoid(a * score + b) fitted by gradient descent written by hand (forward, log loss, the gradients (p - label) * score and (p - label) averaged over the examples, and the update a -= lr * grad_a, b -= lr * grad_b) over eight inline reviewed answers. The lesson leads with the complete solution and its exact output (the loss at epochs 1, 50, 100, 150, 200, the fitted a and b, and the calibrated probabilities for raw scores 0.9, 0.7, 0.5), explains the Python construct by construct (import math, a sigmoid helper, a function returning three values as a tuple and tuple unpacking, running totals with augmented assignment, nested loops over epochs and examples, keyword arguments with defaults, format specs), traces a, b, the loss, and the gradients at the printed epochs, and offers one practice variation: stop early once an epoch improves the loss by less than a tolerance.",
+    "inputs": [
+      "Eight reviewed answers written inline in solution.py as two parallel lists: raw confidence scores 0.95, 0.9, 0.85, 0.8, 0.7, 0.6, 0.4, 0.3 and labels 1, 1, 0, 1, 0, 1, 0, 0 (1 when the reviewed answer was right)",
+      "The starting point a = 1.0 and b = 0.0 (trust the score as it is), a learning rate of 0.5, and 200 epochs",
+      "For the practice variation, a tolerance of 0.0005 on the per-epoch improvement of the mean loss"
+    ],
+    "outputs": [
+      "fit returns the fitted a and b and one (epoch, a, b, loss) record per epoch; the worked example yields a = 3.2320, b = -2.1830 with the mean loss falling from 0.6941 to 0.5533, and a raw 0.9 reads 0.674, 0.7 reads 0.520, 0.5 reads 0.362",
+      "python solution.py prints the epoch table, the fit, the calibrated probabilities, the rejected mismatched-length run, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it stops at epoch 87 (improvement 0.000497, under 0.0005) with a = 2.0350, b = -1.3266 and prints OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no torch, numpy, fixtures, credentials, or network",
+      "The loss is the mean log loss; each epoch records the parameters and the loss they produced before updating; a learning rate of 0 leaves the parameters unchanged; the lists are never modified",
+      "Mismatched list lengths raise ValueError through zip with strict=True; a label other than 0 or 1 raises ValueError; the demonstration prints the rejected run instead of crashing",
+      "Ordinary Python only: import math, math.exp and math.log, small functions, a function returning a tuple, tuple unpacking, for loops with zip and range, augmented assignment, keyword arguments with defaults, the remainder operator, f-strings with format specs, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: losses 0.6941, 0.6129, 0.5856, 0.5668, 0.5535 at epochs 1, 50, 100, 150, 200, the fit a = 3.2320 and b = -2.1830, calibrated 0.674, 0.520, 0.362, the rejected line, and OK",
+      "The arithmetic is exact: the sigmoid is 0.5 at 0 and monotonic, the gradients at the start equal the hand-computed values (mean 0.0612 and 0.1637), a zero learning rate moves nothing, and the loss falls at every one of the 200 epochs",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt, stopping at epoch 87; a tolerance of 0 reproduces the worked run exactly and the earliest possible stop is the second epoch",
+      "The raw scores are measured on the same answers: two of the three answers scored 0.85 or higher were right (67 percent) where the screen promised 90, the calibrated 0.9 reads 0.674 within 0.02 of that rate, and the 0.6 threshold escalates five of eight calibrated answers against two raw"
+    ]
+  },
+  "python": {
+    "package": "calibration_fit",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "475d7c9d17ed1969f984ab04e3f456eda6f4dbe131b4ff862806a5cba1e0d397"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "6ea31e921032fed4807bcc08749dd146620afb27df67f39cba14b6dcf8c61906"
+    },
+    {
+      "path": "python/fixtures/answers.json",
+      "description": "The eight answers, the starting point, the learning rate, the epoch count, the tolerance, the threshold, the calibrated scores, and the printed epochs exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "67d6d14b4cee15e790beccfdba103f538e3c5c9e923a520f4cf1157624524d11"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every epoch of the fit (a, b, loss, and the mean gradients, six decimals), the fitted values, the calibrated table, the escalation counts, and the early stop, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "00632c87e05afa12ddfc8d1b3eb399a89ee4a66de7081ecd65cc67de8ec1e397"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "sigmoid-shape",
+      "kind": "correctness",
+      "description": "The sigmoid is exactly 0.5 at 0, strictly increasing, and stays inside the open interval; with a of 1 and b of 0 the raw score passes straight through.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_sigmoid_is_half_at_zero_and_monotonic"
+    },
+    {
+      "id": "gradients-hand-computed",
+      "kind": "correctness",
+      "description": "For one example the loss and gradients equal the hand-computed values exactly, and the mean gradients over the eight answers at the start round to 0.0612 and 0.1637 with a loss of 0.6941.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_gradients_at_the_starting_point_are_the_hand_computed_values"
+    },
+    {
+      "id": "log-loss-rewards-agreement",
+      "kind": "correctness",
+      "description": "Log loss is smaller when the probability agrees with the label and symmetric at 0.5.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_log_loss_rewards_agreement"
+    },
+    {
+      "id": "zero-learning-rate",
+      "kind": "correctness",
+      "description": "A learning rate of 0 leaves a and b at their starting values and repeats the same loss every epoch.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_zero_learning_rate_changes_nothing"
+    },
+    {
+      "id": "loss-falls-every-epoch",
+      "kind": "correctness",
+      "description": "The loss falls at every one of the 200 epochs, the printed epochs round to 0.6941, 0.6129, 0.5856, 0.5668, 0.5535, and the fit lands at a = 3.2320, b = -2.1830.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_loss_falls_at_every_printed_epoch_and_the_fit_lands_where_the_page_says"
+    },
+    {
+      "id": "calibrated-matches-observed",
+      "kind": "correctness",
+      "description": "Two of the three answers scored 0.85 or higher were right, and the calibrated 0.9 reads 0.674, within 0.02 of that rate; the three calibrated scores round to 0.674, 0.520, 0.362.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_calibrated_nine_tenths_matches_the_observed_rate_of_the_top_answers"
+    },
+    {
+      "id": "bad-input-rejected",
+      "kind": "failure",
+      "description": "A label list one entry short raises ValueError through strict zip, and a label other than 0 or 1 raises ValueError naming it.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_mismatched_lengths_and_bad_labels_are_rejected"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The score and label lists are unchanged after fitting.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_lists_are_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about stopping before 200 epochs, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-stops-at-eighty-seven",
+      "kind": "correctness",
+      "description": "With the tolerance of 0.0005 the practice answer stops at epoch 87, the epoch before still improved by at least the tolerance, and the returned a and b are the values that produced the last loss (2.0350, -1.3266, loss 0.5917).",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_stops_at_the_documented_epoch"
+    },
+    {
+      "id": "answer-tolerance-zero",
+      "kind": "correctness",
+      "description": "A tolerance of 0 reproduces the worked run exactly, record for record.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_with_tolerance_zero_reproduces_the_worked_run"
+    },
+    {
+      "id": "answer-earliest-stop",
+      "kind": "failure",
+      "description": "Even a huge tolerance cannot stop before the second epoch, because a comparison needs two losses.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_never_stops_before_the_second_epoch"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "answers-fixture",
+      "kind": "correctness",
+      "description": "answers.json equals the scores, labels, starting point, learning rate, epochs, tolerance, threshold, calibrated scores, and printed epochs that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answers_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: 200 epoch records (the first at a = 1.0, b = 0.0, loss 0.69414, gradients 0.061164 and 0.163698), the fitted values 3.231959 and -2.182988 with loss 0.553287, the early stop at epoch 87, and the escalation counts 2 raw against 5 calibrated.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "raw-scores-overstate",
+      "kind": "evaluation",
+      "description": "On the same answers the raw scores overstate: two of the three answers scored 0.85 or higher were right where the screen promised 90 percent, and the 0.6 threshold on raw scores escalated only the two lowest answers.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_raw_scores_overstate_and_the_threshold_escalated_too_little"
+    },
+    {
+      "id": "calibrated-escalates-more",
+      "kind": "evaluation",
+      "description": "The calibrated probabilities of the eight answers round to 0.708, 0.674, 0.637, 0.599, 0.520, 0.439, 0.291, 0.229, so the 0.6 threshold escalates five of eight, and every confident raw score is pulled down.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_calibrated_probabilities_escalate_more_answers"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/CalibrationFitViz.jsx",
+      "description": "A short animation of the worked example, about two and a half seconds per shown epoch and under half a minute in all: the eight answers plotted as dots at the top (right) and bottom (wrong) of a raw score axis, the dashed identity line that shipped, and the calibration curve bending along the real per-epoch trace at epochs 1, 10, 25, 50, 100, 150, and 200 while a readout and a loss sparkline follow (loss 0.6941 to 0.5533, the fit a = 3.2320 and b = -2.1830); the outro marks the 0.6 threshold and the five calibrated answers below it; the practice variation adds the early-stopped curve at epoch 87 and marks it on the sparkline. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/calibrationFitModel.js, a JavaScript port of sigmoid, forward, log_loss, loss_and_gradients, and fit that runs on python/fixtures/answers.json and records every epoch; tests/calibrate-confidence-by-gradient-descent-viz.test.mjs asserts that trace equals python/fixtures/expected-trace.json (six decimals), which the cited Python check derives from the real solution, that at the end of each shown-epoch beat the curve's parameters equal that epoch's record (the fitted values after the last), that the sparkline only grows and the parameters stay within the run at every sampled moment, that captions carry the measured numbers, and that the final scene holds the fitted curve, the five escalating ticks, and the early-stopped curve. Rendered frames inspected at 900 pixels at several moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

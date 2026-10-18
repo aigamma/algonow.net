@@ -52,7 +52,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'A support assistant retrieves runbook chunks from a keyword index and a vector index, and taking the vector list first buried exact matches for error codes. A worked Python example fuses two ranked lists with reciprocal rank fusion: two inline lists, a dictionary that accumulates scores, a sort with a key function, its exact output, a trace of every contribution, and one practice variation that weights the lists.',
     track: 'rag',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-17', listenMinutes: 12,
     difficulty: 'foundation',
     durationMinutes: 25,
     skills: ['Reciprocal rank fusion of two retrievers', 'A dictionary as a score accumulator with get and a default', 'Sorting with a key function and a tuple tie-break', 'Tuple unpacking in for loops', 'Weighting the lists (practice)'],

@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "slug": "rank-fusion-keyword-vector",
+  "track": "rag",
+  "language": "python",
+  "system": {
+    "context": "Orbit's support assistant retrieves runbook chunks from two indexes: a keyword index that finds exact terms such as error codes and flag names, and a vector index that finds chunks that say the same thing in other words. Each returns a ranked list for a question, and the answering prompt has room for the top three chunks. The merge that shipped took the vector list first and appended the keyword leftovers, which placed the error table for E4031 fourth for the question 'rotate-key fails with E4031', so the chunk that explains the code never reached the prompt.",
+    "request": "A worked Python example of one action: fuse(rankings, k). Each ranked list gives each of its documents 1 / (k + rank) with k = 60, the contributions add up in a dictionary, and the fused list is sorted by score with equal scores ordered by name. The lesson leads with the complete solution over two inline rankings of five documents and its exact output, explains the Python construct by construct (a dictionary of lists, enumerate from one, the get-with-default accumulator, a named sort key returning a tuple, nested tuple unpacking, format specs), traces all ten contributions, and offers one practice variation: weight the lists, with the keyword list counting double.",
+    "inputs": [
+      "Two rankings written inline in solution.py as a dictionary from a list name to a list of document names, best first: keyword (errors E4031, cli rotate-key, runbook rotate a key, scopes, audit log) and vector (runbook rotate a key, faq key expiry, cli rotate-key, errors E4031, incident call)",
+      "The constant K of 60 used in every contribution 1 / (k + rank)",
+      "For the practice variation, WEIGHTS of keyword 2 and vector 1"
+    ],
+    "outputs": [
+      "fuse returns a list of (document, score) tuples, best first; the worked example yields seven documents led by runbook rotate a key 0.032266, errors E4031 0.032018, and cli rotate-key 0.032002, with audit log and incident call tied at 0.015385 and ordered by name",
+      "python solution.py prints the two rankings, the fused list with each score to six decimals and the ranks it came from, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it prints the weighted order led by errors E4031 0.048412 and OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no sibling imports, fixtures, credentials, or network",
+      "Every list contributes 1 / (k + rank) per document with one-based ranks; equal scores are ordered by document name; a document listed twice inside one ranking raises ValueError naming the list and the document; the same document in two different lists is the intended case",
+      "The caller's rankings dictionary and lists are never modified; fuse returns a new list",
+      "Ordinary Python only: a dictionary of lists, for loops with tuple unpacking, enumerate, dict.get with a default, list.count, a named sort key function returning a tuple, sorted with key=, f-strings with format specs, in, list.index, join, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: seven documents, runbook rotate a key first at 0.032266, errors E4031 second at 0.032018, cli rotate-key third at 0.032002, the two lone fifth places tied at 0.015385 in name order, and OK",
+      "The arithmetic is exact: runbook rotate a key equals (0.0 + 1/63) + 1/61 in dictionary order, errors E4031 equals (0.0 + 1/61) + 1/64, and every document found by both lists outranks every document found by one",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt with errors E4031 first at 0.048412; weights of one reproduce the worked solution and a list missing from the weights counts once",
+      "The shipped merge is measured on the same lists: vector first then keyword leftovers places errors E4031 fourth, outside a three-chunk prompt, while fusion places it second; and k matters: with k = 0 a lone first place ties two second places, with k = 60 two second places win"
+    ]
+  },
+  "python": {
+    "package": "rank_fusion",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "093fa0dd3fd8d448539964c7df53fb3eb1516fd8c1e92cb116808bf884e14c9c"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "f6d4e8d7f212a97bc06824c95e2bda0efa8b61b4606fadaf4e136d7b33c498ef"
+    },
+    {
+      "path": "python/fixtures/rankings.json",
+      "description": "The two rankings, k, and the practice weights exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "d4cd5889dc6c22e23304577f43995cc87028e29c114c6ad6e6fa4c713e862c2a"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every contribution with its running total in loop order, the fused order with the ranks each document came from, the vector-first order that shipped, and the weighted practice run, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "75d3416495c58fb6715a3a729a95685fb3303cf3336a045c21edf9d206b810c6"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "fused-order-and-scores",
+      "kind": "correctness",
+      "description": "The fused order is runbook, errors E4031, cli, faq, scopes, audit log, incident call, and the scores are the exact sums in dictionary order (runbook equals (0.0 + 1/63) + 1/61), rounding to 0.032266, 0.032018, 0.032002, 0.016129, 0.015625, 0.015385, 0.015385.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_fused_order_and_exact_scores"
+    },
+    {
+      "id": "ties-by-name",
+      "kind": "correctness",
+      "description": "Equal scores sort by document name (audit log before incident call) and a higher score sorts first whatever the name, because the key is the tuple (negative score, name).",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_equal_scores_sort_by_name"
+    },
+    {
+      "id": "both-lists-outrank",
+      "kind": "correctness",
+      "description": "Every document found by both lists outranks every document found by one; at k = 60 even two fifth places beat a lone first place.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_document_in_both_lists_outranks_any_document_in_one_list"
+    },
+    {
+      "id": "duplicate-rejected",
+      "kind": "failure",
+      "description": "A document listed twice inside one ranking raises ValueError naming the list and the document; the same document in two different lists is fused normally.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_duplicate_inside_one_list_is_rejected"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The caller's rankings dictionary and its lists are unchanged after fusion.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_rankings_are_not_modified"
+    },
+    {
+      "id": "no-rankings",
+      "kind": "failure",
+      "description": "No rankings, or empty rankings, yield an empty list instead of an error.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_no_rankings_no_results"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line naming the expected first document, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-weights",
+      "kind": "correctness",
+      "description": "With keyword weighted 2 the order becomes errors E4031 (exactly (0.0 + 2/61) + 1/64), runbook, cli, scopes, audit log, faq, incident call, rounding to 0.048412, 0.048139, 0.048131, 0.03125, 0.030769, 0.016129, 0.015385.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_weights_the_keyword_list"
+    },
+    {
+      "id": "answer-matches-example",
+      "kind": "correctness",
+      "description": "With weights of one the practice answer returns exactly what the worked solution returns.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_with_weights_of_one_equals_the_worked_example"
+    },
+    {
+      "id": "answer-missing-weight",
+      "kind": "correctness",
+      "description": "A list missing from the weights dictionary counts once: empty weights reproduce the worked solution and weighting only the vector list triples only its contributions.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_counts_a_list_without_a_weight_once"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "rankings-fixture",
+      "kind": "correctness",
+      "description": "rankings.json equals the K, RANKINGS, and WEIGHTS that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_rankings_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace replayed from the real functions: ten contributions with running totals (keyword list first), the fused order with the ranks each document came from, the shipped order, and the weighted run; every running total ends at its fused score.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "vector-first-drops-error-table",
+      "kind": "evaluation",
+      "description": "On the same two lists the shipped merge (vector list, then keyword leftovers) places errors E4031 fourth, outside a three-chunk prompt, while fusion places it second and fills the prompt with the three documents both retrievers found.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_vector_first_merge_drops_the_error_table_from_the_prompt"
+    },
+    {
+      "id": "k-softens-top-rank",
+      "kind": "evaluation",
+      "description": "With k = 0 a lone first place (1.0) ties two second places (0.5 + 0.5); with k = 60 two second places (1/62 + 1/62) beat a lone first place (1/61).",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_k_softens_the_top_rank"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/RankFusionViz.jsx",
+      "description": "A short animation of the worked example, about two and a half seconds per contribution and under forty seconds in all: the keyword ranking as five cards on the left, the vector ranking as five cards on the right, and the fused rows in the middle with a score bar that is full at 0.05. The intro shows the vector-first order that shipped with errors E4031 fourth and dropped from a three-row prompt frame; then each document is carried from its card to its row while the bar grows by 1/(60 + rank) and the caption states the addition and the running total; the rows glide into the fused order (0.032266, 0.032018, 0.032002, then the lone documents, the two fifth places tied and sorted by name); the prompt frame marks the top three with the error table second; then the practice variation doubles the keyword contributions, the bars grow to the weighted totals, and the rows re-sort with the error table first at 0.048412. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/rankFusionModel.js, a JavaScript port of fuse and the weighted practice answer that runs on python/fixtures/rankings.json and records a trace; tests/rank-fusion-keyword-vector-viz.test.mjs asserts that trace deep-equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that every beat lasts at least a second and each contribution between two and three seconds, that the rows hold the fused totals before the sort and stand in the fused order after it with errors E4031 second, that the final scene shows the weighted order and scores, and that every sampled scene keeps scores within the bar and settled positions distinct. Rendered frames inspected at several moments via the viz-t deep link.",
+      "check": "trace-fixture"
+    }
+  ]
+}

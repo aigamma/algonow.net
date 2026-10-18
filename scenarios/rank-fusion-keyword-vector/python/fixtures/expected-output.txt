@@ -1,0 +1,13 @@
+keyword ranking: errors E4031, cli rotate-key, runbook rotate a key, scopes, audit log
+vector ranking: runbook rotate a key, faq key expiry, cli rotate-key, errors E4031, incident call
+
+fused with k = 60:
+ 1. runbook rotate a key   0.032266  (keyword 3, vector 1)
+ 2. errors E4031           0.032018  (keyword 1, vector 4)
+ 3. cli rotate-key         0.032002  (keyword 2, vector 3)
+ 4. faq key expiry         0.016129  (vector 2)
+ 5. scopes                 0.015625  (keyword 4)
+ 6. audit log              0.015385  (keyword 5)
+ 7. incident call          0.015385  (vector 5)
+
+OK

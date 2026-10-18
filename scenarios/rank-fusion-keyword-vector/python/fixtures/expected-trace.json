@@ -1,0 +1,270 @@
+{
+  "k": 60,
+  "contributions": [
+    {
+      "list": "keyword",
+      "rank": 1,
+      "doc": "errors E4031",
+      "add": 0.016393,
+      "total": 0.016393
+    },
+    {
+      "list": "keyword",
+      "rank": 2,
+      "doc": "cli rotate-key",
+      "add": 0.016129,
+      "total": 0.016129
+    },
+    {
+      "list": "keyword",
+      "rank": 3,
+      "doc": "runbook rotate a key",
+      "add": 0.015873,
+      "total": 0.015873
+    },
+    {
+      "list": "keyword",
+      "rank": 4,
+      "doc": "scopes",
+      "add": 0.015625,
+      "total": 0.015625
+    },
+    {
+      "list": "keyword",
+      "rank": 5,
+      "doc": "audit log",
+      "add": 0.015385,
+      "total": 0.015385
+    },
+    {
+      "list": "vector",
+      "rank": 1,
+      "doc": "runbook rotate a key",
+      "add": 0.016393,
+      "total": 0.032266
+    },
+    {
+      "list": "vector",
+      "rank": 2,
+      "doc": "faq key expiry",
+      "add": 0.016129,
+      "total": 0.016129
+    },
+    {
+      "list": "vector",
+      "rank": 3,
+      "doc": "cli rotate-key",
+      "add": 0.015873,
+      "total": 0.032002
+    },
+    {
+      "list": "vector",
+      "rank": 4,
+      "doc": "errors E4031",
+      "add": 0.015625,
+      "total": 0.032018
+    },
+    {
+      "list": "vector",
+      "rank": 5,
+      "doc": "incident call",
+      "add": 0.015385,
+      "total": 0.015385
+    }
+  ],
+  "fused": [
+    {
+      "doc": "runbook rotate a key",
+      "score": 0.032266,
+      "ranks": {
+        "keyword": 3,
+        "vector": 1
+      }
+    },
+    {
+      "doc": "errors E4031",
+      "score": 0.032018,
+      "ranks": {
+        "keyword": 1,
+        "vector": 4
+      }
+    },
+    {
+      "doc": "cli rotate-key",
+      "score": 0.032002,
+      "ranks": {
+        "keyword": 2,
+        "vector": 3
+      }
+    },
+    {
+      "doc": "faq key expiry",
+      "score": 0.016129,
+      "ranks": {
+        "vector": 2
+      }
+    },
+    {
+      "doc": "scopes",
+      "score": 0.015625,
+      "ranks": {
+        "keyword": 4
+      }
+    },
+    {
+      "doc": "audit log",
+      "score": 0.015385,
+      "ranks": {
+        "keyword": 5
+      }
+    },
+    {
+      "doc": "incident call",
+      "score": 0.015385,
+      "ranks": {
+        "vector": 5
+      }
+    }
+  ],
+  "shipped": [
+    "runbook rotate a key",
+    "faq key expiry",
+    "cli rotate-key",
+    "errors E4031",
+    "incident call",
+    "scopes",
+    "audit log"
+  ],
+  "weighted": {
+    "weights": {
+      "keyword": 2,
+      "vector": 1
+    },
+    "contributions": [
+      {
+        "list": "keyword",
+        "rank": 1,
+        "doc": "errors E4031",
+        "add": 0.032787,
+        "total": 0.032787
+      },
+      {
+        "list": "keyword",
+        "rank": 2,
+        "doc": "cli rotate-key",
+        "add": 0.032258,
+        "total": 0.032258
+      },
+      {
+        "list": "keyword",
+        "rank": 3,
+        "doc": "runbook rotate a key",
+        "add": 0.031746,
+        "total": 0.031746
+      },
+      {
+        "list": "keyword",
+        "rank": 4,
+        "doc": "scopes",
+        "add": 0.03125,
+        "total": 0.03125
+      },
+      {
+        "list": "keyword",
+        "rank": 5,
+        "doc": "audit log",
+        "add": 0.030769,
+        "total": 0.030769
+      },
+      {
+        "list": "vector",
+        "rank": 1,
+        "doc": "runbook rotate a key",
+        "add": 0.016393,
+        "total": 0.048139
+      },
+      {
+        "list": "vector",
+        "rank": 2,
+        "doc": "faq key expiry",
+        "add": 0.016129,
+        "total": 0.016129
+      },
+      {
+        "list": "vector",
+        "rank": 3,
+        "doc": "cli rotate-key",
+        "add": 0.015873,
+        "total": 0.048131
+      },
+      {
+        "list": "vector",
+        "rank": 4,
+        "doc": "errors E4031",
+        "add": 0.015625,
+        "total": 0.048412
+      },
+      {
+        "list": "vector",
+        "rank": 5,
+        "doc": "incident call",
+        "add": 0.015385,
+        "total": 0.015385
+      }
+    ],
+    "fused": [
+      {
+        "doc": "errors E4031",
+        "score": 0.048412,
+        "ranks": {
+          "keyword": 1,
+          "vector": 4
+        }
+      },
+      {
+        "doc": "runbook rotate a key",
+        "score": 0.048139,
+        "ranks": {
+          "keyword": 3,
+          "vector": 1
+        }
+      },
+      {
+        "doc": "cli rotate-key",
+        "score": 0.048131,
+        "ranks": {
+          "keyword": 2,
+          "vector": 3
+        }
+      },
+      {
+        "doc": "scopes",
+        "score": 0.03125,
+        "ranks": {
+          "keyword": 4
+        }
+      },
+      {
+        "doc": "audit log",
+        "score": 0.030769,
+        "ranks": {
+          "keyword": 5
+        }
+      },
+      {
+        "doc": "faq key expiry",
+        "score": 0.016129,
+        "ranks": {
+          "vector": 2
+        }
+      },
+      {
+        "doc": "incident call",
+        "score": 0.015385,
+        "ranks": {
+          "vector": 5
+        }
+      }
+    ]
+  }
+}

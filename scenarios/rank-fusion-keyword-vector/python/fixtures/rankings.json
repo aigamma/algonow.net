@@ -1,0 +1,23 @@
+{
+  "k": 60,
+  "rankings": {
+    "keyword": [
+      "errors E4031",
+      "cli rotate-key",
+      "runbook rotate a key",
+      "scopes",
+      "audit log"
+    ],
+    "vector": [
+      "runbook rotate a key",
+      "faq key expiry",
+      "cli rotate-key",
+      "errors E4031",
+      "incident call"
+    ]
+  },
+  "weights": {
+    "keyword": 2,
+    "vector": 1
+  }
+}

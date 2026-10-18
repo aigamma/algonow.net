@@ -1,0 +1,180 @@
+{
+  "steps": [
+    {
+      "id": "r1",
+      "prompt": "How do I rotate a key?",
+      "key": "how do i rotate a key",
+      "decision": "kept",
+      "twin": null
+    },
+    {
+      "id": "r2",
+      "prompt": "Which scope do list calls need?",
+      "key": "which scope do list calls need",
+      "decision": "kept",
+      "twin": null
+    },
+    {
+      "id": "r3",
+      "prompt": "Can a lost key be recovered?",
+      "key": "can a lost key be recovered",
+      "decision": "kept",
+      "twin": null
+    },
+    {
+      "id": "r4",
+      "prompt": "how do i rotate a key",
+      "key": "how do i rotate a key",
+      "decision": "dropped",
+      "twin": "r1"
+    },
+    {
+      "id": "r5",
+      "prompt": "Where do I find my invoice?",
+      "key": "where do i find my invoice",
+      "decision": "kept",
+      "twin": null
+    },
+    {
+      "id": "r6",
+      "prompt": "which scope do LIST calls need",
+      "key": "which scope do list calls need",
+      "decision": "dropped",
+      "twin": "r2"
+    },
+    {
+      "id": "r7",
+      "prompt": "How do I rotate a key ?",
+      "key": "how do i rotate a key",
+      "decision": "dropped",
+      "twin": "r1"
+    },
+    {
+      "id": "r8",
+      "prompt": "What does the write scope add?",
+      "key": "what does the write scope add",
+      "decision": "kept",
+      "twin": null
+    }
+  ],
+  "kept": [
+    "r1",
+    "r2",
+    "r3",
+    "r5",
+    "r8"
+  ],
+  "dropped": [
+    [
+      "r4",
+      "r1"
+    ],
+    [
+      "r6",
+      "r2"
+    ],
+    [
+      "r7",
+      "r1"
+    ]
+  ],
+  "overlap": {
+    "eval_keys": [
+      "which scope do list calls need",
+      "how is usage billed",
+      "where do i find my invoice"
+    ],
+    "matches": [
+      {
+        "eval": "which scope do list calls need",
+        "key": "which scope do list calls need",
+        "training_id": "r2"
+      },
+      {
+        "eval": "Where do I find my invoice?",
+        "key": "where do i find my invoice",
+        "training_id": "r5"
+      }
+    ]
+  },
+  "practice": {
+    "steps": [
+      {
+        "id": "r1",
+        "prompt": "How do I rotate a key?",
+        "key": "how do i rotate a key",
+        "decision": "kept",
+        "twin": null
+      },
+      {
+        "id": "r2",
+        "prompt": "Which scope do list calls need?",
+        "key": "which scope do list calls need",
+        "decision": "overlap",
+        "twin": null
+      },
+      {
+        "id": "r3",
+        "prompt": "Can a lost key be recovered?",
+        "key": "can a lost key be recovered",
+        "decision": "kept",
+        "twin": null
+      },
+      {
+        "id": "r4",
+        "prompt": "how do i rotate a key",
+        "key": "how do i rotate a key",
+        "decision": "dropped",
+        "twin": "r1"
+      },
+      {
+        "id": "r5",
+        "prompt": "Where do I find my invoice?",
+        "key": "where do i find my invoice",
+        "decision": "overlap",
+        "twin": null
+      },
+      {
+        "id": "r6",
+        "prompt": "which scope do LIST calls need",
+        "key": "which scope do list calls need",
+        "decision": "overlap",
+        "twin": null
+      },
+      {
+        "id": "r7",
+        "prompt": "How do I rotate a key ?",
+        "key": "how do i rotate a key",
+        "decision": "dropped",
+        "twin": "r1"
+      },
+      {
+        "id": "r8",
+        "prompt": "What does the write scope add?",
+        "key": "what does the write scope add",
+        "decision": "kept",
+        "twin": null
+      }
+    ],
+    "kept": [
+      "r1",
+      "r3",
+      "r8"
+    ],
+    "dropped": [
+      [
+        "r4",
+        "r1"
+      ],
+      [
+        "r7",
+        "r1"
+      ]
+    ],
+    "overlaps": [
+      "r2",
+      "r5",
+      "r6"
+    ]
+  }
+}

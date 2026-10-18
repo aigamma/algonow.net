@@ -1,0 +1,17 @@
+8 records, 3 kept, 2 duplicates dropped, 3 evaluation overlaps removed
+
+kept:
+  r1  how do i rotate a key
+  r3  can a lost key be recovered
+  r8  what does the write scope add
+
+dropped:
+  r4 duplicates r1
+  r7 duplicates r1
+
+removed:
+  r2 overlaps evaluation
+  r5 overlaps evaluation
+  r6 overlaps evaluation
+
+OK

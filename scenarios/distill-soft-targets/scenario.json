@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 1,
+  "slug": "distill-soft-targets",
+  "track": "distillation",
+  "language": "python",
+  "system": {
+    "context": "Orbit is replacing its large assistant with a small router model for first-line ticket classification (billing, access, outage, feature). Trained on hard labels alone, the student plateaued: a hard label says outage and nothing about how close access was, while the large model's logits rank the wrong answers too. Distillation hands that ranking to the student as soft targets.",
+    "request": "A worked Python example of one action: turn the teacher's logits into soft targets with a temperature and score a student against them. softmax(logits, temperature) divides by the temperature, subtracts the largest value, exponentiates, and normalizes; cross_entropy and kl_divergence compare a target row with a probability row; hard_loss is the cross-entropy against the one-hot label at temperature 1; soft_loss is the KL divergence between the softened teacher and the softened student times the temperature squared. The lesson leads with the complete solution over three inline examples and its exact output, explains the Python construct by construct (lists of lists, building a list from another, max and the max trick, math.exp and math.log, zip, nested loops, guards, format specs), traces example 3 through the softmax at both temperatures, and offers one practice variation: blend the soft and hard losses with a weight alpha.",
+    "inputs": [
+      "Three examples written inline in solution.py: TEACHER_LOGITS and STUDENT_LOGITS as lists of four numbers each (one per class in CLASSES = billing, access, outage, feature), LABELS = outage, billing, access, and TEMPERATURE = 2.0",
+      "Example 3 is deliberately ambiguous: the teacher reads it as access with outage close behind, and the student's row cannot separate the two",
+      "No external fixture, credential, or network: the lists are the whole input"
+    ],
+    "outputs": [
+      "softmax returns a list of probabilities that sums to 1; for example 1 at temperature 1 it is 0.174, 0.039, 0.779, 0.009 and at temperature 2 it is 0.262, 0.124, 0.555, 0.059",
+      "soft_loss and hard_loss per example are 0.389 and 0.627, 0.494 and 0.427, 0.125 and 0.952; the means are 0.336 and 0.669",
+      "python solution.py prints the classes, the three example blocks, the means, the rejected row, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it prints blended losses 0.460, 0.474, 0.373 at alpha 0.7 with a mean of 0.436 and OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only (math); each lesson file runs alone in an empty directory with python -I -S; no framework, fixtures, credentials, or network",
+      "A temperature of zero or below raises ValueError; a row whose length differs from the class count raises ValueError; probabilities always sum to 1 and the top class never changes with the temperature",
+      "The soft loss is a KL divergence scaled by the temperature squared: exactly 0 when the student matches the teacher, positive otherwise; the hard loss is the ordinary cross-entropy against the one-hot label",
+      "The max trick must give the same probabilities as the textbook formula on ordinary logits and finite probabilities where the textbook formula overflows",
+      "Ordinary Python only: lists, lists of lists, for loops with append, max, sum, math.exp, math.log, zip, if, raise, f-strings with format specs, try and except, and assert; no classes, comprehensions in the lesson files beyond the formatter, or third-party packages"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the probabilities at both temperatures for all three examples, the soft and hard losses (0.389 and 0.627, 0.494 and 0.427, 0.125 and 0.952), the means (0.336 and 0.669), the rejected three-logit row, and OK",
+      "The softmax rules hold: rows sum to 1, adding a constant to every logit changes nothing, temperature 1 equals the textbook formula, a higher temperature lowers the peak and keeps the top class, and the max trick survives logits of 1000 where the textbook formula raises OverflowError",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt: blended losses 0.460, 0.474, 0.373 and a mean of 0.436 at alpha 0.7",
+      "The near-miss evaluation holds on example 3: the hard target gives outage 0 while the teacher at temperature 2 gives it 0.329; moving the student's outage weight to feature leaves the hard loss unchanged and raises the soft loss"
+    ]
+  },
+  "python": {
+    "package": "distillation_targets",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "08d55d3e72a11bfb44ac8ab2a426bac31e31eb4d45b99c4f8416491d72110265"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "ffdef32e259acd83a09262df15ba507d0013e9a8d0726c27fd58648f0777086e"
+    },
+    {
+      "path": "python/fixtures/logits.json",
+      "description": "The classes, teacher and student logits, labels, temperature, and alpha exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "9435033dd565de0acb5a9d72de146ee223d5406641e70b2a097358793fdaf3a8"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every number the animation shows, derived from the real functions and rounded to six decimals: each example's teacher probabilities at temperature 1 and 2, the student's at temperature 2, both losses, the means, and the blended losses at alpha 0.7; the animation must replay it exactly.",
+      "sha256": "57e052ff8678dab32d216d1c1b4dd3634c43e997407b40f802dae4437e6fe3a4"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "softmax-sums-to-one",
+      "kind": "correctness",
+      "description": "Every softmax row sums to 1 within a trillionth and the temperature 1 rows match the printed three-decimal values.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_softmax_sums_to_one_and_matches_the_printed_values"
+    },
+    {
+      "id": "shift-invariance",
+      "kind": "correctness",
+      "description": "Adding the same constant to every logit leaves the probabilities unchanged, which is why the max trick is free.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_softmax_is_unchanged_by_adding_a_constant_to_every_logit"
+    },
+    {
+      "id": "temperature-one-plain",
+      "kind": "correctness",
+      "description": "At temperature 1 the function equals the textbook softmax to twelve decimals.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_temperature_one_is_the_plain_softmax"
+    },
+    {
+      "id": "temperature-flattens",
+      "kind": "correctness",
+      "description": "Temperatures 2 and 10 lower the peak probability of every example in turn and never change the top class.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_higher_temperature_flattens_but_keeps_the_top_class"
+    },
+    {
+      "id": "one-hot-cross-entropy",
+      "kind": "correctness",
+      "description": "The cross-entropy against a one-hot target equals minus the log of the gold probability, and hard_loss returns exactly that.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_cross_entropy_of_a_one_hot_target_is_minus_log_of_that_probability"
+    },
+    {
+      "id": "soft-loss-zero-when-equal",
+      "kind": "correctness",
+      "description": "The soft loss is 0 when the student's logits equal the teacher's and positive for the lesson's students.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_soft_loss_is_zero_when_the_student_equals_the_teacher_and_positive_otherwise"
+    },
+    {
+      "id": "temperature-squared",
+      "kind": "correctness",
+      "description": "soft_loss equals the KL divergence of the softened rows times the temperature squared, and at temperature 1 it is the divergence itself.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_soft_loss_scales_with_temperature_squared"
+    },
+    {
+      "id": "invalid-temperature",
+      "kind": "failure",
+      "description": "A temperature of 0, 0.0, or -1.0 raises ValueError before any division.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_invalid_temperature_is_rejected"
+    },
+    {
+      "id": "ragged-rows",
+      "kind": "failure",
+      "description": "A teacher or student row with three or five logits raises ValueError naming the expected count.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_ragged_rows_are_rejected"
+    },
+    {
+      "id": "inputs-not-modified",
+      "kind": "correctness",
+      "description": "The logit rows and labels are unchanged after every function has run on them.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_inputs_are_not_modified"
+    },
+    {
+      "id": "max-trick-overflow",
+      "kind": "evaluation",
+      "description": "The max trick matches the textbook formula on the lesson's logits and returns finite probabilities summing to 1 on logits of 1000, 999, 998, 997, where the textbook formula raises OverflowError.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_max_trick_matches_the_naive_formula_and_survives_large_logits"
+    },
+    {
+      "id": "near-miss-credit",
+      "kind": "evaluation",
+      "description": "For example 3 the hard target gives outage 0 while the teacher at temperature 2 gives it 0.329 next to access 0.422.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_hard_target_gives_the_near_miss_no_credit_but_the_soft_target_does"
+    },
+    {
+      "id": "near-miss-vs-far-miss",
+      "kind": "evaluation",
+      "description": "Moving the student's outage weight to feature leaves the hard loss identical and raises the soft loss: the soft loss tells a near miss from a far miss and the hard loss cannot.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_soft_loss_tells_a_near_miss_from_a_far_miss_while_the_hard_loss_cannot"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line naming the expected mean 0.436 against 0.336, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-blends",
+      "kind": "correctness",
+      "description": "distillation_loss equals alpha times the soft loss plus (1 minus alpha) times the hard loss (0.460, 0.474, 0.373 at alpha 0.7), the soft loss at alpha 1, and the hard loss at alpha 0.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_blends_the_two_losses"
+    },
+    {
+      "id": "answer-keeps-functions",
+      "kind": "correctness",
+      "description": "The practice answer's softmax and losses return exactly what the worked solution's do.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_keeps_the_worked_functions"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data and functions above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "logits-fixture",
+      "kind": "correctness",
+      "description": "logits.json equals the CLASSES, TEACHER_LOGITS, STUDENT_LOGITS, LABELS, TEMPERATURE, and ALPHA that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_logits_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived with the real functions: each example's probabilities at both temperatures, the student's at temperature 2, both losses, the means 0.33619 and 0.668689, and the blended losses 0.460226, 0.474146, 0.373446 with mean 0.435939, all rounded to six decimals.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/DistillationViz.jsx",
+      "description": "A short animation of the worked example, about three seconds per step and twenty-seven seconds in all: three example panels with four labeled probability bars each, starting as the hard label (one full bar on the gold class), morphing one example at a time into the teacher's probabilities at temperature 1, softening together at temperature 2 (0.262, 0.124, 0.555, 0.059 for example 1; outage 0.329 next to access 0.422 for example 3), then the student's distribution outlined beneath each teacher bar with the soft and hard losses (0.389 and 0.627, 0.494 and 0.427, 0.125 and 0.952), the near-miss spotlight on example 3, and the practice variation's blended losses at alpha 0.7 (0.460, 0.474, 0.373). Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/distillationModel.js, a JavaScript port of softmax, cross_entropy, kl_divergence, hard_loss, soft_loss, and the blend that runs on python/fixtures/logits.json and records a trace; tests/distill-soft-targets-viz.test.mjs asserts that trace equals python/fixtures/expected-trace.json to six decimals, which the cited Python check derives from the real functions, that the browser's max trick also survives logits of 1000, that every beat lasts at least a second and each example two to three and a half seconds, that the captions carry the measured numbers, and that every sampled scene keeps each panel's bars as probabilities summing to 1 with the top class on the gold class and the temperature never falling. Rendered frames inspected before publication.",
+      "check": "trace-fixture"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+8 records, 5 kept, 3 dropped
+
+kept:
+  r1  how do i rotate a key
+  r2  which scope do list calls need
+  r3  can a lost key be recovered
+  r5  where do i find my invoice
+  r8  what does the write scope add
+
+dropped:
+  r4 duplicates r1
+  r6 duplicates r2
+  r7 duplicates r1
+
+evaluation overlap: 2 of 3 evaluation prompts have a training twin: r2, r5
+
+rejected: record 'r9' has an empty prompt
+
+OK

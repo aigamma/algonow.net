@@ -1,0 +1,22 @@
+classes: billing  access  outage  feature
+
+example 1, gold label outage
+  teacher at T=1: 0.174  0.039  0.779  0.009
+  teacher at T=2: 0.262  0.124  0.555  0.059
+  student soft loss at T=2: 0.389   hard loss: 0.627
+
+example 2, gold label billing
+  teacher at T=1: 0.934  0.047  0.017  0.002
+  teacher at T=2: 0.710  0.158  0.096  0.035
+  student soft loss at T=2: 0.494   hard loss: 0.427
+
+example 3, gold label access
+  teacher at T=1: 0.076  0.558  0.339  0.028
+  teacher at T=2: 0.155  0.422  0.329  0.094
+  student soft loss at T=2: 0.125   hard loss: 0.952
+
+mean soft loss: 0.336   mean hard loss: 0.669
+
+rejected: expected 4 logits, one per class, got 3
+
+OK

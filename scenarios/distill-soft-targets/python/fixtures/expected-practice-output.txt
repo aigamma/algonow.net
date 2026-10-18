@@ -1,0 +1,12 @@
+classes: billing  access  outage  feature
+blend: alpha 0.7 on the soft loss, 0.3 on the hard loss
+
+example 1, gold label outage: soft 0.389   hard 0.627   blended 0.460
+
+example 2, gold label billing: soft 0.494   hard 0.427   blended 0.474
+
+example 3, gold label access: soft 0.125   hard 0.952   blended 0.373
+
+mean soft loss: 0.336   mean hard loss: 0.669   mean blended loss: 0.436
+
+OK

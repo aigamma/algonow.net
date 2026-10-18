@@ -1,0 +1,21 @@
+schedule: 100 steps, warmup 10, hold 20, peak 2.00e-04
+
+step  rate      of peak
+   0  0.00e+00    0%
+   5  1.00e-04   50%
+  10  2.00e-04  100%
+  20  2.00e-04  100%
+  30  2.00e-04  100%
+  40  1.90e-04   95%
+  50  1.62e-04   81%
+  60  1.22e-04   61%
+  70  7.77e-05   39%
+  80  3.77e-05   19%
+  90  9.90e-06    5%
+ 100  0.00e+00    0%
+
+peak held from step 10 to step 30
+midpoint of the decay, step 65: 1.00e-04 (half the peak)
+rates stay within 0 and the peak over all 101 steps
+
+OK

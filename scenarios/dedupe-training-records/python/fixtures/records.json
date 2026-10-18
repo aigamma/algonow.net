@@ -1,0 +1,49 @@
+{
+  "records": [
+    {
+      "id": "r1",
+      "prompt": "How do I rotate a key?",
+      "answer": "Create a replacement key, deploy it, then revoke the old one."
+    },
+    {
+      "id": "r2",
+      "prompt": "Which scope do list calls need?",
+      "answer": "The read scope covers list and get calls."
+    },
+    {
+      "id": "r3",
+      "prompt": "Can a lost key be recovered?",
+      "answer": "No. Create a replacement and revoke the lost one."
+    },
+    {
+      "id": "r4",
+      "prompt": "how do i rotate a key",
+      "answer": "Run rotate-key; it creates the replacement and schedules the revocation."
+    },
+    {
+      "id": "r5",
+      "prompt": "Where do I find my invoice?",
+      "answer": "Open Billing, then Invoices; each month is a PDF."
+    },
+    {
+      "id": "r6",
+      "prompt": "which scope do LIST calls need",
+      "answer": "List calls need the read scope."
+    },
+    {
+      "id": "r7",
+      "prompt": "How do I rotate a key ?",
+      "answer": "Create a new key with the same scopes and retire the old one after seven days."
+    },
+    {
+      "id": "r8",
+      "prompt": "What does the write scope add?",
+      "answer": "The write scope adds create and delete."
+    }
+  ],
+  "eval_prompts": [
+    "which scope do list calls need",
+    "How is usage billed?",
+    "Where do I find my invoice?"
+  ]
+}

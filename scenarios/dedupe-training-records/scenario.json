@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "slug": "dedupe-training-records",
+  "track": "data-pipelines",
+  "language": "python",
+  "system": {
+    "context": "Orbit's fine-tuning set was exported from the ticket system over six months. The same question appears dozens of times with different capitalization, spacing, and trailing punctuation, so the model learned a few answers by heart and little else, and three evaluation questions were in the training set verbatim, so the evaluation score was a lie. The dedupe that shipped compared raw strings and dropped nothing.",
+    "request": "A worked Python example of one action: normalize(text), which lowercases a prompt, keeps only letters, digits, and whitespace, and collapses whitespace runs to one space; dedupe(records), which keeps the first record per key in input order and returns the kept records plus (dropped id, kept id) pairs; and evaluation_overlap(kept, eval_prompts), which reports the kept ids whose key is also an evaluation prompt's key. The lesson leads with the complete solution over eight inline records and three evaluation prompts and its exact output, explains the Python construct by construct, traces the dictionary and the two lists, and offers one practice variation: remove the overlapping records instead of reporting them.",
+    "inputs": [
+      "Eight records written inline in solution.py as a list of dictionaries with an id, a prompt, and an answer: r1, r4, and r7 are one question in three spellings (a question mark, all lowercase, a space before the question mark), r2 and r6 are another in two spellings (capitals and a question mark), and r3, r5, and r8 are distinct",
+      "Three evaluation prompts, two of which share a key with kept training records (r2 and r5) and one of which matches nothing",
+      "For the failure case, a record whose prompt is three question marks, which normalizes to an empty string"
+    ],
+    "outputs": [
+      "dedupe returns five kept records (r1, r2, r3, r5, r8) and three pairs: (r4, r1), (r6, r2), (r7, r1); evaluation_overlap returns [r2, r5]",
+      "python solution.py prints the counts, the kept records with their keys, the dropped records with their twins, the overlap line, the rejected record, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it prints three kept, two duplicates dropped, three overlaps removed, and OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no sibling imports, fixtures, credentials, or network",
+      "The key is the only basis for comparison: lowercase, letters and digits and whitespace kept, whitespace runs collapsed; the first record per key is kept, later ones are dropped and name their twin; kept records are the caller's dictionaries in input order and the input list is never modified",
+      "A record with no prompt, or a prompt that normalizes to nothing, raises ValueError naming the id; the overlap report is sorted so it is deterministic although sets have no order",
+      "Ordinary Python plus the concepts taught: string methods lower, isalnum, isspace, split, and join, a loop that builds a string, a dictionary with in and item assignment, tuples in a list, sets with add, in, and the intersection operator, sorted, try and except; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: 8 records, 5 kept, 3 dropped, the kept keys, the three drops naming r1, r2, and r1, the overlap line naming r2 and r5, the rejected record, and OK",
+      "normalize maps the three spellings of the key rotation question and the two spellings of the scope question to one key each, drops punctuation, keeps digits, and collapses spaces, tabs, and newlines; an all-punctuation prompt maps to the empty string",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt: r1, r3, r8 kept, r4 and r7 dropped as duplicates of r1, r2, r5, and r6 removed as overlaps, and identical behavior to the worked solution when the evaluation list is empty",
+      "The dedupe that shipped fails on the same records: a set of the raw prompts has eight members so nothing is dropped, and exact comparison finds only the verbatim evaluation twin, while normalized keys collapse the records to five and find both twins"
+    ]
+  },
+  "python": {
+    "package": "dedupe_records",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "d333efb1dbd79e6dabd23a446a3e2670d3c37b4ed949517fdb639ba841d905b8"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "ca9c24d252cfd10e26e85ca1803a7c229f4f8179fa530a4d29dff854685ba537"
+    },
+    {
+      "path": "python/fixtures/records.json",
+      "description": "The eight records and the three evaluation prompts exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "6df331d22faad9aa1fd0ff69359aaace184357f76435ee029019f53bdd1cf667"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every decision on the eight records (the key, kept or dropped, and the twin), the kept ids and dropped pairs, the normalized evaluation keys with their matches, and the same for the practice variation with its overlaps, derived from the real functions over growing prefixes; the animation must replay it exactly.",
+      "sha256": "7bec4732f49b0ac39710c207ac26d58a4ba26c8c31fc1d8cb2e84d3bc29e81f7"
+    }
+  ],
+  "checks": [
+    { "id": "solution-exact-output", "kind": "correctness", "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.", "file": "python/tests/test_lesson.py", "function": "test_solution_prints_exactly_the_expected_output_when_run_alone" },
+    { "id": "spellings-share-a-key", "kind": "correctness", "description": "The three spellings of the key rotation question and the two spellings of the scope question normalize to one key each.", "file": "python/tests/test_lesson.py", "function": "test_three_spellings_of_one_question_share_a_key" },
+    { "id": "punctuation-and-whitespace", "kind": "correctness", "description": "normalize drops punctuation, keeps digits, and collapses runs of spaces, tabs, and newlines to one space.", "file": "python/tests/test_lesson.py", "function": "test_punctuation_is_dropped_and_whitespace_runs_collapse" },
+    { "id": "empty-key", "kind": "correctness", "description": "An all-punctuation or whitespace-only prompt normalizes to the empty string.", "file": "python/tests/test_lesson.py", "function": "test_an_all_punctuation_prompt_normalizes_to_nothing" },
+    { "id": "first-wins", "kind": "correctness", "description": "The kept ids are r1, r2, r3, r5, r8 and the dropped pairs are (r4, r1), (r6, r2), (r7, r1).", "file": "python/tests/test_lesson.py", "function": "test_first_record_per_key_is_kept_and_later_ones_name_it" },
+    { "id": "originals-in-order", "kind": "correctness", "description": "Kept records are the caller's own dictionaries, unchanged, in input order.", "file": "python/tests/test_lesson.py", "function": "test_kept_records_are_the_originals_in_input_order" },
+    { "id": "input-not-modified", "kind": "correctness", "description": "The record list is unchanged after dedupe and evaluation_overlap.", "file": "python/tests/test_lesson.py", "function": "test_input_is_not_modified" },
+    { "id": "missing-or-empty-prompt", "kind": "failure", "description": "A record without a prompt key, and a record whose prompt normalizes to nothing, raise ValueError naming the record.", "file": "python/tests/test_lesson.py", "function": "test_missing_or_empty_prompt_raises_naming_the_record" },
+    { "id": "clean-list", "kind": "correctness", "description": "A list with no repeated keys is kept whole with no drops, and an empty list yields two empty lists.", "file": "python/tests/test_lesson.py", "function": "test_a_clean_list_keeps_everything" },
+    { "id": "overlap-names-twins", "kind": "correctness", "description": "evaluation_overlap returns [r2, r5] for the lesson's prompts, nothing for an unrelated prompt, and judges on keys so a respelled evaluation prompt still matches.", "file": "python/tests/test_lesson.py", "function": "test_evaluation_overlap_names_the_twins" },
+    { "id": "starter-not-ok", "kind": "failure", "description": "starter.py run alone exits 1, starts with the NOT OK line naming 5 kept, and writes no traceback.", "file": "python/tests/test_lesson.py", "function": "test_starter_reports_not_ok_as_shipped" },
+    { "id": "answer-exact-output", "kind": "correctness", "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.", "file": "python/tests/test_lesson.py", "function": "test_answer_prints_exactly_the_expected_output_when_run_alone" },
+    { "id": "answer-removes-overlap", "kind": "correctness", "description": "The practice answer keeps r1, r3, r8, drops r4 and r7 as duplicates of r1, and removes r2, r5, and r6 as overlaps.", "file": "python/tests/test_lesson.py", "function": "test_answer_removes_the_overlap_and_keeps_three" },
+    { "id": "answer-matches-example", "kind": "correctness", "description": "With no evaluation prompts the practice answer keeps and drops exactly what the worked solution does.", "file": "python/tests/test_lesson.py", "function": "test_answer_with_no_evaluation_prompts_equals_the_worked_solution" },
+    { "id": "answer-region", "kind": "correctness", "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.", "file": "python/tests/test_lesson.py", "function": "test_answer_and_starter_differ_only_inside_the_marked_region" },
+    { "id": "records-fixture", "kind": "correctness", "description": "records.json equals the RECORDS and EVAL_PROMPTS that solution.py defines, and the practice files carry the same data.", "file": "python/tests/test_lesson.py", "function": "test_records_fixture_is_the_lesson_input" },
+    { "id": "trace-fixture", "kind": "correctness", "description": "expected-trace.json equals the trace derived by running the real functions over growing prefixes: kept, kept, kept, dropped, kept, dropped, dropped, kept with twins r1, r2, r1; overlap matches r2 and r5; and the practice decisions with three overlaps.", "file": "python/tests/test_lesson.py", "function": "test_expected_trace_is_what_the_solution_does" },
+    { "id": "exact-string-keeps-all", "kind": "evaluation", "description": "A set of the raw prompts has eight members, so the exact-string dedupe that shipped drops nothing, while normalized keys collapse the records to five.", "file": "python/tests/test_lesson.py", "function": "test_exact_string_dedupe_keeps_every_spelling" },
+    { "id": "exact-overlap-misses", "kind": "evaluation", "description": "Exact comparison finds only the verbatim evaluation twin and misses the respelled one; the normalized check finds both.", "file": "python/tests/test_lesson.py", "function": "test_exact_string_overlap_misses_a_respelled_evaluation_prompt" }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/DedupeViz.jsx",
+      "description": "A short animation of the worked example, about two and a half seconds per record and about half a minute in all: the eight records as cards on the left, a key box in the middle that shows the three stages of normalize (lowercase, letters and digits and spaces only, single spaces) for the record under test, the set of keys seen on the right with the first id beside each key, and the kept ids as chips below it. A new key glides into the set as a green row; a repeated key links back in red to the row it duplicates and the card is tagged with its twin. Then the three evaluation prompts appear under the key box, normalized, and two of them link in amber to kept keys; the outro states the counts; and the practice variation removes the overlapping records from the kept list, tagging r2, r5, and r6. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/dedupeModel.js, a JavaScript port of normalize, dedupe, and the practice answer that runs on python/fixtures/records.json and records a trace; tests/dedupe-training-records-viz.test.mjs asserts that trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that every beat lasts at least a second with the eight record beats between two and three seconds and the run between twenty-five and forty-five seconds, that captions carry the measured keys, twins, and counts, that the outro scene holds the five keys with their ids, the three duplicate links, and the two evaluation matches, that the final scene keeps r1, r3, r8 with r2, r5, r6 tagged as overlaps, and that every sampled scene keeps the set, the kept list, and the links within bounds with counts monotonic until the practice. Rendered frames inspected at several moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

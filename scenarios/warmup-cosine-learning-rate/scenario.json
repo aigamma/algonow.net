@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "slug": "warmup-cosine-learning-rate",
+  "track": "fine-tuning",
+  "language": "python",
+  "system": {
+    "context": "Orbit fine-tunes its support model with adapter weights. The last run diverged in its first twenty steps: the loss spiked and never recovered, because training began at the full learning rate on freshly initialized adapters and a fresh optimizer state. The fix is a schedule that climbs to the peak over the first steps and then decays along a cosine curve, read by the trainer every step. Nothing here needs a framework: the schedule is a pure function of the step that can be printed and checked before a GPU minute is spent.",
+    "request": "A worked Python example of one action: learning_rate(step, total_steps, warmup_steps, peak). During warmup the rate is the peak scaled by step over warmup_steps; afterwards progress is the fraction of the decay completed and the rate is the peak times one half of one plus the cosine of pi times progress, so the decay lands at zero on the last step. Invalid parameters raise ValueError. The lesson leads with the complete solution for a run of 100 steps, 10 warmup steps, and a peak of 2e-4, prints the table a trainer would follow, explains the Python construct by construct, traces the phases, and offers one practice variation: a hold phase that keeps the peak for a number of steps before the decay begins.",
+    "inputs": [
+      "TOTAL_STEPS of 100: the function is defined for steps 0 to 100, so a run of 100 updates uses steps 0 to 99 and the decay visibly lands at zero on step 100",
+      "WARMUP_STEPS of 10 and PEAK of 2e-4 (0.0002 in scientific notation), written inline in solution.py",
+      "For the practice variation, HOLD_STEPS of 20: the number of steps the peak is held after warmup before the decay"
+    ],
+    "outputs": [
+      "learning_rate returns a plain float for any step from 0 to total_steps; the example yields 0 at step 0, 1.00e-04 at step 5, the peak 2.00e-04 at step 10, 1.00e-04 at the decay midpoint step 55, and exactly 0.0 at step 100",
+      "python solution.py prints the parameters, a table of twelve steps with the rate in scientific notation and as a percentage of the peak, the peak step, the midpoint rate, the band check, a rejected warmup that leaves no decay, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped because step 25 is not at the peak under the unused hold; after the practice change it prints the hold table (peak held from step 10 to 30, midpoint at step 65) and OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no sibling imports, fixtures, credentials, network, or framework",
+      "The schedule is a pure function of the step: the same arguments always give the same rate; it never exceeds the peak, never goes below zero, reaches the peak exactly at the end of warmup, and lands at exactly zero on the last step",
+      "A warmup that leaves no steps for the decay, a negative step, or a step beyond total_steps raises ValueError with a message naming the problem",
+      "Ordinary Python only, plus the concepts taught: a piecewise function with early returns, import math with math.cos and math.pi, true division against integer division, range, a list of tuples with unpacking, max and min over a list, and format specs for scientific notation and percentages; no classes, lambdas, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 with empty stderr and its output equals expected-output.txt byte for byte: the twelve-row table, the peak at step 10, the midpoint 1.00e-04 at step 55, the band check over 101 steps, the rejected warmup, and OK",
+      "The schedule holds at its edges: warmup is linear (step 5 is half the peak), the peak arrives exactly at step 10, every decay step is lower than the one before, the midpoint is half the peak within 1e-12, step 100 is exactly 0.0, a warmup of 1 step and of 99 steps both behave, and invalid arguments raise",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt: the peak is held from step 10 to step 30, the decay midpoint moves to step 65, the landing stays at zero, and a hold of 0 reproduces the worked schedule exactly",
+      "The constant rate that shipped is measured on the same run: it puts the full rate on step 1 where the schedule puts one tenth, nothing in the schedule exceeds nine tenths of the peak before warmup ends, and over 101 steps the schedule sums to 50 peaks against 101 for the constant rate"
+    ]
+  },
+  "python": {
+    "package": "lr_schedule",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "cdf4a280788468379da2e6730cc33e883546e39366f7ba4ecac682d42ededaca"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "7c8366416d1fe960a8551f4bdbc54445c2dea8f9bb7b938c8cff3b34b0bc2520"
+    },
+    {
+      "path": "python/fixtures/schedule.json",
+      "description": "The total steps, warmup steps, hold steps, and peak exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "eb0a00f559988f4a1425b51f8e8814e0b24fdffa9f841f95378acc619a1cadd7"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "The rate at every step of the worked schedule and of the hold variation (rounded to twelve decimals), the printed rows, the phases, the midpoints, the step-1 comparison, and the sums, derived from the real functions; the animation must replay it exactly.",
+      "sha256": "a4bb201f6b23b5b2ee1f48699bcfacb3d14b83269c6db5ba25e6a3c500618488"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "warmup-linear",
+      "kind": "correctness",
+      "description": "Warmup is a straight line: step 0 is 0, step 5 is half the peak, every warmup step is the peak times step over 10, and the peak arrives exactly at step 10.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_warmup_is_linear_and_reaches_the_peak_at_warmup_steps"
+    },
+    {
+      "id": "decay-midpoint",
+      "kind": "correctness",
+      "description": "The midpoint of the decay, step 55, is half the peak within 1e-12.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_decay_midpoint_is_half_the_peak"
+    },
+    {
+      "id": "lands-at-zero",
+      "kind": "correctness",
+      "description": "Step 100 is exactly 0.0 because the cosine of pi is exactly minus one, and step 99 is tiny but not zero.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_last_step_lands_at_zero"
+    },
+    {
+      "id": "within-the-band",
+      "kind": "correctness",
+      "description": "Over all 101 steps the rate never exceeds the peak, never goes below zero, peaks at step 10, and only falls during the decay.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_rates_stay_within_zero_and_the_peak"
+    },
+    {
+      "id": "short-and-long-warmups",
+      "kind": "correctness",
+      "description": "A warmup of one step reaches the peak at step 1, and a warmup of 99 steps leaves a one-step decay that still lands at zero.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_short_and_long_warmups_behave"
+    },
+    {
+      "id": "invalid-arguments",
+      "kind": "failure",
+      "description": "A warmup that leaves no decay, a negative step, and a step beyond total_steps raise ValueError with messages naming the problem.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_invalid_arguments_raise"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line naming the rate found at step 25, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "hold-exact",
+      "kind": "correctness",
+      "description": "With a hold of 20 the peak is held on steps 10 to 30 exactly, step 31 is below it, the midpoint moves to step 65, the landing stays at zero, and a hold that leaves no decay raises.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_hold_keeps_the_peak_for_exactly_the_hold_steps"
+    },
+    {
+      "id": "hold-zero-matches",
+      "kind": "correctness",
+      "description": "A hold of zero reproduces the worked schedule at every step.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_hold_of_zero_matches_the_worked_solution"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the constants above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "constant-rate-that-shipped",
+      "kind": "evaluation",
+      "description": "On the same run the constant rate puts the full 2e-4 on step 1 where the schedule puts one tenth of it; the schedule sums to 50 peaks against 101 for the constant rate (a ratio of 2.02); nothing exceeds nine tenths of the peak before warmup ends.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_constant_rate_that_shipped_versus_the_schedule"
+    },
+    {
+      "id": "schedule-fixture",
+      "kind": "correctness",
+      "description": "schedule.json equals the TOTAL_STEPS, WARMUP_STEPS, HOLD_STEPS, and PEAK that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_schedule_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the rates the real functions produce at every step (rounded to twelve decimals), the printed rows, the phases, the midpoints at 55 and 65, the step-1 comparison, and the sums 0.01 and 0.0202.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/LrScheduleViz.jsx",
+      "description": "A short animation of the worked schedule, about three seconds per phase and under half a minute in all: one thin bar per step on a step axis, the peak as a dashed line, and a readout with the current step, phase, rate, and the formula fragment that applies. The intro shows the constant rate that shipped as faint flat bars; the warmup bars rise in order; the decay fills in four spans with the real rates in the captions (1.77e-04 at step 30, the half-peak midpoint at step 55, 2.34e-05 at step 80, the landing at zero); the outro states the step-1 ratio and the sums; then the practice hold flattens steps 10 to 30 at the peak and re-shapes the decay with its midpoint at step 65. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/lrScheduleModel.js, a JavaScript port of learning_rate and the practice answer's hold variant evaluated on python/fixtures/schedule.json; tests/warmup-cosine-learning-rate-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions (rates rounded to twelve decimals on both sides), that every phase beat lasts about three seconds and the run under half a minute, that the worked schedule is complete at the outro and the hold schedule at the end, and that every sampled scene keeps bars within the band and never grows a bar ahead of the cursor. Rendered frames inspected through the model bundle in a headless browser.",
+      "check": "trace-fixture"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "total_steps": 100,
+  "warmup_steps": 10,
+  "hold_steps": 20,
+  "peak": 0.0002
+}

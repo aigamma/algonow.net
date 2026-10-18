@@ -1,0 +1,129 @@
+{
+  "base_delay": 0.5,
+  "max_attempts": 4,
+  "runs": [
+    {
+      "name": "recovers",
+      "script": [
+        "timeout",
+        "rate limited",
+        "ok"
+      ],
+      "attempts": [
+        {
+          "attempt": 1,
+          "outcome": "timeout",
+          "at": 0,
+          "wait": 0.5
+        },
+        {
+          "attempt": 2,
+          "outcome": "rate limited",
+          "at": 0.5,
+          "wait": 1.0
+        },
+        {
+          "attempt": 3,
+          "outcome": "ok",
+          "at": 1.5,
+          "wait": null
+        }
+      ],
+      "result": "answer",
+      "message": "The key is not active yet; rotation finishes after seven days.",
+      "total_wait": 1.5
+    },
+    {
+      "name": "exhausts",
+      "script": [
+        "timeout",
+        "timeout",
+        "timeout",
+        "timeout"
+      ],
+      "attempts": [
+        {
+          "attempt": 1,
+          "outcome": "timeout",
+          "at": 0,
+          "wait": 0.5
+        },
+        {
+          "attempt": 2,
+          "outcome": "timeout",
+          "at": 0.5,
+          "wait": 1.0
+        },
+        {
+          "attempt": 3,
+          "outcome": "timeout",
+          "at": 1.5,
+          "wait": 2.0
+        },
+        {
+          "attempt": 4,
+          "outcome": "timeout",
+          "at": 3.5,
+          "wait": null
+        }
+      ],
+      "result": "gave up",
+      "message": "gave up after 4 attempts: no response in 10 seconds",
+      "total_wait": 3.5
+    },
+    {
+      "name": "invalid",
+      "script": [
+        "invalid request"
+      ],
+      "attempts": [
+        {
+          "attempt": 1,
+          "outcome": "invalid request",
+          "at": 0,
+          "wait": null
+        }
+      ],
+      "result": "not retried",
+      "message": "prompt is empty",
+      "total_wait": 0
+    }
+  ],
+  "budget": {
+    "max_wait": 3.0,
+    "runs": [
+      {
+        "name": "exhausts",
+        "script": [
+          "timeout",
+          "timeout",
+          "timeout",
+          "timeout"
+        ],
+        "attempts": [
+          {
+            "attempt": 1,
+            "outcome": "timeout",
+            "at": 0,
+            "wait": 0.5
+          },
+          {
+            "attempt": 2,
+            "outcome": "timeout",
+            "at": 0.5,
+            "wait": 1.0
+          },
+          {
+            "attempt": 3,
+            "outcome": "timeout",
+            "at": 1.5,
+            "wait": null
+          }
+        ],
+        "result": "budget exhausted",
+        "message": "wait budget of 3.0 s exhausted after 3 attempts: no response in 10 seconds",
+        "total_wait": 1.5
+      }
+    ]
+  }
+}

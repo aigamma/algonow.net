@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "slug": "retry-with-backoff",
+  "track": "serving",
+  "language": "python",
+  "system": {
+    "context": "Orbit's assistant calls a hosted model for every answer. Under load the endpoint times out or replies 429 too many requests for a few seconds. The assistant's loop retried immediately, as fast as it could, which hammered an endpoint that was asking for room, and it retried every error the same way, so an invalid request with an empty prompt was sent four times before anyone saw the real problem.",
+    "request": "A worked Python example of one action: call_with_retry(call, sleep, max_attempts, base_delay). Try the call; on a TimeoutError or ConnectionError wait base_delay times two to the power of (attempt minus one) and try again, up to max_attempts calls; after the last failed attempt raise RuntimeError naming the attempt count and the last error; let any other error (a ValueError for an invalid request) propagate untouched after one call. The call and the sleep are passed in as functions, so the demonstration runs a scripted fake endpoint with a recording sleep and finishes instantly. The lesson leads with the complete solution over three inline scripts and its exact output, explains the Python construct by construct, traces the attempts, and offers one practice variation: a cap on the total time spent waiting.",
+    "inputs": [
+      "Three scripts for the fake endpoint, written inline in solution.py as lists of outcomes consumed one per call: recovers (timeout, rate limited, ok), exhausts (four timeouts), invalid (invalid request)",
+      "The cap MAX_ATTEMPTS of 4 and the first wait BASE_DELAY of 0.5 seconds; every later wait doubles",
+      "A recording sleep, record_wait, that appends each requested wait to a list instead of waiting, standing in for time.sleep",
+      "For the practice variation, MAX_WAIT of 3.0 seconds: the most time the loop may spend waiting in all"
+    ],
+    "outputs": [
+      "call_with_retry returns the answer string when a call succeeds; the recovering script waits 0.5 and 1.0 seconds and returns on attempt 3",
+      "python solution.py prints every attempt line, the answer, the total waited over each script, the give-up message after four timeouts (3.5 seconds waited), the ValueError that is not retried, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped because the all-timeout script still waits 0.5, 1.0, and 2.0 under the unused budget; after the practice change it stops after attempt 3 with the waits 0.5 and 1.0 and prints OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no sibling imports, fixtures, credentials, network, or real sleeping",
+      "Only TimeoutError and ConnectionError are retried; any other exception propagates after one call; the loop never waits after its last attempt; giving up raises RuntimeError with the attempt count and the last error's message",
+      "Waits are exact: base_delay times a power of two, recorded in order by the injected sleep; the demonstration asserts [0.5, 1.0], [0.5, 1.0, 2.0], and [] for the three scripts",
+      "Ordinary Python only, plus the concepts taught: functions passed as arguments, a function that builds and returns an inner function, try and except with a tuple of exception types, return inside try, raise inside except, range from one, the exponent operator; no classes, decorators, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 with empty stderr and its output equals expected-output.txt byte for byte: the recovering script returns the answer on attempt 3 after 1.5 seconds of recorded waiting, the all-timeout script gives up after 4 attempts with 3.5 seconds waited, the invalid request is raised after one call with no wait, and OK",
+      "The policy holds at its edges: delays double from the base, a success stops the loop with the remaining script untouched, both retryable error types are retried, a ValueError is neither retried nor swallowed, giving up names the count and the last error after exactly max_attempts calls, a cap of 1 means no waits, and a script that runs out raises IndexError rather than being retried",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt: under a 3.0 second budget the all-timeout script stops after attempt 3 with the waits 0.5 and 1.0, a wait that lands exactly on the budget is allowed, and a huge budget reproduces the worked behavior on every script",
+      "The loop that shipped is measured on the same scripts: an immediate-retry loop with the same cap makes four calls in the same instant on the all-timeout script, while backoff spreads them over 3.5 seconds, and it retries an invalid request four times where the repair calls once"
+    ]
+  },
+  "python": {
+    "package": "retry_backoff",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "5d558bfe8cd692666572577a42319048e19399da9d57808bd59092836f4bf6c1"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "ff28ea6f9f685cb96bc0ec49ccc54ba261345b8a7000a5c37b039094ca6118e3"
+    },
+    {
+      "path": "python/fixtures/scripts.json",
+      "description": "The three scripts, the cap, the first delay, and the practice budget exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "c3c32765954555b19e5300799ec7edd3186239062566f0fb0b1985c3eb363afe"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every attempt the loop makes on the three scripts (number, outcome, start time, wait) and under the practice budget, with each run's result and message, derived from the real functions; the animation must replay it exactly.",
+      "sha256": "65390239bfed86c5adf0cb6b6ad9c07819d90d2a306a1762dacd40e00a959568"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "delays-double",
+      "kind": "correctness",
+      "description": "The recorded waits are the base times a power of two: 0.5, 1.0, 2.0 on the all-timeout script, and 0.25, 0.5, 1.0, 2.0 with a base of 0.25 and a cap of 5.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_delays_double_from_the_base"
+    },
+    {
+      "id": "success-stops",
+      "kind": "correctness",
+      "description": "A success returns the answer and makes no further call: the remaining script entries are untouched.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_success_returns_the_answer_and_stops_calling"
+    },
+    {
+      "id": "both-retryable",
+      "kind": "correctness",
+      "description": "A ConnectionError and a TimeoutError are both retried, with the waits 0.5 and 1.0.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_both_retryable_errors_are_retried"
+    },
+    {
+      "id": "value-error-untouched",
+      "kind": "failure",
+      "description": "A ValueError is raised to the caller after exactly one call, with its message intact and no wait.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_value_error_is_not_retried_or_swallowed"
+    },
+    {
+      "id": "gives-up-loudly",
+      "kind": "failure",
+      "description": "After max_attempts failures the loop raises RuntimeError naming the count and the last error, makes exactly max_attempts calls, and does not wait after the last one.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_giving_up_names_the_attempts_and_the_last_error"
+    },
+    {
+      "id": "one-attempt-no-waits",
+      "kind": "correctness",
+      "description": "A cap of one attempt means no waits at all before giving up.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_one_attempt_means_no_waits"
+    },
+    {
+      "id": "exact-delays",
+      "kind": "correctness",
+      "description": "The injected sleep receives exactly base_delay times two to the power of attempt minus one, and binary-fraction waits add exactly.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_sleep_receives_the_exact_delays"
+    },
+    {
+      "id": "script-exhausted",
+      "kind": "failure",
+      "description": "A script shorter than the attempts raises IndexError from the fake, which is not retried: a test bug, not a policy.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_script_running_out_is_a_test_bug_not_a_policy"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, prints the NOT OK line naming the waits it saw, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-huge-budget",
+      "kind": "correctness",
+      "description": "With a budget that never binds, the practice answer reproduces the worked solution's result and waits on every script.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_with_a_huge_budget_matches_the_worked_behavior"
+    },
+    {
+      "id": "answer-budget-stops",
+      "kind": "correctness",
+      "description": "Under a 3.0 second budget the all-timeout script stops after attempt 3 with the exact message and the waits 0.5 and 1.0; a wait landing exactly on the budget is allowed.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_budget_stops_early_with_the_exact_message"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "tight-loop-measured",
+      "kind": "evaluation",
+      "description": "The immediate-retry loop that shipped makes four calls in the same instant on the all-timeout script and retries an invalid request four times; backoff spreads the four calls over 3.5 seconds and calls the invalid request once.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_tight_loop_hammers_and_retries_invalid_requests"
+    },
+    {
+      "id": "scripts-fixture",
+      "kind": "correctness",
+      "description": "scripts.json equals the scripts, cap, first delay, and practice budget that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_scripts_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the attempts derived by running each script through the real call_with_retry (and the practice answer under the budget) with a recording sleep: start times 0, 0.5, 1.5, 3.5 on the all-timeout script, results answer, gave up, not retried, and budget exhausted after three attempts.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/RetryBackoffViz.jsx",
+      "description": "A short animation of the worked example along a time axis, about two and a half seconds per attempt and about half a minute in all: three lanes, one per script, each a simulated clock from 0 to 4 seconds; every attempt appears at the moment it starts (0, 0.5, 1.5, 3.5 s) colored by its outcome, the wait before the next attempt grows as a bracket labeled 0.5 s, 1.0 s, 2.0 s, and the caption states the attempt with the trace's numbers: the recovery on attempt 3 after 1.5 s, the cap after four timeouts and 3.5 s, the invalid request raised at once with no retry. The intro shows the tight loop that shipped as four calls stacked on the same instant; the practice segment draws the 3.0 s budget line and cuts the wait that would cross it, giving up after attempt 3. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/retryBackoffModel.js, a JavaScript port of call_with_retry and the practice budget that runs on python/fixtures/scripts.json with simulated time and records a trace; tests/retry-with-backoff-viz.test.mjs asserts that trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that every beat lasts at least a second and each attempt two to three seconds, that the captions carry the measured waits, the cap, the untouched ValueError, and the budget arithmetic, and that every sampled scene keeps attempts in order within the four-second axis and ends with 3, 4, and 1 attempts, the budget line at 3.0 s, and the cut after attempt 3. Rendered frames inspected at several moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

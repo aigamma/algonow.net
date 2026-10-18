@@ -1,0 +1,21 @@
+{
+  "base_delay": 0.5,
+  "max_attempts": 4,
+  "max_wait": 3.0,
+  "scripts": {
+    "recovers": [
+      "timeout",
+      "rate limited",
+      "ok"
+    ],
+    "exhausts": [
+      "timeout",
+      "timeout",
+      "timeout",
+      "timeout"
+    ],
+    "invalid": [
+      "invalid request"
+    ]
+  }
+}

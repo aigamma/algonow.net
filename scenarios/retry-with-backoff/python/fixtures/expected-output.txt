@@ -1,0 +1,18 @@
+scripted outcomes: timeout, rate limited, ok
+attempt 1: no response in 10 seconds, waiting 0.5 s
+attempt 2: 429 too many requests, waiting 1.0 s
+attempt 3: ok
+answer: The key is not active yet; rotation finishes after seven days.
+total waited: 1.5 s over 3 attempts
+
+scripted outcomes: timeout, timeout, timeout, timeout
+attempt 1: no response in 10 seconds, waiting 0.5 s
+attempt 2: no response in 10 seconds, waiting 1.0 s
+attempt 3: no response in 10 seconds, waiting 2.0 s
+stopped: gave up after 4 attempts: no response in 10 seconds
+total waited: 3.5 s over 4 attempts
+
+scripted outcomes: invalid request
+attempt 1: ValueError not retried: prompt is empty
+
+OK

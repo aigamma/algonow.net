@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net retrieval-precision-recall-mrr preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T01:49:24.328Z",
+  "publication_sha256": "78e9209e1441914c31e689bf42983ed1af6c1f085b98e730c981998632a196df",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 8611384,
+  "objects": [
+    {
+      "stable_id": "puzzle:retrieval-precision-recall-mrr",
+      "slug": "retrieval-precision-recall-mrr",
+      "track_id": "algieba",
+      "source_sha256": "1ae4e334b3c04023c7720d005d50e4479d4ba723b0342eea3b2158deba89d5b6",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "e5c12f8e8fda20034bd2ead122ee27518081a067a534faf0f749d3ee671977e9",
+      "object_key": "narration/v1/puzzles/retrieval-precision-recall-mrr/e5c12f8e8fda20034bd2/algieba-9e21329556470639.mp3",
+      "bytes": 4526348,
+      "sha256": "9e21329556470639bd895dfa17bf00e4b0c859546591f8f1f013fb273a25a436",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:retrieval-precision-recall-mrr",
+      "slug": "retrieval-precision-recall-mrr",
+      "track_id": "aoede",
+      "source_sha256": "1ae4e334b3c04023c7720d005d50e4479d4ba723b0342eea3b2158deba89d5b6",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "e5c12f8e8fda20034bd2ead122ee27518081a067a534faf0f749d3ee671977e9",
+      "object_key": "narration/v1/puzzles/retrieval-precision-recall-mrr/e5c12f8e8fda20034bd2/aoede-27ad47bae5b0d719.mp3",
+      "bytes": 4085036,
+      "sha256": "27ad47bae5b0d7194ad7516be29906f15f4b48bcc5e3af3ed899b13758a3f714",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

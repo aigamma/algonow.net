@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net lru-cache-for-model-responses preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T01:50:33.735Z",
+  "publication_sha256": "54cf27e5283469844a39761262a1a8a865f04e290d60f0ab482a14af6aaac79f",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 7922872,
+  "objects": [
+    {
+      "stable_id": "puzzle:lru-cache-for-model-responses",
+      "slug": "lru-cache-for-model-responses",
+      "track_id": "algieba",
+      "source_sha256": "f936b2fa2aab7831fb9fc9209f75a2bae288829b9b456d4d101a7ab125642037",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "b9cd6e30be9d9556b2db407dcb3e4394e5693e7d11d585cf4f56104d359417d1",
+      "object_key": "narration/v1/puzzles/lru-cache-for-model-responses/b9cd6e30be9d9556b2db/algieba-67b572d5a5949e4c.mp3",
+      "bytes": 4049420,
+      "sha256": "67b572d5a5949e4cc1a490fc006b9890b76ee118c28914fe04f9c102283760c5",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:lru-cache-for-model-responses",
+      "slug": "lru-cache-for-model-responses",
+      "track_id": "aoede",
+      "source_sha256": "f936b2fa2aab7831fb9fc9209f75a2bae288829b9b456d4d101a7ab125642037",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "b9cd6e30be9d9556b2db407dcb3e4394e5693e7d11d585cf4f56104d359417d1",
+      "object_key": "narration/v1/puzzles/lru-cache-for-model-responses/b9cd6e30be9d9556b2db/aoede-58e4a6679235ab24.mp3",
+      "bytes": 3873452,
+      "sha256": "58e4a6679235ab24be3caed4f88b5782df3be837d63f9c6a0f56513bdaf25ebe",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

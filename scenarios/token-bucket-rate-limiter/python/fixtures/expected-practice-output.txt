@@ -1,0 +1,17 @@
+8 requests from 2 tenants, capacity 3 tokens per bucket, refill 1.0 per second
+id    tenant  time  before  decision  after
+q1    a       0.00    3.00  admit      2.00
+q2    a       0.20    2.20  admit      1.20
+q3    a       0.40    1.40  admit      0.40
+q4    b       0.60    3.00  admit      2.00
+q5    a       1.50    1.50  admit      0.50
+q6    b       1.60    3.00  admit      2.00
+q7    a       4.00    3.00  admit      2.00
+q8    b       4.10    3.00  admit      2.00
+
+tenant a: 5 admitted, 0 rejected
+tenant b: 3 admitted, 0 rejected
+
+rejected: requests must arrive in time order: q2 at 0.5 after 1.0
+
+OK

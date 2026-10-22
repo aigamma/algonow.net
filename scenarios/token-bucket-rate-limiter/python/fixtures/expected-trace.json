@@ -1,0 +1,159 @@
+{
+ "capacity": 3,
+ "rate": 1.0,
+ "records": [
+  {
+   "id": "q1",
+   "t": 0.0,
+   "before": 3,
+   "decision": "admit",
+   "after": 2
+  },
+  {
+   "id": "q2",
+   "t": 0.2,
+   "before": 2.2,
+   "decision": "admit",
+   "after": 1.2
+  },
+  {
+   "id": "q3",
+   "t": 0.4,
+   "before": 1.4,
+   "decision": "admit",
+   "after": 0.4
+  },
+  {
+   "id": "q4",
+   "t": 0.6,
+   "before": 0.6,
+   "decision": "reject",
+   "after": 0.6
+  },
+  {
+   "id": "q5",
+   "t": 1.5,
+   "before": 1.5,
+   "decision": "admit",
+   "after": 0.5
+  },
+  {
+   "id": "q6",
+   "t": 1.6,
+   "before": 0.6,
+   "decision": "reject",
+   "after": 0.6
+  },
+  {
+   "id": "q7",
+   "t": 4.0,
+   "before": 3,
+   "decision": "admit",
+   "after": 2
+  },
+  {
+   "id": "q8",
+   "t": 4.1,
+   "before": 2.1,
+   "decision": "admit",
+   "after": 1.1
+  }
+ ],
+ "admitted": [
+  "q1",
+  "q2",
+  "q3",
+  "q5",
+  "q7",
+  "q8"
+ ],
+ "rejected": [
+  "q4",
+  "q6"
+ ],
+ "shipped": {
+  "window_seconds": 1.0,
+  "burst_seconds": 1.6,
+  "within_burst": 6,
+  "busiest_window": 4,
+  "limited_busiest_window": 3
+ },
+ "practice": {
+  "records": [
+   {
+    "id": "q1",
+    "tenant": "a",
+    "t": 0.0,
+    "before": 3,
+    "decision": "admit",
+    "after": 2
+   },
+   {
+    "id": "q2",
+    "tenant": "a",
+    "t": 0.2,
+    "before": 2.2,
+    "decision": "admit",
+    "after": 1.2
+   },
+   {
+    "id": "q3",
+    "tenant": "a",
+    "t": 0.4,
+    "before": 1.4,
+    "decision": "admit",
+    "after": 0.4
+   },
+   {
+    "id": "q4",
+    "tenant": "b",
+    "t": 0.6,
+    "before": 3,
+    "decision": "admit",
+    "after": 2
+   },
+   {
+    "id": "q5",
+    "tenant": "a",
+    "t": 1.5,
+    "before": 1.5,
+    "decision": "admit",
+    "after": 0.5
+   },
+   {
+    "id": "q6",
+    "tenant": "b",
+    "t": 1.6,
+    "before": 3,
+    "decision": "admit",
+    "after": 2
+   },
+   {
+    "id": "q7",
+    "tenant": "a",
+    "t": 4.0,
+    "before": 3,
+    "decision": "admit",
+    "after": 2
+   },
+   {
+    "id": "q8",
+    "tenant": "b",
+    "t": 4.1,
+    "before": 3,
+    "decision": "admit",
+    "after": 2
+   }
+  ],
+  "counts": {
+   "a": {
+    "admit": 5,
+    "reject": 0
+   },
+   "b": {
+    "admit": 3,
+    "reject": 0
+   }
+  }
+ }
+}

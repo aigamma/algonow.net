@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "slug": "token-bucket-rate-limiter",
+  "track": "serving",
+  "language": "python",
+  "system": {
+    "context": "Orbit's gateway forwarded every request to the hosted model the instant it arrived. A batch job sent twenty requests inside a second, the provider's rate limit rejected all twenty, and the retries kept the endpoint over the limit for another minute. The provider allows a steady rate with a little room for bursts; the gateway enforced nothing.",
+    "request": "A worked Python example of one action: admit(requests, capacity, rate), a token bucket written as state carried through a loop. The bucket starts full at capacity tokens, refills at rate tokens per second on each arrival (elapsed time times the rate, capped with min at the capacity), spends one token per admitted request, rejects a request that finds less than one token without spending anything, and raises ValueError for a capacity below 1, a rate that is not positive, or an arrival earlier than the previous one. The lesson leads with the complete solution and its exact output over eight inline arrivals (a table of time, level before, decision, level after; the counts; the rejected out-of-order run), explains the Python construct by construct (guard clauses, state variables before a loop, min as a cap, augmented assignment, a tuple per record and tuple unpacking in a loop header, format specs), traces the level through every arrival, and offers one practice variation: one bucket per tenant kept in a dictionary.",
+    "inputs": [
+      "Eight requests written inline in solution.py as dictionaries with an id and an arrival time in seconds: q1 at 0.0, q2 at 0.2, q3 at 0.4, q4 at 0.6, q5 at 1.5, q6 at 1.6, q7 at 4.0, q8 at 4.1",
+      "A capacity of 3 tokens (the burst allowance) and a refill rate of 1.0 token per second",
+      "For the practice variation, a tenant on every request: q1, q2, q3, q5, q7 belong to tenant a and q4, q6, q8 to tenant b"
+    ],
+    "outputs": [
+      "admit returns one (id, t, before, decision, after) record per request; the worked example admits q1, q2, q3, q5, q7, q8 and rejects q4 and q6, with levels before of 3.00, 2.20, 1.40, 0.60, 1.50, 0.60, 3.00, 2.10 and after of 2.00, 1.20, 0.40, 0.60, 0.50, 0.60, 2.00, 1.10",
+      "python solution.py prints the decision table, the counts (admitted 6, rejected 2), the rejected out-of-order run, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change every request is admitted with tenant a counting 5 and tenant b 3, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, threads, timers, or network",
+      "The level is updated lazily on arrival from the elapsed time and never exceeds the capacity; a rejected request leaves the level unchanged; the request list is never modified",
+      "A capacity below 1, a rate that is not positive, or an arrival earlier than the previous one raises ValueError; the demonstration prints the rejected run instead of crashing",
+      "Ordinary Python only: guard clauses with raise, variables created before a loop and rewritten inside it, min, augmented assignment, tuples and tuple unpacking, f-strings with format specs, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the eight rows, admitted 6, rejected 2 (q4, q6), the rejected line naming the out-of-order request, and OK",
+      "The bucket arithmetic is exact at its edges: three arrivals at time zero drain it, a request at exactly 1.0 second is admitted on the one refilled token while one at 0.999 is rejected, and a gap of a hundred seconds refills to exactly the capacity",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt, admitting all eight with tenant b's q4 and q6 finding a full bucket of 3.00",
+      "What shipped is measured on the same arrivals: six of the eight reach the provider inside 1.6 seconds and the busiest one-second window carries four, while the bucket's busiest one-second window carries three admissions and never more than the capacity plus one"
+    ]
+  },
+  "python": {
+    "package": "token_bucket",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "948b6c7adae37cec494a83d9da9783bd06a6aa4aabefa746a199bfb7ec5cb051"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "6f8032be0fbcc0d843e991a8182df49e8320aca33b0af644baf07d22974aa5d5"
+    },
+    {
+      "path": "python/fixtures/requests.json",
+      "description": "The eight arrivals with their tenants, the capacity, the rate, and the evaluation windows exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "ba6fa8ff177e95aec02a6fc3d974ab6e3abc8798d975912df8c77a294df35430"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every decision of the shared bucket and of the per-tenant buckets (levels to six decimals), the admitted and rejected ids, the per-tenant counts, and the evaluation numbers, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "1b581a9f65a36ec79910f20f2ae5803ae6751e65207121943e044502db0fc1a6"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "decisions-and-levels",
+      "kind": "correctness",
+      "description": "The eight requests are decided admit, admit, admit, reject, admit, reject, admit, admit with levels before 3.00, 2.20, 1.40, 0.60, 1.50, 0.60, 3.00, 2.10 and after 2.00, 1.20, 0.40, 0.60, 0.50, 0.60, 2.00, 1.10.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_decisions_and_levels_for_the_eight_requests"
+    },
+    {
+      "id": "bucket-invariants",
+      "kind": "correctness",
+      "description": "No level before a decision exceeds the capacity, no level after falls below zero, an admitted request lowers the level by exactly one, and a rejected request leaves it unchanged and only happens below one token.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_bucket_never_overfills_and_a_reject_spends_nothing"
+    },
+    {
+      "id": "exact-token-boundary",
+      "kind": "correctness",
+      "description": "After three arrivals at time zero drain the bucket, a request at exactly 1.0 second is admitted on the one refilled token and one at 0.999 is rejected.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_request_arriving_exactly_when_one_token_has_refilled_is_admitted"
+    },
+    {
+      "id": "refill-cap",
+      "kind": "correctness",
+      "description": "A gap of a hundred seconds refills the bucket to exactly the capacity and no further.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_long_gap_refills_to_the_capacity_and_no_further"
+    },
+    {
+      "id": "bad-settings-and-order-rejected",
+      "kind": "failure",
+      "description": "A capacity of 0, a rate of 0 or below, and an arrival earlier than the previous one raise ValueError with messages naming the problem; an empty request list returns no records.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_invalid_settings_and_out_of_order_arrivals_are_rejected"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The request list and its dictionaries are unchanged after admit runs.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_is_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about every request being admitted, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-per-tenant",
+      "kind": "correctness",
+      "description": "With one bucket per tenant all eight requests are admitted, tenant b's q4 and q6 each find a full bucket of 3.00, and tenant a's levels follow the shared run's arithmetic for its own requests.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_gives_each_tenant_its_own_bucket"
+    },
+    {
+      "id": "answer-order-guard",
+      "kind": "failure",
+      "description": "The per-tenant version still raises ValueError for an arrival earlier than the previous one, even across tenants.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_still_rejects_out_of_order_arrivals_across_tenants"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "requests-fixture",
+      "kind": "correctness",
+      "description": "requests.json equals the arrivals, tenants, capacity, rate, and evaluation windows that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_requests_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the eight shared decisions with levels to six decimals, the admitted ids q1, q2, q3, q5, q7, q8, the rejected ids q4 and q6, the per-tenant replay with counts a 5 and b 3, and the evaluation numbers.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "shipped-burst",
+      "kind": "evaluation",
+      "description": "Forwarding everything sends six of the eight requests inside 1.6 seconds and four inside the busiest one-second window, against a sustained allowance of one per second.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_what_shipped_sends_six_of_eight_inside_the_burst"
+    },
+    {
+      "id": "bucket-bounds-window",
+      "kind": "evaluation",
+      "description": "With the bucket, six are admitted and the busiest one-second window carries three admissions, never more than the capacity plus one second of refill.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_bucket_bounds_every_one_second_window"
+    },
+    {
+      "id": "per-tenant-admits-more",
+      "kind": "evaluation",
+      "description": "On the same arrivals the shared bucket admits six and rejects only tenant b's requests, starved by tenant a's burst, while one bucket per tenant admits all eight.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_per_tenant_buckets_admit_more_on_the_same_arrivals"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/TokenBucketViz.jsx",
+      "description": "A short animation of the worked example, about two and a half seconds per arrival and about half a minute in all: the eight arrivals as ticks on a time axis, a gauge for the bucket with the capacity of 3 at the top and the one-token line, and a log of levels. Each beat refills the gauge for the elapsed time (capped at the top at q7), then spends a token with a green chip on the axis or refuses with a red chip and no change; the outro gives admitted 6, rejected 2 (q4, q6) and the three-admission bound on the busiest one-second window; the practice variation splits the gauge into one slimmer gauge per tenant and replays the decisions with every chip green and counts of 5 and 3. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/tokenBucketModel.js, a JavaScript port of admit (shared and per tenant) and of the window count that runs on python/fixtures/requests.json; tests/token-bucket-rate-limiter-viz.test.mjs (tests/ after integration) asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real solution, that each arrival beat ends with the gauge at that record's after level and its chip placed, that the gauge is refilled to the before level ahead of the decision, that the level stays inside the bucket and chips only accumulate at every sampled moment, that captions carry the measured levels, decisions, counts, and the cap, and that the final scene holds the per-tenant gauges at 2.00 each with every practice decision admitted. drawScene is exercised against a bare context at sampled moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+ "capacity": 3,
+ "rate": 1.0,
+ "window_seconds": 1.0,
+ "burst_seconds": 1.6,
+ "requests": [
+  {
+   "id": "q1",
+   "t": 0.0,
+   "tenant": "a"
+  },
+  {
+   "id": "q2",
+   "t": 0.2,
+   "tenant": "a"
+  },
+  {
+   "id": "q3",
+   "t": 0.4,
+   "tenant": "a"
+  },
+  {
+   "id": "q4",
+   "t": 0.6,
+   "tenant": "b"
+  },
+  {
+   "id": "q5",
+   "t": 1.5,
+   "tenant": "a"
+  },
+  {
+   "id": "q6",
+   "t": 1.6,
+   "tenant": "b"
+  },
+  {
+   "id": "q7",
+   "t": 4.0,
+   "tenant": "a"
+  },
+  {
+   "id": "q8",
+   "t": 4.1,
+   "tenant": "b"
+  }
+ ]
+}

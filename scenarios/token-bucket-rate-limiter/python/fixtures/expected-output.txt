@@ -1,0 +1,16 @@
+8 requests, capacity 3 tokens, refill 1.0 per second
+id    time  before  decision  after
+q1    0.00    3.00  admit      2.00
+q2    0.20    2.20  admit      1.20
+q3    0.40    1.40  admit      0.40
+q4    0.60    0.60  reject     0.60
+q5    1.50    1.50  admit      0.50
+q6    1.60    0.60  reject     0.60
+q7    4.00    3.00  admit      2.00
+q8    4.10    2.10  admit      1.10
+
+admitted 6, rejected 2 (q4, q6)
+
+rejected: requests must arrive in time order: q2 at 0.5 after 1.0
+
+OK

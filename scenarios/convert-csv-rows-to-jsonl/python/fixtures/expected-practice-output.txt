@@ -1,0 +1,13 @@
+5 rows read, 2 examples kept, budget 90 characters
+
+jsonl:
+{"prompt": "Which scope do list calls need?", "completion": "The read scope, which covers list and get calls."}
+{"prompt": "Where do I find my invoice?", "completion": "Open Billing, then Invoices.\nEach month is a PDF."}
+
+skipped not_closed: 1 (t4)
+skipped empty_reply: 1 (t5)
+skipped too_long: 1 (t1)
+
+rejected: the export has no 'agent_reply' column
+
+OK

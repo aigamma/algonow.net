@@ -1,0 +1,197 @@
+{
+  "schemaVersion": 1,
+  "slug": "convert-csv-rows-to-jsonl",
+  "track": "data-pipelines",
+  "language": "python",
+  "system": {
+    "context": "Orbit's support tickets are exported as a CSV with four columns: ticket_id, customer_question, agent_reply, status. Agent replies contain commas and line breaks. The first converter split every line on commas, which gave six lines for five rows with 4, 5, 4, 2, 4, 4 fields and shredded two of every five rows. The fine-tuning job wants one JSON object per line, a prompt and a completion, for the closed tickets that have a reply.",
+    "request": "A worked Python example of one action: rows_to_examples(csv_text), which reads the export with csv.DictReader over io.StringIO (quoted fields with commas and line breaks handled by the module), rejects an export missing a required column with a ValueError that names it, skips rows whose status is not closed and rows whose reply is empty after strip, counting each skip by reason with the ticket id, and keeps the rest as {prompt, completion} dictionaries; plus to_jsonl(examples), which writes one json.dumps line per example with ensure_ascii False. The lesson leads with the complete solution and its exact output (three JSONL lines, the two skips by reason, the rejected export, OK), explains the Python construct by construct (import csv, io, json; io.StringIO as a file made from a string; csv.DictReader and its fieldnames; a dictionary per row; strip and lower; continue; a dictionary of lists for the skips; json.dumps and what a line break becomes; string concatenation in a loop), traces every row, and offers one practice variation: a character budget on the prompt plus the completion, skipped as too_long.",
+    "inputs": [
+      "CSV_TEXT, written inline in solution.py: a header line and five rows, t1 to t5; t2's reply is quoted because it holds a comma, t3's reply is quoted because it spans two lines, t4 has status open, t5 has an empty reply",
+      "REQUIRED, the four column names the export must have: ticket_id, customer_question, agent_reply, status",
+      "For the practice variation, MAX_CHARS = 90, the budget on the prompt plus the completion of a kept example"
+    ],
+    "outputs": [
+      "rows_to_examples returns the list of examples in file order and a dictionary from reason to the skipped ticket ids; on the five rows it keeps t1, t2, t3 and skips t4 as not_closed and t5 as empty_reply",
+      "to_jsonl returns three lines: each a JSON object with a prompt and a completion, the line break inside t3's completion written as the two characters backslash and n, so every example stays on one line",
+      "python solution.py prints the counts, the three JSONL lines, the skips by reason, the rejected export (no agent_reply column), and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it keeps t2 and t3, skips t1 (94 characters) as too_long, and prints OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only (csv, io, json); each lesson file runs alone in an empty directory with python -I -S; no pandas, fixtures, credentials, or network",
+      "The csv module's default dialect: a comma separates fields, a double quote opens a field that may hold commas and line breaks, and a doubled quote inside is one quote; the module does the parsing, the lesson never splits a line itself",
+      "A missing required column raises ValueError naming the column; an empty export raises the same way; a header-only export yields no examples and no error; the status is compared after strip and lower; a reply of only whitespace counts as empty",
+      "Ordinary Python only: imports, a function that returns a tuple, a for loop over the reader, dictionary lookups by column name, string methods, continue, a dictionary of lists, append, json.dumps, string concatenation in a loop, f-strings, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: 5 rows read, 3 examples kept, the three JSONL lines in file order, skipped not_closed t4 and empty_reply t5, the rejected line, and OK",
+      "The quoted comma in t2 and the quoted line break in t3 each stay inside one field, and t3's JSONL line is one line that json.loads turns back into a completion with one real line break",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt; with no budget the answer matches the worked example, a budget of 94 keeps t1 and a budget of 93 drops it",
+      "The split-on-commas parser that shipped is measured on the same export: it yields six lines with 4, 5, 4, 2, 4, 4 fields and gets t2 and t3 wrong, while csv.DictReader yields five rows of four fields"
+    ]
+  },
+  "python": {
+    "package": "csv_to_jsonl",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "1e3f8f0985431a7bce9f3897bd65dd18f4c8ae3fad74fdf4d818602a80d685ef"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "9d2151898f116a5969fc984af7214d61c681e4332883917bf9cd03d74b8b60c8"
+    },
+    {
+      "path": "python/fixtures/export.json",
+      "description": "The CSV text, the required columns, the practice budget, and the five rows as csv.DictReader parses them, exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "166f7468e743e72f925b609c59e0bf9816fbb5d28c552922d46612ded61e303c"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every row's raw text, parsed fields, the shards a split on commas would make, character count, decision, and JSONL line, the split-on-commas field counts, and the practice decisions, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "32461c3f036e8829103f1249735634803f43c05416e02067e0802c0116e6b4ad"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "examples-and-skips",
+      "kind": "correctness",
+      "description": "The five rows yield exactly the three expected examples in file order, and the skips are not_closed t4 and empty_reply t5.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_examples_are_the_three_closed_tickets_with_a_reply"
+    },
+    {
+      "id": "quoted-fields-whole",
+      "kind": "correctness",
+      "description": "The comma inside t2's quoted reply and the line break inside t3's quoted reply each stay inside one field.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_quoted_comma_and_line_break_stay_inside_one_field"
+    },
+    {
+      "id": "status-normalized",
+      "kind": "correctness",
+      "description": "The status is compared after strip and lower: Closed with a trailing space and CLOSED are kept, a padded open is skipped.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_status_is_compared_after_strip_and_lower"
+    },
+    {
+      "id": "whitespace-reply-empty",
+      "kind": "failure",
+      "description": "A reply of only whitespace counts as empty and the row is skipped as empty_reply.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_reply_of_only_whitespace_counts_as_empty"
+    },
+    {
+      "id": "missing-column-rejected",
+      "kind": "failure",
+      "description": "An export without the agent_reply column raises ValueError naming it, and an empty export raises as well.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_missing_column_and_empty_text_are_rejected"
+    },
+    {
+      "id": "header-only",
+      "kind": "correctness",
+      "description": "A header-only export yields no examples and empty skip lists without an error.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_header_only_export_gives_no_examples"
+    },
+    {
+      "id": "jsonl-escaping",
+      "kind": "correctness",
+      "description": "to_jsonl writes a line break as two characters, keeps non-ASCII text readable, round-trips through json.loads, and writes nothing for no examples.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_to_jsonl_escapes_line_breaks_keeps_non_ascii_and_round_trips"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about t1 and too_long, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-budget",
+      "kind": "correctness",
+      "description": "With the budget of 90 the answer keeps t2 and t3 and skips t1 as too_long; the three kept examples measure 94, 79, and 76 characters.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_skips_only_the_example_over_the_budget"
+    },
+    {
+      "id": "answer-no-budget",
+      "kind": "correctness",
+      "description": "Without a budget the answer reproduces the worked example and reports nothing as too_long.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_without_a_budget_matches_the_worked_example"
+    },
+    {
+      "id": "answer-boundary",
+      "kind": "correctness",
+      "description": "A budget of exactly 94 still keeps t1 and a budget of 93 drops it: the comparison is strictly greater than.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_budget_boundary_is_inclusive"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "export-fixture",
+      "kind": "correctness",
+      "description": "export.json equals the CSV text, the required columns, the budget, and the rows as csv.DictReader parses them.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_export_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: decisions kept, kept, kept, not_closed, empty_reply; character counts 94, 79, 76, 67, 30; quoted rows t2 and t3; split-on-commas field counts 4, 5, 4, 2, 4, 4; practice keeps t2 and t3.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "split-on-commas-shreds",
+      "kind": "evaluation",
+      "description": "On the same export, splitting every line on commas yields six lines with 4, 5, 4, 2, 4, 4 fields and gets rows t2 and t3 wrong: two of the five rows shredded.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_split_on_commas_shreds_the_two_quoted_rows"
+    },
+    {
+      "id": "dict-reader-parses-all",
+      "kind": "evaluation",
+      "description": "csv.DictReader parses all five rows to the four named fields, with the quoted comma and the quoted line break intact.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_dict_reader_parses_every_row_to_four_fields"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/CsvJsonlViz.jsx",
+      "description": "A short animation of the worked example, about three seconds per row and about twenty five seconds in all: the five export rows on the left with their status and a quoted-reply mark, a parser panel in the middle where the active row's four fields appear one at a time (a quoted reply shown as one field, t3's on two lines), the shards a split on commas would have made shown faded beneath with their count, a decision chip (kept with its JSONL line number, or skipped with its reason), and on the right the JSONL lines, the skipped box, and the running counts; the intro shows what shipped (six lines with 4, 5, 4, 2, 4, 4 fields); the outro gives 5 rows read, 3 kept, 2 skipped; the practice variation draws a character meter for the three kept examples against the budget of 90, with t1 at 94 over it. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/csvJsonlModel.js, a JavaScript port of rows_to_examples, to_jsonl, and the split-on-commas parser that shipped, over a small field walker for the csv module's default dialect, run on python/fixtures/export.json and recorded as a trace; tests/convert-csv-rows-to-jsonl-viz.test.mjs asserts that trace equals python/fixtures/expected-trace.json (every parsed field, shard, decision, character count, and JSONL line), which the cited Python check derives from the real functions and csv.DictReader, that the walker handles doubled quotes, that the JSON line matches json.dumps for a line break and quotes, that each row beat shows its four fields and shards before its decision and delivers its line or skip by the end of the beat, that the outro holds the three lines and two skips, that the practice meter holds 94, 79, 76 against 90 with only t1 over, and that drawScene runs against a bare context. Rendered frames inspected at 900 pixels at nine moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+ "required": [
+  "ticket_id",
+  "customer_question",
+  "agent_reply",
+  "status"
+ ],
+ "rows": [
+  {
+   "ticket_id": "t1",
+   "customer_question": "How do I rotate an API key?",
+   "agent_reply": "Create a replacement key and deploy it before revoking the old one.",
+   "status": "closed"
+  },
+  {
+   "ticket_id": "t2",
+   "customer_question": "Which scope do list calls need?",
+   "agent_reply": "The read scope, which covers list and get calls.",
+   "status": "closed"
+  },
+  {
+   "ticket_id": "t3",
+   "customer_question": "Where do I find my invoice?",
+   "agent_reply": "Open Billing, then Invoices.\nEach month is a PDF.",
+   "status": "closed"
+  },
+  {
+   "ticket_id": "t4",
+   "customer_question": "Can a lost key be recovered?",
+   "agent_reply": "We are checking with the security team.",
+   "status": "open"
+  },
+  {
+   "ticket_id": "t5",
+   "customer_question": "What does the write scope add?",
+   "agent_reply": "",
+   "status": "closed"
+  }
+ ],
+ "steps": [
+  {
+   "id": "t1",
+   "raw": "t1,How do I rotate an API key?,Create a replacement key and deploy it before revoking the old one.,closed",
+   "quoted": false,
+   "naive_lines": [
+    [
+     "t1",
+     "How do I rotate an API key?",
+     "Create a replacement key and deploy it before revoking the old one.",
+     "closed"
+    ]
+   ],
+   "fields": [
+    "t1",
+    "How do I rotate an API key?",
+    "Create a replacement key and deploy it before revoking the old one.",
+    "closed"
+   ],
+   "chars": 94,
+   "decision": "kept",
+   "line": "{\"prompt\": \"How do I rotate an API key?\", \"completion\": \"Create a replacement key and deploy it before revoking the old one.\"}"
+  },
+  {
+   "id": "t2",
+   "raw": "t2,Which scope do list calls need?,\"The read scope, which covers list and get calls.\",closed",
+   "quoted": true,
+   "naive_lines": [
+    [
+     "t2",
+     "Which scope do list calls need?",
+     "\"The read scope",
+     " which covers list and get calls.\"",
+     "closed"
+    ]
+   ],
+   "fields": [
+    "t2",
+    "Which scope do list calls need?",
+    "The read scope, which covers list and get calls.",
+    "closed"
+   ],
+   "chars": 79,
+   "decision": "kept",
+   "line": "{\"prompt\": \"Which scope do list calls need?\", \"completion\": \"The read scope, which covers list and get calls.\"}"
+  },
+  {
+   "id": "t3",
+   "raw": "t3,Where do I find my invoice?,\"Open Billing, then Invoices.\nEach month is a PDF.\",closed",
+   "quoted": true,
+   "naive_lines": [
+    [
+     "t3",
+     "Where do I find my invoice?",
+     "\"Open Billing",
+     " then Invoices."
+    ],
+    [
+     "Each month is a PDF.\"",
+     "closed"
+    ]
+   ],
+   "fields": [
+    "t3",
+    "Where do I find my invoice?",
+    "Open Billing, then Invoices.\nEach month is a PDF.",
+    "closed"
+   ],
+   "chars": 76,
+   "decision": "kept",
+   "line": "{\"prompt\": \"Where do I find my invoice?\", \"completion\": \"Open Billing, then Invoices.\\nEach month is a PDF.\"}"
+  },
+  {
+   "id": "t4",
+   "raw": "t4,Can a lost key be recovered?,We are checking with the security team.,open",
+   "quoted": false,
+   "naive_lines": [
+    [
+     "t4",
+     "Can a lost key be recovered?",
+     "We are checking with the security team.",
+     "open"
+    ]
+   ],
+   "fields": [
+    "t4",
+    "Can a lost key be recovered?",
+    "We are checking with the security team.",
+    "open"
+   ],
+   "chars": 67,
+   "decision": "not_closed"
+  },
+  {
+   "id": "t5",
+   "raw": "t5,What does the write scope add?,,closed",
+   "quoted": false,
+   "naive_lines": [
+    [
+     "t5",
+     "What does the write scope add?",
+     "",
+     "closed"
+    ]
+   ],
+   "fields": [
+    "t5",
+    "What does the write scope add?",
+    "",
+    "closed"
+   ],
+   "chars": 30,
+   "decision": "empty_reply"
+  }
+ ],
+ "naive": {
+  "lines": [
+   "t1,How do I rotate an API key?,Create a replacement key and deploy it before revoking the old one.,closed",
+   "t2,Which scope do list calls need?,\"The read scope, which covers list and get calls.\",closed",
+   "t3,Where do I find my invoice?,\"Open Billing, then Invoices.",
+   "Each month is a PDF.\",closed",
+   "t4,Can a lost key be recovered?,We are checking with the security team.,open",
+   "t5,What does the write scope add?,,closed"
+  ],
+  "field_counts": [
+   4,
+   5,
+   4,
+   2,
+   4,
+   4
+  ]
+ },
+ "kept": [
+  "t1",
+  "t2",
+  "t3"
+ ],
+ "skipped": {
+  "not_closed": [
+   "t4"
+  ],
+  "empty_reply": [
+   "t5"
+  ]
+ },
+ "jsonl": "{\"prompt\": \"How do I rotate an API key?\", \"completion\": \"Create a replacement key and deploy it before revoking the old one.\"}\n{\"prompt\": \"Which scope do list calls need?\", \"completion\": \"The read scope, which covers list and get calls.\"}\n{\"prompt\": \"Where do I find my invoice?\", \"completion\": \"Open Billing, then Invoices.\\nEach month is a PDF.\"}\n",
+ "practice": {
+  "max_chars": 90,
+  "steps": [
+   {
+    "id": "t1",
+    "chars": 94,
+    "decision": "too_long"
+   },
+   {
+    "id": "t2",
+    "chars": 79,
+    "decision": "kept"
+   },
+   {
+    "id": "t3",
+    "chars": 76,
+    "decision": "kept"
+   },
+   {
+    "id": "t4",
+    "chars": 67,
+    "decision": "not_closed"
+   },
+   {
+    "id": "t5",
+    "chars": 30,
+    "decision": "empty_reply"
+   }
+  ],
+  "kept": [
+   "t2",
+   "t3"
+  ],
+  "skipped": {
+   "not_closed": [
+    "t4"
+   ],
+   "empty_reply": [
+    "t5"
+   ],
+   "too_long": [
+    "t1"
+   ]
+  },
+  "jsonl": "{\"prompt\": \"Which scope do list calls need?\", \"completion\": \"The read scope, which covers list and get calls.\"}\n{\"prompt\": \"Where do I find my invoice?\", \"completion\": \"Open Billing, then Invoices.\\nEach month is a PDF.\"}\n"
+ }
+}

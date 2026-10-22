@@ -1,0 +1,10 @@
+[project]
+name = "convert-csv-rows-to-jsonl"
+version = "0.1.0"
+description = "Convert a CSV support export into JSONL training examples with the csv module: a worked Python example, standard library only"
+requires-python = ">=3.11"
+dependencies = []
+
+# The lesson needs none of this: copy solution.py (or starter.py) anywhere and
+# run it with python. The behind-the-scenes checks run from this directory:
+#   PYTHONPATH=src python -m unittest discover -s tests -p "test_*.py"

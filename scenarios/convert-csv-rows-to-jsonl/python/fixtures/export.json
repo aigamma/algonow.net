@@ -1,0 +1,42 @@
+{
+ "csv_text": "ticket_id,customer_question,agent_reply,status\nt1,How do I rotate an API key?,Create a replacement key and deploy it before revoking the old one.,closed\nt2,Which scope do list calls need?,\"The read scope, which covers list and get calls.\",closed\nt3,Where do I find my invoice?,\"Open Billing, then Invoices.\nEach month is a PDF.\",closed\nt4,Can a lost key be recovered?,We are checking with the security team.,open\nt5,What does the write scope add?,,closed\n",
+ "required": [
+  "ticket_id",
+  "customer_question",
+  "agent_reply",
+  "status"
+ ],
+ "max_chars": 90,
+ "rows": [
+  {
+   "ticket_id": "t1",
+   "customer_question": "How do I rotate an API key?",
+   "agent_reply": "Create a replacement key and deploy it before revoking the old one.",
+   "status": "closed"
+  },
+  {
+   "ticket_id": "t2",
+   "customer_question": "Which scope do list calls need?",
+   "agent_reply": "The read scope, which covers list and get calls.",
+   "status": "closed"
+  },
+  {
+   "ticket_id": "t3",
+   "customer_question": "Where do I find my invoice?",
+   "agent_reply": "Open Billing, then Invoices.\nEach month is a PDF.",
+   "status": "closed"
+  },
+  {
+   "ticket_id": "t4",
+   "customer_question": "Can a lost key be recovered?",
+   "agent_reply": "We are checking with the security team.",
+   "status": "open"
+  },
+  {
+   "ticket_id": "t5",
+   "customer_question": "What does the write scope add?",
+   "agent_reply": "",
+   "status": "closed"
+  }
+ ]
+}

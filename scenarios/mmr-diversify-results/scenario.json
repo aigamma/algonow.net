@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "slug": "mmr-diversify-results",
+  "track": "rag",
+  "language": "python",
+  "system": {
+    "context": "Orbit's assistant retrieves runbook chunks for a question and sends the top few to the model. For \"rotate key\" the top three were three near-copies of one paragraph from different runbook versions, so the answer never saw the revocation step that sat one chunk further down: ranking by relevance alone rewards every copy of the best paragraph.",
+    "request": "A worked Python example of one action: mmr(candidates, similarity, k, lam), maximal marginal relevance over six inline candidates with a relevance score each and a six by six similarity matrix. Each round scores every remaining candidate as lam times its relevance minus (1 minus lam) times its highest similarity to anything already picked, takes the highest score, and repeats k times. The lesson leads with the complete solution and its exact output (the relevance-only baseline c1, c2, c3; three rounds of scores; the picks c1, c4, c5 with their highest pairwise similarity 0.50 and two sources), explains the Python construct by construct (a list of dictionaries, a list of lists indexed twice, a tuple sort for the baseline, nested loops with a running maximum, a while loop with two conditions, a best-so-far variable, tuple unpacking, append and remove, a function returning two lists), traces every round, and offers one practice variation: at most max_per_source picks from any one source.",
+    "inputs": [
+      "Six candidates written inline in solution.py as dictionaries with an id, a source, a title, and a relevance: c1 0.92, c2 0.90, c3 0.88 (three versions of the rotation paragraph, source runbook), c4 0.80 and c5 0.75 (source security-faq), c6 0.55 (source cli-reference)",
+      "A symmetric six by six similarity matrix with ones on the diagonal: c1, c2, c3 at 0.90 to 0.92 with each other, 0.36 to 0.50 with the rest; c4 to c5 0.30; c6 at 0.20 to 0.40 with everything",
+      "k = 3 picks and lambda = 0.7; for the practice variation, a cap of 1 pick per source"
+    ],
+    "outputs": [
+      "mmr returns the picks as (index, penalty, score) tuples and every round's scored rows; the worked example picks c1 (0.644), c4 (0.425), c5 (0.375), with a highest pairwise similarity of 0.50 and two sources, where relevance alone picks c1, c2, c3 at 0.92 pairwise and one source",
+      "python solution.py prints the header, the relevance-only baseline, the three round tables, the picks line, the rejected lambda, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it skips c2 and c3 in round two and c2, c3, c5 in round three, picks c1, c4, c6 across three sources, and prints OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no numpy, fixtures, credentials, or network",
+      "The penalty of a candidate is its highest similarity to any selected candidate (0 in the first round); ties keep the earlier candidate; the input lists are never modified; k larger than the pool returns every candidate once",
+      "A lambda outside 0 to 1, a similarity matrix with the wrong number of rows, or a row with the wrong number of entries raises ValueError; the demonstration prints the rejected lambda instead of crashing",
+      "Ordinary Python only: lists of dictionaries, a list of lists indexed twice, tuples and a tuple sort, for loops over lists and ranges, a while loop, if comparisons with a running maximum, append and remove, slicing, f-strings with format specs, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the relevance-only baseline c1, c2, c3 (0.92, one source), round one scores 0.644, 0.630, 0.616, 0.560, 0.525, 0.385, round two penalties 0.92, 0.90, 0.45, 0.50, 0.40 with c4 picked at 0.425, round three with c5 picked at 0.375, the picks c1, c4, c5 (0.50, two sources), the rejected lambda, and OK",
+      "The arithmetic is exact: the first round scores are lambda times relevance, the second round penalties are the similarities to c1, lambda 1 reproduces the relevance order, lambda 0 picks the least similar candidate each round (c1, c6, c4), and the guards raise",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt; without a cap the answer reproduces the worked run exactly; with a cap of 1 and k of 6 it stops after three picks because every source is capped",
+      "Relevance alone is measured on the same candidates: its three picks are pairwise 0.90 or more similar and come from one source, and the revocation step is absent; MMR's picks are at most 0.50 similar, keep c1 first, and cover two sources, three with the cap"
+    ]
+  },
+  "python": {
+    "package": "mmr_rerank",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "90b64e8f4d7d32d52eb9a8bc341d990cf7468a28ed4b790751f3902a8ef7767f"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "f180488ea0c2d460cc0e751873ae41f691e79969342615201624f1a250e9421a"
+    },
+    {
+      "path": "python/fixtures/candidates.json",
+      "description": "The six candidates, the similarity matrix, k, lambda, and the per-source cap exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "a6acfc1760c05ec59b8956ea68ca9467f0affd4a8eea0fef105d16a4a7f0a9e9"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every round of the worked run (selected ids, each remaining candidate's penalty and score to six decimals, the pick), the relevance-only baseline, the capped practice run with its blocked ids, and the lambda extremes, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "8213f1f0441ab79a86a4b6ebc92c7eec8982a4c5a845854fb04b3c654694ef2f"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "first-round-scores",
+      "kind": "correctness",
+      "description": "With nothing selected every penalty is 0 and the scores are lambda times relevance: 0.644, 0.630, 0.616, 0.560, 0.525, 0.385.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_first_round_scores_are_lambda_times_relevance"
+    },
+    {
+      "id": "second-round-penalties",
+      "kind": "correctness",
+      "description": "After c1 is selected the penalties are the similarities to c1 (0.92, 0.90, 0.45, 0.50, 0.40) and the scores round to 0.354, 0.346, 0.425, 0.375, 0.265.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_second_round_penalties_are_the_similarity_to_the_first_pick"
+    },
+    {
+      "id": "picks-match-page",
+      "kind": "correctness",
+      "description": "The picks are c1, c4, c5 with penalties 0, 0.45, 0.50 and scores 0.644, 0.425, 0.375; each round has one fewer row; the highest similarity between two picks is 0.50.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_picks_and_scores_match_the_page"
+    },
+    {
+      "id": "lambda-one",
+      "kind": "correctness",
+      "description": "With lambda 1 the penalty does not count and the picks equal the relevance-only ranking c1, c2, c3.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_lambda_one_reproduces_the_relevance_order"
+    },
+    {
+      "id": "lambda-zero",
+      "kind": "correctness",
+      "description": "With lambda 0 relevance does not count: the first pick keeps the earliest tie and every later pick has the lowest penalty of its round (c1, c6, c4).",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_lambda_zero_picks_by_novelty_alone"
+    },
+    {
+      "id": "guards-reject",
+      "kind": "failure",
+      "description": "A lambda of 1.5 or minus 0.1, a matrix with five rows, or a row with four entries raises ValueError.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_invalid_lambda_and_ragged_matrix_are_rejected"
+    },
+    {
+      "id": "k-beyond-pool",
+      "kind": "correctness",
+      "description": "Asking for ten picks from six candidates returns each candidate once and the last round scores a single row.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_k_larger_than_the_pool_returns_every_candidate_once"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The candidate list and the similarity matrix are unchanged after ranking and reranking.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_lists_are_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about the picks c1, c4, c6, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-caps-sources",
+      "kind": "correctness",
+      "description": "With a cap of 1 the answer picks c1, c4, c6, blocks nothing, then c2 and c3, then c2, c3, c5, scores 6, 3, and 1 rows, and covers three sources with a highest pairwise similarity of 0.45.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_caps_each_source"
+    },
+    {
+      "id": "answer-no-cap",
+      "kind": "correctness",
+      "description": "Without a cap the answer's picks and rounds equal the worked solution's, with empty blocked lists.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_without_a_cap_reproduces_the_worked_run"
+    },
+    {
+      "id": "answer-stops-when-capped",
+      "kind": "failure",
+      "description": "With a cap of 1 and six picks requested the loop stops after three, because every remaining source is at its cap.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_stops_when_every_source_is_capped"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data and helpers above and the helpers and demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "candidates-fixture",
+      "kind": "correctness",
+      "description": "candidates.json equals the candidates, matrix, k, lambda, and cap the lesson files define, and the matrix is symmetric with ones on the diagonal.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_candidates_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: three rounds with every row's penalty and score, the picks c1, c4, c5, the capped practice run c1, c4, c6, and the lambda extremes c1, c2, c3 and c1, c6, c4.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "relevance-alone-takes-copies",
+      "kind": "evaluation",
+      "description": "On the same candidates the relevance-only picks c1, c2, c3 are pairwise at least 0.90 similar, come from one source, and omit the revocation step c4.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_relevance_alone_takes_three_copies_of_one_paragraph"
+    },
+    {
+      "id": "mmr-spreads-picks",
+      "kind": "evaluation",
+      "description": "MMR keeps c1 first, holds the highest pairwise similarity of its picks to 0.50, and covers two sources; the capped practice covers three.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_mmr_spreads_the_picks_and_the_cap_spreads_them_further"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/MmrViz.jsx",
+      "description": "A short animation of the worked example, about twenty five seconds: the six candidates as rows with a blue relevance bar each; the shipped trio c1, c2, c3 outlined in amber; pick one (c1 at 0.644) gliding into the first slot; then for each later pick a beat where amber penalty bars grow to each remaining candidate's highest similarity to the selected chunks and the scores appear (c4 0.425 beats c2 0.354; then c5 0.375 beats c2 0.354), and a beat where the winner glides into its slot; an outro comparing the MMR picks (highest pairwise similarity 0.50, two sources) with relevance alone (0.92, one source); the practice variation replays the third pick with c2, c3, c5 blocked by the per-source cap and c6 picked at 0.265. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/mmrModel.js, a JavaScript port of top_by_relevance, score_round, mmr (with the practice answer's cap), pairwise_max, and sources_of that runs on python/fixtures/candidates.json and records every round; tests/mmr-diversify-results-viz.test.mjs asserts that trace equals python/fixtures/expected-trace.json (six decimals), which the cited Python check derives from the real functions, that each choice beat ends with the round's pick in its slot and every remaining chip showing that round's penalty and score, that the penalty bars reach their values at the end of each scoring beat, that captions carry the measured numbers, that slots only grow until the practice replays the third pick, that every chip stays inside the canvas, and that the final scene holds c1, c4, c6 with c2, c3, c5 blocked.",
+      "check": "trace-fixture"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+ "candidates": [
+  {
+   "id": "c1",
+   "source": "runbook",
+   "title": "Rotate an API key, runbook v3",
+   "relevance": 0.92
+  },
+  {
+   "id": "c2",
+   "source": "runbook",
+   "title": "Rotate an API key, runbook v2",
+   "relevance": 0.9
+  },
+  {
+   "id": "c3",
+   "source": "runbook",
+   "title": "Rotate an API key, runbook v1",
+   "relevance": 0.88
+  },
+  {
+   "id": "c4",
+   "source": "security-faq",
+   "title": "Revoke the old key after rotating",
+   "relevance": 0.8
+  },
+  {
+   "id": "c5",
+   "source": "security-faq",
+   "title": "Grace period for the old key",
+   "relevance": 0.75
+  },
+  {
+   "id": "c6",
+   "source": "cli-reference",
+   "title": "rotate-key command flags",
+   "relevance": 0.55
+  }
+ ],
+ "similarity": [
+  [
+   1.0,
+   0.92,
+   0.9,
+   0.45,
+   0.5,
+   0.4
+  ],
+  [
+   0.92,
+   1.0,
+   0.91,
+   0.42,
+   0.48,
+   0.38
+  ],
+  [
+   0.9,
+   0.91,
+   1.0,
+   0.4,
+   0.46,
+   0.36
+  ],
+  [
+   0.45,
+   0.42,
+   0.4,
+   1.0,
+   0.3,
+   0.2
+  ],
+  [
+   0.5,
+   0.48,
+   0.46,
+   0.3,
+   1.0,
+   0.25
+  ],
+  [
+   0.4,
+   0.38,
+   0.36,
+   0.2,
+   0.25,
+   1.0
+  ]
+ ],
+ "k": 3,
+ "lambda": 0.7,
+ "max_per_source": 1
+}

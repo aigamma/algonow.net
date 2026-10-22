@@ -1,0 +1,265 @@
+{
+ "k": 3,
+ "lambda": 0.7,
+ "relevance_only": {
+  "ids": [
+   "c1",
+   "c2",
+   "c3"
+  ],
+  "pairwise_max": 0.92,
+  "sources": [
+   "runbook"
+  ]
+ },
+ "rounds": [
+  {
+   "selected": [],
+   "rows": [
+    {
+     "id": "c1",
+     "relevance": 0.92,
+     "penalty": 0.0,
+     "score": 0.644
+    },
+    {
+     "id": "c2",
+     "relevance": 0.9,
+     "penalty": 0.0,
+     "score": 0.63
+    },
+    {
+     "id": "c3",
+     "relevance": 0.88,
+     "penalty": 0.0,
+     "score": 0.616
+    },
+    {
+     "id": "c4",
+     "relevance": 0.8,
+     "penalty": 0.0,
+     "score": 0.56
+    },
+    {
+     "id": "c5",
+     "relevance": 0.75,
+     "penalty": 0.0,
+     "score": 0.525
+    },
+    {
+     "id": "c6",
+     "relevance": 0.55,
+     "penalty": 0.0,
+     "score": 0.385
+    }
+   ],
+   "picked": "c1"
+  },
+  {
+   "selected": [
+    "c1"
+   ],
+   "rows": [
+    {
+     "id": "c2",
+     "relevance": 0.9,
+     "penalty": 0.92,
+     "score": 0.354
+    },
+    {
+     "id": "c3",
+     "relevance": 0.88,
+     "penalty": 0.9,
+     "score": 0.346
+    },
+    {
+     "id": "c4",
+     "relevance": 0.8,
+     "penalty": 0.45,
+     "score": 0.425
+    },
+    {
+     "id": "c5",
+     "relevance": 0.75,
+     "penalty": 0.5,
+     "score": 0.375
+    },
+    {
+     "id": "c6",
+     "relevance": 0.55,
+     "penalty": 0.4,
+     "score": 0.265
+    }
+   ],
+   "picked": "c4"
+  },
+  {
+   "selected": [
+    "c1",
+    "c4"
+   ],
+   "rows": [
+    {
+     "id": "c2",
+     "relevance": 0.9,
+     "penalty": 0.92,
+     "score": 0.354
+    },
+    {
+     "id": "c3",
+     "relevance": 0.88,
+     "penalty": 0.9,
+     "score": 0.346
+    },
+    {
+     "id": "c5",
+     "relevance": 0.75,
+     "penalty": 0.5,
+     "score": 0.375
+    },
+    {
+     "id": "c6",
+     "relevance": 0.55,
+     "penalty": 0.4,
+     "score": 0.265
+    }
+   ],
+   "picked": "c5"
+  }
+ ],
+ "picks": {
+  "ids": [
+   "c1",
+   "c4",
+   "c5"
+  ],
+  "pairwise_max": 0.5,
+  "sources": [
+   "runbook",
+   "security-faq"
+  ]
+ },
+ "practice": {
+  "max_per_source": 1,
+  "rounds": [
+   {
+    "selected": [],
+    "blocked": [],
+    "rows": [
+     {
+      "id": "c1",
+      "relevance": 0.92,
+      "penalty": 0.0,
+      "score": 0.644
+     },
+     {
+      "id": "c2",
+      "relevance": 0.9,
+      "penalty": 0.0,
+      "score": 0.63
+     },
+     {
+      "id": "c3",
+      "relevance": 0.88,
+      "penalty": 0.0,
+      "score": 0.616
+     },
+     {
+      "id": "c4",
+      "relevance": 0.8,
+      "penalty": 0.0,
+      "score": 0.56
+     },
+     {
+      "id": "c5",
+      "relevance": 0.75,
+      "penalty": 0.0,
+      "score": 0.525
+     },
+     {
+      "id": "c6",
+      "relevance": 0.55,
+      "penalty": 0.0,
+      "score": 0.385
+     }
+    ],
+    "picked": "c1"
+   },
+   {
+    "selected": [
+     "c1"
+    ],
+    "blocked": [
+     "c2",
+     "c3"
+    ],
+    "rows": [
+     {
+      "id": "c4",
+      "relevance": 0.8,
+      "penalty": 0.45,
+      "score": 0.425
+     },
+     {
+      "id": "c5",
+      "relevance": 0.75,
+      "penalty": 0.5,
+      "score": 0.375
+     },
+     {
+      "id": "c6",
+      "relevance": 0.55,
+      "penalty": 0.4,
+      "score": 0.265
+     }
+    ],
+    "picked": "c4"
+   },
+   {
+    "selected": [
+     "c1",
+     "c4"
+    ],
+    "blocked": [
+     "c2",
+     "c3",
+     "c5"
+    ],
+    "rows": [
+     {
+      "id": "c6",
+      "relevance": 0.55,
+      "penalty": 0.4,
+      "score": 0.265
+     }
+    ],
+    "picked": "c6"
+   }
+  ],
+  "picks": {
+   "ids": [
+    "c1",
+    "c4",
+    "c6"
+   ],
+   "pairwise_max": 0.45,
+   "sources": [
+    "cli-reference",
+    "runbook",
+    "security-faq"
+   ]
+  }
+ },
+ "lambda_extremes": {
+  "one": [
+   "c1",
+   "c2",
+   "c3"
+  ],
+  "zero": [
+   "c1",
+   "c6",
+   "c4"
+  ]
+ }
+}

@@ -1,0 +1,25 @@
+6 candidates, pick 3, lambda 0.7, at most 1 per source
+relevance alone: c1, c2, c3 (highest similarity between two picks 0.92, sources: runbook)
+
+pick 1, selected so far: none
+  id  relevance  penalty  score
+  c1       0.92     0.00  0.644  picked
+  c2       0.90     0.00  0.630
+  c3       0.88     0.00  0.616
+  c4       0.80     0.00  0.560
+  c5       0.75     0.00  0.525
+  c6       0.55     0.00  0.385
+
+pick 2, selected so far: c1 (blocked: c2, c3)
+  id  relevance  penalty  score
+  c4       0.80     0.45  0.425  picked
+  c5       0.75     0.50  0.375
+  c6       0.55     0.40  0.265
+
+pick 3, selected so far: c1, c4 (blocked: c2, c3, c5)
+  id  relevance  penalty  score
+  c6       0.55     0.40  0.265  picked
+
+mmr picks: c1, c4, c6 (highest similarity between two picks 0.45, sources: cli-reference, runbook, security-faq)
+
+OK

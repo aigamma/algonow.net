@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "slug": "extract-json-from-model-output",
+  "track": "serving",
+  "language": "python",
+  "system": {
+    "context": "Orbit's assistant asks the model to classify a support ticket and answer with one JSON object (intent, priority from 1 to 3, tags). The service parsed the whole reply with json.loads. The model answers in prose, wraps the object in a code fence, adds a closing remark, sometimes stops mid-object, and sometimes returns a priority as text, so one unparseable reply raised an exception and crashed the worker.",
+    "request": "A worked Python example of one action: find_json_span(text), a character walk with a depth counter and an in-string flag (a backslash protects the next character) that returns the first balanced object's start and end or None; parse_reply(text), which slices that span, parses it with json.loads inside try and except json.JSONDecodeError, validates the required keys and types with in and isinstance (a bool is not an acceptable priority), and returns (record, None) or (None, reason); over six inline replies. The lesson leads with the complete solution and its exact output (three accepted replies with their records, three rejected with the reasons no object, priority must be an integer from 1 to 3, and invalid json, the tally, and the rejected non-string reply), explains the Python construct by construct (enumerate, state carried in four variables, continue, an if and elif chain with flags, a tuple returned from inside a loop, slicing with the plus one, try and except on a specific exception, early returns with reason strings, a dictionary of lists for the tally), traces the walk for every reply, and offers one practice variation: repair a trailing comma before the closing brace or bracket and parse again.",
+    "inputs": [
+      "Six replies written inline in solution.py as a list of dictionaries with an id and the model's text: r1 the object alone (65 characters), r2 the object inside a json code fence, r3 a sentence, a line break, the object with a tag reading error {502}, and another sentence (135 characters), r4 a label and an object cut off before its closing bracket and brace (78 characters), r5 a valid object whose priority is the text high, r6 a label, the object with a comma before its closing brace, and the word Done.",
+      "The required keys intent, priority, and tags, and the priority range 1 to 3",
+      "For the practice variation, the same six replies; the trailing comma in r6 sits at position 79 of the reply"
+    ],
+    "outputs": [
+      "find_json_span returns (0, 64) for r1, (8, 64) for r2, (34, 104) for r3 while ignoring the braces at 97 and 101 inside a string, None for r4, (0, 61) for r5, and (16, 80) for r6",
+      "parse_reply accepts r1, r2, and r3 with their records and rejects r4 (no object), r5 (priority must be an integer from 1 to 3), and r6 (invalid json); python solution.py prints the verdict table, the tally accepted 3 rejected 3 with the ids under each reason, the rejected non-string reply, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change r6 is accepted with the note repaired a trailing comma, the tally becomes accepted 4 rejected 2, and the file prints OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, or network",
+      "Outside any object only an opening brace matters; inside a string nothing but the closing quote and the backslash matter; the first object that returns the depth to 0 is the span; a reply whose depth never returns to 0 has no object",
+      "A parse error on the span is returned as the reason invalid json, never raised; a reply that is not a string raises ValueError naming its type; a boolean priority is rejected because isinstance(True, int) is true in Python; the first failed check is the reason",
+      "Ordinary Python only: import json, enumerate, state variables across loop iterations, continue, if and elif chains, tuples returned from inside a loop and unpacked by the caller, slicing, try and except json.JSONDecodeError, isinstance, the in operator on dictionaries, early returns, a dictionary of lists, f-strings with format specs, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: r1, r2, r3 accepted with their intents, priorities, and tags; r4 no object; r5 priority must be an integer from 1 to 3; r6 invalid json; accepted 3 (r1, r2, r3), rejected 3; the rejected line for a None reply; OK",
+      "The walk is exact at its edges: a nested object returns the outer span, a stray closing brace before the object is ignored, braces inside strings and escaped quotes do not count, a truncated or brace-free reply returns None; validate names the first problem for a missing key, an empty intent, a boolean or out-of-range or text priority, and tags that are not a list of strings",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt; the repair drops only trailing commas, including across whitespace, and the answer differs from the starter only inside the marked region",
+      "What shipped is measured on the same replies: json.loads on the whole reply parses two of six (r1, r5) and raises on four, and the parsed r5 carries a text priority that fails validation; the extractor accepts three, rejects three with named reasons, never accepts a record that fails a check, and the repair accepts four"
+    ]
+  },
+  "python": {
+    "package": "json_extract",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "c152ad444dd6f51ca147a971d49a6b02f5cd75c4a0d8bada4230a32df54fc81f"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "98d5b3f113d66793b47b8d2ccbc70263193c47ee8d077e9b2c44c3f3e0563bb1"
+    },
+    {
+      "path": "python/fixtures/replies.json",
+      "description": "The six replies, the required keys, and the priority range exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "64dcc17f382f9cc878170ea8fdd92acc68020ace0fe279bcc09b3284e545a646"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "For every reply the depth and string flag after each character, the braces ignored inside strings, the span, the outcome, the reason, and the record; the tally and the reasons; the practice repair (the comma position, the repaired candidate, the note, the record, the tally); and what the whole-reply parse does (which replies it parses, which raise, which parsed record fails validation), all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "48f67f2f18cd0ea62a17551aa0d82b0882d3d33b377c41a89c59a7d52e609848"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "span-prose-fences-nesting",
+      "kind": "correctness",
+      "description": "The span is (0, 64) for the clean reply, (8, 64) inside the fence, the exact object inside the prose reply, the outer object when one is nested, and the object after a stray closing brace.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_find_json_span_handles_prose_fences_and_nesting"
+    },
+    {
+      "id": "strings-and-escapes",
+      "kind": "correctness",
+      "description": "Braces inside a string and an escaped quote inside a string do not end or nest the object; a truncated reply, a reply without braces, and an unterminated string return None.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_braces_inside_strings_and_escaped_quotes_do_not_count"
+    },
+    {
+      "id": "validate-reasons",
+      "kind": "correctness",
+      "description": "validate names the first problem: a missing key in order, an empty intent, a boolean, zero, four, text, or float priority, tags that are not a list or hold a non-string; priorities 1 to 3 pass.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_validate_names_the_first_problem"
+    },
+    {
+      "id": "six-outcomes",
+      "kind": "correctness",
+      "description": "parse_reply accepts r1, r2, r3 and rejects r4 (no object), r5 (priority must be an integer from 1 to 3), r6 (invalid json); r3's record holds the tag with the braces intact.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_parse_reply_outcomes_for_the_six_replies"
+    },
+    {
+      "id": "non-string-rejected",
+      "kind": "failure",
+      "description": "A reply that is None, a dictionary, or a number raises ValueError naming its type.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_non_string_reply_is_rejected"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about r6, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "repair-trailing-commas",
+      "kind": "correctness",
+      "description": "The repair drops a comma before a closing brace or bracket, also across whitespace, and leaves ordinary commas alone.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_repair_drops_only_trailing_commas"
+    },
+    {
+      "id": "answer-accepts-r6",
+      "kind": "correctness",
+      "description": "With the repair, r6 is accepted with the note repaired a trailing comma and its record, r1 still parses cleanly, and r4 and r5 are still rejected with their reasons.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_accepts_r6_with_the_repair_note"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data and functions above and parse_reply and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "replies-fixture",
+      "kind": "correctness",
+      "description": "replies.json equals the six replies, the required keys, and the priority range that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_replies_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: r1 spans 0 to 64, r3 spans 34 to 104 with the braces at 97 and 101 ignored and a depth never above 1, r4 has no span, the tally is 3 accepted and 3 rejected, the practice comma sits at 79, and the practice tally is 4 and 2.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "naive-parse-crashes",
+      "kind": "evaluation",
+      "description": "json.loads on the whole reply, what shipped, raises on r2, r3, r4, and r6 and parses r1 and r5, and the parsed r5 fails validation on its text priority.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_naive_json_loads_crashes_on_four_and_passes_a_bad_record"
+    },
+    {
+      "id": "never-accepts-invalid",
+      "kind": "evaluation",
+      "description": "Every record the extractor accepts passes validate, every rejection carries a reason, three are accepted, and the practice repair accepts four.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_extractor_never_accepts_a_schema_invalid_object"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/JsonExtractViz.jsx",
+      "description": "A short animation of the worked example, about three and a half seconds per reply and about half a minute in all: each reply laid out one character per cell, an amber cursor walking it while a depth meter counts open braces, cells inside a string shaded, a brace that did not count marked in amber, the span underlined in blue once the object closes, then the five checks ticking in order and the verdict with its reason, and a tally with one chip per reply; the intro lists the six replies and names what shipped (the whole-reply parse that parses two and raises on four); the practice variation drops the trailing comma at position 79 of r6 and accepts it. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/jsonExtractModel.js, a JavaScript port of find_json_span (recording the depth and string flag after every character), validate, parse_reply, and repair_trailing_commas that runs on python/fixtures/replies.json; tests/extract-json-from-model-output-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real solution, that every reply beat walks to the last character, ticks the checks in order with nothing passing after a failure, and stamps the recorded verdict, that the tally chips match the outcomes at the outro and the practice ends at 4 accepted and 2 rejected, that captions carry the measured positions and reasons, that the cursor and depth stay within the walk at every sampled moment, and that drawScene runs against a bare context. The JavaScript parses the extracted span with JSON.parse in place of json.loads; the fixture pins every outcome and record.",
+      "check": "trace-fixture"
+    }
+  ]
+}

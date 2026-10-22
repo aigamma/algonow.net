@@ -1,0 +1,10 @@
+[project]
+name = "extract-json-from-model-output"
+version = "0.1.0"
+description = "Find the first balanced JSON object in a model's reply, parse it, and validate its keys and types: a worked Python example, standard library only"
+requires-python = ">=3.11"
+dependencies = []
+
+# The lesson needs none of this: copy solution.py (or starter.py) anywhere and
+# run it with python. The behind-the-scenes checks run from this directory:
+#   PYTHONPATH=src python -m unittest discover -s tests -p "test_*.py"

@@ -1,0 +1,17 @@
+6 replies; a usable reply holds one object with intent (text), priority (1 to 3), and tags (a list); trailing commas repaired
+
+id  outcome   detail
+r1  accepted  intent=access  priority=2  tags=keys, rotation
+r2  accepted  intent=billing  priority=1  tags=invoice
+r3  accepted  intent=outage  priority=3  tags=gateway, error {502}
+r4  rejected  no object
+r5  rejected  priority must be an integer from 1 to 3
+r6  accepted  intent=access  priority=1  tags=keys, expired  (repaired a trailing comma)
+
+accepted 4 (r1, r2, r3, r6), rejected 2
+  no object: r4
+  priority must be an integer from 1 to 3: r5
+
+rejected: reply must be a string, got NoneType
+
+OK

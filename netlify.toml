@@ -19,6 +19,18 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
+# /scenarios/ is the natural address of the engineering catalog, which lives
+# on the home page; send it there instead of the 404 page.
+[[redirects]]
+  from = "/scenarios"
+  to = "/#scenarios"
+  status = 301
+
+[[redirects]]
+  from = "/scenarios/"
+  to = "/#scenarios"
+  status = 301
+
 # algohome.net is a soft alias: once both domains point at this site, any
 # algohome request 301s to the same path on algonow.net.
 [[redirects]]

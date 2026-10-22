@@ -89,6 +89,18 @@
 .scenario-visual { min-width: 0; max-width: 100%; }
 .scenario-visual svg, .scenario-visual img { max-width: 100%; height: auto; }
 .scenario-page table { display: block; border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .88rem; overflow-x: auto; }
+/* A table wider than a phone scrolls sideways; the edge shadows say so and
+   vanish at either end (the covers scroll with the content, the shadows do
+   not). The first column holds ids and names, never prose, so it never
+   breaks at a hyphen. */
+.scenario-page table {
+  background:
+    linear-gradient(to right, var(--bg) 45%, rgba(10, 13, 19, 0)) left / 28px 100% no-repeat local,
+    linear-gradient(to left, var(--bg) 45%, rgba(10, 13, 19, 0)) right / 28px 100% no-repeat local,
+    linear-gradient(to right, rgba(233, 237, 246, .14), rgba(233, 237, 246, 0)) left / 14px 100% no-repeat scroll,
+    linear-gradient(to left, rgba(233, 237, 246, .14), rgba(233, 237, 246, 0)) right / 14px 100% no-repeat scroll;
+}
+.scenario-page td:first-child { white-space: nowrap; }
 .scenario-page th, .scenario-page td { padding: .45rem .7rem; border-bottom: 1px solid var(--line-soft); text-align: left; vertical-align: top; overflow-wrap: normal; }
 .scenario-page th { font: 600 .7rem/1.5 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); white-space: nowrap; }
 .scenario-page .expected-output { white-space: pre-wrap; overflow-wrap: anywhere; }

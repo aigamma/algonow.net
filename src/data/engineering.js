@@ -136,7 +136,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'A small router model trained on hard labels alone stalled, while the large assistant it replaces knows which wrong answers are nearly right. A worked Python example turns the teacher logits into soft targets with a temperature and scores a student against them: three inline examples with four classes, a softmax with the max trick, cross-entropy against a distribution, lists of lists, its exact output, a trace of every probability, and one practice variation that blends the soft loss with the hard-label loss.',
     track: 'distillation',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-21', listenMinutes: 14,
     difficulty: 'intermediate',
     durationMinutes: 35,
     skills: ['Temperature softmax and soft targets', 'Lists of lists as small matrices', 'Numerical stability: subtract the max before exp', 'Cross-entropy against a distribution with math.log', 'Blending soft and hard losses (practice)'],

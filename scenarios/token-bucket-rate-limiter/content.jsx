@@ -124,7 +124,8 @@ export const content = {
         <strong>What shipped, on the same arrivals.</strong> With nothing in the way, six of the eight requests
         reach the provider inside 1.6 seconds, and the busiest one-second window carries four, against a sustained
         allowance of one per second. With the bucket, the busiest one-second window carries three admissions,
-        which is the capacity plus one second of refill, and that bound holds for any arrival pattern. The practice
+        inside the bound of four (the capacity plus one second of refill), and that bound holds for any arrival
+        pattern. The practice
         variation admits all eight on the same arrivals, because the two rejections were tenant b paying for tenant
         a&apos;s burst. All three measurements are tests in the project download.
       </p>

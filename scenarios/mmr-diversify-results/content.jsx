@@ -234,7 +234,7 @@ export const content = {
         In the first round every penalty is 0, so the scores are 0.7 times the relevance and c1 wins at 0.644. In
         the second round each candidate is penalized by its similarity to c1: the two copies lose 0.3 times 0.92
         and 0.3 times 0.90, which drops them to 0.354 and 0.346, while c4 loses only 0.3 times 0.45 and wins at
-        0.425 despite a relevance twelve points lower than c2. In the third round the penalty is the highest
+        0.425 despite a relevance ten points lower than c2. In the third round the penalty is the highest
         similarity to c1 or c4; c5&apos;s 0.30 to c4 is below its 0.50 to c1, so its penalty stays 0.50, and its 0.375
         beats c2&apos;s 0.354. The picks are c1, c4, c5.
       </p>

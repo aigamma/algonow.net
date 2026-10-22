@@ -272,7 +272,7 @@ export function drawScene(ctx, scene) {
       if (row.termsProgress > 0) {
         const value = row.terms[r] * row.termsProgress;
         const width = value * TERM_SCALE;
-        ctx.fillStyle = value >= 0 ? BLUE : RED;
+        ctx.fillStyle = value >= 0 ? BLUE : DIM;   // a negative term is not a rejection: dim ink, not red
         if (width >= 0) ctx.fillRect(AXIS_X, y - 5, width, 8);
         else ctx.fillRect(AXIS_X + width, y - 5, -width, 8);
         ctx.fillStyle = INK;

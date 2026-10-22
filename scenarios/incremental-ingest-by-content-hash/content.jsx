@@ -265,7 +265,7 @@ export const content = {
     },
     {
       name: 'Document-level content hashes against a saved manifest (this lesson)',
-      preferWhen: 'Documents are re-exported whole and most of them are stable between runs; the manifest is a few hundred bytes per thousand documents and the comparison is one dictionary lookup each. Prefer it over modified-time stamps, which change on a touch or a copy and drift between clocks.',
+      preferWhen: 'Documents are re-exported whole and most of them are stable between runs; the manifest is about 80 bytes per document (under 100 KB per thousand) and the comparison is one dictionary lookup each. Prefer it over modified-time stamps, which change on a touch or a copy and drift between clocks.',
       cost: 'Saved state to keep in step with the index: the manifest must be written after the vectors are, or a crash can skip work. A one-character edit re-embeds the whole document, whitespace counts as a change unless the text is normalized first, and a moved document reads as a deletion plus a new document until moves are detected.',
     },
     {

@@ -209,7 +209,9 @@ export const content = {
       </p>
       <p>
         <strong>Why these decisions.</strong> k is 3 because the metric should describe what the reader, or the
-        generator&apos;s context window, actually receives; a k of 10 would make both rankings look perfect here.
+        generator&apos;s context window, actually receives; a k of 5 would hide the order entirely, because every hit
+        either model finds sits inside its top five, so precision and recall would tie and only the reciprocal
+        rank would still speak.
         Recall needs the full relevant set, which only a human review can supply, so the queries carry it as data
         rather than deriving it from either ranking. The reciprocal rank is kept separate from precision and recall
         because it answers a different question, how soon, and on these queries it is the only one of the three that

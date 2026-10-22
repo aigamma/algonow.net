@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net batch-examples-with-seeded-shuffle preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T01:36:27.189Z",
+  "publication_sha256": "66dd7e2bc418d3720b21eb294bd6a920388b05d6ac3081ab409722bf6ea18477",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 8068984,
+  "objects": [
+    {
+      "stable_id": "puzzle:batch-examples-with-seeded-shuffle",
+      "slug": "batch-examples-with-seeded-shuffle",
+      "track_id": "algieba",
+      "source_sha256": "f5ea93e38dd5c6385af484d47f7cd2e42d0cea462e5679d97231e9d113fde9d9",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "4424d65d2d978fa227be021b3c8f0c6845ff6f754946f60f66c86ec83f2dca3e",
+      "object_key": "narration/v1/puzzles/batch-examples-with-seeded-shuffle/4424d65d2d978fa227be/algieba-533839786ef79e82.mp3",
+      "bytes": 4094156,
+      "sha256": "533839786ef79e82090dbe3b394ae59bae606b3988172118ef4f7352051f5096",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:batch-examples-with-seeded-shuffle",
+      "slug": "batch-examples-with-seeded-shuffle",
+      "track_id": "aoede",
+      "source_sha256": "f5ea93e38dd5c6385af484d47f7cd2e42d0cea462e5679d97231e9d113fde9d9",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "4424d65d2d978fa227be021b3c8f0c6845ff6f754946f60f66c86ec83f2dca3e",
+      "object_key": "narration/v1/puzzles/batch-examples-with-seeded-shuffle/4424d65d2d978fa227be/aoede-8e89d3820f84e9c4.mp3",
+      "bytes": 3974828,
+      "sha256": "8e89d3820f84e9c43c9de8f872055ec191b61833034e80b6345431dbb460c73b",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

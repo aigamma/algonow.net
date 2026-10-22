@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:inverted-index-and-query",
+  "source_path": "src/content/inverted-index-and-query.narration.js",
+  "source_sha256": "52172a4712d318601fbc2f8a1394a40e6989012c6a46864912eafd813e875ae3",
+  "source_characters": 16561,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "fdf9c1bae5b64f7394f9bf0dca8cbeb1dcefbe98f583502f1a5a4459eebebbe3",
+  "generated_at": "2026-10-22T01:22:52.635Z",
+  "generated_characters": 33122,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 2629,
+      "utf8_bytes": 2633,
+      "sha256": "d1f72af58ce1f409f76d86e2683041748f0e2878612bec07378c8bf470ab6089"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3500,
+      "utf8_bytes": 3510,
+      "sha256": "a89927375374a6a555967bdca5889e5be5ab431a9629be63ef4542db1bd1d7a4"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2911,
+      "utf8_bytes": 2911,
+      "sha256": "7e69e2796c5293fff7b91c972bdca2af49e5a9777b655ed667dfea959b04b4c4"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 3719,
+      "utf8_bytes": 3725,
+      "sha256": "62101d2db4c80afa18ccc7162e8393f9c1bc2dcc30a7fbb843233a7842796a1d"
+    },
+    {
+      "id": "request-005",
+      "index": 5,
+      "characters": 3802,
+      "utf8_bytes": 3806,
+      "sha256": "e5a2e658c09bcd31dbe3fef731b9203686cc3a7261644b5de40b83655c78e7fa"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "inverted-index-and-query.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "inverted-index-and-query.01-brief",
+      "label": "Engineering Brief",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2506,
+      "sha256": "90fde1d824d4d5dfd79ea63c4a4a1e1f92bac571bfee820f11c282df5a9443cc"
+    },
+    {
+      "id": "inverted-index-and-query.02-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 3508,
+      "sha256": "75306e2108841e40f91632b18d0480d0e68737ef6f1b4ec41fa7067a295a7e0f"
+    },
+    {
+      "id": "inverted-index-and-query.03-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2909,
+      "sha256": "3316c8b4655c84c19f347053d3ffdc404ce0c34df1041e77ce89bb2cf74c97e4"
+    },
+    {
+      "id": "inverted-index-and-query.04-visual",
+      "label": "System Diagram",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2316,
+      "sha256": "2f7b9050fddc67f99e8f30ea3e2d61b9dc61e307a758d78e7720d39bdab41a15"
+    },
+    {
+      "id": "inverted-index-and-query.05-evidence",
+      "label": "Validation Evidence",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1405,
+      "sha256": "1add1c21c5c5603f60311bdeaeafc5431a9016817e52d12bb337aca58248abc4"
+    },
+    {
+      "id": "inverted-index-and-query.06-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1634,
+      "sha256": "bf0d9f5fcd408590d29e6e7fddd51f72625b85d90441513c0dc32a795567b06a"
+    },
+    {
+      "id": "inverted-index-and-query.07-starter",
+      "label": "Starting Point",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1617,
+      "sha256": "29eb1d269bf8faca69009730391f3a946724d9f679d414af3275869e766d0ca3"
+    },
+    {
+      "id": "inverted-index-and-query.08-files",
+      "label": "Working Files",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 551,
+      "sha256": "0a4f26ad8579a95a3185afce80b7771cc594055ed9faa57a015414aa40b5b76c"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/inverted-index-and-query/fdf9c1bae5b64f7394f9/aoede-7cb30eefb5275a74.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4336844,
+      "sha256": "7cb30eefb5275a74cca6a3e74455f2fd932bc08e8b1d4b3b943eca0750690f09",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d1f72af58ce1f409f76d86e2683041748f0e2878612bec07378c8bf470ab6089",
+          "bytes": 688224,
+          "sha256": "170171800e82f9a21de97f1e4ee2bfbd2f82662857696397d3ba638b7a900385"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "a89927375374a6a555967bdca5889e5be5ab431a9629be63ef4542db1bd1d7a4",
+          "bytes": 896544,
+          "sha256": "ba0b4db999a48d5044eb3a37a03e75a6acb507e0eb26a1cf3b9fa91d725ff5dc"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "7e69e2796c5293fff7b91c972bdca2af49e5a9777b655ed667dfea959b04b4c4",
+          "bytes": 817152,
+          "sha256": "d2d21443440c1d9ab2e231c234c6274ab455da042ad9e0c00948e0bbca5bbcd7"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "62101d2db4c80afa18ccc7162e8393f9c1bc2dcc30a7fbb843233a7842796a1d",
+          "bytes": 962784,
+          "sha256": "bce58cbd66fe9313ba5063e1f255ebd9a35ae86dce80f5ea251e0b4ba8ba5ac4"
+        },
+        {
+          "request_index": 5,
+          "request_sha256": "e5a2e658c09bcd31dbe3fef731b9203686cc3a7261644b5de40b83655c78e7fa",
+          "bytes": 971904,
+          "sha256": "92a40d923212e68a860424d5eada0bca61003c2013e1fab48b6ed8825bfb2804"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/inverted-index-and-query/fdf9c1bae5b64f7394f9/algieba-87db9fce8a4b3d4a.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4438604,
+      "sha256": "87db9fce8a4b3d4ad5f114dc7430ce50644f22fca643015792cd68c4358df84c",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d1f72af58ce1f409f76d86e2683041748f0e2878612bec07378c8bf470ab6089",
+          "bytes": 739392,
+          "sha256": "1da425135f8c448abf4ef5fb7708a7f25ad412c394116b026764bf7eb3f23c31"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "a89927375374a6a555967bdca5889e5be5ab431a9629be63ef4542db1bd1d7a4",
+          "bytes": 925632,
+          "sha256": "fe001036c11c403053cd3f5c304552e520a4a6d03954ad1c633c3cc97fc33922"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "7e69e2796c5293fff7b91c972bdca2af49e5a9777b655ed667dfea959b04b4c4",
+          "bytes": 804384,
+          "sha256": "f5be08dcc902ac7701457a741dd6fa2d5ba45dbebc6ede1b5b2339e044abf890"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "62101d2db4c80afa18ccc7162e8393f9c1bc2dcc30a7fbb843233a7842796a1d",
+          "bytes": 949344,
+          "sha256": "cd97d18552cc97ff98ad5603b5ec14dce5cfaf941ef0c723a0b915c42b3e42f1"
+        },
+        {
+          "request_index": 5,
+          "request_sha256": "e5a2e658c09bcd31dbe3fef731b9203686cc3a7261644b5de40b83655c78e7fa",
+          "bytes": 1019616,
+          "sha256": "64bcc3df40e4f25969095cdeb3cd769e5b45e0661269f216711a7eccf8688db4"
+        }
+      ]
+    }
+  }
+}

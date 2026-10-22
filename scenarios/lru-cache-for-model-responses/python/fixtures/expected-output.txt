@@ -1,0 +1,17 @@
+9 requests, cache capacity 3, least recently used evicted first
+id  outcome evicted            cache, oldest first
+r1  miss    -                  rotate a key?
+r2  miss    -                  rotate a key? | list call scope?
+r3  miss    -                  rotate a key? | list call scope? | find my invoice?
+r4  hit     -                  list call scope? | find my invoice? | rotate a key?
+r5  hit     -                  find my invoice? | rotate a key? | list call scope?
+r6  miss    find my invoice?   rotate a key? | list call scope? | lost key recovery?
+r7  hit     -                  list call scope? | lost key recovery? | rotate a key?
+r8  hit     -                  lost key recovery? | rotate a key? | list call scope?
+r9  miss    lost key recovery? rotate a key? | list call scope? | find my invoice?
+
+model calls 5, hits 4, evictions 2 (no cache would call the model 9 times)
+
+rejected: capacity must be at least 1, got 0
+
+OK

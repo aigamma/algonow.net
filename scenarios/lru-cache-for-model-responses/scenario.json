@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "slug": "lru-cache-for-model-responses",
+  "track": "serving",
+  "language": "python",
+  "system": {
+    "context": "Orbit's assistant answers the same ten questions all day, and every one of them was a call to the hosted model: the same question, asked with different capitals and spacing, paid for a fresh model call each time. A small cache keyed by the normalized prompt, with least-recently-used eviction, answers repeats from memory.",
+    "request": "A worked Python example of one action: cached_answer(cache, prompt, capacity, call_model, stats), which keys the cache by the normalized prompt (lowercase, whitespace collapsed), returns a cached answer on a hit after deleting and reinserting the key so it becomes the most recent entry, calls the model on a miss, stores the answer, and evicts the first (oldest) key when the dictionary is over capacity, over nine inline requests with a capacity of three. The lesson leads with the complete solution and its exact output (per request the outcome, the evicted key, and the cache order; five model calls, four hits, two evictions against nine calls with no cache), explains the Python construct by construct (insertion-ordered dictionaries, membership with in, del and reinsert, next(iter(cache)), a function passed as a value, a stats dictionary mutated in place, a tuple return with None), traces every request, compares first-in-first-out on the same requests, and offers one practice variation: a time to live that expires stale entries.",
+    "inputs": [
+      "Nine requests written inline in solution.py as a list of dictionaries with an id, the minute of arrival (0, 15, 20, 25, 28, 30, 42, 44, 46), and the prompt as typed: four distinct questions once normalized, with 'rotate a key?' asked three times in three spellings and 'list call scope?' three times in two spellings",
+      "CAPACITY = 3 and a fake model that returns one canned answer per normalized question",
+      "For the practice variation, TTL_MINUTES = 40: an entry older than forty minutes is stale"
+    ],
+    "outputs": [
+      "cached_answer returns (answer, outcome, evicted): the outcome is hit or miss and evicted is the key removed or None; the worked run gives miss, miss, miss, hit, hit, miss, hit, hit, miss with 'find my invoice?' evicted at r6 and 'lost key recovery?' evicted at r9",
+      "python solution.py prints the per-request table, the totals (model calls 5, hits 4, evictions 2, against 9 calls with no cache), the rejected capacity of 0, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change r7 at minute 42 expires the entry inserted at minute 0 and the model is called again: 6 calls, 3 hits, 1 expired, 2 evictions, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, or network",
+      "The cache is a plain dictionary: the first key is the oldest, a hit is deleted and reinserted, a miss inserts the answer and evicts next(iter(cache)) when the length exceeds the capacity; the cache never holds more than capacity entries after a call",
+      "A capacity below 1 raises ValueError; the demonstration prints the rejected call instead of crashing; the request list is never modified",
+      "Ordinary Python only: dictionaries, in, del, next and iter, string methods, a function passed as an argument, a dictionary of counters updated with augmented assignment, a tuple return, f-strings with format specs, try and except, and assert; no classes, decorators (functools.lru_cache is named in the prose, not used), regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the nine outcomes, the two evictions, the final order rotate a key? | list call scope? | find my invoice?, the totals 5, 4, 2, the rejected line, and OK",
+      "The functions are exact: key_for merges case and whitespace, a hit moves its key to the most recent end, an eviction removes the first key, the cache never exceeds the capacity, capacity 1 keeps only the latest answer, and a capacity below 1 raises",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt; a huge time to live reproduces the worked run exactly",
+      "What shipped is measured on the same requests: no cache makes 9 model calls, first-in-first-out makes 7 because r7 and r8 find their answers already evicted, and least-recently-used makes 5 because the earlier hits refreshed them"
+    ]
+  },
+  "python": {
+    "package": "response_cache",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "5de5d83e89e2fd1c0771030d30478fce214ebe9baec74c940129c04f6dda3b90"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "4ffe1f23254e2374ca4e47dc8f11a9f0021a37150022a7ceb7f44b0f42c94fb1"
+    },
+    {
+      "path": "python/fixtures/requests.json",
+      "description": "The nine requests, the capacity, the time to live, and the canned answers exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "0b5e72aa55edb189b9acb8de50d20e7dc03213d200803f6f41f3b00f2f4c2cce"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every request of the worked run (key, outcome, evicted key, cache order, running totals), the first-in-first-out comparison, and the practice run with each entry's age, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "8aab824d390be31367ba9f1d62761c02c423ce7375ec847f6d63db9c43b005ef"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "key-normalization",
+      "kind": "correctness",
+      "description": "key_for lowercases and collapses whitespace, so the nine prompts become four distinct keys.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_key_for_merges_case_and_spacing"
+    },
+    {
+      "id": "outcome-sequence",
+      "kind": "correctness",
+      "description": "The nine requests produce miss, miss, miss, hit, hit, miss, hit, hit, miss and the totals 5 calls, 4 hits, 2 evictions.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_outcomes_follow_the_documented_sequence"
+    },
+    {
+      "id": "hit-refreshes-recency",
+      "kind": "correctness",
+      "description": "After r4 hits, 'rotate a key?' is the most recent key instead of the oldest.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_hit_moves_the_key_to_the_most_recent_end"
+    },
+    {
+      "id": "eviction-order",
+      "kind": "correctness",
+      "description": "r6 evicts 'find my invoice?' and r9 evicts 'lost key recovery?'; the cache never holds more than three entries and the request's key is always the most recent.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_eviction_removes_the_oldest_key_and_the_cache_never_exceeds_capacity"
+    },
+    {
+      "id": "cached-answer-equals-model",
+      "kind": "correctness",
+      "description": "A miss returns the model's answer and a later hit returns the same answer without another call.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_cached_answer_is_the_model_answer"
+    },
+    {
+      "id": "capacity-rejected",
+      "kind": "failure",
+      "description": "A capacity of 0 or less raises ValueError naming the capacity.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_capacity_below_one_is_rejected"
+    },
+    {
+      "id": "capacity-one",
+      "kind": "correctness",
+      "description": "With a capacity of 1 only the latest answer survives: three misses and two evictions over the first three requests.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_capacity_one_keeps_only_the_latest_answer"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The request list is unchanged after the run.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_requests_are_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about the entry that should expire, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-expires-stale-entry",
+      "kind": "correctness",
+      "description": "With a time to live of 40 minutes, r7 (age 42) expires and r8 (age 29) hits; the totals are 6 calls, 3 hits, 1 expired, 2 evictions, and the fresh entry carries minute 42.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_expires_the_stale_entry_and_keeps_the_fresh_one"
+    },
+    {
+      "id": "answer-huge-ttl",
+      "kind": "correctness",
+      "description": "A huge time to live reproduces the worked run's outcomes and totals exactly.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_with_a_huge_ttl_reproduces_the_worked_run"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "requests-fixture",
+      "kind": "correctness",
+      "description": "requests.json equals the requests, the capacity, the time to live, and the canned answers that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_requests_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: nine worked steps with their cache orders, totals 5, 4, 2, the first-in-first-out comparison at 7 calls, and the practice run at 6 calls.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "policies-compared",
+      "kind": "evaluation",
+      "description": "On the same nine requests no cache makes 9 model calls, first-in-first-out makes 7 with 2 hits, and least-recently-used makes 5 with 4 hits; four distinct questions set the floor at four calls.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_no_cache_calls_nine_times_fifo_seven_and_lru_five"
+    },
+    {
+      "id": "why-lru-wins",
+      "kind": "evaluation",
+      "description": "r7 and r8 are misses under first-in-first-out because their answers were already evicted, and hits under least-recently-used because r4 and r5 refreshed them.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_lru_wins_because_hits_refresh_recency"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/LruCacheViz.jsx",
+      "description": "A short animation of the worked example, about two and a half seconds per request and about half a minute in all: the nine requests as a queue along the top, the current request and its normalized key in a box, a shelf of three slots holding the cache with the oldest entry on the left, and a tray for evicted keys. A hit slides its slot to the most recent end; a miss enters a new slot and, over capacity, the oldest slot drops into the tray in red. Running totals and bars compare model calls with no cache (9), the least-recently-used cache (5), and first-in-first-out (7, shown in the outro); the practice beat replays r7's expiry at minute 42 against the forty-minute time to live and ends at 6 calls, 3 hits, 1 expired, 2 evictions. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/lruCacheModel.js, a JavaScript port of key_for, cached_answer, the first-in-first-out comparison, and the practice answer's time to live, run on python/fixtures/requests.json with a Map in place of the dictionary; tests/lru-cache-for-model-responses-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that at the end of every request beat the shelf holds exactly the recorded order and the counters equal the recorded totals, that captions carry the measured numbers, that no moment shows more than three resting slots, and that the final scene holds the practice totals. Rendered frames were inspected at 900 pixels at several moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

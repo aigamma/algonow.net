@@ -1,0 +1,10 @@
+[project]
+name = "lru-cache-for-model-responses"
+version = "0.1.0"
+description = "Cache model responses by normalized prompt in a plain dictionary with least-recently-used eviction: a worked Python example, standard library only"
+requires-python = ">=3.11"
+dependencies = []
+
+# The lesson needs none of this: copy solution.py (or starter.py) anywhere and
+# run it with python. The behind-the-scenes checks run from this directory:
+#   PYTHONPATH=src python -m unittest discover -s tests -p "test_*.py"

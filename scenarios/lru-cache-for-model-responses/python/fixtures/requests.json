@@ -1,0 +1,57 @@
+{
+ "capacity": 3,
+ "ttl_minutes": 40,
+ "requests": [
+  {
+   "id": "r1",
+   "t": 0,
+   "prompt": "Rotate a key?"
+  },
+  {
+   "id": "r2",
+   "t": 15,
+   "prompt": "List call scope?"
+  },
+  {
+   "id": "r3",
+   "t": 20,
+   "prompt": "Find my invoice?"
+  },
+  {
+   "id": "r4",
+   "t": 25,
+   "prompt": "rotate a key?"
+  },
+  {
+   "id": "r5",
+   "t": 28,
+   "prompt": "LIST call scope?"
+  },
+  {
+   "id": "r6",
+   "t": 30,
+   "prompt": "Lost key recovery?"
+  },
+  {
+   "id": "r7",
+   "t": 42,
+   "prompt": "Rotate  a key?"
+  },
+  {
+   "id": "r8",
+   "t": 44,
+   "prompt": "List call scope?"
+  },
+  {
+   "id": "r9",
+   "t": 46,
+   "prompt": "Find my invoice?"
+  }
+ ],
+ "answers": {
+  "rotate a key?": "Create a replacement key, deploy it, then revoke the old one.",
+  "list call scope?": "List calls need the read scope.",
+  "find my invoice?": "Open Billing, then Invoices; each month is a PDF.",
+  "lost key recovery?": "A lost key cannot be recovered. Create a replacement."
+ }
+}

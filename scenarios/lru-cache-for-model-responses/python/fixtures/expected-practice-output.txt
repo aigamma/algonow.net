@@ -1,0 +1,15 @@
+9 requests, cache capacity 3, entries expire after 40 minutes
+id   min  outcome evicted            cache, oldest first
+r1     0  miss    -                  rotate a key?
+r2    15  miss    -                  rotate a key? | list call scope?
+r3    20  miss    -                  rotate a key? | list call scope? | find my invoice?
+r4    25  hit     -                  list call scope? | find my invoice? | rotate a key?
+r5    28  hit     -                  find my invoice? | rotate a key? | list call scope?
+r6    30  miss    find my invoice?   rotate a key? | list call scope? | lost key recovery?
+r7    42  expired -                  list call scope? | lost key recovery? | rotate a key?
+r8    44  hit     -                  lost key recovery? | rotate a key? | list call scope?
+r9    46  miss    lost key recovery? rotate a key? | list call scope? | find my invoice?
+
+model calls 6, hits 3, expired 1, evictions 2 (no cache would call the model 9 times)
+
+OK

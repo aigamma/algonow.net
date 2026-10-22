@@ -1,0 +1,275 @@
+{
+ "capacity": 3,
+ "steps": [
+  {
+   "id": "r1",
+   "key": "rotate a key?",
+   "outcome": "miss",
+   "evicted": null,
+   "order": [
+    "rotate a key?"
+   ],
+   "calls": 1,
+   "hits": 0,
+   "evictions": 0
+  },
+  {
+   "id": "r2",
+   "key": "list call scope?",
+   "outcome": "miss",
+   "evicted": null,
+   "order": [
+    "rotate a key?",
+    "list call scope?"
+   ],
+   "calls": 2,
+   "hits": 0,
+   "evictions": 0
+  },
+  {
+   "id": "r3",
+   "key": "find my invoice?",
+   "outcome": "miss",
+   "evicted": null,
+   "order": [
+    "rotate a key?",
+    "list call scope?",
+    "find my invoice?"
+   ],
+   "calls": 3,
+   "hits": 0,
+   "evictions": 0
+  },
+  {
+   "id": "r4",
+   "key": "rotate a key?",
+   "outcome": "hit",
+   "evicted": null,
+   "order": [
+    "list call scope?",
+    "find my invoice?",
+    "rotate a key?"
+   ],
+   "calls": 3,
+   "hits": 1,
+   "evictions": 0
+  },
+  {
+   "id": "r5",
+   "key": "list call scope?",
+   "outcome": "hit",
+   "evicted": null,
+   "order": [
+    "find my invoice?",
+    "rotate a key?",
+    "list call scope?"
+   ],
+   "calls": 3,
+   "hits": 2,
+   "evictions": 0
+  },
+  {
+   "id": "r6",
+   "key": "lost key recovery?",
+   "outcome": "miss",
+   "evicted": "find my invoice?",
+   "order": [
+    "rotate a key?",
+    "list call scope?",
+    "lost key recovery?"
+   ],
+   "calls": 4,
+   "hits": 2,
+   "evictions": 1
+  },
+  {
+   "id": "r7",
+   "key": "rotate a key?",
+   "outcome": "hit",
+   "evicted": null,
+   "order": [
+    "list call scope?",
+    "lost key recovery?",
+    "rotate a key?"
+   ],
+   "calls": 4,
+   "hits": 3,
+   "evictions": 1
+  },
+  {
+   "id": "r8",
+   "key": "list call scope?",
+   "outcome": "hit",
+   "evicted": null,
+   "order": [
+    "lost key recovery?",
+    "rotate a key?",
+    "list call scope?"
+   ],
+   "calls": 4,
+   "hits": 4,
+   "evictions": 1
+  },
+  {
+   "id": "r9",
+   "key": "find my invoice?",
+   "outcome": "miss",
+   "evicted": "lost key recovery?",
+   "order": [
+    "rotate a key?",
+    "list call scope?",
+    "find my invoice?"
+   ],
+   "calls": 5,
+   "hits": 4,
+   "evictions": 2
+  }
+ ],
+ "totals": {
+  "calls": 5,
+  "hits": 4,
+  "evictions": 2
+ },
+ "no_cache_calls": 9,
+ "fifo": {
+  "outcomes": [
+   "miss",
+   "miss",
+   "miss",
+   "hit",
+   "hit",
+   "miss",
+   "miss",
+   "miss",
+   "miss"
+  ],
+  "calls": 7,
+  "hits": 2,
+  "evictions": 4
+ },
+ "practice": {
+  "ttl": 40,
+  "steps": [
+   {
+    "id": "r1",
+    "t": 0,
+    "key": "rotate a key?",
+    "outcome": "miss",
+    "age": null,
+    "evicted": null,
+    "order": [
+     "rotate a key?"
+    ]
+   },
+   {
+    "id": "r2",
+    "t": 15,
+    "key": "list call scope?",
+    "outcome": "miss",
+    "age": null,
+    "evicted": null,
+    "order": [
+     "rotate a key?",
+     "list call scope?"
+    ]
+   },
+   {
+    "id": "r3",
+    "t": 20,
+    "key": "find my invoice?",
+    "outcome": "miss",
+    "age": null,
+    "evicted": null,
+    "order": [
+     "rotate a key?",
+     "list call scope?",
+     "find my invoice?"
+    ]
+   },
+   {
+    "id": "r4",
+    "t": 25,
+    "key": "rotate a key?",
+    "outcome": "hit",
+    "age": 25,
+    "evicted": null,
+    "order": [
+     "list call scope?",
+     "find my invoice?",
+     "rotate a key?"
+    ]
+   },
+   {
+    "id": "r5",
+    "t": 28,
+    "key": "list call scope?",
+    "outcome": "hit",
+    "age": 13,
+    "evicted": null,
+    "order": [
+     "find my invoice?",
+     "rotate a key?",
+     "list call scope?"
+    ]
+   },
+   {
+    "id": "r6",
+    "t": 30,
+    "key": "lost key recovery?",
+    "outcome": "miss",
+    "age": null,
+    "evicted": "find my invoice?",
+    "order": [
+     "rotate a key?",
+     "list call scope?",
+     "lost key recovery?"
+    ]
+   },
+   {
+    "id": "r7",
+    "t": 42,
+    "key": "rotate a key?",
+    "outcome": "expired",
+    "age": 42,
+    "evicted": null,
+    "order": [
+     "list call scope?",
+     "lost key recovery?",
+     "rotate a key?"
+    ]
+   },
+   {
+    "id": "r8",
+    "t": 44,
+    "key": "list call scope?",
+    "outcome": "hit",
+    "age": 29,
+    "evicted": null,
+    "order": [
+     "lost key recovery?",
+     "rotate a key?",
+     "list call scope?"
+    ]
+   },
+   {
+    "id": "r9",
+    "t": 46,
+    "key": "find my invoice?",
+    "outcome": "miss",
+    "age": null,
+    "evicted": "lost key recovery?",
+    "order": [
+     "rotate a key?",
+     "list call scope?",
+     "find my invoice?"
+    ]
+   }
+  ],
+  "totals": {
+   "calls": 6,
+   "hits": 3,
+   "expired": 1,
+   "evictions": 2
+  }
+ }
+}

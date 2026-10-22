@@ -250,6 +250,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['Precision and recall at k from a slice and set membership', 'Reciprocal rank with enumerate(start=1) and an early return', 'Averaging per-query metrics', 'Comparing two retrievers on the same queries', 'nDCG at k with math.log2 (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'lru-cache-for-model-responses',
+    title: 'Cache model responses by prompt with a small least-recently-used cache',
+    summary: 'Orbit\'s assistant answered the same ten questions all day and paid for a model call every time. A worked Python example caches responses by normalized prompt in a plain dictionary with least-recently-used eviction: dictionaries remember insertion order, deleting and reinserting a key moves it to the end, the first key is the oldest, a capacity of three, a scripted fake model that counts its calls, its exact output, a trace of every hit, miss, and eviction, and one practice variation that expires entries after a time to live.',
+    track: 'serving',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'intermediate',
+    durationMinutes: 30,
+    skills: ['Insertion-ordered dictionaries as an LRU cache', 'del and reinsert to mark a key as recently used', 'next(iter(cache)) for the oldest key', 'Hit, miss, and eviction accounting', 'A time to live on entries (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

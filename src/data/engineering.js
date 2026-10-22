@@ -226,6 +226,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['SHA-256 content hashes with hashlib, encode, and hexdigest', 'A manifest as a dictionary from id to hash', 'Classifying records by dictionary membership and value comparison', 'Set difference for deletions and sorted for stable reports', 'Detecting moves by hash (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'batch-examples-with-seeded-shuffle',
+    title: 'Batch training examples with a seeded shuffle and a generator',
+    summary: 'Orbit\'s fine-tuning script fed examples in file order, so every early batch held a single label, and the ragged last batch crashed a shape check. A worked Python example yields batches from a seeded shuffle with a generator: a copy of the list so the input is never reordered, random.Random with a seed and shuffle, range with a step and list slicing, yield instead of return, a different seed per epoch that is still reproducible, its exact output, a trace of every batch, and one practice variation that drops the ragged last batch.',
+    track: 'fine-tuning',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'foundation',
+    durationMinutes: 25,
+    skills: ['A generator function with yield', 'random.Random(seed).shuffle on a copy', 'range with a step and list slicing into batches', 'Reproducible epochs from seed plus epoch', 'Dropping the ragged last batch (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

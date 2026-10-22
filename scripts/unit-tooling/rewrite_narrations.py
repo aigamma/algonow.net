@@ -6,8 +6,8 @@ Each old string must occur exactly once; otherwise nothing is written for that s
 import pathlib
 import sys
 
-ROOT = pathlib.Path(r"D:\algonow.net")
-OUT = pathlib.Path(__file__).resolve().parent / "narration-rewrites"
+ROOT = pathlib.Path(__file__).resolve().parents[2]
+OUT = ROOT / "build" / "narration-rewrites"
 OUT.mkdir(exist_ok=True)
 
 REWRITES = {

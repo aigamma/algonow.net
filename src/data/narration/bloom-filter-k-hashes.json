@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:bloom-filter-k-hashes",
+  "source_path": "src/content/bloom-filter-k-hashes.narration.js",
+  "source_sha256": "36dbc40387518fb957b1e47f376c072b8d16a1bde11d3b15e2507f7fc35b49e7",
+  "source_characters": 8952,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "9c9afd0a92786522e79c27f6b0ff814e578560ada7ae24a571075b57ddb246fd",
+  "generated_at": "2026-10-22T04:08:33.377Z",
+  "generated_characters": 17904,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4981,
+      "utf8_bytes": 4989,
+      "sha256": "2f6a4375b8ab96f77904088c228f85e645eedcee73da9a357eb374d14eee9ee4"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3971,
+      "utf8_bytes": 3979,
+      "sha256": "8cd4ac7de1e91389c7f28357b325fe25a4ee76b0068e0e69f7e8136454d02925"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "bloom-filter-k-hashes.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "bloom-filter-k-hashes.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 605,
+      "sha256": "036e259cccde46feaf037775d2210bc33249c38eaf7c4e49e2dcf14cbee40c1b"
+    },
+    {
+      "id": "bloom-filter-k-hashes.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 948,
+      "sha256": "16ca2bb0af2343e522e184e14feacd84354053adc7c06066f69d77ca24b246e7"
+    },
+    {
+      "id": "bloom-filter-k-hashes.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1159,
+      "sha256": "93a14e0b7e3a1aabb0fcdf49502e9b7e616e1f05d87d103b2b9ba4db0d435d23"
+    },
+    {
+      "id": "bloom-filter-k-hashes.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 786,
+      "sha256": "c90b5177220032fe17cb5fef68cdf4a90e1a200e96a12df55eec9c14a74af52c"
+    },
+    {
+      "id": "bloom-filter-k-hashes.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 815,
+      "sha256": "4e17fbfd41b0feef2748f4799363bf8dba176992b3e965236d885f111ff5db61"
+    },
+    {
+      "id": "bloom-filter-k-hashes.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 539,
+      "sha256": "ab3ee1d6998f41b966374db3c0b0751ff64ac6b2941c733e59238cc4198bf990"
+    },
+    {
+      "id": "bloom-filter-k-hashes.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 657,
+      "sha256": "6e092783293538ff523a2c21a408690e0218e60bdf5b0a866779a70a8ac37882"
+    },
+    {
+      "id": "bloom-filter-k-hashes.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1299,
+      "sha256": "81bc5780a6289638ba9f0c96b440ac4f24a99012824e6080947818542ca18ac8"
+    },
+    {
+      "id": "bloom-filter-k-hashes.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 901,
+      "sha256": "61e720650aac9856ac9ba8eb1747461883806d5daa67cf79f6e0e70c2e1c0e7d"
+    },
+    {
+      "id": "bloom-filter-k-hashes.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1116,
+      "sha256": "46fe6c6fc8b8585c9d522ad2209c06bdc902c8c290c7ff33318c2862c72eca09"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/bloom-filter-k-hashes/9c9afd0a92786522e79c/aoede-d15c42f611415cc8.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2320940,
+      "sha256": "d15c42f611415cc8386e84d0daad0053d801d251304c8dd421908beb4050ea54",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2f6a4375b8ab96f77904088c228f85e645eedcee73da9a357eb374d14eee9ee4",
+          "bytes": 1262112,
+          "sha256": "68f957ff0d0df635d3644a0b41d291596a73cd6964e5c331b695a3f9c1f2277d"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "8cd4ac7de1e91389c7f28357b325fe25a4ee76b0068e0e69f7e8136454d02925",
+          "bytes": 1058592,
+          "sha256": "f5be115ed367cc18e767d23e50c80dbab1b62ab3702a3b1f83d00fd0f7488326"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/bloom-filter-k-hashes/9c9afd0a92786522e79c/algieba-7f78c38090f83143.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2537324,
+      "sha256": "7f78c38090f831439235f37d09352fa47e98f6b30aeb7787c736d5ac5a68c57e",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2f6a4375b8ab96f77904088c228f85e645eedcee73da9a357eb374d14eee9ee4",
+          "bytes": 1427616,
+          "sha256": "65ae1a50eed2c4efb2c30684911d731aa7edb9170dc47e337a5c8ed2052c03ca"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "8cd4ac7de1e91389c7f28357b325fe25a4ee76b0068e0e69f7e8136454d02925",
+          "bytes": 1109472,
+          "sha256": "45d6e00a7829e024de93927cc132ed6c6a82542d64b2302051fe6aa281108b1e"
+        }
+      ]
+    }
+  }
+}

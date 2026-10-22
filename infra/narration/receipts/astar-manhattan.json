@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net astar-manhattan preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T04:12:49.107Z",
+  "publication_sha256": "aa07de6cbad01d242e4e9f884356e110a70e55e2179e5e681029bc0520eaf580",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5111320,
+  "objects": [
+    {
+      "stable_id": "puzzle:astar-manhattan",
+      "slug": "astar-manhattan",
+      "track_id": "algieba",
+      "source_sha256": "cb2a60fe268a4ac08c2cf3120e030ddff3f4cdf1025c6a98c74ba6b57ad86449",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "a46c57c1f5318ae765802cee28377ce8a3829e244bcb57e342783a193b602c2c",
+      "object_key": "narration/v1/puzzles/astar-manhattan/a46c57c1f5318ae76580/algieba-b0fc6123db6e5490.mp3",
+      "bytes": 2659628,
+      "sha256": "b0fc6123db6e5490d9fa6d94dede139b647f8a9f07a3c8016893bc98e55a0ee9",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:astar-manhattan",
+      "slug": "astar-manhattan",
+      "track_id": "aoede",
+      "source_sha256": "cb2a60fe268a4ac08c2cf3120e030ddff3f4cdf1025c6a98c74ba6b57ad86449",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "a46c57c1f5318ae765802cee28377ce8a3829e244bcb57e342783a193b602c2c",
+      "object_key": "narration/v1/puzzles/astar-manhattan/a46c57c1f5318ae76580/aoede-1cfae6140224acf1.mp3",
+      "bytes": 2451692,
+      "sha256": "1cfae6140224acf1248dde09ce6fc75e6fa2b2a8add03689e0c5ee2ae6bcc6d1",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

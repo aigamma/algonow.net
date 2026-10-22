@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net minimax-alphabeta preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T04:14:45.651Z",
+  "publication_sha256": "91eabc4bc0df06718dfe5a7ac8e0f5d3032eb3550cb12ceef2ad1607199e47c1",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4765240,
+  "objects": [
+    {
+      "stable_id": "puzzle:minimax-alphabeta",
+      "slug": "minimax-alphabeta",
+      "track_id": "algieba",
+      "source_sha256": "7a919f2a190921a458e767782002727224bacc0a679b07d8881b1598feb21302",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "f9418443a53a23407739a7041449da7b9d0a2df9e7323a22a9bd7504e84c5676",
+      "object_key": "narration/v1/puzzles/minimax-alphabeta/f9418443a53a23407739/algieba-3d616a10eaa16515.mp3",
+      "bytes": 2440268,
+      "sha256": "3d616a10eaa16515ded1a9b76b064ef5804b257409edc16f4f1b54ebd7b048da",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:minimax-alphabeta",
+      "slug": "minimax-alphabeta",
+      "track_id": "aoede",
+      "source_sha256": "7a919f2a190921a458e767782002727224bacc0a679b07d8881b1598feb21302",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "f9418443a53a23407739a7041449da7b9d0a2df9e7323a22a9bd7504e84c5676",
+      "object_key": "narration/v1/puzzles/minimax-alphabeta/f9418443a53a23407739/aoede-35d7cece7bad229d.mp3",
+      "bytes": 2324972,
+      "sha256": "35d7cece7bad229d9eeabbd92bd5731abf7e9cb0cd9863d9b47070ba073afe2a",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:branchbound-fractional",
+  "source_path": "src/content/branchbound-fractional.narration.js",
+  "source_sha256": "730ff6da1412b8f27c1070458da4bf15f3edd9e689e96d31683e961e043507c0",
+  "source_characters": 9830,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "fbb9346d2a3f30e8c58a5858ec0cfaa1677301b22a6ed2f60e4b491a2d40f735",
+  "generated_at": "2026-10-22T03:50:20.787Z",
+  "generated_characters": 19660,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4846,
+      "utf8_bytes": 4846,
+      "sha256": "a5e42ecf2b3222a90d597d521bb914ec0509541fc44a9fef5f36962587faa92b"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4984,
+      "utf8_bytes": 4984,
+      "sha256": "fd4c3e561e3a25270e62e85cfb3f744662c37a9b820ad3949cdc62469feb8b4d"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "branchbound-fractional.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "branchbound-fractional.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 617,
+      "sha256": "b22f34698f0cf19d62f884d3d4d03106bcfbadead60d472e8e0fdaed35a0403d"
+    },
+    {
+      "id": "branchbound-fractional.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 627,
+      "sha256": "a1bb69180e40c1a142462b07aaf56932c2bccb4aab2d83f4a0b48df795058bc8"
+    },
+    {
+      "id": "branchbound-fractional.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 972,
+      "sha256": "e1e2eb36b478f13ee7cc4f2bd3cd165a3a4c193c95cf8f7cc3dcedf07c6b32e3"
+    },
+    {
+      "id": "branchbound-fractional.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 741,
+      "sha256": "314edd1ced55552ca7b089a5505c25feacdd146bed7a5626c2f10c05d553f839"
+    },
+    {
+      "id": "branchbound-fractional.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 834,
+      "sha256": "d7a1339fad24b2f81dca9fd2d1738731ab898dda323a7977a720bbd95b97f15e"
+    },
+    {
+      "id": "branchbound-fractional.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 918,
+      "sha256": "cd3ad15005159c15455c7668615da899609e048f456cf08a50c474bf004adc4d"
+    },
+    {
+      "id": "branchbound-fractional.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 684,
+      "sha256": "8bc4f99efefb27d804e6b742672fb3106344cf8768b52ad34ed24247bff97585"
+    },
+    {
+      "id": "branchbound-fractional.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 926,
+      "sha256": "b836207b6b324454f5e46210f7bfba82dbaea0b70a6e8211a4d0ff95bd8813ce"
+    },
+    {
+      "id": "branchbound-fractional.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1120,
+      "sha256": "26dd138e3535fe3725c8053529cf258591d17fb271de6ce1460009e54922b47f"
+    },
+    {
+      "id": "branchbound-fractional.10-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 555,
+      "sha256": "68b47add6e95ae4af320bfd2c0720f099408fe418c4060036b5115b6ff29c2d6"
+    },
+    {
+      "id": "branchbound-fractional.11-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[10].section",
+        "narration[10].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 745,
+      "sha256": "4d43991bc24a54630190da5ab61dfd29a13c945e6035e3ccba19ee1daf3ff9fc"
+    },
+    {
+      "id": "branchbound-fractional.12-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[11].section",
+        "narration[11].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 944,
+      "sha256": "68dca9431c3b283ab107535579e99629b87a2930547d0b7ab2ddb8b6b6744a38"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/branchbound-fractional/fbb9346d2a3f30e8c58a/aoede-47960fc1c5332105.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2418188,
+      "sha256": "47960fc1c533210596b7730242afa2eba41f3cac8dc614e06f9f85fd7d7ccd6d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "a5e42ecf2b3222a90d597d521bb914ec0509541fc44a9fef5f36962587faa92b",
+          "bytes": 1227936,
+          "sha256": "c0c38314ed969fb3966ad4133891b29df0b26f2efceed84e6f1c19d43003c8a8"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "fd4c3e561e3a25270e62e85cfb3f744662c37a9b820ad3949cdc62469feb8b4d",
+          "bytes": 1190016,
+          "sha256": "2033013f174e60e332b3c56c58f91609bb85b22b301a66e5816930898f16a58b"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/branchbound-fractional/fbb9346d2a3f30e8c58a/algieba-c9a4a7d5ae10cf5d.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2586380,
+      "sha256": "c9a4a7d5ae10cf5d0695c6443a20b27ea9b51d001b1f92e255c3079efdc5d9d8",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "a5e42ecf2b3222a90d597d521bb914ec0509541fc44a9fef5f36962587faa92b",
+          "bytes": 1335072,
+          "sha256": "c64ea3bd817a02f8c3bc8fa4b6af9f198dc45db85b38250a1afb2b09793e4e47"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "fd4c3e561e3a25270e62e85cfb3f744662c37a9b820ad3949cdc62469feb8b4d",
+          "bytes": 1251072,
+          "sha256": "7b5e353833f0f03f281f9f9b3efb5a22324d51503b2951be7cd8caea990869a6"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net branchbound-fractional preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T04:16:54.920Z",
+  "publication_sha256": "0ef5c44a8bd4b1cd0a138584a600e3430ac2d6017b324403a3287673602bbdb2",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5004568,
+  "objects": [
+    {
+      "stable_id": "puzzle:branchbound-fractional",
+      "slug": "branchbound-fractional",
+      "track_id": "algieba",
+      "source_sha256": "730ff6da1412b8f27c1070458da4bf15f3edd9e689e96d31683e961e043507c0",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "fbb9346d2a3f30e8c58a5858ec0cfaa1677301b22a6ed2f60e4b491a2d40f735",
+      "object_key": "narration/v1/puzzles/branchbound-fractional/fbb9346d2a3f30e8c58a/algieba-c9a4a7d5ae10cf5d.mp3",
+      "bytes": 2586380,
+      "sha256": "c9a4a7d5ae10cf5d0695c6443a20b27ea9b51d001b1f92e255c3079efdc5d9d8",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:branchbound-fractional",
+      "slug": "branchbound-fractional",
+      "track_id": "aoede",
+      "source_sha256": "730ff6da1412b8f27c1070458da4bf15f3edd9e689e96d31683e961e043507c0",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "fbb9346d2a3f30e8c58a5858ec0cfaa1677301b22a6ed2f60e4b491a2d40f735",
+      "object_key": "narration/v1/puzzles/branchbound-fractional/fbb9346d2a3f30e8c58a/aoede-47960fc1c5332105.mp3",
+      "bytes": 2418188,
+      "sha256": "47960fc1c533210596b7730242afa2eba41f3cac8dc614e06f9f85fd7d7ccd6d",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

@@ -1,0 +1,416 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:unionfind-rank-compression",
+  "source_path": "src/content/unionfind-rank-compression.narration.js",
+  "source_sha256": "83eeea61f6abb4c381add34ceee9ca95278d4d4089a9991d9a376c6e6fe81cfd",
+  "source_characters": 9487,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "8333eee711a0445cd6fdb883b3fe83c295139424d4aee41fad347ba9393556f2",
+  "generated_at": "2026-10-22T03:59:28.058Z",
+  "generated_characters": 18974,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4980,
+      "utf8_bytes": 4984,
+      "sha256": "53140d645dca527d161dc2780ac0b4e1f0a050c922c6b0f602393b55c1abe7f2"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4507,
+      "utf8_bytes": 4513,
+      "sha256": "ebb2bec376f8fee165ca3a7cfe5469ca74c0e13f10e3f6b12d2df06718d88647"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "unionfind-rank-compression.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "unionfind-rank-compression.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 690,
+      "sha256": "eb7dc10c20f909ed69bdab301363f7d24669a16ed4ad0f05bf102845627d6ddb"
+    },
+    {
+      "id": "unionfind-rank-compression.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 984,
+      "sha256": "5f99f099357e600338a78fe693cfe79e7b471b2a5e49b7b0a689f0e5851e623d"
+    },
+    {
+      "id": "unionfind-rank-compression.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1049,
+      "sha256": "ba35a6abe32d261adc6570f77d656280c97401395ef5f8d7cd843048004e865d"
+    },
+    {
+      "id": "unionfind-rank-compression.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 722,
+      "sha256": "b2616f821671df9ce10b83c4f0c252bcd1ae9c5a83065a6d9f4b25b2c64909c6"
+    },
+    {
+      "id": "unionfind-rank-compression.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 695,
+      "sha256": "ce02ec319b4e9ebb560e855b213cac65d5d6f691e29c0e0c2933937c1f2e3c55"
+    },
+    {
+      "id": "unionfind-rank-compression.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 707,
+      "sha256": "fac5d16b24f8aa43e6f8504c90be31d74ce61e38a715bc8a33a5750653a1f204"
+    },
+    {
+      "id": "unionfind-rank-compression.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 803,
+      "sha256": "d176be858b7d08a2f9a309a1a5f8551123eeb6a80658610147b8c133a427b775"
+    },
+    {
+      "id": "unionfind-rank-compression.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 945,
+      "sha256": "2655c694e31445eef880c0e449a18cbe8f94941bd8ca0a895133a3e53111a40f"
+    },
+    {
+      "id": "unionfind-rank-compression.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 964,
+      "sha256": "95e64d73505f981bf56bf668fe5dae51c012d9ea9e54626cb603e811075090ef"
+    },
+    {
+      "id": "unionfind-rank-compression.10-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 747,
+      "sha256": "2b44fdc71eda1d93a2632371802aea0670f2c51c5c14fac77b0e44b8bcf1850b"
+    },
+    {
+      "id": "unionfind-rank-compression.11-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[10].section",
+        "narration[10].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1046,
+      "sha256": "40ca7f433dba5fc00bc37931ee24b363ebf5e5c068db9b6ae08d6c1e4b62bd9f"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/unionfind-rank-compression/8333eee711a0445cd6fd/aoede-0d63679af023232d.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2423372,
+      "sha256": "0d63679af023232d7784db0eb1234685041e3f52b199b0a4373bb3502d539e2b",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "53140d645dca527d161dc2780ac0b4e1f0a050c922c6b0f602393b55c1abe7f2",
+          "bytes": 1246464,
+          "sha256": "d3f62b46b566c73bbcb1462135391e1544a1ff6b4e9bb1b0ade162b5c521c2e5"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ebb2bec376f8fee165ca3a7cfe5469ca74c0e13f10e3f6b12d2df06718d88647",
+          "bytes": 1176672,
+          "sha256": "150f0487ca9d8d49eddd1edbb89fbd633fbb736b55b4588447e02156fba4bc35"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/unionfind-rank-compression/8333eee711a0445cd6fd/algieba-737413e10b8c000b.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2508716,
+      "sha256": "737413e10b8c000b3bcacbce40e7190130f208263dee2fd204e59c3b26d10282",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "53140d645dca527d161dc2780ac0b4e1f0a050c922c6b0f602393b55c1abe7f2",
+          "bytes": 1321824,
+          "sha256": "abc9107d06ea7090634c266b50908b711d5af9925a53507f840eda8737ee8673"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ebb2bec376f8fee165ca3a7cfe5469ca74c0e13f10e3f6b12d2df06718d88647",
+          "bytes": 1186656,
+          "sha256": "cd077369b4cdad8d007f86fcd717b9d1b7b9b561fe4ca157789eaa398d26775e"
+        }
+      ]
+    }
+  }
+}

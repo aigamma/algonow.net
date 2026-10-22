@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net annealing-cooling preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T04:13:49.498Z",
+  "publication_sha256": "3f40c8fc0dacbbab6d9bc2fc57c55afd6fb4de7c7908021a866199649b146433",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4834456,
+  "objects": [
+    {
+      "stable_id": "puzzle:annealing-cooling",
+      "slug": "annealing-cooling",
+      "track_id": "algieba",
+      "source_sha256": "256eaace5e5519f06f98f3609af7c19ae44ddb9a942bbedbc73907caa438e3ab",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "05234210de5151c37deb5b6ad9ab919ccf70f966ff8f3a870c86c70a36018616",
+      "object_key": "narration/v1/puzzles/annealing-cooling/05234210de5151c37deb/algieba-56d56f2152b9e971.mp3",
+      "bytes": 2500460,
+      "sha256": "56d56f2152b9e971fb3b274533b4035ed495adff2731809ac0b7a5f0b7eecac9",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:annealing-cooling",
+      "slug": "annealing-cooling",
+      "track_id": "aoede",
+      "source_sha256": "256eaace5e5519f06f98f3609af7c19ae44ddb9a942bbedbc73907caa438e3ab",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "05234210de5151c37deb5b6ad9ab919ccf70f966ff8f3a870c86c70a36018616",
+      "object_key": "narration/v1/puzzles/annealing-cooling/05234210de5151c37deb/aoede-6ad57532be3c984c.mp3",
+      "bytes": 2333996,
+      "sha256": "6ad57532be3c984ca3cbdb5b9feb7d65059b8a91c68af9116a1562aad9855cfa",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

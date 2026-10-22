@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:dijkstra-binary-heap",
+  "source_path": "src/content/dijkstra-binary-heap.narration.js",
+  "source_sha256": "877b79fdc8ad9d893a80aa6937e525fd188efe4d7bc92ae9d77e2de0feacdfff",
+  "source_characters": 9811,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "de0864f69cdb1ada24b9f79b169204e7bd49c16e1991ef0881ad9a6aa9dc8b9d",
+  "generated_at": "2026-10-22T03:56:32.240Z",
+  "generated_characters": 19622,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4867,
+      "utf8_bytes": 4871,
+      "sha256": "2644981bb5de3d53dfca70d63269be07ef7306849b890ded6cf3e45f9e9e4de0"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4944,
+      "utf8_bytes": 4944,
+      "sha256": "bc2bc8fbf5f1694d23a8e1802039de5b3b89a7b3cc03660f8241b51bc1d3f870"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "dijkstra-binary-heap.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "dijkstra-binary-heap.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 669,
+      "sha256": "0dc81ee113a949213dbddc5dbb55aea60bddb34d1186e16f4a1c3c0c515c4786"
+    },
+    {
+      "id": "dijkstra-binary-heap.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 801,
+      "sha256": "6cd4df4e9a699b94d5fe6c531145dee0d76ccb353d251b1fcd31609f4dd333a1"
+    },
+    {
+      "id": "dijkstra-binary-heap.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 947,
+      "sha256": "52b84ccb8f312e01230212e4228fdd487ea745de8f388e65ae3aa7772cb97512"
+    },
+    {
+      "id": "dijkstra-binary-heap.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 608,
+      "sha256": "645ce7ec4f505b43ad8f6fb4cddcd6e52acb0f8aa43225f341d95183b62f7ede"
+    },
+    {
+      "id": "dijkstra-binary-heap.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1119,
+      "sha256": "dc90f12e3e29f6075ddb1c48ab66937026d66da02aa94a84b3c1f9bb2dd90a4c"
+    },
+    {
+      "id": "dijkstra-binary-heap.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 590,
+      "sha256": "3b33c0f67639675f685dc3631170b940ea796fbac694e8013b849817a545756b"
+    },
+    {
+      "id": "dijkstra-binary-heap.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 564,
+      "sha256": "b99a44e3820c662d4bab5e6728d1f8ec21b7d0ef81d9639cbb55b211f10a09c3"
+    },
+    {
+      "id": "dijkstra-binary-heap.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 883,
+      "sha256": "d4be37f349bb0179d11176f9e61bffef9a0f0da25e80ff6717b446d6fac7ec08"
+    },
+    {
+      "id": "dijkstra-binary-heap.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 717,
+      "sha256": "3516372e119b1b641bd381fa4af3d113768ce1a6c36bf0f280390e0865a58179"
+    },
+    {
+      "id": "dijkstra-binary-heap.10-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 998,
+      "sha256": "4b7a6afa8289f4047484dbad075cb3cc0c1aee47d0685fc8cbfb7dbd8948e08a"
+    },
+    {
+      "id": "dijkstra-binary-heap.11-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[10].section",
+        "narration[10].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 677,
+      "sha256": "6c8f7d331ef6544c42b2f678fde44440f8119df7f5086e7ef188231dcde403e4"
+    },
+    {
+      "id": "dijkstra-binary-heap.12-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[11].section",
+        "narration[11].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1095,
+      "sha256": "2e371110622e7c71dd4176866193984c8f6f36d6129ed000ccd22e7613771927"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/dijkstra-binary-heap/de0864f69cdb1ada24b9/aoede-c985d5aad7da8aff.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2391500,
+      "sha256": "c985d5aad7da8aff2ccf443c1aaa1b1687b05b798fcf6bcd4c9d6dd1ee98611e",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2644981bb5de3d53dfca70d63269be07ef7306849b890ded6cf3e45f9e9e4de0",
+          "bytes": 1200192,
+          "sha256": "1590519550af0ab8699509f8ccabf88202e26c5001a20d2d755b4d7f9ef43cc5"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "bc2bc8fbf5f1694d23a8e1802039de5b3b89a7b3cc03660f8241b51bc1d3f870",
+          "bytes": 1191072,
+          "sha256": "301b502abecac2b24596462e3973a37c1d43a0b27cfcffe74adad2f484d77e4e"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/dijkstra-binary-heap/de0864f69cdb1ada24b9/algieba-9f2199a58b1560c8.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2525804,
+      "sha256": "9f2199a58b1560c83a8b2f92207461b724963958b748b323e196b96874fbd505",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2644981bb5de3d53dfca70d63269be07ef7306849b890ded6cf3e45f9e9e4de0",
+          "bytes": 1230432,
+          "sha256": "f4df745a3df156d185106be245f8c1001f41772e0c0cc925453bfdc1a4c5d1ba"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "bc2bc8fbf5f1694d23a8e1802039de5b3b89a7b3cc03660f8241b51bc1d3f870",
+          "bytes": 1295136,
+          "sha256": "15c4f9088b5c94f31fb1d0c7f769ae38179fe37da1104fb08b79d1a9a8515926"
+        }
+      ]
+    }
+  }
+}

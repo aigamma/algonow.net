@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:annealing-cooling",
+  "source_path": "src/content/annealing-cooling.narration.js",
+  "source_sha256": "256eaace5e5519f06f98f3609af7c19ae44ddb9a942bbedbc73907caa438e3ab",
+  "source_characters": 9532,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "05234210de5151c37deb5b6ad9ab919ccf70f966ff8f3a870c86c70a36018616",
+  "generated_at": "2026-10-22T03:41:51.424Z",
+  "generated_characters": 19064,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4810,
+      "utf8_bytes": 4810,
+      "sha256": "bf1017958f28cb7288f37ab79f13d458cbe4711b773d34c0fe3c9198cdc9d226"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4722,
+      "utf8_bytes": 4722,
+      "sha256": "ff62dbb81ea41028965be2d18f45b20a4079718add71cb8e24f636052dbf57d6"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "annealing-cooling.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "annealing-cooling.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 638,
+      "sha256": "86c83a96e5df729c2fe55c02187a1041cfb69733bdf197ddabbdb39d031767d1"
+    },
+    {
+      "id": "annealing-cooling.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 690,
+      "sha256": "43cbcbb513530a57af926d45b9564737036aa880dd02eb5c2c31549fd9dd1506"
+    },
+    {
+      "id": "annealing-cooling.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1074,
+      "sha256": "c2ad38fde23383eac3c55660ca3f29c37f05eb17d3c63b1ab1c9083f381b0808"
+    },
+    {
+      "id": "annealing-cooling.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 641,
+      "sha256": "e49c9224bf88a1ab1a38376e5f073b7acae3eb0b9cdca38da36cd15b0ce300c4"
+    },
+    {
+      "id": "annealing-cooling.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 699,
+      "sha256": "8de552f88e77a8272439ff03efa1cc1b2296f9d3d4fee3050f0d7b24e9dd1caa"
+    },
+    {
+      "id": "annealing-cooling.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 931,
+      "sha256": "9efab770185b58d5f81c09c2f6eb6573471e204e27a07bb7d5e2f6224f96aed2"
+    },
+    {
+      "id": "annealing-cooling.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 653,
+      "sha256": "299bdfa7c2e8d09c5b7701272dd8e926dda203dc8d22b042d6abd1f4af0c32f0"
+    },
+    {
+      "id": "annealing-cooling.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 830,
+      "sha256": "90f4a2e6bb050414bbe376515f2745851ca16f7a0c3520a9e897cb0dbb322c78"
+    },
+    {
+      "id": "annealing-cooling.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 672,
+      "sha256": "fd88e1b452535ab86c694089e3a1c5296e8bba7660b836faa91381691258a0dd"
+    },
+    {
+      "id": "annealing-cooling.10-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 929,
+      "sha256": "487dbd7ef7400faabbc0a2e0e1c5631021c9e10a789ed0b65bceda01a7ff6caf"
+    },
+    {
+      "id": "annealing-cooling.11-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[10].section",
+        "narration[10].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 636,
+      "sha256": "207c04f50b19ae6318ee4567916ddf0cd76058fadc8b3fd47c8b5d2ea146c213"
+    },
+    {
+      "id": "annealing-cooling.12-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[11].section",
+        "narration[11].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 992,
+      "sha256": "13b37a419aa07da1689663e3520236bbdcb1c77bc41851c21b581712caf8b6db"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/annealing-cooling/05234210de5151c37deb/aoede-6ad57532be3c984c.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2333996,
+      "sha256": "6ad57532be3c984ca3cbdb5b9feb7d65059b8a91c68af9116a1562aad9855cfa",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "bf1017958f28cb7288f37ab79f13d458cbe4711b773d34c0fe3c9198cdc9d226",
+          "bytes": 1216704,
+          "sha256": "745febb249bdab3d0f3e01ac16de370039ffa557852ac212fde152bccaacdb25"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ff62dbb81ea41028965be2d18f45b20a4079718add71cb8e24f636052dbf57d6",
+          "bytes": 1117056,
+          "sha256": "9b76360271c60a5908e0846596f28811fa61dc41a6781e81cc099a8452596f3d"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/annealing-cooling/05234210de5151c37deb/algieba-56d56f2152b9e971.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2500460,
+      "sha256": "56d56f2152b9e971fb3b274533b4035ed495adff2731809ac0b7a5f0b7eecac9",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "bf1017958f28cb7288f37ab79f13d458cbe4711b773d34c0fe3c9198cdc9d226",
+          "bytes": 1269312,
+          "sha256": "d7e66de7a397d96dae65cbb71d718e9c4016dcf4ec159191d16901abc2b55aa0"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ff62dbb81ea41028965be2d18f45b20a4079718add71cb8e24f636052dbf57d6",
+          "bytes": 1230912,
+          "sha256": "dc4a83c5a4dd29daf715cdd44acf978ab65cd83a8a15666afb6a68187a1186f1"
+        }
+      ]
+    }
+  }
+}

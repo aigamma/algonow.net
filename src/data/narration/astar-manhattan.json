@@ -1,0 +1,435 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:astar-manhattan",
+  "source_path": "src/content/astar-manhattan.narration.js",
+  "source_sha256": "cb2a60fe268a4ac08c2cf3120e030ddff3f4cdf1025c6a98c74ba6b57ad86449",
+  "source_characters": 10130,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "a46c57c1f5318ae765802cee28377ce8a3829e244bcb57e342783a193b602c2c",
+  "generated_at": "2026-10-22T03:38:56.389Z",
+  "generated_characters": 20260,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4206,
+      "utf8_bytes": 4206,
+      "sha256": "d2056dcbb84cd02cc4e88417ee08759d91aaa38a52c38c91c068be9cbd1a16d0"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4922,
+      "utf8_bytes": 4922,
+      "sha256": "c9d1e9f5071febdab619fc56c80496852563f495f5e6cf66c208dbfde67d459a"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1002,
+      "utf8_bytes": 1002,
+      "sha256": "caa3d83ddfb2fbf78ebf032b1158114c1c46f69d5c123b5bf171f0b05b7bc8a7"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "astar-manhattan.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "astar-manhattan.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 654,
+      "sha256": "fad422aae16e6d5c268c920c04726a58267875fcef0ad74ad15edf7b751b1d71"
+    },
+    {
+      "id": "astar-manhattan.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 782,
+      "sha256": "bb779f4d989572fee274dc4907897ffa9c22f1d4294d7b2ffeefaf19f5366bbc"
+    },
+    {
+      "id": "astar-manhattan.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1058,
+      "sha256": "8717905ef260be9cd07f185bf37fff2df564b0648ecf2e1bee6b27b328cff5f4"
+    },
+    {
+      "id": "astar-manhattan.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 785,
+      "sha256": "b3f3dddff8c01c6c5657f7155f6e46716556416ebe5cb1325afe480c505d9801"
+    },
+    {
+      "id": "astar-manhattan.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 792,
+      "sha256": "82d92927c4ae0159dce392623010b00cb3d5155564410a537646cd2ffbfb5ff3"
+    },
+    {
+      "id": "astar-manhattan.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 948,
+      "sha256": "f14791e5730e0d75560ffb0b8773661b6fd7e33ec0a793c8aa77343c4b36fc09"
+    },
+    {
+      "id": "astar-manhattan.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 572,
+      "sha256": "7481367e37421d7790c7d3ea8d585d4dcd7fb75457589eb90106e4b254f1d280"
+    },
+    {
+      "id": "astar-manhattan.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1289,
+      "sha256": "38952c45e70db06e539224694d044969922d62a4071e16cf6539b7de5a852ac6"
+    },
+    {
+      "id": "astar-manhattan.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1213,
+      "sha256": "bd266cbc28af40516f485e9ff01fb8458ec2f45b7dad18bb6cf7a9b2bc1a7a28"
+    },
+    {
+      "id": "astar-manhattan.10-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 890,
+      "sha256": "e6715d3ab8ade4272666610082970778a3dabc7985630e5ba7dc9cf671bd9709"
+    },
+    {
+      "id": "astar-manhattan.11-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[10].section",
+        "narration[10].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1002,
+      "sha256": "caa3d83ddfb2fbf78ebf032b1158114c1c46f69d5c123b5bf171f0b05b7bc8a7"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/astar-manhattan/a46c57c1f5318ae76580/aoede-1cfae6140224acf1.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2451692,
+      "sha256": "1cfae6140224acf1248dde09ce6fc75e6fa2b2a8add03689e0c5ee2ae6bcc6d1",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d2056dcbb84cd02cc4e88417ee08759d91aaa38a52c38c91c068be9cbd1a16d0",
+          "bytes": 1027296,
+          "sha256": "2763a9052fbcf7f98596b4b3fe599cc38a076967b3ceec1e2f7c858316a4fe50"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "c9d1e9f5071febdab619fc56c80496852563f495f5e6cf66c208dbfde67d459a",
+          "bytes": 1166016,
+          "sha256": "ac028d6b1aa80fd18c0ed04b8c1ed2145cbc88e707152ea18167595ff3992037"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "caa3d83ddfb2fbf78ebf032b1158114c1c46f69d5c123b5bf171f0b05b7bc8a7",
+          "bytes": 258144,
+          "sha256": "98c56cbb83443de072063e432b85427bbc2cabfd199b9f28f2abb9a4a3354bac"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/astar-manhattan/a46c57c1f5318ae76580/algieba-b0fc6123db6e5490.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2659628,
+      "sha256": "b0fc6123db6e5490d9fa6d94dede139b647f8a9f07a3c8016893bc98e55a0ee9",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d2056dcbb84cd02cc4e88417ee08759d91aaa38a52c38c91c068be9cbd1a16d0",
+          "bytes": 1124064,
+          "sha256": "67f072178c877b11c62e87f7593b00b0e1fc3ea5418ab966c3bfbf909cb85f41"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "c9d1e9f5071febdab619fc56c80496852563f495f5e6cf66c208dbfde67d459a",
+          "bytes": 1268064,
+          "sha256": "4a13f43cec744044b8e1cb5bcb9bd4e272ef2be5b33cba8ef9dabff5d47e706e"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "caa3d83ddfb2fbf78ebf032b1158114c1c46f69d5c123b5bf171f0b05b7bc8a7",
+          "bytes": 267264,
+          "sha256": "acc9172f35c06f798ac42906a1dd23dd07af5c8628a3d3432ad3cfc03f1a4ee3"
+        }
+      ]
+    }
+  }
+}

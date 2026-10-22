@@ -309,7 +309,10 @@ export function drawScene(ctx, scene) {
     ctx.fillText(`line ${row.line}`, FILE_X + 8, y + 17);
     ctx.font = `10px ${MONO}`;
     ctx.fillStyle = DIM;
-    ctx.fillText(row.preview, FILE_X + 62, y + 17);
+    // The crash mark sits at the row's right end, so the preview stops short
+    // of it while the mark shows instead of running underneath it.
+    const preview = row.crash > 0 && row.preview.length > 25 ? `${row.preview.slice(0, 24)}…` : row.preview;
+    ctx.fillText(preview, FILE_X + 62, y + 17);
     if (row.crash > 0) {
       ctx.globalAlpha = row.alpha * row.crash;
       ctx.fillStyle = PANEL;

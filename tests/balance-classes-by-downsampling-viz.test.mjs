@@ -64,7 +64,8 @@ test('the outro scene holds the worked result before the practice changes it', (
   assert.deepEqual(scene.chips.map((chip) => chip.id), expected.kept);
   assert.equal(scene.cards.length, data.records.length);
   assert.deepEqual(scene.panel.rows.map((row) => Math.round(row.afterShown)), [3, 3, 2]);
-  assert.ok(scene.panel.majorityText.includes('before 7 of 12 (58%), after 3 of 8 (38%)'));
+  assert.equal(scene.panel.majorityLabel, 'best constant answer, before and after');
+  assert.ok(scene.panel.majorityText.includes('7 of 12 (58%)') && scene.panel.majorityText.includes('3 of 8 (38%)'));
   const order = beatOf('order');
   const before = sceneAt(timeline, trace, data, order.start - 0.01);
   assert.equal(before.chips.length, 0, 'chips appear only in the order beat');

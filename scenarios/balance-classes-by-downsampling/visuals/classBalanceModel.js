@@ -170,7 +170,7 @@ const CARD_Y0 = 92;
 const CARD_H = 28;
 const CARD_PITCH = 34;
 const STRIP_X0 = 40, STRIP_Y = 384, CHIP_W = 44, CHIP_H = 24, CHIP_PITCH = 52;
-const PANEL = { x: 560, y: 352, w: 310, h: 120 };
+const PANEL = { x: 570, y: 344, w: 300, h: 132 };   // clear of the billing column's cards, room for a two-line baseline
 const CHIP_STAGGER = 0.22, CHIP_GLIDE = 0.7;
 
 export function sceneAt(timeline, trace, data, elapsed) {
@@ -223,7 +223,9 @@ export function sceneAt(timeline, trace, data, elapsed) {
     trace.kept.forEach((id, slot) => {
       const card = cards.find((candidate) => candidate.id === id);
       const progress = beat.kind === 'order' ? easeInOut(ramp(local, 0.4 + slot * CHIP_STAGGER, CHIP_GLIDE)) : 1;
-      chips.push({ id, kind: 'kept', x: lerp(card.x + 4, STRIP_X0 + slot * CHIP_PITCH, progress), y: lerp(card.y + 2, STRIP_Y, progress), alpha: 1 });
+      // A chip fades in as it leaves its card, so nothing sits over the card's
+      // own id at the beat's first instant; it is solid for the rest of the glide.
+      chips.push({ id, kind: 'kept', x: lerp(card.x + 4, STRIP_X0 + slot * CHIP_PITCH, progress), y: lerp(card.y + 2, STRIP_Y, progress), alpha: Math.min(1, progress / 0.25) });
     });
   }
 
@@ -256,10 +258,13 @@ export function sceneAt(timeline, trace, data, elapsed) {
   }));
   const [topAfter, totalAfter] = trace.majority.after;
   const [topP, totalP] = trace.practice.majority;
+  // The baseline is two short lines (a label, then the numbers), because one
+  // line with both fractions runs past the panel.
+  const majorityLabel = practiceCounts >= 1 ? `best constant answer, floor ${trace.floor}` : 'best constant answer, before and after';
   const majorityText = practiceCounts >= 1
-    ? `floor ${trace.floor}: at most ${topP} of ${totalP} (${pct(topP, totalP)}%)`
-    : `before ${trace.majority.before[0]} of ${trace.majority.before[1]} (${pct(...trace.majority.before)}%), after ${topAfter} of ${totalAfter} (${pct(topAfter, totalAfter)}%)`;
-  const panel = { alpha: panelAlpha, rows, barProgress, majorityText };
+    ? `at most ${topP} of ${totalP} (${pct(topP, totalP)}%)`
+    : `${trace.majority.before[0]} of ${trace.majority.before[1]} (${pct(...trace.majority.before)}%)  →  ${topAfter} of ${totalAfter} (${pct(topAfter, totalAfter)}%)`;
+  const panel = { alpha: panelAlpha, rows, barProgress, majorityLabel, majorityText };
 
   const keptSoFar = cards.filter((card) => card.border === 'green' || card.border === 'blue').length;
   const droppedSoFar = cards.filter((card) => card.border === 'red').length;
@@ -401,9 +406,12 @@ export function drawScene(ctx, scene) {
       ctx.font = `10.5px ${MONO}`;
       ctx.fillText(`${row.before} → ${Math.round(row.after)}`, x0 + 7 * 18 + 12, y + 10);
     });
+    ctx.fillStyle = DIM;
+    ctx.font = `10px ${MONO}`;
+    ctx.fillText(scene.panel.majorityLabel, PANEL.x + 12, PANEL.y + PANEL.h - 25);
     ctx.fillStyle = INK;
     ctx.font = `10.5px ${MONO}`;
-    ctx.fillText(`constant answer right: ${scene.panel.majorityText}`, PANEL.x + 12, PANEL.y + PANEL.h - 10);
+    ctx.fillText(scene.panel.majorityText, PANEL.x + 12, PANEL.y + PANEL.h - 10);
     ctx.restore();
   }
   ctx.globalAlpha = 1;

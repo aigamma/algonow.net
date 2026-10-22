@@ -322,6 +322,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['Greedy selection with a while loop and a best-so-far variable', 'A similarity matrix as a list of lists', 'The MMR score and the lambda tradeoff', 'list.remove and membership tests', 'A cap per source (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'extract-json-from-model-output',
+    title: 'Extract and validate the JSON object inside a model\'s reply',
+    summary: 'Orbit asked the model for JSON and got prose, code fences, trailing commentary, and sometimes a truncated object; one unparseable reply crashed the whole service. A worked Python example finds the first balanced object in six inline replies and validates it: a character walk with a depth counter that ignores braces inside strings, a slice for the span, json.loads inside try and except JSONDecodeError, required keys and types checked with in and isinstance, a reason returned for every rejection, its exact output, a trace of every reply, and one practice variation that repairs a trailing comma before parsing.',
+    track: 'serving',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'intermediate',
+    durationMinutes: 30,
+    skills: ['A character walk with a depth counter and a string flag', 'Slicing the balanced span', 'json.loads with try and except JSONDecodeError', 'Validating required keys and types with in and isinstance', 'Repairing a trailing comma before parsing (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

@@ -370,6 +370,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['Counter for class counts', 'Grouping records into a dictionary of lists', 'random.Random(seed).sample for a class over the cap', 'Restoring input order with a position lookup and a sort key', 'Upsampling to a floor with choice (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'format-transcripts-into-sft-examples',
+    title: 'Turn chat transcripts into supervised fine-tuning examples',
+    summary: 'Orbit exports support chats as flat rows of conversation id, turn index, role, and text, while fine-tuning wants one example per assistant turn with the preceding turns as context. A worked Python example groups nine inline rows into two conversations, walks each in turn order, and emits an example at every non-empty assistant turn with at most the last four turns as context: a dictionary of lists, sorting by a key, slicing with max for the window, nested dictionaries for messages, a skipped counter, a duplicate turn index rejected, its exact output, a trace of every window, and one practice variation that prepends a system message and skips targets shorter than three words.',
+    track: 'fine-tuning',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'intermediate',
+    durationMinutes: 30,
+    skills: ['Grouping rows into a dictionary of lists', 'Sorting turns with a key function', 'A sliding window with max and slicing', 'Nested dictionaries as message records', 'A system message and a minimum target length (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

@@ -298,6 +298,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['Global norm over nested lists with nested loops and math.sqrt', 'One scale factor with min', 'Building new lists instead of mutating inputs', 'Applying an update with zip over parallel nested lists', 'Per-group clipping (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'pass-at-k-estimator',
+    title: 'Estimate pass at k for a code model from n samples per problem',
+    summary: 'Orbit sampled five solutions per problem, reported the share of problems where any sample passed as the model\'s score, and had no honest pass at one. A worked Python example computes the unbiased pass at k estimator for six inline problems: math.comb, the identity one minus C(n minus c, k) over C(n, k), an early return when every subset must contain a passing sample, a table for k of one, three, and five, means, its exact output, a trace of the ten subsets for one problem, and one practice variation that estimates the chance that all k samples pass.',
+    track: 'evaluation',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'intermediate',
+    durationMinutes: 30,
+    skills: ['math.comb and the unbiased pass at k estimator', 'A guard clause with an early return', 'Building a table over several k values', 'Means over problems', 'All k samples correct (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

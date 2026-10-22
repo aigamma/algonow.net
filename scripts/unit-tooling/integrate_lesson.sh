@@ -36,7 +36,7 @@ git diff --quiet -- src/data/engineering.js || fail "registry was not restored a
 [ -f "src/data/narration/$SLUG.json" ] && fail "stub manifest left behind"
 
 grep -rl $'\xe2\x80\x94' "scenarios/$SLUG" "src/content/$SLUG.narration.js" "tests/$SLUG-viz.test.mjs" 2>/dev/null | grep -v __pycache__ && fail "em dash present"
-grep -rli "heartbeat" "scenarios/$SLUG" "src/content/$SLUG.narration.js" "tests/$SLUG-viz.test.mjs" 2>/dev/null | grep -v __pycache__ && fail "forbidden word present"
+grep -rli "heart""beat" "scenarios/$SLUG" "src/content/$SLUG.narration.js" "tests/$SLUG-viz.test.mjs" 2>/dev/null | grep -v __pycache__ && fail "forbidden word present"
 
 git add "scenarios/$SLUG" "src/content/$SLUG.narration.js" "tests/$SLUG-viz.test.mjs" || fail "git add"
 if git diff --cached --quiet; then

@@ -1,0 +1,90 @@
+{
+ "k": 3,
+ "queries": [
+  {
+   "id": "q1",
+   "question": "how do I rotate an API key?",
+   "relevant": [
+    "c1"
+   ],
+   "old": [
+    "c4",
+    "c2",
+    "c1",
+    "c9",
+    "c5"
+   ],
+   "new": [
+    "c1",
+    "c4",
+    "c2",
+    "c9",
+    "c5"
+   ]
+  },
+  {
+   "id": "q2",
+   "question": "a key was leaked, what do I do?",
+   "relevant": [
+    "c3",
+    "c8"
+   ],
+   "old": [
+    "c6",
+    "c3",
+    "c8",
+    "c7",
+    "c2"
+   ],
+   "new": [
+    "c3",
+    "c8",
+    "c6",
+    "c7",
+    "c2"
+   ]
+  },
+  {
+   "id": "q3",
+   "question": "which scope do list calls need?",
+   "relevant": [
+    "c5"
+   ],
+   "old": [
+    "c5",
+    "c2",
+    "c9",
+    "c4",
+    "c1"
+   ],
+   "new": [
+    "c2",
+    "c5",
+    "c9",
+    "c4",
+    "c1"
+   ]
+  },
+  {
+   "id": "q4",
+   "question": "where is last month's invoice?",
+   "relevant": [
+    "c10"
+   ],
+   "old": [
+    "c2",
+    "c4",
+    "c6",
+    "c7",
+    "c9"
+   ],
+   "new": [
+    "c4",
+    "c2",
+    "c9",
+    "c6",
+    "c7"
+   ]
+  }
+ ]
+}

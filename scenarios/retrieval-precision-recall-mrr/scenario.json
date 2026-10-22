@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "slug": "retrieval-precision-recall-mrr",
+  "track": "evaluation",
+  "language": "python",
+  "system": {
+    "context": "Orbit swapped the embedding model behind its runbook retriever because the new results felt better. Nobody could say by how much, or whether the old model found chunks the new one misses, and a feeling is not a number that survives a release review.",
+    "request": "A worked Python example of one action: score two rankings on the same four inline questions with precision at k (of the first k results, the fraction that are relevant), recall at k (of the relevant chunks, the fraction the first k results found), and the reciprocal rank (one over the position of the first relevant result, 0 when none appears), with k = 3, and print both tables, their means, and the difference. The lesson leads with the complete solution and its exact output, explains the Python construct by construct (a set literal and membership, slicing the first k, one hit-counting helper used by two functions, guards that raise ValueError, enumerate with start=1 and an early return, division producing floats, picking a list by a string key, tuples and a dictionary of means, format specs with a sign flag), traces where every relevant chunk lands, and offers one practice variation: nDCG at k with math.log2.",
+    "inputs": [
+      "Four queries written inline in solution.py as a list of dictionaries: an id, the question, the set of relevant chunk ids ({\"c1\"}, {\"c3\", \"c8\"}, {\"c5\"}, {\"c10\"}), the old model's top five ids, and the new model's top five ids",
+      "K = 3, the number of results a reader looks at",
+      "For the practice variation, the same queries scored with nDCG at 3 using the discount 1 / log2(position + 1)"
+    ],
+    "outputs": [
+      "evaluate returns one (id, precision, recall, reciprocal rank) row per query and a dictionary of means; the old ranking averages 0.333, 0.750, 0.458 and the new ranking 0.333, 0.750, 0.625, so the difference is +0.000, +0.000, +0.167",
+      "python solution.py prints both tables, the difference line, the interpretation (the same relevant chunks reach the top 3; the new model puts them earlier), the rejected k of 0, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it prints an nDCG column (q2 0.693 old against 1.000 new, means 0.548 against 0.658, difference +0.109) and OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, or network",
+      "k below 1 raises ValueError; an empty relevant set raises ValueError from every metric; a ranking shorter than k is scored as far as it goes with k still the denominator of precision; the input lists and sets are never modified",
+      "Precision and recall share one hit-counting helper and differ only in the denominator; the reciprocal rank returns at the first hit and 0.0 after the loop; means are computed in query order",
+      "Ordinary Python only: list and dictionary literals, a set literal, slicing, for loops, enumerate with start=1, early return, running totals, tuples, a dictionary of means, f-strings with format specs, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the old rows (0.333, 1.000, 0.333), (0.667, 1.000, 0.500), (0.333, 1.000, 1.000), (0.000, 0.000, 0.000) with means 0.333, 0.750, 0.458; the new rows with reciprocal ranks 1.000, 1.000, 0.500, 0.000 and means 0.333, 0.750, 0.625; the difference line; the rejected line; OK",
+      "The metrics are exact on hand-built rankings (one relevant at position 1 gives precision 1/3, recall 1, reciprocal rank 1 at k = 3; no hits give 0 everywhere; a short ranking is scored as far as it goes) and the guards raise for k = 0 and an empty relevant set",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt; nDCG is 1.0 for a hit at position 1, 0.0 with no hits, and (1/log2(3) + 1/log2(4)) / (1 + 1/log2(3)) = 0.693 for hits at positions 2 and 3 with two relevant chunks",
+      "On the same queries both rankings put the same relevant chunks inside the top three (precision and recall tie exactly), the first hit moves from 3 to 1 on q1 and 2 to 1 on q2 while q3 slips from 1 to 2 and q4 is found by neither, and the mean reciprocal rank rises by 0.166667"
+    ]
+  },
+  "python": {
+    "package": "retrieval_metrics",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "00aacf0a174a83a01f6f1dd29a4fd1ebf62bde73f4cf03f452ea038e6552e90f"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "bf62fc5ba828f0b50ff8dbaf5ee8bc0cd2cc39e54eca1238d8d2671a0075e74d"
+    },
+    {
+      "path": "python/fixtures/queries.json",
+      "description": "The four queries and k exactly as the lesson files define them, each relevant set written as a sorted list; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "de1e6b8cec14e97d7677623ee334c89c43ae2ef4dd67be1434336ef5c862f101"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every row (precision, recall, reciprocal rank, nDCG, hit positions, hits in the top k) and the means for both rankings, the differences, and whether the top-three hits coincide, all derived from the Python files at six decimals; the animation must replay it exactly.",
+      "sha256": "cea7b5c72503b31210082f23249e414949d336b627c6203dfa22a9b9b38eb759"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "metrics-hand-computed",
+      "kind": "correctness",
+      "description": "On a hand-built ranking with relevant ids at positions 2 and 5, precision at 3 is 1/3, recall at 3 is 1/2, and the reciprocal rank is 1/2; a relevant result at position 1 gives precision 1 at k = 1 and recall 1 at k = 3.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_metrics_on_a_hand_computed_ranking"
+    },
+    {
+      "id": "no-hits-zero",
+      "kind": "correctness",
+      "description": "A ranking that contains no relevant id scores 0.0 for precision, recall, and reciprocal rank.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_ranking_with_no_hits_scores_zero_everywhere"
+    },
+    {
+      "id": "short-ranking",
+      "kind": "correctness",
+      "description": "A ranking shorter than k is scored as far as it goes: k still divides precision, recall is complete, and an empty ranking has reciprocal rank 0.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_short_ranking_is_scored_as_far_as_it_goes"
+    },
+    {
+      "id": "guards-raise",
+      "kind": "failure",
+      "description": "k of 0 raises ValueError naming k, an empty relevant set raises ValueError from precision, recall, and reciprocal rank, and evaluate passes the k error through.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_guards_reject_a_bad_k_and_an_empty_relevant_set"
+    },
+    {
+      "id": "rows-and-means",
+      "kind": "correctness",
+      "description": "The old rows round to (0.333, 1.0, 0.333), (0.667, 1.0, 0.5), (0.333, 1.0, 1.0), (0, 0, 0) with means 0.333333, 0.75, 0.458333; the new reciprocal ranks are 1.0, 1.0, 0.5, 0.0 with means 0.333333, 0.75, 0.625.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_rows_and_means_are_what_the_page_says"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The queries, their rankings, and their relevant sets are unchanged after scoring both rankings.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_is_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about nDCG, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "ndcg-identities",
+      "kind": "correctness",
+      "description": "nDCG at 3 is exactly 1.0 for a hit at position 1, 0.0 with no hits, 1/log2(3) for a single hit at position 2, and the hand-computed 0.693 for hits at positions 2 and 3 with two relevant chunks; k of 0 raises.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_ndcg_identities_and_the_hand_computed_case"
+    },
+    {
+      "id": "answer-means",
+      "kind": "correctness",
+      "description": "The practice answer's mean nDCG at 3 is 0.548357 old and 0.657732 new, with the mean reciprocal ranks 0.458333 and 0.625 unchanged.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_means_are_the_documented_values"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data and functions above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "queries-fixture",
+      "kind": "correctness",
+      "description": "queries.json equals the queries and k that the lesson files define, with each relevant set as a sorted list.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_queries_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: per ranking the rows with precision, recall, reciprocal rank, nDCG, hit positions, and hits in the top k, the means, the differences (+0.0, +0.0, +0.166667, +0.109375), and that the top-three hits coincide.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "same-hits-in-top-three",
+      "kind": "evaluation",
+      "description": "For every query the old and the new ranking put the same relevant chunks inside the top three, so mean precision and mean recall tie exactly (recall 0.75): the new model finds nothing the old one missed.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_both_rankings_find_the_same_relevant_chunks_in_the_top_three"
+    },
+    {
+      "id": "earlier-first-hit",
+      "kind": "evaluation",
+      "description": "The mean reciprocal rank rises from 0.458333 to 0.625 (+0.166667): the first hit moves from 3 to 1 on q1 and 2 to 1 on q2, slips from 1 to 2 on q3, and q4 is found by neither, which is what felt better.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_new_ranking_puts_the_first_hit_earlier_on_average"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/RetrievalMetricsViz.jsx",
+      "description": "A short animation of the worked example, about two and a half seconds per ranking and about half a minute in all: for each of the four questions the old ranking's five returned ids light up as slots (relevant chunks green, a bright border on the first relevant hit, an amber box around the three judged results) while meters for precision at 3, recall at 3, and the reciprocal rank fill to their values, then the new ranking does the same underneath; a table on the right collects every row (q1 old 0.333, 1.000, 0.333; q1 new 0.333, 1.000, 1.000; and so on), the outro shows the means (0.333, 0.750, 0.458 against 0.333, 0.750, 0.625) and the difference (+0.167 MRR), and the practice variation adds the nDCG column (means 0.548 against 0.658) with a plot of the per-position discounts for q2. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/retrievalMetricsModel.js, a JavaScript port of hits_in_top, precision_at_k, recall_at_k, reciprocal_rank, evaluate, and ndcg_at_k that runs on python/fixtures/queries.json; tests/retrieval-precision-recall-mrr-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json (six decimals), which the cited Python check derives from the real functions, that every ranking beat starts unlit and ends with all five slots lit, the readout filled, the first-hit marker on the recorded position, and its table row shown, that captions carry the measured numbers, that the final scene holds the complete table with means and the nDCG column, and that alphas stay in range and the table only grows at every sampled moment. Rendered frames are inspected after publication at 900 pixels.",
+      "check": "trace-fixture"
+    }
+  ]
+}

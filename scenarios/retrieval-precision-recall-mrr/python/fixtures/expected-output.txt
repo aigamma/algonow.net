@@ -1,0 +1,24 @@
+4 queries, each judged on its first 3 results
+
+old ranking
+query     P@3    R@3     RR
+q1      0.333  1.000  0.333
+q2      0.667  1.000  0.500
+q3      0.333  1.000  1.000
+q4      0.000  0.000  0.000
+mean    0.333  0.750  0.458
+
+new ranking
+query     P@3    R@3     RR
+q1      0.333  1.000  1.000
+q2      0.667  1.000  1.000
+q3      0.333  1.000  0.500
+q4      0.000  0.000  0.000
+mean    0.333  0.750  0.625
+
+new minus old: P@3 +0.000, R@3 +0.000, MRR +0.167
+the same relevant chunks reach the top 3; the new model puts them earlier
+
+rejected: k must be at least 1, got 0
+
+OK

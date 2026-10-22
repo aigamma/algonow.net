@@ -190,6 +190,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['Exact match after normalization', 'Token F1 from precision and recall', 'Counter intersection as a multiset overlap', 'Zero guards in a ratio', 'Several gold answers, take the maximum (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'token-bucket-rate-limiter',
+    title: 'Smooth request bursts to a model endpoint with a token bucket',
+    summary: 'Orbit\'s gateway forwarded every request to the hosted model the instant it arrived, so a burst of twenty tripped the provider\'s rate limit, all twenty failed, and the retries made it worse. A worked Python example admits or rejects eight scripted requests with a token bucket: state variables carried across loop iterations, a refill computed from the elapsed time and capped with min, one token per admitted request, out-of-order timestamps rejected, its exact output, a trace of the bucket level at every arrival, and one practice variation that keeps a separate bucket per tenant in a dictionary.',
+    track: 'serving',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'intermediate',
+    durationMinutes: 30,
+    skills: ['A token bucket: capacity, refill rate, one token per request', 'State variables updated across loop iterations', 'min to cap a value and float arithmetic with elapsed time', 'Rejecting out-of-order timestamps with a ValueError', 'Per-tenant buckets in a dictionary (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

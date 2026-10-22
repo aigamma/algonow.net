@@ -1,3 +1,4 @@
+import CodeBlock from '../../src/components/CodeBlock.jsx';
 import DistillationViz from './visuals/DistillationViz.jsx';
 import solutionSource from './python/src/distillation_targets/solution.py?raw';
 import starterSource from './python/src/distillation_targets/starter.py?raw';
@@ -72,7 +73,7 @@ export const content = {
       </p>
       <details>
         <summary>Show the answer</summary>
-        <pre><code>{answerSnippet}</code></pre>
+        <CodeBlock filename="Practice answer" code={answerSnippet} />
         <p>
           Three lines. At <code>alpha</code> 1 the blend is the soft loss, at 0 it is the hard loss, and every value
           in between is a straight line between them, which is why the mean of the blends equals the blend of the

@@ -762,7 +762,8 @@ code, kbd, pre { font-family: var(--font-mono); }
   font-size: 0.76rem;
   color: var(--ink-faint);
 }
-.code-head .btn { font-size: 0.72rem; padding: 0.42em 0.8em; }
+.code-head > span { min-width: 0; }
+.code-head .btn { font-size: 0.72rem; padding: 0.42em 0.8em; flex-shrink: 0; }
 .code-block pre {
   margin: 0;
   padding: 1.1rem 1.2rem;
@@ -771,6 +772,45 @@ code, kbd, pre { font-family: var(--font-mono); }
   line-height: 1.6;
   color: #d6deed;
   tab-size: 4;
+}
+.code-wrap-note { display: none; }
+
+@media (max-width: 760px) {
+  .code-block pre, .scenario-page pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .code-wrap-note {
+    display: block;
+    margin: 0;
+    padding: .5rem .75rem;
+    color: var(--ink-faint);
+    font: .72rem/1.5 var(--font-body);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .code-block pre { padding: 1rem .75rem 1rem 4.5ch; }
+  .code-line {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: 100%;
+    /* Offset visual continuations without inserting indentation into Python. */
+    --wrap-indent: min(var(--code-indent), 40%);
+    padding-left: var(--wrap-indent);
+    text-indent: calc(-1 * var(--wrap-indent));
+  }
+  .code-line::before {
+    content: attr(data-line);
+    position: absolute;
+    left: -4ch;
+    width: 3ch;
+    text-align: right;
+    text-indent: 0;
+    color: var(--ink-faint);
+    font-style: normal;
+    font-weight: normal;
+    user-select: none;
+  }
 }
 .tok-kw { color: var(--algo); }
 .tok-str { color: var(--path); }

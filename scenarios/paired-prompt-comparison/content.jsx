@@ -1,3 +1,4 @@
+import CodeBlock from '../../src/components/CodeBlock.jsx';
 import PairedEvalViz from './visuals/PairedEvalViz.jsx';
 import solutionSource from './python/src/paired_eval/solution.py?raw';
 import starterSource from './python/src/paired_eval/starter.py?raw';
@@ -81,7 +82,7 @@ export const content = {
       </p>
       <details>
         <summary>Show the answer</summary>
-        <pre><code>{answerSnippet}</code></pre>
+        <CodeBlock filename="Practice answer" code={answerSnippet} />
         <p>
           One line. Notice what it does to the story: t5 was never a real regression, only a formatting difference,
           and t3 still is. Everything outside the marked region is the practice file unchanged.

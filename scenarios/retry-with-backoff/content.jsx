@@ -1,3 +1,4 @@
+import CodeBlock from '../../src/components/CodeBlock.jsx';
 import RetryBackoffViz from './visuals/RetryBackoffViz.jsx';
 import solutionSource from './python/src/retry_backoff/solution.py?raw';
 import starterSource from './python/src/retry_backoff/starter.py?raw';
@@ -74,7 +75,7 @@ export const content = {
       </p>
       <details>
         <summary>Show the answer</summary>
-        <pre><code>{answerSnippet}</code></pre>
+        <CodeBlock filename="Practice answer" code={answerSnippet} />
         <p>
           One variable before the loop, one comparison, and one addition. The budget check sits after the cap check
           and before the sleep, so a wait is never taken once it would cross the line, and a wait that lands exactly

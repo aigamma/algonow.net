@@ -101,6 +101,11 @@ infrastructure. Do not invent a measured learning gain or guarantee exam results
 
 ## Delivery mechanics for worked lessons
 
+Render every Python snippet, including the revealed practice answer, with
+`src/components/CodeBlock.jsx`. It provides mobile wrapping, source-line
+numbers that distinguish continuations, and a copy of the original source.
+Keep raw `<pre>` blocks for expected output, not Python solutions.
+
 Mark the two primary records in `content.files` with literal `primary: true`,
 one with role `starter` and one with role `reference`. Their sources are still
 imported using `?raw` from the actual Python files, including when those files

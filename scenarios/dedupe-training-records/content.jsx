@@ -1,3 +1,4 @@
+import CodeBlock from '../../src/components/CodeBlock.jsx';
 import DedupeViz from './visuals/DedupeViz.jsx';
 import solutionSource from './python/src/dedupe_records/solution.py?raw';
 import starterSource from './python/src/dedupe_records/starter.py?raw';
@@ -83,7 +84,7 @@ export const content = {
       </p>
       <details>
         <summary>Show the answer</summary>
-        <pre><code>{answerSnippet}</code></pre>
+        <CodeBlock filename="Practice answer" code={answerSnippet} />
         <p>
           The overlap test runs before the duplicate test on purpose: r6 shares r2&apos;s key, and since r2 was
           never kept there is nothing for r6 to duplicate, so it is an overlap too. A second set holds the

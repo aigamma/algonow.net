@@ -1,3 +1,4 @@
+import CodeBlock from '../../src/components/CodeBlock.jsx';
 import RankFusionViz from './visuals/RankFusionViz.jsx';
 import solutionSource from './python/src/rank_fusion/solution.py?raw';
 import starterSource from './python/src/rank_fusion/starter.py?raw';
@@ -69,7 +70,7 @@ export const content = {
       </p>
       <details>
         <summary>Show the answer</summary>
-        <pre><code>{answerSnippet}</code></pre>
+        <CodeBlock filename="Practice answer" code={answerSnippet} />
         <p>
           One multiplication. Doubling the keyword contributions lifts every document the keyword index found by the
           same factor, so the error table (keyword rank 1) overtakes the runbook (keyword rank 3) even though the

@@ -1,3 +1,4 @@
+import CodeBlock from '../../src/components/CodeBlock.jsx';
 import PackBlocksViz from './visuals/PackBlocksViz.jsx';
 import solutionSource from './python/src/rag_chunking/solution.py?raw';
 import starterSource from './python/src/rag_chunking/starter.py?raw';
@@ -77,7 +78,7 @@ export const content = {
       </p>
       <details>
         <summary>Show the answer</summary>
-        <pre><code>{answerSnippet}</code></pre>
+        <CodeBlock filename="Practice answer" code={answerSnippet} />
         <p>
           One new function and one new line at the top of <code>pack_blocks</code>. The split lines are ordinary
           blocks from then on, so they rejoin with blank lines like any other blocks, and a single line over the

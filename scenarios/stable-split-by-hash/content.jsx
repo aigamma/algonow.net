@@ -1,3 +1,4 @@
+import CodeBlock from '../../src/components/CodeBlock.jsx';
 import StableSplitViz from './visuals/StableSplitViz.jsx';
 import solutionSource from './python/src/stable_split/solution.py?raw';
 import starterSource from './python/src/stable_split/starter.py?raw';
@@ -80,7 +81,7 @@ export const content = {
       </p>
       <details>
         <summary>Show the answer</summary>
-        <pre><code>{answerSnippet}</code></pre>
+        <CodeBlock filename="Practice answer" code={answerSnippet} />
         <p>
           One function. The bucket is computed once into <code>number</code>, and two <code>if</code> statements test
           it against the thresholds from the smallest up, each returning early; the last line is the default. Because

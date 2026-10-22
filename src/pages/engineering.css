@@ -109,6 +109,7 @@
   .legacy-entrance { align-items: flex-start; flex-direction: column; }
 }
 @media (max-width: 700px) {
+  .scenario-page details { padding: .75rem; }
   .engineering-hero { grid-template-columns: minmax(0, 1fr); padding: 2rem 0; }
   .engineering-hero h1 { font-size: clamp(2.1rem, 8vw, 3.2rem); }
   .engineering-hero > .hero-demo { justify-self: center; }

@@ -1,3 +1,4 @@
+import CodeBlock from '../../src/components/CodeBlock.jsx';
 import LrScheduleViz from './visuals/LrScheduleViz.jsx';
 import solutionSource from './python/src/lr_schedule/solution.py?raw';
 import starterSource from './python/src/lr_schedule/starter.py?raw';
@@ -65,7 +66,7 @@ export const content = {
       </p>
       <details>
         <summary>Show the answer</summary>
-        <pre><code>{answerSnippet}</code></pre>
+        <CodeBlock filename="Practice answer" code={answerSnippet} />
         <p>
           One new early return and two subtractions in the progress line. The order of the branches is the whole
           logic: warmup, then hold, then decay, each handled by the first condition that is true. Everything outside

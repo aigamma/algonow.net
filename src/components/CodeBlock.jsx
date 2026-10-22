@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { tokenizePython } from '../lib/pyhl.js';
+import { pythonLines } from '../lib/pyhl.js';
 
 const CLASS_FOR = {
   kw: 'tok-kw',
@@ -12,7 +12,7 @@ const CLASS_FOR = {
 
 export default function CodeBlock({ code, filename }) {
   const [copied, setCopied] = useState(false);
-  const tokens = tokenizePython(code.trimEnd());
+  const lines = pythonLines(code);
 
   const copy = async () => {
     try {
@@ -32,15 +32,16 @@ export default function CodeBlock({ code, filename }) {
           {copied ? 'copied' : 'copy'}
         </button>
       </div>
+      <p className="code-wrap-note">Numbers mark original lines. Unnumbered rows are continuations.</p>
       <pre>
         <code>
-          {tokens.map((tok, i) =>
-            tok.t === 'plain' ? (
-              tok.s
-            ) : (
-              <span key={i} className={CLASS_FOR[tok.t]}>{tok.s}</span>
-            )
-          )}
+          {lines.map((line, i) => (
+            <span className="code-line" data-line={i + 1} key={i} style={{ '--code-indent': `${line.indent + 2}ch` }}>
+              {line.tokens.map((tok, j) => tok.t === 'plain'
+                ? tok.s
+                : <span key={j} className={CLASS_FOR[tok.t]}>{tok.s}</span>)}
+            </span>
+          ))}
         </code>
       </pre>
     </div>

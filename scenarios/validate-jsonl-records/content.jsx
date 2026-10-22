@@ -1,3 +1,4 @@
+import CodeBlock from '../../src/components/CodeBlock.jsx';
 import JsonlValidationViz from './visuals/JsonlValidationViz.jsx';
 import solutionSource from './python/src/jsonl_validation/solution.py?raw';
 import starterSource from './python/src/jsonl_validation/starter.py?raw';
@@ -79,7 +80,7 @@ export const content = {
       </p>
       <details>
         <summary>Show the answer</summary>
-        <pre><code>{answerSnippet}</code></pre>
+        <CodeBlock filename="Practice answer" code={answerSnippet} />
         <p>
           The new check sits after the others on purpose: a malformed or empty repeat is still reported for what
           it is, and only a record that would otherwise be kept counts as a duplicate. The set holds prompts, not

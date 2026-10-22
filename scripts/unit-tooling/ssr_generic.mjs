@@ -52,7 +52,7 @@ const checks = {
   vizInVisual: section('visual').includes('class="viz-frame"') && section('visual').includes('<canvas') && section('visual').includes('Previous step') && section('visual').includes('class="viz-caption"'),
   tradeoffsCount: (section('tradeoffs').match(/<li>/g) || []).length >= 2 && (section('tradeoffs').match(/<li>/g) || []).length <= 3,
   noInventory: !html.includes('python/src/') && !html.includes('python/tests/') && !html.includes('python/fixtures/') && !html.includes('Working files'),
-  twoCodeBlocks: (html.match(/class="code-block"/g) || []).length === 2,
+  threeCodeBlocks: (html.match(/class="code-block"/g) || []).length === 3,   // solution, practice starter, revealed answer
   downloadLink: html.includes(`/downloads/${slug}-project.zip`),
   noObjectObject: !html.includes('[object Object]'),
   noEmDash: !html.includes(String.fromCharCode(8212)),

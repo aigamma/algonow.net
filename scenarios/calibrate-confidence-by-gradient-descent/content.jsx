@@ -1,3 +1,4 @@
+import CodeBlock from '../../src/components/CodeBlock.jsx';
 import CalibrationFitViz from './visuals/CalibrationFitViz.jsx';
 import solutionSource from './python/src/calibration_fit/solution.py?raw';
 import starterSource from './python/src/calibration_fit/starter.py?raw';
@@ -74,7 +75,7 @@ export const content = {
       </p>
       <details>
         <summary>Show the answer</summary>
-        <pre><code>{answerSnippet}</code></pre>
+        <CodeBlock filename="Practice answer" code={answerSnippet} />
         <p>
           One new variable before the loop, one comparison inside it, and a <code>break</code>. The comparison runs
           before the update, so the parameters that produced the last measured loss are the ones returned. Everything

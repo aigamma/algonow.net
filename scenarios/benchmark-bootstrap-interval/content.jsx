@@ -1,3 +1,4 @@
+import CodeBlock from '../../src/components/CodeBlock.jsx';
 import BootstrapViz from './visuals/BootstrapViz.jsx';
 import solutionSource from './python/src/bootstrap_eval/solution.py?raw';
 import starterSource from './python/src/bootstrap_eval/starter.py?raw';
@@ -73,7 +74,7 @@ export const content = {
       </p>
       <details>
         <summary>Show the answer</summary>
-        <pre><code>{answerSnippet}</code></pre>
+        <CodeBlock filename="Practice answer" code={answerSnippet} />
         <p>
           A counter, a loop with one comparison, and a division. The comparison is strict, so the 36 resamples that
           tie at zero do not count as better. Sixty percent is the honest reading of a four-point gain on 25 items:

@@ -12,7 +12,7 @@ const KEYWORDS = new Set([
 const PATTERN = new RegExp(
   [
     '("""[\\s\\S]*?"""|\'\'\'[\\s\\S]*?\'\'\')', // 1 triple string
-    '(#[^\\n]*)', // 2 comment
+    '(#[^\\r\\n]*)', // 2 comment
     '("(?:\\\\.|[^"\\\\\\n])*"|\'(?:\\\\.|[^\'\\\\\\n])*\')', // 3 string
     '\\b(def|class)(\\s+)([A-Za-z_]\\w*)', // 4,5,6 definition
     '\\b([A-Za-z_]\\w*)\\b', // 7 word
@@ -46,4 +46,26 @@ export function tokenizePython(code) {
   }
   plain(code.length);
   return out;
+}
+
+// Split after highlighting so multiline strings keep their token type. Keep
+// real line endings in the text; wrapping must never change copied Python.
+export function pythonLines(code) {
+  const lines = [{ tokens: [] }];
+  for (const token of tokenizePython(code)) {
+    for (const part of token.s.split(/(\r\n|\r|\n)/)) {
+      if (!part) continue;
+      lines[lines.length - 1].tokens.push({ t: token.t, s: part });
+      if (/^[\r\n]/.test(part)) lines.push({ tokens: [] });
+    }
+  }
+  if (lines.length > 1 && !lines[lines.length - 1].tokens.length) lines.pop();
+  return lines.map(({ tokens }) => {
+    const text = tokens.map((token) => token.s).join('');
+    let indent = 0;
+    for (const char of text.match(/^[ \t]*/)[0]) {
+      indent += char === '\t' ? 4 - indent % 4 : 1;
+    }
+    return { tokens, indent };
+  });
 }

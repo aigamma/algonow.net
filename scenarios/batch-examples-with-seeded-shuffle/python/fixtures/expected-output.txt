@@ -1,0 +1,18 @@
+10 examples, batch size 4, seed 7, 2 epochs
+
+epoch 1 (seed 7)
+  batch 1: e9, e4, e2, e5    access 1, billing 3
+  batch 2: e8, e1, e10, e7   access 3, billing 1
+  batch 3: e3, e6            billing 1, access 1
+
+epoch 2 (seed 8)
+  batch 1: e9, e3, e10, e5   access 2, billing 2
+  batch 2: e1, e8, e2, e7    billing 2, access 2
+  batch 3: e6, e4            access 1, billing 1
+
+same seed, same batches: True
+input order unchanged: True
+
+rejected: batch_size must be at least 1, got 0
+
+OK

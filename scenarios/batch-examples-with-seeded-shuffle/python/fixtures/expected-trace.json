@@ -1,0 +1,197 @@
+{
+ "batch_size": 4,
+ "seed": 7,
+ "epochs": [
+  {
+   "epoch": 1,
+   "seed": 7,
+   "order": [
+    "e9",
+    "e4",
+    "e2",
+    "e5",
+    "e8",
+    "e1",
+    "e10",
+    "e7",
+    "e3",
+    "e6"
+   ],
+   "batches": [
+    {
+     "ids": [
+      "e9",
+      "e4",
+      "e2",
+      "e5"
+     ],
+     "mix": {
+      "access": 1,
+      "billing": 3
+     }
+    },
+    {
+     "ids": [
+      "e8",
+      "e1",
+      "e10",
+      "e7"
+     ],
+     "mix": {
+      "access": 3,
+      "billing": 1
+     }
+    },
+    {
+     "ids": [
+      "e3",
+      "e6"
+     ],
+     "mix": {
+      "billing": 1,
+      "access": 1
+     }
+    }
+   ]
+  },
+  {
+   "epoch": 2,
+   "seed": 8,
+   "order": [
+    "e9",
+    "e3",
+    "e10",
+    "e5",
+    "e1",
+    "e8",
+    "e2",
+    "e7",
+    "e6",
+    "e4"
+   ],
+   "batches": [
+    {
+     "ids": [
+      "e9",
+      "e3",
+      "e10",
+      "e5"
+     ],
+     "mix": {
+      "access": 2,
+      "billing": 2
+     }
+    },
+    {
+     "ids": [
+      "e1",
+      "e8",
+      "e2",
+      "e7"
+     ],
+     "mix": {
+      "billing": 2,
+      "access": 2
+     }
+    },
+    {
+     "ids": [
+      "e6",
+      "e4"
+     ],
+     "mix": {
+      "access": 1,
+      "billing": 1
+     }
+    }
+   ]
+  }
+ ],
+ "mixed_full_batches": [
+  2,
+  2
+ ],
+ "file_order": {
+  "batches": [
+   {
+    "ids": [
+     "e1",
+     "e2",
+     "e3",
+     "e4"
+    ],
+    "mix": {
+     "billing": 4
+    }
+   },
+   {
+    "ids": [
+     "e5",
+     "e6",
+     "e7",
+     "e8"
+    ],
+    "mix": {
+     "billing": 1,
+     "access": 3
+    }
+   },
+   {
+    "ids": [
+     "e9",
+     "e10"
+    ],
+    "mix": {
+     "access": 2
+    }
+   }
+  ],
+  "single_label_batches": 2
+ },
+ "practice": [
+  {
+   "epoch": 1,
+   "seed": 7,
+   "batches": [
+    [
+     "e9",
+     "e4",
+     "e2",
+     "e5"
+    ],
+    [
+     "e8",
+     "e1",
+     "e10",
+     "e7"
+    ]
+   ],
+   "left_out": [
+    "e3",
+    "e6"
+   ]
+  },
+  {
+   "epoch": 2,
+   "seed": 8,
+   "batches": [
+    [
+     "e9",
+     "e3",
+     "e10",
+     "e5"
+    ],
+    [
+     "e1",
+     "e8",
+     "e2",
+     "e7"
+    ]
+   ],
+   "left_out": [
+    "e4",
+    "e6"
+   ]
+  }
+ ]
+}

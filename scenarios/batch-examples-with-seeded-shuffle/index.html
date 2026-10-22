@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Batch training examples with a seeded shuffle and a generator | algonow</title>
+<meta name="description" content="Orbit&#39;s fine-tuning script fed examples in file order, so every early batch held a single label, and the ragged last batch crashed a shape check. A worked Python example yields batches from a seeded shuffle with a generator: a copy of the list so the input is never reordered, random.Random with a seed and shuffle, range with a step and list slicing, yield instead of return, a different seed per epoch that is still reproducible, its exact output, a trace of every batch, and one practice variation that drops the ragged last batch." />
+<link rel="canonical" href="https://algonow.net/scenarios/batch-examples-with-seeded-shuffle/" />
+</head><body><div id="root"></div><script type="module" src="./main.jsx"></script></body></html>

@@ -1,0 +1,57 @@
+{
+ "examples": [
+  {
+   "id": "e1",
+   "label": "billing",
+   "prompt": "Where is my invoice?"
+  },
+  {
+   "id": "e2",
+   "label": "billing",
+   "prompt": "Why was I charged twice?"
+  },
+  {
+   "id": "e3",
+   "label": "billing",
+   "prompt": "Change the card on file"
+  },
+  {
+   "id": "e4",
+   "label": "billing",
+   "prompt": "Refund for last month"
+  },
+  {
+   "id": "e5",
+   "label": "billing",
+   "prompt": "Is tax included?"
+  },
+  {
+   "id": "e6",
+   "label": "access",
+   "prompt": "Reset my password"
+  },
+  {
+   "id": "e7",
+   "label": "access",
+   "prompt": "Rotate an API key"
+  },
+  {
+   "id": "e8",
+   "label": "access",
+   "prompt": "Add a teammate"
+  },
+  {
+   "id": "e9",
+   "label": "access",
+   "prompt": "Which scope do list calls need?"
+  },
+  {
+   "id": "e10",
+   "label": "access",
+   "prompt": "Revoke a lost key"
+  }
+ ],
+ "batch_size": 4,
+ "seed": 7,
+ "epochs": 2
+}

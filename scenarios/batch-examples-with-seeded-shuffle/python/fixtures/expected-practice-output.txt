@@ -1,0 +1,15 @@
+10 examples, batch size 4, seed 7, 2 epochs, drop_last True
+
+epoch 1 (seed 7)
+  batch 1: e9, e4, e2, e5    access 1, billing 3
+  batch 2: e8, e1, e10, e7   access 3, billing 1
+  left out: e3, e6
+
+epoch 2 (seed 8)
+  batch 1: e9, e3, e10, e5   access 2, billing 2
+  batch 2: e1, e8, e2, e7    billing 2, access 2
+  left out: e4, e6
+
+with drop_last False the ragged batch is back: [4, 4, 2]
+
+OK

@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "slug": "batch-examples-with-seeded-shuffle",
+  "track": "fine-tuning",
+  "language": "python",
+  "system": {
+    "context": "Orbit's fine-tuning script read its training examples from the export file four at a time. The export was sorted by label, so the early batches were all billing questions and the late ones all access questions, the loss lurched with every batch, and the final ragged batch of two crashed a shape check that assumed full batches.",
+    "request": "A worked Python example of one action: batches(examples, batch_size, seed), a generator that copies the list, shuffles the copy with random.Random(seed), and yields slices of batch_size from range(0, len(order), batch_size), with a ValueError for a batch size below 1, over ten inline labeled examples with batch size 4, seed 7, and two epochs (seed plus epoch number). The lesson leads with the complete solution and its exact output (every batch of both epochs with its label mix, the reproducibility check, the untouched input order, the rejected batch size), explains the Python construct by construct (a private random.Random generator and in-place shuffle, list() as a copy, yield and lazy generators, range with a step and slicing past the end, dictionary counting with get, enumerate with start, extend against append, format specs), traces start and the yielded slice through both epochs, and offers one practice variation: drop_last=True skips a final batch shorter than batch_size.",
+    "inputs": [
+      "Ten labeled examples written inline in solution.py as a list of dictionaries with id, label, and prompt: e1 to e5 labeled billing and e6 to e10 labeled access, in file order",
+      "A batch size of 4, a seed of 7 (epoch 1 shuffles with 7, epoch 2 with 8), and two epochs",
+      "For the practice variation, drop_last=True"
+    ],
+    "outputs": [
+      "batches yields, for seed 7, the batches e9 e4 e2 e5 (access 1, billing 3), e8 e1 e10 e7 (access 3, billing 1), and e3 e6 (billing 1, access 1); for seed 8, e9 e3 e10 e5, e1 e8 e2 e7, and e6 e4, each epoch visiting all ten examples exactly once",
+      "python solution.py prints both epochs' batches with their label mix, 'same seed, same batches: True', 'input order unchanged: True', the rejected batch size of 0, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change each epoch yields two full batches (eight examples), epoch 1 leaves out e3 and e6, epoch 2 leaves out e4 and e6, and the file prints OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no framework, fixtures, credentials, or network",
+      "The caller's list is copied before shuffling and is never reordered; the same seed reproduces the same batches on every machine; the last batch is shorter when the count does not divide evenly; a batch size below 1 raises ValueError on the first request for a batch",
+      "Ordinary Python only: import random, random.Random(seed).shuffle, list() as a copy, a generator with yield, range with a step, slicing, dictionaries with get, enumerate with start, extend, f-strings with format specs, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the six batches of the two epochs id by id with their label mixes, True for reproducibility and for the untouched input, the rejected line, and OK",
+      "The generator is exact: both seeds' batches are pinned id by id and equal the standard library's shuffle for the seed, every example appears exactly once per epoch, the batch sizes are 4, 4, 2, an even split has no ragged batch, a batch size past the count gives one batch, an empty list gives no batches, and a batch size of 0 raises only on first use",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt: two full batches per epoch, e3 and e6 left out of epoch 1 and e4 and e6 left out of epoch 2, drop_last false reproducing the worked run, and an even split keeping everything",
+      "The file order is measured on the same examples: two of its three batches hold a single label (billing 4; access 2), while every full batch of the seeded epochs holds both labels"
+    ]
+  },
+  "python": {
+    "package": "batching",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "8ae8f35b894572b0ad3f5431487d7774ae06300b980131e6d12755101a01d87c"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "84aab77390cef209b41a145f2608cd9add8f196096b94dd3a04277930b6a893c"
+    },
+    {
+      "path": "python/fixtures/examples.json",
+      "description": "The ten examples, the batch size, the seed, and the epoch count exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "013feb922b4f947f24bac89eb107893d403c3a1841908fc7f1148f1c2d16d2fc"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Both epochs' shuffled orders and batches with label mixes, the count of mixed full batches, the file-order batches that shipped, and the practice run with its left-out ids, all derived from the Python files; the animation takes the shuffled orders from it and must reproduce everything else exactly.",
+      "sha256": "970a1206315a2a9b4207746b32615e1d1396f20f068e579f3718e5cea554f96c"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "batches-pinned",
+      "kind": "correctness",
+      "description": "For seed 7 the batches are e9 e4 e2 e5, e8 e1 e10 e7, e3 e6; for seed 8 they are e9 e3 e10 e5, e1 e8 e2 e7, e6 e4.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_seeded_batches_are_pinned_id_by_id"
+    },
+    {
+      "id": "seed-reproduces",
+      "kind": "correctness",
+      "description": "The same seed yields identical batches twice and the next seed yields a different order.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_same_seed_reproduces_the_same_batches"
+    },
+    {
+      "id": "every-example-once",
+      "kind": "correctness",
+      "description": "Every example appears exactly once per epoch and the caller's list keeps its file order.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_every_example_appears_exactly_once_per_epoch_and_the_input_is_untouched"
+    },
+    {
+      "id": "ragged-tail",
+      "kind": "correctness",
+      "description": "Batch sizes are 4, 4, 2; a batch size of 5 gives 5, 5; a batch size of 12 gives one batch of 10; an empty list gives no batches.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_batch_sizes_are_full_except_the_ragged_last_one"
+    },
+    {
+      "id": "lazy-rejection",
+      "kind": "failure",
+      "description": "A batch size of 0 raises ValueError on the first request for a batch, not at the call, and batches returns a generator object.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_generator_is_lazy_and_rejects_a_bad_batch_size_on_first_use"
+    },
+    {
+      "id": "standard-library-order",
+      "kind": "correctness",
+      "description": "The shuffled order equals random.Random(7).shuffle applied to a copy of the list.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_shuffle_is_the_standard_library_order_for_the_seed"
+    },
+    {
+      "id": "label-mix",
+      "kind": "correctness",
+      "description": "label_mix counts labels in order of first appearance and describe renders the counts as one line.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_label_mix_counts_in_order_of_first_appearance"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about eight examples per epoch, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-drops-ragged",
+      "kind": "correctness",
+      "description": "With drop_last the first two batches of each seed are kept unchanged and the left-out ids are e3, e6 for seed 7 and e4, e6 for seed 8.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_drops_only_the_ragged_last_batch"
+    },
+    {
+      "id": "answer-default-unchanged",
+      "kind": "correctness",
+      "description": "drop_last false, and the default, reproduce the worked run exactly.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_with_drop_last_false_reproduces_the_worked_run"
+    },
+    {
+      "id": "answer-even-split",
+      "kind": "failure",
+      "description": "An even split keeps every batch under drop_last, and a batch size past the count leaves one short batch, which is dropped.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_keeps_everything_when_the_count_divides_evenly"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the helpers and demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "examples-fixture",
+      "kind": "correctness",
+      "description": "examples.json equals the examples, batch size, seed, and epoch count that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_examples_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: both epochs' orders and batches with mixes, two mixed full batches per epoch, the file-order batches with two single-label batches, and the practice left-out ids e3, e6 and e4, e6.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "file-order-single-label",
+      "kind": "evaluation",
+      "description": "Cut from file order on the same examples, the batches mix as billing 4; billing 1, access 3; access 2: two of three hold a single label.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_file_order_feeds_single_label_batches"
+    },
+    {
+      "id": "shuffle-mixes-full-batches",
+      "kind": "evaluation",
+      "description": "Every full batch of both seeded epochs holds both labels.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_seeded_shuffle_mixes_every_full_batch"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/BatchShuffleViz.jsx",
+      "description": "A short animation of the worked example, about five seconds per shuffle, under three seconds per batch, and about half a minute in all: the ten example cards start in file order with the batches that shipped bracketed in amber and their single-label mixes named; each epoch then shuffles the copy, one card gliding to its new slot after another (the order e9, e4, e2, e5, e8, e1, e10, e7, e3, e6 for seed 7, then the seed 8 order), and each slice of four drops into its batch row with its label mix, the ragged pair marked; a readout shows the epoch, the seed, and the batches yielded; the outro states two mixed full batches per epoch; the practice beat fades the ragged pair that drop_last leaves out and names the left-out ids. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/batchShuffleModel.js, which slices, counts label mixes, compares the file order, and drops the ragged batch with the same logic as solution.py and practice_answer.py; the shuffled order of each epoch is read from python/fixtures/expected-trace.json because the standard library's shuffle is not ported, and the cited Python check derives that fixture from the real random.Random(seed).shuffle. The figure test asserts that the model's recomputed trace equals the fixture, that at the end of each shuffle beat every card rests in its shuffled slot and at the end of each epoch in its batch row, that captions carry the measured orders, mixes, and left-out ids, that every sampled moment keeps ten cards inside the canvas on distinct resting slots, and that the final scene fades exactly e4 and e6. Rendered frames inspected at 900 pixels at several moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

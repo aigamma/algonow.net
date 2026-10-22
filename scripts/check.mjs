@@ -214,7 +214,7 @@ for (const p of Object.values(PUZZLES)) {
 // 2. Style bans: no em dashes, no banned word, across authored text surfaces.
 function* walk(dir) {
   for (const name of readdirSync(dir)) {
-    if (['node_modules', 'dist', '.git', '.netlify'].includes(name)) continue;
+    if (['node_modules', 'dist', '.git', '.netlify', 'scenarios-pending', 'tests-pending'].includes(name)) continue;   // *-pending: another session's unregistered drafts
     const path = `${dir}/${name}`;
     if (statSync(path).isDirectory()) yield* walk(path);
     else if (/\.(jsx?|mjs|py|md|html|css|toml)$/.test(name)) yield path;

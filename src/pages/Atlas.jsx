@@ -176,7 +176,7 @@ export default function Atlas() {
             onChange={(e) => setQ(e.target.value)}
             aria-label="Filter the legacy atlas"
           />
-          <button type="button" className="btn btn-listen" onClick={roll}>🎲 random</button>
+          <button type="button" className="btn btn-roll" onClick={roll}>🎲 random</button>
           <button
             type="button"
             className="btn"

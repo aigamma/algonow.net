@@ -22,7 +22,7 @@ const warn = (msg) => {
 const NARRATION_SECTIONS = new Set([
   'puzzle', 'origins', 'pair', 'picture', 'run', 'signals', 'tradeoffs', 'code',
 ]);
-const PRESERVED_NARRATION_REQUIRED_FROM = 115;
+const PRESERVED_NARRATION_REQUIRED_FROM = 1;
 const PRESERVED_NARRATION_RATES = [
   { value: 1, label: '1.00x' },
   { value: 1.25, label: '1.25x' },
@@ -92,12 +92,11 @@ for (const p of Object.values(PUZZLES)) {
   if (unknown.length) fail(`${p.slug}: unknown narration sections ${unknown.join(',')}`);
   if (sections.length < 6) fail(`${p.slug}: only ${sections.length} narration sections`);
 
-  // Rule 4 is prospective while the legacy catalog awaits human review.
-  // A new unit cannot quietly inherit the browser-speech fallback: it must
-  // carry the complete published two-track contract and wire the preserved
-  // player before the registry accepts it as live.
-  if (p.slug === 'kalman-covariance-correction'
-    || p.number >= PRESERVED_NARRATION_REQUIRED_FROM) {
+  // Rule 4 covers the whole catalog: the legacy backfill finished on
+  // 2026-10-22 and the browser-speech player was removed the same day, so
+  // every unit must carry the complete published two-track contract and
+  // wire the preserved player before the registry accepts it as live.
+  if (p.number >= PRESERVED_NARRATION_REQUIRED_FROM) {
     const manifestPath = `src/data/narration/${p.slug}.json`;
     const mainPath = `${p.slug}/main.jsx`;
     if (!existsSync(manifestPath)) {

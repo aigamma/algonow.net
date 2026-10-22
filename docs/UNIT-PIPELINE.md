@@ -41,8 +41,8 @@ the operational detail layer.
    code}; numbers spelled out for the ear; the code section describes
    the oracles and ends with the would-fail-before-lying line. This complete
    array is the sole spoken source. Include its code-walkthrough prose, but
-   exclude actual executable source and interface chrome. Starting with puzzle
-   115, plan, generate, validate, publish, and install both preserved tracks:
+   exclude actual executable source and interface chrome. For every unit,
+   plan, generate, validate, publish, and install both preserved tracks:
    Aoede female and Algieba male over identical text. Aoede is the default,
    selecting either voice resets to `1.25x`, and the only rates are `1.00x`,
    `1.25x`, `1.50x`, and `1.75x`. Browser Web Speech is not a fallback.
@@ -64,7 +64,7 @@ the operational detail layer.
 8. **Plan** `docs/OVERNIGHT-PLAN.md`: mark the F item `[x]` with the
    measured numbers, update the resume pointer. Queue extensions: add
    new `[ ]` F rows only with atlas-verified names.
-9. **Verify + ship**: for puzzle 115 onward, complete the credential-free
+9. **Verify + ship**: for every unit, complete the credential-free
    narration plan, use the standing fresh-page consent to generate both
    tracks under the exact spend gates, publish immutable objects, install the
    receipt-bound manifest, and run the narration tests. Then run `npm run

@@ -1734,7 +1734,7 @@ export const PUZZLES = {
     domain: 'Fingerprint substring search',
     oneLiner:
       'Stop comparing letters: hash the pattern once, roll the window fingerprint in two touches per slide, and read characters only when the numbers agree: search by arithmetic.',
-    listenMinutes: 8,
+    listenMinutes: 10,
     time: 'O(n + m + zm) expected, z matches',
     space: 'O(1) search state plus O(z) output',
     baseline: 'Naive scan / KMP',
@@ -1770,7 +1770,7 @@ export const PUZZLES = {
     domain: 'Soft clustering',
     oneLiner:
       'Model the data as overlapping tilted Gaussians and let every point belong fractionally to all of them: exact unregularized EM guarantees nondecreasing likelihood; the ridge-modified fit here is checked empirically.',
-    listenMinutes: 8,
+    listenMinutes: 10,
     time: 'O(t·n·k) densities',
     space: 'O(n·k)',
     baseline: 'K-means hard assignment',
@@ -1788,7 +1788,7 @@ export const PUZZLES = {
     domain: 'Write-optimized storage',
     oneLiner:
       'Never edit a page: buffer writes in RAM, flush immutable sorted runs, and merge them down a geometric cascade: one bounded run per level, so reads stay sane while writes stay cheap.',
-    listenMinutes: 8,
+    listenMinutes: 10,
     time: 'O(levels) per get',
     space: 'O(n), amp 1.06',
     baseline: 'B-tree in-place pages',
@@ -1806,7 +1806,7 @@ export const PUZZLES = {
     domain: 'Nearest-neighbor search',
     oneLiner:
       'Carve the plane at medians, axis by axis, and answer nearest-neighbor queries by opening only the folds the best-so-far ball can reach: 22 visits where the scan examines sixty thousand.',
-    listenMinutes: 8,
+    listenMinutes: 10,
     time: 'O(log n) expected query',
     space: 'O(n)',
     baseline: 'Brute-force scan',
@@ -1824,7 +1824,7 @@ export const PUZZLES = {
     domain: 'Ordered dictionaries, randomized',
     oneLiner:
       'One lottery ticket per key holds two orders in one tree: keys read sorted left to right, priorities heap upward: and the shape belongs to the dice, not to whoever chose the arrival order.',
-    listenMinutes: 8,
+    listenMinutes: 10,
     time: 'O(log n) expected',
     space: 'O(n)',
     baseline: 'Plain BST / sorted array',
@@ -1842,7 +1842,7 @@ export const PUZZLES = {
     domain: 'Fixed-width key sorting',
     oneLiner:
       'Sorting that never asks which key is smaller: bucket by one digit at a time, gather stably so each pass preserves all the ones before, and walk under the comparison lower bound.',
-    listenMinutes: 8,
+    listenMinutes: 10,
     time: 'O(w·n), 0 comparisons',
     space: 'O(n + base)',
     baseline: 'Comparison sorting',
@@ -1860,7 +1860,7 @@ export const PUZZLES = {
     domain: 'Optimal stopping',
     oneLiner:
       'Interview 37% of the field hiring nobody: they are the calibration: then hire the first candidate who beats them all. Provably the best you can do on ranks alone, at any scale.',
-    listenMinutes: 8,
+    listenMinutes: 11,
     time: 'O(n), one pass',
     space: 'O(1): one number',
     baseline: 'Hire-first / clairvoyant',
@@ -1878,7 +1878,7 @@ export const PUZZLES = {
     domain: 'Multi-armed bandits',
     oneLiner:
       'Each round, imagine one plausible world by sampling every arm’s posterior, and play the arm that wins the imagined contest: exploration exactly as large as the doubt, no knob anywhere.',
-    listenMinutes: 8,
+    listenMinutes: 10,
     time: 'O(k) draws per round',
     space: 'O(k) posteriors',
     baseline: 'Greedy / epsilon-greedy',
@@ -1896,7 +1896,7 @@ export const PUZZLES = {
     domain: 'Game-tree search',
     oneLiner:
       'The chess-engine paradox: search the same position at every depth up to the target, and the shallow passes order the deep one so well that all of them together cost less than one blind dive.',
-    listenMinutes: 8,
+    listenMinutes: 11,
     time: '~O(b^(d/2)) well-ordered',
     space: 'O(nodes) tables',
     baseline: 'Exhaustive minimax',
@@ -1914,7 +1914,7 @@ export const PUZZLES = {
     domain: 'Near-entropy compression',
     oneLiner:
       'The whole message becomes one number: each symbol narrows the interval by its probability, settled bits ship out as the registers rescale, and no symbol ever pays a whole bit it did not owe.',
-    listenMinutes: 8,
+    listenMinutes: 11,
     time: 'O(n), ~n·H output bits',
     space: 'O(1): 32-bit registers',
     baseline: 'Huffman coding',
@@ -1932,7 +1932,7 @@ export const PUZZLES = {
     domain: 'Adaptive ODE integration',
     oneLiner:
       'Two Runge-Kutta answers from the same six evaluations, and their difference drives the wheel: steps stretch across the flats, crawl through the flame front, and nobody ever chose a step size.',
-    listenMinutes: 8,
+    listenMinutes: 10,
     time: '6 evals/step, adaptive',
     space: 'O(1) state',
     baseline: 'Fixed-step RK4',
@@ -1950,7 +1950,7 @@ export const PUZZLES = {
     domain: 'Expression parsing',
     oneLiner:
       'One loop and a table of badges: every operand goes to the neighbor with the bigger binding power, associativity is one unit on the badge, and adding an operator is adding a row.',
-    listenMinutes: 8,
+    listenMinutes: 11,
     time: 'O(n): ~1 call/token',
     space: 'O(depth)',
     baseline: 'Layered recursive descent',
@@ -1968,7 +1968,7 @@ export const PUZZLES = {
     domain: 'Task-parallel scheduling',
     oneLiner:
       'Every worker owns a deque: pop your own bottom (hot, uncontended), and when you run dry, rob the top of a random victim: the oldest fork, the biggest subtree, one theft per balance.',
-    listenMinutes: 8,
+    listenMinutes: 11,
     time: 'W/P + O(T∞) expected',
     space: 'O(P) deques',
     baseline: 'Central shared queue',

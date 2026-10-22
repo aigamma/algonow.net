@@ -7,7 +7,7 @@ import { build } from 'esbuild';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-test('corrected lessons with stale recordings cannot mount either narration player', async (t) => {
+test('corrected lessons with stale recordings cannot mount the narration player, and an unwired page offers no listen control', async (t) => {
   const correctedHash = 'a'.repeat(64);
   const staleHash = 'b'.repeat(64);
   const cacheDir = path.join('node_modules', '.cache');
@@ -29,21 +29,11 @@ test('corrected lessons with stale recordings cannot mount either narration play
           contents: JSON.stringify({ 'corrected-lesson': correctedHash }),
           loader: 'json',
         }));
-        buildContext.onLoad({ filter: /[/\\]ListenPlayer\.jsx$/ }, () => ({
-          contents: 'export default function BrowserPlayer() { return "browser-player-mounted"; }',
-          loader: 'js',
-        }));
       },
     }],
   });
   t.after(() => fs.rmSync(outfile, { force: true }));
   const { default: PuzzlePage } = await import(pathToFileURL(outfile).href);
-  const originalWindow = Object.getOwnPropertyDescriptor(globalThis, 'window');
-  globalThis.window = { speechSynthesis: {}, SpeechSynthesisUtterance: class {} };
-  t.after(() => {
-    if (originalWindow) Object.defineProperty(globalThis, 'window', originalWindow);
-    else delete globalThis.window;
-  });
 
   const puzzle = {
     slug: 'corrected-lesson', number: 1, algorithm: 'Test algorithm', heuristic: 'Test rule',
@@ -89,9 +79,10 @@ test('corrected lessons with stale recordings cannot mount either narration play
   assert.match(unchanged, /preserved-player-mounted/);
   assert.doesNotMatch(unchanged, /awaiting an update|browser-player-mounted/);
 
-  const legacy = render({ slug: 'legacy-lesson', player: false });
-  assert.match(legacy, /browser-player-mounted/);
-  assert.match(legacy, /Listen from the/);
-  assert.match(legacy, /class="btn btn-listen"/);
-  assert.doesNotMatch(legacy, /awaiting an update|preserved-player-mounted/);
+  // A page whose entry has not wired the preserved player (the check gate
+  // keeps such a page from shipping) offers no listen control of any kind:
+  // there is no browser-speech player left to fall back to.
+  const unwired = render({ slug: 'unwired-lesson', player: false });
+  assert.doesNotMatch(unwired, /player-mounted|Listen from the|btn-listen|awaiting an update/);
+  assert.match(unwired, /Corrected text is available/);
 });

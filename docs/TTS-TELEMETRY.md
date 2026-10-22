@@ -5,16 +5,20 @@ costed, measured, and (when the owner chooses) joined to the mathlimit desk.
 
 ## What is live today
 
-Most legacy pages still use the browser's own Web Speech API. The production
-Kalman page now serves preserved Aoede and Algieba MP3 tracks through
-CloudFront. A page view receives no synthesis credential and incurs no
-per-listener synthesis charge. Starting with puzzle 115, preserved dual-track
-narration is mandatory and browser Web Speech is not a fallback.
+Every lesson and legacy puzzle page serves preserved Aoede and Algieba MP3
+tracks through CloudFront: the legacy catalog was backfilled on 2026-10-21 and
+2026-10-22 at the owner's request, and the browser Web Speech engine and its
+player were removed from the codebase the same day. A page view receives no
+synthesis credential and incurs no per-listener synthesis charge. Preserved
+dual-track narration is mandatory on every page and browser Web Speech is
+not a fallback.
 
 Usage telemetry (anonymous, DNT/GPC-respecting, no cookies or user ids):
 
 - Client batches events: `play`, `progress` (chars newly spoken), `complete`,
-  `stop`, each with voice name, rate, and engine (`web-speech`).
+  `stop`, each with voice name, rate, and engine (`chirp3-hd-preserved`; the
+  ingest labels an event with a malformed or missing engine `web-speech`,
+  the historical default, so such events stay distinguishable).
 - `POST /api/tel` validates and appends batches to the site's own Netlify
   Blobs store `tts-events`, keyed `YYYY-MM-DD/<iso>-<rand>.json`.
 - `/api/desk` re-serves aggregates, authenticated by the `apikey` header
@@ -108,14 +112,15 @@ retry after an ambiguous provider outcome.
 The pilot runbook and immutable release contract are in
 `infra/narration/README.md`. The Kalman audio, player, CDN headers, byte-range
 behavior, direct-origin denial, defaults, and both live tracks passed
-production verification on 2026-08-31. The new-page rule is active; legacy
-sitewide backfill remains behind the owner's listening review.
+production verification on 2026-08-31. The new-page rule is active, and the
+legacy sitewide backfill ran on 2026-10-21 and 2026-10-22 at the owner's
+explicit request: 113 pages, one at a time, each under its own exact plan
+price, approval hash, and ceiling.
 
 ## Cost model
 
-Browser Web Speech is legacy-only. It may remain on pages awaiting the
-reviewed backfill, but it is never a fallback for a required new preserved
-release. Preserved playback records model
+Browser Web Speech is retired: no page uses it and the engine is gone from
+the codebase (2026-10-22). Preserved playback records model
 `chirp3-hd-preserved` with zero runtime tokens because the browser only reads
 an already generated MP3. Generation cost is recorded in the reviewed plan
 and release provenance, not invented from client playback events.

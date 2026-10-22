@@ -57,7 +57,7 @@ keeps a dangling principal until the next ceremony rotates it.
 
 ## What AlgoNow used before this pilot
 
-The existing Listen feature uses the browser Web Speech API through `src/lib/tts.js`. The visitor's browser and operating system choose and synthesize the voice locally. There is no audio provider request, API key, preserved MP3, or per-listen provider cost. That browser engine is the robotic playback the preserved-audio pilot is intended to replace on the test page.
+Before the pilot, the Listen feature used the browser Web Speech API through `src/lib/tts.js`: the visitor's browser and operating system chose and synthesized the voice locally, with no audio provider request, API key, preserved MP3, or per-listen provider cost. That robotic playback is what the preserved-audio pilot replaced, first on the test page and then, with the legacy backfill of 2026-10-22, on every page; the engine and its player were removed from the codebase that day.
 
 ## Audited source contract
 

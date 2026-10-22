@@ -57,7 +57,7 @@ visuals, and narration.
    complete authored package; the single-file command above is for legacy units.
 4. **Preserved narration is part of every new puzzle.** The production Kalman
    pilot is the reference implementation. Every new engineering scenario,
-   as well as legacy puzzles from number 115 onward, is incomplete until it
+   and (since the 2026-10-22 backfill) every legacy puzzle, is incomplete until it
    has two validated, published
    Chirp 3 HD tracks over the same complete canonical narration array: female
    Aoede and male Algieba. Aoede is the fresh-reader default. Selecting either
@@ -149,8 +149,9 @@ includes these authored files (`scripts/check.mjs` enforces lockstep):
 6. `solutions/<slug>.py` : the solution with a self-test `__main__` that
    asserts correctness against an independent oracle and prints OK
 
-For puzzle 115 onward, the unit also installs its receipt-bound public
-narration manifest and wires the preserved player. The unit is not complete
+Every unit also installs its receipt-bound public narration manifest and
+wires the preserved player; the browser-speech player was removed on
+2026-10-22, after the legacy backfill. The unit is not complete
 until both tracks and the no-fallback behavior pass live verification.
 
 **Rivals are mandatory.** Every unit's tradeoffs section names two or three

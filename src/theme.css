@@ -348,12 +348,13 @@ code, kbd, pre { font-family: var(--font-mono); }
   color: var(--algo);
 }
 .btn-primary:hover { background: rgba(var(--algo-rgb), 0.2); }
-.btn-listen {
+.btn-listen,
+.btn-roll {
   background: rgba(var(--heur-rgb), 0.12);
   border-color: rgba(var(--heur-rgb), 0.45);
   color: var(--heur);
 }
-.btn-listen:hover { background: rgba(var(--heur-rgb), 0.18); border-color: var(--heur); }
+.btn-listen:hover, .btn-roll:hover { background: rgba(var(--heur-rgb), 0.18); border-color: var(--heur); }
 .btn[disabled] { opacity: 0.5; cursor: default; }
 
 /* ---------- homepage ---------- */
@@ -819,45 +820,8 @@ code, kbd, pre { font-family: var(--font-mono); }
 .tok-def { color: #8ec3ff; font-weight: 600; }
 .tok-self { color: var(--heur); }
 
-/* ---------- listen player ---------- */
+/* ---------- close button (the atlas pick card) ---------- */
 
-.listen-player {
-  position: fixed;
-  right: 1.1rem;
-  bottom: 1.1rem;
-  z-index: 60;
-  width: min(21.5rem, calc(100vw - 2.2rem));
-  background: var(--panel-2);
-  border: 1px solid rgba(var(--heur-rgb), 0.4);
-  border-radius: 12px;
-  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
-  padding: 0.9rem 1rem 0.8rem;
-}
-.listen-player .lp-title {
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  color: var(--ink-dim);
-  margin: 0 0 0.55rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 0.7rem;
-}
-.listen-player .lp-title b { color: var(--heur); font-weight: 600; }
-.lp-progress {
-  height: 4px;
-  border-radius: 999px;
-  background: var(--line-soft);
-  overflow: hidden;
-  margin: 0 0 0.7rem;
-}
-.lp-progress i {
-  display: block;
-  height: 100%;
-  background: var(--heur);
-  transition: width 300ms ease;
-}
-.lp-controls { display: flex; align-items: center; gap: 0.5rem; }
-.lp-controls .btn { padding: 0.45em 0.8em; font-size: 0.8rem; }
 .lp-close {
   margin-left: auto;
   background: none;
@@ -869,29 +833,6 @@ code, kbd, pre { font-family: var(--font-mono); }
   padding: 0.2rem 0.4rem;
 }
 .lp-close:hover { color: var(--ink); }
-.lp-settings {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.55rem;
-  margin-top: 0.65rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--ink-dim);
-}
-.lp-settings select, .lp-settings input[type='range'] {
-  min-width: 0;
-  accent-color: var(--heur);
-  background: var(--panel);
-  color: var(--ink-dim);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  font: inherit;
-  max-width: min(9.5rem, 100%);
-  padding: 0.2rem 0.3rem;
-}
-.lp-settings input[type='range'] { flex: 1; border: none; padding: 0; background: transparent; }
-.lp-settings > label { min-width: 0; max-width: 100%; }
 
 /* Preserved two-voice narration pilot. The trigger stays in the hero while
    the expanded transport keeps the site's established floating geometry. */
@@ -1312,7 +1253,6 @@ code, kbd, pre { font-family: var(--font-mono); }
   .home-hero { grid-template-columns: 1fr; padding-top: 2.6rem; }
   .pair-split, .tradeoffs { grid-template-columns: 1fr; }
   .puzzle-card .pz-row { grid-template-columns: 1fr; gap: 0.15rem; }
-  .listen-player { right: 0.6rem; bottom: 0.6rem; }
   .preserved-listen-player {
     width: calc(100% - 1.2rem);
     max-height: calc(100vh - 1.2rem);
@@ -1659,65 +1599,4 @@ code, kbd, pre { font-family: var(--font-mono); }
   .nav-new-target, .cat-head { scroll-margin-top: 7rem; }
   .atlas-controls { top: 5.9rem; }
   .atlas-topic .eyebrow { position: static; }
-}
-
-/* ---------- listen player: getting out is the loudest control ---------- */
-
-.lp-controls { flex-wrap: wrap; }
-.lp-primary {
-  flex: 1 1 6.5rem;
-  justify-content: center;
-  font-size: 0.86rem;
-  padding: 0.55em 0.9em;
-}
-.lp-stop {
-  justify-content: center;
-  font-size: 0.82rem;
-  padding: 0.55em 0.9em;
-  border-color: rgba(var(--warn-rgb), 0.45);
-  color: var(--warn);
-}
-.lp-stop:hover:not([disabled]) {
-  background: rgba(var(--warn-rgb), 0.14);
-  border-color: var(--warn);
-}
-.lp-icon {
-  padding: 0.5em 0.65em;
-  font-size: 0.9rem;
-  line-height: 1;
-  color: var(--ink-dim);
-}
-.lp-icon:hover { color: var(--ink); }
-.lp-icon[aria-expanded='true'] {
-  color: var(--ink);
-  border-color: rgba(var(--heur-rgb), 0.5);
-}
-.lp-next {
-  margin: 0 0 0.5rem;
-  font-size: 0.85rem;
-  color: var(--ink-dim);
-}
-.lp-next a { color: var(--path); }
-
-.lp-hint {
-  margin: 0.55rem 0 0;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--ink-faint);
-}
-.lp-hint kbd {
-  font-family: var(--font-mono);
-  font-size: 0.94em;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 0.05em 0.35em;
-  color: var(--ink-dim);
-}
-.lp-rate { flex: 1 1 9rem; display: inline-flex; align-items: center; gap: 0.4em; }
-.lp-follow { display: inline-flex; align-items: center; gap: 0.35em; }
-.lp-follow input { accent-color: var(--heur); }
-.lp-follow span {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--ink-dim);
 }

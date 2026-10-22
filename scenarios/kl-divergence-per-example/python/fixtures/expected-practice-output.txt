@@ -1,0 +1,11 @@
+4 examples, 3 routes: billing, access, outage
+id       KL      JS
+e1   0.0268  0.0070
+e2   0.2374  0.0657
+e3   0.0076  0.0019
+e4   0.0430  0.0079
+
+ranked by JS, worst first: e2 0.0657, e4 0.0079, e1 0.0070, e3 0.0019
+JS is symmetric: e2 reads 0.0657 both ways
+
+OK

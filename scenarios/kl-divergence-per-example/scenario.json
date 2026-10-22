@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "slug": "kl-divergence-per-example",
+  "track": "distillation",
+  "language": "python",
+  "system": {
+    "context": "Orbit distilled a small router from its assistant; the router sends each support question to billing, access, or outage. The evaluation compared the student's top route with the teacher's and found four of four agreed, yet some routes behaved badly in production: the student learned a different shape of distribution, and anything that reads the probability rather than the top route (a confidence threshold, a fallback, a second opinion) saw a different model.",
+    "request": "A worked Python example of one action: kl_divergence(teacher, student), the KL divergence from the teacher's distribution to the student's, as a sum over routes of p times the log of p over q, with check_distribution rejecting lists that have a negative entry or do not sum to 1 within one millionth, the student probability clipped to one billionth so a zero where the teacher has mass is a very large finite number rather than a crash, rank_by_divergence ordering the examples worst first with an id tie-break, and agreement counting matching top routes. The lesson leads with the complete solution and its exact output (the per-route terms and divergence of four examples, the mean, the ranking e2, e4, e1, e3, the top-route agreement 4 of 4, the rejected distribution), explains the Python construct by construct (abs with a tolerance, zip with strict=True, math.log, max as a floor, continue, a tuple sort key with a negated value, a named key function, format specs with an explicit sign), traces every term, and offers one practice variation: the symmetric Jensen-Shannon divergence through the midpoint distribution.",
+    "inputs": [
+      "Four examples written inline in solution.py as dictionaries with an id, the teacher's probabilities, and the student's probabilities over the routes billing, access, outage: e1 0.7, 0.2, 0.1 against 0.6, 0.3, 0.1; e2 0.1, 0.8, 0.1 against 0.4, 0.5, 0.1; e3 0.34, 0.33, 0.33 against 0.4, 0.3, 0.3; e4 0.9, 0.05, 0.05 against 0.95, 0.04, 0.01",
+      "A tolerance of one millionth on each distribution's sum and a floor of one billionth for the student probability inside the logarithm",
+      "For the evaluation, a divergence threshold of 0.2 above which an example is worth a look"
+    ],
+    "outputs": [
+      "kl_terms returns the three signed terms per example and kl_divergence their sum: e1 0.0268 (+0.1079, -0.0811, +0.0000), e2 0.2374 (-0.1386, +0.3760, +0.0000), e3 0.0076 (-0.0553, +0.0315, +0.0315), e4 0.0430 (-0.0487, +0.0112, +0.0805); the mean is 0.0787",
+      "rank_by_divergence returns (divergence, id) pairs worst first: e2, e4, e1, e3; agreement returns 4 of 4 matching top routes; python solution.py prints the table, the mean, the ranking, the agreement, the rejected distribution that sums to 0.9, and OK, and python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it prints the KL and JS columns (e1 0.0070, e2 0.0657, e3 0.0019, e4 0.0079), the ranking by JS (unchanged), the symmetry line, and OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no numpy, scipy, torch, fixtures, credentials, or network",
+      "A distribution with a negative entry or a sum off by more than one millionth raises ValueError before any logarithm; lists of different lengths raise through zip with strict=True; the demonstration prints the rejected run instead of crashing",
+      "A route where the teacher has no mass contributes exactly 0; a student probability below one billionth is clipped to it, never raised on; the input lists are never modified",
+      "Ordinary Python only: import math, small functions, for loops with zip and range, continue, abs, max, augmented assignment, tuples as sort keys with a named key function, f-strings with format specs, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the four rows of terms and divergences, mean KL 0.0787, the ranking e2 0.2374, e4 0.0430, e1 0.0268, e3 0.0076, top-route agreement 4 of 4, the rejected line, and OK",
+      "The arithmetic is exact: identical distributions diverge by 0, e2's access term equals 0.8 times the log of 1.6, a zero student probability yields the finite clipped value 1.7610 for the tested pair, the divergence is never negative and differs by direction (e2 reads 0.2374 one way and 0.3195 the other), and equal divergences rank by id",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt; the Jensen-Shannon values are symmetric to twelve decimals, lie between 0 and the log of 2, are 0 for identical distributions, and round to 0.0070, 0.0657, 0.0019, 0.0079",
+      "The top-route agreement that shipped is measured on the same examples: 4 of 4 agree, while the divergence ranks e2 first above 0.2 with every other example below it"
+    ]
+  },
+  "python": {
+    "package": "divergence",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "2bc9987a096a7b2e2a7532aa087d7a94228a51137c459a600a7de6241befe799"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "139926a506e53082d4ef598e2defa55f5a37c2b9e863974ab03b8bbb7c4ff8a3"
+    },
+    {
+      "path": "python/fixtures/examples.json",
+      "description": "The four examples, the routes, the tolerance, the floor, and the threshold exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "999f1b8267005a8e22f7d598f38e604af4324903ce287362e21556e5f2204187"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every example's terms, divergence, top routes, and Jensen-Shannon value (six decimals), the mean, both rankings, and the agreement, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "db49d0cd7333787e1434c099432dc42a423b1e3442f241dc18c6ce2643fad1fc"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "distribution-guard",
+      "kind": "failure",
+      "description": "A list that sums to 0.9 or carries a negative entry raises ValueError naming the problem, and the guard runs before any divergence is computed.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_distribution_must_be_nonnegative_and_sum_to_one"
+    },
+    {
+      "id": "identical-is-zero",
+      "kind": "correctness",
+      "description": "Identical distributions diverge by exactly 0 and every term is 0.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_identical_distributions_diverge_by_zero"
+    },
+    {
+      "id": "term-hand-computed",
+      "kind": "correctness",
+      "description": "e2's access term equals 0.8 times the log of 0.8 over 0.5, the matching outage term is 0, and the divergence is the sum of the three terms.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_one_term_is_the_hand_computed_value"
+    },
+    {
+      "id": "four-examples-exact",
+      "kind": "correctness",
+      "description": "The four divergences round to 0.0268, 0.2374, 0.0076, 0.0430, e2's terms to -0.1386, +0.3760, 0.0000, and the mean to 0.0787.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_four_examples_land_where_the_page_says"
+    },
+    {
+      "id": "nonnegative-asymmetric",
+      "kind": "correctness",
+      "description": "Every divergence in both directions is nonnegative, and e2 reads 0.2374 from teacher to student but 0.3195 the other way.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_divergence_is_never_negative_and_not_symmetric"
+    },
+    {
+      "id": "zero-clipped",
+      "kind": "failure",
+      "description": "A student that gives a used route exactly 0 yields the finite clipped value (one tenth times the log of one tenth over the floor, plus the other term) instead of an error, and a route the teacher never uses contributes 0.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_zero_student_probability_is_clipped_not_a_crash"
+    },
+    {
+      "id": "ranking-order",
+      "kind": "correctness",
+      "description": "The ranking reads e2, e4, e1, e3, and two examples with equal divergence are ordered by id.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_ranking_is_worst_first_with_an_id_tie_break"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The example dictionaries and their lists are unchanged after ranking and counting agreement.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_inputs_are_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about e2's Jensen-Shannon value, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-symmetric-bounded",
+      "kind": "correctness",
+      "description": "The Jensen-Shannon divergence is symmetric to twelve decimals, lies between 0 and the log of 2, is 0 for identical distributions, and rounds to 0.0070, 0.0657, 0.0019, 0.0079 on the four examples.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_is_symmetric_bounded_and_lands_where_the_page_says"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "examples-fixture",
+      "kind": "correctness",
+      "description": "examples.json equals the routes, examples, tolerance, floor, and threshold that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_examples_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the four rows with six-decimal terms (e2: -0.138629, 0.376003, 0.0), divergences 0.026812, 0.237373, 0.007648, 0.042969, the Jensen-Shannon values, both rankings with e2 first, and agreement 4.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "top-route-agreement",
+      "kind": "evaluation",
+      "description": "On the same four examples the top-route agreement that shipped scores 4 of 4, so it cannot separate e2 from e3.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_top_routes_agree_on_every_example"
+    },
+    {
+      "id": "divergence-finds-e2",
+      "kind": "evaluation",
+      "description": "The divergence ranks e2 first above the 0.2 threshold with every other example below it, because the teacher gives access 0.8 and the student only 0.5.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_divergence_still_ranks_e2_first_above_the_threshold"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/KlDivergenceViz.jsx",
+      "description": "A short animation of the worked example, about three seconds per example and under half a minute in all: four rows showing the teacher's probabilities as filled blue bars and the student's as amber outlines per route; an intro that names what shipped (top-route agreement 4 of 4); one beat per example in which the three signed terms grow from a shared axis and the divergence appears (0.0268, 0.2374, 0.0076, 0.0430) while a panel on the right collects them; a ranking beat that reorders the panel worst first one move at a time with the 0.2 line and the mean 0.0787; an outro naming e2 (access: teacher 0.8, student 0.5); and the practice variation adding the Jensen-Shannon values in green (0.0657, 0.0079, 0.0070, 0.0019). Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/klDivergenceModel.js, a JavaScript port of check_distribution, kl_terms, kl_divergence, rank_by_divergence, top_route, agreement, and the practice js_divergence that runs on python/fixtures/examples.json; tests/kl-divergence-per-example-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json (six decimals), which the cited Python check derives from the real functions, that every example beat ends with its terms fully drawn and nothing later shown early, that the ranking slots end in the order e2, e4, e1, e3 and stay inside the panel at every sampled moment, that the captions carry the measured terms, divergences, ranking, mean, and Jensen-Shannon values, and that drawScene runs against a bare context. Rendered frames inspected at 900 pixels at several moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

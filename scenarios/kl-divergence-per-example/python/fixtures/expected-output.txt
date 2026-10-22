@@ -1,0 +1,14 @@
+4 examples, 3 routes: billing, access, outage
+id  teacher  student   billing   access   outage      KL
+e1  billing  billing   +0.1079  -0.0811  +0.0000  0.0268
+e2  access   access    -0.1386  +0.3760  +0.0000  0.2374
+e3  billing  billing   -0.0553  +0.0315  +0.0315  0.0076
+e4  billing  billing   -0.0487  +0.0112  +0.0805  0.0430
+
+mean KL 0.0787
+ranked worst first: e2 0.2374, e4 0.0430, e1 0.0268, e3 0.0076
+top-route agreement: 4 of 4
+
+rejected: distribution [0.5, 0.3, 0.1] sums to 0.9, not 1
+
+OK

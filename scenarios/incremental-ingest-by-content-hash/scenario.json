@@ -1,0 +1,196 @@
+{
+  "schemaVersion": 1,
+  "slug": "incremental-ingest-by-content-hash",
+  "track": "data-pipelines",
+  "language": "python",
+  "system": {
+    "context": "Orbit's knowledge base feeds a retrieval assistant, and a nightly job re-embedded all of it: every document chunked, embedded, and written back into the vector index, although most documents never change from one night to the next. The job took hours, the provider bill grew with the collection rather than with the edits, and a failed run in the middle left the index half old and half new.",
+    "request": "A worked Python example of one action: plan_ingest(previous, docs), which hashes the text of every document in tonight's export with SHA-256 (hashlib, encode, hexdigest), compares each hash with the manifest the previous run saved (a dictionary from id to hash), and returns one row per document (unchanged, changed, new, or deleted, with both hashes) plus the new manifest, over five inline previous documents and five current ones. The lesson leads with the complete solution and its exact output (the decision table with twelve-character hash prefixes, the plan embed 2 / delete 1 / skip 3, the 60 percent saving, the rejected duplicate id), explains the Python construct by construct (hashlib and bytes, a dictionary built in a loop with a membership guard, a tuple return, an if/elif/else chain, set difference and sorted, a filter loop, slicing, join, format specs, floor division), traces every comparison, and offers one practice variation: recognize a moved document by its unchanged hash.",
+    "inputs": [
+      "Five documents as the previous run saw them (d1 to d5, each an id and a text), from which the file computes the previous manifest; in production that manifest is the JSON the previous run saved",
+      "Tonight's export of five documents: d1, d3, d5 unchanged, d2 edited (List and get calls need the read scope.), d4 absent, and d6 whose text is the previous d4 text (the billing page moved to another section)",
+      "For the practice variation, detect_moves=True: a new id whose hash equals a deleted document's hash is a move"
+    ],
+    "outputs": [
+      "plan_ingest returns rows [(d1 unchanged), (d2 changed), (d3 unchanged), (d5 unchanged), (d6 new), (d4 deleted)] with full hashes, and the new manifest of five hashes in export order",
+      "python solution.py prints the decision table (37182e256ecf, f3a147442ac1 -> 462cbf1e668d, c4c7dda9220b, 6889e5405065, ec50810efe42 for d6 and d4), plan: embed 2 (d2, d6), delete 1 (d4), skip 3 (d1, d3, d5), saved: 3 of 5 embeddings (60%), the rejected duplicate, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it prints d6 moved (from d4), plan: embed 1 (d2), move 1 (d4 -> d6), delete 0 (none), skip 3, saved: 4 of 5 embeddings (80%), and OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, or network",
+      "Hashes are SHA-256 hex digests of the UTF-8 bytes of the text; the manifest keeps export order; deletions are sorted; the previous manifest and the document list are never modified",
+      "A duplicate document id in the export raises ValueError naming the id; the demonstration prints the rejected run instead of crashing",
+      "Ordinary Python only: import hashlib, encode and hexdigest, dictionaries built in loops, membership tests with in, an if/elif/else chain, a function returning a tuple, set() of dictionary keys and set difference, sorted, list concatenation, slicing, join, f-strings with format specs, floor division, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the six decision rows with the documented hash prefixes, embed 2 (d2, d6), delete 1 (d4), skip 3 (d1, d3, d5), 60 percent saved, the rejected duplicate, and OK",
+      "content_hash('abc') equals the published SHA-256 test vector, one missing character changes the hash, an empty previous manifest makes every document new, identical runs plan nothing, and the inputs are unchanged after planning",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt (d6 moved from d4, nothing deleted, embed 1); with detect_moves=False the answer reproduces the worked plan; a near-copy that differs by one character is new, not moved",
+      "What shipped is measured on the same documents: the nightly job embedded 5 of 5 while the plan embeds 2 and never skips a changed document, and applying the plan to the previous manifest reproduces the new manifest exactly"
+    ]
+  },
+  "python": {
+    "package": "incremental_ingest",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "4eb81a1a02d29fc7164062d808bf42f1c8e2f00b49b732ce7760a3f7a27b3f85"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "b957348d7e9b7643e04bfab3600bbac5da517a008542c4851fafd852614a392b"
+    },
+    {
+      "path": "python/fixtures/documents.json",
+      "description": "The previous and current documents with the real SHA-256 digest of each text, exactly as the lesson files define them; the animation runs on this copy because the browser model does not compute SHA-256, and a test pins every digest to content_hash.",
+      "sha256": "20071c67cc96302380b51396a5e73dc21f6c64af87d187c394172a42189086ab"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "The worked plan (every row with full hashes, the plan lists, the counts, the new manifest) and the practice plan with the move, all derived from the Python functions; the animation must replay it exactly.",
+      "sha256": "239a5efc542eccd6ba267bc8fac45c0fa601c61502e9d3dc1d88d6f0327ed8cb"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "hash-standard",
+      "kind": "correctness",
+      "description": "content_hash matches the published SHA-256 vector for abc, is deterministic, changes when one character changes, and is sixty-four hex characters.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_content_hash_is_deterministic_sensitive_and_standard"
+    },
+    {
+      "id": "plan-classifies",
+      "kind": "correctness",
+      "description": "The plan rows are d1 unchanged, d2 changed, d3 unchanged, d5 unchanged, d6 new, d4 deleted, with hashes consistent with both manifests; embed is d2 and d6; delete is d4.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_plan_classifies_every_document"
+    },
+    {
+      "id": "manifest-order",
+      "kind": "correctness",
+      "description": "The new manifest lists tonight's ids in export order with the hash of each text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_manifest_covers_tonights_export_in_order"
+    },
+    {
+      "id": "empty-previous",
+      "kind": "correctness",
+      "description": "An empty previous manifest makes every document new and deletes nothing.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_empty_previous_manifest_means_everything_is_new"
+    },
+    {
+      "id": "identical-runs",
+      "kind": "correctness",
+      "description": "Planning the previous documents against their own manifest marks everything unchanged and returns the same manifest.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_identical_runs_plan_nothing"
+    },
+    {
+      "id": "duplicate-rejected",
+      "kind": "failure",
+      "description": "An export that lists an id twice raises ValueError naming the duplicate id.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_duplicate_id_is_rejected"
+    },
+    {
+      "id": "inputs-not-modified",
+      "kind": "correctness",
+      "description": "The previous manifest and the document list are unchanged after planning.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_inputs_are_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about the missing move, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-reports-move",
+      "kind": "correctness",
+      "description": "With moves detected d6 is moved from d4 carrying d4's hash, and nothing is deleted.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_reports_the_move_and_nothing_deleted"
+    },
+    {
+      "id": "answer-moves-off",
+      "kind": "correctness",
+      "description": "With detect_moves=False the practice answer returns exactly the worked plan.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_without_move_detection_matches_the_worked_plan"
+    },
+    {
+      "id": "answer-exact-match-only",
+      "kind": "failure",
+      "description": "A new document whose text differs from the deleted one by a single character is new, and the old id stays deleted: a move needs an exact hash match.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_needs_an_exact_hash_match_for_a_move"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the helpers and demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "documents-fixture",
+      "kind": "correctness",
+      "description": "documents.json equals the previous and current documents the lesson files define, and every recorded digest equals content_hash of its text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_documents_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the six worked rows, counts embed 2 / delete 1 / skip 3 / 60 percent, the practice rows with the move, counts embed 1 / moved 1 / delete 0 / skip 3 / 80 percent, and d6's current hash equal to d4's previous hash.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "full-reingest-overspends",
+      "kind": "evaluation",
+      "description": "On the same five documents the nightly job that shipped embedded all five, while the plan embeds two (60 percent saved) and never skips a changed document.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_full_reingest_embeds_everything_while_the_plan_embeds_two"
+    },
+    {
+      "id": "plan-reproduces-manifest",
+      "kind": "evaluation",
+      "description": "Applying the plan to the previous manifest (delete the deleted id, write the changed and new hashes) reproduces the new manifest exactly.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_applying_the_plan_to_the_previous_manifest_reproduces_the_new_manifest"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/IngestDiffViz.jsx",
+      "description": "A short animation of the worked example, just under three seconds per document and about half a minute in all: the previous manifest on the left with each document's hash prefix, tonight's export on the right; each document is hashed, its hash glides to the manifest row with the same id, and the decision appears (green unchanged, blue changed, amber new with a dashed line that finds no entry); the unmatched manifest row d4 turns red as deleted; the plan panel totals embed 2, delete 1, skip 3, 60 percent saved; the practice variation links the two equal hashes and reports d6 moved from d4 with embed 1, moved 1, delete 0, skip 3, 80 percent saved. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/ingestDiffModel.js, a JavaScript port of build_manifest and plan_ingest (with and without move detection) that runs on python/fixtures/documents.json, whose SHA-256 digests a Python test pins to content_hash because the browser model does not hash; tests/incremental-ingest-by-content-hash-viz.test.mjs asserts that the trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that each document beat shows the hash before the connector reaches the manifest row and ends with that document's real decision, that captions carry the measured hash prefixes, counts, and percentages, that decisions only accumulate, and that the final scene holds the move and the practice counts. Rendered frames inspected at 900 pixels at several moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

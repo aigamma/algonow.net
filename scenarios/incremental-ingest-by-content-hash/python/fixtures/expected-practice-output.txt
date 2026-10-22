@@ -1,0 +1,14 @@
+previous manifest: 5 documents; current export: 5 documents
+
+id  decision   previous hash  current hash
+d1  unchanged  37182e256ecf   37182e256ecf
+d2  changed    f3a147442ac1   462cbf1e668d
+d3  unchanged  c4c7dda9220b   c4c7dda9220b
+d5  unchanged  6889e5405065   6889e5405065
+d6  moved      ec50810efe42   ec50810efe42  (from d4)
+
+plan: embed 1 (d2), move 1 (d4 -> d6), delete 0 (none), skip 3 (d1, d3, d5)
+saved: 4 of 5 embeddings (80%)
+new manifest: 5 entries, saved for the next run
+
+OK

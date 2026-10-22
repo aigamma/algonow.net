@@ -1,0 +1,17 @@
+previous manifest: 5 documents; current export: 5 documents
+
+id  decision   previous hash  current hash
+d1  unchanged  37182e256ecf   37182e256ecf
+d2  changed    f3a147442ac1   462cbf1e668d
+d3  unchanged  c4c7dda9220b   c4c7dda9220b
+d5  unchanged  6889e5405065   6889e5405065
+d6  new        (none)         ec50810efe42
+d4  deleted    ec50810efe42   (none)
+
+plan: embed 2 (d2, d6), delete 1 (d4), skip 3 (d1, d3, d5)
+saved: 3 of 5 embeddings (60%)
+new manifest: 5 entries, saved for the next run
+
+rejected: duplicate document id 'd1'
+
+OK

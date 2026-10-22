@@ -1,0 +1,56 @@
+{
+ "previous": [
+  {
+   "id": "d1",
+   "text": "Rotate an API key: create the replacement, deploy it, then revoke the old key.",
+   "sha256": "37182e256ecf0bfdf150bbff28c7c3b1ff948685fa1699f9ab0989752dba7abd"
+  },
+  {
+   "id": "d2",
+   "text": "List calls need the read scope.",
+   "sha256": "f3a147442ac1e229b647108da31affa552e2759f658997c8ca7ab5f389baaeb3"
+  },
+  {
+   "id": "d3",
+   "text": "A lost key cannot be recovered. Create a replacement and revoke the lost one.",
+   "sha256": "c4c7dda9220b76ed88a4f6bd3691a8f8a96b4f08b05dc5fbbb33316e36077448"
+  },
+  {
+   "id": "d4",
+   "text": "Invoices are under Billing, one PDF per month.",
+   "sha256": "ec50810efe42940766d986fa824b19bf5e2a993f1ad39e2fc36fccb9ae279c31"
+  },
+  {
+   "id": "d5",
+   "text": "The write scope adds create and delete.",
+   "sha256": "6889e540506525deac7117561d962df0b80735b48f24a1101b904338acfb1972"
+  }
+ ],
+ "current": [
+  {
+   "id": "d1",
+   "text": "Rotate an API key: create the replacement, deploy it, then revoke the old key.",
+   "sha256": "37182e256ecf0bfdf150bbff28c7c3b1ff948685fa1699f9ab0989752dba7abd"
+  },
+  {
+   "id": "d2",
+   "text": "List and get calls need the read scope.",
+   "sha256": "462cbf1e668d41f0a970f831cbfb2ee48425986a19dac2320d3a0227cd8c7d2b"
+  },
+  {
+   "id": "d3",
+   "text": "A lost key cannot be recovered. Create a replacement and revoke the lost one.",
+   "sha256": "c4c7dda9220b76ed88a4f6bd3691a8f8a96b4f08b05dc5fbbb33316e36077448"
+  },
+  {
+   "id": "d5",
+   "text": "The write scope adds create and delete.",
+   "sha256": "6889e540506525deac7117561d962df0b80735b48f24a1101b904338acfb1972"
+  },
+  {
+   "id": "d6",
+   "text": "Invoices are under Billing, one PDF per month.",
+   "sha256": "ec50810efe42940766d986fa824b19bf5e2a993f1ad39e2fc36fccb9ae279c31"
+  }
+ ]
+}

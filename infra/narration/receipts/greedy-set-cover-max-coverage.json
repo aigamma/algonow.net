@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net greedy-set-cover-max-coverage preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T08:14:53.504Z",
+  "publication_sha256": "855aef744443836a7d5c696a2ccdabbd9dfeef8fe4d45c80c91e810d7ddcded6",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4804696,
+  "objects": [
+    {
+      "stable_id": "puzzle:greedy-set-cover-max-coverage",
+      "slug": "greedy-set-cover-max-coverage",
+      "track_id": "algieba",
+      "source_sha256": "1e77327f42c7f6d691644d6657f420712f31c6f696738bb1cc36e6a3de68a9a9",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "05f5c9975424c8ba53f167dc8332e9599fbe2f929a957a4f69e77ec4aa53715b",
+      "object_key": "narration/v1/puzzles/greedy-set-cover-max-coverage/05f5c9975424c8ba53f1/algieba-a864ce82606b6933.mp3",
+      "bytes": 2478092,
+      "sha256": "a864ce82606b69333b928a7ce8017063647d57d5d83ca4b102a4312c5c59a280",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:greedy-set-cover-max-coverage",
+      "slug": "greedy-set-cover-max-coverage",
+      "track_id": "aoede",
+      "source_sha256": "1e77327f42c7f6d691644d6657f420712f31c6f696738bb1cc36e6a3de68a9a9",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "05f5c9975424c8ba53f167dc8332e9599fbe2f929a957a4f69e77ec4aa53715b",
+      "object_key": "narration/v1/puzzles/greedy-set-cover-max-coverage/05f5c9975424c8ba53f1/aoede-d2f02e1fed210d0e.mp3",
+      "bytes": 2326604,
+      "sha256": "d2f02e1fed210d0e86c8b14f6ef1f34f570eaece15d3a854b0366bcc5b1231c2",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

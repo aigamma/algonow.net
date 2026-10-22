@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net tomasulo-reservation-stations preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T08:19:30.992Z",
+  "publication_sha256": "39d94c76b5bed8de7e8edcc94749b1dc53ae4126fc6b0fd7c4f958baa5bd25c5",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5056216,
+  "objects": [
+    {
+      "stable_id": "puzzle:tomasulo-reservation-stations",
+      "slug": "tomasulo-reservation-stations",
+      "track_id": "algieba",
+      "source_sha256": "61e15ab34b00df33502980a8ca3675a0d36946d2718239dafd99678c2dab067d",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "09b48408a3e05ec189ad39bfe64d7e29547a7d25d4c30a98ec80d70068e18d9d",
+      "object_key": "narration/v1/puzzles/tomasulo-reservation-stations/09b48408a3e05ec189ad/algieba-b23c311cd2629108.mp3",
+      "bytes": 2606060,
+      "sha256": "b23c311cd262910851ea358050ec359eff06e7039a323ea4a35530d0ebfa234d",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:tomasulo-reservation-stations",
+      "slug": "tomasulo-reservation-stations",
+      "track_id": "aoede",
+      "source_sha256": "61e15ab34b00df33502980a8ca3675a0d36946d2718239dafd99678c2dab067d",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "09b48408a3e05ec189ad39bfe64d7e29547a7d25d4c30a98ec80d70068e18d9d",
+      "object_key": "narration/v1/puzzles/tomasulo-reservation-stations/09b48408a3e05ec189ad/aoede-6bc9e2ff2e9d6eab.mp3",
+      "bytes": 2450156,
+      "sha256": "6bc9e2ff2e9d6eab034a6a7f16b2a52396dac594df57a9da2fe68a0ea6bd4e69",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

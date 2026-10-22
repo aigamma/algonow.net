@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:chandy-lamport-marker-snapshots",
+  "source_path": "src/content/chandy-lamport-marker-snapshots.narration.js",
+  "source_sha256": "05fb9689169a6ca42b4e63651d97532337fd39879c327702063e9ededa9f4ccc",
+  "source_characters": 9554,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "d4a948eac1dd1018caefeb5109ac2d7e63d283f8b1534044a3d5d50731f27348",
+  "generated_at": "2026-10-22T08:08:19.272Z",
+  "generated_characters": 19108,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4969,
+      "utf8_bytes": 4991,
+      "sha256": "45baf0a60ddf2e897d1d026bcb80987e73ada4fd76e93e3f69e62461e32e46a6"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4585,
+      "utf8_bytes": 4593,
+      "sha256": "76e42d698acb57c33bf7b7492ce8ef481a8820bc938cd2193ef097e88ba07314"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "chandy-lamport-marker-snapshots.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "chandy-lamport-marker-snapshots.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1021,
+      "sha256": "221ab550294fc63ac6454a851e7615d7e74972baf4f26f8a798b52e43f49e0ac"
+    },
+    {
+      "id": "chandy-lamport-marker-snapshots.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 915,
+      "sha256": "754d1b08ee123a731518429b39da58bca9efbeabf9ea19eb80750bd2068ff056"
+    },
+    {
+      "id": "chandy-lamport-marker-snapshots.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 919,
+      "sha256": "ada4bf6e86af7b5f776c6b37e54899a5a996c1da2dac97edd77d8dafbe3c5971"
+    },
+    {
+      "id": "chandy-lamport-marker-snapshots.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 987,
+      "sha256": "06185d7ecf8b13e45d2ea593a88a7db9e6e2af21ac66edd222c09cbb67d48688"
+    },
+    {
+      "id": "chandy-lamport-marker-snapshots.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1014,
+      "sha256": "d85fbf117f20ee5c5517e13195f6a6792f8741149150a6d40994d8fddb9745c0"
+    },
+    {
+      "id": "chandy-lamport-marker-snapshots.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 905,
+      "sha256": "347732784321faa2fe7be77d45d2fec4af63531012bbc800092fa15f60e5e9a6"
+    },
+    {
+      "id": "chandy-lamport-marker-snapshots.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 886,
+      "sha256": "f4e1a673aed91e76127854f108273566eab74e6539564f07801909cab1f999fc"
+    },
+    {
+      "id": "chandy-lamport-marker-snapshots.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 899,
+      "sha256": "e05d6c84c0e5756d1769abfe9e4cc681107e8c3c1e2d17849e05f3dfcd68614a"
+    },
+    {
+      "id": "chandy-lamport-marker-snapshots.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1008,
+      "sha256": "ceec2415360dc1df293ff8f60848fc861143fd4bd644a6a2734427ddd7303a8f"
+    },
+    {
+      "id": "chandy-lamport-marker-snapshots.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 887,
+      "sha256": "2f68bfa7919693fd97baa6af82a534ea8a111ff1a4c551e169a8fe516f9dcf36"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/chandy-lamport-marker-snapshots/d4a948eac1dd1018caef/aoede-f7ee6a8d9aa4f989.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2513516,
+      "sha256": "f7ee6a8d9aa4f9897311faf12c416a45acdf1149d46525cfedfc847fcab0beb4",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "45baf0a60ddf2e897d1d026bcb80987e73ada4fd76e93e3f69e62461e32e46a6",
+          "bytes": 1287936,
+          "sha256": "bc96d672e9ba91cce79e058fb3f73e4375ff613cc25c80badb9f3a61c90d8336"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "76e42d698acb57c33bf7b7492ce8ef481a8820bc938cd2193ef097e88ba07314",
+          "bytes": 1225344,
+          "sha256": "4e6aff8a9eb7a28fd6388f12d2af23d62fa1e8ac4f3e80416e945303c5b2499c"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/chandy-lamport-marker-snapshots/d4a948eac1dd1018caef/algieba-75c2f5316c4b4495.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2536652,
+      "sha256": "75c2f5316c4b449583188415132ab6be208477366686ab72faa379c4ea1b5e86",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "45baf0a60ddf2e897d1d026bcb80987e73ada4fd76e93e3f69e62461e32e46a6",
+          "bytes": 1300704,
+          "sha256": "f7998f920052ee853d5df088ef3e9d56c3e809a9072826893d9b1e66c507e9a5"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "76e42d698acb57c33bf7b7492ce8ef481a8820bc938cd2193ef097e88ba07314",
+          "bytes": 1235712,
+          "sha256": "0cc1822aefa7a1f977f4ce05b84d283d8606b39d82ccac7dfcb1ca05fcb8b69c"
+        }
+      ]
+    }
+  }
+}

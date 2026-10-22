@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:louvain-modularity-moves",
+  "source_path": "src/content/louvain-modularity-moves.narration.js",
+  "source_sha256": "7740544245761d1e3247920f901263c22e76cb8134b29fb576e776a45e66765b",
+  "source_characters": 9447,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "404ee84b519b825d176d32a8e0540b082adbc1ef2623e417d9307a361b24cda4",
+  "generated_at": "2026-10-22T08:05:23.492Z",
+  "generated_characters": 18894,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4957,
+      "utf8_bytes": 4977,
+      "sha256": "5caba1324194a866a255f3625b3949b1dbf5345f8965dc20ce6b46dd88aff419"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4490,
+      "utf8_bytes": 4504,
+      "sha256": "adb62f4746bb8a52ae918cac3b831546ad2a0d7fac0b1881433e2fd8cfc738b9"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "louvain-modularity-moves.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "louvain-modularity-moves.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1037,
+      "sha256": "3007e64ed7f7218e0bf0fb404318c62e145567077acc53c43208dcdb5ee89075"
+    },
+    {
+      "id": "louvain-modularity-moves.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 879,
+      "sha256": "750479b039112f7b8a715788d06c9bd0677fb740c524bb2fc0f539536eb57858"
+    },
+    {
+      "id": "louvain-modularity-moves.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 973,
+      "sha256": "7062ba05262dd9867668466600f677214ce6c29d5008cefae578b5d3390e4005"
+    },
+    {
+      "id": "louvain-modularity-moves.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 886,
+      "sha256": "c118e3b30abfc06c756c859f23368fe4a52635659ea8de26b4e0f189e03de1c2"
+    },
+    {
+      "id": "louvain-modularity-moves.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1067,
+      "sha256": "95a6da9249e9b38e2dfb8ceec5a0cf0ad05bda53ca6935315d5a4dd23dc31f36"
+    },
+    {
+      "id": "louvain-modularity-moves.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 759,
+      "sha256": "ed2f572c38d53b6cca347b38599d1dd3ea82749d54274cb2c547dbd2e8901ae7"
+    },
+    {
+      "id": "louvain-modularity-moves.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 799,
+      "sha256": "732567d7501abe36d5a0d81dbeb0e3fadb85ba3ebeeb4fa4c3af00d31f192c4c"
+    },
+    {
+      "id": "louvain-modularity-moves.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 801,
+      "sha256": "ffa1f2c6ea5926dc1271487a6e13c9538fb6646323c28189fe1c794e9edc9572"
+    },
+    {
+      "id": "louvain-modularity-moves.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1029,
+      "sha256": "05e3a6f99c812e577a459f9528007a6b6a3c753c7c4c5604b42b378d3fff4991"
+    },
+    {
+      "id": "louvain-modularity-moves.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1108,
+      "sha256": "4cf314a9b48b0f61dbb8a5cdc0086c4bb98bd0c0e5d89d5946f5a0cdd33a80d9"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/louvain-modularity-moves/404ee84b519b825d176d/aoede-7849a2203fefa051.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2433644,
+      "sha256": "7849a2203fefa051c5c21c28946c4836dc51c0e265b2a04c4fb4aa78846c6c21",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5caba1324194a866a255f3625b3949b1dbf5345f8965dc20ce6b46dd88aff419",
+          "bytes": 1248096,
+          "sha256": "eab60c66130da940f7ae172a6c2f70fe35aa81183886abbd0efca194d8abba38"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "adb62f4746bb8a52ae918cac3b831546ad2a0d7fac0b1881433e2fd8cfc738b9",
+          "bytes": 1185312,
+          "sha256": "7d4b0717239e2accc487d25d5ef1e611ba8a1cf50b6499849b6b617d0ca1f054"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/louvain-modularity-moves/404ee84b519b825d176d/algieba-addc4940c7f27e84.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2584460,
+      "sha256": "addc4940c7f27e84d80d14eac840e6b3aa92f957dc3ebe86d6b41c537e5d62ba",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5caba1324194a866a255f3625b3949b1dbf5345f8965dc20ce6b46dd88aff419",
+          "bytes": 1335552,
+          "sha256": "37e45169d8af426e68bdd3d20a9faf90cbf28ff600d08468382578e219c021fb"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "adb62f4746bb8a52ae918cac3b831546ad2a0d7fac0b1881433e2fd8cfc738b9",
+          "bytes": 1248672,
+          "sha256": "79196d23fb408f3d7401330e4a6c4574987eea91b8364dfb7349b56771b6b42c"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net chandy-lamport-marker-snapshots preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T08:23:16.454Z",
+  "publication_sha256": "8939cb580e7861ff23bb2f0c8b4b73ac3fee5b3af5f21d1062cd1dcd2264947e",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5050168,
+  "objects": [
+    {
+      "stable_id": "puzzle:chandy-lamport-marker-snapshots",
+      "slug": "chandy-lamport-marker-snapshots",
+      "track_id": "algieba",
+      "source_sha256": "05fb9689169a6ca42b4e63651d97532337fd39879c327702063e9ededa9f4ccc",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "d4a948eac1dd1018caefeb5109ac2d7e63d283f8b1534044a3d5d50731f27348",
+      "object_key": "narration/v1/puzzles/chandy-lamport-marker-snapshots/d4a948eac1dd1018caef/algieba-75c2f5316c4b4495.mp3",
+      "bytes": 2536652,
+      "sha256": "75c2f5316c4b449583188415132ab6be208477366686ab72faa379c4ea1b5e86",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:chandy-lamport-marker-snapshots",
+      "slug": "chandy-lamport-marker-snapshots",
+      "track_id": "aoede",
+      "source_sha256": "05fb9689169a6ca42b4e63651d97532337fd39879c327702063e9ededa9f4ccc",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "d4a948eac1dd1018caefeb5109ac2d7e63d283f8b1534044a3d5d50731f27348",
+      "object_key": "narration/v1/puzzles/chandy-lamport-marker-snapshots/d4a948eac1dd1018caef/aoede-f7ee6a8d9aa4f989.mp3",
+      "bytes": 2513516,
+      "sha256": "f7ee6a8d9aa4f9897311faf12c416a45acdf1149d46525cfedfc847fcab0beb4",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

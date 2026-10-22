@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:raft-leader-election",
+  "source_path": "src/content/raft-leader-election.narration.js",
+  "source_sha256": "10f730763bd47c5b527ea759f7bf54a90d16c8f77eed515cd8cefb3a585f5545",
+  "source_characters": 9950,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "74f0cf0c7ae72c81fa89af4c264729479e4a8e1b6295d70f5d1161410ec1dc0e",
+  "generated_at": "2026-10-22T07:44:16.895Z",
+  "generated_characters": 19900,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4036,
+      "utf8_bytes": 4040,
+      "sha256": "220af76d9fbf3a328ec226e5710a98b3862522cec82b81678c0d98599a75873e"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4964,
+      "utf8_bytes": 4992,
+      "sha256": "ed79f850f63de7a5b8439461f4e47d9088ef9c6b290b595f12cd3afbf49cbe99"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 950,
+      "utf8_bytes": 952,
+      "sha256": "d5c2baa91c0919fe562c3525ac7dd22a840caa09fea1193f26fb4135332b3f23"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "raft-leader-election.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "raft-leader-election.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1107,
+      "sha256": "a2196ff7307728f3917253e31fa3b7d6eb0e429c1f22f6c8c9964e8285539300"
+    },
+    {
+      "id": "raft-leader-election.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 892,
+      "sha256": "518361eb81361c73b7cb0ddb6e37ed8161558cd6ebb251b511fda7a17fc3ef81"
+    },
+    {
+      "id": "raft-leader-election.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1043,
+      "sha256": "a7c29e7afc131cc8f5c8bd345867108a4a3ce5e682f7daf8d038fd3dcec0049f"
+    },
+    {
+      "id": "raft-leader-election.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 865,
+      "sha256": "8a571a084403d84fb25e35f01b72490e0d9d71ceedd5736b35c0bcf896fd4990"
+    },
+    {
+      "id": "raft-leader-election.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 970,
+      "sha256": "cc510e1e80b9ce6688021a4238eacb379c8be20646ae0da3a2b3f558155252ea"
+    },
+    {
+      "id": "raft-leader-election.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 918,
+      "sha256": "a56a19f84db08e433c9debaae396eec5b3a50c815181b0a287ca9bea7b2ad9de"
+    },
+    {
+      "id": "raft-leader-election.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 942,
+      "sha256": "839c78ac4dd953149dd53aa91bdc12246a48578ccc86f2ef23d07a089ff27efc"
+    },
+    {
+      "id": "raft-leader-election.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1072,
+      "sha256": "b3f3600699c6791e0bcc1e74b6c474a9da2baf83e216292966f32039594b4b1d"
+    },
+    {
+      "id": "raft-leader-election.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1080,
+      "sha256": "dbd24fbe41f1fb570773447ab64c5129748523ba3f05d13d4dbf245706344da6"
+    },
+    {
+      "id": "raft-leader-election.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 952,
+      "sha256": "d5c2baa91c0919fe562c3525ac7dd22a840caa09fea1193f26fb4135332b3f23"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/raft-leader-election/74f0cf0c7ae72c81fa89/aoede-e31224bd10526f51.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2604620,
+      "sha256": "e31224bd10526f513affaac41dd8cb714efeadea342a839d82de76c1a7e163d5",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "220af76d9fbf3a328ec226e5710a98b3862522cec82b81678c0d98599a75873e",
+          "bytes": 1048416,
+          "sha256": "8ef8b1c368b04ce7042b44f72f2fd1959e4581a2b6ffecb1c4db782c6b7d1e3d"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ed79f850f63de7a5b8439461f4e47d9088ef9c6b290b595f12cd3afbf49cbe99",
+          "bytes": 1297536,
+          "sha256": "ba5b111d98cee0a1c04512be0c15ae66569f6834606775dfc1f72cd1ec3816b4"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "d5c2baa91c0919fe562c3525ac7dd22a840caa09fea1193f26fb4135332b3f23",
+          "bytes": 258432,
+          "sha256": "1dad846709c72537ff88960bc4dead4a740283a801294e86f45273cf5653e0ba"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/raft-leader-election/74f0cf0c7ae72c81fa89/algieba-78af52837d89d05c.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2790188,
+      "sha256": "78af52837d89d05c45f4c41ab999f8d75bce50c609dd1a3c8107cc6afb92c6d7",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "220af76d9fbf3a328ec226e5710a98b3862522cec82b81678c0d98599a75873e",
+          "bytes": 1158912,
+          "sha256": "886668ed3862efc7d26dc29b48a826788d96df6c008454c8b169946bd17e60ba"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ed79f850f63de7a5b8439461f4e47d9088ef9c6b290b595f12cd3afbf49cbe99",
+          "bytes": 1364544,
+          "sha256": "9daed4e3b05225ef87b804ca7a6c617e406d2e35179bcf68a94b14428d4e07f1"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "d5c2baa91c0919fe562c3525ac7dd22a840caa09fea1193f26fb4135332b3f23",
+          "bytes": 266496,
+          "sha256": "181c6f8812ed5f653df82ef1234eb2c1caa7d45370ffe4f4e804b5582c12de65"
+        }
+      ]
+    }
+  }
+}

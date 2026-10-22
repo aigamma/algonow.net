@@ -1,0 +1,435 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:rabin-karp-rolling-hash",
+  "source_path": "src/content/rabin-karp-rolling-hash.narration.js",
+  "source_sha256": "f394e2be52e204e783db43ce46eda0616564a256de7ccf2e53d864b32d369176",
+  "source_characters": 11811,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "944011bfda4e28b2ca8bcd87d3c031ab6f1f22362c55d352322be287d7677cb9",
+  "generated_at": "2026-10-22T08:12:08.537Z",
+  "generated_characters": 23622,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4491,
+      "utf8_bytes": 4499,
+      "sha256": "e003135f4bbceebfb86dea07e47fd16b1c640acaa6ec9971bd13498cb59735e9"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4056,
+      "utf8_bytes": 4062,
+      "sha256": "53a2a4294996db4a8062c4dda13697e5403835972cac1c5561fb39f0b93e6374"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 3264,
+      "utf8_bytes": 3266,
+      "sha256": "074027e1fa6300322a87855e1479e041e851bef3e938b280d95c4bde2f487dbd"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "rabin-karp-rolling-hash.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "rabin-karp-rolling-hash.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1103,
+      "sha256": "32a8c0a58de7bf2a87507a09d5d9b96f296b2ed646e6cc13eefd93438de9c3b5"
+    },
+    {
+      "id": "rabin-karp-rolling-hash.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1020,
+      "sha256": "951cfd508b97483520f389b71b4a1ea6f6a601a108ddd3ffba1851f7c9b1b9b1"
+    },
+    {
+      "id": "rabin-karp-rolling-hash.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1242,
+      "sha256": "33277a8df91085df04f758d1ba9f8c39f2da4d2c18aae9d7dcc390b1ea8a468c"
+    },
+    {
+      "id": "rabin-karp-rolling-hash.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1001,
+      "sha256": "603a288869c51b4a6dd1e5a757130a3c876dec30fb7530794ec4ab48c3bb0d28"
+    },
+    {
+      "id": "rabin-karp-rolling-hash.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1175,
+      "sha256": "80e6e12428a2764e7fd026b5d45442ca60f003faff5d8afa08049b49eb168fa7"
+    },
+    {
+      "id": "rabin-karp-rolling-hash.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1013,
+      "sha256": "aa230172af28b0fb0f5a06024d2a5d59fd13b3f5e4c582f74a484fc09fc07a66"
+    },
+    {
+      "id": "rabin-karp-rolling-hash.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 907,
+      "sha256": "a50d9e926a573b163b71dc8e8bebe806a8d228f0a896e8a57e4f0811181a4858"
+    },
+    {
+      "id": "rabin-karp-rolling-hash.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 959,
+      "sha256": "fb9bd0a8a3b176e6a7ad0f12cacc30176ca847234fe5b8ba7f0a5b53e5f637b7"
+    },
+    {
+      "id": "rabin-karp-rolling-hash.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1147,
+      "sha256": "113e1599771909a4cb41b96f9bc789cba5b199f564df60fcfb2744458ca9434b"
+    },
+    {
+      "id": "rabin-karp-rolling-hash.10-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 892,
+      "sha256": "41bc601779ea3c795f91aaadbae688b4f1baa947783399d0b26bd04409f18c9c"
+    },
+    {
+      "id": "rabin-karp-rolling-hash.11-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[10].section",
+        "narration[10].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1223,
+      "sha256": "04d81894adb71cc7efa4b66f2a5efd3b6b83ca1b35f06608464fdea08d44e798"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/rabin-karp-rolling-hash/944011bfda4e28b2ca8b/aoede-31d64edb732955ab.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3148844,
+      "sha256": "31d64edb732955ab3fbab8888d1ae00757bd9029846f42859550c8fd3669551c",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "e003135f4bbceebfb86dea07e47fd16b1c640acaa6ec9971bd13498cb59735e9",
+          "bytes": 1201536,
+          "sha256": "eb4d4435b38652b03ebfd6e7319f62199b57814f0aab49cc96e1f88b97e151a6"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "53a2a4294996db4a8062c4dda13697e5403835972cac1c5561fb39f0b93e6374",
+          "bytes": 1097856,
+          "sha256": "585f3c530b8e9ec723b97bbe42c8f2f1b4a100f6af0d044f1e0d6d1523d741ab"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "074027e1fa6300322a87855e1479e041e851bef3e938b280d95c4bde2f487dbd",
+          "bytes": 849216,
+          "sha256": "85f753ee22c6fc17568a4ae1d5e75f4c2137f87ac164d871d6c2f73c9845a439"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/rabin-karp-rolling-hash/944011bfda4e28b2ca8b/algieba-caed0f3ca4a3dd4d.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3291788,
+      "sha256": "caed0f3ca4a3dd4df86e0dda6419259fc4462941842bf9d3f2e19547dd445154",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "e003135f4bbceebfb86dea07e47fd16b1c640acaa6ec9971bd13498cb59735e9",
+          "bytes": 1242912,
+          "sha256": "92cbb3fb5d0830aeb7ae9c53ff983e15ea7389247a486c212c4802fd200a1a41"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "53a2a4294996db4a8062c4dda13697e5403835972cac1c5561fb39f0b93e6374",
+          "bytes": 1147296,
+          "sha256": "255f031f3d1d92b11f6f95a28f9dc8d524e3258e77c7ecd3ecce9302584bd614"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "074027e1fa6300322a87855e1479e041e851bef3e938b280d95c4bde2f487dbd",
+          "bytes": 901344,
+          "sha256": "9bab760279a09e115df70501f23f2d36c956d5f45e3f6d5afbe8126d1a574694"
+        }
+      ]
+    }
+  }
+}

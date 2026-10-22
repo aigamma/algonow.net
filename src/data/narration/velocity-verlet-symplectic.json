@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:velocity-verlet-symplectic",
+  "source_path": "src/content/velocity-verlet-symplectic.narration.js",
+  "source_sha256": "2f7ee6701a81af7bf2e19ff9f7086782d053eedd3db2cedd63f3791e46f304f2",
+  "source_characters": 10116,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "c22817054f762b3b991a987f894c2dcfb4ea8990d0c66550a8eaadcdb57e6b5e",
+  "generated_at": "2026-10-22T07:47:26.617Z",
+  "generated_characters": 20232,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4373,
+      "utf8_bytes": 4381,
+      "sha256": "11519b703be361c574625d314bfed7b52d50e3b1b92a4279955d66753920811c"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4742,
+      "utf8_bytes": 4758,
+      "sha256": "7a6761d01b01d0ae3546745d25edf7ed51607c320a2b772b13b43181784e4925"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1001,
+      "utf8_bytes": 1007,
+      "sha256": "fa182792a5df0112a262fcb257e9b507ed58a3dcd1e8ada28daca0faf6fecbce"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "velocity-verlet-symplectic.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "velocity-verlet-symplectic.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1202,
+      "sha256": "7c8b8b33f189da56070520511b1f132e5e79d9a5b2f2755e00aea4091c5cfa8a"
+    },
+    {
+      "id": "velocity-verlet-symplectic.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1046,
+      "sha256": "1af2bbafc73d65deaa380bb921647f24c2d9fb04379ec2a92069ac0023978d8b"
+    },
+    {
+      "id": "velocity-verlet-symplectic.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1048,
+      "sha256": "671b0305f63f0be2806e9e3656af172febf06390eb9799342f476cd5b3a46e88"
+    },
+    {
+      "id": "velocity-verlet-symplectic.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 952,
+      "sha256": "4ebabe91983efc2e64f23690269030920938f8076b53df4dc59ec50bca0b9f71"
+    },
+    {
+      "id": "velocity-verlet-symplectic.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 979,
+      "sha256": "9bdf1fd5e21115d14fe170378bc8238adbec401bb60bf956996c0a3d795d7e34"
+    },
+    {
+      "id": "velocity-verlet-symplectic.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 975,
+      "sha256": "7b73166ce096213e110b8f13d51c29c7d42025296b9b4f7aaaa24e6ae4231a02"
+    },
+    {
+      "id": "velocity-verlet-symplectic.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 915,
+      "sha256": "f268141cfa8c2d07bff52a280efcdaa52c0ae2d9753896a58abb7cc0352fa574"
+    },
+    {
+      "id": "velocity-verlet-symplectic.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 847,
+      "sha256": "4c7e82c4caafeac700a09e5a6ba7e6e7c4fc98c0a102d9a3027f1a7e52b339c5"
+    },
+    {
+      "id": "velocity-verlet-symplectic.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1032,
+      "sha256": "56bf1231f10c921578b4963903901cfd071b7fe0c0e884911c0bc9bc3fce97be"
+    },
+    {
+      "id": "velocity-verlet-symplectic.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1007,
+      "sha256": "fa182792a5df0112a262fcb257e9b507ed58a3dcd1e8ada28daca0faf6fecbce"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/velocity-verlet-symplectic/c22817054f762b3b991a/aoede-4b3e3a944a362079.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2593004,
+      "sha256": "4b3e3a944a3620791e74a6775dcbe1c73f21b43ebc05e202c629370188f40337",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "11519b703be361c574625d314bfed7b52d50e3b1b92a4279955d66753920811c",
+          "bytes": 1127232,
+          "sha256": "003c54db97fa3f90e81ee37da5c2120e2bae1b1091c4fb78817efbec39545cb7"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "7a6761d01b01d0ae3546745d25edf7ed51607c320a2b772b13b43181784e4925",
+          "bytes": 1244832,
+          "sha256": "3a6cd06c786c695e5be927e487dcad955a9313cf8dd5d94dd1c61643771516a8"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "fa182792a5df0112a262fcb257e9b507ed58a3dcd1e8ada28daca0faf6fecbce",
+          "bytes": 220704,
+          "sha256": "e501305c26d0e165f335694f371f54cebe6b3f05af325a04cf5bed64ee4d5c1f"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/velocity-verlet-symplectic/c22817054f762b3b991a/algieba-210e817556dd11bd.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2734412,
+      "sha256": "210e817556dd11bd74ddac6a7ef1c7562d1b68ab2bfc166c9303ff22cc48aaf2",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "11519b703be361c574625d314bfed7b52d50e3b1b92a4279955d66753920811c",
+          "bytes": 1203744,
+          "sha256": "59fac30876e60ca867c7e9615f5bee1581edfc7a887a6c1431c67555dda26852"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "7a6761d01b01d0ae3546745d25edf7ed51607c320a2b772b13b43181784e4925",
+          "bytes": 1306176,
+          "sha256": "c3f36d70377fee0e2693194a5eafd55721df374fc5aef187a3655bbab355802f"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "fa182792a5df0112a262fcb257e9b507ed58a3dcd1e8ada28daca0faf6fecbce",
+          "bytes": 224256,
+          "sha256": "6cd6432f43124bbfc26fc9a08c1364312f274f8f2235426341ad0c9b0b953b96"
+        }
+      ]
+    }
+  }
+}

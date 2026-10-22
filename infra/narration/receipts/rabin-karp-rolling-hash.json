@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net rabin-karp-rolling-hash preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T08:24:14.009Z",
+  "publication_sha256": "ce1d4c8181f5c986379d1e5ba17d18220423c7a2685b622f901e9c9ce73a808c",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6440632,
+  "objects": [
+    {
+      "stable_id": "puzzle:rabin-karp-rolling-hash",
+      "slug": "rabin-karp-rolling-hash",
+      "track_id": "algieba",
+      "source_sha256": "f394e2be52e204e783db43ce46eda0616564a256de7ccf2e53d864b32d369176",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "944011bfda4e28b2ca8bcd87d3c031ab6f1f22362c55d352322be287d7677cb9",
+      "object_key": "narration/v1/puzzles/rabin-karp-rolling-hash/944011bfda4e28b2ca8b/algieba-caed0f3ca4a3dd4d.mp3",
+      "bytes": 3291788,
+      "sha256": "caed0f3ca4a3dd4df86e0dda6419259fc4462941842bf9d3f2e19547dd445154",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:rabin-karp-rolling-hash",
+      "slug": "rabin-karp-rolling-hash",
+      "track_id": "aoede",
+      "source_sha256": "f394e2be52e204e783db43ce46eda0616564a256de7ccf2e53d864b32d369176",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "944011bfda4e28b2ca8bcd87d3c031ab6f1f22362c55d352322be287d7677cb9",
+      "object_key": "narration/v1/puzzles/rabin-karp-rolling-hash/944011bfda4e28b2ca8b/aoede-31d64edb732955ab.mp3",
+      "bytes": 3148844,
+      "sha256": "31d64edb732955ab3fbab8888d1ae00757bd9029846f42859550c8fd3669551c",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

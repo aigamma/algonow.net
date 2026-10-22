@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:de-bruijn-kmer-assembly",
+  "source_path": "src/content/de-bruijn-kmer-assembly.narration.js",
+  "source_sha256": "0120444e1a571381f22786a8e8d73047faa88ce50499d6eaa8a3d6adcf096288",
+  "source_characters": 9287,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "9d9c7a3aec9c75319c65e5e0531d3a1fa8271fa720e50a7a49dad1fe4e98b820",
+  "generated_at": "2026-10-22T08:02:28.894Z",
+  "generated_characters": 18574,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4824,
+      "utf8_bytes": 4836,
+      "sha256": "68c65178c98828961a545748308707dbb5b4eecea0d0708e791250ecd30bd0af"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4463,
+      "utf8_bytes": 4483,
+      "sha256": "f6513da0b542ab88fc70d3fad1f34774b7902e952ac0efe60ee240a6844b8d65"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "de-bruijn-kmer-assembly.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "de-bruijn-kmer-assembly.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1002,
+      "sha256": "b1e760467ac60ab105a30825e62ee2c152736907457f451fb315b31c5f92ff2f"
+    },
+    {
+      "id": "de-bruijn-kmer-assembly.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 900,
+      "sha256": "ed78323c5cb3236f750d52a1718a48f3952a826b60dc6b87046406851b2cb2a9"
+    },
+    {
+      "id": "de-bruijn-kmer-assembly.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 898,
+      "sha256": "d54aaab44d34bae7dce37ab445da84a0c8d99c655f5b2ee829b077f3e1e30faa"
+    },
+    {
+      "id": "de-bruijn-kmer-assembly.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 883,
+      "sha256": "6988371c0b5b7a86dbd0f27e29b8780b3812acb8589af8fee4c7826e7461f783"
+    },
+    {
+      "id": "de-bruijn-kmer-assembly.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1018,
+      "sha256": "0dcbdb7d63c2b60dcd25b762b6443dcd186f4cb25990f101ca5eb28810cd5998"
+    },
+    {
+      "id": "de-bruijn-kmer-assembly.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 842,
+      "sha256": "292d48755572597679281c55c7ae2eb71c1974169d6f2412c41509d760f48855"
+    },
+    {
+      "id": "de-bruijn-kmer-assembly.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 954,
+      "sha256": "6bf35d8cd4562fe5d07130a7e9c23657a9dd425e24d74e66161e64c724bb727f"
+    },
+    {
+      "id": "de-bruijn-kmer-assembly.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 814,
+      "sha256": "57b1203c58203220312ccb0f8dc1eed1649d88645ba4cfef81cf367da43f6c2d"
+    },
+    {
+      "id": "de-bruijn-kmer-assembly.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 933,
+      "sha256": "111890ecd34c6514e1cc9f7bc846775f467951fa6243d3d6dfbc5920e9f81e2b"
+    },
+    {
+      "id": "de-bruijn-kmer-assembly.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 932,
+      "sha256": "52a44ebfed7ae223d3757fc90872d1ad1cb3783f46fd14b1a75a6af4313ca033"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/de-bruijn-kmer-assembly/9d9c7a3aec9c75319c65/aoede-0e7e0ed1f94a5080.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2442284,
+      "sha256": "0e7e0ed1f94a50807c1e2dcc07c829a7c035a06b02bf81936db4a74a023f3c74",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "68c65178c98828961a545748308707dbb5b4eecea0d0708e791250ecd30bd0af",
+          "bytes": 1305216,
+          "sha256": "93067173f3022b43599564f81519e62d6e7c5df729badb8cd6750bf67403aef5"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "f6513da0b542ab88fc70d3fad1f34774b7902e952ac0efe60ee240a6844b8d65",
+          "bytes": 1136832,
+          "sha256": "09ce6f83b50d9825233d40e2187ed1c2cecdcc82b14ffa03f8771aaffc274bd3"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/de-bruijn-kmer-assembly/9d9c7a3aec9c75319c65/algieba-7b90b53b27063283.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2562092,
+      "sha256": "7b90b53b2706328353adbfba019eeae86a50e24f5767026c8b59fcd388a85e1f",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "68c65178c98828961a545748308707dbb5b4eecea0d0708e791250ecd30bd0af",
+          "bytes": 1343424,
+          "sha256": "243eeb52d7bc0ee6f8f7bf974eb00e588144aae99b0aed2855a2ec936902a550"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "f6513da0b542ab88fc70d3fad1f34774b7902e952ac0efe60ee240a6844b8d65",
+          "bytes": 1218432,
+          "sha256": "4b6c2d36e9fb561bb16698e94692bbaee3b5db842055e4bd905a4df83f48150b"
+        }
+      ]
+    }
+  }
+}

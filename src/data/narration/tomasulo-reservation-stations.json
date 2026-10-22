@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:tomasulo-reservation-stations",
+  "source_path": "src/content/tomasulo-reservation-stations.narration.js",
+  "source_sha256": "61e15ab34b00df33502980a8ca3675a0d36946d2718239dafd99678c2dab067d",
+  "source_characters": 9635,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "09b48408a3e05ec189ad39bfe64d7e29547a7d25d4c30a98ec80d70068e18d9d",
+  "generated_at": "2026-10-22T07:56:30.654Z",
+  "generated_characters": 19270,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4151,
+      "utf8_bytes": 4173,
+      "sha256": "6e86e15b3c8a65f7d290d59c57be16c34551c57e4afdf1cd9d36a48ad4aebb73"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4495,
+      "utf8_bytes": 4515,
+      "sha256": "ee884f92d22e3a5dff79d56223e36701107d6474172248aaf47356decc55bd28"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 989,
+      "utf8_bytes": 989,
+      "sha256": "e385bd72c9e8e83b5df01db2f39dea72a6c0933085f0561136d85d79d5ad891a"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "tomasulo-reservation-stations.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "tomasulo-reservation-stations.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1019,
+      "sha256": "bbf92fdaac6932e6e384e6579cf271cc8cd8f6fbcdfb6477844c2755414ccd0d"
+    },
+    {
+      "id": "tomasulo-reservation-stations.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1032,
+      "sha256": "8e6f9e5502857305cb1ef97f39212a5bc28ca264e47a0c7ae53a6cdbf0434132"
+    },
+    {
+      "id": "tomasulo-reservation-stations.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1082,
+      "sha256": "ed87d2bc320fd856562e00e20de343a104e994c7f6efd01b8f2cc2bda9c8d6ad"
+    },
+    {
+      "id": "tomasulo-reservation-stations.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 907,
+      "sha256": "5c08e311a24ba67f05c7967db49751a3ef53ec87ed3306d2270122f9e996d412"
+    },
+    {
+      "id": "tomasulo-reservation-stations.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 945,
+      "sha256": "7c3c2a8f82748877bc91b1f369230f4ab05e1e33be49faef4e6a42602eae2ee8"
+    },
+    {
+      "id": "tomasulo-reservation-stations.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 861,
+      "sha256": "1f924798143f3db556516d9a15373e4842f9ed20f0e1da58b566629bfad3c056"
+    },
+    {
+      "id": "tomasulo-reservation-stations.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 848,
+      "sha256": "30b692abead02c4756bc0ca529e3b8c3530beb685495a6aed5357b1c4d26f942"
+    },
+    {
+      "id": "tomasulo-reservation-stations.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 884,
+      "sha256": "1af21d8f1b6df89884d4b9f8be024dcfcbf99315f73039fcd9be3411430bf183"
+    },
+    {
+      "id": "tomasulo-reservation-stations.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 967,
+      "sha256": "877b3653949851886a47be379359076bff67d9e6b9c6091af54058392747fd63"
+    },
+    {
+      "id": "tomasulo-reservation-stations.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 989,
+      "sha256": "e385bd72c9e8e83b5df01db2f39dea72a6c0933085f0561136d85d79d5ad891a"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/tomasulo-reservation-stations/09b48408a3e05ec189ad/aoede-6bc9e2ff2e9d6eab.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2450156,
+      "sha256": "6bc9e2ff2e9d6eab034a6a7f16b2a52396dac594df57a9da2fe68a0ea6bd4e69",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "6e86e15b3c8a65f7d290d59c57be16c34551c57e4afdf1cd9d36a48ad4aebb73",
+          "bytes": 1042944,
+          "sha256": "699c636f1c957b375679d7532098098fffcb0bc44c60258addd644dd20be9a6b"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ee884f92d22e3a5dff79d56223e36701107d6474172248aaf47356decc55bd28",
+          "bytes": 1160544,
+          "sha256": "8e717d3200f499056f5a56630e5bc52be4739db153d04f8074c83ef3fdec7a45"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "e385bd72c9e8e83b5df01db2f39dea72a6c0933085f0561136d85d79d5ad891a",
+          "bytes": 246432,
+          "sha256": "9ed616ee3bde584d441cad107f7290dd3c84523579528953cf5a3e7a03a53e6c"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/tomasulo-reservation-stations/09b48408a3e05ec189ad/algieba-b23c311cd2629108.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2606060,
+      "sha256": "b23c311cd262910851ea358050ec359eff06e7039a323ea4a35530d0ebfa234d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "6e86e15b3c8a65f7d290d59c57be16c34551c57e4afdf1cd9d36a48ad4aebb73",
+          "bytes": 1130016,
+          "sha256": "f95c4be28924782926a2c465b6e759431db476307769cdf5b8059966c78179d0"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ee884f92d22e3a5dff79d56223e36701107d6474172248aaf47356decc55bd28",
+          "bytes": 1223904,
+          "sha256": "37298c24d79e16516aa29c3984ecf90f55a6c58a5a3f241f1902566fd8bb8878"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "e385bd72c9e8e83b5df01db2f39dea72a6c0933085f0561136d85d79d5ad891a",
+          "bytes": 251904,
+          "sha256": "5034f4965628408317d025c051ee0ac7ce26bd4b02ebea1703d8809def408bad"
+        }
+      ]
+    }
+  }
+}

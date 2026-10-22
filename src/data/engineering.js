@@ -310,6 +310,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['math.comb and the unbiased pass at k estimator', 'A guard clause with an early return', 'Building a table over several k values', 'Means over problems', 'All k samples correct (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'mmr-diversify-results',
+    title: 'Diversify retrieved chunks with maximal marginal relevance',
+    summary: 'Orbit\'s top three for "rotate key" came back as three near-copies of one paragraph from different runbook versions, so the answer never saw the revocation step. A worked Python example reranks six inline candidates with maximal marginal relevance: a relevance list and a similarity matrix as lists of lists, a greedy while loop that scores every remaining candidate as lambda times relevance minus one minus lambda times its highest similarity to anything already picked, a best-so-far variable, list.remove, its exact output, a trace of every pick, and one practice variation that caps picks per source.',
+    track: 'rag',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'intermediate',
+    durationMinutes: 30,
+    skills: ['Greedy selection with a while loop and a best-so-far variable', 'A similarity matrix as a list of lists', 'The MMR score and the lambda tradeoff', 'list.remove and membership tests', 'A cap per source (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

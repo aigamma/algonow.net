@@ -286,6 +286,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['csv.DictReader over io.StringIO', 'Quoted fields with embedded commas and newlines', 'Filtering rows and counting skips by reason', 'json.dumps and JSONL line assembly', 'A character budget per example (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'clip-gradients-by-global-norm',
+    title: 'Clip gradients by their global norm before the update',
+    summary: 'Orbit\'s fine-tune hit NaN at step three hundred after one bad batch produced enormous gradients. A worked Python example clips gradients by their global norm, the operation a framework\'s clip-grad-norm performs: three parameter groups as nested lists, a sum of squares over every element with nested loops and math.sqrt, one scale factor from min, new lists built without mutating the input, the update applied with the clipped gradients, its exact output, a trace of the norms, and one practice variation that clips each group separately.',
+    track: 'fine-tuning',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'intermediate',
+    durationMinutes: 30,
+    skills: ['Global norm over nested lists with nested loops and math.sqrt', 'One scale factor with min', 'Building new lists instead of mutating inputs', 'Applying an update with zip over parallel nested lists', 'Per-group clipping (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

@@ -231,7 +231,7 @@ export function drawScene(ctx, scene) {
   ctx.fillStyle = AMBER;
   ctx.fillText(`dot product (scaled to the largest, ${f2(scene.maxDot)})`, BAR_X0, 64);
   ctx.fillStyle = BLUE;
-  ctx.fillText('cosine (0 to 1)', BAR_X0 + 232, 64);
+  ctx.fillText('cosine (0 to 1)', BAR_X0 + 300, 64);
 
   // Rows: id and title, the amber dot bar above the blue cosine bar.
   const sortedByY = [...scene.rows].sort((a, b) => a.y - b.y);
@@ -286,11 +286,11 @@ export function drawScene(ctx, scene) {
     const x = BAR_X0 + BAR_W * scene.minimum;
     ctx.strokeStyle = AMBER;
     ctx.setLineDash([2, 4]);
-    ctx.beginPath(); ctx.moveTo(x, slot(0) - 30); ctx.lineTo(x, slot(scene.rows.length - 1) + 22); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x, slot(0) - 22); ctx.lineTo(x, slot(scene.rows.length - 1) + 24); ctx.stroke();
     ctx.setLineDash([]);
     ctx.fillStyle = AMBER;
     ctx.font = `10.5px ${MONO}`;
-    ctx.fillText(`minimum ${scene.minimum}`, x + 6, slot(0) - 32);
+    ctx.fillText(`minimum ${scene.minimum}`, x + 6, slot(scene.rows.length - 1) + 38);
     ctx.restore();
   }
 

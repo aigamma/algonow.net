@@ -214,6 +214,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['A dictionary of lists as an inverted index', 'Tokenizing with lower, a character filter, and split', 'set() to deduplicate terms within a document', 'Set intersection with & for AND queries', 'OR queries ranked by match count (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'incremental-ingest-by-content-hash',
+    title: 'Re-ingest only what changed by hashing each document\'s content',
+    summary: 'Orbit re-embedded its whole knowledge base every night, hours of compute and provider spend, although most documents never change. A worked Python example compares a previous run\'s manifest of content hashes with the current documents and plans the work: hashlib SHA-256 of the text, a dictionary built in a loop, membership tests against the previous manifest, set difference for deletions, sorted ids for a stable report, its exact output, a trace of every classification, and one practice variation that recognizes a moved document by its unchanged hash.',
+    track: 'data-pipelines',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'foundation',
+    durationMinutes: 25,
+    skills: ['SHA-256 content hashes with hashlib, encode, and hexdigest', 'A manifest as a dictionary from id to hash', 'Classifying records by dictionary membership and value comparison', 'Set difference for deletions and sorted for stable reports', 'Detecting moves by hash (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

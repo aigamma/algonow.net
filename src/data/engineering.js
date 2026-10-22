@@ -238,6 +238,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['A generator function with yield', 'random.Random(seed).shuffle on a copy', 'range with a step and list slicing into batches', 'Reproducible epochs from seed plus epoch', 'Dropping the ragged last batch (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'retrieval-precision-recall-mrr',
+    title: 'Measure a retriever with precision at k, recall at k, and MRR',
+    summary: 'Orbit swapped its embedding model because the new results felt better, with no number to show for it. A worked Python example scores four inline queries, each with the old ranking, the new ranking, and the set of relevant chunk ids: precision and recall at three from a slice and set membership, reciprocal rank from enumerate with an early return, means across queries, its exact output, a trace of every hit, and one practice variation that adds nDCG at three with math.log2.',
+    track: 'evaluation',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'foundation',
+    durationMinutes: 25,
+    skills: ['Precision and recall at k from a slice and set membership', 'Reciprocal rank with enumerate(start=1) and an early return', 'Averaging per-query metrics', 'Comparing two retrievers on the same queries', 'nDCG at k with math.log2 (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

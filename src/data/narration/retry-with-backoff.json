@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:retry-with-backoff",
   "source_path": "src/content/retry-with-backoff.narration.js",
-  "source_sha256": "7a388d3fd587540f01a0c1b7982e2359144f66d230bb1575c2666553da20a9ee",
-  "source_characters": 14101,
+  "source_sha256": "050826fb2b3dd4b39bc90d8ae8bcee2b0e98f49e73ee82d4c0dc553c5fbb5635",
+  "source_characters": 14075,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -42,9 +42,9 @@
     }
   },
   "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
-  "release_sha256": "f7d43efb543410cd6aaf5dcc57514eb17a042bba22cebc77ccf3c55ae8dcbabd",
-  "generated_at": "2026-10-18T03:03:38.260Z",
-  "generated_characters": 28202,
+  "release_sha256": "ad167c64f7a8bf437484ec9c1ea27d3dc936ca2fbe797a992891f7b9eb6c38c7",
+  "generated_at": "2026-10-22T02:57:39.537Z",
+  "generated_characters": 28150,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -69,16 +69,16 @@
     {
       "id": "request-001",
       "index": 1,
-      "characters": 4879,
-      "utf8_bytes": 4885,
-      "sha256": "a53e31bb8c655a8f9c84cd678346d5bef148186a532dd783bd483f16811ffdcd"
+      "characters": 4851,
+      "utf8_bytes": 4857,
+      "sha256": "030bcfd5971406851efeddaf45b7f2520fa1f221fd9d9776b9234f952d7ab9fd"
     },
     {
       "id": "request-002",
       "index": 2,
-      "characters": 4499,
-      "utf8_bytes": 4499,
-      "sha256": "124089b293888f4bf0fc6cb117e3c64709ad222e91ce4e10a04fa6ca7cdfc84f"
+      "characters": 4501,
+      "utf8_bytes": 4501,
+      "sha256": "06170c4329e3567612993ceaaa28942fbd88cf24fb09308b6e74898a9b3c56c5"
     },
     {
       "id": "request-003",
@@ -157,8 +157,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 3098,
-      "sha256": "bdf56a5291bc21c0b86acff37874ea88c4cfd8e774d62859427307dff56d48e4"
+      "utf8_bytes": 3072,
+      "sha256": "63973aab4e736bec24f3870db42d600980e7eca0f1c5e542a76303ac380761bc"
     },
     {
       "id": "retry-with-backoff.03-solution",
@@ -305,29 +305,29 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/retry-with-backoff/f7d43efb543410cd6aaf/aoede-e4691ffa078909c9.mp3",
+      "object_key": "narration/v1/puzzles/retry-with-backoff/ad167c64f7a8bf437484/aoede-1b5547dd2132af37.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 3668780,
-      "sha256": "e4691ffa078909c9e2316fba857751c08368f162bb8ce70c615795f89f8dae54",
+      "bytes": 3602156,
+      "sha256": "1b5547dd2132af37676db8c034a689dbea28953580b99966b93d6266356f38e7",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "a53e31bb8c655a8f9c84cd678346d5bef148186a532dd783bd483f16811ffdcd",
-          "bytes": 1347264,
-          "sha256": "515fce6a06c8ff2ad330e073f747732a8ae0b91ed20014e8503f80043c6a02dd"
+          "request_sha256": "030bcfd5971406851efeddaf45b7f2520fa1f221fd9d9776b9234f952d7ab9fd",
+          "bytes": 1303392,
+          "sha256": "391cb6e3f9e1e84b75249d5fdd13e386b94950cb13d0aa40fc535fd2041bbcea"
         },
         {
           "request_index": 2,
-          "request_sha256": "124089b293888f4bf0fc6cb117e3c64709ad222e91ce4e10a04fa6ca7cdfc84f",
-          "bytes": 1113216,
-          "sha256": "f75f1153d9b50ddd9242277623cddba4ca62dbfbd7919f359ae3513255a6717e"
+          "request_sha256": "06170c4329e3567612993ceaaa28942fbd88cf24fb09308b6e74898a9b3c56c5",
+          "bytes": 1150464,
+          "sha256": "1241b5a125bdd6a6297968b769923a336e958a28598108051998a4800a43cad9"
         },
         {
           "request_index": 3,
           "request_sha256": "cb11fa4fdcf7ad25372afbc1d47e2e806aebc675139c0c533eeba579c40a8b20",
-          "bytes": 1208064,
-          "sha256": "38987cae794b9e477d44ae1a4ff3b18664580ce65d9f94d8a63e3d822fc241c1"
+          "bytes": 1148064,
+          "sha256": "471e3580a75999ad33f846e0efff18753f1f097c0db2d95577e1063d6d5f81b0"
         }
       ]
     },
@@ -336,29 +336,29 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/retry-with-backoff/f7d43efb543410cd6aaf/algieba-684d7ad1ba3e429a.mp3",
+      "object_key": "narration/v1/puzzles/retry-with-backoff/ad167c64f7a8bf437484/algieba-c7fa86dabb3f87ef.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 3786092,
-      "sha256": "684d7ad1ba3e429a7e3139cff2f6b87f447578e255b70d1d9bd795185bd52874",
+      "bytes": 3729548,
+      "sha256": "c7fa86dabb3f87effd80854efb6881c0eb5dac1cceac7a0aefd1c186ea6715f3",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "a53e31bb8c655a8f9c84cd678346d5bef148186a532dd783bd483f16811ffdcd",
-          "bytes": 1367136,
-          "sha256": "c85ed15bf22fdacb74691fa216a20bacb105c91b2151b59645437b967d146908"
+          "request_sha256": "030bcfd5971406851efeddaf45b7f2520fa1f221fd9d9776b9234f952d7ab9fd",
+          "bytes": 1322784,
+          "sha256": "871ddd78e0337d93525e5c6ce6b1074e286d0a5d05ac3411b94c387ba29c9c15"
         },
         {
           "request_index": 2,
-          "request_sha256": "124089b293888f4bf0fc6cb117e3c64709ad222e91ce4e10a04fa6ca7cdfc84f",
-          "bytes": 1214304,
-          "sha256": "ea7e0e3e7d947c6e5485699eced18cc259ea2e980045b8937ae75e597a6083da"
+          "request_sha256": "06170c4329e3567612993ceaaa28942fbd88cf24fb09308b6e74898a9b3c56c5",
+          "bytes": 1188096,
+          "sha256": "cdcbea4ca47002f0000598080f965b6bd6a4422aa1853b5a98a063720de6e5ea"
         },
         {
           "request_index": 3,
           "request_sha256": "cb11fa4fdcf7ad25372afbc1d47e2e806aebc675139c0c533eeba579c40a8b20",
-          "bytes": 1204416,
-          "sha256": "4740d2e5dc1472f433931f18088f9f4357498412043e035f2faaeba55b800ce4"
+          "bytes": 1218432,
+          "sha256": "0340e7f5fb542bcc166e9b57ecb608fef43892ccc611451c5ba0bb4a9c50b47d"
         }
       ]
     }

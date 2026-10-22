@@ -2,8 +2,8 @@
   "schema_version": 1,
   "content_id": "puzzle:paired-prompt-comparison",
   "source_path": "src/content/paired-prompt-comparison.narration.js",
-  "source_sha256": "b57bbc52832a92a11ffe7a7cec8ef417eb34a61491a0410cd9000267e372d5dd",
-  "source_characters": 13508,
+  "source_sha256": "bb12728dcc4693ed43168e5f8257eb711f6b462ebd5ab14901218d81c5083317",
+  "source_characters": 13577,
   "recipe": {
     "schema_version": 1,
     "provider": "Google Cloud Text-to-Speech",
@@ -42,9 +42,9 @@
     }
   },
   "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
-  "release_sha256": "00c576a6f8b7efa546b2d6a65612e2ef694dc126468431ccab7ee77bf743b4bf",
-  "generated_at": "2026-10-18T02:56:37.796Z",
-  "generated_characters": 27016,
+  "release_sha256": "f6a6eb6d6a8014636b2e4e644a22a72a5385cd98d77d8a41de71d066690ee3be",
+  "generated_at": "2026-10-22T02:53:18.413Z",
+  "generated_characters": 27154,
   "default_voice": "aoede",
   "default_rate": 1.25,
   "rate_options": [
@@ -69,23 +69,23 @@
     {
       "id": "request-001",
       "index": 1,
-      "characters": 4986,
-      "utf8_bytes": 4998,
-      "sha256": "b1a456a025f97547c5bf2eb4779822934e5ea49fd33e1455cba81b11b0736ccf"
+      "characters": 4958,
+      "utf8_bytes": 4970,
+      "sha256": "7f68e3e24ee98df7f329c94a0b363b36422c5412b54693b8ca00ae52ac96941b"
     },
     {
       "id": "request-002",
       "index": 2,
-      "characters": 3975,
-      "utf8_bytes": 3977,
-      "sha256": "74adf679a294c688dd3682a2d4b3fa38da2181b4484cda6f2ecc35cd50f72b85"
+      "characters": 4063,
+      "utf8_bytes": 4065,
+      "sha256": "9b09ca0c16768f1dea40c455af75c584c739a0cff36669bfd0ce9b6d648a587e"
     },
     {
       "id": "request-003",
       "index": 3,
-      "characters": 4547,
-      "utf8_bytes": 4563,
-      "sha256": "019aad3983bd026cfd4225059cc7b1f1eb70e77f1d7dedba8f0460d3a0f8e4fb"
+      "characters": 4556,
+      "utf8_bytes": 4572,
+      "sha256": "b70f143df5555c24dc0e4df2760b5857e5503422f5dd69f65ca4a2f65cc16a0a"
     }
   ],
   "assembly": {
@@ -157,8 +157,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 3144,
-      "sha256": "f3da604cb476e16e20a3bcc576ed91dbde3222a34c36e043721bac76518e8f42"
+      "utf8_bytes": 3204,
+      "sha256": "0fa7495afe3d2be8520f00332d8e607394166ab6d8ae551f86b3e2c75a903402"
     },
     {
       "id": "paired-prompt-comparison.03-solution",
@@ -272,8 +272,8 @@
         "navigation",
         "player controls"
       ],
-      "utf8_bytes": 1303,
-      "sha256": "319e7c28546bd4a3952a7ec346c1e6e0b222f98792c70a267a54f57fe2ce081a"
+      "utf8_bytes": 1312,
+      "sha256": "dc5cbea0ef0f0537e8ce72bdce5c08678a0555dc0ef3a8536c63318d05db3017"
     },
     {
       "id": "paired-prompt-comparison.08-files",
@@ -305,29 +305,29 @@
       "gender": "female",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Aoede",
-      "object_key": "narration/v1/puzzles/paired-prompt-comparison/00c576a6f8b7efa546b2/aoede-2f9159ab616fce5b.mp3",
+      "object_key": "narration/v1/puzzles/paired-prompt-comparison/f6a6eb6d6a8014636b2e/aoede-2edcc4e539cd5e24.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 3588812,
-      "sha256": "2f9159ab616fce5bcff03ba1cd63338aa01ffde6733cb470c0001092185eb8c3",
+      "bytes": 3582956,
+      "sha256": "2edcc4e539cd5e24fa8704e1094bfc895e1e280d210b71e8c5be8a09e4340ac9",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "b1a456a025f97547c5bf2eb4779822934e5ea49fd33e1455cba81b11b0736ccf",
-          "bytes": 1368864,
-          "sha256": "b3db9d8255cfc8a57b57ec576b0c3971fff244fc15f66d50e2e7ef37a80976cf"
+          "request_sha256": "7f68e3e24ee98df7f329c94a0b363b36422c5412b54693b8ca00ae52ac96941b",
+          "bytes": 1327872,
+          "sha256": "53e990c8650e056c36bee98f087b87f02bee093d3a738454dd6672cbfbacb5a3"
         },
         {
           "request_index": 2,
-          "request_sha256": "74adf679a294c688dd3682a2d4b3fa38da2181b4484cda6f2ecc35cd50f72b85",
-          "bytes": 1086336,
-          "sha256": "5e44787e5a748f7498f4c7865ee8487a176bfe413cef107f3051e1af6e64f98d"
+          "request_sha256": "9b09ca0c16768f1dea40c455af75c584c739a0cff36669bfd0ce9b6d648a587e",
+          "bytes": 1103232,
+          "sha256": "c376173a71792aec6549c936840df8bfd9b60e0dfcb6261114d69520fa88f591"
         },
         {
           "request_index": 3,
-          "request_sha256": "019aad3983bd026cfd4225059cc7b1f1eb70e77f1d7dedba8f0460d3a0f8e4fb",
-          "bytes": 1133376,
-          "sha256": "d50eee4c851fadbf36c067b80e30b7b746112bae85d5ba705fa0e2b0950f6c71"
+          "request_sha256": "b70f143df5555c24dc0e4df2760b5857e5503422f5dd69f65ca4a2f65cc16a0a",
+          "bytes": 1151616,
+          "sha256": "ea4f9d949999ec30ae88d666d11e053d593322f7664ae1f0601232b57f015d7e"
         }
       ]
     },
@@ -336,29 +336,29 @@
       "gender": "male",
       "language_code": "en-US",
       "voice_id": "en-US-Chirp3-HD-Algieba",
-      "object_key": "narration/v1/puzzles/paired-prompt-comparison/00c576a6f8b7efa546b2/algieba-ee9be89a8cabe61a.mp3",
+      "object_key": "narration/v1/puzzles/paired-prompt-comparison/f6a6eb6d6a8014636b2e/algieba-d3caa8014b730c44.mp3",
       "content_type": "audio/mpeg",
       "cache_control": "public,max-age=31536000,immutable",
-      "bytes": 3839564,
-      "sha256": "ee9be89a8cabe61a8dee85fa934b3f9ef43715694d8173d3149616215bcaf7eb",
+      "bytes": 3829388,
+      "sha256": "d3caa8014b730c440d7ef936ea8400a7c6c27c524f568dcb9a65d38587f8a234",
       "request_parts": [
         {
           "request_index": 1,
-          "request_sha256": "b1a456a025f97547c5bf2eb4779822934e5ea49fd33e1455cba81b11b0736ccf",
-          "bytes": 1504992,
-          "sha256": "29a8744e5fc727efccb80ce714eb2686f0691ac974b4affa83ffff1d6e65fbc7"
+          "request_sha256": "7f68e3e24ee98df7f329c94a0b363b36422c5412b54693b8ca00ae52ac96941b",
+          "bytes": 1454304,
+          "sha256": "301fff888bad3fb4ba318882832897a41d0126a4d7922da0bbf4dca4a28bfee4"
         },
         {
           "request_index": 2,
-          "request_sha256": "74adf679a294c688dd3682a2d4b3fa38da2181b4484cda6f2ecc35cd50f72b85",
-          "bytes": 1148832,
-          "sha256": "e9a4d92cefed16fccbb51db6c9529b81ccab0fdce7da687db786d5d63a084929"
+          "request_sha256": "9b09ca0c16768f1dea40c455af75c584c739a0cff36669bfd0ce9b6d648a587e",
+          "bytes": 1158336,
+          "sha256": "fe711bd426199b7abe1bb3c6c9c37189362719836c64e1619a0e354346e7832c"
         },
         {
           "request_index": 3,
-          "request_sha256": "019aad3983bd026cfd4225059cc7b1f1eb70e77f1d7dedba8f0460d3a0f8e4fb",
-          "bytes": 1185504,
-          "sha256": "45cbc3de115fefe3fddf4ffbd6ee9da57138776b5eb98a3f3db9e9486c31284c"
+          "request_sha256": "b70f143df5555c24dc0e4df2760b5857e5503422f5dd69f65ca4a2f65cc16a0a",
+          "bytes": 1216512,
+          "sha256": "cc8431e8f600590228a2fa2389afc1797a64e22258804269d65ca6f233e9e45f"
         }
       ]
     }

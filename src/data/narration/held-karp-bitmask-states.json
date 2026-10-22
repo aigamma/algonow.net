@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:held-karp-bitmask-states",
+  "source_path": "src/content/held-karp-bitmask-states.narration.js",
+  "source_sha256": "0f62118f498995b94b3233f46068a61169bbd72517341f6676b559c1dac301ae",
+  "source_characters": 8774,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "c24c085b47c2ff4bbeed13bcdd99e71cda8f75f14cee08d05cd604d9cffde269",
+  "generated_at": "2026-10-22T07:18:48.706Z",
+  "generated_characters": 17548,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4830,
+      "utf8_bytes": 4834,
+      "sha256": "0607be2cef169810f03365c8d8b121ee810b4ac003fbaaa86053dff6496e6a4f"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3944,
+      "utf8_bytes": 3952,
+      "sha256": "69372fe72fa8b9ffb570c8bf0e7667c180349d4b0f9eda1c0d58e2b4cf383665"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "held-karp-bitmask-states.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "held-karp-bitmask-states.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 723,
+      "sha256": "084c808927125fbeb2e48d544e89e58819e517edc73ecc8854bcdecfffc2f42c"
+    },
+    {
+      "id": "held-karp-bitmask-states.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 663,
+      "sha256": "c5925e1495a2800afe26b64249829702bfa9f8b30504dc05565c3f3f2002dd51"
+    },
+    {
+      "id": "held-karp-bitmask-states.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1120,
+      "sha256": "10bc8d58d2d2a3277e0ce4109af4d7e7818962ebaf2326699bb1db34426fba7b"
+    },
+    {
+      "id": "held-karp-bitmask-states.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 655,
+      "sha256": "f4ce6cd89f25be1aa96d5a2806722a258cb357e3cb011306b85d61f1bd496ca1"
+    },
+    {
+      "id": "held-karp-bitmask-states.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 811,
+      "sha256": "b54d0a80a1295f4ffa1d522c641679fefc4ea08ed8d03b97fe1895218938bcdb"
+    },
+    {
+      "id": "held-karp-bitmask-states.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 725,
+      "sha256": "8fd662bf505274e6e6dbd6f11bed1a94959b2b5fe0567d296b678d59729b7fb2"
+    },
+    {
+      "id": "held-karp-bitmask-states.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1191,
+      "sha256": "abad0d839c3941e58e3a099bac8b888135afeefada4b2cf0222f1fdb3d8990fd"
+    },
+    {
+      "id": "held-karp-bitmask-states.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 908,
+      "sha256": "289c82ef44be9e668fbb054aaab633b0462f98837fd1b07a4a5a7db3937f0b93"
+    },
+    {
+      "id": "held-karp-bitmask-states.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 966,
+      "sha256": "72247614efc6c38761003944d4a61b58b8a1642b165a43337f70563a3582743b"
+    },
+    {
+      "id": "held-karp-bitmask-states.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 881,
+      "sha256": "131b9832bea6fb61283d0de133bac91431e07f8f3929299970ed6723fcd296f4"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/held-karp-bitmask-states/c24c085b47c2ff4bbeed/aoede-39a3e2c6425e17a5.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2331212,
+      "sha256": "39a3e2c6425e17a579bd6f87d8c8e560625d143bf936bc1d2fc4e0cc08b5e6f5",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "0607be2cef169810f03365c8d8b121ee810b4ac003fbaaa86053dff6496e6a4f",
+          "bytes": 1284192,
+          "sha256": "5fe83d047e9126b2ed794e04eb388eaeb72ac7af5d3807c183618c2b1939a4f1"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "69372fe72fa8b9ffb570c8bf0e7667c180349d4b0f9eda1c0d58e2b4cf383665",
+          "bytes": 1046784,
+          "sha256": "c0462e96a1650e29dd79fbdb16e69b413135767bcdb8bea7c3ed2e90adc37883"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/held-karp-bitmask-states/c24c085b47c2ff4bbeed/algieba-12967365844bffef.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2424236,
+      "sha256": "12967365844bffefe34cca7681e607e184c91c8647b22b6ca909c7ad21c3e330",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "0607be2cef169810f03365c8d8b121ee810b4ac003fbaaa86053dff6496e6a4f",
+          "bytes": 1323744,
+          "sha256": "19dd4b6423fcf04bf8c741444d3044e599f4b4ac331818520354cf6b68cb34af"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "69372fe72fa8b9ffb570c8bf0e7667c180349d4b0f9eda1c0d58e2b4cf383665",
+          "bytes": 1100256,
+          "sha256": "161896d793503cd906ab0c341f3a5ad56807c6904a3e603da295000340fd0c42"
+        }
+      ]
+    }
+  }
+}

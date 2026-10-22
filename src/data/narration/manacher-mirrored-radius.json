@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:manacher-mirrored-radius",
+  "source_path": "src/content/manacher-mirrored-radius.narration.js",
+  "source_sha256": "55ef84ffea8d811c4105e83628635a840cc730deb77bb1f6e14c3753838a5b7f",
+  "source_characters": 9089,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "5e455b0a573cbbee1c0d9f233ce3f407050b6e2c386c9503f98ddcd646d323a6",
+  "generated_at": "2026-10-22T07:13:16.770Z",
+  "generated_characters": 18178,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4435,
+      "utf8_bytes": 4445,
+      "sha256": "0888a1e32aa0d8ed40dd85094f9a8947e2277d01de38f9108591d8fa987b639b"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4654,
+      "utf8_bytes": 4670,
+      "sha256": "ef227469b1c365cc10e3a0bc0badc1f87d577224f1de6d0068f94a0dbc301fbb"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "manacher-mirrored-radius.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "manacher-mirrored-radius.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 917,
+      "sha256": "c3a11d364ac03f1d19b5d9fa28a9a839ba7fbf795fe3127288ec456bbd597a59"
+    },
+    {
+      "id": "manacher-mirrored-radius.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 715,
+      "sha256": "ba9f5ddfe713f4e0d27f8ef05f4be62789ce3497ee91d848b9fb2bea38357d39"
+    },
+    {
+      "id": "manacher-mirrored-radius.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1091,
+      "sha256": "d9e4da2af196e9ce235d4fb1febf83af882d27298bd4348b81b4b9e554c0cea9"
+    },
+    {
+      "id": "manacher-mirrored-radius.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 795,
+      "sha256": "f2ca578dffb6869e68910ac582f562e418854fa65221d93358e6ed87f217d9e6"
+    },
+    {
+      "id": "manacher-mirrored-radius.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 792,
+      "sha256": "cdb9523316425b628adf06d10e3b21a4f6848bf67d1d617468a8826392302b66"
+    },
+    {
+      "id": "manacher-mirrored-radius.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 659,
+      "sha256": "400a7e442ce1e1c4044b060dfb9f617c18a81ab92e1151027ced8627438dac79"
+    },
+    {
+      "id": "manacher-mirrored-radius.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1148,
+      "sha256": "24e02dde5b9f2a2b27c06cfc36867ac5fa34220a694147b910c4e3c87e286cb4"
+    },
+    {
+      "id": "manacher-mirrored-radius.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 916,
+      "sha256": "9b803c6c25a4671b8b2fd52a6b5744696435b5996dcfebc8d8f31e536425bb28"
+    },
+    {
+      "id": "manacher-mirrored-radius.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 920,
+      "sha256": "32e9fa7c761976d7ebcf4ee115ea408e89cea9a320165589b4d8e2c45dddf2b2"
+    },
+    {
+      "id": "manacher-mirrored-radius.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1019,
+      "sha256": "74ef157d0d1e0e769914cecd32a8999be8c5b65165f9c586c16bf8b54fc44d46"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/manacher-mirrored-radius/5e455b0a573cbbee1c0d/aoede-38f558978bde49f9.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2401196,
+      "sha256": "38f558978bde49f99d8d3fd572f3f98cbeeaedb441cc82cf94e588be8d1687e8",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "0888a1e32aa0d8ed40dd85094f9a8947e2277d01de38f9108591d8fa987b639b",
+          "bytes": 1201824,
+          "sha256": "8678566f4ebf4dcb1433bdc515e91890a82fe74afcd80298276f42ac25156355"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ef227469b1c365cc10e3a0bc0badc1f87d577224f1de6d0068f94a0dbc301fbb",
+          "bytes": 1199136,
+          "sha256": "48433972ec31061891ed574f04cdca920a1bbf8c280043de995d5936c09b8810"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/manacher-mirrored-radius/5e455b0a573cbbee1c0d/algieba-a15fa5638c488d58.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2459468,
+      "sha256": "a15fa5638c488d5891ea5516a87e253b505ea4921b368e25511318c199d8bfef",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "0888a1e32aa0d8ed40dd85094f9a8947e2277d01de38f9108591d8fa987b639b",
+          "bytes": 1213536,
+          "sha256": "a9af41e04971ae948652a9b34f71a8bbff41bc1f68c06a7ebc279c4c4875eec0"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ef227469b1c365cc10e3a0bc0badc1f87d577224f1de6d0068f94a0dbc301fbb",
+          "bytes": 1245696,
+          "sha256": "3b0c389c01c239939f6f17d4380d6b1c0c62fdcaa953f584b6b9df76fb6eabf7"
+        }
+      ]
+    }
+  }
+}

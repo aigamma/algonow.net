@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:prims-cheapest-crossing",
+  "source_path": "src/content/prims-cheapest-crossing.narration.js",
+  "source_sha256": "bd82980b363aab1661af89f441f85f50cfb518f8283a5faef31e9ba4360522a9",
+  "source_characters": 8659,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "871e8aec4f74dd3864a726760fbae1e4f024b0adc05021bdea6a832b1dfb6b22",
+  "generated_at": "2026-10-22T07:07:29.825Z",
+  "generated_characters": 17318,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4675,
+      "utf8_bytes": 4706,
+      "sha256": "0f404e4ae847014fceff34548be9027eb74447efa8a639aa06a3169549564530"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3984,
+      "utf8_bytes": 3995,
+      "sha256": "9f7b8874dc93d0b4217702ddbc2cb2035cbc38bc876d907bf01a626f3d85b2ac"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "prims-cheapest-crossing.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "prims-cheapest-crossing.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 767,
+      "sha256": "af0cc9a29c5e08de4e98517a55adc1bc107e87c26c20e4a413ab987acaa7b273"
+    },
+    {
+      "id": "prims-cheapest-crossing.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 749,
+      "sha256": "c058f8031c420b815aca51656ea409fbe6aa15f065d1744c172bfa79deb4f26c"
+    },
+    {
+      "id": "prims-cheapest-crossing.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 884,
+      "sha256": "9e99b55250c1aad5135c5ee617a3fdbb0ed137e7a38c6f0dd97bd0b735e731a1"
+    },
+    {
+      "id": "prims-cheapest-crossing.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 779,
+      "sha256": "96f0e338b5d34f1d1b87a80edf2512e0d7b5a55b781f433a8c61b44fa0a9f7e8"
+    },
+    {
+      "id": "prims-cheapest-crossing.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 728,
+      "sha256": "4c639463068814aaa8b52bdec4397bb87a0292e8b87e1f6856816107f1840f1a"
+    },
+    {
+      "id": "prims-cheapest-crossing.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 662,
+      "sha256": "1cb869baaf5126f337f0d40dfb851e83f98d302cb2ca185ec4d234de753afc62"
+    },
+    {
+      "id": "prims-cheapest-crossing.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1079,
+      "sha256": "0e87ada7c025ec62981349217168aecfc3bbd7953ec27cd28d86b77fed7c1b59"
+    },
+    {
+      "id": "prims-cheapest-crossing.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 813,
+      "sha256": "077ceedead9f35de8e63d587f3b684c1b89d97713c321734efa9ca6f2f28388b"
+    },
+    {
+      "id": "prims-cheapest-crossing.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1029,
+      "sha256": "203c2b77abd857320e95ae15144e379f690d0f154c73f2d831d4088b2dde3a55"
+    },
+    {
+      "id": "prims-cheapest-crossing.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1068,
+      "sha256": "b9c6fa878e9e4c2346984ef9a70fffce90dbab1ac9216ea4a55c929e698d4069"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/prims-cheapest-crossing/871e8aec4f74dd3864a7/aoede-38f7733a9499112b.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2240396,
+      "sha256": "38f7733a9499112b274c1baf0322c252d0c4cef4021cc9ca34a4d539d62bf933",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "0f404e4ae847014fceff34548be9027eb74447efa8a639aa06a3169549564530",
+          "bytes": 1229856,
+          "sha256": "b290785c0e681e664e71ae30a35e648e7a9d7f07e29f3e46559e84c9b905b550"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "9f7b8874dc93d0b4217702ddbc2cb2035cbc38bc876d907bf01a626f3d85b2ac",
+          "bytes": 1010304,
+          "sha256": "7021e4e6b05a562ae0a0cb704015f349dbaa27991def1fa6e87bc2b711d07a4d"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/prims-cheapest-crossing/871e8aec4f74dd3864a7/algieba-207f1c5767d63365.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2377196,
+      "sha256": "207f1c5767d63365f523198cfd9f8d137596e32e8143d1f85866ab5b2026afe2",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "0f404e4ae847014fceff34548be9027eb74447efa8a639aa06a3169549564530",
+          "bytes": 1282944,
+          "sha256": "f026cb6c90d0e38640b737883b7ddfc4624c80994d5ab469f767e5df7c7cabb8"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "9f7b8874dc93d0b4217702ddbc2cb2035cbc38bc876d907bf01a626f3d85b2ac",
+          "bytes": 1094016,
+          "sha256": "673ae8be9af084233c6dd3f1a2a90bbdf1361d9529169e8c58f565bef12b470a"
+        }
+      ]
+    }
+  }
+}

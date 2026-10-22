@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:pollards-rho-floyd-cycle",
+  "source_path": "src/content/pollards-rho-floyd-cycle.narration.js",
+  "source_sha256": "e7d496f9fadcc01f7876ebc8d17f3c74977f359af3c5dd1f1faa6b4b6ae3769b",
+  "source_characters": 8888,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "93df86bba1c782357b124ee31eef0ff25f75ccfc14b53e1dc4b25601236aee5f",
+  "generated_at": "2026-10-22T07:10:24.605Z",
+  "generated_characters": 17776,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4794,
+      "utf8_bytes": 4826,
+      "sha256": "87b6ce58452628a409abff52d21067316eb70320abb0d275c69c206d99b2f39b"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4094,
+      "utf8_bytes": 4124,
+      "sha256": "66800cf97b3f08cde048f13811ab877d47b321b0b4c4cc6b8527ab8e937c0e38"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "pollards-rho-floyd-cycle.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "pollards-rho-floyd-cycle.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 864,
+      "sha256": "810e61d553e4bdd8a302d3f59c133c722d3101f5308d7f5af01180402df77c9d"
+    },
+    {
+      "id": "pollards-rho-floyd-cycle.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 673,
+      "sha256": "d0984ee9b342f2fc129764e28477343babaea64c01f184aadc3e64661223e62f"
+    },
+    {
+      "id": "pollards-rho-floyd-cycle.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1006,
+      "sha256": "df8ba2371683eca4b1f91e428588ed9d5f72c405ae7699f991cb608d9888ab10"
+    },
+    {
+      "id": "pollards-rho-floyd-cycle.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 717,
+      "sha256": "4845800d67f001b37ffae278b288643dd87e3591b63edd8ac7b4646763181551"
+    },
+    {
+      "id": "pollards-rho-floyd-cycle.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 839,
+      "sha256": "d6caa72d2d5057620d3ce2b2ecf08435c274804f46653eb20de4c88c23565dfd"
+    },
+    {
+      "id": "pollards-rho-floyd-cycle.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 590,
+      "sha256": "20744ea5e646724f371c958ab4986737f2f65dfd1f1b97c8b1c9a92323045104"
+    },
+    {
+      "id": "pollards-rho-floyd-cycle.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1249,
+      "sha256": "d16e7cacc16cbba266e713d0a541488a3f61a939a344358eab47900f5c748d71"
+    },
+    {
+      "id": "pollards-rho-floyd-cycle.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 917,
+      "sha256": "9baaba754a5e9338707b97363ecd1697eda1f7872fec4d6f0c3d070571ccf778"
+    },
+    {
+      "id": "pollards-rho-floyd-cycle.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 923,
+      "sha256": "6d6dc6d58e610c9cd065a41be26259e77bb6ca1300fdf32c54fca96265445159"
+    },
+    {
+      "id": "pollards-rho-floyd-cycle.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1029,
+      "sha256": "a92b5c44b920fcc40ade351a8d9eeb7e3160272f826fae74b1d9f7e040995476"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/pollards-rho-floyd-cycle/93df86bba1c782357b12/aoede-16c11c8643adcb31.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2384684,
+      "sha256": "16c11c8643adcb3128ebff927eefdf953640e851f34f5ea644e7f74f23d66cf3",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "87b6ce58452628a409abff52d21067316eb70320abb0d275c69c206d99b2f39b",
+          "bytes": 1298016,
+          "sha256": "a11665b340407276839e8626838ac8d64c59cdf1272530b3bb3443f59d226e5b"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "66800cf97b3f08cde048f13811ab877d47b321b0b4c4cc6b8527ab8e937c0e38",
+          "bytes": 1086432,
+          "sha256": "9744933b24effa9b80a9c3b093c8d19292e5d5a65c96450c183eefa6983f65d3"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/pollards-rho-floyd-cycle/93df86bba1c782357b12/algieba-525d08cacd8d6531.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2521580,
+      "sha256": "525d08cacd8d6531aa8f1f3360c1d192d7c415d1b03a63d54c0483abce0dbcaa",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "87b6ce58452628a409abff52d21067316eb70320abb0d275c69c206d99b2f39b",
+          "bytes": 1404192,
+          "sha256": "c8d87befbc5ac06c2318fcb5b2c9eced09211d7abc5706063f01a9b69d0974a8"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "66800cf97b3f08cde048f13811ab877d47b321b0b4c4cc6b8527ab8e937c0e38",
+          "bytes": 1117152,
+          "sha256": "c9326055c44f92da61d2dffb3843c38e43c497a2ae3d5dc4eeb2138dcd4c0b07"
+        }
+      ]
+    }
+  }
+}

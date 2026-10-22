@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:crc-polynomial-division",
+  "source_path": "src/content/crc-polynomial-division.narration.js",
+  "source_sha256": "621a46fd432aa8b101729c32a125aba5149b009c55497fa2a6811fc245dbc753",
+  "source_characters": 8437,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "dd6f6d9958908e9375b2682966d9df1310bfa42f8b94e1bb5a1b8d635441f9f7",
+  "generated_at": "2026-10-22T07:32:31.684Z",
+  "generated_characters": 16874,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4791,
+      "utf8_bytes": 4807,
+      "sha256": "d0b04d73cafced4bf56ffedfde9313de2122eb4307b5c7b5ee90ad185672b5aa"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3646,
+      "utf8_bytes": 3650,
+      "sha256": "86b78da16eefb47faa911ad4e8130ccf6a379672890c1cb10fc21fefbabf3878"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "crc-polynomial-division.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "crc-polynomial-division.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 971,
+      "sha256": "44fba1ea929e65604b9b3424feadcc9ca883e7b523fbdbeead76b0e2730cc4d8"
+    },
+    {
+      "id": "crc-polynomial-division.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 880,
+      "sha256": "dacd7f1d6001de88c94a7b3b302af7f739a05478f39c78ad1e3b483660e0275c"
+    },
+    {
+      "id": "crc-polynomial-division.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1207,
+      "sha256": "9044a01b7b22266f1150bb7dec4af358e00c163023a51696cf4b7193c3ab5304"
+    },
+    {
+      "id": "crc-polynomial-division.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 754,
+      "sha256": "960f513c33d4866c3b7c699c1935d0f86b1e3d7d41f2997c10bf354d0c8e061b"
+    },
+    {
+      "id": "crc-polynomial-division.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 860,
+      "sha256": "8b3ed0072514909df5185991ead21119ca484a3f71b20e205a8fd97bfae3321a"
+    },
+    {
+      "id": "crc-polynomial-division.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 693,
+      "sha256": "406ac8559e3e2a32007ec464316e8bfd660944913d9587899f59ea53e36c5ecb"
+    },
+    {
+      "id": "crc-polynomial-division.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 844,
+      "sha256": "ee6105c7ec59ade0e4b42856b617647f5c81f4235372bfe6f99a039afd8322cc"
+    },
+    {
+      "id": "crc-polynomial-division.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 618,
+      "sha256": "cf67cdde1ff8a34422a17173d151d4b1b83431f53d2a4d79b0f5be9e02895f5b"
+    },
+    {
+      "id": "crc-polynomial-division.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 721,
+      "sha256": "3a46e1bb1ca7fd1013741553f1b8f451a2c6b8e64adf7a8ce5167e550b619433"
+    },
+    {
+      "id": "crc-polynomial-division.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 766,
+      "sha256": "e5f9d28f8a69cafcb13494bfb012326c12032a9de8b15ad609db4b1603a2fe25"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/crc-polynomial-division/dd6f6d9958908e9375b2/aoede-d595aec785dc6109.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2214284,
+      "sha256": "d595aec785dc61097a3a22e79745e1713b4716459173eb0f87eb35c3325e3a8f",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d0b04d73cafced4bf56ffedfde9313de2122eb4307b5c7b5ee90ad185672b5aa",
+          "bytes": 1227744,
+          "sha256": "94fbf884ff46d639f771079320a6eca380a74cf0b1b1f9b26efc803a38fda913"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "86b78da16eefb47faa911ad4e8130ccf6a379672890c1cb10fc21fefbabf3878",
+          "bytes": 986304,
+          "sha256": "8e3fb11f3cd5d754475dca51967fafdc88fde0f7b35c2a923d1b8f8a8a734c61"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/crc-polynomial-division/dd6f6d9958908e9375b2/algieba-842da1e2a465762d.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2443148,
+      "sha256": "842da1e2a465762d53f813bfef70b68eb0b214a70f08c09bbc119f91df3283f3",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d0b04d73cafced4bf56ffedfde9313de2122eb4307b5c7b5ee90ad185672b5aa",
+          "bytes": 1358976,
+          "sha256": "a9456ed121732b65d96aa4f7bfe536da7bbe0d92680303fd9f2916d8f34b0d82"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "86b78da16eefb47faa911ad4e8130ccf6a379672890c1cb10fc21fefbabf3878",
+          "bytes": 1083936,
+          "sha256": "55312fed56b7cb9708bb6825f82e7493eae1f4464df431dfb58906756a3be33b"
+        }
+      ]
+    }
+  }
+}

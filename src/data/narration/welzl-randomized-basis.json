@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:welzl-randomized-basis",
+  "source_path": "src/content/welzl-randomized-basis.narration.js",
+  "source_sha256": "69e1e6833a01727d959cd7dcafc5c9a75202a42c710a6a70114cf295550b2b7e",
+  "source_characters": 8453,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "b8974df8bf6551045630cbc215ffb43bcfdf61a244b123870f8ab74ec2fbd71f",
+  "generated_at": "2026-10-22T07:24:24.008Z",
+  "generated_characters": 16906,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4990,
+      "utf8_bytes": 4996,
+      "sha256": "caeab950d9125214bd6e581ce5bacdd34d1316a37bcffb3113e5505be8831328"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3463,
+      "utf8_bytes": 3479,
+      "sha256": "893a1a3366ef392215065f389a1f2d3ba135d9eec03ec056b589a46f4b8d77af"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "welzl-randomized-basis.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "welzl-randomized-basis.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1016,
+      "sha256": "10ff721be13d72d34634a6a1f1ad3aa3abd8c1d65ed013416e2bf9bee18a9538"
+    },
+    {
+      "id": "welzl-randomized-basis.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 965,
+      "sha256": "6322b9dbf63a2ea255e02247ec1cd19fea9e8551846ce730da9c1f20d7eb0c27"
+    },
+    {
+      "id": "welzl-randomized-basis.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1106,
+      "sha256": "0e9c79f9a839276afab1845fecc3dcaad86def3e7381eb6bc0d1710af2d1fd9c"
+    },
+    {
+      "id": "welzl-randomized-basis.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 877,
+      "sha256": "12e50113dae085f088296e3e2cf9b7b9e8820cc659a3dc8826812923ac829b75"
+    },
+    {
+      "id": "welzl-randomized-basis.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 897,
+      "sha256": "8702c9a3b88547dab201c5f226054e05d5124c5801a6970a8144b900016cb1f8"
+    },
+    {
+      "id": "welzl-randomized-basis.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 737,
+      "sha256": "d0049374bdaf626520e3207b1a0aaf23d42ea906b9136b745b5eb6834d792bd0"
+    },
+    {
+      "id": "welzl-randomized-basis.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 501,
+      "sha256": "6ae198b3c3a2fa53018aeb0a24389c0d94a196fff2fea1a1b7da2f5dc3e5ee10"
+    },
+    {
+      "id": "welzl-randomized-basis.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 743,
+      "sha256": "0df01bd3c0fce2aaa001c4d6a297c2ad0d9d0ea9ae83661332d1b8933039e165"
+    },
+    {
+      "id": "welzl-randomized-basis.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 728,
+      "sha256": "db5907d8850e586adad65230df817558997f6946c3cd9bf16d90cfc732ea32b1"
+    },
+    {
+      "id": "welzl-randomized-basis.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 762,
+      "sha256": "0fb6858d5a53f65a62bbb715bfde2b9db726d5d6c6fad17bf21321b9b9c7fb17"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/welzl-randomized-basis/b8974df8bf6551045630/aoede-2b3f3981ef53724f.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2313356,
+      "sha256": "2b3f3981ef53724fcfcab63fba602974d29c4f5ddb7d7bbd5b6cf8d9a9159176",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "caeab950d9125214bd6e581ce5bacdd34d1316a37bcffb3113e5505be8831328",
+          "bytes": 1340064,
+          "sha256": "71d78a16b5ef60cd2b5e3a18fe49e7f95c30acc3b9b61b5c29bd9c6849308bfe"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "893a1a3366ef392215065f389a1f2d3ba135d9eec03ec056b589a46f4b8d77af",
+          "bytes": 973056,
+          "sha256": "fa16427859b5fc32c439a4a072bb3d4a3e0a670ffbb38a14397eaf1325acd9d1"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/welzl-randomized-basis/b8974df8bf6551045630/algieba-76772365255ae6a7.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2346956,
+      "sha256": "76772365255ae6a786a494e8a587fd6223fe4c57192463e68345cc11986c65d2",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "caeab950d9125214bd6e581ce5bacdd34d1316a37bcffb3113e5505be8831328",
+          "bytes": 1370304,
+          "sha256": "67b6fe91dc9d3d92bc3f138539a1cdc8cb92701ca53920dea568c296197c57b1"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "893a1a3366ef392215065f389a1f2d3ba135d9eec03ec056b589a46f4b8d77af",
+          "bytes": 976416,
+          "sha256": "a6a4abb74b25c5bfdd29fa2a7053f6855fac00621f35a88351dd5a67153eb74d"
+        }
+      ]
+    }
+  }
+}

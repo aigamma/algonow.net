@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net prims-cheapest-crossing preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T07:37:32.505Z",
+  "publication_sha256": "02d277758ae3e96f4acfadcb8664fe004a96e3624399d9558c434c67a486f2f0",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4617592,
+  "objects": [
+    {
+      "stable_id": "puzzle:prims-cheapest-crossing",
+      "slug": "prims-cheapest-crossing",
+      "track_id": "algieba",
+      "source_sha256": "bd82980b363aab1661af89f441f85f50cfb518f8283a5faef31e9ba4360522a9",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "871e8aec4f74dd3864a726760fbae1e4f024b0adc05021bdea6a832b1dfb6b22",
+      "object_key": "narration/v1/puzzles/prims-cheapest-crossing/871e8aec4f74dd3864a7/algieba-207f1c5767d63365.mp3",
+      "bytes": 2377196,
+      "sha256": "207f1c5767d63365f523198cfd9f8d137596e32e8143d1f85866ab5b2026afe2",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:prims-cheapest-crossing",
+      "slug": "prims-cheapest-crossing",
+      "track_id": "aoede",
+      "source_sha256": "bd82980b363aab1661af89f441f85f50cfb518f8283a5faef31e9ba4360522a9",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "871e8aec4f74dd3864a726760fbae1e4f024b0adc05021bdea6a832b1dfb6b22",
+      "object_key": "narration/v1/puzzles/prims-cheapest-crossing/871e8aec4f74dd3864a7/aoede-38f7733a9499112b.mp3",
+      "bytes": 2240396,
+      "sha256": "38f7733a9499112b274c1baf0322c252d0c4cef4021cc9ca34a4d539d62bf933",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

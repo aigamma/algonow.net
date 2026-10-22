@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net crc-polynomial-division preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T07:45:54.044Z",
+  "publication_sha256": "45455c6aaafae2454e32505457367c654ebe547864691886f9a0db6e0b764545",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4657432,
+  "objects": [
+    {
+      "stable_id": "puzzle:crc-polynomial-division",
+      "slug": "crc-polynomial-division",
+      "track_id": "algieba",
+      "source_sha256": "621a46fd432aa8b101729c32a125aba5149b009c55497fa2a6811fc245dbc753",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "dd6f6d9958908e9375b2682966d9df1310bfa42f8b94e1bb5a1b8d635441f9f7",
+      "object_key": "narration/v1/puzzles/crc-polynomial-division/dd6f6d9958908e9375b2/algieba-842da1e2a465762d.mp3",
+      "bytes": 2443148,
+      "sha256": "842da1e2a465762d53f813bfef70b68eb0b214a70f08c09bbc119f91df3283f3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:crc-polynomial-division",
+      "slug": "crc-polynomial-division",
+      "track_id": "aoede",
+      "source_sha256": "621a46fd432aa8b101729c32a125aba5149b009c55497fa2a6811fc245dbc753",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "dd6f6d9958908e9375b2682966d9df1310bfa42f8b94e1bb5a1b8d635441f9f7",
+      "object_key": "narration/v1/puzzles/crc-polynomial-division/dd6f6d9958908e9375b2/aoede-d595aec785dc6109.mp3",
+      "bytes": 2214284,
+      "sha256": "d595aec785dc61097a3a22e79745e1713b4716459173eb0f87eb35c3325e3a8f",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net sieve-crossing-from-square preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T07:36:33.237Z",
+  "publication_sha256": "ccde066044e36856c21ebcd6abbb29d01c0b5e2b2d881c22c32285f4ca7cd5b1",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4579864,
+  "objects": [
+    {
+      "stable_id": "puzzle:sieve-crossing-from-square",
+      "slug": "sieve-crossing-from-square",
+      "track_id": "algieba",
+      "source_sha256": "bacd9c90a86b8eff8a9da3a6f493a6d97618e220c5a44b759c86d9cc89cdfb0a",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "5651ff838eacaaaceba4ed0cd4f7c0919de7c6e3e643c1240066bb8b401fd993",
+      "object_key": "narration/v1/puzzles/sieve-crossing-from-square/5651ff838eacaaaceba4/algieba-b19dd91fbc27dd42.mp3",
+      "bytes": 2397740,
+      "sha256": "b19dd91fbc27dd424d0ed1b86d8218ed11ce9b8ea786bda3d863dad4574d1da6",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:sieve-crossing-from-square",
+      "slug": "sieve-crossing-from-square",
+      "track_id": "aoede",
+      "source_sha256": "bacd9c90a86b8eff8a9da3a6f493a6d97618e220c5a44b759c86d9cc89cdfb0a",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "5651ff838eacaaaceba4ed0cd4f7c0919de7c6e3e643c1240066bb8b401fd993",
+      "object_key": "narration/v1/puzzles/sieve-crossing-from-square/5651ff838eacaaaceba4/aoede-f3cd1056368cfa4a.mp3",
+      "bytes": 2182124,
+      "sha256": "f3cd1056368cfa4a1e8e9e58f43976670580a5e1869d003235ba9fc99a799c04",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

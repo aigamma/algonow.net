@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:sieve-crossing-from-square",
+  "source_path": "src/content/sieve-crossing-from-square.narration.js",
+  "source_sha256": "bacd9c90a86b8eff8a9da3a6f493a6d97618e220c5a44b759c86d9cc89cdfb0a",
+  "source_characters": 8558,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "5651ff838eacaaaceba4ed0cd4f7c0919de7c6e3e643c1240066bb8b401fd993",
+  "generated_at": "2026-10-22T07:04:47.739Z",
+  "generated_characters": 17116,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4805,
+      "utf8_bytes": 4823,
+      "sha256": "696bc1b56b4ee50315bdce14d77eeb755d560b98af706196fe21a7b2a35cbd23"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3753,
+      "utf8_bytes": 3767,
+      "sha256": "444c1c6eac533bb3206a35763caf4d6bce7a78f6c559f68867d2a99c6fec604c"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "sieve-crossing-from-square.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "sieve-crossing-from-square.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 801,
+      "sha256": "bde3c0286c03aeb1fb38d270cb8b0d3428420fe382bb8b110fff357c1c6f4449"
+    },
+    {
+      "id": "sieve-crossing-from-square.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 681,
+      "sha256": "947ae8e5ac4d5e4b2d68873dd2d01f0e7acbfc9bb42a5ef16b3c806989436358"
+    },
+    {
+      "id": "sieve-crossing-from-square.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1118,
+      "sha256": "863982d8f65e6f4f17d6b57b083ac82af61a07f7e21ea7e35b1d0a4900b11856"
+    },
+    {
+      "id": "sieve-crossing-from-square.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 754,
+      "sha256": "591384d1a45edacc9d9803351d1f6718451311ba40142c8d5fb332eef5447723"
+    },
+    {
+      "id": "sieve-crossing-from-square.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 705,
+      "sha256": "7d7e115b72c249342a01ac2e6a9c36cfb0fa52ec8af3423cd54aec2158b78596"
+    },
+    {
+      "id": "sieve-crossing-from-square.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 627,
+      "sha256": "6abb47fb7ba51c0e76bf6a03350aa3d81ef724d0677835dd4efc9ec7e3ba4480"
+    },
+    {
+      "id": "sieve-crossing-from-square.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1000,
+      "sha256": "9138e6310e045410e3385793c6792f1cbe4cf09e75cf97297aaa31df2cf2ac2c"
+    },
+    {
+      "id": "sieve-crossing-from-square.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 845,
+      "sha256": "8fe6eb2b76b53c0ee1824a8c091556f100f603efe58887d1a5a8a703f75f4579"
+    },
+    {
+      "id": "sieve-crossing-from-square.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 930,
+      "sha256": "9e148a180610ab4a355554e59d902d539141daf7b55ec9d835336acf2665fc03"
+    },
+    {
+      "id": "sieve-crossing-from-square.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 986,
+      "sha256": "a97f413a6a0efe93511cfe81a6063ecca573db6466b27f781bc68a7e3b4b20a2"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/sieve-crossing-from-square/5651ff838eacaaaceba4/aoede-f3cd1056368cfa4a.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2182124,
+      "sha256": "f3cd1056368cfa4a1e8e9e58f43976670580a5e1869d003235ba9fc99a799c04",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "696bc1b56b4ee50315bdce14d77eeb755d560b98af706196fe21a7b2a35cbd23",
+          "bytes": 1261536,
+          "sha256": "2f4483629a531e2d32e6b652292ebda71592fb138e2f4d5cb90f379c0e9c37a4"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "444c1c6eac533bb3206a35763caf4d6bce7a78f6c559f68867d2a99c6fec604c",
+          "bytes": 920352,
+          "sha256": "28bba64ee4f5dd413e75f7451a0e7770667628e9b95ce8119af8dca20e0cd9d2"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/sieve-crossing-from-square/5651ff838eacaaaceba4/algieba-b19dd91fbc27dd42.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2397740,
+      "sha256": "b19dd91fbc27dd424d0ed1b86d8218ed11ce9b8ea786bda3d863dad4574d1da6",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "696bc1b56b4ee50315bdce14d77eeb755d560b98af706196fe21a7b2a35cbd23",
+          "bytes": 1343232,
+          "sha256": "219facdba060b89a15023b0eab6821aa0c7949f7ed63d8c0323ba11ce9c4839e"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "444c1c6eac533bb3206a35763caf4d6bce7a78f6c559f68867d2a99c6fec604c",
+          "bytes": 1054272,
+          "sha256": "ef7a524a1570422a5f7053dc63f018a5f848bdd172451d070d182df26982926d"
+        }
+      ]
+    }
+  }
+}

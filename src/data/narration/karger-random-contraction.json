@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:karger-random-contraction",
+  "source_path": "src/content/karger-random-contraction.narration.js",
+  "source_sha256": "23b793e2ac08b2436886efb11121c2cb3989777e40c81382bf4405fbba54df0e",
+  "source_characters": 8969,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "0c64604902ff379e80883aa87ed8040e48d3238f0884fae093d5578b61bc6da8",
+  "generated_at": "2026-10-22T07:21:40.155Z",
+  "generated_characters": 17938,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4379,
+      "utf8_bytes": 4389,
+      "sha256": "eb43c559e33860725f8ee2352c4fd65029f4d960f40238e200149402ac97337d"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4590,
+      "utf8_bytes": 4602,
+      "sha256": "7eaf075eea2029be3d085b284d595de20158e947ea866deabbdd575c6da22147"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "karger-random-contraction.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "karger-random-contraction.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 826,
+      "sha256": "416acf9732afdc2fe9d995fdb00ed434f2b121ad0c4fbc79939a03e0e9659adc"
+    },
+    {
+      "id": "karger-random-contraction.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 670,
+      "sha256": "e537c5aae3f0664075f8fca0d46cc8e89e9e89ba5989c64a9d154d2e7cb38a6a"
+    },
+    {
+      "id": "karger-random-contraction.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1196,
+      "sha256": "3163dbec2711759098c13d13966affb282286caaaf543fe294da18e31c4d19f7"
+    },
+    {
+      "id": "karger-random-contraction.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 760,
+      "sha256": "00b6565d25abf6040a22d035d77c6490546b6e02c4c083e2be3f350a3c1470b6"
+    },
+    {
+      "id": "karger-random-contraction.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 802,
+      "sha256": "801e51baefb9b68c2548cbb208fbd61111508320bbffe4904deb84e1ebd931d7"
+    },
+    {
+      "id": "karger-random-contraction.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 655,
+      "sha256": "fea172919360b28bac1ee3f68adee907a7bdf4140f3c93b56ede538f3232abaa"
+    },
+    {
+      "id": "karger-random-contraction.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1088,
+      "sha256": "be46d0584bde37a2d445968d4cb3d762b19f41c6d7baa829a981bf03398e246d"
+    },
+    {
+      "id": "karger-random-contraction.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 946,
+      "sha256": "005f9cfaed87324b4be9defe1d0957875b7dbae5281fd0adba261b7514d465ad"
+    },
+    {
+      "id": "karger-random-contraction.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 810,
+      "sha256": "299b8bb1b3fe201133a459e5f886dfaec1fc9883031cc7ed14360e6d7ddf5a7a"
+    },
+    {
+      "id": "karger-random-contraction.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1095,
+      "sha256": "237b273a750872d665f088f9efa49e96659b4b3d1be95115faf66678a5de4a3d"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/karger-random-contraction/0c64604902ff379e8088/aoede-58ad44040d9bd9d3.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2348204,
+      "sha256": "58ad44040d9bd9d32a998133c81ab874f1f8716191b041a1fa74f4a646fef853",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "eb43c559e33860725f8ee2352c4fd65029f4d960f40238e200149402ac97337d",
+          "bytes": 1118016,
+          "sha256": "aa67d3497e26d05c09153ed12d6caaf58e074c8ef76be6298951474d5a1446f2"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "7eaf075eea2029be3d085b284d595de20158e947ea866deabbdd575c6da22147",
+          "bytes": 1229952,
+          "sha256": "d9d5d19a34aa2a1dba2b848e62be3066c9a87d21db879dd00760a32eca4127ac"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/karger-random-contraction/0c64604902ff379e8088/algieba-06ea8566ea1bb17e.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2532716,
+      "sha256": "06ea8566ea1bb17e89589da9ed3dad15da783e3da5910476706c87fbab2b6511",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "eb43c559e33860725f8ee2352c4fd65029f4d960f40238e200149402ac97337d",
+          "bytes": 1256544,
+          "sha256": "417759eb3e0ecca30d0b908095c0a197af473db3d9ff7beff9a636041cc84607"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "7eaf075eea2029be3d085b284d595de20158e947ea866deabbdd575c6da22147",
+          "bytes": 1275936,
+          "sha256": "74774c41d637e84a9da04c38d20f0f462514f5a33f8435bfb6172164fb43fd59"
+        }
+      ]
+    }
+  }
+}

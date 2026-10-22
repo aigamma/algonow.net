@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:pass-at-k-estimator",
+  "source_path": "src/content/pass-at-k-estimator.narration.js",
+  "source_sha256": "f78558eff6fc10bea6ea88bfe70158ef2e1c1c177ce5eae8e2bf04808128dfc7",
+  "source_characters": 15146,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "aaac5c0f75d1fb7824a76ead09419dfce080b82f3c16707f18c7558c4aadee41",
+  "generated_at": "2026-10-22T02:03:14.086Z",
+  "generated_characters": 30292,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4915,
+      "utf8_bytes": 4919,
+      "sha256": "3126e942dc4344162a409a16299e42d0b5334ec5dc0fe9eb5579fd0d251d88b2"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4856,
+      "utf8_bytes": 4858,
+      "sha256": "d815738355ab64487a37fd6f658972aafd1772c97d44857b7a96ec65991f955e"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 4841,
+      "utf8_bytes": 4843,
+      "sha256": "ecb7fb7c2a4c5041a9a260881feee8d54c8a53936c17c30bdc2b095eaf343eac"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 534,
+      "utf8_bytes": 536,
+      "sha256": "2985af02b39023b29a9806e0776e8b00787ba9db59b3e1981685aabdaa2ced2d"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "pass-at-k-estimator.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "pass-at-k-estimator.01-brief",
+      "label": "Engineering Brief",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2196,
+      "sha256": "e1c46d4b29b66b734a0f92bf3781880a1225a8bade2237c4f7970109802c8b11"
+    },
+    {
+      "id": "pass-at-k-estimator.02-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2751,
+      "sha256": "ba8d162b405710262eae93e5ba16f0ca66042e961e97da6fa2113f9b7003f573"
+    },
+    {
+      "id": "pass-at-k-estimator.03-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2869,
+      "sha256": "f76451ee215998824aa0595e7e1a846037b0f8ab43a9e0a040cc82459874ae65"
+    },
+    {
+      "id": "pass-at-k-estimator.04-visual",
+      "label": "System Diagram",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1828,
+      "sha256": "3a8eacf33af82caec6ac01f6dc001285b9452b66f8f8c8e46b46423b99b8c2ce"
+    },
+    {
+      "id": "pass-at-k-estimator.05-evidence",
+      "label": "Validation Evidence",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1827,
+      "sha256": "ba595e5384b899f83f5d3be485b0efdcd237f282ec666bf5673b78344873ffbe"
+    },
+    {
+      "id": "pass-at-k-estimator.06-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1510,
+      "sha256": "35e95db68adc5ce697f74a06b80ec2d61ff8484b43d6bac3c0d118f8c36daf41"
+    },
+    {
+      "id": "pass-at-k-estimator.07-starter",
+      "label": "Starting Point",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1500,
+      "sha256": "3e0dd27ee2aea0082b4ca630495fc6631d00d146819b299ebf4a5b463f64ad0b"
+    },
+    {
+      "id": "pass-at-k-estimator.08-files",
+      "label": "Working Files",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 536,
+      "sha256": "2985af02b39023b29a9806e0776e8b00787ba9db59b3e1981685aabdaa2ced2d"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/pass-at-k-estimator/aaac5c0f75d1fb7824a7/aoede-b5f368ca6e81cc71.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3969644,
+      "sha256": "b5f368ca6e81cc7165fa404f5ca6be08b34cdd4ec05fc9769261c67a7e013499",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "3126e942dc4344162a409a16299e42d0b5334ec5dc0fe9eb5579fd0d251d88b2",
+          "bytes": 1329216,
+          "sha256": "89cbf43c7c4d606f1f4d2eecabcff67784a9959e595e3e92cd70927732626618"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "d815738355ab64487a37fd6f658972aafd1772c97d44857b7a96ec65991f955e",
+          "bytes": 1251264,
+          "sha256": "a492b5f6606d47ba492044c4988f71dc14424347d301b8583b31c8eb063f318c"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "ecb7fb7c2a4c5041a9a260881feee8d54c8a53936c17c30bdc2b095eaf343eac",
+          "bytes": 1249824,
+          "sha256": "500ad6781448f128b1fdd9a27175f22e398d725e914d943695b04903d986d144"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "2985af02b39023b29a9806e0776e8b00787ba9db59b3e1981685aabdaa2ced2d",
+          "bytes": 139104,
+          "sha256": "942511ca787381514f8f94e32785ea759129bffadd74d6b21fa2e7cca494054c"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/pass-at-k-estimator/aaac5c0f75d1fb7824a7/algieba-0879ca807005a321.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4234124,
+      "sha256": "0879ca807005a32159deb56107058ce7f1b8af773c0feeb6bbb1e48b9dc06fc7",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "3126e942dc4344162a409a16299e42d0b5334ec5dc0fe9eb5579fd0d251d88b2",
+          "bytes": 1392096,
+          "sha256": "b98e16a1f4536d18afdb1c51eadfe106f718dec8934e3873c20da82fa94979cb"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "d815738355ab64487a37fd6f658972aafd1772c97d44857b7a96ec65991f955e",
+          "bytes": 1379712,
+          "sha256": "1f9878d5e669a72e17a58ece60f305522b89bee1c55be3cfda0ebb2c88309227"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "ecb7fb7c2a4c5041a9a260881feee8d54c8a53936c17c30bdc2b095eaf343eac",
+          "bytes": 1317024,
+          "sha256": "ef4c681863b5c340e7363822b6c01c15b0f810c7a47529e9e55d3adf2ab7b11e"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "2985af02b39023b29a9806e0776e8b00787ba9db59b3e1981685aabdaa2ced2d",
+          "bytes": 145056,
+          "sha256": "730a0ff533c2dd232269e3c5f206fbad508f4ea4b67b1b1acac4bd4aaa230277"
+        }
+      ]
+    }
+  }
+}

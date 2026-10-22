@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net convert-csv-rows-to-jsonl preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T02:09:28.893Z",
+  "publication_sha256": "e2ba16604446d99bac5798e4361c704c2e2c5c419969373ec6ee8e62674f49d8",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 8514136,
+  "objects": [
+    {
+      "stable_id": "puzzle:convert-csv-rows-to-jsonl",
+      "slug": "convert-csv-rows-to-jsonl",
+      "track_id": "algieba",
+      "source_sha256": "90b2f2e327214749a842b5d9fae2cedd0173b0a5462648b16bd58cb93579649e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "cfb7e7f31cb5d1f6d83c83ac8b83bbc3b50ac351a01c9a3076989868cf59a31c",
+      "object_key": "narration/v1/puzzles/convert-csv-rows-to-jsonl/cfb7e7f31cb5d1f6d83c/algieba-66ac78e163664a6d.mp3",
+      "bytes": 4333100,
+      "sha256": "66ac78e163664a6d9f8a7ee46cb948da2a1155027fca89960651b26fcebe8cfc",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:convert-csv-rows-to-jsonl",
+      "slug": "convert-csv-rows-to-jsonl",
+      "track_id": "aoede",
+      "source_sha256": "90b2f2e327214749a842b5d9fae2cedd0173b0a5462648b16bd58cb93579649e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "cfb7e7f31cb5d1f6d83c83ac8b83bbc3b50ac351a01c9a3076989868cf59a31c",
+      "object_key": "narration/v1/puzzles/convert-csv-rows-to-jsonl/cfb7e7f31cb5d1f6d83c/aoede-14693c7ed7ac1742.mp3",
+      "bytes": 4181036,
+      "sha256": "14693c7ed7ac1742ad3824832a91d399e29f3c7cdd216ef254ba2409d65d3d96",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

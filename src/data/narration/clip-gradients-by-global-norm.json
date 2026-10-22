@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:clip-gradients-by-global-norm",
+  "source_path": "src/content/clip-gradients-by-global-norm.narration.js",
+  "source_sha256": "f6a538c0555b2809df8a6bf54b9713c21dd80065afcaa3263059498c5d0aef1b",
+  "source_characters": 15595,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "1ce141a8089a1b9eba7cb23bbecc90abefed0abb1cb3a6a1ab0b9573edc655c2",
+  "generated_at": "2026-10-22T01:58:16.227Z",
+  "generated_characters": 31190,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 2953,
+      "utf8_bytes": 2957,
+      "sha256": "9f59bad82f698b8a9ecacf7056134c1d16aa6d0b6525eebf8bdd144371c9aab7"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 2989,
+      "utf8_bytes": 2989,
+      "sha256": "931930744fddb60bdfe31784b48a16e2dbe6a4a017c5e58d10a9cb2218fb4acc"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 4696,
+      "utf8_bytes": 4700,
+      "sha256": "8001fff8d29ed2de2d3fc304444484f9bcb22d4b94ad8c5eac89e71bf986313d"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 4957,
+      "utf8_bytes": 4963,
+      "sha256": "88c76d6e1c79f79214efce4f51526d666fd9158a26555e6759f423a0740ba2b5"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "clip-gradients-by-global-norm.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "clip-gradients-by-global-norm.01-brief",
+      "label": "Engineering Brief",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2830,
+      "sha256": "e7c0d92666d8573d852abf22a7c393570586be85e178150f272579542ca97c5a"
+    },
+    {
+      "id": "clip-gradients-by-global-norm.02-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2987,
+      "sha256": "184ec9ca2acf2c4eca19e01f6ba2c12369ea4621c7a2936a1523670d3cd4bbc6"
+    },
+    {
+      "id": "clip-gradients-by-global-norm.03-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2418,
+      "sha256": "4f99382a73370f45b5e43888419e2d5b740ed6a74d4783e508867cb67f9bb8e8"
+    },
+    {
+      "id": "clip-gradients-by-global-norm.04-visual",
+      "label": "System Diagram",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2278,
+      "sha256": "fc0d35058c22eb7e2f3b4c7af8d8a86fb6b799a2d23ab667c357182760ec3e8c"
+    },
+    {
+      "id": "clip-gradients-by-global-norm.05-evidence",
+      "label": "Validation Evidence",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1425,
+      "sha256": "3059dac2f79c1c96252f61d1ece74a5cc18ecd6a45b6f97a8cd4ab82974cd86d"
+    },
+    {
+      "id": "clip-gradients-by-global-norm.06-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1464,
+      "sha256": "b027912a152d72c1c641611d2a77846c4a81f3b0cecd8977e0dbb7f1cda902c1"
+    },
+    {
+      "id": "clip-gradients-by-global-norm.07-starter",
+      "label": "Starting Point",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1486,
+      "sha256": "68a112be31d52b45d1b49ea4ef5dc43df042a5e20409a54331a263cf257c26d6"
+    },
+    {
+      "id": "clip-gradients-by-global-norm.08-files",
+      "label": "Working Files",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 582,
+      "sha256": "1381e9fd5c5f5586a2ea5fcc993d8c6cc5c804e07d2139a3c95e09016ec453cb"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/clip-gradients-by-global-norm/1ce141a8089a1b9eba7c/aoede-f64a90bca09427c8.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3941996,
+      "sha256": "f64a90bca09427c89c8b047a66aa315a72af4587d7ed38af2d07a69de99a1436",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "9f59bad82f698b8a9ecacf7056134c1d16aa6d0b6525eebf8bdd144371c9aab7",
+          "bytes": 773184,
+          "sha256": "9683cacbc78ebeed9a28994c2ce1a242c5fc6e0a88ee5434c537889dde834d1f"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "931930744fddb60bdfe31784b48a16e2dbe6a4a017c5e58d10a9cb2218fb4acc",
+          "bytes": 734592,
+          "sha256": "81b539d96369f77f30b361cdbbf0e1aec2d27ac9911b0eb99b9b80c806729379"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "8001fff8d29ed2de2d3fc304444484f9bcb22d4b94ad8c5eac89e71bf986313d",
+          "bytes": 1157472,
+          "sha256": "ab87f8ec1d8603e985dd87c2adae28391d361487f3c378383a7d52074fef638d"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "88c76d6e1c79f79214efce4f51526d666fd9158a26555e6759f423a0740ba2b5",
+          "bytes": 1276512,
+          "sha256": "f6a4831d9bca4b0f5d3c822c5145c007accaf8ddc8127e87c73d122f7c57be7d"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/clip-gradients-by-global-norm/1ce141a8089a1b9eba7c/algieba-36e557eba76a43ee.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4136588,
+      "sha256": "36e557eba76a43eeec12b3c414f7625efe9b63eba32b57adb7cef177ef7e3ee6",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "9f59bad82f698b8a9ecacf7056134c1d16aa6d0b6525eebf8bdd144371c9aab7",
+          "bytes": 781152,
+          "sha256": "2de9cb81b1a314ad5765fef436d85980cb56784a6fe82b794154bad38856c41b"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "931930744fddb60bdfe31784b48a16e2dbe6a4a017c5e58d10a9cb2218fb4acc",
+          "bytes": 769824,
+          "sha256": "48479d04b07d9e3ada1ee8006c763f61c223b2589755355ccde7048b0f85e737"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "8001fff8d29ed2de2d3fc304444484f9bcb22d4b94ad8c5eac89e71bf986313d",
+          "bytes": 1249632,
+          "sha256": "3b2726bb2fad1c364ddafcbf14866ae9c01ab4fea2fc664aab77814bca35b5a9"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "88c76d6e1c79f79214efce4f51526d666fd9158a26555e6759f423a0740ba2b5",
+          "bytes": 1335744,
+          "sha256": "b29b00fce376d085fb98c236ec0090828280e6fe67b9f175824a0302b7b7f854"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net clip-gradients-by-global-norm preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T02:10:30.554Z",
+  "publication_sha256": "723057d6e4ddeed4b674bccd814f2b5e8e0b8b5b225f8dde0c93e37a50ae195d",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 8078584,
+  "objects": [
+    {
+      "stable_id": "puzzle:clip-gradients-by-global-norm",
+      "slug": "clip-gradients-by-global-norm",
+      "track_id": "algieba",
+      "source_sha256": "f6a538c0555b2809df8a6bf54b9713c21dd80065afcaa3263059498c5d0aef1b",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "1ce141a8089a1b9eba7cb23bbecc90abefed0abb1cb3a6a1ab0b9573edc655c2",
+      "object_key": "narration/v1/puzzles/clip-gradients-by-global-norm/1ce141a8089a1b9eba7c/algieba-36e557eba76a43ee.mp3",
+      "bytes": 4136588,
+      "sha256": "36e557eba76a43eeec12b3c414f7625efe9b63eba32b57adb7cef177ef7e3ee6",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:clip-gradients-by-global-norm",
+      "slug": "clip-gradients-by-global-norm",
+      "track_id": "aoede",
+      "source_sha256": "f6a538c0555b2809df8a6bf54b9713c21dd80065afcaa3263059498c5d0aef1b",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "1ce141a8089a1b9eba7cb23bbecc90abefed0abb1cb3a6a1ab0b9573edc655c2",
+      "object_key": "narration/v1/puzzles/clip-gradients-by-global-norm/1ce141a8089a1b9eba7c/aoede-f64a90bca09427c8.mp3",
+      "bytes": 3941996,
+      "sha256": "f64a90bca09427c89c8b047a66aa315a72af4587d7ed38af2d07a69de99a1436",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

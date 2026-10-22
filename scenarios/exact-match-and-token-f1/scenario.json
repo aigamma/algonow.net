@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "slug": "exact-match-and-token-f1",
+  "track": "evaluation",
+  "language": "python",
+  "system": {
+    "context": "Orbit's question answering evaluation compared the model's answer with the gold answer as strings. \"The read scope.\" against \"read scope\" counted as wrong, so the accuracy number punished capitals, punctuation, and articles instead of mistakes, and an answer that got most of the way there earned nothing.",
+    "request": "A worked Python example of one action: score short answers the way the SQuAD benchmark does. normalize(text) lowercases, keeps letters, digits, and whitespace, splits on whitespace, and drops the articles a, an, the, returning a token list; exact_match(prediction, gold) is 1 when the token lists are identical; token_f1(prediction, gold) returns the overlap (Counter intersection), precision, recall, and F1 with guards for two empty answers (1.0), one empty answer (0.0), and no overlap (0.0); score_all(pairs) returns one row per pair and the two means and raises ValueError for a gold answer with no tokens. The lesson leads with the complete solution and its exact output over five inline pairs, explains the Python construct by construct (importing one name, string methods and a character loop, list equality, guard clauses, Counter and the & intersection, a function returning a tuple, running totals, format specs), traces every overlap, and offers one practice variation: score against several acceptable gold answers and keep the best.",
+    "inputs": [
+      "Five answer pairs written inline in solution.py as a list of dictionaries with an id, the model's prediction, and the gold answer: e1 \"The read scope.\" / \"read scope\", e2 \"rotate the key, then revoke the old one\" / \"Create a replacement key, deploy it, then revoke the old one\", e3 \"seven days\" / \"7 days\", e4 \"Billing, then Invoices\" / \"billing then invoices\", e5 \"no\" / \"yes\"",
+      "The article tuple a, an, the dropped by normalize",
+      "For the practice variation, a list of acceptable gold answers per pair: e2 gains \"revoke the old key after deploying a replacement\" and e3 gains \"seven days\""
+    ],
+    "outputs": [
+      "score_all returns a (id, exact match, overlap, precision, recall, F1) tuple per pair and the two means: e1 1/2/1.000/1.000/1.000, e2 0/5/0.833/0.556/0.667, e3 0/1/0.500/0.500/0.500, e4 1/3/1.000/1.000/1.000, e5 0/0/0.000/0.000/0.000, mean exact match 0.400, mean F1 0.633",
+      "python solution.py prints the table, the means, the rejected pair whose gold answer is \"...\", and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change e3 scores exact match 1 and F1 1.000 while e2 keeps 0.667, the means are 0.600 and 0.733, and the file prints OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only (collections.Counter); each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, or network",
+      "normalize keeps letters and digits, drops punctuation and the three articles, and collapses whitespace; exact match compares the token lists in order; the overlap counts a repeated token only as often as both sides have it; two empty answers score 1.0, one empty answer 0.0, no overlap 0.0, and no division by zero ever happens",
+      "A gold answer that normalizes to no tokens raises ValueError naming the pair; the demonstration prints the rejected pair instead of crashing; the input pairs are never modified",
+      "Ordinary Python only: from-import, string methods, a character loop with isalnum and isspace, split, a tuple of articles with in, list equality, guard clauses with early returns, Counter and the & operator, sum over values, a function returning four values as a tuple, tuple unpacking, running totals with augmented assignment, f-strings with format specs, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the five rows above, mean exact match 0.400, mean F1 0.633, the rejected line naming e6, and OK",
+      "The arithmetic is exact: normalize handles punctuation, capitals, repeated whitespace, articles at the start and in the middle, and keeps digits; F1 is symmetric; repeats count once; the three guarded branches return the documented values; an empty gold answer raises ValueError naming the pair",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt; with single-item gold lists the practice scorer reproduces the worked run exactly; the answer differs from the starter only inside its marked region",
+      "String equality is measured on the same pairs: zero of five are equal as strings, normalization rescues e1 and e4, token F1 gives e2 and e3 partial credit, and the mean F1 exceeds the mean exact match by 0.233"
+    ]
+  },
+  "python": {
+    "package": "answer_scoring",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "44ab984e8dee902cb33acab027f45a6ba9947d9fc293b6dc6151e7911c20af61"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "d28b5d475c872191fac7fdde04fb20d75b5528ee1e53867afaa40a7e8efdf5f3"
+    },
+    {
+      "path": "python/fixtures/answers.json",
+      "description": "The five pairs, the article list, and the practice gold answers exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "bd780eb2d51fa9b96fc96a8b7b59b2384489ad1b52cf159f6ececd12d9be629e"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every pair's words, tokens, match flags, and scores (six decimals), the means, what string equality scored, and the practice run, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "32aac950983ffe2e5cc9e7170bf872097d869fe6f45d63e17addf68c6c4970df"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "normalize-edges",
+      "kind": "correctness",
+      "description": "normalize lowercases, drops punctuation, collapses whitespace, drops articles at the start and in the middle, keeps digits, and returns no tokens for an answer made only of articles or punctuation.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_normalize_at_its_edges"
+    },
+    {
+      "id": "exact-match-after-normalization",
+      "kind": "correctness",
+      "description": "Exact match ignores case, punctuation, and articles but still requires the same tokens in the same order.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_exact_match_ignores_case_punctuation_and_articles"
+    },
+    {
+      "id": "five-rows",
+      "kind": "correctness",
+      "description": "The rows for the five pairs round to the page's table (overlaps 2, 5, 1, 3, 0; F1 1.000, 0.667, 0.500, 1.000, 0.000), the mean exact match is 0.4, the mean F1 rounds to 0.633, and e2 has 6 tokens against 9.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_rows_for_the_five_pairs"
+    },
+    {
+      "id": "f1-symmetric-repeats-once",
+      "kind": "correctness",
+      "description": "Swapping prediction and gold gives the same F1, and a token repeated three times against one copy counts once (F1 0.5).",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_f1_is_symmetric_and_the_overlap_counts_repeats_once"
+    },
+    {
+      "id": "guarded-branches",
+      "kind": "failure",
+      "description": "Two empty answers score 1.0, one empty answer scores 0.0, and two answers that share nothing score 0.0 without any division.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_empty_answers_and_zero_overlap_take_the_guarded_branches"
+    },
+    {
+      "id": "empty-gold-rejected",
+      "kind": "failure",
+      "description": "A gold answer that normalizes to no tokens raises ValueError naming the pair.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_an_empty_gold_answer_is_rejected"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The input pairs are unchanged after scoring.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_pairs_are_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about e3's acceptable answers, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-keeps-best-gold",
+      "kind": "correctness",
+      "description": "score_pair keeps the best of several gold answers: e3 becomes an exact match with F1 1.0, e2 keeps 0.667 because its second gold answer scores lower, and the means are 0.6 and 0.733.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_keeps_the_best_of_several_gold_answers"
+    },
+    {
+      "id": "answer-single-gold-reproduces",
+      "kind": "correctness",
+      "description": "With single-item gold lists the practice scorer reproduces the worked run row for row.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_with_single_gold_answers_reproduces_the_worked_run"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "answers-fixture",
+      "kind": "correctness",
+      "description": "answers.json equals the pairs, the articles, and the practice gold answers that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answers_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the five rows with their words, tokens, match flags, and scores, the means 0.4 and 0.633333, the shipped counts, and the practice run with e3's best gold answer at index 1 and means 0.6 and 0.733333.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "string-equality-scores-nothing",
+      "kind": "evaluation",
+      "description": "On the same pairs, string equality finds zero equal pairs while normalized exact match rescues e1 and e4.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_string_equality_scores_nothing_that_normalization_rescues"
+    },
+    {
+      "id": "f1-partial-credit",
+      "kind": "evaluation",
+      "description": "Token F1 gives e2 and e3 partial credit where exact match gives none, and the mean F1 exceeds the mean exact match by 0.233.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_token_f1_gives_partial_credit_where_exact_match_gives_none"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/AnswerScoreViz.jsx",
+      "description": "A short animation of the worked example, about three seconds per pair and under half a minute in all: each pair's model tokens above and gold tokens below after normalization, the dropped articles struck through, green links joining the tokens that match, and three meters filling to that pair's precision, recall, and F1 (e1 1.000, e2 0.833/0.556/0.667, e3 0.500, e4 1.000, e5 0.000) while a running means panel and an F1-by-pair chart build on the right; the intro lists the five raw pairs and names what shipped (string equality, 0 of 5 equal); the outro gives the means 0.400 and 0.633 and names the rescued and partially credited pairs; the practice variation lets e3 match its second gold answer and lifts the means to 0.600 and 0.733. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/answerScoreModel.js, a JavaScript port of normalize, exact_match, token_f1, and the practice score_pair that runs on python/fixtures/answers.json; tests/exact-match-and-token-f1-viz.test.mjs (tests/ once integrated) asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real solution, that each pair beat ends on that pair's own precision, recall, and F1 with exactly overlap-many links and the right number of struck articles, that the running means at the outro equal the worked means and at the end equal the practice means, that meters and alphas stay inside the unit interval at every sampled moment, that captions carry the measured numbers, and that drawScene runs against a bare context.",
+      "check": "trace-fixture"
+    }
+  ]
+}

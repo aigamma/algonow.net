@@ -1,0 +1,428 @@
+{
+ "rows": [
+  {
+   "id": "e1",
+   "prediction": "The read scope.",
+   "gold": "read scope",
+   "prediction_words": [
+    "the",
+    "read",
+    "scope"
+   ],
+   "gold_words": [
+    "read",
+    "scope"
+   ],
+   "prediction_tokens": [
+    "read",
+    "scope"
+   ],
+   "gold_tokens": [
+    "read",
+    "scope"
+   ],
+   "prediction_matched": [
+    true,
+    true
+   ],
+   "gold_matched": [
+    true,
+    true
+   ],
+   "string_equal": false,
+   "em": 1,
+   "overlap": 2,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  {
+   "id": "e2",
+   "prediction": "rotate the key, then revoke the old one",
+   "gold": "Create a replacement key, deploy it, then revoke the old one",
+   "prediction_words": [
+    "rotate",
+    "the",
+    "key",
+    "then",
+    "revoke",
+    "the",
+    "old",
+    "one"
+   ],
+   "gold_words": [
+    "create",
+    "a",
+    "replacement",
+    "key",
+    "deploy",
+    "it",
+    "then",
+    "revoke",
+    "the",
+    "old",
+    "one"
+   ],
+   "prediction_tokens": [
+    "rotate",
+    "key",
+    "then",
+    "revoke",
+    "old",
+    "one"
+   ],
+   "gold_tokens": [
+    "create",
+    "replacement",
+    "key",
+    "deploy",
+    "it",
+    "then",
+    "revoke",
+    "old",
+    "one"
+   ],
+   "prediction_matched": [
+    false,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "gold_matched": [
+    false,
+    false,
+    true,
+    false,
+    false,
+    true,
+    true,
+    true,
+    true
+   ],
+   "string_equal": false,
+   "em": 0,
+   "overlap": 5,
+   "precision": 0.833333,
+   "recall": 0.555556,
+   "f1": 0.666667
+  },
+  {
+   "id": "e3",
+   "prediction": "seven days",
+   "gold": "7 days",
+   "prediction_words": [
+    "seven",
+    "days"
+   ],
+   "gold_words": [
+    "7",
+    "days"
+   ],
+   "prediction_tokens": [
+    "seven",
+    "days"
+   ],
+   "gold_tokens": [
+    "7",
+    "days"
+   ],
+   "prediction_matched": [
+    false,
+    true
+   ],
+   "gold_matched": [
+    false,
+    true
+   ],
+   "string_equal": false,
+   "em": 0,
+   "overlap": 1,
+   "precision": 0.5,
+   "recall": 0.5,
+   "f1": 0.5
+  },
+  {
+   "id": "e4",
+   "prediction": "Billing, then Invoices",
+   "gold": "billing then invoices",
+   "prediction_words": [
+    "billing",
+    "then",
+    "invoices"
+   ],
+   "gold_words": [
+    "billing",
+    "then",
+    "invoices"
+   ],
+   "prediction_tokens": [
+    "billing",
+    "then",
+    "invoices"
+   ],
+   "gold_tokens": [
+    "billing",
+    "then",
+    "invoices"
+   ],
+   "prediction_matched": [
+    true,
+    true,
+    true
+   ],
+   "gold_matched": [
+    true,
+    true,
+    true
+   ],
+   "string_equal": false,
+   "em": 1,
+   "overlap": 3,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  {
+   "id": "e5",
+   "prediction": "no",
+   "gold": "yes",
+   "prediction_words": [
+    "no"
+   ],
+   "gold_words": [
+    "yes"
+   ],
+   "prediction_tokens": [
+    "no"
+   ],
+   "gold_tokens": [
+    "yes"
+   ],
+   "prediction_matched": [
+    false
+   ],
+   "gold_matched": [
+    false
+   ],
+   "string_equal": false,
+   "em": 0,
+   "overlap": 0,
+   "precision": 0.0,
+   "recall": 0.0,
+   "f1": 0.0
+  }
+ ],
+ "mean_em": 0.4,
+ "mean_f1": 0.633333,
+ "shipped": {
+  "string_equal_count": 0,
+  "exact_match_count": 2
+ },
+ "practice": {
+  "rows": [
+   {
+    "id": "e1",
+    "golds": [
+     "read scope"
+    ],
+    "per_gold": [
+     {
+      "em": 1,
+      "overlap": 2,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     }
+    ],
+    "best_gold": 0,
+    "best_gold_tokens": [
+     "read",
+     "scope"
+    ],
+    "prediction_matched": [
+     true,
+     true
+    ],
+    "gold_matched": [
+     true,
+     true
+    ],
+    "em": 1,
+    "overlap": 2,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+   },
+   {
+    "id": "e2",
+    "golds": [
+     "Create a replacement key, deploy it, then revoke the old one",
+     "revoke the old key after deploying a replacement"
+    ],
+    "per_gold": [
+     {
+      "em": 0,
+      "overlap": 5,
+      "precision": 0.833333,
+      "recall": 0.555556,
+      "f1": 0.666667
+     },
+     {
+      "em": 0,
+      "overlap": 3,
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5
+     }
+    ],
+    "best_gold": 0,
+    "best_gold_tokens": [
+     "create",
+     "replacement",
+     "key",
+     "deploy",
+     "it",
+     "then",
+     "revoke",
+     "old",
+     "one"
+    ],
+    "prediction_matched": [
+     false,
+     true,
+     true,
+     true,
+     true,
+     true
+    ],
+    "gold_matched": [
+     false,
+     false,
+     true,
+     false,
+     false,
+     true,
+     true,
+     true,
+     true
+    ],
+    "em": 0,
+    "overlap": 5,
+    "precision": 0.833333,
+    "recall": 0.555556,
+    "f1": 0.666667
+   },
+   {
+    "id": "e3",
+    "golds": [
+     "7 days",
+     "seven days"
+    ],
+    "per_gold": [
+     {
+      "em": 0,
+      "overlap": 1,
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5
+     },
+     {
+      "em": 1,
+      "overlap": 2,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     }
+    ],
+    "best_gold": 1,
+    "best_gold_tokens": [
+     "seven",
+     "days"
+    ],
+    "prediction_matched": [
+     true,
+     true
+    ],
+    "gold_matched": [
+     true,
+     true
+    ],
+    "em": 1,
+    "overlap": 2,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+   },
+   {
+    "id": "e4",
+    "golds": [
+     "billing then invoices"
+    ],
+    "per_gold": [
+     {
+      "em": 1,
+      "overlap": 3,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     }
+    ],
+    "best_gold": 0,
+    "best_gold_tokens": [
+     "billing",
+     "then",
+     "invoices"
+    ],
+    "prediction_matched": [
+     true,
+     true,
+     true
+    ],
+    "gold_matched": [
+     true,
+     true,
+     true
+    ],
+    "em": 1,
+    "overlap": 3,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+   },
+   {
+    "id": "e5",
+    "golds": [
+     "yes"
+    ],
+    "per_gold": [
+     {
+      "em": 0,
+      "overlap": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+     }
+    ],
+    "best_gold": 0,
+    "best_gold_tokens": [
+     "yes"
+    ],
+    "prediction_matched": [
+     false
+    ],
+    "gold_matched": [
+     false
+    ],
+    "em": 0,
+    "overlap": 0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0
+   }
+  ],
+  "mean_em": 0.6,
+  "mean_f1": 0.733333
+ }
+}

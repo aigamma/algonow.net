@@ -1,0 +1,53 @@
+{
+ "pairs": [
+  {
+   "id": "e1",
+   "prediction": "The read scope.",
+   "gold": "read scope"
+  },
+  {
+   "id": "e2",
+   "prediction": "rotate the key, then revoke the old one",
+   "gold": "Create a replacement key, deploy it, then revoke the old one"
+  },
+  {
+   "id": "e3",
+   "prediction": "seven days",
+   "gold": "7 days"
+  },
+  {
+   "id": "e4",
+   "prediction": "Billing, then Invoices",
+   "gold": "billing then invoices"
+  },
+  {
+   "id": "e5",
+   "prediction": "no",
+   "gold": "yes"
+  }
+ ],
+ "articles": [
+  "a",
+  "an",
+  "the"
+ ],
+ "practice_golds": {
+  "e1": [
+   "read scope"
+  ],
+  "e2": [
+   "Create a replacement key, deploy it, then revoke the old one",
+   "revoke the old key after deploying a replacement"
+  ],
+  "e3": [
+   "7 days",
+   "seven days"
+  ],
+  "e4": [
+   "billing then invoices"
+  ],
+  "e5": [
+   "yes"
+  ]
+ }
+}

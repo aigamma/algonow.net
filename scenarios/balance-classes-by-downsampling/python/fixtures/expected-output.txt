@@ -1,0 +1,16 @@
+12 records, cap 3 per label, seed 11
+
+label     before  after
+access         3      3
+billing        7      3
+outage         2      2
+
+kept 8, input order: r2, r5, r6, r7, r8, r10, r11, r12
+dropped 4: r1, r3, r4, r9
+
+always answering 'billing' is right 7 of 12 times (58%) before, 3 of 8 (38%) after
+same seed, same sample: True
+
+rejected: record 'r13' has no label
+
+OK

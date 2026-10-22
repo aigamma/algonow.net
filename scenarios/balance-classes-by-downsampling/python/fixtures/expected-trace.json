@@ -1,0 +1,87 @@
+{
+ "cap": 3,
+ "seed": 11,
+ "floor": 3,
+ "labels": [
+  "access",
+  "billing",
+  "outage"
+ ],
+ "before": {
+  "access": 3,
+  "billing": 7,
+  "outage": 2
+ },
+ "sampled": {
+  "access": [
+   "r2",
+   "r7",
+   "r11"
+  ],
+  "billing": [
+   "r6",
+   "r8",
+   "r12"
+  ],
+  "outage": [
+   "r5",
+   "r10"
+  ]
+ },
+ "kept": [
+  "r2",
+  "r5",
+  "r6",
+  "r7",
+  "r8",
+  "r10",
+  "r11",
+  "r12"
+ ],
+ "dropped": [
+  "r1",
+  "r3",
+  "r4",
+  "r9"
+ ],
+ "after": {
+  "access": 3,
+  "billing": 3,
+  "outage": 2
+ },
+ "majority": {
+  "before": [
+   7,
+   12
+  ],
+  "after": [
+   3,
+   8
+  ]
+ },
+ "practice": {
+  "repeats": [
+   "r10"
+  ],
+  "kept": [
+   "r2",
+   "r5",
+   "r6",
+   "r7",
+   "r8",
+   "r10",
+   "r11",
+   "r12",
+   "r10"
+  ],
+  "after": {
+   "access": 3,
+   "billing": 3,
+   "outage": 3
+  },
+  "majority": [
+   3,
+   9
+  ]
+ }
+}

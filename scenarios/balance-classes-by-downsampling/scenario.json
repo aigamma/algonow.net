@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "slug": "balance-classes-by-downsampling",
+  "track": "data-pipelines",
+  "language": "python",
+  "system": {
+    "context": "Orbit fine-tuned an intent classifier on a support export in which seven of every twelve records were billing questions. The model learned to answer billing to everything, which was right 58 percent of the time on its own skewed test set and routed outage reports to the billing queue in production.",
+    "request": "A worked Python example of one action: downsample(records, cap, seed), which caps every label at cap records before training. Labels over the cap keep a sample of exactly cap records drawn without replacement by random.Random(seed), labels within the cap keep every record, the kept records (the original dictionaries) are restored to input order with a position lookup and a key function, and every dropped id is reported. The lesson leads with the complete solution over twelve inline records and its exact output (counts before and after per label, the kept and dropped ids, the constant-answer baseline before and after, the seed check, the rejected record, OK), explains the Python construct by construct (from-import and module import, a guard helper that raises, Counter and most_common, a dictionary of lists with the membership-insert idiom, random.Random and sample, sorted keys, extend, enumerate into a position dictionary, a nested key function and sort, a set membership test, format specs), traces every label through the loop, and offers one practice variation: lift every label below a floor by repeating a seeded random pick of its own records.",
+    "inputs": [
+      "Twelve records written inline in solution.py as a list of dictionaries with an id, a label, and the customer's text: billing r1, r3, r4, r6, r8, r9, r12; access r2, r7, r11; outage r5, r10",
+      "A cap of 3 records per label and a seed of 11 for the private random generator",
+      "For the practice variation, a floor of 3 records per label"
+    ],
+    "outputs": [
+      "downsample returns the kept records in input order (r2, r5, r6, r7, r8, r10, r11, r12) and the dropped ids in input order (r1, r3, r4, r9): billing is cut from 7 to 3 by rng.sample, access and outage are kept whole",
+      "python solution.py prints the counts before and after per label, the kept and dropped ids, the constant-answer baseline (7 of 12, 58 percent, before; 3 of 8, 38 percent, after), the seed check, the rejected record, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change balance returns nine records, the eight originals then the repeat r10, every label at 3, and prints OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, or network",
+      "Labels are visited in sorted order so the seeded generator's draws are consumed in a fixed order; the sample is drawn without replacement; kept records are the input dictionaries, never copies; the input list is not modified",
+      "A cap below 1 raises ValueError before any sampling; a record with no label raises ValueError naming its id, and the demonstration prints the rejected record instead of crashing",
+      "Ordinary Python only: import random, from collections import Counter, small functions, a dictionary of lists, Counter with augmented assignment, random.Random with sample and choice, sorted, extend, enumerate, a nested key function with sort, a set membership test, a while loop in the practice, f-strings with format specs, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: access 3 to 3, billing 7 to 3, outage 2 to 2, kept r2, r5, r6, r7, r8, r10, r11, r12, dropped r1, r3, r4, r9, the baseline 7 of 12 (58 percent) before and 3 of 8 (38 percent) after, the seed check True, the rejected line, and OK",
+      "The functions are exact: count_labels gives billing 7, access 3, outage 2; group_by_label keeps input order within each label; the same seed keeps the same records and seed 12 keeps different ones; no seed leaves a label above the cap; a cap at or above the biggest label drops nothing; a cap of 0 and a missing label raise ValueError; the input is unchanged",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt with the single repeat r10 appended to the eight originals; a floor within the counts repeats nothing",
+      "The constant-answer baseline is measured on the same records: 7 of 12 (58 percent) before the cap, 3 of 8 (38 percent) after, and 3 of 9 (33 percent) with the practice floor; every label after the cap holds at most 3 records and the labels within the cap are whole"
+    ]
+  },
+  "python": {
+    "package": "class_balance",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "5d4e7665e8fe8ca03da6c665616f1e02ab05afe1b633d0cdc5feff747ad02fb9"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "99c9f839b0cbd6050cd755e2c8a627f139e8cfcc23b9732784e05891a3121943"
+    },
+    {
+      "path": "python/fixtures/records.json",
+      "description": "The twelve records, the cap, the seed, and the floor exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "a284ece833af17856640b8c1718ff846ba951725fc49a45ef713222f9f6b7e07"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every decision of the real functions: the counts before, the seeded sample per label in the order it was drawn, the kept and dropped ids, the counts after, the constant-answer baselines, and the practice repeat; derived by the Python suite and replayed by the animation, which takes the sampled ids and the repeat from here because the browser cannot reproduce random.Random.",
+      "sha256": "89dff3a30525a4c2fdb2d8259fcd4a4c8a5eb1a23ab7017a08b64ebbc0415441"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "counts-and-groups",
+      "kind": "correctness",
+      "description": "count_labels gives billing 7, access 3, outage 2, and group_by_label lists labels in order of first sight with each group's records in input order.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_counts_and_groups_follow_the_input"
+    },
+    {
+      "id": "cap-only-the-big-label",
+      "kind": "correctness",
+      "description": "downsample keeps r2, r5, r6, r7, r8, r10, r11, r12 and drops r1, r3, r4, r9; the counts after are access 3, billing 3, outage 2; every dropped record is a billing record.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_downsample_caps_only_the_label_over_the_cap"
+    },
+    {
+      "id": "originals-in-input-order",
+      "kind": "correctness",
+      "description": "The kept records are the input dictionaries themselves, and their positions in the input are increasing.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_kept_records_are_the_originals_in_input_order"
+    },
+    {
+      "id": "seed-repeats",
+      "kind": "correctness",
+      "description": "The same seed gives the same result twice, seed 12 drops a different set, and across twenty seeds no label exceeds the cap and kept plus dropped always equals twelve.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_same_seed_repeats_and_another_seed_differs"
+    },
+    {
+      "id": "cap-above-biggest-label",
+      "kind": "correctness",
+      "description": "A cap at or above the biggest label keeps every record in input order and drops nothing.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_cap_at_or_above_the_biggest_label_drops_nothing"
+    },
+    {
+      "id": "bad-input-rejected",
+      "kind": "failure",
+      "description": "A cap of 0 raises ValueError, a record without a label raises ValueError naming r13, and count_labels raises the same way.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_bad_cap_and_missing_label_are_rejected"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The record list is unchanged after downsampling.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_is_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about the floor, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-one-repeat",
+      "kind": "correctness",
+      "description": "balance repeats exactly r10, appends it after the eight originals, leaves the dropped ids unchanged, brings every label to 3, and the repeat is the same record object.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_lifts_the_small_label_with_one_seeded_repeat"
+    },
+    {
+      "id": "answer-floor-within-counts",
+      "kind": "correctness",
+      "description": "A floor of 2 repeats nothing and returns the worked example's kept and dropped lists.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_with_a_floor_within_the_counts_repeats_nothing"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data and helpers above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "records-fixture",
+      "kind": "correctness",
+      "description": "records.json equals the records, cap, seed, and floor that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_records_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the sample r6, r8, r12 in draw order, access r2, r7, r11 whole, the kept and dropped ids, the baselines 7 of 12 and 3 of 8, and the practice repeat r10 with 3 of 9.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "shipped-rewards-the-constant-answer",
+      "kind": "evaluation",
+      "description": "On the twelve records as exported, billing is the most common label with 7, so a constant billing answer is right 58.3 percent of the time.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_what_shipped_rewards_answering_billing_to_everything"
+    },
+    {
+      "id": "cap-cuts-the-constant-answer",
+      "kind": "evaluation",
+      "description": "After the cap the biggest label holds 3 of 8 records (37.5 percent), every label is at or under the cap, the labels within the cap are whole, and the practice floor levels every label at 3 of 9 (33.3 percent).",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_cap_cuts_the_constant_answer_and_the_floor_levels_it"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/ClassBalanceViz.jsx",
+      "description": "A short animation of the worked example, about three seconds per label and twenty seven seconds in all: the twelve records as cards in one column per label (access, billing, outage, the sorted order the loop uses), the Counter filling each column's header, the cap line at three, then each label's decision in turn: access kept whole in green, the billing sample r6, r8, r12 kept in blue with r1, r3, r4, r9 faded in red as dropped, outage kept whole. The kept ids glide into a strip in input order, the panel shows the counts before and after with the constant-answer baseline (7 of 12 before, 3 of 8 after), and the practice variation adds the r10 repeat card and chip and the floor baseline of 3 of 9. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/classBalanceModel.js, a JavaScript port of count_labels, group_by_label, downsample, and balance that runs on python/fixtures/records.json; because the browser cannot reproduce random.Random, the ids the seeded sample and the seeded repeat chose are read from python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, and every other quantity (groups, counts, the kept order, the dropped ids, the baselines) is recomputed. tests/balance-classes-by-downsampling-viz.test.mjs asserts that the recomputed trace equals the fixture, that the timeline is a reading pace, that captions carry the measured ids and percentages, that the outro holds the worked result and the final scene the practice result, that every sampled moment keeps cards and chips inside the canvas with bounded alphas and counts that only grow, and that drawScene runs against a bare context. Rendered frames inspected at 900 pixels at several moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

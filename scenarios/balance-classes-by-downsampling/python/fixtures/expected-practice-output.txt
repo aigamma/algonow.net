@@ -1,0 +1,16 @@
+12 records, cap 3 per label, floor 3, seed 11
+
+label     before  after
+access         3      3
+billing        7      3
+outage         2      3
+
+kept 9, input order then repeats: r2, r5, r6, r7, r8, r10, r11, r12, r10 (repeat)
+dropped 4: r1, r3, r4, r9
+repeats 1: r10
+
+always answering one label is right at most 3 of 9 times (33%) after
+
+rejected: record 'r13' has no label
+
+OK

@@ -1,0 +1,67 @@
+{
+ "records": [
+  {
+   "id": "r1",
+   "label": "billing",
+   "text": "Why was I charged twice this month?"
+  },
+  {
+   "id": "r2",
+   "label": "access",
+   "text": "I cannot log in after the password reset."
+  },
+  {
+   "id": "r3",
+   "label": "billing",
+   "text": "How do I download last month's invoice?"
+  },
+  {
+   "id": "r4",
+   "label": "billing",
+   "text": "Can you refund the duplicate payment?"
+  },
+  {
+   "id": "r5",
+   "label": "outage",
+   "text": "The dashboard has been down since noon."
+  },
+  {
+   "id": "r6",
+   "label": "billing",
+   "text": "Which plan am I on and what does it cost?"
+  },
+  {
+   "id": "r7",
+   "label": "access",
+   "text": "My API key says it is not active."
+  },
+  {
+   "id": "r8",
+   "label": "billing",
+   "text": "Does the price include tax?"
+  },
+  {
+   "id": "r9",
+   "label": "billing",
+   "text": "Update the card on file for my account."
+  },
+  {
+   "id": "r10",
+   "label": "outage",
+   "text": "Uploads fail with a gateway error."
+  },
+  {
+   "id": "r11",
+   "label": "access",
+   "text": "Add a teammate to the workspace."
+  },
+  {
+   "id": "r12",
+   "label": "billing",
+   "text": "Where can I see my usage this cycle?"
+  }
+ ],
+ "cap": 3,
+ "seed": 11,
+ "floor": 3
+}

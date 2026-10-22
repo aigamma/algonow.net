@@ -48,7 +48,7 @@ AN_OK = {
     "svg", "rrt", "rsa", "mst", "lsh", "ml", "nlp", "md", "mb", "fp", "fn", "rc", "ssl", "sdk", "sgd",
     "nth", "xor", "mcp", "ltl", "lz", "rgb", "rl", "sat", "scc", "xs", "ms", "mdp",
 }
-BAD_WORDS = ("heart" + "beat", "—", "–")
+BAD_WORDS = ("heart" + "beat", chr(0x2014), chr(0x2013))   # built, so this file carries no dash
 
 # Spoken forms that read as defects to the regexes but are right for the ear:
 # symbols read as words ("k-means plus plus", "C plus plus", "or and and",

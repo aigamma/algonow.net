@@ -10,6 +10,7 @@
 // error and uncaught exception while it does.
 import { spawn } from 'node:child_process';
 import { existsSync, mkdirSync } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { setTimeout as sleep } from 'node:timers/promises';
@@ -134,13 +135,15 @@ export class Page {
 }
 
 // Launch one headless Chrome, hand `fn` an api with newPage(), and kill Chrome
-// afterwards whatever happened. The profile lives under build/qa (gitignored).
+// afterwards whatever happened. The profile lives in the OS temp directory,
+// never in the tree: a fresh profile still receives policy-installed
+// extensions, whose code is not an authored surface for the style scans.
 export async function withChrome(fn, { port = Number(process.env.CDP_PORT || 9333), profile, windowSize = '1200,900' } = {}) {
   const chrome = chromePath();
-  const userDataDir = profile || path.join(ROOT, 'build', 'qa', `profile-cdp-${port}`);
+  const userDataDir = profile || path.join(os.tmpdir(), 'algonow-qa', `profile-cdp-${port}`);
   mkdirSync(userDataDir, { recursive: true });
   const child = spawn(chrome, [
-    '--headless=new', '--disable-gpu', '--hide-scrollbars', '--no-first-run', '--no-default-browser-check',
+    '--headless=new', '--disable-gpu', '--hide-scrollbars', '--no-first-run', '--no-default-browser-check', '--disable-extensions',
     `--remote-debugging-port=${port}`, `--user-data-dir=${userDataDir}`, `--window-size=${windowSize}`, 'about:blank',
   ], { stdio: 'ignore' });
   try {

@@ -14,7 +14,8 @@ npm run qa -- --base http://localhost:4173 sweep phone   # against a running ser
 ```
 
 Without `--base`, the runner starts `vite preview` on port 4199 and stops it
-afterwards. `--base https://algonow.net` sweeps the live site. Outputs land in
+afterwards. Chrome runs with a throwaway profile in the OS temp directory and
+no extensions. `--base https://algonow.net` sweeps the live site. Outputs land in
 `build/qa/` (gitignored): `sweep-1200.jsonl`, `sweep-390.jsonl`, the page
 lists, `external-links.txt`, `clip-lessons.txt`, and `summary.txt`. Exit code 1
 when any stage fails; 2 when dist is missing.

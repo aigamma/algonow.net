@@ -39,7 +39,7 @@ function makeScene(seed) {
   const rand = mulberry32(seed);
   const coords = Array.from({ length: N }, (_, i) => {
     const a = (i / N) * Math.PI * 2 - Math.PI / 2;
-    return [320 + 258 * Math.cos(a), 138 + 96 * Math.sin(a)];
+    return [320 + 258 * Math.cos(a), 150 + 96 * Math.sin(a)];
   });
   const phi = Array.from({ length: N }, () => Math.floor(rand() * 40) - 20);
   const edges = [];
@@ -240,7 +240,8 @@ export default function BellmanFordViz() {
           line = `round ${curRound} · source dist 0 · ∞ = unreached`;
         }
         ctx.font = '12px ui-monospace, monospace';
-        ctx.fillText(line, 14, 44);
+        // The round line lives under the ring: at the top it ran through the distance labels of the two nodes beside the source.
+        ctx.fillText(line, 14, H - 30);
         ctx.fillStyle = dim;
         ctx.font = '10px ui-monospace, monospace';
         ctx.fillText('amber source · dashed red = negative edge · green pulse = an improvement', 14, H - 10);

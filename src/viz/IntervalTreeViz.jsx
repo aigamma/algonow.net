@@ -59,7 +59,7 @@ function layout(root) {
     if (!node) return;
     rec(node.left, depth + 1);
     node.x = 40 + slot * ((W - 80) / (N - 1));
-    node.y = 150 + depth * 40;
+    node.y = 142 + depth * 36;
     slot += 1;
     nodes.push(node);
     rec(node.right, depth + 1);

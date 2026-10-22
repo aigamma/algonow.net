@@ -234,8 +234,10 @@ export default function JohnsonViz() {
             const ty = y1 + (y2 - y1) * 0.7;
             ctx.fillStyle = ctx.strokeStyle;
             ctx.fillRect(tx - 1.5, ty - 1.5, 3, 3);
-            const mx = (x1 + x2) / 2;
-            const my = (y1 + y2) / 2 - 4;
+            // The weight sits eight pixels to one side of the edge, so antiparallel edges (u to v and v to u share a midpoint) print on opposite sides.
+            const len = Math.hypot(x2 - x1, y2 - y1) || 1;
+            const mx = (x1 + x2) / 2 - ((y2 - y1) / len) * 8;
+            const my = (y1 + y2) / 2 - 4 + ((x2 - x1) / len) * 8;
             if (phase === 2) {
               ctx.fillStyle = good;
               ctx.fillText(String(wl), mx, my);

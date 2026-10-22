@@ -193,7 +193,10 @@ export default function EntropyEstimationViz() {
         }
         ctx.fillStyle = dim;
         [1, 10, 100, 1000].forEach((n) => ctx.fillText(String(n), X(n) - 6, bot + 14));
-        ctx.fillText('n (log scale)', rx + rw - 70, bot + 14);
+        // The axis title sits under the last tick, right-aligned to the axis end, so it never shares a line with the 1000 label.
+        ctx.textAlign = 'right';
+        ctx.fillText('n (log scale)', rx + rw, bot + 27);
+        ctx.textAlign = 'start';
         ctx.fillStyle = sc.ok ? good : warn;
         ctx.fillText(sc.ok ? 'invariants: formulas agree; estimate <= log2(symbols seen); correction >= raw' : 'INVARIANT BROKEN', 12, 262);
         const line = sc.last;

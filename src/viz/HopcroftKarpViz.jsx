@@ -118,7 +118,7 @@ function makeScene(seed) {
   return { adj, ...runHK(adj) };
 }
 
-const yOf = (i, n) => 44 + (i * (H - 96)) / Math.max(n - 1, 1);
+const yOf = (i, n) => 56 + (i * (H - 108)) / Math.max(n - 1, 1);
 
 export default function HopcroftKarpViz() {
   const canvasRef = useRef(null);
@@ -330,8 +330,8 @@ export default function HopcroftKarpViz() {
         ctx.fillText(line, 14, H - 12);
         ctx.fillStyle = dim;
         ctx.font = '11px ui-monospace, monospace';
-        ctx.fillText('L', LX - 4, 26);
-        ctx.fillText('R', RX - 4, 26);
+        ctx.fillText('L', LX - 4, 38);
+        ctx.fillText('R', RX - 4, 38);
 
         statsRef.current = { line };
       },

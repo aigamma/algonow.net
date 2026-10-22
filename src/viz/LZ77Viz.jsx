@@ -213,7 +213,7 @@ export default function LZ77Viz() {
           ctx.fillText(
             `(back ${activeArc.from - activeArc.srcStart}, copy ${activeArc.len})`,
             Math.min(x1, W - 150),
-            y1 - 38 < 20 ? y1 + 22 : y1 - 38,
+            y1 + 16, // in the gap under the head's row, where no glyph is drawn
           );
           ctx.font = '15px ui-monospace, monospace';
         }

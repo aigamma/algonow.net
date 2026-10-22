@@ -203,17 +203,32 @@ export default function BrentViz() {
           else ctx.lineTo(X(x), Y(y));
         });
         ctx.stroke();
-        const mark = (x, y, color, label, r) => {
+        const marks = [
+          [st.c, st.fc, dim, 'c', 4],
+          [st.a, st.fa, dim, 'a', 3],
+          [st.b, st.fb, colorOf[st.kind] || ink, 'b', 5],
+        ];
+        marks.forEach(([x, y, color, , r]) => {
           ctx.beginPath();
           ctx.arc(X(x), Y(y), r, 0, Math.PI * 2);
           ctx.fillStyle = color;
           ctx.fill();
-          ctx.fillStyle = color;
-          ctx.fillText(label, X(x) + 6, Y(y) - 6);
-        };
-        mark(st.c, st.fc, dim, 'c', 4);
-        mark(st.a, st.fa, dim, 'a', 3);
-        mark(st.b, st.fb, colorOf[st.kind] || ink, 'b', 5);
+        });
+        // Points within ten pixels share one label ("a b", "a b c"), so a converged bracket reads as names instead of letters printed over each other.
+        const groups = [];
+        marks.forEach(([x, y, color, label]) => {
+          const px = X(x);
+          const py = Y(y);
+          const near = groups.find((group) => Math.hypot(group.px - px, group.py - py) < 10);
+          if (near) {
+            near.names.push(label);
+            if (label === 'b') near.color = color;
+          } else groups.push({ px, py, color, names: [label] });
+        });
+        groups.forEach((group) => {
+          ctx.fillStyle = group.color;
+          ctx.fillText(group.names.sort().join(' '), group.px + 6, group.py - 6);
+        });
         ctx.strokeStyle = good;
         ctx.setLineDash([3, 3]);
         ctx.beginPath();

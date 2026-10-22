@@ -189,7 +189,7 @@ export default function RendezvousViz() {
           ctx.strokeRect(x - 4, 148, 42, 108);
           ctx.fillStyle = isDead ? warn : dim;
           ctx.font = '11px ui-monospace, monospace';
-          ctx.fillText(`n${n}`, x + 8, 272);
+          ctx.fillText(`n${n}`, x + 8, 143);
           if (isDead) {
             ctx.beginPath();
             ctx.moveTo(x - 4, 148);

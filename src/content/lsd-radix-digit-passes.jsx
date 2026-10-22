@@ -273,7 +273,7 @@ export const content = {
         parallelized radix whose per-bucket writes race, passing
         single-digit tests (one pass needs no history) and
         corrupting multi-digit sorts in production. The stable
-        gather is not a implementation nicety. It is the theorem.
+        gather is not an implementation nicety. It is the theorem.
       </>
     ),
   },

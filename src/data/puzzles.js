@@ -2058,7 +2058,7 @@ export const PUZZLES = {
     domain: 'DFA minimization',
     oneLiner:
       'Split blocks of states through their inverse transitions from a queue of splitters, and after every split queue only the smaller half: a state re-enters the queue at most log n times, and the quadratic rounds become n log n.',
-    listenMinutes: 8,
+    listenMinutes: 10,
     time: 'O(k n log n)',
     space: 'O(k n) inverse edges',
     baseline: 'Moore\'s rounds, O(k n · rounds)',
@@ -2562,7 +2562,7 @@ export const PUZZLES = {
     domain: 'Modular reconstruction',
     oneLiner:
       'Rebuild an integer from its residues as mixed-radix digits: small modular updates, products up to twice the largest modulus bit width, then full-width assembly.',
-    listenMinutes: 8,
+    listenMinutes: 10,
     time: 'k(k - 1)/2 updates and inversions, one assembly',
     space: 'O(k) digits; O(k²) if inverses are cached',
     baseline: 'The direct CRT formula',
@@ -3534,7 +3534,7 @@ export const PUZZLES = {
     domain: 'IP forwarding',
     oneLiner:
       'Route every packet by the most specific prefix that covers its destination: store the prefixes in a binary trie keyed by address bits, walk the destination one bit per level remembering the last prefix passed, and answer in at most 32 steps where a scan compares the whole table, with strides for speed and path compression for memory as the measured rivals.',
-    listenMinutes: 11,
+    listenMinutes: 9,
     time: 'O(W) bit steps per lookup (W = 32), independent of the table size; O(W) per insert or delete',
     space: 'O(total prefix bits) nodes; 20,804 for 2,000 routes, 3,504 path-compressed',
     baseline: 'Linear scan of every prefix per packet',
@@ -3588,7 +3588,7 @@ export const PUZZLES = {
     domain: 'Map matching',
     oneLiner:
       'Treat roads as hidden states and GPS fixes as noisy observations, score each fix by its distance to a road and each hop by how far the driving distance strays from the straight line, and let Viterbi pick the most probable route: 95.6% of fixes on the true segment with half a percent of route-length error where nearest-road snapping manages 90.6% and a 47% detour.',
-    listenMinutes: 10,
+    listenMinutes: 8,
     time: 'O(T C^2) transitions after one Dijkstra per intersection',
     space: 'O(V^2) route table plus O(T C) lattice',
     baseline: 'Nearest-road snapping (beta = infinity)',

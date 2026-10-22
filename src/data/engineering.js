@@ -358,6 +358,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['Splitting sentences with a character loop and a buffer', 'Word sets with a stopword filter', 'Overlap as intersection over the sentence\'s size', 'A best-so-far search over chunks', 'Checking citations against the supporting chunk (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'balance-classes-by-downsampling',
+    title: 'Balance a skewed label set by capping each class with a seeded sample',
+    summary: 'Orbit\'s intent training set was seven tenths billing, and the fine-tuned classifier answered billing to everything. A worked Python example caps every label at three records with a seeded sample: Counter for the label counts, a dictionary of lists grouped by label, random.Random with a seed and sample for the classes over the cap, smaller classes kept whole, the kept records restored to input order with a position dictionary, its exact output, a trace of every decision, and one practice variation that lifts small classes to a floor by repeating records.',
+    track: 'data-pipelines',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'intermediate',
+    durationMinutes: 30,
+    skills: ['Counter for class counts', 'Grouping records into a dictionary of lists', 'random.Random(seed).sample for a class over the cap', 'Restoring input order with a position lookup and a sort key', 'Upsampling to a floor with choice (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

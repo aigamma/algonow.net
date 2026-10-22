@@ -1439,7 +1439,17 @@ code, kbd, pre { font-family: var(--font-mono); }
   margin: 0 0 0.8rem;
 }
 .contest-instance strong { color: var(--ink); }
-.contest-scroll { overflow-x: auto; }
+/* A contest table wider than a phone scrolls sideways inside this box; the
+   edge bands say so and vanish at either end (the covers scroll with the
+   content, the bands do not). Same device as the lesson tables. */
+.contest-scroll {
+  overflow-x: auto;
+  background:
+    linear-gradient(to right, var(--bg) 45%, rgba(10, 13, 19, 0)) left / 28px 100% no-repeat local,
+    linear-gradient(to left, var(--bg) 45%, rgba(10, 13, 19, 0)) right / 28px 100% no-repeat local,
+    linear-gradient(to right, rgba(233, 237, 246, .14), rgba(233, 237, 246, 0)) left / 14px 100% no-repeat scroll,
+    linear-gradient(to left, rgba(233, 237, 246, .14), rgba(233, 237, 246, 0)) right / 14px 100% no-repeat scroll;
+}
 .contest-table {
   width: 100%;
   border-collapse: collapse;

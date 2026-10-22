@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net edmonds-karp-shortest-paths preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T06:36:31.803Z",
+  "publication_sha256": "994e18c54eb091fa39725063886697bc3ee66a61035faa28b5509fd300d6f155",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4647544,
+  "objects": [
+    {
+      "stable_id": "puzzle:edmonds-karp-shortest-paths",
+      "slug": "edmonds-karp-shortest-paths",
+      "track_id": "algieba",
+      "source_sha256": "9a845203a0561b13d14e075324c0cd06fa6c15c630e56f47eb624f8339caea85",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "a48b9540612d8d8a02cbd5091be690d0e55a931698b34b16cf65a72a6631bf18",
+      "object_key": "narration/v1/puzzles/edmonds-karp-shortest-paths/a48b9540612d8d8a02cb/algieba-2720c93d67e39609.mp3",
+      "bytes": 2372876,
+      "sha256": "2720c93d67e39609531aa3a98d12b2f2b6115d860bf9c38af09748ec01c12123",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:edmonds-karp-shortest-paths",
+      "slug": "edmonds-karp-shortest-paths",
+      "track_id": "aoede",
+      "source_sha256": "9a845203a0561b13d14e075324c0cd06fa6c15c630e56f47eb624f8339caea85",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "a48b9540612d8d8a02cbd5091be690d0e55a931698b34b16cf65a72a6631bf18",
+      "object_key": "narration/v1/puzzles/edmonds-karp-shortest-paths/a48b9540612d8d8a02cb/aoede-7ead95e737610eed.mp3",
+      "bytes": 2274668,
+      "sha256": "7ead95e737610eedee93d231c0dc9cd7eae1bceaa039c6d9bbb4146be5df0108",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

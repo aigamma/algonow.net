@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:karatsuba-three-products",
+  "source_path": "src/content/karatsuba-three-products.narration.js",
+  "source_sha256": "8cfeca3a3d107cc4f3013b4d237554cc9d65eca9d57a5009ccc3086413912af9",
+  "source_characters": 8698,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "240280f5d950f1f5e3557e5aa16cf6a2913163eef1f021fc24b6253d547e2795",
+  "generated_at": "2026-10-22T06:12:30.588Z",
+  "generated_characters": 17396,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4912,
+      "utf8_bytes": 4927,
+      "sha256": "5998e712198668d2c684de672b38c58ca4f0351325a43f9fa1c866992487adcd"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3786,
+      "utf8_bytes": 3804,
+      "sha256": "bc5245bd855613775a898ec6af4d2b6bfa3fdf4bcc64790a54fd385a2ae5f2f9"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "karatsuba-three-products.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "karatsuba-three-products.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 617,
+      "sha256": "0c014841cf14ef25a0fa2c8b9341ec4463e25f7a614b18c34801ca0246df669b"
+    },
+    {
+      "id": "karatsuba-three-products.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 815,
+      "sha256": "ab22eaaf5174dc09c3f844e29d95d42961b35fdc0a0787f4c064edcf49ab262e"
+    },
+    {
+      "id": "karatsuba-three-products.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1153,
+      "sha256": "1981c33546117b77ca878575f5169b364e25964bb95564354170f3d1e38138a6"
+    },
+    {
+      "id": "karatsuba-three-products.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 636,
+      "sha256": "fa957f341e47dd6b8b607e0fbd3055f31ad768239eb9620785b7e84156ed4dd7"
+    },
+    {
+      "id": "karatsuba-three-products.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 909,
+      "sha256": "31deb13a2c16116b1ecfb1731aa116cd2debc5b1e2120f4b63cb888d992987f1"
+    },
+    {
+      "id": "karatsuba-three-products.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 660,
+      "sha256": "219db578957c774d6594258b65849075fc5b237bbe98ecda8cf6047b662f5a56"
+    },
+    {
+      "id": "karatsuba-three-products.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1096,
+      "sha256": "6b1fcf81d256d4ab251cd6d4c9c6df33a39f8d16dfcfeabd874921c9ad1755db"
+    },
+    {
+      "id": "karatsuba-three-products.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 956,
+      "sha256": "b75b033c0de5e5c4c6204a5aa69922a6909e410ce4b0e210cc644cf182b50643"
+    },
+    {
+      "id": "karatsuba-three-products.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 907,
+      "sha256": "672d6bb8bcc72910b2e5b249ed2749809c7cc208d1d9b5072010921395689c25"
+    },
+    {
+      "id": "karatsuba-three-products.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 839,
+      "sha256": "41012204cd58e19c071ae084d9977660c7c644d3d3f7e0f08ad573c04d93a103"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/karatsuba-three-products/240280f5d950f1f5e355/aoede-e58bc043229e160d.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2295404,
+      "sha256": "e58bc043229e160d2d7638897403b3516b210a279cea31519538e32930ac0fb3",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5998e712198668d2c684de672b38c58ca4f0351325a43f9fa1c866992487adcd",
+          "bytes": 1322784,
+          "sha256": "608abf054277cba93cafa5232034276170f5db5442b1ea6360a66582e21d0afa"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "bc5245bd855613775a898ec6af4d2b6bfa3fdf4bcc64790a54fd385a2ae5f2f9",
+          "bytes": 972384,
+          "sha256": "a1dacc74643cd9f28316ce3ff4db4f5b837942a0e37a55962431c9a9c15c80e1"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/karatsuba-three-products/240280f5d950f1f5e355/algieba-ea3375a023b8f8b6.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2436332,
+      "sha256": "ea3375a023b8f8b691ad5abe4b1b66b6392cb1206cd936211ee6420fb2a112d1",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5998e712198668d2c684de672b38c58ca4f0351325a43f9fa1c866992487adcd",
+          "bytes": 1444032,
+          "sha256": "ebac145b7774fd066ec8e6b726c10f033043e496334cd9d3c6aee2507cbec72e"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "bc5245bd855613775a898ec6af4d2b6bfa3fdf4bcc64790a54fd385a2ae5f2f9",
+          "bytes": 992064,
+          "sha256": "f5f432bcff817b662e6c2ec90c8db26aca8f7ef011e4e124694ba67017d1e3ab"
+        }
+      ]
+    }
+  }
+}

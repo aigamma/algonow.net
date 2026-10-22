@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:floyd-warshall-vertex-sweep",
+  "source_path": "src/content/floyd-warshall-vertex-sweep.narration.js",
+  "source_sha256": "191eb3f019c485302beaf1018bb14d3cebc963f61cd1959b3d7f783f608a4d06",
+  "source_characters": 8540,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "c1d14b959ca9689e82e427d1c2d58a48688f78bd51009afc2776b4ab95e0a8fe",
+  "generated_at": "2026-10-22T05:58:49.691Z",
+  "generated_characters": 17080,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4879,
+      "utf8_bytes": 4881,
+      "sha256": "93fb96d30ee3b4b85b94664150c261614fc3d2d03557c53917593e818f08f06d"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3661,
+      "utf8_bytes": 3673,
+      "sha256": "7f593939705d8acf8e54854a141a891e55c16947503e7fa7517e543a95823ecb"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "floyd-warshall-vertex-sweep.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "floyd-warshall-vertex-sweep.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 693,
+      "sha256": "6cdfc79787a8281ae4d1565c1d5cea785e1b83eec0a8ced75e76aa2212b9141a"
+    },
+    {
+      "id": "floyd-warshall-vertex-sweep.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 756,
+      "sha256": "fb13ee1c7e577184da80b00078785a1f9db3e2cba6db5716a470420b3dd2ba33"
+    },
+    {
+      "id": "floyd-warshall-vertex-sweep.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1100,
+      "sha256": "a079811e07e8f3d5f8d8a8dded9ecb1a486e3339ee157dbdc70a8a2ce179a374"
+    },
+    {
+      "id": "floyd-warshall-vertex-sweep.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 754,
+      "sha256": "c07839b955f02536c38f0925081f852a55afa363077b7efde403db8c412cb3e8"
+    },
+    {
+      "id": "floyd-warshall-vertex-sweep.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 825,
+      "sha256": "3e9056c1fc332953fcc10b15da460e192fa3b35241b89843d55064481a35abf0"
+    },
+    {
+      "id": "floyd-warshall-vertex-sweep.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 616,
+      "sha256": "cab445b861fac267a8219e81341c0d8e6f3b7f6a0b856ff29cbeed9542176aaa"
+    },
+    {
+      "id": "floyd-warshall-vertex-sweep.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 982,
+      "sha256": "88616ecae2068b54604578b2d57e41ebe0ed201f052c3f24cc54a21bc1f3491e"
+    },
+    {
+      "id": "floyd-warshall-vertex-sweep.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 907,
+      "sha256": "3e0f839c535d0b4b58bc71f07564e966fd9faa21aa5a62cbb25c1c4aad718f03"
+    },
+    {
+      "id": "floyd-warshall-vertex-sweep.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 773,
+      "sha256": "0535d7670c42bd6d97acbeffbc3bde502977c5b1748ea72b9400592b19a5ef52"
+    },
+    {
+      "id": "floyd-warshall-vertex-sweep.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1005,
+      "sha256": "cc346dc8c7a6ef272139f7c9bf794d9bd181991c233641e0557e461438232c39"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/floyd-warshall-vertex-sweep/c1d14b959ca9689e82e4/aoede-a217d745f050f712.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2222060,
+      "sha256": "a217d745f050f7127a701cfbed268a9074a771e7b7f16bea91d35ccf7f178826",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "93fb96d30ee3b4b85b94664150c261614fc3d2d03557c53917593e818f08f06d",
+          "bytes": 1295712,
+          "sha256": "f74c31e00744a325a86bfc6cee1196181432f3aaf3d09e46464fb3509787f931"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "7f593939705d8acf8e54854a141a891e55c16947503e7fa7517e543a95823ecb",
+          "bytes": 926112,
+          "sha256": "96bf23a287f66a46fcf95fbe8da827bef82a346330bb480538077e8bb3cbd81a"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/floyd-warshall-vertex-sweep/c1d14b959ca9689e82e4/algieba-62f312f80736bbd2.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2378252,
+      "sha256": "62f312f80736bbd2b698d5298c9347c6e78ca0d44625748335cb6d4fd936bdc2",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "93fb96d30ee3b4b85b94664150c261614fc3d2d03557c53917593e818f08f06d",
+          "bytes": 1395072,
+          "sha256": "70b219d6f517af54d1c6b3c17157c6256ae7c0afcc88045cfe630c52388c0dd7"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "7f593939705d8acf8e54854a141a891e55c16947503e7fa7517e543a95823ecb",
+          "bytes": 982944,
+          "sha256": "77408a4ecbf0517d73df16e26c6e9f2db4b66208c6c86859cd2bce5aea5054f0"
+        }
+      ]
+    }
+  }
+}

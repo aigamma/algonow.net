@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:boyer-moore-majority-vote",
+  "source_path": "src/content/boyer-moore-majority-vote.narration.js",
+  "source_sha256": "854bbb9fccc7be676579f1e6eb27ee7066a6bc1790db371a5604ad88364aa135",
+  "source_characters": 8263,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "804ba21b4924a5e95361a95b96dcc472eb502c1dce8f0897e54105634c53fd11",
+  "generated_at": "2026-10-22T06:23:14.322Z",
+  "generated_characters": 16526,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4790,
+      "utf8_bytes": 4798,
+      "sha256": "2e6c2c12af0eb0bbde67c2937d7beacbe9b24b01269c9df9df3c9295e427455b"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3473,
+      "utf8_bytes": 3477,
+      "sha256": "0634794c33d60cd958f68de9bf060482aa06dfae587b11ad1ec9771df0fad98b"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "boyer-moore-majority-vote.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "boyer-moore-majority-vote.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 744,
+      "sha256": "de337c47f7b769f10218d9c5481f125a724fe58904c64c8cd9e742b5150463d6"
+    },
+    {
+      "id": "boyer-moore-majority-vote.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 710,
+      "sha256": "a6cbf5ce543722accef4aa7f5e5b84c2e7f9f683e7d8a6ac7dfd46164335ac25"
+    },
+    {
+      "id": "boyer-moore-majority-vote.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1014,
+      "sha256": "41b8bd8b1d35d094143f4f93dc257e2f379bac2097ba37c879691a518192c3ca"
+    },
+    {
+      "id": "boyer-moore-majority-vote.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 710,
+      "sha256": "0fe05de34cab28bdb07d8f42ac06f6cbe380c55c35020ac500dfb2111bd7222a"
+    },
+    {
+      "id": "boyer-moore-majority-vote.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 869,
+      "sha256": "d439817f1a251feff7d3f86545fd9ab736b5481618b74a1d135fc46929e2b08c"
+    },
+    {
+      "id": "boyer-moore-majority-vote.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 614,
+      "sha256": "3a80ac9c98407eb779e54396981f6a8e003814ad7d9d75a64b2c3e8b75a91166"
+    },
+    {
+      "id": "boyer-moore-majority-vote.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 746,
+      "sha256": "2c44bf2f223f224e9ca6abebf05e0128f080f8f18d18d03119b590cc71ab0def"
+    },
+    {
+      "id": "boyer-moore-majority-vote.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 976,
+      "sha256": "8c26385d26f05e2a2bb555cb4e3dd82e0edd055af17605bd0029182721d6d263"
+    },
+    {
+      "id": "boyer-moore-majority-vote.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 866,
+      "sha256": "5cc24adc83b678a824ea8610fa465d9b41a1ca97f9e69992c0125e2b7837fd2f"
+    },
+    {
+      "id": "boyer-moore-majority-vote.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 883,
+      "sha256": "0115042caef2424ba94f7e8541e1fa74f264b38605ee1ba05cd0a52de9ea8967"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/boyer-moore-majority-vote/804ba21b4924a5e95361/aoede-1f5f5893d2dc6180.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2153324,
+      "sha256": "1f5f5893d2dc61805e341f160918bc92c769a76e9caff4f1ef95612aeaa6cf6b",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2e6c2c12af0eb0bbde67c2937d7beacbe9b24b01269c9df9df3c9295e427455b",
+          "bytes": 1224576,
+          "sha256": "d7e86600cd77e562ebf67cc2858db9ebe66ff40124acf883fd65bdc531e330e9"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "0634794c33d60cd958f68de9bf060482aa06dfae587b11ad1ec9771df0fad98b",
+          "bytes": 928512,
+          "sha256": "87c53db4b9be8646ce3ca4f770c477df4c41919609c88d256304c40b9693ac56"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/boyer-moore-majority-vote/804ba21b4924a5e95361/algieba-a4f32d34eb040584.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2257100,
+      "sha256": "a4f32d34eb0405843e25731b122ee3d8a7fef632426c7af19da443c6ff8c8f84",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2e6c2c12af0eb0bbde67c2937d7beacbe9b24b01269c9df9df3c9295e427455b",
+          "bytes": 1305792,
+          "sha256": "090bf55fcfb0e05d635b438f51936843304ac9312a03f9fcdf27c7e15fe8c77d"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "0634794c33d60cd958f68de9bf060482aa06dfae587b11ad1ec9771df0fad98b",
+          "bytes": 951072,
+          "sha256": "77cfaae3255359ba698b15117b909b63a67b662aaa4c8362477714c07acdadc4"
+        }
+      ]
+    }
+  }
+}

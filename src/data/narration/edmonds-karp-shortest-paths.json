@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:edmonds-karp-shortest-paths",
+  "source_path": "src/content/edmonds-karp-shortest-paths.narration.js",
+  "source_sha256": "9a845203a0561b13d14e075324c0cd06fa6c15c630e56f47eb624f8339caea85",
+  "source_characters": 8786,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "a48b9540612d8d8a02cbd5091be690d0e55a931698b34b16cf65a72a6631bf18",
+  "generated_at": "2026-10-22T06:17:57.893Z",
+  "generated_characters": 17572,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4390,
+      "utf8_bytes": 4396,
+      "sha256": "5580b9864b503af3e447926b6abb1c652a7f297db4a18f99a91474dcce148d22"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4396,
+      "utf8_bytes": 4407,
+      "sha256": "48467403401e5b00e58ea11943ec27215b82af72941f1c1e771b0cc9953968b9"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "edmonds-karp-shortest-paths.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "edmonds-karp-shortest-paths.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 678,
+      "sha256": "bcbc5eb122702ecdc58ef9f5589a61a64397e2bc09c9526b1930d74221df31fb"
+    },
+    {
+      "id": "edmonds-karp-shortest-paths.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 971,
+      "sha256": "87a391b394e9b8fb6c483ebccb9e039e8e08c29227c24e887e58cd0ddda68ca2"
+    },
+    {
+      "id": "edmonds-karp-shortest-paths.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1089,
+      "sha256": "f926c05fc7512d2e62e43b85eedb07c4dcf51b6b10fe7d3f2370a76b0ec6ce7f"
+    },
+    {
+      "id": "edmonds-karp-shortest-paths.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 730,
+      "sha256": "070bac3cd8d8cc410fffb823456a45c3353b3b197893cac4269ebda5d6fe0d0e"
+    },
+    {
+      "id": "edmonds-karp-shortest-paths.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 793,
+      "sha256": "dcb45d830a0ee4679b4e2018b3b7716f002551c158c60c92a8452c61a2eece89"
+    },
+    {
+      "id": "edmonds-karp-shortest-paths.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 650,
+      "sha256": "d49bd1d75e63c6079360c5285bb0590b92425c0a42b5b3dc7255e89b7a1bb92e"
+    },
+    {
+      "id": "edmonds-karp-shortest-paths.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1026,
+      "sha256": "d7ab4421a6a526920a22145db4a98af31782115c1ec588249aed9c0f6090984a"
+    },
+    {
+      "id": "edmonds-karp-shortest-paths.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 959,
+      "sha256": "5e5a522b698a8e7d23a94c348e7d7c00b74759057c22462a261e2d1ce9f45963"
+    },
+    {
+      "id": "edmonds-karp-shortest-paths.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 826,
+      "sha256": "0fa79e4e687b7f8c493050f2cb121c00bb22e14ca282c41cd43ee2e3a57ab2eb"
+    },
+    {
+      "id": "edmonds-karp-shortest-paths.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 938,
+      "sha256": "43994b61be4431d2b2dcb14305712d8bb8cd1ef6404c4902a14d8123543706a3"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/edmonds-karp-shortest-paths/a48b9540612d8d8a02cb/aoede-7ead95e737610eed.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2274668,
+      "sha256": "7ead95e737610eedee93d231c0dc9cd7eae1bceaa039c6d9bbb4146be5df0108",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5580b9864b503af3e447926b6abb1c652a7f297db4a18f99a91474dcce148d22",
+          "bytes": 1117056,
+          "sha256": "15d33f0aeebe3655711397016834521117eee5a65436d409c9db46f7b7322d14"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "48467403401e5b00e58ea11943ec27215b82af72941f1c1e771b0cc9953968b9",
+          "bytes": 1157376,
+          "sha256": "4dd234d3ea9aa1c73caab3992853e22e6ffc454c74f7865e962dee04f7dda893"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/edmonds-karp-shortest-paths/a48b9540612d8d8a02cb/algieba-2720c93d67e39609.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2372876,
+      "sha256": "2720c93d67e39609531aa3a98d12b2f2b6115d860bf9c38af09748ec01c12123",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5580b9864b503af3e447926b6abb1c652a7f297db4a18f99a91474dcce148d22",
+          "bytes": 1178496,
+          "sha256": "e20c99d77abd7c8f24861f318ae40f0ddd5e33fbbbfdf9a7e86373373a829c5c"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "48467403401e5b00e58ea11943ec27215b82af72941f1c1e771b0cc9953968b9",
+          "bytes": 1194144,
+          "sha256": "b390c9e5504a15975d7c460458335e0ee9118ee3c98efade376b8d2824f227b6"
+        }
+      ]
+    }
+  }
+}

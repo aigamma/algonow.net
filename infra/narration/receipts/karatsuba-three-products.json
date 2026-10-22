@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net karatsuba-three-products preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T06:34:38.088Z",
+  "publication_sha256": "96005f169cc16c435c466bbbedceabf0035465dd2d1bf225e96f8faf57fe85b3",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4731736,
+  "objects": [
+    {
+      "stable_id": "puzzle:karatsuba-three-products",
+      "slug": "karatsuba-three-products",
+      "track_id": "algieba",
+      "source_sha256": "8cfeca3a3d107cc4f3013b4d237554cc9d65eca9d57a5009ccc3086413912af9",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "240280f5d950f1f5e3557e5aa16cf6a2913163eef1f021fc24b6253d547e2795",
+      "object_key": "narration/v1/puzzles/karatsuba-three-products/240280f5d950f1f5e355/algieba-ea3375a023b8f8b6.mp3",
+      "bytes": 2436332,
+      "sha256": "ea3375a023b8f8b691ad5abe4b1b66b6392cb1206cd936211ee6420fb2a112d1",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:karatsuba-three-products",
+      "slug": "karatsuba-three-products",
+      "track_id": "aoede",
+      "source_sha256": "8cfeca3a3d107cc4f3013b4d237554cc9d65eca9d57a5009ccc3086413912af9",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "240280f5d950f1f5e3557e5aa16cf6a2913163eef1f021fc24b6253d547e2795",
+      "object_key": "narration/v1/puzzles/karatsuba-three-products/240280f5d950f1f5e355/aoede-e58bc043229e160d.mp3",
+      "bytes": 2295404,
+      "sha256": "e58bc043229e160d2d7638897403b3516b210a279cea31519538e32930ac0fb3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

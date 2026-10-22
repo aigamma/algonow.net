@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:smith-waterman-zero-floor",
+  "source_path": "src/content/smith-waterman-zero-floor.narration.js",
+  "source_sha256": "e971aff0a77777997754f63bc90a9cd050b5e4802d2ee9add8a02666580b1ffd",
+  "source_characters": 8807,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "5f49c81efab84087324fdf3047e520c9c3cd73abc81882d23661ff3d23892e49",
+  "generated_at": "2026-10-22T06:15:13.039Z",
+  "generated_characters": 17614,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4865,
+      "utf8_bytes": 4873,
+      "sha256": "47de71d0e8cb74e04ec174e1012d361e15b6b89754ad0cb6015832676eeb976a"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3942,
+      "utf8_bytes": 3952,
+      "sha256": "f563453595179092fa7c488ef227b3cc058d77397f61326367a3b2cdbbd11ea2"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "smith-waterman-zero-floor.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "smith-waterman-zero-floor.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 696,
+      "sha256": "66e4230522616a5879e6d06876d4988af6fe80fcd05cec3d0f383bfa4681ddb7"
+    },
+    {
+      "id": "smith-waterman-zero-floor.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 724,
+      "sha256": "5948e438419e83c8df9f3fc869ef06c8cabe654bc23c6d8c4e14de1eae2d21cf"
+    },
+    {
+      "id": "smith-waterman-zero-floor.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1111,
+      "sha256": "93a7ae1a96bbc313e6f97753ed002a6628d9519c8b294f32bfddfc54fa3194e3"
+    },
+    {
+      "id": "smith-waterman-zero-floor.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 715,
+      "sha256": "199bc769a5159512cafe235130a62748c5f8495b9af546b46da3d9c42ae09092"
+    },
+    {
+      "id": "smith-waterman-zero-floor.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 861,
+      "sha256": "7bcb6eb205fbe9be27f842b4d0ece1ffd8260489d6ce9c6f91f9a647e1802800"
+    },
+    {
+      "id": "smith-waterman-zero-floor.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 629,
+      "sha256": "ab72d58128238de7d883d242c2916f663a60c99a30eb9cf8377de80ab3570641"
+    },
+    {
+      "id": "smith-waterman-zero-floor.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1129,
+      "sha256": "867fa2407a290624ec87db33ee530e125106ed98778c6373faae7e9aefaddb52"
+    },
+    {
+      "id": "smith-waterman-zero-floor.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 968,
+      "sha256": "7580102fc4c076a8b100f42d810566eb07b1bce411f35c6145ccbacd076abee3"
+    },
+    {
+      "id": "smith-waterman-zero-floor.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 884,
+      "sha256": "351de061e1a1697f2125cb84a32ea974951f13eefd792c900440ca3f94896e1f"
+    },
+    {
+      "id": "smith-waterman-zero-floor.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 965,
+      "sha256": "34f19072e7ac2ab4705f4e9ceb55305b051c32df3f43563aa7bd5294715595df"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/smith-waterman-zero-floor/5f49c81efab84087324f/aoede-9996d2e1ea5432b3.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2236652,
+      "sha256": "9996d2e1ea5432b3eea73537d902b459bd81c0218a8285f82a2a6050e46bc197",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "47de71d0e8cb74e04ec174e1012d361e15b6b89754ad0cb6015832676eeb976a",
+          "bytes": 1253664,
+          "sha256": "6919ad22b8d16d5c7b99ceb09809dfe8d59be542eb13ed56ba1c204a52f4d08a"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "f563453595179092fa7c488ef227b3cc058d77397f61326367a3b2cdbbd11ea2",
+          "bytes": 982752,
+          "sha256": "33a7939f7249d9b527ff40f8a9463befcb1566477864d87143bf7dfb8a677dcf"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/smith-waterman-zero-floor/5f49c81efab84087324f/algieba-40f33d7ea187bbec.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2416364,
+      "sha256": "40f33d7ea187bbec0fd84a3f4a372d25848622197151b755d3f96c5435d7580d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "47de71d0e8cb74e04ec174e1012d361e15b6b89754ad0cb6015832676eeb976a",
+          "bytes": 1356864,
+          "sha256": "769df9c797e1fd12c29c67081819d435e4105ba2f968ac15837e917fe1f06fe3"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "f563453595179092fa7c488ef227b3cc058d77397f61326367a3b2cdbbd11ea2",
+          "bytes": 1059264,
+          "sha256": "19a65ae8cfa75a630c81d249b73b1fdea8bb61d0d961551c90827ede04fc559f"
+        }
+      ]
+    }
+  }
+}

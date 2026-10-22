@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:rendezvous-highest-random-weight",
+  "source_path": "src/content/rendezvous-highest-random-weight.narration.js",
+  "source_sha256": "b6fdf81731398d14649752e784476176dd14cbfd9de343ee10e9aaa81d81817a",
+  "source_characters": 8452,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "76fbf5d38cb5ecf4a5848c26ed49ad519c21075c26742696bf3bcb99c7f7a56f",
+  "generated_at": "2026-10-22T06:25:56.425Z",
+  "generated_characters": 16904,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4727,
+      "utf8_bytes": 4743,
+      "sha256": "363e75e897661898ee0b2224d6a2a3eed8b11f8fe75a490d4e3c1a3db10e9777"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3725,
+      "utf8_bytes": 3739,
+      "sha256": "2e0ab1e6b4d79115cfd8577433bc64f35449b0b3fb093d20f5572b832711b16b"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "rendezvous-highest-random-weight.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "rendezvous-highest-random-weight.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 789,
+      "sha256": "1b3c2162d088b21804420c883092e1a0fc2169ce453ad9c801a34ae1cffb7d67"
+    },
+    {
+      "id": "rendezvous-highest-random-weight.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 788,
+      "sha256": "2d2d524d0c2928f6ed09fcf410422adc3d65ddb04b8eac3f023bdb01f17d4f0f"
+    },
+    {
+      "id": "rendezvous-highest-random-weight.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1062,
+      "sha256": "28fcc73021c46705d879465bc020d3bceaf8aa73b38c73dbad47f27a2739c756"
+    },
+    {
+      "id": "rendezvous-highest-random-weight.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 659,
+      "sha256": "6ada50f23be129440c69f46231d55282ae327b58db0b52edb7b0ad7259bf5572"
+    },
+    {
+      "id": "rendezvous-highest-random-weight.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 688,
+      "sha256": "b9d88a79a886585dd4c4eab749b6265558ab58888e612a1928981d11430dfcc6"
+    },
+    {
+      "id": "rendezvous-highest-random-weight.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 620,
+      "sha256": "e70f1a77fc6fa7a06b2d0b7724f056da09aa2a885479d5f2a8a2a16532685c6d"
+    },
+    {
+      "id": "rendezvous-highest-random-weight.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 937,
+      "sha256": "cd6bb9fe7288068d6b341dda36a67f2a92e0d9ed6461b19b99f3d0a7a888ea43"
+    },
+    {
+      "id": "rendezvous-highest-random-weight.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1185,
+      "sha256": "46b4450602219e716113c331f586ac8ad51ef981adf31dea7e485979fd947633"
+    },
+    {
+      "id": "rendezvous-highest-random-weight.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 761,
+      "sha256": "b87ed10ce9ba8fb1683d2af5c9336002015f69b4e8d1fc9a98f2a87d49b24445"
+    },
+    {
+      "id": "rendezvous-highest-random-weight.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 850,
+      "sha256": "6c4fd38f226f6b0607f3cbde4d85710d994176c65ff12ed87484ea972fe57677"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/rendezvous-highest-random-weight/76fbf5d38cb5ecf4a584/aoede-70e5439c11f506fb.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2243852,
+      "sha256": "70e5439c11f506fba47844848ed0a787ad52c3273233f5919ba7f5c6c8659c78",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "363e75e897661898ee0b2224d6a2a3eed8b11f8fe75a490d4e3c1a3db10e9777",
+          "bytes": 1285824,
+          "sha256": "40c0f73aa2d681081ad8ccef58d90187e1b8c53bffaf640645e261122c256063"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "2e0ab1e6b4d79115cfd8577433bc64f35449b0b3fb093d20f5572b832711b16b",
+          "bytes": 957792,
+          "sha256": "33a41ce2f05f5f0beb6c0058f7d0dd4c258483f9a3d4b04dd6dc69af481c85ce"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/rendezvous-highest-random-weight/76fbf5d38cb5ecf4a584/algieba-b0d2066c0f3d8799.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2303084,
+      "sha256": "b0d2066c0f3d879930f30536993b511473c7c4f776b3c2f625aeb24d4b617cb7",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "363e75e897661898ee0b2224d6a2a3eed8b11f8fe75a490d4e3c1a3db10e9777",
+          "bytes": 1319232,
+          "sha256": "07bc556a212224ae6bd4c4c4dfc3296d233283e864b109fc83587bdd2ac48709"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "2e0ab1e6b4d79115cfd8577433bc64f35449b0b3fb093d20f5572b832711b16b",
+          "bytes": 983616,
+          "sha256": "cbbf094954acdb7f027daf4ee19927ac6074bc994f03f6d141dbea7a2ecd7440"
+        }
+      ]
+    }
+  }
+}

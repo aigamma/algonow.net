@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net kadane-running-maximum preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T04:49:51.885Z",
+  "publication_sha256": "e090604d5a1a0f0214a5fdf5d374bcc5bd2207a675f5f85f7465e41573074096",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4852984,
+  "objects": [
+    {
+      "stable_id": "puzzle:kadane-running-maximum",
+      "slug": "kadane-running-maximum",
+      "track_id": "algieba",
+      "source_sha256": "2c9da5911dbd7491e930f02ec3a3dded1c4a0efd3fa2ddaac86a5a833e32982b",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "6e96086bad60de6594d1af9b30e1477f33f99be1d6072088fe95b1e0529ab1ac",
+      "object_key": "narration/v1/puzzles/kadane-running-maximum/6e96086bad60de6594d1/algieba-92d13833edcc8322.mp3",
+      "bytes": 2442380,
+      "sha256": "92d13833edcc8322eb0b3816e022c5801dc061b2aaf0114454087b915fa81bcf",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:kadane-running-maximum",
+      "slug": "kadane-running-maximum",
+      "track_id": "aoede",
+      "source_sha256": "2c9da5911dbd7491e930f02ec3a3dded1c4a0efd3fa2ddaac86a5a833e32982b",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "6e96086bad60de6594d1af9b30e1477f33f99be1d6072088fe95b1e0529ab1ac",
+      "object_key": "narration/v1/puzzles/kadane-running-maximum/6e96086bad60de6594d1/aoede-ca5b57a89c569bf0.mp3",
+      "bytes": 2410604,
+      "sha256": "ca5b57a89c569bf0341b37dc60c6c01f95cb1c7be5b399bfe0eaea47d2788db9",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

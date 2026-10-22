@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:graham-scan-polar-sort",
+  "source_path": "src/content/graham-scan-polar-sort.narration.js",
+  "source_sha256": "04eeb3703e6480f0e9fbf1e6c0a5f0697bb4015535918a67f362b999cae7ce55",
+  "source_characters": 9636,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "5f8ab09d2dd85bca0f6e9daabba41fce69b68d24531f464dc7dbd99ddbbba43e",
+  "generated_at": "2026-10-22T04:29:55.476Z",
+  "generated_characters": 19272,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4630,
+      "utf8_bytes": 4644,
+      "sha256": "a0b800f6e25ba8c5301f7aeafa02b878c273b4b484497085145e2bbe1cadf535"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3781,
+      "utf8_bytes": 3797,
+      "sha256": "321e88d90f3b7d0531ce84aea990fd3925962879885bd2a07771a1cf8c6a3070"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1225,
+      "utf8_bytes": 1229,
+      "sha256": "861539657c38d59830a5819aa11f9b4c09b52b08660e6d5ce330785fdc30aea3"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "graham-scan-polar-sort.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "graham-scan-polar-sort.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 668,
+      "sha256": "b10c075a71dfe7b3a42cf6f006bf806eadf27bd908b95d9f31fcca76851de2ca"
+    },
+    {
+      "id": "graham-scan-polar-sort.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 916,
+      "sha256": "7f57fefa50cb4feff9e34f5e7e0798961dda026bbbfcb8aa8eb1db8e24bbbb5a"
+    },
+    {
+      "id": "graham-scan-polar-sort.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1140,
+      "sha256": "21d1b16c188620c1326ba81ebdbdc3f8b95d1ffadaabfd0490baa4086c8e29f9"
+    },
+    {
+      "id": "graham-scan-polar-sort.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 696,
+      "sha256": "2db8069e972a36750bf66981d916a59a1ca5aa2f66471e5e8fcf21740eec0d56"
+    },
+    {
+      "id": "graham-scan-polar-sort.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1089,
+      "sha256": "e9a938ae352816b5fbb409587798f48b078e101229b706dde3f1eda81cfe67d8"
+    },
+    {
+      "id": "graham-scan-polar-sort.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 652,
+      "sha256": "0011f2f355ab2013c00128522e1ef6cc2e4d8d7955f6beddd20acbb8799482d8"
+    },
+    {
+      "id": "graham-scan-polar-sort.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 847,
+      "sha256": "d860f34e1c423e1ce16acd6cac3730b987c8ad7f31447aa94fbf366fa5e351af"
+    },
+    {
+      "id": "graham-scan-polar-sort.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1439,
+      "sha256": "69d08fefa5f1095f39b675f4b997b12651f61a2b98bb5c312f336d1d6a28c4a7"
+    },
+    {
+      "id": "graham-scan-polar-sort.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 851,
+      "sha256": "7b4c51cf18cae438386acb4c19be30af26f7faa67ce6be5978cd4b7f6b4f7a63"
+    },
+    {
+      "id": "graham-scan-polar-sort.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1229,
+      "sha256": "861539657c38d59830a5819aa11f9b4c09b52b08660e6d5ce330785fdc30aea3"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/graham-scan-polar-sort/5f8ab09d2dd85bca0f6e/aoede-7a80b1e95aa795d1.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2444012,
+      "sha256": "7a80b1e95aa795d10cf853cf731e17bb3fc3cc3d2db3c24b59771add68399cb1",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "a0b800f6e25ba8c5301f7aeafa02b878c273b4b484497085145e2bbe1cadf535",
+          "bytes": 1210464,
+          "sha256": "493d631e41489bf6149efdec16eb191782c8999a62904643a4386a929db9859b"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "321e88d90f3b7d0531ce84aea990fd3925962879885bd2a07771a1cf8c6a3070",
+          "bytes": 936096,
+          "sha256": "fa3842f540f08f98d6c3455800f26be5e84df59f2ae11aa5da5fd174232d8714"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "861539657c38d59830a5819aa11f9b4c09b52b08660e6d5ce330785fdc30aea3",
+          "bytes": 297216,
+          "sha256": "57035c8eb921f9739df1a23437f046b58aabdf09486da0d6aec7dc56ebe5a6d3"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/graham-scan-polar-sort/5f8ab09d2dd85bca0f6e/algieba-c7692c9821174674.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2589740,
+      "sha256": "c7692c9821174674eb27461050fd792df14ff5f2c4331813ec2967893ca96ed9",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "a0b800f6e25ba8c5301f7aeafa02b878c273b4b484497085145e2bbe1cadf535",
+          "bytes": 1266144,
+          "sha256": "a7d112b48fba11b5906cbb6e905d82ca90772771e9411b62d35a609bd442714c"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "321e88d90f3b7d0531ce84aea990fd3925962879885bd2a07771a1cf8c6a3070",
+          "bytes": 1010976,
+          "sha256": "9bd4a593157933dd3a7c038c614abb2facb98d3ba03978a120429292eb1494a1"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "861539657c38d59830a5819aa11f9b4c09b52b08660e6d5ce330785fdc30aea3",
+          "bytes": 312384,
+          "sha256": "f24c09fa2dec9ae95841f17306dc0d08996703245f12312a32d46ecaec45b87b"
+        }
+      ]
+    }
+  }
+}

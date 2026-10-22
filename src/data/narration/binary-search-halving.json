@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:binary-search-halving",
+  "source_path": "src/content/binary-search-halving.narration.js",
+  "source_sha256": "cdc58c696e547ba3d286025324c0f0ad40ce89950f9ebc893ba0a0b91e3fb6a1",
+  "source_characters": 9970,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "68d9f75b3576ce193a16d39be0fc25c7ad7759ba96d8a7062f7bc4c646559f0b",
+  "generated_at": "2026-10-22T04:39:02.600Z",
+  "generated_characters": 19940,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4870,
+      "utf8_bytes": 4876,
+      "sha256": "5178fd58fa3fabf26aa15047fe5f1e92cb2fbbcdbe33cd94fa5c78fc75702719"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3887,
+      "utf8_bytes": 3897,
+      "sha256": "b69180679f537bafad5039757f434aeced4c8b3ba19999d6f19e67da317ecb22"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1213,
+      "utf8_bytes": 1215,
+      "sha256": "e70ba3667cb116383dc97c51e29458607a5eca0d29e34de126c70d2be43fa59c"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "binary-search-halving.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "binary-search-halving.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 613,
+      "sha256": "f8615b0c553aa1f2faf1a65c6c10888e54ebc901e0938cbe06e4c368db8837f6"
+    },
+    {
+      "id": "binary-search-halving.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 931,
+      "sha256": "08f4d2f2cb31b61dbdfd5a915c67b1c77cc34d3eae891657b1b6e315741e3edc"
+    },
+    {
+      "id": "binary-search-halving.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1294,
+      "sha256": "ceb4a1636aa51f880fb64cbb9f9241386e3c48e07f8102cf5cc98f1a5824a71b"
+    },
+    {
+      "id": "binary-search-halving.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 827,
+      "sha256": "0ce4656074c2ec0ff23ed19c590d71364b36faa9f3d4c5f40baa954b198eb473"
+    },
+    {
+      "id": "binary-search-halving.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1076,
+      "sha256": "619545ad8d0a7125c90e1bb6e25e7542287321b1bc0eee80ba2f06acfa68fa13"
+    },
+    {
+      "id": "binary-search-halving.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 666,
+      "sha256": "b418559e2127570f6c81af6e6237e2ba582d87a036b459007e0082c783a1c893"
+    },
+    {
+      "id": "binary-search-halving.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 981,
+      "sha256": "e5ff0e7111a9c00a54fcf19e4f28f53d80307547cef35b0e69b4f52d57c52d87"
+    },
+    {
+      "id": "binary-search-halving.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1235,
+      "sha256": "531623beba559991d8f707befe7576299eef65e5abbd0327bcca45c8a3aaeea3"
+    },
+    {
+      "id": "binary-search-halving.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1007,
+      "sha256": "e2f22455d097b705922027e0cc93d323959e2f2cf11d270d59849777bc0bcd4e"
+    },
+    {
+      "id": "binary-search-halving.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1215,
+      "sha256": "e70ba3667cb116383dc97c51e29458607a5eca0d29e34de126c70d2be43fa59c"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/binary-search-halving/68d9f75b3576ce193a16/aoede-b1c18b0155e81b87.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2565068,
+      "sha256": "b1c18b0155e81b8788c8456286f64ab75947dd64d8c02633ba5ed00114ac7531",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5178fd58fa3fabf26aa15047fe5f1e92cb2fbbcdbe33cd94fa5c78fc75702719",
+          "bytes": 1300512,
+          "sha256": "4b0fc7ffd8900d1b38ab60a8228e761603b0b02f0d91245c5cd952d98ab2e394"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "b69180679f537bafad5039757f434aeced4c8b3ba19999d6f19e67da317ecb22",
+          "bytes": 1002816,
+          "sha256": "ebe97b843fe5a2dc771224c79f7918d62772b0efac6f5f16b65ef7ce8eba2534"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "e70ba3667cb116383dc97c51e29458607a5eca0d29e34de126c70d2be43fa59c",
+          "bytes": 261504,
+          "sha256": "cf1977f464629f80bb8e5ffab5c8d2782bc3c88cf6a519464e3e79df109afd3f"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/binary-search-halving/68d9f75b3576ce193a16/algieba-2d44a0cce4541780.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2640236,
+      "sha256": "2d44a0cce4541780c88074fd8823d279c35e032f8622712dbf1a850d0f751c23",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "5178fd58fa3fabf26aa15047fe5f1e92cb2fbbcdbe33cd94fa5c78fc75702719",
+          "bytes": 1288224,
+          "sha256": "a5f46e70933cfb2055ff83fe8a9f5fb297e67b641724049dca0a2158c5f4ad98"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "b69180679f537bafad5039757f434aeced4c8b3ba19999d6f19e67da317ecb22",
+          "bytes": 1096032,
+          "sha256": "37f20e6ecef1dc46b10b91d1b0dd22a1a705d3fbb534ccbb35e65f5d35e93974"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "e70ba3667cb116383dc97c51e29458607a5eca0d29e34de126c70d2be43fa59c",
+          "bytes": 255744,
+          "sha256": "96901b10c874d46c2816a53bb8c392c34620e4638f48382b847e77f762f3d112"
+        }
+      ]
+    }
+  }
+}

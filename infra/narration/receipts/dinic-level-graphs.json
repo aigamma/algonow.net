@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net dinic-level-graphs preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T04:50:49.802Z",
+  "publication_sha256": "484aa01915fa56f2d75334137efc74d8fd5b99386b9cd93e14506972c844e1a3",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5221912,
+  "objects": [
+    {
+      "stable_id": "puzzle:dinic-level-graphs",
+      "slug": "dinic-level-graphs",
+      "track_id": "algieba",
+      "source_sha256": "d968c4b2bf54f0e10d185d3eeeac54c0640d44441f3daec861c16de78d4b7c54",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "348533b1b588fbd888e372883634c85bbadbac9c21cd1e29321d9701d5ed876d",
+      "object_key": "narration/v1/puzzles/dinic-level-graphs/348533b1b588fbd888e3/algieba-d1fa90449d16d9a6.mp3",
+      "bytes": 2679788,
+      "sha256": "d1fa90449d16d9a6bd5edbdb8249d53ffd54b960bcb3a2b999d827ffa7448fc3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:dinic-level-graphs",
+      "slug": "dinic-level-graphs",
+      "track_id": "aoede",
+      "source_sha256": "d968c4b2bf54f0e10d185d3eeeac54c0640d44441f3daec861c16de78d4b7c54",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "348533b1b588fbd888e372883634c85bbadbac9c21cd1e29321d9701d5ed876d",
+      "object_key": "narration/v1/puzzles/dinic-level-graphs/348533b1b588fbd888e3/aoede-a6abdfd76db1260f.mp3",
+      "bytes": 2542124,
+      "sha256": "a6abdfd76db1260fbd4a9e8a219e5d158c2a2608ed7e9d32dc7470d3c0e4bf41",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

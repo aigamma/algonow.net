@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:wagner-fischer-table",
+  "source_path": "src/content/wagner-fischer-table.narration.js",
+  "source_sha256": "6ba6b071032f6471b7b63ef0a7768d9c90ea927c896a0cb713a35f18299bc35a",
+  "source_characters": 9921,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    },
+    "provider_sentence_fragmentation": {
+      "mode": "provider-sentence-fragment-v3",
+      "scope": "over-limit-sentences-only",
+      "trigger_maximum_utf8_bytes": 750,
+      "maximum_utf8_bytes": 600,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "semicolon",
+        "colon",
+        "comma",
+        "whitespace",
+        "code-point"
+      ]
+    }
+  },
+  "recipe_sha256": "c5e5c68ef2f38215d8baf31e40d3e29145a74653a258e342339fe9410396fd72",
+  "release_sha256": "bdaea4fd8c3119ceb0485cced4bc15880467a4cb7e67d15261076f86877a90d8",
+  "generated_at": "2026-10-22T04:48:03.135Z",
+  "generated_characters": 19842,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4824,
+      "utf8_bytes": 4836,
+      "sha256": "d1cad4731aafb1dd156ebc50a87545144f98db51cb8bd6232033e17a7b9726e3"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3872,
+      "utf8_bytes": 3878,
+      "sha256": "e54c1b0f00c296c0ddd64aeccbec98a55943a8fb3f9f676e39a5054f3da25507"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 873,
+      "utf8_bytes": 877,
+      "sha256": "29194e783eef88cc414f3154cf011699bf9f76baa5463b4d07f2a9669e6a8679"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 352,
+      "utf8_bytes": 352,
+      "sha256": "d89d87392dd521122f807b226483078d5a9755e7f05537bd18e64bdc0eb41fc3"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "wagner-fischer-table.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "wagner-fischer-table.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 636,
+      "sha256": "1ee01327c37b11ba3883b3d3d8e89c0822f72c0ee3b4bd3b6e3196ebc8b97318"
+    },
+    {
+      "id": "wagner-fischer-table.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 999,
+      "sha256": "6bf19bb5460d07882941ba3ecce637f31b35b6d3cf43c64fcefe2f1c1cb2161e"
+    },
+    {
+      "id": "wagner-fischer-table.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1216,
+      "sha256": "24c7f27746e3ff8c8b9cb7d59ae9336a55c62636415860516be9fcd14926c553"
+    },
+    {
+      "id": "wagner-fischer-table.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 751,
+      "sha256": "ec2a5325038f989fcef2114adcb600fd11aad38b9a0528f790335c29c39c4414"
+    },
+    {
+      "id": "wagner-fischer-table.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1099,
+      "sha256": "cb14903d8c7342b7602b68e798e72fbf196af33946332e7f2a80b6612f1c1dcf"
+    },
+    {
+      "id": "wagner-fischer-table.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 586,
+      "sha256": "1b7f2336d61c94dc9d43d4efd017e78e9156fb2b47ec02fb49db8c797331d875"
+    },
+    {
+      "id": "wagner-fischer-table.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1114,
+      "sha256": "fbe012bab905fbcea89ae235f7cdb26dd9244c3c36e9b60767d467e29896b5f2"
+    },
+    {
+      "id": "wagner-fischer-table.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1442,
+      "sha256": "67191e5af20b6df7563231239c53f48173501de113b2e6f345e108f21ecdfe86"
+    },
+    {
+      "id": "wagner-fischer-table.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 728,
+      "sha256": "583e05735f5abeee22bda5637d2dd3b33704af057f701a186386163c950c2609"
+    },
+    {
+      "id": "wagner-fischer-table.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1229,
+      "sha256": "1cd65e7ac343ce3789b94637f28afd932b6d03c33f40bc35d5199e78497278b0"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/wagner-fischer-table/bdaea4fd8c3119ceb048/aoede-6f193e4002378fff.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2552396,
+      "sha256": "6f193e4002378fffdfdeb65cb995affcc068de3255d0fa1a9b74d3dd609ecdbc",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d1cad4731aafb1dd156ebc50a87545144f98db51cb8bd6232033e17a7b9726e3",
+          "bytes": 1245504,
+          "sha256": "b365a4a1f60f0cb217013f96f0a36910044229441fd082d081daa8aa48493783"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "e54c1b0f00c296c0ddd64aeccbec98a55943a8fb3f9f676e39a5054f3da25507",
+          "bytes": 1024416,
+          "sha256": "a0821898d01be8755c6967e9d0e5a76abc6329d00ec14f6937e473fbae5c4c46"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "29194e783eef88cc414f3154cf011699bf9f76baa5463b4d07f2a9669e6a8679",
+          "bytes": 199584,
+          "sha256": "ef0deb4b3ef50ab70d539d34e1537aa21f21d0dc1817731c61994f30e304e30c"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "d89d87392dd521122f807b226483078d5a9755e7f05537bd18e64bdc0eb41fc3",
+          "bytes": 82656,
+          "sha256": "e3ab7e9fca73c793cf6438675771a1cb54ce36647bf9647c819a586e84af9a68"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/wagner-fischer-table/bdaea4fd8c3119ceb048/algieba-bc8afd13b970afa3.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2647724,
+      "sha256": "bc8afd13b970afa3db87fd5377f73c429d77a4bc9d006e7d9cd2b55339ad9fd3",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d1cad4731aafb1dd156ebc50a87545144f98db51cb8bd6232033e17a7b9726e3",
+          "bytes": 1348896,
+          "sha256": "f0dd12e00d12acfa8dd3a0fa5855a60d2e1fa6921154e3b1f1b9f97a56b17d5e"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "e54c1b0f00c296c0ddd64aeccbec98a55943a8fb3f9f676e39a5054f3da25507",
+          "bytes": 1017216,
+          "sha256": "93e005049d963cdd7164ce2ad9b234c041660cc316ead9607ebeee20c976d681"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "29194e783eef88cc414f3154cf011699bf9f76baa5463b4d07f2a9669e6a8679",
+          "bytes": 196992,
+          "sha256": "d0fec0d53c18268a980a3275b0e8787a51553949469cdb70592122a23e12becc"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "d89d87392dd521122f807b226483078d5a9755e7f05537bd18e64bdc0eb41fc3",
+          "bytes": 84384,
+          "sha256": "9abd18762e24b1a4bad1b1d85996d6edce9205e8fb54cdf9d481ac686c9d1128"
+        }
+      ]
+    }
+  }
+}

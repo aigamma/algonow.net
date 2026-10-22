@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:dinic-level-graphs",
+  "source_path": "src/content/dinic-level-graphs.narration.js",
+  "source_sha256": "d968c4b2bf54f0e10d185d3eeeac54c0640d44441f3daec861c16de78d4b7c54",
+  "source_characters": 10139,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "348533b1b588fbd888e372883634c85bbadbac9c21cd1e29321d9701d5ed876d",
+  "generated_at": "2026-10-22T04:17:41.257Z",
+  "generated_characters": 20278,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4866,
+      "utf8_bytes": 4884,
+      "sha256": "cf36be08e15c5307355ac06d88ee2d367797b0bb8c1f6926771da1418f97fe43"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3945,
+      "utf8_bytes": 3953,
+      "sha256": "23ea73cc3c6f1e258e6097fd9949f3468395fcdf9a8d440a97f54cd5b11633e2"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1328,
+      "utf8_bytes": 1330,
+      "sha256": "8c850a4bb1dfe94963114be5d79888f4fe5ffc9d40de2f62d5c731d6d61cecfd"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "dinic-level-graphs.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "dinic-level-graphs.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 682,
+      "sha256": "8826f5b8192f3cbaef064fee0b61e38b3d3d86f5aeb04331ce0782771fba6924"
+    },
+    {
+      "id": "dinic-level-graphs.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 943,
+      "sha256": "e0f218c2027dee70b5fc67027d3ecc919a2c7e593f65567ecb8a3c79faac927f"
+    },
+    {
+      "id": "dinic-level-graphs.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1272,
+      "sha256": "08032be1a436f82458cec6630f53386eafd5b7f1dc8d664ef3b63ec743e7265e"
+    },
+    {
+      "id": "dinic-level-graphs.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 746,
+      "sha256": "d251b9e0b8fb7ff900d510900cc0ed748565675bd0ded21568a7fcc0f2c86b12"
+    },
+    {
+      "id": "dinic-level-graphs.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1106,
+      "sha256": "1e42c1aa113771a910aaef0e4919ad064de1ebb5da55e02a8e819aa5127a0354"
+    },
+    {
+      "id": "dinic-level-graphs.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 783,
+      "sha256": "e2e3cf99c80092b7bcfcad8a2a9e153bbf24c466be7d33475e0825123828cfd3"
+    },
+    {
+      "id": "dinic-level-graphs.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 836,
+      "sha256": "751b3116c6da07e87020e72029b69f111bcbbfa66b11f53ebfb4951f3e5c746c"
+    },
+    {
+      "id": "dinic-level-graphs.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1556,
+      "sha256": "f75a7ee8a2e38a694a956934537ed03ed467b446843b2aab8650bf204345a8e1"
+    },
+    {
+      "id": "dinic-level-graphs.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 770,
+      "sha256": "f535c683659bf2d6fc5cadfd82cbcfd02c7facf2c724ea1ef515ef434626d4dc"
+    },
+    {
+      "id": "dinic-level-graphs.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1330,
+      "sha256": "8c850a4bb1dfe94963114be5d79888f4fe5ffc9d40de2f62d5c731d6d61cecfd"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/dinic-level-graphs/348533b1b588fbd888e3/aoede-a6abdfd76db1260f.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2542124,
+      "sha256": "a6abdfd76db1260fbd4a9e8a219e5d158c2a2608ed7e9d32dc7470d3c0e4bf41",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "cf36be08e15c5307355ac06d88ee2d367797b0bb8c1f6926771da1418f97fe43",
+          "bytes": 1207584,
+          "sha256": "93e8ab97fdb2f89d84510cb0e96972a9af0106fca38ca2c70ab8e6cb69811d36"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "23ea73cc3c6f1e258e6097fd9949f3468395fcdf9a8d440a97f54cd5b11633e2",
+          "bytes": 1035552,
+          "sha256": "6e19354befeb0a396b45f47721ac61d7ced98dba7c6b9e488974eaec7335f061"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "8c850a4bb1dfe94963114be5d79888f4fe5ffc9d40de2f62d5c731d6d61cecfd",
+          "bytes": 298752,
+          "sha256": "0d138739bdcc3f94ed827d41c64a94bc4f6aa46fc84d6602da22b8e0ad78dd91"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/dinic-level-graphs/348533b1b588fbd888e3/algieba-d1fa90449d16d9a6.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2679788,
+      "sha256": "d1fa90449d16d9a6bd5edbdb8249d53ffd54b960bcb3a2b999d827ffa7448fc3",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "cf36be08e15c5307355ac06d88ee2d367797b0bb8c1f6926771da1418f97fe43",
+          "bytes": 1282272,
+          "sha256": "848505d315fa21441a91072f7c399ac2ce13ba74fb3fcb9cabb90f4174a0dfc5"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "23ea73cc3c6f1e258e6097fd9949f3468395fcdf9a8d440a97f54cd5b11633e2",
+          "bytes": 1088256,
+          "sha256": "a652b52935e1a883ea1913cb5465cf4e4cb586121edeecadb56081631519e559"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "8c850a4bb1dfe94963114be5d79888f4fe5ffc9d40de2f62d5c731d6d61cecfd",
+          "bytes": 309024,
+          "sha256": "d2b2fdb3ae936b968d7cd98d324d0433235c2098f9114ce768ca2b4494a3c373"
+        }
+      ]
+    }
+  }
+}

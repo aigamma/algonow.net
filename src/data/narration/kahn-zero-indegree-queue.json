@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:kahn-zero-indegree-queue",
+  "source_path": "src/content/kahn-zero-indegree-queue.narration.js",
+  "source_sha256": "2676bb59454164d28bce474d6fce17182509b9aef9fa3d160210a59635ab112a",
+  "source_characters": 9288,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "b95bec951fecfba2ba80c28f144656e28250a2ce4356b6a8d339ceb907c59a70",
+  "generated_at": "2026-10-22T04:35:55.036Z",
+  "generated_characters": 18576,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4604,
+      "utf8_bytes": 4610,
+      "sha256": "d17741e5fc7bef74c99b9d7d6570d56880915a20f0530a7040e83b93233982da"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4684,
+      "utf8_bytes": 4698,
+      "sha256": "2b08afc244ad72b1afdfd81f20cbeb822b05f1593d8e274af88f2129b7d6b1b3"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "kahn-zero-indegree-queue.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "kahn-zero-indegree-queue.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 684,
+      "sha256": "5bd2e9bcb88284e695c7f576e730d1e7343b46f85325c6e451bb45dba7127a55"
+    },
+    {
+      "id": "kahn-zero-indegree-queue.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 790,
+      "sha256": "0ad18e4be20cc4e0c558f6d123c2607c6e13a42fe92dbf3d748be462d9ad09a3"
+    },
+    {
+      "id": "kahn-zero-indegree-queue.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1310,
+      "sha256": "ca1709cafd13f616cba0cafcca3e32278fb6a1857127c3e9d61d7fa75612f197"
+    },
+    {
+      "id": "kahn-zero-indegree-queue.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 833,
+      "sha256": "38b43d58055881f616a7bdd4afe2c48026e71474916fb0e48d0cebc76ce17d55"
+    },
+    {
+      "id": "kahn-zero-indegree-queue.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 858,
+      "sha256": "8abed824243967734b1e07053b145229519b32757324ebc0d30a2c85e61f2e9d"
+    },
+    {
+      "id": "kahn-zero-indegree-queue.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 622,
+      "sha256": "15bf84fe204336c5b4fd80cd29626713603f2e16a4d5f87c8ab5a7f2486ca26b"
+    },
+    {
+      "id": "kahn-zero-indegree-queue.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 944,
+      "sha256": "e5cf41bb5a95f8f5b191a813104e47de0c349f76c1780cca0cb008687b7f50a7"
+    },
+    {
+      "id": "kahn-zero-indegree-queue.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1373,
+      "sha256": "10d0de1d573049e5d6d2052a7661de064362adff5c31a3bfbc226824962f3ece"
+    },
+    {
+      "id": "kahn-zero-indegree-queue.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 729,
+      "sha256": "d0dadc99229bc2dafe4ec46a9403701ccc7f1ea2221b78cfed99e4e60467e753"
+    },
+    {
+      "id": "kahn-zero-indegree-queue.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1022,
+      "sha256": "cabbdde200680fed511d270ef5994cf5a8c7337573cf21d49a6bb8919f0be8b2"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/kahn-zero-indegree-queue/b95bec951fecfba2ba80/aoede-311196d16d7fc986.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2385164,
+      "sha256": "311196d16d7fc986a823d080bbfef3ddfe7ca9c2753443e1923f37dde1c71f5d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d17741e5fc7bef74c99b9d7d6570d56880915a20f0530a7040e83b93233982da",
+          "bytes": 1171296,
+          "sha256": "2da5056837612359830030c121e70b9f3a6084f8a5e23fa9c9eca34fd0d693de"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "2b08afc244ad72b1afdfd81f20cbeb822b05f1593d8e274af88f2129b7d6b1b3",
+          "bytes": 1213632,
+          "sha256": "15dd9638be7ad13cde105697f6252f08c29bd51736065e8a8e53348d6983726e"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/kahn-zero-indegree-queue/b95bec951fecfba2ba80/algieba-fecf2bf99c21030c.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2504492,
+      "sha256": "fecf2bf99c21030c93356e609ea9dd8e37e7b3968d2f9ad3ca428de76d061a90",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d17741e5fc7bef74c99b9d7d6570d56880915a20f0530a7040e83b93233982da",
+          "bytes": 1261152,
+          "sha256": "f21ccd6cad6cf2817af825e1a65799893358768d79b8c563f4b39c6b6f425305"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "2b08afc244ad72b1afdfd81f20cbeb822b05f1593d8e274af88f2129b7d6b1b3",
+          "bytes": 1243104,
+          "sha256": "5cb290f1f589c5b14f1e769c5ea1289037de72abeddf6a4e06a893f0f99b8811"
+        }
+      ]
+    }
+  }
+}

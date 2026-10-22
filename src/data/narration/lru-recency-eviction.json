@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:lru-recency-eviction",
+  "source_path": "src/content/lru-recency-eviction.narration.js",
+  "source_sha256": "8743ff00a2d7a03e301d5c21ec7f8784b496761f733a532d338aebb6975c3af9",
+  "source_characters": 9371,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "fbed7976b905fc889e8e3761c6e16dde92ecd4d20a506d8ec85008d6caf56062",
+  "generated_at": "2026-10-22T04:24:00.146Z",
+  "generated_characters": 18742,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4402,
+      "utf8_bytes": 4408,
+      "sha256": "faa97291f66be1612e1ce4e35b1b2e67ce512a72aa4c6cd12945e83acc7eba7d"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4969,
+      "utf8_bytes": 4995,
+      "sha256": "695b8f53166156d62fb3a53ee4e6a163a558f0070b17e9e6ddb1c582a1c93967"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "lru-recency-eviction.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "lru-recency-eviction.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 661,
+      "sha256": "b8dcbee2164bbacba54c07f9df7c1a389c5cee9595affdf248dc3e9127a68b31"
+    },
+    {
+      "id": "lru-recency-eviction.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 875,
+      "sha256": "be77eb378a59bc9911bcdfe9e7cc7c34e47967c6e65689c7264dfe33cf2a42e1"
+    },
+    {
+      "id": "lru-recency-eviction.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1089,
+      "sha256": "a0bd954dbe10f877dfda7dfca1b5e312666cab37edbb5c07eb8cec9525e7d077"
+    },
+    {
+      "id": "lru-recency-eviction.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 898,
+      "sha256": "16ad198a2eebbb9e0211bbe88b4872b4da5d08a891024b6bbe2e927f94aae1ca"
+    },
+    {
+      "id": "lru-recency-eviction.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 750,
+      "sha256": "3c1dfde25e5e6dbb1aae73272794506f5de4b78109ec4f93d4432d5f3e82e6c2"
+    },
+    {
+      "id": "lru-recency-eviction.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 634,
+      "sha256": "5865d3e3b9240fdcc1dc12e0188fb09de9ebaaa31869f81f6a460f583a2b2ed5"
+    },
+    {
+      "id": "lru-recency-eviction.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 921,
+      "sha256": "cc9d4707b92d20c4d6fde62799005c694d68f04c558f235bbd54f6b7eb85f029"
+    },
+    {
+      "id": "lru-recency-eviction.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1404,
+      "sha256": "d69e49de1112d44ae61fccd397396a76604dcfd9eaf23f48dc111757429c2350"
+    },
+    {
+      "id": "lru-recency-eviction.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 773,
+      "sha256": "551a88facbfca326143dd60e666314dd74941c19898b3f3496f6e350a48f0d3e"
+    },
+    {
+      "id": "lru-recency-eviction.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1255,
+      "sha256": "72aaf55d99a80c8f2fe8793f2e8e5eab36b22d12ab09043bf47591feb133d1c5"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/lru-recency-eviction/fbed7976b905fc889e8e/aoede-23a6899d0abdbd37.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2416940,
+      "sha256": "23a6899d0abdbd37b995db5e0f733a9a6c90583b132081573622b5b33bab65e7",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "faa97291f66be1612e1ce4e35b1b2e67ce512a72aa4c6cd12945e83acc7eba7d",
+          "bytes": 1148832,
+          "sha256": "284b5d753629ea3d84e25d35c9bd4264e3c5e208869a7c13cb7070a00e6d6f85"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "695b8f53166156d62fb3a53ee4e6a163a558f0070b17e9e6ddb1c582a1c93967",
+          "bytes": 1267872,
+          "sha256": "22308ee75218f5ef974a3de50d595b1f87426456250f749d617c09165f8e13a7"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/lru-recency-eviction/fbed7976b905fc889e8e/algieba-d6430f204c57411d.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2694476,
+      "sha256": "d6430f204c57411d891dddf16f25890e35e3cf1290e4a8976f6a7f4d6eabd4e6",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "faa97291f66be1612e1ce4e35b1b2e67ce512a72aa4c6cd12945e83acc7eba7d",
+          "bytes": 1269216,
+          "sha256": "37fd66bd45491a44491add8d05ed3bd7cdd3ff40568a1d6cfa396529a1f1e217"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "695b8f53166156d62fb3a53ee4e6a163a558f0070b17e9e6ddb1c582a1c93967",
+          "bytes": 1425024,
+          "sha256": "d578e6e563b65af03b4655d79a0d9e187aac74018be2ded88167a1063e6e260a"
+        }
+      ]
+    }
+  }
+}

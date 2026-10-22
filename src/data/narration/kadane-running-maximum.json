@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:kadane-running-maximum",
+  "source_path": "src/content/kadane-running-maximum.narration.js",
+  "source_sha256": "2c9da5911dbd7491e930f02ec3a3dded1c4a0efd3fa2ddaac86a5a833e32982b",
+  "source_characters": 9187,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "6e96086bad60de6594d1af9b30e1477f33f99be1d6072088fe95b1e0529ab1ac",
+  "generated_at": "2026-10-22T04:14:33.050Z",
+  "generated_characters": 18374,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4971,
+      "utf8_bytes": 4979,
+      "sha256": "ac3b17a2121683ee2f728e960c64ce28a5079d90bef951ccae7010fdf81ce011"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4216,
+      "utf8_bytes": 4222,
+      "sha256": "8f3a626caf92b7075baf6654da481e9d0ce98d8e071f902e53e595a9f30cec3f"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "kadane-running-maximum.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "kadane-running-maximum.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 657,
+      "sha256": "eb1f8e11003f63e94976c297ed5c29be330df28947a2db891e52e83320c2ca6c"
+    },
+    {
+      "id": "kadane-running-maximum.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1030,
+      "sha256": "db46eee64e50f6d21031b085d9ad7173ee2cac47645a3c4ddaa588f220f36d21"
+    },
+    {
+      "id": "kadane-running-maximum.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 937,
+      "sha256": "f954aad868f286a1b4e2c50ef6ad64bf55454edeafd672df61d7b552bf5f1379"
+    },
+    {
+      "id": "kadane-running-maximum.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 763,
+      "sha256": "cd9897d8eb60baf103f1105697d6c543255a8ead468096f00f03eb8919d83de7"
+    },
+    {
+      "id": "kadane-running-maximum.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 820,
+      "sha256": "765c97b1e70fbd6de49772cb841d0a15afbf29b91298200c12939271a6ad3a34"
+    },
+    {
+      "id": "kadane-running-maximum.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 635,
+      "sha256": "d3f3c8aef2a8d9d8c5145e009a40e03f3a2a60d98707846b4ab3dac3d1f468a9"
+    },
+    {
+      "id": "kadane-running-maximum.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 904,
+      "sha256": "b04a049a0da5a0841648b084f11fc2c1aa97a5fde06e53c5357b96e09e7bc65f"
+    },
+    {
+      "id": "kadane-running-maximum.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1356,
+      "sha256": "429d8e03ecb40325c2466dee3af9972d523c4da353a722e53ecf205914409d10"
+    },
+    {
+      "id": "kadane-running-maximum.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 734,
+      "sha256": "0b8c0e217289917001c40426f3693eb677755997ddf976c257aac183c838954f"
+    },
+    {
+      "id": "kadane-running-maximum.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1222,
+      "sha256": "f3714bee3c45bbe5f8d6bad36c2d808110f0e42c7af5f2efb6db8fa1de11a1d2"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/kadane-running-maximum/6e96086bad60de6594d1/aoede-ca5b57a89c569bf0.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2410604,
+      "sha256": "ca5b57a89c569bf0341b37dc60c6c01f95cb1c7be5b399bfe0eaea47d2788db9",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "ac3b17a2121683ee2f728e960c64ce28a5079d90bef951ccae7010fdf81ce011",
+          "bytes": 1284384,
+          "sha256": "7d0e87fab79ed298b6e0a2b306fef78a078925b3eba6f67585c854becac87c65"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "8f3a626caf92b7075baf6654da481e9d0ce98d8e071f902e53e595a9f30cec3f",
+          "bytes": 1125984,
+          "sha256": "f6e2abd473223eafe1f8bcc404b7a056f8314224a2a02a4e22c92642bdac7fbf"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/kadane-running-maximum/6e96086bad60de6594d1/algieba-92d13833edcc8322.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2442380,
+      "sha256": "92d13833edcc8322eb0b3816e022c5801dc061b2aaf0114454087b915fa81bcf",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "ac3b17a2121683ee2f728e960c64ce28a5079d90bef951ccae7010fdf81ce011",
+          "bytes": 1317312,
+          "sha256": "1fec50e35afa7c5a29764a7012358c264deccc67b6b5aee661a5f5d20ab7fd41"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "8f3a626caf92b7075baf6654da481e9d0ce98d8e071f902e53e595a9f30cec3f",
+          "bytes": 1124832,
+          "sha256": "34955ea3db18eb80a39a1ae729d72543eb3c1b9a20deb41fe07e2f15a31938e9"
+        }
+      ]
+    }
+  }
+}

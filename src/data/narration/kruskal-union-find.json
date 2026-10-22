@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:kruskal-union-find",
+  "source_path": "src/content/kruskal-union-find.narration.js",
+  "source_sha256": "2e2760665106091fe13dac1252dcfe55b7d2913adc210773cbe84446c654389a",
+  "source_characters": 9203,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "2167bb2f8fffc16fa012fa0795bdad78fa0dd702fc540114e5a31536e5b80e98",
+  "generated_at": "2026-10-22T04:41:53.071Z",
+  "generated_characters": 18406,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4700,
+      "utf8_bytes": 4708,
+      "sha256": "d0de067f64bf4a6d9b85efd35ce0fd7c3ecb04d816baf01c9a08354d0287e4a3"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4503,
+      "utf8_bytes": 4509,
+      "sha256": "a7219e787ed4c7a37612716c00bb9b217c591fa27abd2ad98ecfe62f1e5487db"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "kruskal-union-find.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "kruskal-union-find.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 659,
+      "sha256": "a728dbd0b2a41ab432e302ce7fcbe07347f2576cd59fc1a5ab8593cd55bfe1ac"
+    },
+    {
+      "id": "kruskal-union-find.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1010,
+      "sha256": "9bad1fe37403493d12e18254fd56dddb320eb7396ad768d2d763bfd58c595e93"
+    },
+    {
+      "id": "kruskal-union-find.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1299,
+      "sha256": "382db1df3ee10125520a38b0d453dc9dfd1827649086bda57bf1ce91e2e28062"
+    },
+    {
+      "id": "kruskal-union-find.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 765,
+      "sha256": "5a16fbcbfe9e914be78afe196a977ea58ada47de91dbad318bd4e14476b68021"
+    },
+    {
+      "id": "kruskal-union-find.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 840,
+      "sha256": "2a7ab518d4806ed1239a1253f7e3093d115bf3a6216776e2002b0b8a15e4fa29"
+    },
+    {
+      "id": "kruskal-union-find.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 659,
+      "sha256": "246d105d6e5718d256086bedde1c455f384d3854fe6ef5ee190fb16e0fdb7cc1"
+    },
+    {
+      "id": "kruskal-union-find.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 737,
+      "sha256": "9b8609360c5588f547a35faf0b052bae70cec2dbcf03f60448a7a02119c7c3ce"
+    },
+    {
+      "id": "kruskal-union-find.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1377,
+      "sha256": "e4b14f3058512d8fd661d053caf9ef45d8c407f939185a5dd2cb11d8d3b2c1f3"
+    },
+    {
+      "id": "kruskal-union-find.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 735,
+      "sha256": "1d9badd35540528471b65c9cb83d3fb4147159a1b106f02bc8f0a9f211d6ba29"
+    },
+    {
+      "id": "kruskal-union-find.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 993,
+      "sha256": "fce46e027c311939220fe323c994860258b747620b84c74f86464689e460b10e"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/kruskal-union-find/2167bb2f8fffc16fa012/aoede-cd52118ad3ea0d95.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2346284,
+      "sha256": "cd52118ad3ea0d95fad33fab7970085ad52c65480b6a751cc22754258616d8a0",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d0de067f64bf4a6d9b85efd35ce0fd7c3ecb04d816baf01c9a08354d0287e4a3",
+          "bytes": 1215072,
+          "sha256": "7cfcda1972c45af85e131f0823b04cc423e481e14a5d812501e5053f2a76df15"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "a7219e787ed4c7a37612716c00bb9b217c591fa27abd2ad98ecfe62f1e5487db",
+          "bytes": 1130976,
+          "sha256": "f706cd38ddfc1e630336ed2792d9a680306bf787d325485056409d884ae9a9a1"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/kruskal-union-find/2167bb2f8fffc16fa012/algieba-e931e1bda7773d3a.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2514956,
+      "sha256": "e931e1bda7773d3a025e45264d1d2f4ed0364727e956792304dc95d39c749750",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d0de067f64bf4a6d9b85efd35ce0fd7c3ecb04d816baf01c9a08354d0287e4a3",
+          "bytes": 1312224,
+          "sha256": "9eb0973b3035ca515edcf8bc316b6dfa03f10e32850f3300bba329a5c013ad88"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "a7219e787ed4c7a37612716c00bb9b217c591fa27abd2ad98ecfe62f1e5487db",
+          "bytes": 1202496,
+          "sha256": "d73e66ca5c5a973fef45e6024d5a176cd4ede12879292e2d2ab6c89f882516d9"
+        }
+      ]
+    }
+  }
+}

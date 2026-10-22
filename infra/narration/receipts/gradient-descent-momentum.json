@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net gradient-descent-momentum preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T04:55:38.314Z",
+  "publication_sha256": "72e0856cb546752543801181db15192e3dbdbf723494a13391a9cfb08f7f0d71",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5321656,
+  "objects": [
+    {
+      "stable_id": "puzzle:gradient-descent-momentum",
+      "slug": "gradient-descent-momentum",
+      "track_id": "algieba",
+      "source_sha256": "33463a8141a00730810c85e524d07f130200d10aacb6f576228b86b7c1b58269",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "678151eea4ba9948687aad670f2993993b407492279415fdc6286734b6980d2d",
+      "object_key": "narration/v1/puzzles/gradient-descent-momentum/678151eea4ba9948687a/algieba-54cd303d884a6c74.mp3",
+      "bytes": 2752844,
+      "sha256": "54cd303d884a6c74d95666857adace04544078b509318bead1fd0db746c89db7",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:gradient-descent-momentum",
+      "slug": "gradient-descent-momentum",
+      "track_id": "aoede",
+      "source_sha256": "33463a8141a00730810c85e524d07f130200d10aacb6f576228b86b7c1b58269",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "678151eea4ba9948687aad670f2993993b407492279415fdc6286734b6980d2d",
+      "object_key": "narration/v1/puzzles/gradient-descent-momentum/678151eea4ba9948687a/aoede-3aff33d19bda34d3.mp3",
+      "bytes": 2568812,
+      "sha256": "3aff33d19bda34d3cc1cf37faca4ec6d44471b8f32c4d3e20dfb84e84ffcbdc0",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

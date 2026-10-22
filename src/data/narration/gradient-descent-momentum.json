@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:gradient-descent-momentum",
+  "source_path": "src/content/gradient-descent-momentum.narration.js",
+  "source_sha256": "33463a8141a00730810c85e524d07f130200d10aacb6f576228b86b7c1b58269",
+  "source_characters": 10000,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "678151eea4ba9948687aad670f2993993b407492279415fdc6286734b6980d2d",
+  "generated_at": "2026-10-22T04:33:04.269Z",
+  "generated_characters": 20000,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4950,
+      "utf8_bytes": 4954,
+      "sha256": "412a417ee77c218f939204f1f53321d6694711cc63f99855bc628c66c3717d85"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4021,
+      "utf8_bytes": 4027,
+      "sha256": "4fe937b8dc62c3875153c4d0a7234136ffbe2aa49aa1963875747792c89627e7"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1029,
+      "utf8_bytes": 1031,
+      "sha256": "71a25bfd68a5880b1d9c93460d68ef08240352b2d3dbf4373a382a2f3a78f188"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "gradient-descent-momentum.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "gradient-descent-momentum.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 659,
+      "sha256": "418db1580f5a63c5165309fc8295f777cd8a53168fee825fa796310011ffb87f"
+    },
+    {
+      "id": "gradient-descent-momentum.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 922,
+      "sha256": "9de0577c0230176095bde7fcacf0a6569bd4de01894b2e4bab9707dbe1fd8fa4"
+    },
+    {
+      "id": "gradient-descent-momentum.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1431,
+      "sha256": "a61d861b7ed686783d277c842967449e58a9e1cc5c85bd4d3d2318c82996c1c5"
+    },
+    {
+      "id": "gradient-descent-momentum.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 692,
+      "sha256": "c416a6ec36805dbd79162c4f2c68c61dfab78183b9e39997aeb2cd7c1aa5c972"
+    },
+    {
+      "id": "gradient-descent-momentum.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1115,
+      "sha256": "8f0a581a9d6fa201be9bcf054a36331ea5a6adb10f37217a514bedca4989547a"
+    },
+    {
+      "id": "gradient-descent-momentum.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 666,
+      "sha256": "7c8694c70e6c701a835745c2ab04b49164c447a86771ae7d42c6791a630905b3"
+    },
+    {
+      "id": "gradient-descent-momentum.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 942,
+      "sha256": "789896f91496f0d80ef22b59860d6ec778e790104d050976c734e207f0afa3c1"
+    },
+    {
+      "id": "gradient-descent-momentum.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1602,
+      "sha256": "1a0706d14ccbd14109f08727752cda32c68eec209c6fc82b97055a4398e7615a"
+    },
+    {
+      "id": "gradient-descent-momentum.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 809,
+      "sha256": "e70b96fbfe369fc9e60eb262d38a08f18556697aee50761da1363bac56bd8931"
+    },
+    {
+      "id": "gradient-descent-momentum.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1031,
+      "sha256": "71a25bfd68a5880b1d9c93460d68ef08240352b2d3dbf4373a382a2f3a78f188"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/gradient-descent-momentum/678151eea4ba9948687a/aoede-3aff33d19bda34d3.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2568812,
+      "sha256": "3aff33d19bda34d3cc1cf37faca4ec6d44471b8f32c4d3e20dfb84e84ffcbdc0",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "412a417ee77c218f939204f1f53321d6694711cc63f99855bc628c66c3717d85",
+          "bytes": 1261536,
+          "sha256": "5a2bd7a659ece8db6ca6142c3665c65a4202dccd19c5f07c53202feddd108e36"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "4fe937b8dc62c3875153c4d0a7234136ffbe2aa49aa1963875747792c89627e7",
+          "bytes": 1064064,
+          "sha256": "f09423d03a48687734f4ef7c963e2b0d5192d532a7d05e2233f786d59a0a980e"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "71a25bfd68a5880b1d9c93460d68ef08240352b2d3dbf4373a382a2f3a78f188",
+          "bytes": 242976,
+          "sha256": "98cb0b34b08e0924ad315143e866b86a3d45a7fb2ea76446c9d9d9b4357aa984"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/gradient-descent-momentum/678151eea4ba9948687a/algieba-54cd303d884a6c74.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2752844,
+      "sha256": "54cd303d884a6c74d95666857adace04544078b509318bead1fd0db746c89db7",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "412a417ee77c218f939204f1f53321d6694711cc63f99855bc628c66c3717d85",
+          "bytes": 1361856,
+          "sha256": "73a8cf8a2c45df0d382984e01bae1f5e282361b12592939828e2647b17478f95"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "4fe937b8dc62c3875153c4d0a7234136ffbe2aa49aa1963875747792c89627e7",
+          "bytes": 1135296,
+          "sha256": "b824c6e8d918f5d7ce53572baf4b31b12dee4f62a8a1a48e976c701855a31a4d"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "71a25bfd68a5880b1d9c93460d68ef08240352b2d3dbf4373a382a2f3a78f188",
+          "bytes": 255456,
+          "sha256": "5cca1ea2e197f974673a6b03e84100ad39c2f1614cb863758030ad5a585e70ae"
+        }
+      ]
+    }
+  }
+}

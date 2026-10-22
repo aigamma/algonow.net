@@ -262,6 +262,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['Insertion-ordered dictionaries as an LRU cache', 'del and reinsert to mark a key as recently used', 'next(iter(cache)) for the oldest key', 'Hit, miss, and eviction accounting', 'A time to live on entries (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'kl-divergence-per-example',
+    title: 'Find where a student disagrees with its teacher using KL divergence',
+    summary: 'Orbit distilled a small router from its assistant, and the student agreed with the teacher\'s top choice on every checked example, yet some routes behaved badly in production. A worked Python example computes the KL divergence from the teacher to the student for four inline examples over three routes: a loop over zip accumulating p times the log of p over q, a guard that clips a zero student probability, a check that each distribution sums to one, the examples ranked worst first, its exact output, a trace of every term, and one practice variation that computes the symmetric Jensen-Shannon divergence instead.',
+    track: 'distillation',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'intermediate',
+    durationMinutes: 30,
+    skills: ['KL divergence as a sum over classes with math.log', 'Validating a probability distribution with abs and a tolerance', 'Clipping a zero probability with max', 'Ranking records by a computed value', 'Jensen-Shannon divergence (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

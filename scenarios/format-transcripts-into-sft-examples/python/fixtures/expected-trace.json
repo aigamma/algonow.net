@@ -1,0 +1,250 @@
+{
+ "max_history": 4,
+ "conversations": {
+  "c1": [
+   {
+    "turn": 1,
+    "role": "user",
+    "text": "How do I rotate an API key?"
+   },
+   {
+    "turn": 2,
+    "role": "assistant",
+    "text": "Create a replacement key, deploy it, then revoke the old one."
+   },
+   {
+    "turn": 3,
+    "role": "user",
+    "text": "Does the old key stop working right away?"
+   },
+   {
+    "turn": 4,
+    "role": "assistant",
+    "text": ""
+   },
+   {
+    "turn": 5,
+    "role": "user",
+    "text": "And what if the key is already lost?"
+   },
+   {
+    "turn": 6,
+    "role": "assistant",
+    "text": "A lost key cannot be recovered. Create a replacement and revoke the lost one."
+   }
+  ],
+  "c2": [
+   {
+    "turn": 1,
+    "role": "user",
+    "text": "Where do I find my invoice?"
+   },
+   {
+    "turn": 2,
+    "role": "assistant",
+    "text": "Under Billing."
+   },
+   {
+    "turn": 3,
+    "role": "user",
+    "text": "Found it, thanks!"
+   }
+  ]
+ },
+ "walk": [
+  {
+   "conversation": "c1",
+   "position": 1,
+   "turn": 2,
+   "words": 11,
+   "decision": "example",
+   "start": 0,
+   "context_size": 1,
+   "dropped": 0
+  },
+  {
+   "conversation": "c1",
+   "position": 3,
+   "turn": 4,
+   "words": 0,
+   "decision": "skipped-empty",
+   "start": 0,
+   "context_size": 0,
+   "dropped": 0
+  },
+  {
+   "conversation": "c1",
+   "position": 5,
+   "turn": 6,
+   "words": 14,
+   "decision": "example",
+   "start": 1,
+   "context_size": 4,
+   "dropped": 1
+  },
+  {
+   "conversation": "c2",
+   "position": 1,
+   "turn": 2,
+   "words": 2,
+   "decision": "example",
+   "start": 0,
+   "context_size": 1,
+   "dropped": 0
+  }
+ ],
+ "examples": [
+  {
+   "conversation": "c1",
+   "turn": 2,
+   "context": [
+    {
+     "role": "user",
+     "text": "How do I rotate an API key?"
+    }
+   ],
+   "target": "Create a replacement key, deploy it, then revoke the old one."
+  },
+  {
+   "conversation": "c1",
+   "turn": 6,
+   "context": [
+    {
+     "role": "assistant",
+     "text": "Create a replacement key, deploy it, then revoke the old one."
+    },
+    {
+     "role": "user",
+     "text": "Does the old key stop working right away?"
+    },
+    {
+     "role": "assistant",
+     "text": ""
+    },
+    {
+     "role": "user",
+     "text": "And what if the key is already lost?"
+    }
+   ],
+   "target": "A lost key cannot be recovered. Create a replacement and revoke the lost one."
+  },
+  {
+   "conversation": "c2",
+   "turn": 2,
+   "context": [
+    {
+     "role": "user",
+     "text": "Where do I find my invoice?"
+    }
+   ],
+   "target": "Under Billing."
+  }
+ ],
+ "skipped": 1,
+ "practice": {
+  "system": "You are Orbit's support assistant. Answer from the runbook, briefly.",
+  "min_target_words": 3,
+  "walk": [
+   {
+    "conversation": "c1",
+    "position": 1,
+    "turn": 2,
+    "words": 11,
+    "decision": "example",
+    "start": 0,
+    "context_size": 1,
+    "dropped": 0
+   },
+   {
+    "conversation": "c1",
+    "position": 3,
+    "turn": 4,
+    "words": 0,
+    "decision": "skipped-empty",
+    "start": 0,
+    "context_size": 0,
+    "dropped": 0
+   },
+   {
+    "conversation": "c1",
+    "position": 5,
+    "turn": 6,
+    "words": 14,
+    "decision": "example",
+    "start": 1,
+    "context_size": 4,
+    "dropped": 1
+   },
+   {
+    "conversation": "c2",
+    "position": 1,
+    "turn": 2,
+    "words": 2,
+    "decision": "skipped-short",
+    "start": 0,
+    "context_size": 0,
+    "dropped": 0
+   }
+  ],
+  "examples": [
+   {
+    "conversation": "c1",
+    "turn": 2,
+    "context": [
+     {
+      "role": "system",
+      "text": "You are Orbit's support assistant. Answer from the runbook, briefly."
+     },
+     {
+      "role": "user",
+      "text": "How do I rotate an API key?"
+     }
+    ],
+    "target": "Create a replacement key, deploy it, then revoke the old one."
+   },
+   {
+    "conversation": "c1",
+    "turn": 6,
+    "context": [
+     {
+      "role": "system",
+      "text": "You are Orbit's support assistant. Answer from the runbook, briefly."
+     },
+     {
+      "role": "assistant",
+      "text": "Create a replacement key, deploy it, then revoke the old one."
+     },
+     {
+      "role": "user",
+      "text": "Does the old key stop working right away?"
+     },
+     {
+      "role": "assistant",
+      "text": ""
+     },
+     {
+      "role": "user",
+      "text": "And what if the key is already lost?"
+     }
+    ],
+    "target": "A lost key cannot be recovered. Create a replacement and revoke the lost one."
+   }
+  ],
+  "skipped": 2
+ },
+ "shipped": {
+  "examples": [
+   {
+    "conversation": "c1",
+    "turn": 6,
+    "context_size": 5
+   },
+   {
+    "conversation": "c2",
+    "turn": 2,
+    "context_size": 1
+   }
+  ],
+  "max_context": 5
+ }
+}

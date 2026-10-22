@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "slug": "format-transcripts-into-sft-examples",
+  "track": "fine-tuning",
+  "language": "python",
+  "system": {
+    "context": "Orbit exports support chats as flat rows of conversation id, turn index, role, and text, written in export order rather than turn order and with conversations interleaved. Supervised fine-tuning wants one example per assistant turn: the preceding turns as context, bounded by a window, and the assistant text as the target.",
+    "request": "A worked Python example of one action: group_turns(rows), a dictionary of lists sorted by turn index with a key function that raises ValueError on a duplicate index, and build_examples(rows, max_history), which walks each conversation with enumerate and emits, at every assistant turn with text, an example whose context is the slice turns[max(0, position - max_history):position] as {role, text} records and whose target is the assistant text, counting empty assistant turns as skipped. The lesson leads with the complete solution and its exact output (three examples, one skipped, the longest context exactly four turns with turn 1 dropped), explains the Python construct by construct (the membership-insert idiom, sort with a key function, items() unpacking, adjacent comparison with range, enumerate and continue, max and slicing, nested dictionaries, a tuple return), traces position, start, and the slice through the four assistant turns, and offers one practice variation: a system message first in every context and targets shorter than three words skipped.",
+    "inputs": [
+      "Nine rows written inline in solution.py as a list of dictionaries, conversation c1 (turns 1 to 6: user, assistant, user, an assistant turn with empty text, user, assistant) and c2 (turns 1 to 3: user, a two-word assistant answer, user), in export order with c1 turn 5 before turn 4",
+      "MAX_HISTORY = 4, the most earlier turns a context may hold",
+      "For the practice variation, SYSTEM, a system message, and MIN_TARGET_WORDS = 3"
+    ],
+    "outputs": [
+      "build_examples returns the examples and the skipped count: example 1 is c1 turn 2 with one context turn, example 2 is c1 turn 6 with four context turns (turn 1 dropped by the window, the empty turn 4 kept in the context), example 3 is c2 turn 2 with one context turn; one assistant turn skipped",
+      "python solution.py prints the three examples with their contexts and targets, the totals, the rejected duplicate turn index, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it prints two examples whose contexts start with the system message (sizes 2 and 5), two skipped, and OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, or network",
+      "Conversations keep first-seen order; turns are sorted by index inside each conversation; a duplicate turn index within a conversation raises ValueError naming the conversation and the index; the input rows are never modified",
+      "The context never holds more than max_history turns, never includes the target, and keeps an empty assistant turn as it happened; an empty assistant turn is never a target and is counted as skipped",
+      "Ordinary Python only: a dictionary of lists, list.sort with a key function, items() unpacking, range with a start, enumerate, continue, max, slicing, nested dictionaries, a tuple return, keyword arguments with defaults, f-strings, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: three examples with context sizes 1, 4, and 1, one skipped, the rejected line naming conversation c1 and index 2, and OK",
+      "group_turns yields c1 then c2 with turn indexes 1 to 6 and 1 to 3; build_examples at every window from 0 to 10 never exceeds the window, a window of 10 keeps all five earlier turns, and a window of 0 keeps none; a conversation whose only assistant turn is empty yields no examples and one skipped",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt with two examples whose contexts start with the system message and two skipped",
+      "The builder that shipped is measured on the same rows: one example per conversation, c1's context holding five turns, over the window, and the answer at c1 turn 2 never a target, against three examples with every context at four turns or fewer"
+    ]
+  },
+  "python": {
+    "package": "sft_examples",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "5193d9ae0f81fb61fda78a7bb7ee7aff41cc4c1a55398ddf7a940ef2bc137772"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "c89b5806ebf59e61ba85ca68a75834f7b06af291f70adebeabbdfbabc197dce3"
+    },
+    {
+      "path": "python/fixtures/turns.json",
+      "description": "The nine rows, the window, the system message, and the minimum word count exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "7e6afcef1dcdcc1fb5c032ada76aa61954434bfd61be43774076697e8c4e004b"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "The sorted conversations, the walk over the four assistant turns (position, start, context size, dropped turns, decision), the examples, the practice walk and examples, and the one-per-conversation baseline that shipped, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "32f5d7eaa6c6a883417824f428e65e484fe813a43540ba05ea42de47f97f10d9"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "group-and-sort",
+      "kind": "correctness",
+      "description": "group_turns yields c1 then c2, each sorted by turn index, from rows that arrive interleaved and with c1's turn 5 before turn 4.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_rows_group_by_conversation_in_turn_order"
+    },
+    {
+      "id": "duplicate-index-rejected",
+      "kind": "failure",
+      "description": "A second row with turn index 2 in c1 raises ValueError naming the conversation and the index; a new index in c2 is accepted.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_duplicate_turn_index_is_rejected"
+    },
+    {
+      "id": "examples-match-page",
+      "kind": "correctness",
+      "description": "Three examples with context sizes 1, 4, 1, one skipped; the second context runs from turn 2 to turn 5 with the empty turn kept; the targets are the assistant texts.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_examples_match_the_page"
+    },
+    {
+      "id": "window-bound",
+      "kind": "correctness",
+      "description": "At every window from 0 to 10 the context never exceeds the window; a window of 10 keeps all five earlier turns and a window of 0 keeps none.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_window_never_exceeds_max_history"
+    },
+    {
+      "id": "position-helper",
+      "kind": "correctness",
+      "description": "position_of counts the earlier turns of a sorted conversation: 0, 1, and 5 for turns 1, 2, and 6.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_position_of_counts_the_earlier_turns"
+    },
+    {
+      "id": "skip-rule",
+      "kind": "failure",
+      "description": "User turns and empty assistant turns never become targets; a conversation whose only assistant turn is empty yields no examples and one skipped.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_user_turns_and_empty_assistant_turns_never_become_targets"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The rows are unchanged after building the examples.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_rows_are_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about the system message, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-system-and-short-targets",
+      "kind": "correctness",
+      "description": "The practice answer yields two examples whose contexts start with the system message (sizes 2 and 5), skips the two-word answer, and reports two skipped.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prepends_the_system_message_and_skips_short_targets"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the rows above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "turns-fixture",
+      "kind": "correctness",
+      "description": "turns.json equals the rows, the window, the system message, and the minimum word count that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_turns_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the walk (turn 2 example with context 1, turn 4 skipped, turn 6 example with context 4 and one dropped turn, c2 turn 2 example with context 1), the practice walk (the two-word answer skipped as short), and the shipped baseline with a five-turn context.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "shipped-overruns-window",
+      "kind": "evaluation",
+      "description": "On the same rows the one-per-conversation builder that shipped makes two examples, c1's context holding five turns, over the window, and never targets the answer at c1 turn 2.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_shipped_builder_makes_one_example_per_conversation_and_overruns_the_window"
+    },
+    {
+      "id": "per-turn-inside-window",
+      "kind": "evaluation",
+      "description": "The per-turn builder makes three examples, targets c1 turn 2, and keeps every context at four turns or fewer.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_per_turn_builder_keeps_every_answer_inside_the_window"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/TranscriptWindowViz.jsx",
+      "description": "A short animation of the worked example, about three seconds per assistant turn and about twenty-five seconds in all: the nine rows appear in export order, glide into two lanes in turn order, then each assistant turn is visited with a dashed window bracket over the turns that become the context (at most four), a green target chip and an example card on the right, or a red chip and a skip note for the empty turn; the outro states three examples, one skipped, and the two-example baseline that shipped with a five-turn context; the practice variation adds a system entry to every card and fades the two-word answer as skipped. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/transcriptWindowModel.js, a JavaScript port of group_turns, build_examples, and the one-per-conversation baseline that runs on python/fixtures/turns.json; tests/format-transcripts-into-sft-examples-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real solution, that each walk beat ends with the window bracket at the record's start and position and the card count at the example number, that the outro counts read three and one and the end of the practice reads two and two with the short answer's card faded, that rows stay on the canvas and counts never exceed the totals at every sampled moment, and that drawScene runs against a bare context. Frames rendered with headless Edge at several moments were inspected at 900 pixels.",
+      "check": "trace-fixture"
+    }
+  ]
+}

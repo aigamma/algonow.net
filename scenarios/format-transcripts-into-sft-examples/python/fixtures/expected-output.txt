@@ -1,0 +1,22 @@
+9 rows, 2 conversations, context window 4 turns
+
+example 1: c1 turn 2, context size 1
+  user: How do I rotate an API key?
+  target: Create a replacement key, deploy it, then revoke the old one.
+
+example 2: c1 turn 6, context size 4, 1 earlier turn dropped by the window
+  assistant: Create a replacement key, deploy it, then revoke the old one.
+  user: Does the old key stop working right away?
+  assistant: (empty)
+  user: And what if the key is already lost?
+  target: A lost key cannot be recovered. Create a replacement and revoke the lost one.
+
+example 3: c2 turn 2, context size 1
+  user: Where do I find my invoice?
+  target: Under Billing.
+
+3 examples, 1 skipped (empty assistant turn)
+
+rejected: conversation 'c1' has two turns with index 2
+
+OK

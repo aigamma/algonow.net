@@ -1,0 +1,20 @@
+9 rows, 2 conversations, context window 4 turns, system message first, targets of at least 3 words
+
+example 1: c1 turn 2, context size 2
+  system: You are Orbit's support assistant. Answer from the runbook, briefly.
+  user: How do I rotate an API key?
+  target: Create a replacement key, deploy it, then revoke the old one.
+
+example 2: c1 turn 6, context size 5, 1 earlier turn dropped by the window
+  system: You are Orbit's support assistant. Answer from the runbook, briefly.
+  assistant: Create a replacement key, deploy it, then revoke the old one.
+  user: Does the old key stop working right away?
+  assistant: (empty)
+  user: And what if the key is already lost?
+  target: A lost key cannot be recovered. Create a replacement and revoke the lost one.
+
+2 examples, 2 skipped (empty, or shorter than 3 words)
+
+rejected: conversation 'c1' has two turns with index 2
+
+OK

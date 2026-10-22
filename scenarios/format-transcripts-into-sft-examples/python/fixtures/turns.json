@@ -1,0 +1,61 @@
+{
+ "rows": [
+  {
+   "conversation": "c1",
+   "turn": 1,
+   "role": "user",
+   "text": "How do I rotate an API key?"
+  },
+  {
+   "conversation": "c2",
+   "turn": 1,
+   "role": "user",
+   "text": "Where do I find my invoice?"
+  },
+  {
+   "conversation": "c1",
+   "turn": 2,
+   "role": "assistant",
+   "text": "Create a replacement key, deploy it, then revoke the old one."
+  },
+  {
+   "conversation": "c1",
+   "turn": 3,
+   "role": "user",
+   "text": "Does the old key stop working right away?"
+  },
+  {
+   "conversation": "c2",
+   "turn": 2,
+   "role": "assistant",
+   "text": "Under Billing."
+  },
+  {
+   "conversation": "c1",
+   "turn": 5,
+   "role": "user",
+   "text": "And what if the key is already lost?"
+  },
+  {
+   "conversation": "c1",
+   "turn": 4,
+   "role": "assistant",
+   "text": ""
+  },
+  {
+   "conversation": "c2",
+   "turn": 3,
+   "role": "user",
+   "text": "Found it, thanks!"
+  },
+  {
+   "conversation": "c1",
+   "turn": 6,
+   "role": "assistant",
+   "text": "A lost key cannot be recovered. Create a replacement and revoke the lost one."
+  }
+ ],
+ "max_history": 4,
+ "system": "You are Orbit's support assistant. Answer from the runbook, briefly.",
+ "min_target_words": 3
+}

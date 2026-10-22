@@ -274,6 +274,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['KL divergence as a sum over classes with math.log', 'Validating a probability distribution with abs and a tolerance', 'Clipping a zero probability with max', 'Ranking records by a computed value', 'Jensen-Shannon divergence (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'convert-csv-rows-to-jsonl',
+    title: 'Convert a CSV support export into JSONL training examples with the csv module',
+    summary: 'Orbit\'s support export is a CSV whose agent replies contain commas and line breaks, and a hand-written split on commas shredded two of every five rows. A worked Python example turns five inline CSV rows into JSONL examples: csv.DictReader over io.StringIO, quoted fields with commas and newlines handled by the module, a status filter and an empty-reply filter counted by reason, json.dumps per line, a missing column rejected by name, its exact output, a trace of every row, and one practice variation that drops examples over a character budget.',
+    track: 'data-pipelines',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'foundation',
+    durationMinutes: 25,
+    skills: ['csv.DictReader over io.StringIO', 'Quoted fields with embedded commas and newlines', 'Filtering rows and counting skips by reason', 'json.dumps and JSONL line assembly', 'A character budget per example (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

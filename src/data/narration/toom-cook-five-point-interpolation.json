@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:toom-cook-five-point-interpolation",
+  "source_path": "src/content/toom-cook-five-point-interpolation.narration.js",
+  "source_sha256": "05f4261db78320be83f822463c145df0d3e540886e7fd48d0e9300f8fea1cd0c",
+  "source_characters": 9018,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "0f599eadc99c38f62cdc8f0a4ad7e486c234759a71ca6b66533f8107f32e9e6a",
+  "generated_at": "2026-10-22T06:37:10.940Z",
+  "generated_characters": 18036,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4398,
+      "utf8_bytes": 4412,
+      "sha256": "3a09af170e48f37449a4948447186f1e1ceda8d9a71e7df5ee9ed04460957538"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4620,
+      "utf8_bytes": 4651,
+      "sha256": "a97647ebe512b757faa4562780215d46f7bc1874ef2330e0d00dd4edc4308004"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "toom-cook-five-point-interpolation.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "toom-cook-five-point-interpolation.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 848,
+      "sha256": "39fa14483c63205e2c1f34c0aef81d9e26d430d5695f6a280b9f1cf9d54d6214"
+    },
+    {
+      "id": "toom-cook-five-point-interpolation.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 758,
+      "sha256": "152753168cbf15a586e3c44319513d287ab6f69c99a0c99183bf24701ee42972"
+    },
+    {
+      "id": "toom-cook-five-point-interpolation.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1044,
+      "sha256": "f803ecf4bb5a26e31746b04657057226bd240e2c2570ead633a4931552675d61"
+    },
+    {
+      "id": "toom-cook-five-point-interpolation.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 881,
+      "sha256": "99fb201a9e02eae8f7cd28fe243446148e6827625e6fcde2458768f3e4816859"
+    },
+    {
+      "id": "toom-cook-five-point-interpolation.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 746,
+      "sha256": "dce78bb35ba7b3a66c86b54c18bb7e7b0900b4bd7c201a608940154278b5b7c9"
+    },
+    {
+      "id": "toom-cook-five-point-interpolation.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 708,
+      "sha256": "5eb739b5571c68f746bca27ebca896078b1316554d722dd2d508fcd0e5c8b171"
+    },
+    {
+      "id": "toom-cook-five-point-interpolation.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1152,
+      "sha256": "7f3eca7641f396469c58c8a77ff9b7d73a66ea0c1535289ee99822e24585a7cd"
+    },
+    {
+      "id": "toom-cook-five-point-interpolation.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 869,
+      "sha256": "5860277662ad123813da83180829350ed7044f4bc0e159cedf8de7d56c7b6c85"
+    },
+    {
+      "id": "toom-cook-five-point-interpolation.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 906,
+      "sha256": "276b329eb7853fee0a407485f68770b8a09b8cf3cb8693df24587da5c804e452"
+    },
+    {
+      "id": "toom-cook-five-point-interpolation.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1008,
+      "sha256": "1a8f5d73a0e28088c08adf1cb77d5b5516339cbf327ce16e2db01e11fe774f01"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/toom-cook-five-point-interpolation/0f599eadc99c38f62cdc/aoede-2c066f0b033d3c8d.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2438348,
+      "sha256": "2c066f0b033d3c8dfad53ba3b6839c0709f3693612f12e56dbb3fd8373c709a0",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "3a09af170e48f37449a4948447186f1e1ceda8d9a71e7df5ee9ed04460957538",
+          "bytes": 1245216,
+          "sha256": "a0ad1fbf92c635f2c1d261ab2921db5aafaf2a7f1db509c1e4e0d948df6e1206"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "a97647ebe512b757faa4562780215d46f7bc1874ef2330e0d00dd4edc4308004",
+          "bytes": 1192896,
+          "sha256": "3056b5b8998bfe50fda9adf8eff56b26bd6a05cbd21a717ddc08f9c1987478af"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/toom-cook-five-point-interpolation/0f599eadc99c38f62cdc/algieba-4e2e8cedfc2f1d4b.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2588300,
+      "sha256": "4e2e8cedfc2f1d4b0245d0cf3c01193d86c58cfa598e4b571597da31f38070fe",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "3a09af170e48f37449a4948447186f1e1ceda8d9a71e7df5ee9ed04460957538",
+          "bytes": 1256352,
+          "sha256": "7215cb5699778f0609a65f6e194a26394f7616a828c8afd19bf4803a53b79e8d"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "a97647ebe512b757faa4562780215d46f7bc1874ef2330e0d00dd4edc4308004",
+          "bytes": 1331712,
+          "sha256": "621df911b5b601375849e42a3697266ff3372f98a3e9bc2b39d8b8aa67905d60"
+        }
+      ]
+    }
+  }
+}

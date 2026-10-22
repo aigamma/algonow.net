@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:bitap-bitmask-fuzzy-states",
+  "source_path": "src/content/bitap-bitmask-fuzzy-states.narration.js",
+  "source_sha256": "cb2a79dc773060cc72638461d96d3a12644be4a55c3098bf161ee7400e4cc5d0",
+  "source_characters": 8486,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "82da917ea35b26e0ecd9edd1e16f9e1980ae64ec105f4c78c11b0077e8060996",
+  "generated_at": "2026-10-22T06:40:00.533Z",
+  "generated_characters": 16972,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4871,
+      "utf8_bytes": 4895,
+      "sha256": "cf339abf5bc35763cdc77228f957b3a0fc4aa0e0f7468a33bc6cd45e2461c33f"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3615,
+      "utf8_bytes": 3629,
+      "sha256": "cbae02cf7f61aabd388556f9d32c1faf3ebf21cb4c9c2013866a540be82a34a3"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "bitap-bitmask-fuzzy-states.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "bitap-bitmask-fuzzy-states.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 824,
+      "sha256": "d46ce826d60ebed8424d3e4ffcd7afeded8058b3b8e1709390398273ecad770b"
+    },
+    {
+      "id": "bitap-bitmask-fuzzy-states.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 682,
+      "sha256": "cf4b41e3bcfa22ccb9c51047fba4da7e9c8aeb3728242c7ab2c86e51fdfd64cd"
+    },
+    {
+      "id": "bitap-bitmask-fuzzy-states.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 965,
+      "sha256": "4b37607bf3accc34cf51020d138fb82c8372749498a407c8b45e5f5405cee84f"
+    },
+    {
+      "id": "bitap-bitmask-fuzzy-states.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 792,
+      "sha256": "776e2ef1b25cf77c316f7883ddccddb0c9e23dae00dcb031ec3f3c8b17ad183d"
+    },
+    {
+      "id": "bitap-bitmask-fuzzy-states.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 901,
+      "sha256": "c07f021b2ddd4040ec44919522c88b9181ac34522c7952032f19b511a60d10ee"
+    },
+    {
+      "id": "bitap-bitmask-fuzzy-states.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 594,
+      "sha256": "60d83bf0210c5760c7324e936f7d94b07788ca1f5b3d5226b11ca4ff08ebfa00"
+    },
+    {
+      "id": "bitap-bitmask-fuzzy-states.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1057,
+      "sha256": "de5d1a210ae094b6badb3cc1e41dc7653b9b909f868264dee4af771dd43421a8"
+    },
+    {
+      "id": "bitap-bitmask-fuzzy-states.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 868,
+      "sha256": "d365cd25fde22c2faed298427c36715036d7b977d8d837c445d4778d99b9a432"
+    },
+    {
+      "id": "bitap-bitmask-fuzzy-states.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 868,
+      "sha256": "ebb38adebcc7e4c8233fb63719df0b9654a231634ac3a956cb634a3534e43903"
+    },
+    {
+      "id": "bitap-bitmask-fuzzy-states.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 830,
+      "sha256": "112bdf2477c446577cbf8476753ea68c9b1f0b2b52b8f9e958ebf26fcdd92b8e"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/bitap-bitmask-fuzzy-states/82da917ea35b26e0ecd9/aoede-5ec026dddab6b34e.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2289740,
+      "sha256": "5ec026dddab6b34ebe4cdbc8c128566ee110d07bb18ec051d999060f8bc08482",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "cf339abf5bc35763cdc77228f957b3a0fc4aa0e0f7468a33bc6cd45e2461c33f",
+          "bytes": 1338912,
+          "sha256": "3d180ce73b27e4abad19b0e88926247421d049f21ac4c3232c90d6481c42fd44"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "cbae02cf7f61aabd388556f9d32c1faf3ebf21cb4c9c2013866a540be82a34a3",
+          "bytes": 950592,
+          "sha256": "e2c07324a4b5c6b2c64f7a13e44cdb5e75a3ef7587afb9472d13b7c78e6a73f7"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/bitap-bitmask-fuzzy-states/82da917ea35b26e0ecd9/algieba-c4065a939dbaefbd.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2532524,
+      "sha256": "c4065a939dbaefbd72db290994b7d81f09a588939cb1ec68be7545f9df0e12ec",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "cf339abf5bc35763cdc77228f957b3a0fc4aa0e0f7468a33bc6cd45e2461c33f",
+          "bytes": 1466496,
+          "sha256": "1836f81afa198ac6674f83fd09b95115572ed3e4bdcb820aa8ed3ed3eca19c29"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "cbae02cf7f61aabd388556f9d32c1faf3ebf21cb4c9c2013866a540be82a34a3",
+          "bytes": 1065792,
+          "sha256": "2b752b5e7902e09c90e939922d21eafdd246cf2e7bdc55d23e59f44317b25f08"
+        }
+      ]
+    }
+  }
+}

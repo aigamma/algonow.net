@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net suffix-tree-ukkonen-online preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T07:07:56.431Z",
+  "publication_sha256": "45a8c678bc9abf2ae11d4f34d06c31e19ed5cbe0bf6f399984abeb11f7c25937",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4680568,
+  "objects": [
+    {
+      "stable_id": "puzzle:suffix-tree-ukkonen-online",
+      "slug": "suffix-tree-ukkonen-online",
+      "track_id": "algieba",
+      "source_sha256": "cbfe0a1a5fb2c2705645fb44ae554fec53e78e8d320a3d8666443a77023edcc3",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "cc02dbe29ebc7028a48f572c8c48831170504a87179cc574fd5ad8bcbf1ba14f",
+      "object_key": "narration/v1/puzzles/suffix-tree-ukkonen-online/cc02dbe29ebc7028a48f/algieba-c7982af75552b62e.mp3",
+      "bytes": 2370572,
+      "sha256": "c7982af75552b62e6b449e9a8a67cf79cd426e894d0680e5bbaa522ab60080bd",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:suffix-tree-ukkonen-online",
+      "slug": "suffix-tree-ukkonen-online",
+      "track_id": "aoede",
+      "source_sha256": "cbfe0a1a5fb2c2705645fb44ae554fec53e78e8d320a3d8666443a77023edcc3",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "cc02dbe29ebc7028a48f572c8c48831170504a87179cc574fd5ad8bcbf1ba14f",
+      "object_key": "narration/v1/puzzles/suffix-tree-ukkonen-online/cc02dbe29ebc7028a48f/aoede-074ef89d38858493.mp3",
+      "bytes": 2309996,
+      "sha256": "074ef89d38858493dc9fd5a452c733a7beb4bd6345680b577d99ee04127be98f",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

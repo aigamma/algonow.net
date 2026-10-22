@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net toom-cook-five-point-interpolation preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T07:05:07.650Z",
+  "publication_sha256": "c6dfae2012c84cda7812563d40bf4b2009c243c69cb82ad8f6c13614e72e3353",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5026648,
+  "objects": [
+    {
+      "stable_id": "puzzle:toom-cook-five-point-interpolation",
+      "slug": "toom-cook-five-point-interpolation",
+      "track_id": "algieba",
+      "source_sha256": "05f4261db78320be83f822463c145df0d3e540886e7fd48d0e9300f8fea1cd0c",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "0f599eadc99c38f62cdc8f0a4ad7e486c234759a71ca6b66533f8107f32e9e6a",
+      "object_key": "narration/v1/puzzles/toom-cook-five-point-interpolation/0f599eadc99c38f62cdc/algieba-4e2e8cedfc2f1d4b.mp3",
+      "bytes": 2588300,
+      "sha256": "4e2e8cedfc2f1d4b0245d0cf3c01193d86c58cfa598e4b571597da31f38070fe",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:toom-cook-five-point-interpolation",
+      "slug": "toom-cook-five-point-interpolation",
+      "track_id": "aoede",
+      "source_sha256": "05f4261db78320be83f822463c145df0d3e540886e7fd48d0e9300f8fea1cd0c",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "0f599eadc99c38f62cdc8f0a4ad7e486c234759a71ca6b66533f8107f32e9e6a",
+      "object_key": "narration/v1/puzzles/toom-cook-five-point-interpolation/0f599eadc99c38f62cdc/aoede-2c066f0b033d3c8d.mp3",
+      "bytes": 2438348,
+      "sha256": "2c066f0b033d3c8dfad53ba3b6839c0709f3693612f12e56dbb3fd8373c709a0",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

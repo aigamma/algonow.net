@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:cuckoo-filter-fingerprint-eviction",
+  "source_path": "src/content/cuckoo-filter-fingerprint-eviction.narration.js",
+  "source_sha256": "dffbe5513c1cecff8b721d08a6a2139f46d8f84dbe4af8b1ca7e7b1de53622cd",
+  "source_characters": 9225,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "4449162e3e68503a9006354a7979ffff4728067763562ea44fa82cbda1e33a03",
+  "generated_at": "2026-10-22T06:34:15.460Z",
+  "generated_characters": 18450,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4319,
+      "utf8_bytes": 4333,
+      "sha256": "d4b6a78be9808b8a717c333899ae312904e5b4862ed78bfd894e0802184f0658"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4906,
+      "utf8_bytes": 4924,
+      "sha256": "f1fee48bd1576110fb4cdf00eb179654765db40052bede839344c511c08535bd"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "cuckoo-filter-fingerprint-eviction.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "cuckoo-filter-fingerprint-eviction.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 750,
+      "sha256": "b657e599d0083807ed5e1f0b82c1719dfdf977b9b7d91a3d6c238f2ae799e8fe"
+    },
+    {
+      "id": "cuckoo-filter-fingerprint-eviction.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 727,
+      "sha256": "2cfcd53f3649b96ca6208d4c85e37119c1702c7be165f45f8924b3cfa84d3dc6"
+    },
+    {
+      "id": "cuckoo-filter-fingerprint-eviction.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1054,
+      "sha256": "bc6093ef4e5dd67ce4a695ba1ad7b1190fa7be881c923642a49361d4e46e4fe5"
+    },
+    {
+      "id": "cuckoo-filter-fingerprint-eviction.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 852,
+      "sha256": "bd97a588c1a51bcdd93b63cb973a7bd37139a5841b1785a80234bd93b316a134"
+    },
+    {
+      "id": "cuckoo-filter-fingerprint-eviction.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 815,
+      "sha256": "ba183c1db9154ed305992ab7621db436b070e1c36af0f183412f41672044e13b"
+    },
+    {
+      "id": "cuckoo-filter-fingerprint-eviction.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 721,
+      "sha256": "54c67ed19aad85496b0e6108837078c623b0a4f6adfae1a63abe1380349423c2"
+    },
+    {
+      "id": "cuckoo-filter-fingerprint-eviction.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1168,
+      "sha256": "4a13f7bffac2d65875ff0d921cde2772c969bafc6c06cc6d66ccfddd79e22c13"
+    },
+    {
+      "id": "cuckoo-filter-fingerprint-eviction.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 963,
+      "sha256": "05c7318a03d8fb33cae03c61f8bfd2b5642400b6b570b13abb2e2dab515fb24e"
+    },
+    {
+      "id": "cuckoo-filter-fingerprint-eviction.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1195,
+      "sha256": "a0841548daa16a947aebd5c5e3781964eb8d7a2f741de02863eeca32086424f5"
+    },
+    {
+      "id": "cuckoo-filter-fingerprint-eviction.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 869,
+      "sha256": "61fc85d64b5c5fdb910061e7c3200f79b8c46831051eafd7deafebb4e279926d"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/cuckoo-filter-fingerprint-eviction/4449162e3e68503a9006/aoede-337b3ed3f2f6eff3.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2379596,
+      "sha256": "337b3ed3f2f6eff3023166d22662fabf3021ba732f42965700fc7562311cd342",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d4b6a78be9808b8a717c333899ae312904e5b4862ed78bfd894e0802184f0658",
+          "bytes": 1079136,
+          "sha256": "d3daab986fd94489b359f5b7b7e7f90ce846d9eb4cd7963f43060596aad3aa6e"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "f1fee48bd1576110fb4cdf00eb179654765db40052bede839344c511c08535bd",
+          "bytes": 1300224,
+          "sha256": "7061880ef9e4e6f1f86260af98a80b3264ad8bf66e3da882c2cac3b2d95a8481"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/cuckoo-filter-fingerprint-eviction/4449162e3e68503a9006/algieba-7547bcbf0469265e.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2461292,
+      "sha256": "7547bcbf0469265e2c45e33faa0a877a3b4664ef78831a99e1a116288c49281c",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "d4b6a78be9808b8a717c333899ae312904e5b4862ed78bfd894e0802184f0658",
+          "bytes": 1151712,
+          "sha256": "e650c91d1716a476cda4a7fcec565bb337c7afa69b1d845c7480b9e42026008b"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "f1fee48bd1576110fb4cdf00eb179654765db40052bede839344c511c08535bd",
+          "bytes": 1309344,
+          "sha256": "fcc86a6ff28a47b39d3e412584c473fe72028e68f53ca6fa59afb979e9f42c06"
+        }
+      ]
+    }
+  }
+}

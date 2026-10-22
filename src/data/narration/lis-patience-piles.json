@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:lis-patience-piles",
+  "source_path": "src/content/lis-patience-piles.narration.js",
+  "source_sha256": "e929c547c06c368f2ca5ab5f3bbfd2602d6004ba70ed147fed3e501f9742abaf",
+  "source_characters": 8848,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "ad4080866e0830a40644970e498b548fc10c7c4aa6af688da5fd5f393c7fb67a",
+  "generated_at": "2026-10-22T07:02:07.736Z",
+  "generated_characters": 17696,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4800,
+      "utf8_bytes": 4812,
+      "sha256": "39834735f849a8ee781617175fc53037740fa593fe7434357a113391f3f92c1b"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4048,
+      "utf8_bytes": 4060,
+      "sha256": "2036b1728eaab745a5d50dbbe8bc03602128f1a525bf363648299a96000e72a0"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "lis-patience-piles.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "lis-patience-piles.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 779,
+      "sha256": "914d3adfbacf6da449b2439b37f7dd8103e0601fcc41a451644ae40730bbe8db"
+    },
+    {
+      "id": "lis-patience-piles.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 818,
+      "sha256": "ec7ebd45310b89f74ddc95f04f6f218b7641a9254dc64e549bec52d8f80ef0bf"
+    },
+    {
+      "id": "lis-patience-piles.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1033,
+      "sha256": "ffead675146383af3251cfe46a4b52dd64de3319ff70eecf5d9be7182b55d545"
+    },
+    {
+      "id": "lis-patience-piles.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 733,
+      "sha256": "72fd9f3f0ef1b400184b0eb85b673e3c4441b583c9403ec42e4a1bf2ad1546cf"
+    },
+    {
+      "id": "lis-patience-piles.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 675,
+      "sha256": "e6572f86b7f46e4813823328c96bc1ffff035846aef9cd6be91c4015e854f4e5"
+    },
+    {
+      "id": "lis-patience-piles.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 637,
+      "sha256": "d02d6d8d337ecf8913112a765a8cc701218df0ca44db37ae899d57101fc0a421"
+    },
+    {
+      "id": "lis-patience-piles.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1196,
+      "sha256": "bbf41af66499be49f8d1be22ccba803fa60cc57ef7c1da35879c520dbe073bb4"
+    },
+    {
+      "id": "lis-patience-piles.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 765,
+      "sha256": "09bf4235f59009df0be7921f34d3b16f84aa19feeec1dc05e4c5f286b35ce6bf"
+    },
+    {
+      "id": "lis-patience-piles.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1013,
+      "sha256": "b0b27bc83ede2a34caa6380bccf3693d6e484995b736b5491507dac8664be4ea"
+    },
+    {
+      "id": "lis-patience-piles.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1080,
+      "sha256": "7ea73d479e0bebfaecb83b524843f0993306ddcc43993fdbd2557d7a98b07fa7"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/lis-patience-piles/ad4080866e0830a40644/aoede-0641f71d1ccfffc1.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2340716,
+      "sha256": "0641f71d1ccfffc10e4378b17106fb19e40895ea41b947e430b022348eddd5a4",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "39834735f849a8ee781617175fc53037740fa593fe7434357a113391f3f92c1b",
+          "bytes": 1272384,
+          "sha256": "26baf8fbb9b6de4beb0398025ca4600c1c1465ff4a572545a6e7ee2b120d67a1"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "2036b1728eaab745a5d50dbbe8bc03602128f1a525bf363648299a96000e72a0",
+          "bytes": 1068096,
+          "sha256": "edd47875ae32159b0750a542db8f9d99ae191a7ac2978ebb2231b2f7ae77bf62"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/lis-patience-piles/ad4080866e0830a40644/algieba-e1616733f23fc8d0.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2482988,
+      "sha256": "e1616733f23fc8d076a4efa0bcc0beaaf4ab375f63b76b718500597d02288650",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "39834735f849a8ee781617175fc53037740fa593fe7434357a113391f3f92c1b",
+          "bytes": 1350336,
+          "sha256": "d7afaa7c3045cea77b9c4e21522165702f80be025116aed410f22391ee83d3f6"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "2036b1728eaab745a5d50dbbe8bc03602128f1a525bf363648299a96000e72a0",
+          "bytes": 1132416,
+          "sha256": "af041d2d6e396215c18455e0afd4753149e161f525248825e62dcd620ee6818c"
+        }
+      ]
+    }
+  }
+}

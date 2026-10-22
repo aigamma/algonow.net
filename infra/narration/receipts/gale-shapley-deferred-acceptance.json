@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net gale-shapley-deferred-acceptance preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T07:12:43.953Z",
+  "publication_sha256": "31769e65a8100e77fdc820facb31119b5c911760f75e80325ee5432ebcfa3a0e",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4726264,
+  "objects": [
+    {
+      "stable_id": "puzzle:gale-shapley-deferred-acceptance",
+      "slug": "gale-shapley-deferred-acceptance",
+      "track_id": "algieba",
+      "source_sha256": "ff01da5adb555590df8a4789628e8092b210f9c5d039639c7d80fec41b93f11e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "57a401dab74f90d8f48e92a85a71a7b84777eb20e9d3ca0012d10bf0d35395e2",
+      "object_key": "narration/v1/puzzles/gale-shapley-deferred-acceptance/57a401dab74f90d8f48e/algieba-f80c0eb0d23b08f5.mp3",
+      "bytes": 2417708,
+      "sha256": "f80c0eb0d23b08f5f09efea7fbbc7b14e875e333473a74c784c2923841428e31",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:gale-shapley-deferred-acceptance",
+      "slug": "gale-shapley-deferred-acceptance",
+      "track_id": "aoede",
+      "source_sha256": "ff01da5adb555590df8a4789628e8092b210f9c5d039639c7d80fec41b93f11e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "57a401dab74f90d8f48e92a85a71a7b84777eb20e9d3ca0012d10bf0d35395e2",
+      "object_key": "narration/v1/puzzles/gale-shapley-deferred-acceptance/57a401dab74f90d8f48e/aoede-445d9aa25d9491c2.mp3",
+      "bytes": 2308556,
+      "sha256": "445d9aa25d9491c294dc5ea66186b4aae04ee3729ad94bda402596f93961574a",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net gibbs-coordinate-conditionals preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T07:03:13.531Z",
+  "publication_sha256": "8f345d4485081c3cd37c65563d00ab1045e3ba2fd4248b8d176a5fee441109b7",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4527736,
+  "objects": [
+    {
+      "stable_id": "puzzle:gibbs-coordinate-conditionals",
+      "slug": "gibbs-coordinate-conditionals",
+      "track_id": "algieba",
+      "source_sha256": "d449a81fc229c93240ebe344ad465f93845aef15e195e0397e023d1306ab41d2",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "16a49147cef3cc9d91650e06b442c38c4bbb15605265824da18ef34c252ce078",
+      "object_key": "narration/v1/puzzles/gibbs-coordinate-conditionals/16a49147cef3cc9d9165/algieba-9e822acbf36b1cf3.mp3",
+      "bytes": 2370380,
+      "sha256": "9e822acbf36b1cf342b2a8c6cfc91dd4ec49a272f871f8f149857f42dbff1160",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:gibbs-coordinate-conditionals",
+      "slug": "gibbs-coordinate-conditionals",
+      "track_id": "aoede",
+      "source_sha256": "d449a81fc229c93240ebe344ad465f93845aef15e195e0397e023d1306ab41d2",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "16a49147cef3cc9d91650e06b442c38c4bbb15605265824da18ef34c252ce078",
+      "object_key": "narration/v1/puzzles/gibbs-coordinate-conditionals/16a49147cef3cc9d9165/aoede-a671f67c22ad88e1.mp3",
+      "bytes": 2157356,
+      "sha256": "a671f67c22ad88e19a9ecdb5adcc8f13b3412233ffaf5e282869172d14379ac0",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

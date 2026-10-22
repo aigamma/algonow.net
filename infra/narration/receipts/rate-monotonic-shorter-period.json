@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net rate-monotonic-shorter-period preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T07:07:01.957Z",
+  "publication_sha256": "1b57ad5d92621427670e433bdeaf464e6d7a21107f811d99734f95e7c46c6e43",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4960408,
+  "objects": [
+    {
+      "stable_id": "puzzle:rate-monotonic-shorter-period",
+      "slug": "rate-monotonic-shorter-period",
+      "track_id": "algieba",
+      "source_sha256": "621643325d3d9e99b55f351d3d268db327677a33a9b7e399a90b0fa7bd6115f7",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "61b7db3c61fcd47b132c3fe9b615e734a7de4f14ef20e34da74dc5eac76565ab",
+      "object_key": "narration/v1/puzzles/rate-monotonic-shorter-period/61b7db3c61fcd47b132c/algieba-6a66e8095f4d5afe.mp3",
+      "bytes": 2583884,
+      "sha256": "6a66e8095f4d5afeaef8c23612f8cba8d3efbcf98128dc4cf1e65f184f6a236a",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:rate-monotonic-shorter-period",
+      "slug": "rate-monotonic-shorter-period",
+      "track_id": "aoede",
+      "source_sha256": "621643325d3d9e99b55f351d3d268db327677a33a9b7e399a90b0fa7bd6115f7",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "61b7db3c61fcd47b132c3fe9b615e734a7de4f14ef20e34da74dc5eac76565ab",
+      "object_key": "narration/v1/puzzles/rate-monotonic-shorter-period/61b7db3c61fcd47b132c/aoede-cad05937eb041f93.mp3",
+      "bytes": 2376524,
+      "sha256": "cad05937eb041f9309577e537bae2132a28702b8af9d8620feea56ef526c6fcb",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

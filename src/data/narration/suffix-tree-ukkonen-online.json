@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:suffix-tree-ukkonen-online",
+  "source_path": "src/content/suffix-tree-ukkonen-online.narration.js",
+  "source_sha256": "cbfe0a1a5fb2c2705645fb44ae554fec53e78e8d320a3d8666443a77023edcc3",
+  "source_characters": 8706,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "cc02dbe29ebc7028a48f572c8c48831170504a87179cc574fd5ad8bcbf1ba14f",
+  "generated_at": "2026-10-22T06:45:36.507Z",
+  "generated_characters": 17412,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4943,
+      "utf8_bytes": 4961,
+      "sha256": "c4a65801c39141957266ed190b5031db7a9648170eb72a815ea60b5b836e2598"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3763,
+      "utf8_bytes": 3779,
+      "sha256": "68927d033056915c856148155fe4c7845bc55f6eddad5133eae8c3d94d7df360"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "suffix-tree-ukkonen-online.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "suffix-tree-ukkonen-online.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 893,
+      "sha256": "1a35b0643a352d9c5f5f51e9c645b67303a1f7fdcf7848bc2f13d2fd78ba9316"
+    },
+    {
+      "id": "suffix-tree-ukkonen-online.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 779,
+      "sha256": "fa76bc2c393718ba447059d76166ff5bfca6b8edbf0f3bc1c999f131289d39ca"
+    },
+    {
+      "id": "suffix-tree-ukkonen-online.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 955,
+      "sha256": "e298be309b3707ab94b0822c0ff2b89110362966a97cd35120476c1843408e2f"
+    },
+    {
+      "id": "suffix-tree-ukkonen-online.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 731,
+      "sha256": "9b7a5f666199545600b2bf9e6dbac92ff7992a0200db3f5faaaf9168e19032e1"
+    },
+    {
+      "id": "suffix-tree-ukkonen-online.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 839,
+      "sha256": "fe2693b79653c3a3ef2da5b141491ff6edfb241331937be4512e5965f7e5bfac"
+    },
+    {
+      "id": "suffix-tree-ukkonen-online.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 627,
+      "sha256": "a4293e099be3341410b3048fad1b9472c3212e48c394969a92b8927d7478d0c7"
+    },
+    {
+      "id": "suffix-tree-ukkonen-online.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1020,
+      "sha256": "b907eaffa21ec9d24e99cc55ec2a7479dcca0f2468ea123817d4d24a463dfe08"
+    },
+    {
+      "id": "suffix-tree-ukkonen-online.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 897,
+      "sha256": "601b8011e3a34725aef2fad009edc07f9771db9138d3c538af83b99d1aee9bb6"
+    },
+    {
+      "id": "suffix-tree-ukkonen-online.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 880,
+      "sha256": "766a5d666c04159fef9ccdb7e31d25dd98ef1dc2c2898f773ea5154b493129c9"
+    },
+    {
+      "id": "suffix-tree-ukkonen-online.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 976,
+      "sha256": "6ba012cb82c67c6e3a5f47295dbeac51b0c509ae3cc6fcfcdef7a56781cd87d5"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/suffix-tree-ukkonen-online/cc02dbe29ebc7028a48f/aoede-074ef89d38858493.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2309996,
+      "sha256": "074ef89d38858493dc9fd5a452c733a7beb4bd6345680b577d99ee04127be98f",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "c4a65801c39141957266ed190b5031db7a9648170eb72a815ea60b5b836e2598",
+          "bytes": 1340064,
+          "sha256": "20fea2466bea1290cbf8d6238ffbdfa7a617313a45985dd9a7988035ad51bc65"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "68927d033056915c856148155fe4c7845bc55f6eddad5133eae8c3d94d7df360",
+          "bytes": 969696,
+          "sha256": "cc00030851e9ae0268f48f54198d2ffc3a540749b82c2cde02b6921e9936de68"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/suffix-tree-ukkonen-online/cc02dbe29ebc7028a48f/algieba-c7982af75552b62e.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2370572,
+      "sha256": "c7982af75552b62e6b449e9a8a67cf79cd426e894d0680e5bbaa522ab60080bd",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "c4a65801c39141957266ed190b5031db7a9648170eb72a815ea60b5b836e2598",
+          "bytes": 1379904,
+          "sha256": "b9d8284ed84028d211885eaa11803d06579c3756861a50c5a3fc61f56edc8a97"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "68927d033056915c856148155fe4c7845bc55f6eddad5133eae8c3d94d7df360",
+          "bytes": 990432,
+          "sha256": "8a49bc965f9b08dfe88bcbb08305794501a5f26e02d28f75d1ad24322826d6f2"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net hungarian-tight-edge-paths preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T07:11:46.866Z",
+  "publication_sha256": "7b29411b9f35e79f267b2ef4bb705cfb79a618a9aebb6e7aa35cdb2342d3211d",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4653880,
+  "objects": [
+    {
+      "stable_id": "puzzle:hungarian-tight-edge-paths",
+      "slug": "hungarian-tight-edge-paths",
+      "track_id": "algieba",
+      "source_sha256": "7e9dde596da6eb8d5f663b582268eeb7723bac93650e28ec68934592f023e547",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "a01bbb0b8acc6152f2a24ac098b0e520dcaa7fd61c52783b32c21d246d0417d0",
+      "object_key": "narration/v1/puzzles/hungarian-tight-edge-paths/a01bbb0b8acc6152f2a2/algieba-75ce18d148e7661b.mp3",
+      "bytes": 2383916,
+      "sha256": "75ce18d148e7661bd77b44fe66b580c29e3356a60734ea41ec236c1a01bdd825",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:hungarian-tight-edge-paths",
+      "slug": "hungarian-tight-edge-paths",
+      "track_id": "aoede",
+      "source_sha256": "7e9dde596da6eb8d5f663b582268eeb7723bac93650e28ec68934592f023e547",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "a01bbb0b8acc6152f2a24ac098b0e520dcaa7fd61c52783b32c21d246d0417d0",
+      "object_key": "narration/v1/puzzles/hungarian-tight-edge-paths/a01bbb0b8acc6152f2a2/aoede-afd1a3eaa0fb54c7.mp3",
+      "bytes": 2269964,
+      "sha256": "afd1a3eaa0fb54c7936a2afc1958b82d0326ae5bac07de9a6634869d5c6df836",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

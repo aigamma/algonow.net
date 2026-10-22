@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:gale-shapley-deferred-acceptance",
+  "source_path": "src/content/gale-shapley-deferred-acceptance.narration.js",
+  "source_sha256": "ff01da5adb555590df8a4789628e8092b210f9c5d039639c7d80fec41b93f11e",
+  "source_characters": 8855,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "57a401dab74f90d8f48e92a85a71a7b84777eb20e9d3ca0012d10bf0d35395e2",
+  "generated_at": "2026-10-22T06:59:17.363Z",
+  "generated_characters": 17710,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4960,
+      "utf8_bytes": 4962,
+      "sha256": "830cfacd26edef00094336ba676942e0cd19a526147755a0c794da0d8cff71dd"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3895,
+      "utf8_bytes": 3899,
+      "sha256": "cda58a8568b7719a21ecdd05e9919d59a193b6e53411d038e502397702655df7"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "gale-shapley-deferred-acceptance.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "gale-shapley-deferred-acceptance.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 799,
+      "sha256": "cc27489345e05677181cb854b985dd6a314938e2e2d5c4e29e8b2d516032e703"
+    },
+    {
+      "id": "gale-shapley-deferred-acceptance.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 694,
+      "sha256": "36948e7f179ccb577bf3e8abb472a3142442bf95035cbf81afe5e023becd8c1f"
+    },
+    {
+      "id": "gale-shapley-deferred-acceptance.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1113,
+      "sha256": "28e6583285630c88dc6ce7e9896e7a51184e3be4450248fa8adab7663fe6e3ce"
+    },
+    {
+      "id": "gale-shapley-deferred-acceptance.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 777,
+      "sha256": "9e4aa0593dfa69590ba74503b287daeaf92754c7b03da0275dc95550f847a89f"
+    },
+    {
+      "id": "gale-shapley-deferred-acceptance.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 681,
+      "sha256": "2016f7dd4bbbbc72bab569f2bd4ad2b6f58434fec959ef04775b884ec8fdaffb"
+    },
+    {
+      "id": "gale-shapley-deferred-acceptance.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 761,
+      "sha256": "64aae98d6a9e75c83c3d57e50aec8aea5a3fdc6fb5cc05b913956654f114a23b"
+    },
+    {
+      "id": "gale-shapley-deferred-acceptance.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1164,
+      "sha256": "42d9f736fb98f60a3847af3d10b40d25d6e530215d3a2381c89d88609b45ec07"
+    },
+    {
+      "id": "gale-shapley-deferred-acceptance.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 879,
+      "sha256": "8b4ff18e95477a91a3c6ca9a7871611ee75b6b3cf2fb58b6dd4daef4a73a6c08"
+    },
+    {
+      "id": "gale-shapley-deferred-acceptance.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 975,
+      "sha256": "0471e2f3d657f519e3bd96f9cd75fe20c9e0195961290c8c9571a9f8647a96bb"
+    },
+    {
+      "id": "gale-shapley-deferred-acceptance.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 875,
+      "sha256": "5ffcca64d821f155a38cfedcae123ee51fb864dc2ad5bb3f9ba1533681b925bb"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/gale-shapley-deferred-acceptance/57a401dab74f90d8f48e/aoede-445d9aa25d9491c2.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2308556,
+      "sha256": "445d9aa25d9491c294dc5ea66186b4aae04ee3729ad94bda402596f93961574a",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "830cfacd26edef00094336ba676942e0cd19a526147755a0c794da0d8cff71dd",
+          "bytes": 1308384,
+          "sha256": "7707586b6fdf99d28ede6bf7adcd365bdfaa41c38bc843228428b1c093c8f0d2"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "cda58a8568b7719a21ecdd05e9919d59a193b6e53411d038e502397702655df7",
+          "bytes": 999936,
+          "sha256": "113c0c71009de656e1cea51b2c51f1160a9ef041f102187d684db34e7597f1e5"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/gale-shapley-deferred-acceptance/57a401dab74f90d8f48e/algieba-f80c0eb0d23b08f5.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2417708,
+      "sha256": "f80c0eb0d23b08f5f09efea7fbbc7b14e875e333473a74c784c2923841428e31",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "830cfacd26edef00094336ba676942e0cd19a526147755a0c794da0d8cff71dd",
+          "bytes": 1363776,
+          "sha256": "799de3a4613765863ed21168ea4709e3cc4e7558709da151293d91cf62e728f9"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "cda58a8568b7719a21ecdd05e9919d59a193b6e53411d038e502397702655df7",
+          "bytes": 1053696,
+          "sha256": "2e001411f06eb196268053088dfbd8832fd901d0a741d29ef5951ea8d6a87728"
+        }
+      ]
+    }
+  }
+}

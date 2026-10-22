@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net lis-patience-piles preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T07:13:39.799Z",
+  "publication_sha256": "f9f65b6c95fae0af8630bb5e02755cac175ee4aa9c8c5d9c82995825a38e194c",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4823704,
+  "objects": [
+    {
+      "stable_id": "puzzle:lis-patience-piles",
+      "slug": "lis-patience-piles",
+      "track_id": "algieba",
+      "source_sha256": "e929c547c06c368f2ca5ab5f3bbfd2602d6004ba70ed147fed3e501f9742abaf",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "ad4080866e0830a40644970e498b548fc10c7c4aa6af688da5fd5f393c7fb67a",
+      "object_key": "narration/v1/puzzles/lis-patience-piles/ad4080866e0830a40644/algieba-e1616733f23fc8d0.mp3",
+      "bytes": 2482988,
+      "sha256": "e1616733f23fc8d076a4efa0bcc0beaaf4ab375f63b76b718500597d02288650",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:lis-patience-piles",
+      "slug": "lis-patience-piles",
+      "track_id": "aoede",
+      "source_sha256": "e929c547c06c368f2ca5ab5f3bbfd2602d6004ba70ed147fed3e501f9742abaf",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "ad4080866e0830a40644970e498b548fc10c7c4aa6af688da5fd5f393c7fb67a",
+      "object_key": "narration/v1/puzzles/lis-patience-piles/ad4080866e0830a40644/aoede-0641f71d1ccfffc1.mp3",
+      "bytes": 2340716,
+      "sha256": "0641f71d1ccfffc10e4378b17106fb19e40895ea41b947e430b022348eddd5a4",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

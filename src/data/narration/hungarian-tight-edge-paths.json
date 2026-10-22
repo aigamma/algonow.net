@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:hungarian-tight-edge-paths",
+  "source_path": "src/content/hungarian-tight-edge-paths.narration.js",
+  "source_sha256": "7e9dde596da6eb8d5f663b582268eeb7723bac93650e28ec68934592f023e547",
+  "source_characters": 8533,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "a01bbb0b8acc6152f2a24ac098b0e520dcaa7fd61c52783b32c21d246d0417d0",
+  "generated_at": "2026-10-22T06:56:29.865Z",
+  "generated_characters": 17066,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4892,
+      "utf8_bytes": 4912,
+      "sha256": "802ebdbbe9df555c690edde1fc22047db0bca0b2f30e28ccb8301cc4b8dfaa25"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3641,
+      "utf8_bytes": 3652,
+      "sha256": "b19da4e68e9a6a6142cdb3437939b452ed72a6fd8df1ab5873676aee786e0c8f"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "hungarian-tight-edge-paths.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "hungarian-tight-edge-paths.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 839,
+      "sha256": "d05704d4cbf4103034c6cff777cf8177720929aaab9155f624603b205df10116"
+    },
+    {
+      "id": "hungarian-tight-edge-paths.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 714,
+      "sha256": "9cff66e2814f699c90a4f6f23095a2adb599018ba371dc61f6fae70a2d86b478"
+    },
+    {
+      "id": "hungarian-tight-edge-paths.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1044,
+      "sha256": "217ff0e1b4730ac0549aec9e4b39abf099260b2643a0839ef59784a9aee2ff5e"
+    },
+    {
+      "id": "hungarian-tight-edge-paths.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 807,
+      "sha256": "31cd299c7f2c793511eb46070bbcf1da0c8c330672868991c0563993582dfc66"
+    },
+    {
+      "id": "hungarian-tight-edge-paths.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 754,
+      "sha256": "217db096ee9fc92ad3cb9210b7f40ea76321797ff9db6fd67577109d519cb253"
+    },
+    {
+      "id": "hungarian-tight-edge-paths.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 617,
+      "sha256": "500b90d33344266e44ad7b2c13069044c000f0a659aff18fd85bd8aa95fb7247"
+    },
+    {
+      "id": "hungarian-tight-edge-paths.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 965,
+      "sha256": "353469c891fcb2434f5600428a40d7678f61ef03928f0442cdf71b336571b92a"
+    },
+    {
+      "id": "hungarian-tight-edge-paths.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 863,
+      "sha256": "46b19f495fa47a1118b6ce079d49d74436c6c3ebbe5e6fb69099f6744f8e8bfb"
+    },
+    {
+      "id": "hungarian-tight-edge-paths.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 887,
+      "sha256": "4995843fe1a61663fdecfcceec58a64d5e9eac74acd282bf78d9933b9a1b451b"
+    },
+    {
+      "id": "hungarian-tight-edge-paths.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 931,
+      "sha256": "c1cec5b46955a04d194c033507ebbea0c7da7d4a38c4c4af53ff620713e4fc2c"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/hungarian-tight-edge-paths/a01bbb0b8acc6152f2a2/aoede-afd1a3eaa0fb54c7.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2269964,
+      "sha256": "afd1a3eaa0fb54c7936a2afc1958b82d0326ae5bac07de9a6634869d5c6df836",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "802ebdbbe9df555c690edde1fc22047db0bca0b2f30e28ccb8301cc4b8dfaa25",
+          "bytes": 1319616,
+          "sha256": "6786ab87a98fb5e973987245b3dab6b37f8220a51e3bfe49f6eed84132a9cb24"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "b19da4e68e9a6a6142cdb3437939b452ed72a6fd8df1ab5873676aee786e0c8f",
+          "bytes": 950112,
+          "sha256": "13e68465fd223f45d7d83f648e366a0338c096aa9bb921c8462c8f81ab978740"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/hungarian-tight-edge-paths/a01bbb0b8acc6152f2a2/algieba-75ce18d148e7661b.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2383916,
+      "sha256": "75ce18d148e7661bd77b44fe66b580c29e3356a60734ea41ec236c1a01bdd825",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "802ebdbbe9df555c690edde1fc22047db0bca0b2f30e28ccb8301cc4b8dfaa25",
+          "bytes": 1333344,
+          "sha256": "510ea0b1a3cfbddfb43a7c232dd74d5f0f7563629c9315bcbf2bab8e08046612"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "b19da4e68e9a6a6142cdb3437939b452ed72a6fd8df1ab5873676aee786e0c8f",
+          "bytes": 1050336,
+          "sha256": "772d527faf1b261ce91f7e608117717f7fb343ceff50a2573f6925912e649b34"
+        }
+      ]
+    }
+  }
+}

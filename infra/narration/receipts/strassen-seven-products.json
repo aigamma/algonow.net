@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net strassen-seven-products preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T05:29:22.297Z",
+  "publication_sha256": "e83cf27aa6785480ea4968866d3cba51fc05fb95d4e1dd8668ad8125bba678e2",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4580248,
+  "objects": [
+    {
+      "stable_id": "puzzle:strassen-seven-products",
+      "slug": "strassen-seven-products",
+      "track_id": "algieba",
+      "source_sha256": "bfd902ab309747f1821de7dc6d970377332a3e5003f645b2f1943028fe613a89",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "0bae85ce7a478d423738290e6b15e470b33189f56b3c96fae9806cac7efff53d",
+      "object_key": "narration/v1/puzzles/strassen-seven-products/0bae85ce7a478d423738/algieba-d0ade613be97c760.mp3",
+      "bytes": 2311724,
+      "sha256": "d0ade613be97c76064b3d45af08c9e247ffa33d5a17854a8009e31a703bae0f2",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:strassen-seven-products",
+      "slug": "strassen-seven-products",
+      "track_id": "aoede",
+      "source_sha256": "bfd902ab309747f1821de7dc6d970377332a3e5003f645b2f1943028fe613a89",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "0bae85ce7a478d423738290e6b15e470b33189f56b3c96fae9806cac7efff53d",
+      "object_key": "narration/v1/puzzles/strassen-seven-products/0bae85ce7a478d423738/aoede-405e8ac45dd35d78.mp3",
+      "bytes": 2268524,
+      "sha256": "405e8ac45dd35d78a9b185cdf1578baca3a426bc12846beaad3a0c200253214e",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

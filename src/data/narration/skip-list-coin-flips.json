@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:skip-list-coin-flips",
+  "source_path": "src/content/skip-list-coin-flips.narration.js",
+  "source_sha256": "d87d8730fbc13e8d9856551515179ecc1266967e163c092f569d6257e93e885f",
+  "source_characters": 8843,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "b4c457eb8d464195ca70244f8ec89707ff45442e73c34b3bcab013dd8a700584",
+  "generated_at": "2026-10-22T05:02:23.617Z",
+  "generated_characters": 17686,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4942,
+      "utf8_bytes": 4954,
+      "sha256": "ef9feb2c5082b00dbef39244e21665b3bbe53e3d1c2f065fe15462201090a6ad"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3901,
+      "utf8_bytes": 3913,
+      "sha256": "452e0ff88b1c5dc67fafc7ae1b78aea641fef5de97e53b589c6fb5f7e7e08e57"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "skip-list-coin-flips.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "skip-list-coin-flips.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 573,
+      "sha256": "265347c3f841bfbeaaf09458e53c3c9623f633881503ec950f4db9b622934f85"
+    },
+    {
+      "id": "skip-list-coin-flips.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 743,
+      "sha256": "66d0ebf331939495cda013c43c32290d1a8dcdf50fdc816cf1a7f0097a1d2d10"
+    },
+    {
+      "id": "skip-list-coin-flips.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1194,
+      "sha256": "4d3b9385e1e9cffaab0a157662e2c04639ad19633e3da6ee722ae1c7f3353bb9"
+    },
+    {
+      "id": "skip-list-coin-flips.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 801,
+      "sha256": "da5c032f13067e541cdc0f11e339ecff87425f703cbdd49ab72aa459a384b9b6"
+    },
+    {
+      "id": "skip-list-coin-flips.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 827,
+      "sha256": "ca3b50bcdee345b50e257ada6b97b21650e5a091d71504dedd64ba5ed9bb7998"
+    },
+    {
+      "id": "skip-list-coin-flips.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 679,
+      "sha256": "3b886c43a491b79ea8f44e204eff3cb9a4361017a48e9ace183f27e5c4498eb6"
+    },
+    {
+      "id": "skip-list-coin-flips.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 860,
+      "sha256": "f6eb978188ce9cfe30036dbe429ecc64b478ead713a0ce00e541972780912982"
+    },
+    {
+      "id": "skip-list-coin-flips.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1193,
+      "sha256": "e4e5de9fbd1aa4b33072adc7f2e84984fb87289c2a919f647095f64be7be526a"
+    },
+    {
+      "id": "skip-list-coin-flips.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 891,
+      "sha256": "fcc6500765c218a4af3e5dcd7511c98fc392cf02ee1e5b12a9cf081d4f0df8f4"
+    },
+    {
+      "id": "skip-list-coin-flips.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 963,
+      "sha256": "46b15d0fcdfb3545a682dde4427e7b6dcd5871414e6d92c01bacc0c428e94564"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/skip-list-coin-flips/b4c457eb8d464195ca70/aoede-80ad28a2092d6825.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2233484,
+      "sha256": "80ad28a2092d682517f3bf4f486cb01289aab6f6c0deb46512681f7e98df84c8",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "ef9feb2c5082b00dbef39244e21665b3bbe53e3d1c2f065fe15462201090a6ad",
+          "bytes": 1278816,
+          "sha256": "7678f5b575caa7e141646bbaaa2d120e98e79f7ddf6978c0aff77d7361d63a26"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "452e0ff88b1c5dc67fafc7ae1b78aea641fef5de97e53b589c6fb5f7e7e08e57",
+          "bytes": 954432,
+          "sha256": "b27dc0f840b31d41c3b3f463ac312ad08042a362bca2d4c80ac454051e847ce1"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/skip-list-coin-flips/b4c457eb8d464195ca70/algieba-7d47acd72a2f6a78.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2369324,
+      "sha256": "7d47acd72a2f6a781316f6569a7475553402d43ce5f868bd1697aa461bd7de59",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "ef9feb2c5082b00dbef39244e21665b3bbe53e3d1c2f065fe15462201090a6ad",
+          "bytes": 1310976,
+          "sha256": "bbcf9316fc3cce24ae38bd65488fae94da44fa33096c5132e249c2778b5cde33"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "452e0ff88b1c5dc67fafc7ae1b78aea641fef5de97e53b589c6fb5f7e7e08e57",
+          "bytes": 1058112,
+          "sha256": "cd551e141f8bb7ee9122c5b30be2d97d30d44d6b5c0f779d1c5afc3b61c5dff6"
+        }
+      ]
+    }
+  }
+}

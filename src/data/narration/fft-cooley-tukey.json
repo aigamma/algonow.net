@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:fft-cooley-tukey",
+  "source_path": "src/content/fft-cooley-tukey.narration.js",
+  "source_sha256": "545bdfc234fae408a4ae27c9e291ef86a487d18dabad30ef6e62abafedf0dca4",
+  "source_characters": 9339,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "98d3500c5af423e0af6edd735234fd78dd49e9b85ed5a677a52719f5c1169a5b",
+  "generated_at": "2026-10-22T05:22:34.277Z",
+  "generated_characters": 18678,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4288,
+      "utf8_bytes": 4296,
+      "sha256": "e258925ae264336088db288da87c4ba6634fdc9008d0eca16a1ff98711458598"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3977,
+      "utf8_bytes": 3992,
+      "sha256": "ac574dc9003d35ea57d99b5a643eaada510e462daa1d5e1a83e7c27924a94118"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1074,
+      "utf8_bytes": 1076,
+      "sha256": "576369b94fcf157f249aab9330a8b1aeda038f07a7ea74378eeba537b325d4ba"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "fft-cooley-tukey.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "fft-cooley-tukey.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 688,
+      "sha256": "e4873c244012234fb5b46884e9dd54f98d88a5ab53535e0e8a52abfe6dd62c10"
+    },
+    {
+      "id": "fft-cooley-tukey.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 884,
+      "sha256": "1ab6b8156f828edbd730d4e8263f72a870aacad55c86b5cba024d9e166327cc4"
+    },
+    {
+      "id": "fft-cooley-tukey.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1160,
+      "sha256": "9a150f331c66a6d5adcce2eae68644d2e9a9444271503ae77971adc8649acb43"
+    },
+    {
+      "id": "fft-cooley-tukey.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 644,
+      "sha256": "80f0650e05c8e0fe1c2d82c6d5525439951609225c34667dd649c24988983d7f"
+    },
+    {
+      "id": "fft-cooley-tukey.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 785,
+      "sha256": "38fd6a310f6df292308a3a8cfa50fcb8a38f24e7b94ff2ad99bfbe248d60d840"
+    },
+    {
+      "id": "fft-cooley-tukey.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 755,
+      "sha256": "ceb65b620fd4f883cf409cb1ec26e99e1a5f216890cf47ff2689dde24c41ee9a"
+    },
+    {
+      "id": "fft-cooley-tukey.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1082,
+      "sha256": "851ecd92dd3c4cec39566079c4f926796deea040d15ffbed79fd1f71bec4235e"
+    },
+    {
+      "id": "fft-cooley-tukey.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1285,
+      "sha256": "398af5ef9853ada1a76c8fb96de9b9d6e2f13312b3924a18c016c6335af40c55"
+    },
+    {
+      "id": "fft-cooley-tukey.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 862,
+      "sha256": "edd8306591b2038cc812076f8750a9583a93b96385cac283f64fdce0f2f5325e"
+    },
+    {
+      "id": "fft-cooley-tukey.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1076,
+      "sha256": "576369b94fcf157f249aab9330a8b1aeda038f07a7ea74378eeba537b325d4ba"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/fft-cooley-tukey/98d3500c5af423e0af6e/aoede-a61a50438082e950.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2383820,
+      "sha256": "a61a50438082e950124f5f0680ab3334dcefaa36e581040f62d19992625cdb39",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "e258925ae264336088db288da87c4ba6634fdc9008d0eca16a1ff98711458598",
+          "bytes": 1137024,
+          "sha256": "80aadbfbd5a8f731988ef5559310a31ea1598418b413a6f8814650d80133cd9f"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ac574dc9003d35ea57d99b5a643eaada510e462daa1d5e1a83e7c27924a94118",
+          "bytes": 984864,
+          "sha256": "e12afe9be8273758ea9b586a9a103368d131f61c6ca33fa41d9a0972eb22c6e7"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "576369b94fcf157f249aab9330a8b1aeda038f07a7ea74378eeba537b325d4ba",
+          "bytes": 261696,
+          "sha256": "09f083d6a24671cd90e234ac89f06b5f818e795979409558b28bc3f3337481aa"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/fft-cooley-tukey/98d3500c5af423e0af6e/algieba-5463b81f7309cf2d.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2631596,
+      "sha256": "5463b81f7309cf2dcbc1cc095b5102a97f4a303dd22d237b54a1b5c0d706f0d3",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "e258925ae264336088db288da87c4ba6634fdc9008d0eca16a1ff98711458598",
+          "bytes": 1217376,
+          "sha256": "8b2a7b9c0bbd3d4560e914f2f78c94f413445f125751af21bb5a701c3452c864"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ac574dc9003d35ea57d99b5a643eaada510e462daa1d5e1a83e7c27924a94118",
+          "bytes": 1117632,
+          "sha256": "b6f5100376bf8fd5800f1400e2b630b3988ced1ab0e6aa4ed679e03b00039d8c"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "576369b94fcf157f249aab9330a8b1aeda038f07a7ea74378eeba537b325d4ba",
+          "bytes": 296352,
+          "sha256": "0e96fd42c61e897eab6c65604ba43011a8bbf11eed8b0ee5e620495cb153eee7"
+        }
+      ]
+    }
+  }
+}

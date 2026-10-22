@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net bellman-ford-early-exit preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T05:32:15.349Z",
+  "publication_sha256": "5d829063c9b935f68c7b27b96c1f272d6f46a051b2f5e8fcee6a473eb33654e0",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4655128,
+  "objects": [
+    {
+      "stable_id": "puzzle:bellman-ford-early-exit",
+      "slug": "bellman-ford-early-exit",
+      "track_id": "algieba",
+      "source_sha256": "02a565a362a17e2ee71521a9d0a9038225151a0503aaa66d45f9d934759d667a",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "36b08c896aa6e14649caaf41b49a3a664ecf9a56ab3ab3db25d07f8d70cd09f2",
+      "object_key": "narration/v1/puzzles/bellman-ford-early-exit/36b08c896aa6e14649ca/algieba-1d993b09f0b5d772.mp3",
+      "bytes": 2439884,
+      "sha256": "1d993b09f0b5d772f376dc5c43a3e78aa5c5485b4720ac2c2cc384d0360a225f",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:bellman-ford-early-exit",
+      "slug": "bellman-ford-early-exit",
+      "track_id": "aoede",
+      "source_sha256": "02a565a362a17e2ee71521a9d0a9038225151a0503aaa66d45f9d934759d667a",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "36b08c896aa6e14649caaf41b49a3a664ecf9a56ab3ab3db25d07f8d70cd09f2",
+      "object_key": "narration/v1/puzzles/bellman-ford-early-exit/36b08c896aa6e14649ca/aoede-1fe9eb3de52d9736.mp3",
+      "bytes": 2215244,
+      "sha256": "1fe9eb3de52d973660a2f5a1fa18600a4c7fcd527c34ed798dc03ed945b73bef",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

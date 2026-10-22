@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net miller-rabin-witness-rounds preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T05:30:19.549Z",
+  "publication_sha256": "971e471cfc3be589fef2b0a1b96a41b585cb8bb3ad40d6988bb1312663c6ce53",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5071480,
+  "objects": [
+    {
+      "stable_id": "puzzle:miller-rabin-witness-rounds",
+      "slug": "miller-rabin-witness-rounds",
+      "track_id": "algieba",
+      "source_sha256": "ebb76f525721276097edba31b6b088e646d4984f32020a9b1f0a2becd4422e1a",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "3bd94a68598906e8d6cdbef74851c5f57e4e3c5b267924f4c22faf764709f803",
+      "object_key": "narration/v1/puzzles/miller-rabin-witness-rounds/3bd94a68598906e8d6cd/algieba-47ea0dfe9bc898a7.mp3",
+      "bytes": 2576396,
+      "sha256": "47ea0dfe9bc898a79948583acfa8fa9229bc8a20642c8a40f1742b736e2a4ad8",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:miller-rabin-witness-rounds",
+      "slug": "miller-rabin-witness-rounds",
+      "track_id": "aoede",
+      "source_sha256": "ebb76f525721276097edba31b6b088e646d4984f32020a9b1f0a2becd4422e1a",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "3bd94a68598906e8d6cdbef74851c5f57e4e3c5b267924f4c22faf764709f803",
+      "object_key": "narration/v1/puzzles/miller-rabin-witness-rounds/3bd94a68598906e8d6cd/aoede-dcb677df62803c87.mp3",
+      "bytes": 2495084,
+      "sha256": "dcb677df62803c87b1b7747c0bed116e32a4614abd8d183c15fb87b5a1f59092",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:viterbi-max-product",
+  "source_path": "src/content/viterbi-max-product.narration.js",
+  "source_sha256": "edb0e39ee58b9e97290e93b52a416cf0776343ae07f1a5a31b087c3dac459445",
+  "source_characters": 9658,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "5388fbdbc9d903a9508f804d7afbaedc877ad5d9b2147dff28f4b140377a8093",
+  "generated_at": "2026-10-22T04:59:41.109Z",
+  "generated_characters": 19316,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4901,
+      "utf8_bytes": 4921,
+      "sha256": "261fae3ca6c3421e2f4dd957b9e80e3a452c71c915b5dd3c98e7161f34afff58"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4757,
+      "utf8_bytes": 4773,
+      "sha256": "ba3d765cfe9c03de0a8b52389ce84a8bb1d1dfbe7431e97f917ddc0472e9fc1a"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "viterbi-max-product.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "viterbi-max-product.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 794,
+      "sha256": "908071d525a9f683098b3f263cebd86e8479d654d0c98200101d873b7f342e09"
+    },
+    {
+      "id": "viterbi-max-product.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 917,
+      "sha256": "6758ae8f996c34d4d8fed3bbe4f8aa2bf4af2ef0bdcacdc7ae507aee8769160b"
+    },
+    {
+      "id": "viterbi-max-product.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1383,
+      "sha256": "388f4e06a04a8e872275fd7308b57b66006f530d8ea142e63744e3a9f39660d5"
+    },
+    {
+      "id": "viterbi-max-product.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 868,
+      "sha256": "5a140496f52fbe6942103730de70c2bd225760ce67bd09413af900971d6bc3e8"
+    },
+    {
+      "id": "viterbi-max-product.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 824,
+      "sha256": "1a2a7334979bd44abd65400192a381a7b0d43716c3e51cc450aa3b155670f48a"
+    },
+    {
+      "id": "viterbi-max-product.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 640,
+      "sha256": "32bf3e8188540bf0a62d479ed8d36c8bb98bb8af433c7199ed1bbf6f7977d10e"
+    },
+    {
+      "id": "viterbi-max-product.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1099,
+      "sha256": "81643c6bf3f1be3f5f914f13e04e4b4db89e449d75ad09ed148c78d0eebfb49e"
+    },
+    {
+      "id": "viterbi-max-product.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1177,
+      "sha256": "be86f35f06b9183f66a28167103105223aa9e3632e27b72db316c49f5f62e7e6"
+    },
+    {
+      "id": "viterbi-max-product.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 726,
+      "sha256": "36ae277747f917bb31914028dec96309085a740f5660276af29fe0fc9799d1df"
+    },
+    {
+      "id": "viterbi-max-product.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1123,
+      "sha256": "ba32b047efe6cd68bb8c6149b7ae0713c3aec2195d922c5e560b1a4ffd592dcf"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/viterbi-max-product/5388fbdbc9d903a9508f/aoede-d5902f0d04433e36.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2402540,
+      "sha256": "d5902f0d04433e36d68e0c00daa9c0e4d91b488497101440c6001f6fac8cee6e",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "261fae3ca6c3421e2f4dd957b9e80e3a452c71c915b5dd3c98e7161f34afff58",
+          "bytes": 1258272,
+          "sha256": "147c4ef73fb8f10104a7c3f29bdd34eaf5c3174ee88b4322ebb3e4f6f0f9866f"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ba3d765cfe9c03de0a8b52389ce84a8bb1d1dfbe7431e97f917ddc0472e9fc1a",
+          "bytes": 1144032,
+          "sha256": "0394a769c39ab2c9ec6b1a88c3cd8eee39c39760c8cd5d01b89de155808479f8"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/viterbi-max-product/5388fbdbc9d903a9508f/algieba-ada7483dfc4de9e4.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2529356,
+      "sha256": "ada7483dfc4de9e4976b81c9edc0b27bc71645856eef5fef3c3f4f63ad169fdb",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "261fae3ca6c3421e2f4dd957b9e80e3a452c71c915b5dd3c98e7161f34afff58",
+          "bytes": 1288416,
+          "sha256": "2874985fdcff13f12c334bed0dcca33918a03090fa8b45f5f641ff2437498f6f"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ba3d765cfe9c03de0a8b52389ce84a8bb1d1dfbe7431e97f917ddc0472e9fc1a",
+          "bytes": 1240704,
+          "sha256": "d25e1d2c0b4e09f9a44755b1a6339419afa97ae5f684d29b1b982618fc776ee1"
+        }
+      ]
+    }
+  }
+}

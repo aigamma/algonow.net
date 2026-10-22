@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:fenwick-lowbit-ladders",
+  "source_path": "src/content/fenwick-lowbit-ladders.narration.js",
+  "source_sha256": "1a7e432bb34c4c9937b086e2aec2b4ebba9ae8783eea6b76099d5df0599aae9b",
+  "source_characters": 9264,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "d69a0d191dc8a1b3aab2d82cddeb1cdb56b22c2cd12f1c6d3bb3dd3b50a598c7",
+  "generated_at": "2026-10-22T04:50:58.184Z",
+  "generated_characters": 18528,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4501,
+      "utf8_bytes": 4513,
+      "sha256": "2b83323b7392dadcf5c0a64c41d01fae117271086ae9bef3c5f8a402569e24c7"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4763,
+      "utf8_bytes": 4769,
+      "sha256": "1775c7de185fc464abcf4d783976478c1123ff6b0c07c62ec40bcf5bb36a3381"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "fenwick-lowbit-ladders.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "fenwick-lowbit-ladders.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 675,
+      "sha256": "7e9f3ea63546582abed96a208393cbb69425ba73d5e71dd865726914209f2995"
+    },
+    {
+      "id": "fenwick-lowbit-ladders.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 846,
+      "sha256": "b56c67cceed5a88ad22234e4b399ffddefc73eb93a49f12b109c8a43d076ebe6"
+    },
+    {
+      "id": "fenwick-lowbit-ladders.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1161,
+      "sha256": "4ef454051309d5e01e7b7a776bbd9f37d903268d4b1e6c952a6f3c0b6bd5351d"
+    },
+    {
+      "id": "fenwick-lowbit-ladders.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 726,
+      "sha256": "7105196490f1c4c460a285f13d0a37aa1ba4cc67b201510caa7e43ab79700f49"
+    },
+    {
+      "id": "fenwick-lowbit-ladders.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 970,
+      "sha256": "775a26e03c3170bc9247aa4e9b8d9f3387577f5d02ad76053ef749d7d4e15a7b"
+    },
+    {
+      "id": "fenwick-lowbit-ladders.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 721,
+      "sha256": "f97a3cba1f9aeff0c87fedb70aee556bb43b10ac4d49ada0a626c22777ec919a"
+    },
+    {
+      "id": "fenwick-lowbit-ladders.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 859,
+      "sha256": "517d5c3a3bafb2d0b1364c951d4fc202e9604641b4ed66065073392aba3bcd42"
+    },
+    {
+      "id": "fenwick-lowbit-ladders.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1235,
+      "sha256": "bcf935a788260e8b0915180ea6bafba37178101aa46eb4c1348b293c05634fcd"
+    },
+    {
+      "id": "fenwick-lowbit-ladders.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 940,
+      "sha256": "bbf774a912e371b6aeced2e59aa6766840bd80a1f1807be4b40da590c8cb31c9"
+    },
+    {
+      "id": "fenwick-lowbit-ladders.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1006,
+      "sha256": "2d2075935fd25544f7bf50b9b9ea8fad626e10b25d5ed92252e6eb6843245a45"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/fenwick-lowbit-ladders/d69a0d191dc8a1b3aab2/aoede-c32c8319a0b7f083.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2439980,
+      "sha256": "c32c8319a0b7f083f51bae33d1da1b4ae6116848390423e5df77cc4581e8df23",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2b83323b7392dadcf5c0a64c41d01fae117271086ae9bef3c5f8a402569e24c7",
+          "bytes": 1261152,
+          "sha256": "31941cc0ccf0880160f55ff1e84dcfc9424c3145c7227d5952452e8c564374ff"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "1775c7de185fc464abcf4d783976478c1123ff6b0c07c62ec40bcf5bb36a3381",
+          "bytes": 1178592,
+          "sha256": "d67a48f4c870c4c99861f314348ad7c3464b8ff721398a885f81c6a8915cb3d9"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/fenwick-lowbit-ladders/d69a0d191dc8a1b3aab2/algieba-3109434f85a41adb.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2501132,
+      "sha256": "3109434f85a41adb68a02874dd8fd65afbd82c496a1a6b5c38d51353193420dc",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2b83323b7392dadcf5c0a64c41d01fae117271086ae9bef3c5f8a402569e24c7",
+          "bytes": 1263552,
+          "sha256": "9eda9ee34027ed052b64f835e927d3881acc7593ed3723b06ea7e2ce0dbdc79b"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "1775c7de185fc464abcf4d783976478c1123ff6b0c07c62ec40bcf5bb36a3381",
+          "bytes": 1237344,
+          "sha256": "48bd7c630225498521d56151e787ba360727d1f37f31414055544af33a65778b"
+        }
+      ]
+    }
+  }
+}

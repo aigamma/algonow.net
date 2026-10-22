@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net segment-tree-lazy-propagation preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T05:33:12.790Z",
+  "publication_sha256": "ec9ff383184ba98767efee242a7fbf52cb09f41d0722350abda1136fb087a890",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4597912,
+  "objects": [
+    {
+      "stable_id": "puzzle:segment-tree-lazy-propagation",
+      "slug": "segment-tree-lazy-propagation",
+      "track_id": "algieba",
+      "source_sha256": "d71e01bbe3035625ba5bf8115266c1036d8a16212c1b46c8aa68d611b526749f",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "9fb3abd7f92a38a458df64db541c7430bdd82a8473cd827f8e0f7cf042cf7867",
+      "object_key": "narration/v1/puzzles/segment-tree-lazy-propagation/9fb3abd7f92a38a458df/algieba-2bc47aca272212ad.mp3",
+      "bytes": 2368172,
+      "sha256": "2bc47aca272212ad54322fbbaff2680667b0026c4fc6656fea69b655c3db1a38",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:segment-tree-lazy-propagation",
+      "slug": "segment-tree-lazy-propagation",
+      "track_id": "aoede",
+      "source_sha256": "d71e01bbe3035625ba5bf8115266c1036d8a16212c1b46c8aa68d611b526749f",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "9fb3abd7f92a38a458df64db541c7430bdd82a8473cd827f8e0f7cf042cf7867",
+      "object_key": "narration/v1/puzzles/segment-tree-lazy-propagation/9fb3abd7f92a38a458df/aoede-e39d4d0486872415.mp3",
+      "bytes": 2229740,
+      "sha256": "e39d4d048687241505b54e51ec86d7be89c8d58694c989cdc1f5953cb71e42e7",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

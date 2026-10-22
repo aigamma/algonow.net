@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:bellman-ford-early-exit",
+  "source_path": "src/content/bellman-ford-early-exit.narration.js",
+  "source_sha256": "02a565a362a17e2ee71521a9d0a9038225151a0503aaa66d45f9d934759d667a",
+  "source_characters": 8786,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "36b08c896aa6e14649caaf41b49a3a664ecf9a56ab3ab3db25d07f8d70cd09f2",
+  "generated_at": "2026-10-22T05:13:46.450Z",
+  "generated_characters": 17572,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4695,
+      "utf8_bytes": 4703,
+      "sha256": "c0db2895c3595534a1148e1fa63dd607a28dc327f90b70d40ece4773e9396473"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4091,
+      "utf8_bytes": 4105,
+      "sha256": "65bc8a57ba82d1f6d18b1f81df4a0cedc4a70e00edb0defc1613dc4c1b18bcb5"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "bellman-ford-early-exit.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "bellman-ford-early-exit.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 662,
+      "sha256": "62f36844ba6fbe674e54d111342adda7d4bb6dcc70a0b05ca0246ff393682e5e"
+    },
+    {
+      "id": "bellman-ford-early-exit.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 830,
+      "sha256": "d56259dede044f304755779ee2348f030f88abb841dc4b292f2e742cacb54c39"
+    },
+    {
+      "id": "bellman-ford-early-exit.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 972,
+      "sha256": "806758f37af1dec0454de75ffd523838e92f25ba68052e7f3b9633bc3f241149"
+    },
+    {
+      "id": "bellman-ford-early-exit.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 620,
+      "sha256": "0168d3f1eda1bf190afa91b0e0f66eb2f6019366531ad761f19f322911100361"
+    },
+    {
+      "id": "bellman-ford-early-exit.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 762,
+      "sha256": "782f210d31d32aaf73223b755625288a2b37ad50d1635e94172be641494ac9bf"
+    },
+    {
+      "id": "bellman-ford-early-exit.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 720,
+      "sha256": "2794d19252fced6596aff78cdb8691f827620c365defe5f197b302d1e8a8650f"
+    },
+    {
+      "id": "bellman-ford-early-exit.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1139,
+      "sha256": "96dabbda56849ee7d18dca7f5f1180331e5362b9b1f8b5287aa33f278ddfb15a"
+    },
+    {
+      "id": "bellman-ford-early-exit.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1040,
+      "sha256": "48d8a4b83fc85b4b772d00a96a2e59f7a182493e1c27b06a17f3ac2a6fb820b2"
+    },
+    {
+      "id": "bellman-ford-early-exit.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 929,
+      "sha256": "13f1fa934e857bad0110fc569e55c9606b3ba471f522e6abead1cdaee0fe68e8"
+    },
+    {
+      "id": "bellman-ford-early-exit.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 991,
+      "sha256": "b22dc687a7aa7b4be870fc7cf8623d30911fcfc1002846944376045e4ba2b140"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/bellman-ford-early-exit/36b08c896aa6e14649ca/aoede-1fe9eb3de52d9736.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2215244,
+      "sha256": "1fe9eb3de52d973660a2f5a1fa18600a4c7fcd527c34ed798dc03ed945b73bef",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "c0db2895c3595534a1148e1fa63dd607a28dc327f90b70d40ece4773e9396473",
+          "bytes": 1166976,
+          "sha256": "251f489993da40c18752f257aa5ae90ac53dd38e7396e83da95cdd5f9af5673f"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "65bc8a57ba82d1f6d18b1f81df4a0cedc4a70e00edb0defc1613dc4c1b18bcb5",
+          "bytes": 1048032,
+          "sha256": "7afd9aab7a2cf0b2740314a0cfb6cc44bfd7b0bda555b43210a139d9962a9f24"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/bellman-ford-early-exit/36b08c896aa6e14649ca/algieba-1d993b09f0b5d772.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2439884,
+      "sha256": "1d993b09f0b5d772f376dc5c43a3e78aa5c5485b4720ac2c2cc384d0360a225f",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "c0db2895c3595534a1148e1fa63dd607a28dc327f90b70d40ece4773e9396473",
+          "bytes": 1282944,
+          "sha256": "3ceae1dc6d98c17fd132193e8ee96c79c700b73655d0cc56346c6627dc509a38"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "65bc8a57ba82d1f6d18b1f81df4a0cedc4a70e00edb0defc1613dc4c1b18bcb5",
+          "bytes": 1156704,
+          "sha256": "0ff982f32c20d5c1c9530d452f4dad654d7d1e796ca7869f66e3418fec5d5fe3"
+        }
+      ]
+    }
+  }
+}

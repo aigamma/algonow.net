@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:miller-rabin-witness-rounds",
+  "source_path": "src/content/miller-rabin-witness-rounds.narration.js",
+  "source_sha256": "ebb76f525721276097edba31b6b088e646d4984f32020a9b1f0a2becd4422e1a",
+  "source_characters": 9401,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "3bd94a68598906e8d6cdbef74851c5f57e4e3c5b267924f4c22faf764709f803",
+  "generated_at": "2026-10-22T05:08:10.517Z",
+  "generated_characters": 18802,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4395,
+      "utf8_bytes": 4407,
+      "sha256": "dddc5483de218ae150c21235378bed0006f3d28f9264953650311d4a42da018d"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3850,
+      "utf8_bytes": 3854,
+      "sha256": "9e8aad7e219fc5c1d75d754de5ed32797d447a0b9b28da34a0c6f3fc0d4e6333"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1156,
+      "utf8_bytes": 1162,
+      "sha256": "b3f0578a9f8e6ac79ee92966aaa047c1d7e0f5249b1bf49d7299d29449c57710"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "miller-rabin-witness-rounds.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "miller-rabin-witness-rounds.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 567,
+      "sha256": "06b2a1467702d9d57a6344a47dfc4503b4616bfcc3a3479f87d27f129b82aec2"
+    },
+    {
+      "id": "miller-rabin-witness-rounds.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1001,
+      "sha256": "ac2778a5eb7fbdb961d5ddf02183fb899d31ce6635908cd434847fa15378e55b"
+    },
+    {
+      "id": "miller-rabin-witness-rounds.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1108,
+      "sha256": "05bf92dc0489c6308462cbcf3b59adcdec3978f1ae043c556f11a547b6aef9fa"
+    },
+    {
+      "id": "miller-rabin-witness-rounds.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 854,
+      "sha256": "24ae53c9e10f223d3f664b907a085cf5c393a550d2dbb63cf86584a4eddb72e1"
+    },
+    {
+      "id": "miller-rabin-witness-rounds.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 742,
+      "sha256": "789838dfba036defc536e7b1fad0709a612e10bae2abaa0e1d589e2db0dfed5a"
+    },
+    {
+      "id": "miller-rabin-witness-rounds.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 744,
+      "sha256": "768fd1fae9769463bebc3aa5b0b3efc6e73d3fcb6ae14992210f9d8d15afab4f"
+    },
+    {
+      "id": "miller-rabin-witness-rounds.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1005,
+      "sha256": "5d9c144660bfb3840325ab64ee10caa910998f42f8d5b698b659b10ad0351010"
+    },
+    {
+      "id": "miller-rabin-witness-rounds.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1194,
+      "sha256": "67b1968ac128c30f8eb90dda6c82bd401e358b4d6c3889e0fa4e932faf054188"
+    },
+    {
+      "id": "miller-rabin-witness-rounds.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 903,
+      "sha256": "3c6ff14b619d9764149fe45414dc165d9f3caa2e6a2a0023507f6400f55413e9"
+    },
+    {
+      "id": "miller-rabin-witness-rounds.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1162,
+      "sha256": "b3f0578a9f8e6ac79ee92966aaa047c1d7e0f5249b1bf49d7299d29449c57710"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/miller-rabin-witness-rounds/3bd94a68598906e8d6cd/aoede-dcb677df62803c87.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2495084,
+      "sha256": "dcb677df62803c87b1b7747c0bed116e32a4614abd8d183c15fb87b5a1f59092",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "dddc5483de218ae150c21235378bed0006f3d28f9264953650311d4a42da018d",
+          "bytes": 1187424,
+          "sha256": "e06a56bce06e5f29119b639082906077ca9799dfb5c6055a950502d0e6b3c401"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "9e8aad7e219fc5c1d75d754de5ed32797d447a0b9b28da34a0c6f3fc0d4e6333",
+          "bytes": 1004352,
+          "sha256": "6a1381017da7881f4bd577d92bfd1b5fa096c172b74bd4347bd9fbee721f400b"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "b3f0578a9f8e6ac79ee92966aaa047c1d7e0f5249b1bf49d7299d29449c57710",
+          "bytes": 303072,
+          "sha256": "57b39cc406361fd684499276920e1833550918ef22b4866c640d36be366cda5a"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/miller-rabin-witness-rounds/3bd94a68598906e8d6cd/algieba-47ea0dfe9bc898a7.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2576396,
+      "sha256": "47ea0dfe9bc898a79948583acfa8fa9229bc8a20642c8a40f1742b736e2a4ad8",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "dddc5483de218ae150c21235378bed0006f3d28f9264953650311d4a42da018d",
+          "bytes": 1253856,
+          "sha256": "791c074cad412dfde0773f72619f9c5ba219b12425f28100951a4cb26a384acc"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "9e8aad7e219fc5c1d75d754de5ed32797d447a0b9b28da34a0c6f3fc0d4e6333",
+          "bytes": 1024992,
+          "sha256": "a98aee572ad0ceb14ee7dd0e11fd237b8ea86d0546c3ff1a7907a521b9310e50"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "b3f0578a9f8e6ac79ee92966aaa047c1d7e0f5249b1bf49d7299d29449c57710",
+          "bytes": 297312,
+          "sha256": "3841e235d0df7cd69bdbec4e731871911e198308dc801671e665d5b2173ba9d4"
+        }
+      ]
+    }
+  }
+}

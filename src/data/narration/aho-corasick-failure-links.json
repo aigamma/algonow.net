@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:aho-corasick-failure-links",
+  "source_path": "src/content/aho-corasick-failure-links.narration.js",
+  "source_sha256": "b7392411fe1fc0b5523d55a4802cf53beadf388178a54c49679ed4133fb239dd",
+  "source_characters": 9094,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "833cbc0d562cb1a6623220cede6f275c9d9b8f7b13b67fe4cc9f618a573aa834",
+  "generated_at": "2026-10-22T04:53:45.596Z",
+  "generated_characters": 18188,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4394,
+      "utf8_bytes": 4410,
+      "sha256": "da71bec15e1d91596dde676aab1f06057b619c52ba9687a299293afdb22af77d"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4700,
+      "utf8_bytes": 4712,
+      "sha256": "69d97490f905b9442d198458da70f2bef8b5478f3582b9e89461744364aa5618"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "aho-corasick-failure-links.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "aho-corasick-failure-links.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 554,
+      "sha256": "3abc47af7edf1107154fe1d4b9cbaaee9d2abdbe0f19266011ec3b802091c95e"
+    },
+    {
+      "id": "aho-corasick-failure-links.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 813,
+      "sha256": "4425bca0885f4be642d0940dcfe858a40a66d97fe60cddc21b94062da96fd6fd"
+    },
+    {
+      "id": "aho-corasick-failure-links.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1290,
+      "sha256": "a87427c22f8e077a6bfc6272426d2e74681cc1dbde56c0aab8bcdf4fe3af2bff"
+    },
+    {
+      "id": "aho-corasick-failure-links.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 635,
+      "sha256": "f81ec47fd91576563a000f4764278e6f54b33974cd3f6db221a3302cca0c12df"
+    },
+    {
+      "id": "aho-corasick-failure-links.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 983,
+      "sha256": "67729c85217df9e8953ef1212394e4c071c2e4b3ae7a04f8dd7fd75101f7e038"
+    },
+    {
+      "id": "aho-corasick-failure-links.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 650,
+      "sha256": "6f7afe1c5a4679660757da1ae0a554beaa066d3a0cefaf99fe58cc25754893f0"
+    },
+    {
+      "id": "aho-corasick-failure-links.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 958,
+      "sha256": "2d3ddef8d8a2227a5f233020de1c51c18244115926cca9fde799285b82fe8db7"
+    },
+    {
+      "id": "aho-corasick-failure-links.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1123,
+      "sha256": "9df116aa630825e6b8d35134a10424d3896318b10643193e1998fa894082601d"
+    },
+    {
+      "id": "aho-corasick-failure-links.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 741,
+      "sha256": "921db9b9adef521420bba9f1d07e91b30475dde0f66cc0f08a9e7606d4673e15"
+    },
+    {
+      "id": "aho-corasick-failure-links.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1232,
+      "sha256": "75d849d137b8e909163e4a82b2468c54a9dbafdcd408dbc845ae1a449292f26a"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/aho-corasick-failure-links/833cbc0d562cb1a66232/aoede-2a54cf0e7e38504c.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2314892,
+      "sha256": "2a54cf0e7e38504c1bfba5d8a44bf274d676f9ee98ad8f13e465c29c1b7fd2d5",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "da71bec15e1d91596dde676aab1f06057b619c52ba9687a299293afdb22af77d",
+          "bytes": 1161312,
+          "sha256": "6993a3f8eb71d2cb0a220e59a02cdad0ee620a1759db97ed4ac405c1418c8e7d"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "69d97490f905b9442d198458da70f2bef8b5478f3582b9e89461744364aa5618",
+          "bytes": 1153344,
+          "sha256": "15bed0086b9d1c93b1941145540a4e56e56848db93ff6ffb1ce05c9d3001764e"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/aho-corasick-failure-links/833cbc0d562cb1a66232/algieba-240b4d92935f3861.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2456300,
+      "sha256": "240b4d92935f386148eeb0039c218c55be74054622d807fe30274c26bc8328eb",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "da71bec15e1d91596dde676aab1f06057b619c52ba9687a299293afdb22af77d",
+          "bytes": 1195872,
+          "sha256": "9577d2ddc712c2bfa9e5d59ba9e291fa0e68b443b60ad53ef0771c728147c051"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "69d97490f905b9442d198458da70f2bef8b5478f3582b9e89461744364aa5618",
+          "bytes": 1260192,
+          "sha256": "8edc33775ea798bd999ca8813d731e5b348edf11f129209b482a39b794e0f58e"
+        }
+      ]
+    }
+  }
+}

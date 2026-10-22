@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:segment-tree-lazy-propagation",
+  "source_path": "src/content/segment-tree-lazy-propagation.narration.js",
+  "source_sha256": "d71e01bbe3035625ba5bf8115266c1036d8a16212c1b46c8aa68d611b526749f",
+  "source_characters": 8832,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "9fb3abd7f92a38a458df64db541c7430bdd82a8473cd827f8e0f7cf042cf7867",
+  "generated_at": "2026-10-22T05:16:28.896Z",
+  "generated_characters": 17664,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4724,
+      "utf8_bytes": 4734,
+      "sha256": "764b46ce92807ec3339c527e72a76f17976ad685f086aecd9dbd37757841f6cc"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4108,
+      "utf8_bytes": 4114,
+      "sha256": "bb6b404f1644fb64d336d7814cfa7ae8d21607bb603db9d965508ecc9baca455"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "segment-tree-lazy-propagation.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "segment-tree-lazy-propagation.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 603,
+      "sha256": "be4371deccbfd8421b11c7959a099736fa63f092fc43ece0ae986b46910a8bc8"
+    },
+    {
+      "id": "segment-tree-lazy-propagation.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 764,
+      "sha256": "8c764220731e6a97f1b483e2567fcd349e66e5d8a6bc8b92f69c5cc5df9999d5"
+    },
+    {
+      "id": "segment-tree-lazy-propagation.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1147,
+      "sha256": "5e312d968d5bb1bf4d2b8887bd4233b46ec24b44d16b0707353826aae540095c"
+    },
+    {
+      "id": "segment-tree-lazy-propagation.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 647,
+      "sha256": "7d42ad4e2e3c1178c67b1efd9176d103e7397d7603b23ca05b471221db99f059"
+    },
+    {
+      "id": "segment-tree-lazy-propagation.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 813,
+      "sha256": "d30e122a2ac94ee88a3731501ddfe2cc5cbc49c0ada587213a6bbf0ac70bb381"
+    },
+    {
+      "id": "segment-tree-lazy-propagation.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 623,
+      "sha256": "e894a64f86909c0cc768cae79806a28f49472b69059d66178065256581197eb8"
+    },
+    {
+      "id": "segment-tree-lazy-propagation.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 963,
+      "sha256": "182f7ec98c8a1aa47962b16c3337ca60fd072f6477f6abd567400b857ba76a24"
+    },
+    {
+      "id": "segment-tree-lazy-propagation.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1193,
+      "sha256": "12d79e7ce30bfb097710c958e7b2a79cf44ee542a9bcddf19dbb4fa927c01080"
+    },
+    {
+      "id": "segment-tree-lazy-propagation.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 916,
+      "sha256": "4b9c7393531fdb9cc13312e3671abdd9d3f72afc409a56adc0b25b2e5a7af731"
+    },
+    {
+      "id": "segment-tree-lazy-propagation.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1036,
+      "sha256": "ec5d3a33e6962846f2839640a03279e85eada6ff17a5bd37f8cb13c1683ca5f7"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/segment-tree-lazy-propagation/9fb3abd7f92a38a458df/aoede-e39d4d0486872415.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2229740,
+      "sha256": "e39d4d048687241505b54e51ec86d7be89c8d58694c989cdc1f5953cb71e42e7",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "764b46ce92807ec3339c527e72a76f17976ad685f086aecd9dbd37757841f6cc",
+          "bytes": 1198752,
+          "sha256": "d08f1dd044ae38a078e7f72bd3a92bdce767d6d8dc8288fa4ff2f6f8887e9e76"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "bb6b404f1644fb64d336d7814cfa7ae8d21607bb603db9d965508ecc9baca455",
+          "bytes": 1030752,
+          "sha256": "c3227246c9456e6b59e11e5a89f21c0319e226dea07897181f333e8f366ccf09"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/segment-tree-lazy-propagation/9fb3abd7f92a38a458df/algieba-2bc47aca272212ad.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2368172,
+      "sha256": "2bc47aca272212ad54322fbbaff2680667b0026c4fc6656fea69b655c3db1a38",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "764b46ce92807ec3339c527e72a76f17976ad685f086aecd9dbd37757841f6cc",
+          "bytes": 1272672,
+          "sha256": "f1c33666fd7561e373664e99f018b565e9883a7f32311ca1dd29337f143e4c4a"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "bb6b404f1644fb64d336d7814cfa7ae8d21607bb603db9d965508ecc9baca455",
+          "bytes": 1095264,
+          "sha256": "e3eb625eddeed128b5d04a44c7b8628b876969339ecc990a49eb4eacb9402cd5"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:strassen-seven-products",
+  "source_path": "src/content/strassen-seven-products.narration.js",
+  "source_sha256": "bfd902ab309747f1821de7dc6d970377332a3e5003f645b2f1943028fe613a89",
+  "source_characters": 8706,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "0bae85ce7a478d423738290e6b15e470b33189f56b3c96fae9806cac7efff53d",
+  "generated_at": "2026-10-22T05:05:05.339Z",
+  "generated_characters": 17412,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4842,
+      "utf8_bytes": 4856,
+      "sha256": "2450792d9a594ea7e0d70efb7e1a01424884c85a55d58a90771b6c03e9981258"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3864,
+      "utf8_bytes": 3872,
+      "sha256": "f6643db1c622d49b43c5f6a8c88be3160f726fa4b8a24f243a02691b8f9a545f"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "strassen-seven-products.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "strassen-seven-products.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 527,
+      "sha256": "c6f9d2f4ab96a7cbe6424ae79b0f991cd802d12c09e0df7a5087fcaaf8d65da4"
+    },
+    {
+      "id": "strassen-seven-products.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 862,
+      "sha256": "403f77ab92e432220429e0eada0bf3fa32a27a1f3cf6be295766a30bfcbdd2ba"
+    },
+    {
+      "id": "strassen-seven-products.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1137,
+      "sha256": "97f18f10c5c3ba9f3e52017cb9e52049efe7ea6a4093683825fd802b63820563"
+    },
+    {
+      "id": "strassen-seven-products.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 585,
+      "sha256": "0a2af7ff1ec8efb6faa9a06bb0567033b1924f03ae68c67dcf3b95effe04b0ef"
+    },
+    {
+      "id": "strassen-seven-products.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 962,
+      "sha256": "7fdc61c681cdf0fee344e0b4468cc25b2564edb066dfca06d4ad232f60a1648d"
+    },
+    {
+      "id": "strassen-seven-products.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 646,
+      "sha256": "332aa296e1cedceef92b9e53b7fcad9796fd506a70c736cdd456fdd42b3c2f92"
+    },
+    {
+      "id": "strassen-seven-products.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 891,
+      "sha256": "81cb9c506a8ca293d6f835e6818a369090b694163f6945c3bddd7382600ab4ff"
+    },
+    {
+      "id": "strassen-seven-products.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1047,
+      "sha256": "a6bf7ac78a067d70cb00a73d45c13a10c0a5774d1d7958b71bc643c48728f4d8"
+    },
+    {
+      "id": "strassen-seven-products.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 950,
+      "sha256": "b4809a95e089983bb00b9fe4878db5b1e1509cbbffac66c116105d4f855f63df"
+    },
+    {
+      "id": "strassen-seven-products.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 978,
+      "sha256": "c4e13ece2964481873390b8f4d10123db20434a557eee721b0c18e0f8c87c6ed"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/strassen-seven-products/0bae85ce7a478d423738/aoede-405e8ac45dd35d78.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2268524,
+      "sha256": "405e8ac45dd35d78a9b185cdf1578baca3a426bc12846beaad3a0c200253214e",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2450792d9a594ea7e0d70efb7e1a01424884c85a55d58a90771b6c03e9981258",
+          "bytes": 1326624,
+          "sha256": "01207e8fbf26cb1119a9a604f13be7bcd9393817dc0eb27e30673d565f041db2"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "f6643db1c622d49b43c5f6a8c88be3160f726fa4b8a24f243a02691b8f9a545f",
+          "bytes": 941664,
+          "sha256": "84969408deb15d66c56123f9d41df34373294c3ef4d5f2281ccae8abc0483016"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/strassen-seven-products/0bae85ce7a478d423738/algieba-d0ade613be97c760.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2311724,
+      "sha256": "d0ade613be97c76064b3d45af08c9e247ffa33d5a17854a8009e31a703bae0f2",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2450792d9a594ea7e0d70efb7e1a01424884c85a55d58a90771b6c03e9981258",
+          "bytes": 1357632,
+          "sha256": "f7b24015b56dc8e42049d1f84e07d195b7cd231f2e48a049018b0812ff3a6265"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "f6643db1c622d49b43c5f6a8c88be3160f726fa4b8a24f243a02691b8f9a545f",
+          "bytes": 953856,
+          "sha256": "af52c4d2d26a95581a269b2158f918124e6bc771886dc58ba8016245652c27ce"
+        }
+      ]
+    }
+  }
+}

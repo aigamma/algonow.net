@@ -70,7 +70,9 @@ the operational detail layer.
    receipt-bound manifest, and run the narration tests. Then run `npm run
    build` (exit 0), `npm run check` (ALL CHECKS PASS; watch: banned-word scan
    caught a narration aside once, em dashes never allowed), and `npm test`
-   (21/21; the rest sweep covers every viz with stepMs). Commit (verbose:
+   (21/21; the rest sweep covers every viz with stepMs), then `npm run qa`
+   (QA PASS: link crawl, prose scan, desktop and phone browser sweeps over
+   the built dist; see scripts/qa/README.md). Commit (verbose:
    claim -> numbers -> files -> oracles -> verification; trailer
    `Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>` + Claude-Session
    line). Push, assert HEAD==origin, `netlify deploy --prod`, then live-verify

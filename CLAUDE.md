@@ -183,8 +183,9 @@ vendor chunk < 70 KB · per-page chunk < 20 KB · theme.css < 14 KB · HTML
 
 ## Deploy
 
-Deploys are explicit: `npm run build`, `npm run check`, then
-`netlify deploy --prod` (a CLI upload of the local `dist`, zero build
+Deploys are explicit: `npm run build`, `npm run check`, `npm run qa` (the
+link crawl, prose scan, and browser sweeps over dist; scripts/qa/README.md),
+then `netlify deploy --prod` (a CLI upload of the local `dist`, zero build
 minutes). Pushes to `main` do NOT build or publish anything: the Netlify
 site has no repository linkage, verified 2026-08-26 when production sat
 ten commits stale behind origin. Do not link the repo for CI builds

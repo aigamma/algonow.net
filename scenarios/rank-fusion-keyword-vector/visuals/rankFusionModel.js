@@ -225,8 +225,14 @@ export function sceneAt(timeline, trace, data, elapsed) {
     row.score = beat.before + (contribution.total - beat.before) * fill;
     if (beat.before === 0) row.alpha = ramp(local, GLIDE_AT, GLIDE);
     if (fill >= 1) row.ranks.push(`${contribution.list} ${contribution.rank}`);
-    if (local >= GLIDE_AT && local < GLIDE_AT + GLIDE + FILL) {
-      ghost = { list: contribution.list, index: contribution.rank - 1, toRow: rowOf[contribution.doc], progress: glide, alpha: 1 - fill, doc: contribution.doc };
+    // The travelling copy is a bare highlight box: the source card and the
+    // destination row carry the document's name, and the box is the width of
+    // the card, so a label on it would overprint one of them at a slight
+    // offset for most of the flight. It fades out a quarter second after
+    // landing, before the bar fills.
+    const landed = ramp(local, GLIDE_AT + GLIDE, 0.25);
+    if (local >= GLIDE_AT && landed < 1) {
+      ghost = { list: contribution.list, index: contribution.rank - 1, toRow: rowOf[contribution.doc], progress: glide, alpha: 1 - landed, doc: contribution.doc };
     }
   }
 
@@ -388,9 +394,6 @@ export function drawScene(ctx, scene) {
     ctx.globalAlpha = Math.max(0, g.alpha);
     ctx.strokeStyle = BLUE;
     rounded(ctx, x, y, from.w, from.h, 4); ctx.stroke();
-    ctx.fillStyle = INK;
-    ctx.font = `12px ${MONO}`;
-    ctx.fillText(g.doc, x + 8, y + 22);
   }
   ctx.globalAlpha = 1;
 }

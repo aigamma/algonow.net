@@ -94,6 +94,11 @@
 .scenario-page .expected-output { white-space: pre-wrap; overflow-wrap: anywhere; }
 .scenario-page .viz-frame { margin: 0; }
 .scenario-page .viz-caption { margin: .75rem .2rem 0; min-height: 3em; font-size: .92rem; line-height: 1.55; color: var(--ink); }
+/* The figure's timeline: a thin track under the canvas, one tick per step, the fill is the elapsed share. */
+.scenario-page .viz-progress { position: relative; height: 6px; margin: .6rem .2rem 0; border-radius: 3px; background: var(--line-soft); }
+.scenario-page .viz-progress-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 3px; background: var(--algo); transition: width .25s linear; }
+.scenario-page .viz-progress-tick { position: absolute; top: -3px; width: 2px; height: 12px; margin-left: -1px; border-radius: 1px; background: var(--ink-faint); opacity: .6; }
+.scenario-page .viz-progress-tick.is-done { background: var(--algo); opacity: 1; }
 .scenario-page td:first-child { color: var(--ink); }
 .scenario-tradeoffs { padding-left: 1.2rem; }
 .scenario-tradeoffs li { margin: 1.2rem 0; }

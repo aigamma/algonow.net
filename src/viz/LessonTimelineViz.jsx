@@ -22,7 +22,7 @@ export default function LessonTimelineViz({ width, height, stepMs, timeline, sce
   const seek = useRef(null);                 // { seconds, paused } consumed by the next init
   const [run, setRun] = useState(0);
   const [still, setStill] = useState(false);
-  const [snap, setSnap] = useState(() => ({ caption: sceneAt(0).caption, paused: false, beat: 0 }));
+  const [snap, setSnap] = useState(() => ({ caption: sceneAt(0).caption, paused: false, beat: 0, elapsed: 0 }));
 
   useEffect(() => { setStill(isStill()); }, [run]);
 
@@ -59,10 +59,11 @@ export default function LessonTimelineViz({ width, height, stepMs, timeline, sce
       const st = stateRef.current;
       if (!st) return;
       const scene = sceneAt(st.elapsed);
+      const elapsed = Math.round(st.elapsed * 4) / 4;   // a quarter second is enough for the progress bar
       setSnap((previous) =>
-        previous.caption === scene.caption && previous.paused === st.paused && previous.beat === scene.beatIndex
+        previous.caption === scene.caption && previous.paused === st.paused && previous.beat === scene.beatIndex && previous.elapsed === elapsed
           ? previous
-          : { caption: scene.caption, paused: st.paused, beat: scene.beatIndex }
+          : { caption: scene.caption, paused: st.paused, beat: scene.beatIndex, elapsed }
       );
     }, 250);
     return () => clearInterval(id);
@@ -96,6 +97,12 @@ export default function LessonTimelineViz({ width, height, stepMs, timeline, sce
       <DiagramViewport width={width} aspect={`${width} / ${height}`}>
         <canvas ref={canvasRef} style={{ aspectRatio: `${width} / ${height}` }} role="img" aria-label={ariaLabel} />
       </DiagramViewport>
+      <div className="viz-progress" role="presentation" aria-hidden="true">
+        <div className="viz-progress-fill" style={{ width: `${Math.min(100, (100 * snap.elapsed) / timeline.duration)}%` }} />
+        {timeline.markers.map((marker, index) => (
+          <span key={index} className={`viz-progress-tick${index <= snap.beat ? ' is-done' : ''}`} style={{ left: `${(100 * marker) / timeline.duration}%` }} />
+        ))}
+      </div>
       <p className="viz-caption" aria-live="polite">{snap.caption}</p>
       <div className="viz-controls">
         <button type="button" className="btn" onClick={() => jump(-1)}>Previous step</button>

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net pratt-parsing-binding-powers preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T09:07:43.136Z",
+  "publication_sha256": "ec112d2e935a9bb7104e875210fe97e98c980537b1fb2273c3eeea7f9661380f",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6457144,
+  "objects": [
+    {
+      "stable_id": "puzzle:pratt-parsing-binding-powers",
+      "slug": "pratt-parsing-binding-powers",
+      "track_id": "algieba",
+      "source_sha256": "598a051571d3ca179d644bc072947ac5b6ed33256c9c1c2a3e8eb4b90f1d8576",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "c707a3ed030e6822019b3d39c188bbe9695164d66f072cfb9fb1dbad344c24f2",
+      "object_key": "narration/v1/puzzles/pratt-parsing-binding-powers/c707a3ed030e6822019b/algieba-310bca51bfe4dadd.mp3",
+      "bytes": 3289004,
+      "sha256": "310bca51bfe4daddfab38a03bb76854de0e19033a8d38a24943fcbb02a8cffd8",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:pratt-parsing-binding-powers",
+      "slug": "pratt-parsing-binding-powers",
+      "track_id": "aoede",
+      "source_sha256": "598a051571d3ca179d644bc072947ac5b6ed33256c9c1c2a3e8eb4b90f1d8576",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "c707a3ed030e6822019b3d39c188bbe9695164d66f072cfb9fb1dbad344c24f2",
+      "object_key": "narration/v1/puzzles/pratt-parsing-binding-powers/c707a3ed030e6822019b/aoede-d5b0e1812a07152b.mp3",
+      "bytes": 3168140,
+      "sha256": "d5b0e1812a07152babf75daccfba40e79164e355f8a0b3bcea2e0d8b5681a521",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:gaussian-mixture-expectation-maximization",
+  "source_path": "src/content/gaussian-mixture-expectation-maximization.narration.js",
+  "source_sha256": "2e9c2321c4818e3e2c75099d06c45eb744ec7076b142992426a7a6a06a75d014",
+  "source_characters": 11180,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "4d26fcf19789365d2756eb2ab886e90132b09d0dfac22b5c0c04ffb0346905a7",
+  "generated_at": "2026-10-22T08:19:04.754Z",
+  "generated_characters": 22360,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4512,
+      "utf8_bytes": 4516,
+      "sha256": "b4e3d4a67d6cdb7d43ba12ee01c668eb882e1c05ba7bf39dddcf086459d63425"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4262,
+      "utf8_bytes": 4264,
+      "sha256": "2dca91003ded381655c0496a65c1676dc90618d79e72caa23856583928dc566c"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2406,
+      "utf8_bytes": 2410,
+      "sha256": "0a947b1d25718ad672a13ea1eafb4f0286c9541f07bf32c4877421325dd74706"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "gaussian-mixture-expectation-maximization.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "gaussian-mixture-expectation-maximization.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1052,
+      "sha256": "c0a073857bec42e001ddacc3547440347141e83918f4f002665cba4003b233a1"
+    },
+    {
+      "id": "gaussian-mixture-expectation-maximization.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1076,
+      "sha256": "4427f5820bf0f57654c14715b9108014888e6a5a5b209298d23bb6c9a0311f8f"
+    },
+    {
+      "id": "gaussian-mixture-expectation-maximization.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1179,
+      "sha256": "e590f092d10cdea193b48f156ba51e867718c0ae219ddee51897b1608e48ff28"
+    },
+    {
+      "id": "gaussian-mixture-expectation-maximization.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1076,
+      "sha256": "050c87e110d01ce776bc2f067710e00da80244b477ae96f905a89b950b9ade1b"
+    },
+    {
+      "id": "gaussian-mixture-expectation-maximization.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1172,
+      "sha256": "0c907a3f1ef9ddaf38b031d56ddb0f181e02c1934c89fe2a94e9ab89ef7b2a4f"
+    },
+    {
+      "id": "gaussian-mixture-expectation-maximization.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 986,
+      "sha256": "54a797982d68fc08c885c0b0ea1ed3c8e9ae91c0a3249c4f666352d089a20aa0"
+    },
+    {
+      "id": "gaussian-mixture-expectation-maximization.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1028,
+      "sha256": "2ad0325f1d297a62e5e1b4ec4035dbe0a5bd1344602b18fb0482634a3f403c41"
+    },
+    {
+      "id": "gaussian-mixture-expectation-maximization.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1070,
+      "sha256": "7fad873560bfb08ab0ce7d531a838a1673cd02b99c1bfeaeec4596bf2a064ea1"
+    },
+    {
+      "id": "gaussian-mixture-expectation-maximization.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1142,
+      "sha256": "fafe02909a14d06e5bdc63899f4cef85a83ddb15fbbe6b777ec9a26ccf1e475b"
+    },
+    {
+      "id": "gaussian-mixture-expectation-maximization.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1266,
+      "sha256": "46b7eb4a04cab5ba0ddb364db1a6277fb412666eede1bf4d10f7f41e0a4bed53"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/gaussian-mixture-expectation-maximization/4d26fcf19789365d2756/aoede-88414df3686f33e2.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2870732,
+      "sha256": "88414df3686f33e26fe20e87c4630ae86ff9f716a0bd251145237cf5713885eb",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b4e3d4a67d6cdb7d43ba12ee01c668eb882e1c05ba7bf39dddcf086459d63425",
+          "bytes": 1130784,
+          "sha256": "22ca15e8f2b3c75b6779d4388806a6bed9575e69d549c79b99aabcb85fedc6c8"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "2dca91003ded381655c0496a65c1676dc90618d79e72caa23856583928dc566c",
+          "bytes": 1140096,
+          "sha256": "0b439ab244159c33836142a008275ab5e367384c0019c4d2d4fa5d7ffa951fd5"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "0a947b1d25718ad672a13ea1eafb4f0286c9541f07bf32c4877421325dd74706",
+          "bytes": 599616,
+          "sha256": "8b624a623c77ec3363839dcaa69fe88841debdc1187acd7ddc5e255662c6dcb5"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/gaussian-mixture-expectation-maximization/4d26fcf19789365d2756/algieba-ceba3f25afdec03f.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3040940,
+      "sha256": "ceba3f25afdec03f9ca03c6acf0ad407fd487d11cef5c115b887dc35a72ac299",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b4e3d4a67d6cdb7d43ba12ee01c668eb882e1c05ba7bf39dddcf086459d63425",
+          "bytes": 1223232,
+          "sha256": "8bdf641d5a593256da84a932168607df0fd18d41a1a35e31f931b3027937c527"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "2dca91003ded381655c0496a65c1676dc90618d79e72caa23856583928dc566c",
+          "bytes": 1189056,
+          "sha256": "dcccd33dfdc5873ea76cb45b3fcefa731d7a6951ef0e128200957efc55e7a9de"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "0a947b1d25718ad672a13ea1eafb4f0286c9541f07bf32c4877421325dd74706",
+          "bytes": 628416,
+          "sha256": "41a9bc2acd92e627114f6d116d171f7a3d06d20a29756488acf458e581666e62"
+        }
+      ]
+    }
+  }
+}

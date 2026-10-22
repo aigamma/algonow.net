@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:dormand-prince-embedded-error",
+  "source_path": "src/content/dormand-prince-embedded-error.narration.js",
+  "source_sha256": "d563fcf88f70d74d3b624e9b6606d70e5b45b95d49542c969e76057981a1ec39",
+  "source_characters": 11877,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "2d25711f0afd9c21b958f58d25eb3950c8ebbf50d7a477973e0706d5c5e7861c",
+  "generated_at": "2026-10-22T08:48:37.631Z",
+  "generated_characters": 23754,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4627,
+      "utf8_bytes": 4639,
+      "sha256": "f2f0a201946adf72a928116302b504dde8f3f47837f5dd85ec7155a5d83749e1"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4589,
+      "utf8_bytes": 4607,
+      "sha256": "27407ab27483de3b2da751b9b4107f1a3652745412c4fcd5db6d012c02e62a56"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2661,
+      "utf8_bytes": 2667,
+      "sha256": "c40f935730872e0c9a9d02bcfaa929e9431c1cb6d6a932d4f96042d7867cbf32"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "dormand-prince-embedded-error.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "dormand-prince-embedded-error.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1175,
+      "sha256": "80afca58d5c485f77874e6ba627270401c8804d3cd5e0852c4aedcd2579f9477"
+    },
+    {
+      "id": "dormand-prince-embedded-error.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1007,
+      "sha256": "a43c7fe715218ee9d74505423c1367b45d99f43b07ace742af0d5ccd9594f043"
+    },
+    {
+      "id": "dormand-prince-embedded-error.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1245,
+      "sha256": "ae4c5297a904d029565d8647b9b5b2403647da919d56b692fcf0bd107134852a"
+    },
+    {
+      "id": "dormand-prince-embedded-error.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1079,
+      "sha256": "6ff8df0ad27ef36d5e0a7bf1f0bf68a1f4b156794956326298c7ad3ba841f907"
+    },
+    {
+      "id": "dormand-prince-embedded-error.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1283,
+      "sha256": "d3983636b2dd7a23154da75dc44b6eb482549ec90ce8964acbff25e67c65defe"
+    },
+    {
+      "id": "dormand-prince-embedded-error.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1081,
+      "sha256": "c56ce805a1d9f63556a02ece787763ddaa65c98c9ed355be13dc896b19a0f3a5"
+    },
+    {
+      "id": "dormand-prince-embedded-error.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1121,
+      "sha256": "fb954cc87ee8fdd0c89f5887a1d7d1c9a1896b0b4a2d2cb89f75cf81fb0f21db"
+    },
+    {
+      "id": "dormand-prince-embedded-error.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1114,
+      "sha256": "38bc8babe1150bca77b025ed044ac12165f4242a27bcbe1d2bf8e67696230c54"
+    },
+    {
+      "id": "dormand-prince-embedded-error.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1205,
+      "sha256": "8d2a146d75fb884d3d1dec693fea53df8a6a3f13b940e64356e72d4a2ac798c2"
+    },
+    {
+      "id": "dormand-prince-embedded-error.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1460,
+      "sha256": "3fd1ff7f43b1112040084400eed2d45863f894064cd363cb55e05d2dd2034c81"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/dormand-prince-embedded-error/2d25711f0afd9c21b958/aoede-dd728bd0921238d2.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3030764,
+      "sha256": "dd728bd0921238d2a857aa325149f93bd515e4a1dd032b03ec28fb651cd8c70d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "f2f0a201946adf72a928116302b504dde8f3f47837f5dd85ec7155a5d83749e1",
+          "bytes": 1184832,
+          "sha256": "d4956f741ec24ca2d31cad49b129280d9c47a46b84e6c533ee2c8dcd00530faf"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "27407ab27483de3b2da751b9b4107f1a3652745412c4fcd5db6d012c02e62a56",
+          "bytes": 1181664,
+          "sha256": "ed920eda10c9849293794e91e70bd8ef4dedaf949cebe06acd119705442da6b4"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "c40f935730872e0c9a9d02bcfaa929e9431c1cb6d6a932d4f96042d7867cbf32",
+          "bytes": 664032,
+          "sha256": "ebf226fdc389972ecc52615314d4b1be3019cffcba9f74a34dae5f8ced6cf9f5"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/dormand-prince-embedded-error/2d25711f0afd9c21b958/algieba-6dfca5223284fdf1.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3240236,
+      "sha256": "6dfca5223284fdf11ff5dba28baad08a2cf6fea8c138ea0070792946cdecdf19",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "f2f0a201946adf72a928116302b504dde8f3f47837f5dd85ec7155a5d83749e1",
+          "bytes": 1288992,
+          "sha256": "473bee285de213ce39fc3b7cb7bb84d5d7486af4a7feb743b7b636cf960315f9"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "27407ab27483de3b2da751b9b4107f1a3652745412c4fcd5db6d012c02e62a56",
+          "bytes": 1258656,
+          "sha256": "9e31310f8df50435d2302858a4d19bc1b575cbfee302463720d0dcbe5e05d6c7"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "c40f935730872e0c9a9d02bcfaa929e9431c1cb6d6a932d4f96042d7867cbf32",
+          "bytes": 692352,
+          "sha256": "b6b4e6a40258a8e2346a662e11b3ac459e66f38549efa186b4b019eb8dfbba2f"
+        }
+      ]
+    }
+  }
+}

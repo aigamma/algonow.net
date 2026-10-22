@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net arithmetic-coding-renormalization preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T09:05:44.900Z",
+  "publication_sha256": "66ffbc4c09abc7ee62939282fad2a8e1042be78632047c329ae9ce4d6b9c2859",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6666520,
+  "objects": [
+    {
+      "stable_id": "puzzle:arithmetic-coding-renormalization",
+      "slug": "arithmetic-coding-renormalization",
+      "track_id": "algieba",
+      "source_sha256": "03539521d27cb85e03e5f7b096f3b24d026fea8f0dca663d5521afe121993d0f",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "19a56b7c775f9d020bc489b2ae7f2b45d088e10b88fc33185cbd81d490ddd1ae",
+      "object_key": "narration/v1/puzzles/arithmetic-coding-renormalization/19a56b7c775f9d020bc4/algieba-321ce489030ad3a6.mp3",
+      "bytes": 3419852,
+      "sha256": "321ce489030ad3a6bd7995ed799b59325597d668b7f34d16487fd9b596581cc7",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:arithmetic-coding-renormalization",
+      "slug": "arithmetic-coding-renormalization",
+      "track_id": "aoede",
+      "source_sha256": "03539521d27cb85e03e5f7b096f3b24d026fea8f0dca663d5521afe121993d0f",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "19a56b7c775f9d020bc489b2ae7f2b45d088e10b88fc33185cbd81d490ddd1ae",
+      "object_key": "narration/v1/puzzles/arithmetic-coding-renormalization/19a56b7c775f9d020bc4/aoede-04e6f51aefebd8a9.mp3",
+      "bytes": 3246668,
+      "sha256": "04e6f51aefebd8a9fd7388008eae0ea95d71d0a1d6120b5d89ee5461d4531f74",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

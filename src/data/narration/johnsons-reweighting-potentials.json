@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:johnsons-reweighting-potentials",
+  "source_path": "src/content/johnsons-reweighting-potentials.narration.js",
+  "source_sha256": "373703c99e850066a37fbc9947edf44feefb00ab7e9e86c52b0d2235af207ac4",
+  "source_characters": 10654,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "5be1f2d2c373c602c33f3e45be9341aa5ebead01cb04622f6d2a44c47c950782",
+  "generated_at": "2026-10-22T08:15:35.180Z",
+  "generated_characters": 21308,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4493,
+      "utf8_bytes": 4511,
+      "sha256": "2ce89a5fdeb1b1981ac102ec11d271cc9b82d74575cf464e464a83feead612f0"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3963,
+      "utf8_bytes": 3975,
+      "sha256": "f696ae8e4cac831d99fc0d30bcf6d1cce26e5bbc5f1edbf7a331ee061653de46"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2198,
+      "utf8_bytes": 2208,
+      "sha256": "05d09000211e75f201f640e56e581c68b984ba7545c2723113097c9733973c82"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "johnsons-reweighting-potentials.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "johnsons-reweighting-potentials.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1053,
+      "sha256": "57629c1d89d0368b19fca826a8b40ff956241391dc410b24bcaf780919eb5f6d"
+    },
+    {
+      "id": "johnsons-reweighting-potentials.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1070,
+      "sha256": "86cbbd79701018fcbb0c83559dc3022c202e59ac42ceca09a321141f8e5cd310"
+    },
+    {
+      "id": "johnsons-reweighting-potentials.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1206,
+      "sha256": "8629fb730b11df5750d8930f6b311496b20b34b3f44b85e0bc08e5c8f0f454c5"
+    },
+    {
+      "id": "johnsons-reweighting-potentials.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1049,
+      "sha256": "ae5799093c0406c6dfdf93f44ca425fcfb9697c41ee7a2cb1cbed6c9e8dc38b0"
+    },
+    {
+      "id": "johnsons-reweighting-potentials.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1075,
+      "sha256": "e9f7b87b94850666ed9be6514c04979197842076b8b6affed5b19b0c4e8e1658"
+    },
+    {
+      "id": "johnsons-reweighting-potentials.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1027,
+      "sha256": "2f519e91ffc7ddd1d11fe7015006600e3f354a6ef902a6b7a856949f6aa35b43"
+    },
+    {
+      "id": "johnsons-reweighting-potentials.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 934,
+      "sha256": "8081e94bf67b1eb5c436847df832604384f91e2930d228e508c87ef41291c76b"
+    },
+    {
+      "id": "johnsons-reweighting-potentials.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 931,
+      "sha256": "d3776a7c14b14c4fa76ef97d244ede878f7ffaad8ce3319ed13173eda949abe3"
+    },
+    {
+      "id": "johnsons-reweighting-potentials.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1030,
+      "sha256": "fe99013acb5ae70657435eb5d72bea2603c06aee692c18acc1d29daed2b7e352"
+    },
+    {
+      "id": "johnsons-reweighting-potentials.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1176,
+      "sha256": "a5baef19979f1e3fd00829669984c19914e5d97af00c9148d94999d5edf88e9b"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/johnsons-reweighting-potentials/5be1f2d2c373c602c33f/aoede-6adc31b8ed3f8761.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2848268,
+      "sha256": "6adc31b8ed3f8761c9a9251742d54eee7eb61951e510e8498b1ae5d23cd20b3d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2ce89a5fdeb1b1981ac102ec11d271cc9b82d74575cf464e464a83feead612f0",
+          "bytes": 1174464,
+          "sha256": "682c176400d2643b4f0bce6e794b70bd7606b1af30ee2b3538a62b2701038387"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "f696ae8e4cac831d99fc0d30bcf6d1cce26e5bbc5f1edbf7a331ee061653de46",
+          "bytes": 1074144,
+          "sha256": "6cb9ec06f6674b197a110c5865472f7da80b1073580538da3e6b7140fea5dacf"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "05d09000211e75f201f640e56e581c68b984ba7545c2723113097c9733973c82",
+          "bytes": 599424,
+          "sha256": "5245bcc559bb3cccd7027fb74ceed9270de34546c05002aa8edab042cbd32c74"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/johnsons-reweighting-potentials/5be1f2d2c373c602c33f/algieba-5a1065eabdcc3923.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2949548,
+      "sha256": "5a1065eabdcc3923c4b65d509cc7538f6193ffd47ddbb636290cc8c528045275",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2ce89a5fdeb1b1981ac102ec11d271cc9b82d74575cf464e464a83feead612f0",
+          "bytes": 1241664,
+          "sha256": "7efd3a8ab2a55a1ad48bbca9cb58e39d7ae7e48e163abdd292b2db902eb5a246"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "f696ae8e4cac831d99fc0d30bcf6d1cce26e5bbc5f1edbf7a331ee061653de46",
+          "bytes": 1110144,
+          "sha256": "596def471cdff529258560cf3e21ba0c22b3dce945b518eb1bb9cc06ad2a446d"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "05d09000211e75f201f640e56e581c68b984ba7545c2723113097c9733973c82",
+          "bytes": 597504,
+          "sha256": "4190e2ae71fe43a2028c9e6c03ca463a922da56d373f5722ff65d6763d8fbf0f"
+        }
+      ]
+    }
+  }
+}

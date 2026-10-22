@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net work-stealing-random-victims preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T09:08:41.751Z",
+  "publication_sha256": "dd33f8043cbe4e3220702bf64d239451c190c84fb92efe0cae1e8dde321d1454",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6513880,
+  "objects": [
+    {
+      "stable_id": "puzzle:work-stealing-random-victims",
+      "slug": "work-stealing-random-victims",
+      "track_id": "algieba",
+      "source_sha256": "381476487bcb1aa4357f3e0e9518adea5b6dbd502824814f7a29bb3cd29db272",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "592f217650a3da0058a4da23cf792116f357f5db68ca7db70e42b27ec47b069a",
+      "object_key": "narration/v1/puzzles/work-stealing-random-victims/592f217650a3da0058a4/algieba-c42a15e6b1372fd7.mp3",
+      "bytes": 3348428,
+      "sha256": "c42a15e6b1372fd766c71fddda5237c697db62d3f2954c50f5b291287a71895e",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:work-stealing-random-victims",
+      "slug": "work-stealing-random-victims",
+      "track_id": "aoede",
+      "source_sha256": "381476487bcb1aa4357f3e0e9518adea5b6dbd502824814f7a29bb3cd29db272",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "592f217650a3da0058a4da23cf792116f357f5db68ca7db70e42b27ec47b069a",
+      "object_key": "narration/v1/puzzles/work-stealing-random-victims/592f217650a3da0058a4/aoede-a292c54d67136807.mp3",
+      "bytes": 3165452,
+      "sha256": "a292c54d6713680742ef30aa87a6cf06d7a610e765aeda8feaa4b80d0228290d",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net alphabeta-iterative-deepening preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T09:04:44.953Z",
+  "publication_sha256": "3c3f1f91d05890dce15c3d0d07602423e7254b417435df1bc3260b7d42315bc0",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6476536,
+  "objects": [
+    {
+      "stable_id": "puzzle:alphabeta-iterative-deepening",
+      "slug": "alphabeta-iterative-deepening",
+      "track_id": "algieba",
+      "source_sha256": "b109f0888f0bb4cf5eec4d90e07055201e477bfba10d7379d38d958ac2ce76e6",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "a853d3dac8778e889d804e8985026e54042784c538f7f1278289ffd0bff66f1e",
+      "object_key": "narration/v1/puzzles/alphabeta-iterative-deepening/a853d3dac8778e889d80/algieba-3757aa6aca177ed2.mp3",
+      "bytes": 3284588,
+      "sha256": "3757aa6aca177ed2ed72dc39f8203dbd9c9e75913d63d900d0f2552b8b1fff5b",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:alphabeta-iterative-deepening",
+      "slug": "alphabeta-iterative-deepening",
+      "track_id": "aoede",
+      "source_sha256": "b109f0888f0bb4cf5eec4d90e07055201e477bfba10d7379d38d958ac2ce76e6",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "a853d3dac8778e889d804e8985026e54042784c538f7f1278289ffd0bff66f1e",
+      "object_key": "narration/v1/puzzles/alphabeta-iterative-deepening/a853d3dac8778e889d80/aoede-03e698ab724de5d3.mp3",
+      "bytes": 3191948,
+      "sha256": "03e698ab724de5d3945039b3a73fafa0e68dccb71024b8eb743bb732ec6e95b0",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

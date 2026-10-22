@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:pratt-parsing-binding-powers",
+  "source_path": "src/content/pratt-parsing-binding-powers.narration.js",
+  "source_sha256": "598a051571d3ca179d644bc072947ac5b6ed33256c9c1c2a3e8eb4b90f1d8576",
+  "source_characters": 12103,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "c707a3ed030e6822019b3d39c188bbe9695164d66f072cfb9fb1dbad344c24f2",
+  "generated_at": "2026-10-22T08:52:21.352Z",
+  "generated_characters": 24206,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4838,
+      "utf8_bytes": 4862,
+      "sha256": "a232d706a44ade764b69aabb79141600f05fd80346a0903746dd5ef573a52d4f"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4707,
+      "utf8_bytes": 4723,
+      "sha256": "cd3423596f028f7dd29668cb9aa940732aa74f25f2956bfff9576229179af571"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2558,
+      "utf8_bytes": 2562,
+      "sha256": "63114d26df93e486a98dc47ef795eb47b421f2f530c49a4988e25349569275d2"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "pratt-parsing-binding-powers.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "pratt-parsing-binding-powers.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1334,
+      "sha256": "f82e50636b71dd9bfb4918a181136233efe9e1af5980cec5226f41bc06132d77"
+    },
+    {
+      "id": "pratt-parsing-binding-powers.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1087,
+      "sha256": "402112a4029f7ad8ea156acd6b4c5514510b83ce648d94a9faf4191a1b7956a0"
+    },
+    {
+      "id": "pratt-parsing-binding-powers.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1186,
+      "sha256": "b42cbb299c12bc98f94e8170147f8bad9de79c9de3bcf72a73a926325604acb5"
+    },
+    {
+      "id": "pratt-parsing-binding-powers.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1122,
+      "sha256": "40ff2ebe4fea71c245d4898cd5744f58dfed083a77fb9b185cc870e31a7a8360"
+    },
+    {
+      "id": "pratt-parsing-binding-powers.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1260,
+      "sha256": "b82f2ca2d11a19408075ed0f4b9c99081cabe886efe425afc9fd295d78a1c60f"
+    },
+    {
+      "id": "pratt-parsing-binding-powers.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1110,
+      "sha256": "484f17e25c4122f23041294e53a32799dba8cacd38f916be3153adc248d5cf54"
+    },
+    {
+      "id": "pratt-parsing-binding-powers.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1115,
+      "sha256": "2a80b03d4aac398f2e9749ae44d7c413790345a8e5484c835b6b31400c43b280"
+    },
+    {
+      "id": "pratt-parsing-binding-powers.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1230,
+      "sha256": "f71b19df9022460f0b3c72df61aa61a91467a5cbdb7292a588906b4dcf3e06bb"
+    },
+    {
+      "id": "pratt-parsing-binding-powers.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1144,
+      "sha256": "d0ab0a495b5fdf0df6f0345969233f0a1ac60f2ece426387cfa7c5131c47d025"
+    },
+    {
+      "id": "pratt-parsing-binding-powers.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1416,
+      "sha256": "921ddeeff4423805ac44f0cd81bb6c0e2ea69ac248e4fa7f4bf1b3729f9e9c6d"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/pratt-parsing-binding-powers/c707a3ed030e6822019b/aoede-d5b0e1812a07152b.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3168140,
+      "sha256": "d5b0e1812a07152babf75daccfba40e79164e355f8a0b3bcea2e0d8b5681a521",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "a232d706a44ade764b69aabb79141600f05fd80346a0903746dd5ef573a52d4f",
+          "bytes": 1261152,
+          "sha256": "2dad08980835f3056d6a1c485fc378b100c1405836ddcfc4f13c9384ec4a477a"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "cd3423596f028f7dd29668cb9aa940732aa74f25f2956bfff9576229179af571",
+          "bytes": 1250016,
+          "sha256": "4a975c6a39c2197a2ce560f91cb75a5756f24f65d774f9469e0db1d542dd88d5"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "63114d26df93e486a98dc47ef795eb47b421f2f530c49a4988e25349569275d2",
+          "bytes": 656736,
+          "sha256": "88cc83410ee22892d9e3ea916d6bf52aee68536d7bebb69aabd94b344e28b0a3"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/pratt-parsing-binding-powers/c707a3ed030e6822019b/algieba-310bca51bfe4dadd.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3289004,
+      "sha256": "310bca51bfe4daddfab38a03bb76854de0e19033a8d38a24943fcbb02a8cffd8",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "a232d706a44ade764b69aabb79141600f05fd80346a0903746dd5ef573a52d4f",
+          "bytes": 1291296,
+          "sha256": "7b398cf4dfbc1127fd454b509c92d921afcc4dbcbb83a83edab103eb0cea8afd"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "cd3423596f028f7dd29668cb9aa940732aa74f25f2956bfff9576229179af571",
+          "bytes": 1275936,
+          "sha256": "9a774a867108d02b4c2859df3f458e5e264473d13c1f953661dc661a8bdd1421"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "63114d26df93e486a98dc47ef795eb47b421f2f530c49a4988e25349569275d2",
+          "bytes": 721536,
+          "sha256": "a808bba997b4cd9b26f68ba3e8b93beb23be8177383aa84744ed00fa788ff8cb"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net dormand-prince-embedded-error preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T09:06:43.791Z",
+  "publication_sha256": "364d806e0a7c4f678f872eaf8e2ff8d67b86ec0630fda0009b6383d3f479ad1b",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6271000,
+  "objects": [
+    {
+      "stable_id": "puzzle:dormand-prince-embedded-error",
+      "slug": "dormand-prince-embedded-error",
+      "track_id": "algieba",
+      "source_sha256": "d563fcf88f70d74d3b624e9b6606d70e5b45b95d49542c969e76057981a1ec39",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "2d25711f0afd9c21b958f58d25eb3950c8ebbf50d7a477973e0706d5c5e7861c",
+      "object_key": "narration/v1/puzzles/dormand-prince-embedded-error/2d25711f0afd9c21b958/algieba-6dfca5223284fdf1.mp3",
+      "bytes": 3240236,
+      "sha256": "6dfca5223284fdf11ff5dba28baad08a2cf6fea8c138ea0070792946cdecdf19",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:dormand-prince-embedded-error",
+      "slug": "dormand-prince-embedded-error",
+      "track_id": "aoede",
+      "source_sha256": "d563fcf88f70d74d3b624e9b6606d70e5b45b95d49542c969e76057981a1ec39",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "2d25711f0afd9c21b958f58d25eb3950c8ebbf50d7a477973e0706d5c5e7861c",
+      "object_key": "narration/v1/puzzles/dormand-prince-embedded-error/2d25711f0afd9c21b958/aoede-dd728bd0921238d2.mp3",
+      "bytes": 3030764,
+      "sha256": "dd728bd0921238d2a857aa325149f93bd515e4a1dd032b03ec28fb651cd8c70d",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

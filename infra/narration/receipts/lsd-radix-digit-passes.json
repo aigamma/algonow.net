@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net lsd-radix-digit-passes preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T09:02:47.661Z",
+  "publication_sha256": "209b57f1947911f4cba95a75adef5ba7888633eaa3e35d357e3d1f100eccd724",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6012760,
+  "objects": [
+    {
+      "stable_id": "puzzle:lsd-radix-digit-passes",
+      "slug": "lsd-radix-digit-passes",
+      "track_id": "algieba",
+      "source_sha256": "d95228204f382f33e285375a8f1f6f0164ec0945127b8d3e9b70a2f6fce2fdd8",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "b64259c76f04a2b253d0d5b3d792fd7ff637844ec9df1b3e13d63e488f93f34a",
+      "object_key": "narration/v1/puzzles/lsd-radix-digit-passes/b64259c76f04a2b253d0/algieba-061d39b2c828a5cf.mp3",
+      "bytes": 3059468,
+      "sha256": "061d39b2c828a5cf8f27f4e25aa7cb0cd6b15ef79f2271cf589ded79ada8146e",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:lsd-radix-digit-passes",
+      "slug": "lsd-radix-digit-passes",
+      "track_id": "aoede",
+      "source_sha256": "d95228204f382f33e285375a8f1f6f0164ec0945127b8d3e9b70a2f6fce2fdd8",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "b64259c76f04a2b253d0d5b3d792fd7ff637844ec9df1b3e13d63e488f93f34a",
+      "object_key": "narration/v1/puzzles/lsd-radix-digit-passes/b64259c76f04a2b253d0/aoede-94820a13350dc06b.mp3",
+      "bytes": 2953292,
+      "sha256": "94820a13350dc06b2e23c45241856ef59f7880891ee1aadce2501be8deb82e75",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

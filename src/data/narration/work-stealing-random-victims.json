@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:work-stealing-random-victims",
+  "source_path": "src/content/work-stealing-random-victims.narration.js",
+  "source_sha256": "381476487bcb1aa4357f3e0e9518adea5b6dbd502824814f7a29bb3cd29db272",
+  "source_characters": 12227,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "592f217650a3da0058a4da23cf792116f357f5db68ca7db70e42b27ec47b069a",
+  "generated_at": "2026-10-22T08:56:10.956Z",
+  "generated_characters": 24454,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 3828,
+      "utf8_bytes": 3856,
+      "sha256": "69a6d44574d1ca6416ab3753848e10e94c5d04260c431c965c2251b575b36203"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4676,
+      "utf8_bytes": 4688,
+      "sha256": "57a9087d623e077cf3c73daddf7310c0f37bfb5fa408258056aabe1b5032bce3"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 3723,
+      "utf8_bytes": 3731,
+      "sha256": "76011bf3de6266747ec89af22423b3eeec8410cd88cd9bed53fcfe7c14a60648"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "work-stealing-random-victims.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "work-stealing-random-victims.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1306,
+      "sha256": "eda21ef164f15a993467fb1ce7ef7b2ca23f417ca1bbf3fd7aca716599a9c10f"
+    },
+    {
+      "id": "work-stealing-random-victims.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1143,
+      "sha256": "1321ae201d7142f38b5b9c0904890d19597661772ffd6adfacacad8855e2a2fa"
+    },
+    {
+      "id": "work-stealing-random-victims.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1276,
+      "sha256": "f4ae676acda553a4ca43b74013bb3ef1f2efe82875012a2ab7a3b39cf378771a"
+    },
+    {
+      "id": "work-stealing-random-victims.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1167,
+      "sha256": "dd6b813f8d2ed2d20b69a904bbc2c9c70c91d4cdad661e8a8080ea85b0fcdc23"
+    },
+    {
+      "id": "work-stealing-random-victims.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1217,
+      "sha256": "72cb15fede6139d226cc6fb236c1bee97a4e01ec7a8e7a9ba9e07807cca8b813"
+    },
+    {
+      "id": "work-stealing-random-victims.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1113,
+      "sha256": "974b8525ab792d49fc2f4529eaf066c3a360677bd1c07e1a04fe951a2a4cfd8d"
+    },
+    {
+      "id": "work-stealing-random-victims.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1183,
+      "sha256": "04d1c5fddeea5a54e5071aa3ec47e95c99788b52f6a952f8b5a2274fb0a8f4c6"
+    },
+    {
+      "id": "work-stealing-random-victims.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1191,
+      "sha256": "997a25aaff0ae541f7a9bc79f754ab199b60915b1d55398f70ff88b4313f59e1"
+    },
+    {
+      "id": "work-stealing-random-victims.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1103,
+      "sha256": "80256380987a044f00f3b4c82647c37c79b4a6911f11e3122f243603291719be"
+    },
+    {
+      "id": "work-stealing-random-victims.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1433,
+      "sha256": "321c54737ddf6017375b6c791c5af2d1ac820c6f919e1b6c94b101952e0ef270"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/work-stealing-random-victims/592f217650a3da0058a4/aoede-a292c54d67136807.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3165452,
+      "sha256": "a292c54d6713680742ef30aa87a6cf06d7a610e765aeda8feaa4b80d0228290d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "69a6d44574d1ca6416ab3753848e10e94c5d04260c431c965c2251b575b36203",
+          "bytes": 1059456,
+          "sha256": "5e3cc29956f24702d73afbee80daab8f0c7799c1540a7c7a2ae1e2a2a2a535df"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "57a9087d623e077cf3c73daddf7310c0f37bfb5fa408258056aabe1b5032bce3",
+          "bytes": 1195296,
+          "sha256": "b64dedec7977f89092488214071e9bdf09d85ebc8c1d5ee7476212c1ef6a550c"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "76011bf3de6266747ec89af22423b3eeec8410cd88cd9bed53fcfe7c14a60648",
+          "bytes": 910464,
+          "sha256": "73f5859b6c33918661a61fce1d3524092dc3f171f2d51ec6f7280db3168af92a"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/work-stealing-random-victims/592f217650a3da0058a4/algieba-c42a15e6b1372fd7.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3348428,
+      "sha256": "c42a15e6b1372fd766c71fddda5237c697db62d3f2954c50f5b291287a71895e",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "69a6d44574d1ca6416ab3753848e10e94c5d04260c431c965c2251b575b36203",
+          "bytes": 1054944,
+          "sha256": "27951a886840caa7d2e918bbcae93a5a8e9780747ba6cc772b86602b3bc29ccc"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "57a9087d623e077cf3c73daddf7310c0f37bfb5fa408258056aabe1b5032bce3",
+          "bytes": 1323264,
+          "sha256": "6c0176a54e2676a6ce4a9fe3afeec8111d1710357640f8b3bd05d3b80d602343"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "76011bf3de6266747ec89af22423b3eeec8410cd88cd9bed53fcfe7c14a60648",
+          "bytes": 969984,
+          "sha256": "7350571edc05ee84716a52412d05f5541dcf50e88fe4e753d904d44ecc9ec43d"
+        }
+      ]
+    }
+  }
+}

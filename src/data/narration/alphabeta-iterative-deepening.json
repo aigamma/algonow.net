@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:alphabeta-iterative-deepening",
+  "source_path": "src/content/alphabeta-iterative-deepening.narration.js",
+  "source_sha256": "b109f0888f0bb4cf5eec4d90e07055201e477bfba10d7379d38d958ac2ce76e6",
+  "source_characters": 12303,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "a853d3dac8778e889d804e8985026e54042784c538f7f1278289ffd0bff66f1e",
+  "generated_at": "2026-10-22T08:41:00.872Z",
+  "generated_characters": 24606,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4917,
+      "utf8_bytes": 4931,
+      "sha256": "2718b638b5d555381309514abf42b01e5bacdca7ca38434dddad67599609b58d"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4878,
+      "utf8_bytes": 4888,
+      "sha256": "1d5012dd3349a750865ab38eb5d3dd1110ee912a11953a5cec0546c98f915db4"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 2508,
+      "utf8_bytes": 2510,
+      "sha256": "42dd56946daec92d03dffb517f954d89e940545cdf016e937de9f15d082725ea"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "alphabeta-iterative-deepening.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "alphabeta-iterative-deepening.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1216,
+      "sha256": "4f1098017eeaa1289c615e5233a3f299e97bd2379ae6a7584cf225456b00d7a3"
+    },
+    {
+      "id": "alphabeta-iterative-deepening.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1291,
+      "sha256": "38893f2a53c202dd3dee159245cd7dfe1769dbb4362c95d36925c4775ee8a3cd"
+    },
+    {
+      "id": "alphabeta-iterative-deepening.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1135,
+      "sha256": "8c94fc2eae061bbab9c7cc3af7f4278ac4febdb4109da65b231aa3474d10c744"
+    },
+    {
+      "id": "alphabeta-iterative-deepening.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1156,
+      "sha256": "ceca1f343ed51a10c66f4650acbbd81dfb212c7cf12205e7cc4067c8418628a9"
+    },
+    {
+      "id": "alphabeta-iterative-deepening.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1355,
+      "sha256": "24114c448ed36b3accc6af52ed021e3541766c3ab31d1d69b722edaad0447353"
+    },
+    {
+      "id": "alphabeta-iterative-deepening.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1286,
+      "sha256": "f239d7143878a2779cd2d0417ce6cfb1e67d6da3ddbf6993509e62091e914417"
+    },
+    {
+      "id": "alphabeta-iterative-deepening.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1110,
+      "sha256": "51049a6225997c736c8b39dbabbe980a9eff46656718c56ccc7ed18aa67c6f23"
+    },
+    {
+      "id": "alphabeta-iterative-deepening.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1129,
+      "sha256": "6c9aa6112286e2af2d05e42163ab5546a4626fba51d0a1c3919ba0c2177a0eb9"
+    },
+    {
+      "id": "alphabeta-iterative-deepening.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1174,
+      "sha256": "b9c0b13509158d931d18a94f1f3c66b168b3237b8183270e10330599236f5e1a"
+    },
+    {
+      "id": "alphabeta-iterative-deepening.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1334,
+      "sha256": "4e70c9259e7b8fec32e7b1e9131659afc102d5cb50bc0bdfe241b1e79f8db79d"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/alphabeta-iterative-deepening/a853d3dac8778e889d80/aoede-03e698ab724de5d3.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3191948,
+      "sha256": "03e698ab724de5d3945039b3a73fafa0e68dccb71024b8eb743bb732ec6e95b0",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2718b638b5d555381309514abf42b01e5bacdca7ca38434dddad67599609b58d",
+          "bytes": 1247616,
+          "sha256": "dbbcf891d30ea4b30ffa5cab1d67df3e1cee23e747558652740ef6367ab1bf38"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "1d5012dd3349a750865ab38eb5d3dd1110ee912a11953a5cec0546c98f915db4",
+          "bytes": 1276992,
+          "sha256": "f1cfa196339185b21ba666b0301e4aa9ee5bc67fd1c631797972639ab15857be"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "42dd56946daec92d03dffb517f954d89e940545cdf016e937de9f15d082725ea",
+          "bytes": 667104,
+          "sha256": "c627e4406ed2720b4cf9009a62ba4090ce72cba79d8864b855c7c983bab8abe1"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/alphabeta-iterative-deepening/a853d3dac8778e889d80/algieba-3757aa6aca177ed2.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3284588,
+      "sha256": "3757aa6aca177ed2ed72dc39f8203dbd9c9e75913d63d900d0f2552b8b1fff5b",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "2718b638b5d555381309514abf42b01e5bacdca7ca38434dddad67599609b58d",
+          "bytes": 1275264,
+          "sha256": "cf43bbad3920355e8e404a8b24abd554f8563b2e03f30246d9637783bd6199bd"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "1d5012dd3349a750865ab38eb5d3dd1110ee912a11953a5cec0546c98f915db4",
+          "bytes": 1327104,
+          "sha256": "015e99a5c9036be12a46022e5c0b704e1e777d6e03a7e7393f3d3204c036b370"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "42dd56946daec92d03dffb517f954d89e940545cdf016e937de9f15d082725ea",
+          "bytes": 681984,
+          "sha256": "e6af8028c0b5f14ccce663b378a80a5cbc42ef51b5fbbe59d415a9556d5300ab"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net gaussian-mixture-expectation-maximization preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T08:58:59.228Z",
+  "publication_sha256": "3642d1c397f97e93fcc2f1dea46cb0c28f32eeb1f71e9b5d9756c81b8e0f4a9c",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 5911672,
+  "objects": [
+    {
+      "stable_id": "puzzle:gaussian-mixture-expectation-maximization",
+      "slug": "gaussian-mixture-expectation-maximization",
+      "track_id": "algieba",
+      "source_sha256": "2e9c2321c4818e3e2c75099d06c45eb744ec7076b142992426a7a6a06a75d014",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "4d26fcf19789365d2756eb2ab886e90132b09d0dfac22b5c0c04ffb0346905a7",
+      "object_key": "narration/v1/puzzles/gaussian-mixture-expectation-maximization/4d26fcf19789365d2756/algieba-ceba3f25afdec03f.mp3",
+      "bytes": 3040940,
+      "sha256": "ceba3f25afdec03f9ca03c6acf0ad407fd487d11cef5c115b887dc35a72ac299",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:gaussian-mixture-expectation-maximization",
+      "slug": "gaussian-mixture-expectation-maximization",
+      "track_id": "aoede",
+      "source_sha256": "2e9c2321c4818e3e2c75099d06c45eb744ec7076b142992426a7a6a06a75d014",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "4d26fcf19789365d2756eb2ab886e90132b09d0dfac22b5c0c04ffb0346905a7",
+      "object_key": "narration/v1/puzzles/gaussian-mixture-expectation-maximization/4d26fcf19789365d2756/aoede-88414df3686f33e2.mp3",
+      "bytes": 2870732,
+      "sha256": "88414df3686f33e26fe20e87c4630ae86ff9f716a0bd251145237cf5713885eb",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

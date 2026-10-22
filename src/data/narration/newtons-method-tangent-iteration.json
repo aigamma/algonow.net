@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:newtons-method-tangent-iteration",
+  "source_path": "src/content/newtons-method-tangent-iteration.narration.js",
+  "source_sha256": "52b9a202e695d81d5f68f01b8fa5bfae29d3826793fff6c576c6f27805257b00",
+  "source_characters": 8806,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "9cddfc409330856fc1abff6548d1351bd548761f3c14edcec2600465432e3dc5",
+  "generated_at": "2026-10-22T05:44:36.902Z",
+  "generated_characters": 17612,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4913,
+      "utf8_bytes": 4931,
+      "sha256": "f5a5bf28756172b8244735e8f98492cba931a72cc92126a80d0bb943b6bce474"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3893,
+      "utf8_bytes": 3913,
+      "sha256": "3ee1acd9619b5f792b42744c99a62180f9ac9ead64d090d20cdcf85816d77e83"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "newtons-method-tangent-iteration.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "newtons-method-tangent-iteration.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 688,
+      "sha256": "145316ac58b2081c3111c9ea9480bd1534b3b313a38deb1a4d6f194013b7ddb5"
+    },
+    {
+      "id": "newtons-method-tangent-iteration.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 968,
+      "sha256": "b1902315e99bc29c3de525d4500918af0fdc8fd938092124f9418ff2aa54446a"
+    },
+    {
+      "id": "newtons-method-tangent-iteration.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 964,
+      "sha256": "6b340562a0170774cbed935251bcedf5f911039b71060411e099cf269a03b454"
+    },
+    {
+      "id": "newtons-method-tangent-iteration.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 773,
+      "sha256": "881d6b133c70e33bdadcfc4c6c5a443d4a0d4c5847140b01911d17ff8cfdf9e5"
+    },
+    {
+      "id": "newtons-method-tangent-iteration.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 741,
+      "sha256": "33c41359f33173f2321f46a6ba1f29750a6c3f06c821976424814e43ad2658d4"
+    },
+    {
+      "id": "newtons-method-tangent-iteration.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 660,
+      "sha256": "cc0e6845ed70d374098a94cec8608539355066f6457f1226d2ad4aa80e133e50"
+    },
+    {
+      "id": "newtons-method-tangent-iteration.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1110,
+      "sha256": "a2a8e8f66e53716b7f61ef81c703ae16534876356e3ac6db7f21dca70b54f21b"
+    },
+    {
+      "id": "newtons-method-tangent-iteration.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 892,
+      "sha256": "ba5a08abe6d75cc39d12197b3c9df632b68d189ee1bd72a399a022ed2a80d10f"
+    },
+    {
+      "id": "newtons-method-tangent-iteration.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 840,
+      "sha256": "0898fd65f9d5dc30038f29691372656b5f6cd5db21d586d083167094b4980db0"
+    },
+    {
+      "id": "newtons-method-tangent-iteration.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1065,
+      "sha256": "a73af3ed48ff6a963ba0d2aaef5222150e2c00c5c9ecc4f4005986b26b70dd9c"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/newtons-method-tangent-iteration/9cddfc409330856fc1ab/aoede-8443b5f31434717e.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2303852,
+      "sha256": "8443b5f31434717edef199b22aeaab9cf4e5d6f52510ae0161375c5ecd80d329",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "f5a5bf28756172b8244735e8f98492cba931a72cc92126a80d0bb943b6bce474",
+          "bytes": 1288992,
+          "sha256": "fff5a16ddadd2fdd18bc08283d314055e1bfefa2d93780daa3dbfcd1b54797be"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "3ee1acd9619b5f792b42744c99a62180f9ac9ead64d090d20cdcf85816d77e83",
+          "bytes": 1014624,
+          "sha256": "ac42e7ef1aad28c82a67afb7a87768b3c5bc75f425eae571c086e1c19f37ebc0"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/newtons-method-tangent-iteration/9cddfc409330856fc1ab/algieba-34bb7d62ea2f6aed.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2481548,
+      "sha256": "34bb7d62ea2f6aed3c4d874b01fc4f581ae8d79ed57e8b9b2a1fb55eeda7e043",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "f5a5bf28756172b8244735e8f98492cba931a72cc92126a80d0bb943b6bce474",
+          "bytes": 1321056,
+          "sha256": "420a47f329c1ee7ca3a3bf51fc3917a66579bf0ac3068019a1a6a8337218acfb"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "3ee1acd9619b5f792b42744c99a62180f9ac9ead64d090d20cdcf85816d77e83",
+          "bytes": 1160256,
+          "sha256": "0d470c340107aee0f337bb5620d28bf170b50568932708645a6d1094d5da28f0"
+        }
+      ]
+    }
+  }
+}

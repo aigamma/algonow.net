@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:hopcroft-karp-layered-phases",
+  "source_path": "src/content/hopcroft-karp-layered-phases.narration.js",
+  "source_sha256": "243ac97777e2efae842f2d3c8419a64dc7390401c662e8b4620482acb39b0924",
+  "source_characters": 8318,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "e51c3c331fcd2d07a3f8cc9599d198489afa70267d9ae67d6fd3dee06008c977",
+  "generated_at": "2026-10-22T05:39:10.555Z",
+  "generated_characters": 16636,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4684,
+      "utf8_bytes": 4705,
+      "sha256": "b98f5e9b119d783fc832faaf6fd78fa13049b799ca18cc5e0166990e11f9ca6f"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3634,
+      "utf8_bytes": 3650,
+      "sha256": "dfe31f16b462f74eac6017e8a93a66b5357a6c2247daf855f2e02b864f212afe"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "hopcroft-karp-layered-phases.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "hopcroft-karp-layered-phases.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 610,
+      "sha256": "031030fa32e919fb281b53ba9c50d38e07eb575ddfb89056a51d6a911e4deaa5"
+    },
+    {
+      "id": "hopcroft-karp-layered-phases.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 694,
+      "sha256": "8489fabfcd66661836fc731a1d0bb6228d1e2c8883a9a9b5f199cccdb5d0ce9c"
+    },
+    {
+      "id": "hopcroft-karp-layered-phases.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1073,
+      "sha256": "84b0fa1b028d31949caf00e0c8f1169beac200152079b4111ef22e2320b0c681"
+    },
+    {
+      "id": "hopcroft-karp-layered-phases.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 716,
+      "sha256": "6b35699d36910c1ac672e3c5f402d65b7932bd603babb6ce3c64ae551995c552"
+    },
+    {
+      "id": "hopcroft-karp-layered-phases.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 818,
+      "sha256": "f7361a83306002bd9f99e4bc28fd94c9c7bcf419fb8933280f06f4f86dd6e662"
+    },
+    {
+      "id": "hopcroft-karp-layered-phases.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 657,
+      "sha256": "2c416d59f9f367a3da9576de766d7329cfa9d9bd017bcba78e9191500afa686c"
+    },
+    {
+      "id": "hopcroft-karp-layered-phases.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 965,
+      "sha256": "c8e44203455bce7a4b4da60022cd9e26c40f4a97ee5f15ed2687e74a5606512b"
+    },
+    {
+      "id": "hopcroft-karp-layered-phases.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 897,
+      "sha256": "e833f50d4d037ffe76dd34ce7c0a502450253c534c89fae7ec920250b5d59048"
+    },
+    {
+      "id": "hopcroft-karp-layered-phases.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 794,
+      "sha256": "a3216b5d2addb35c69d694c1fa146f8f25ed38f060cc848f9b61261f320910bb"
+    },
+    {
+      "id": "hopcroft-karp-layered-phases.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 988,
+      "sha256": "192d6f0b7bf956a01049d8e5079260b98a43e1daddc7865ce61619bfdbadc658"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/hopcroft-karp-layered-phases/e51c3c331fcd2d07a3f8/aoede-f23c8d11eedbc62b.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2276108,
+      "sha256": "f23c8d11eedbc62ba33e935a4eef2ed2436de0da68e9322d4f8fd70b7b921bef",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b98f5e9b119d783fc832faaf6fd78fa13049b799ca18cc5e0166990e11f9ca6f",
+          "bytes": 1300896,
+          "sha256": "5b3832ddc6b91bb4ef744b5dc579da794ba4b38d33b2605a0125b0647140bce7"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "dfe31f16b462f74eac6017e8a93a66b5357a6c2247daf855f2e02b864f212afe",
+          "bytes": 974976,
+          "sha256": "f000a75ffe6543b7a8b529edf68881848f6cf9e3fb9e42ab305ac8b0d8da4bb8"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/hopcroft-karp-layered-phases/e51c3c331fcd2d07a3f8/algieba-9400398fcaef6f05.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2310572,
+      "sha256": "9400398fcaef6f05df03322ae99a00f9c0de70c0a86ab0620844454025e66b62",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b98f5e9b119d783fc832faaf6fd78fa13049b799ca18cc5e0166990e11f9ca6f",
+          "bytes": 1344192,
+          "sha256": "22621de11f2cf6de5c63b625589f5264ff336e1036b3a34ca305125cfd41312a"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "dfe31f16b462f74eac6017e8a93a66b5357a6c2247daf855f2e02b864f212afe",
+          "bytes": 966144,
+          "sha256": "d0cb71d85d8a9de0fe194cb89317a14626561036661dcf0bf7fa8fc085a7109c"
+        }
+      ]
+    }
+  }
+}

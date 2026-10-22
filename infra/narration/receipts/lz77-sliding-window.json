@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net lz77-sliding-window preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T05:57:30.785Z",
+  "publication_sha256": "c0be558b776ec34ca12381b0c9f0460d52eee2f8bd40d3660dc223b4ad31dc62",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4832536,
+  "objects": [
+    {
+      "stable_id": "puzzle:lz77-sliding-window",
+      "slug": "lz77-sliding-window",
+      "track_id": "algieba",
+      "source_sha256": "8668ef101a862960c027dd5bbd2dd42bc78ffc343a5fa6048fe3524c280f4d43",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "7dc2f19a3d278681df4575ad951b184855bc05e32c26eca3af1284a0b0886c6a",
+      "object_key": "narration/v1/puzzles/lz77-sliding-window/7dc2f19a3d278681df45/algieba-8e8215468aa5548e.mp3",
+      "bytes": 2511212,
+      "sha256": "8e8215468aa5548e9e9c4839ae93e176a54d45d0251efa7b91112f07a868ec68",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:lz77-sliding-window",
+      "slug": "lz77-sliding-window",
+      "track_id": "aoede",
+      "source_sha256": "8668ef101a862960c027dd5bbd2dd42bc78ffc343a5fa6048fe3524c280f4d43",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "7dc2f19a3d278681df4575ad951b184855bc05e32c26eca3af1284a0b0886c6a",
+      "object_key": "narration/v1/puzzles/lz77-sliding-window/7dc2f19a3d278681df45/aoede-5234eee70d7e90fe.mp3",
+      "bytes": 2321324,
+      "sha256": "5234eee70d7e90fe40a446ab3a92b7cb207cd25b7f313f51c3bbfb9b7a46bcc1",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

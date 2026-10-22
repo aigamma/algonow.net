@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net activity-selection-earliest-finish preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T05:58:28.188Z",
+  "publication_sha256": "29d59ed45b729fb1be02b770509f3aea7c61783a31d1a576f5b777044df615b0",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4390264,
+  "objects": [
+    {
+      "stable_id": "puzzle:activity-selection-earliest-finish",
+      "slug": "activity-selection-earliest-finish",
+      "track_id": "algieba",
+      "source_sha256": "83cae1be34cdd712e07738662d68d78eb567cd34011a169a094fbd40cb2379ad",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "9568d6fcea92f6bcd4e81ce739c50431e9a7ba39b68d54139b84165ee71c110b",
+      "object_key": "narration/v1/puzzles/activity-selection-earliest-finish/9568d6fcea92f6bcd4e8/algieba-057a9d32f4ee1075.mp3",
+      "bytes": 2256812,
+      "sha256": "057a9d32f4ee107575958b14096062c140a86ed3192f42f09373147c72d558d7",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:activity-selection-earliest-finish",
+      "slug": "activity-selection-earliest-finish",
+      "track_id": "aoede",
+      "source_sha256": "83cae1be34cdd712e07738662d68d78eb567cd34011a169a094fbd40cb2379ad",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "9568d6fcea92f6bcd4e81ce739c50431e9a7ba39b68d54139b84165ee71c110b",
+      "object_key": "narration/v1/puzzles/activity-selection-earliest-finish/9568d6fcea92f6bcd4e8/aoede-6c3081854b9a62f5.mp3",
+      "bytes": 2133452,
+      "sha256": "6c3081854b9a62f5481f594450e4aa089151c1355d39881dd58812da5cb57788",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:fisher-yates-uniform-swaps",
+  "source_path": "src/content/fisher-yates-uniform-swaps.narration.js",
+  "source_sha256": "b835e772cefced0261b813b92298c618c8363adcf8648b2fcd72ed4ed540a1b4",
+  "source_characters": 9095,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "5bd374e67ff02b20b9a068e70a9c1a92f76334427bed43d107cf40bff17a6d9d",
+  "generated_at": "2026-10-22T05:47:32.991Z",
+  "generated_characters": 18190,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4872,
+      "utf8_bytes": 4880,
+      "sha256": "6a26df46e9bd06f5d2d44944946201de61936dc229dc5b8548b90a3886bdb04c"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4223,
+      "utf8_bytes": 4225,
+      "sha256": "ff6021e4087deac1529afeb61ba423f6d3b4ca4d1f5dc40c7bf4214ec8b78788"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "fisher-yates-uniform-swaps.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "fisher-yates-uniform-swaps.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 625,
+      "sha256": "0ed8be63872fe04a3565c79cc6e4ca954d42f0992c216bedf6b0d790d4201aa6"
+    },
+    {
+      "id": "fisher-yates-uniform-swaps.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 994,
+      "sha256": "248d07cf5cb5b056896e3023044d5875ebcf2140ba4e2f32dcaf3c9a3da04eec"
+    },
+    {
+      "id": "fisher-yates-uniform-swaps.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1029,
+      "sha256": "aeb2bb8c6a42fc7295acf1cca5336ac6a71f5d794f1eda58d25228dd38970d78"
+    },
+    {
+      "id": "fisher-yates-uniform-swaps.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 796,
+      "sha256": "7d6d00a47e6689abc0c078517bdd83b006b2d92db831ac602d32964b9583f6e3"
+    },
+    {
+      "id": "fisher-yates-uniform-swaps.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 771,
+      "sha256": "bddb8c8ef0cf019810a8b56c4f77a1e5ed8fcde23ea246bef286ba1a7e837cc3"
+    },
+    {
+      "id": "fisher-yates-uniform-swaps.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 528,
+      "sha256": "e00ae2ae2a267535d5d204b43bd5d8c2d19b2bf156aae3dcfdfc2701527fb34c"
+    },
+    {
+      "id": "fisher-yates-uniform-swaps.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1080,
+      "sha256": "4ce2265b5d221e42900371e0a5a04706cc413e47ba2ac6ea3aed00d16dfecc19"
+    },
+    {
+      "id": "fisher-yates-uniform-swaps.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1039,
+      "sha256": "1370121e132e8478266693ba79aad79c3cb587a5e404e681b31dda2c8629eb69"
+    },
+    {
+      "id": "fisher-yates-uniform-swaps.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 936,
+      "sha256": "fe65563863ae27543630ee423af0f7693dbd463bc7fa7a44a42d7c04f61cc6b1"
+    },
+    {
+      "id": "fisher-yates-uniform-swaps.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1164,
+      "sha256": "58bb3ace0410a9e86d4369860bd7f239e267a3aea5ca374943c6c97d36af4402"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/fisher-yates-uniform-swaps/5bd374e67ff02b20b9a0/aoede-2ea5b39e88d870c9.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2389676,
+      "sha256": "2ea5b39e88d870c9381c3e6300f4d2f6c87eae69f386eedd3e637dec1c4c1ea4",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "6a26df46e9bd06f5d2d44944946201de61936dc229dc5b8548b90a3886bdb04c",
+          "bytes": 1350336,
+          "sha256": "30ca0d5dc240094fe5126bafc24e319545db5af4ed1c221da28280872edf5293"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ff6021e4087deac1529afeb61ba423f6d3b4ca4d1f5dc40c7bf4214ec8b78788",
+          "bytes": 1039104,
+          "sha256": "42d09808f1e46925da2486951b3648380f2d7a2cd2f7df653d7c5b519937b264"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/fisher-yates-uniform-swaps/5bd374e67ff02b20b9a0/algieba-4fc56011fdfff261.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2513324,
+      "sha256": "4fc56011fdfff261b6639aee1facbea3658307f2ec8297a19bceb2dd7c0233b5",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "6a26df46e9bd06f5d2d44944946201de61936dc229dc5b8548b90a3886bdb04c",
+          "bytes": 1354272,
+          "sha256": "bcfc4dc4a4d94e3ed0190682bd0603d0c4249405e4ee7deba44b671bad94ecc8"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "ff6021e4087deac1529afeb61ba423f6d3b4ca4d1f5dc40c7bf4214ec8b78788",
+          "bytes": 1158816,
+          "sha256": "072d4f475b4f568b708379412b50665b95385d1cdbb866e9fc34ac30018bc4b6"
+        }
+      ]
+    }
+  }
+}

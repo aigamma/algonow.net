@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net consistent-hashing-virtual-nodes preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T05:59:23.766Z",
+  "publication_sha256": "3f44d81e7a563a616c395ef844c1250c18d66cec0c3a72255ad69113d9e5ecfe",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4958488,
+  "objects": [
+    {
+      "stable_id": "puzzle:consistent-hashing-virtual-nodes",
+      "slug": "consistent-hashing-virtual-nodes",
+      "track_id": "algieba",
+      "source_sha256": "43a613a78df87d63a58f71240d61bb35c688e91c18b43238f3d4889ad903baaa",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "a5ca293e225aad822038022ba4d469e12a747d0ef2fa2e9a3966f1edae4859fa",
+      "object_key": "narration/v1/puzzles/consistent-hashing-virtual-nodes/a5ca293e225aad822038/algieba-c15e3adbdcdf6f22.mp3",
+      "bytes": 2534444,
+      "sha256": "c15e3adbdcdf6f2226e8a23f16eb513b2b124eb7578d48871384f8bfdc85ec9d",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:consistent-hashing-virtual-nodes",
+      "slug": "consistent-hashing-virtual-nodes",
+      "track_id": "aoede",
+      "source_sha256": "43a613a78df87d63a58f71240d61bb35c688e91c18b43238f3d4889ad903baaa",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "a5ca293e225aad822038022ba4d469e12a747d0ef2fa2e9a3966f1edae4859fa",
+      "object_key": "narration/v1/puzzles/consistent-hashing-virtual-nodes/a5ca293e225aad822038/aoede-e2e9a8d3b94f4715.mp3",
+      "bytes": 2424044,
+      "sha256": "e2e9a8d3b94f4715fc2f7518a38b0f4c1e992f65d0ef854358983fc67b9efb5d",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

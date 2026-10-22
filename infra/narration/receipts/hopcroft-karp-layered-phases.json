@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net hopcroft-karp-layered-phases preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T06:02:16.432Z",
+  "publication_sha256": "49c20e8d6004d08766873a29c47db0003381bdc51229153ee329841813f01cae",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4586680,
+  "objects": [
+    {
+      "stable_id": "puzzle:hopcroft-karp-layered-phases",
+      "slug": "hopcroft-karp-layered-phases",
+      "track_id": "algieba",
+      "source_sha256": "243ac97777e2efae842f2d3c8419a64dc7390401c662e8b4620482acb39b0924",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "e51c3c331fcd2d07a3f8cc9599d198489afa70267d9ae67d6fd3dee06008c977",
+      "object_key": "narration/v1/puzzles/hopcroft-karp-layered-phases/e51c3c331fcd2d07a3f8/algieba-9400398fcaef6f05.mp3",
+      "bytes": 2310572,
+      "sha256": "9400398fcaef6f05df03322ae99a00f9c0de70c0a86ab0620844454025e66b62",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:hopcroft-karp-layered-phases",
+      "slug": "hopcroft-karp-layered-phases",
+      "track_id": "aoede",
+      "source_sha256": "243ac97777e2efae842f2d3c8419a64dc7390401c662e8b4620482acb39b0924",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "e51c3c331fcd2d07a3f8cc9599d198489afa70267d9ae67d6fd3dee06008c977",
+      "object_key": "narration/v1/puzzles/hopcroft-karp-layered-phases/e51c3c331fcd2d07a3f8/aoede-f23c8d11eedbc62b.mp3",
+      "bytes": 2276108,
+      "sha256": "f23c8d11eedbc62ba33e935a4eef2ed2436de0da68e9322d4f8fd70b7b921bef",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

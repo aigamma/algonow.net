@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net boyer-moore-skip-rules preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T06:03:12.649Z",
+  "publication_sha256": "31112d5534aac130f1f397cf5949625e0c7546924f7dd7dcb985380b319ffb99",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4373080,
+  "objects": [
+    {
+      "stable_id": "puzzle:boyer-moore-skip-rules",
+      "slug": "boyer-moore-skip-rules",
+      "track_id": "algieba",
+      "source_sha256": "c0644fb25ef61fe6182b11f1153de615c23840d1aa12577f5d8bc09bbcaa5b9e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "c3dca153598df06227dea58d8ecfe565613f0133d2a538bb2727b0b8ea819e6d",
+      "object_key": "narration/v1/puzzles/boyer-moore-skip-rules/c3dca153598df06227de/algieba-470caa619e6f056d.mp3",
+      "bytes": 2277740,
+      "sha256": "470caa619e6f056dc20e231385da0a5a1d6e41e6e4334924aa4afdcfe32b4a35",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:boyer-moore-skip-rules",
+      "slug": "boyer-moore-skip-rules",
+      "track_id": "aoede",
+      "source_sha256": "c0644fb25ef61fe6182b11f1153de615c23840d1aa12577f5d8bc09bbcaa5b9e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "c3dca153598df06227dea58d8ecfe565613f0133d2a538bb2727b0b8ea819e6d",
+      "object_key": "narration/v1/puzzles/boyer-moore-skip-rules/c3dca153598df06227de/aoede-d0c4bf200789edab.mp3",
+      "bytes": 2095340,
+      "sha256": "d0c4bf200789edab191358ce010cd6d9a00b7e7e409183600694c5cf4a051d6f",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

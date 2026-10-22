@@ -160,7 +160,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'A fine-tuning set carried the same question dozens of times with different spacing and casing, and three evaluation questions verbatim. A worked Python example normalizes each prompt into a key and keeps the first record per key: eight inline records, string methods, a set of seen keys, a dictionary from key to the kept id, its exact output, a trace of every decision, and one practice variation that also drops records that overlap the evaluation set.',
     track: 'data-pipelines',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-21', listenMinutes: 13,
     difficulty: 'foundation',
     durationMinutes: 25,
     skills: ['Deduplication by a normalized key', 'String normalization with lower, split, join, and isalnum', 'Sets: add, membership, intersection', 'A dictionary from key to the first id kept', 'Removing evaluation overlap (practice)'],

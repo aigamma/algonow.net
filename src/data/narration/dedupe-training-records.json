@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:dedupe-training-records",
+  "source_path": "src/content/dedupe-training-records.narration.js",
+  "source_sha256": "8aeb1d277af552e93cb68b14d85e03a9a3614db89f0d66dd1a0cc632dd9b482e",
+  "source_characters": 14985,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "71a701622be6ace2847e8e01dd9790c2c96b2f735d8e6bedaf4031712917da50",
+  "generated_at": "2026-10-22T00:35:39.487Z",
+  "generated_characters": 29970,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4892,
+      "utf8_bytes": 4900,
+      "sha256": "89a5af52212dda85d4c171fa98512a2c7e75359f39ae33685531331974f3a788"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3436,
+      "utf8_bytes": 3448,
+      "sha256": "c37ebdcc4cd1983f9a41c2b5b30d426c5e15f512ecc9091f258ed3832dc53768"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 4713,
+      "utf8_bytes": 4715,
+      "sha256": "bb03170d125b1a6d0a45957f06dca7d91fa591787645733d0fdb901597791632"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 1944,
+      "utf8_bytes": 1950,
+      "sha256": "fe1897a0525b8865dc06be1e753e8201cbee18ec25346935e3fc5485b5ec1f2d"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "dedupe-training-records.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "dedupe-training-records.01-brief",
+      "label": "Engineering Brief",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2356,
+      "sha256": "4b87ca50439acc45c50cabc24744a83c75f9d52dcc035b52cdd4592ffc1f1c76"
+    },
+    {
+      "id": "dedupe-training-records.02-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 3342,
+      "sha256": "033ea1c2e43b3f37f286d935ab56755ef71844bada17772dcf96a7af952745c6"
+    },
+    {
+      "id": "dedupe-training-records.03-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2519,
+      "sha256": "595295843b32e0cddcfbeb92af269b23df528e188fe1a4cc21559f781e1af30a"
+    },
+    {
+      "id": "dedupe-training-records.04-visual",
+      "label": "System Diagram",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1988,
+      "sha256": "ded3f6b08555c524f0cc7d8c27c591a8152fe8dfdb2da8300b56c81d7ce54585"
+    },
+    {
+      "id": "dedupe-training-records.05-evidence",
+      "label": "Validation Evidence",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1289,
+      "sha256": "5da40880ddd75f8502c679be9e0e9f36ea267f69ea391e9c9c4e90ef1a818b0d"
+    },
+    {
+      "id": "dedupe-training-records.06-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1432,
+      "sha256": "fddc5ce0836dc152d9ce1a55e53d1a850317ddcda4bbd4a28c1a06fda587b1cd"
+    },
+    {
+      "id": "dedupe-training-records.07-starter",
+      "label": "Starting Point",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1434,
+      "sha256": "d163343324b76525832f2d8fda5108fda5657f219dba09d88f82f66440790eb8"
+    },
+    {
+      "id": "dedupe-training-records.08-files",
+      "label": "Working Files",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 514,
+      "sha256": "fe6ff7f09e6ee740c170dca1514a48e4f422aa91ab440549e3aac92c65c207a9"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/dedupe-training-records/71a701622be6ace2847e/aoede-30ae3b1b79150fb8.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4036748,
+      "sha256": "30ae3b1b79150fb8b45f9cc7f154e1555e1b75d898bd0c9d1bb12405ee1f03f6",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "89a5af52212dda85d4c171fa98512a2c7e75359f39ae33685531331974f3a788",
+          "bytes": 1342176,
+          "sha256": "dd9de37de5e8e021d0fcc1f5e843446cc020d9f798ed0ed4a8b09ee9c23635ac"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "c37ebdcc4cd1983f9a41c2b5b30d426c5e15f512ecc9091f258ed3832dc53768",
+          "bytes": 949824,
+          "sha256": "6e40a1bef67d4c6c7ffd2abb22db46ead41bdf2821947631dbee955d9e69bf94"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "bb03170d125b1a6d0a45957f06dca7d91fa591787645733d0fdb901597791632",
+          "bytes": 1241376,
+          "sha256": "6a7c68f1e0211c70b064a128889b0de4dad156989f3789763ec770ed0fc9fd38"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "fe1897a0525b8865dc06be1e753e8201cbee18ec25346935e3fc5485b5ec1f2d",
+          "bytes": 503136,
+          "sha256": "1f440ea5ffe748f2bff022a0b95d610433dd134f4737cbe8b17c231c9039c38f"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/dedupe-training-records/71a701622be6ace2847e/algieba-4b3e67d989347cf6.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4155116,
+      "sha256": "4b3e67d989347cf61a5d72f18d344ae7779fc45737f00c0b433dc2b3aab8bc6f",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "89a5af52212dda85d4c171fa98512a2c7e75359f39ae33685531331974f3a788",
+          "bytes": 1384224,
+          "sha256": "b2737daaa3aa582a9ed66da15b889437042d1d12683fc1825ca00fe474fbd614"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "c37ebdcc4cd1983f9a41c2b5b30d426c5e15f512ecc9091f258ed3832dc53768",
+          "bytes": 986496,
+          "sha256": "dab90c1ba32d3de3c7004d3c3f571e9665b9d44993981ad8efddc2fba9a5d5f5"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "bb03170d125b1a6d0a45957f06dca7d91fa591787645733d0fdb901597791632",
+          "bytes": 1248384,
+          "sha256": "0dacb903e92a559f13a3b1b0643f586fc762744f24de317fb1991399341a703b"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "fe1897a0525b8865dc06be1e753e8201cbee18ec25346935e3fc5485b5ec1f2d",
+          "bytes": 535776,
+          "sha256": "86c0155560d209f5224b41506c7245bb5a0296a126bea9a3bf4ad8e76a2d4193"
+        }
+      ]
+    }
+  }
+}

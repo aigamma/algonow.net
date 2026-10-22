@@ -41,15 +41,21 @@ function seoChromePlugin() {
           ? rawPath.slice(0, -'index.html'.length)
           : rawPath;
         const url = `${SITE_HOST}${path}`;
-        const title = escapeAttr(titleMatch[1]);
-        const desc = escapeAttr(descMatch[2]);
+        // The captured text is HTML as written in the entry, entities and
+        // all. Decode it once so the attributes and the JSON-LD below carry
+        // exactly one layer of escaping: before this, a scaffolded &#39;
+        // reached og:title as &amp;#39; and the JSON-LD name as &#39;.
+        const titleText = unescapeHtml(titleMatch[1]);
+        const descText = unescapeHtml(descMatch[2]);
+        const title = escapeAttr(titleText);
+        const desc = escapeAttr(descText);
 
         const puzzle = PUZZLES[path];
         const scenario = LIVE_SCENARIOS.find((entry) => entry.href === path);
         const jsonLd = scenario
           ? {
               '@context': 'https://schema.org', '@type': 'LearningResource',
-              url, name: titleMatch[1], description: descMatch[2],
+              url, name: titleText, description: descText,
               learningResourceType: 'coding exercise', educationalLevel: scenario.difficulty,
               teaches: scenario.skills, programmingLanguage: 'Python', isAccessibleForFree: true,
             }
@@ -58,8 +64,8 @@ function seoChromePlugin() {
               '@context': 'https://schema.org',
               '@type': 'LearningResource',
               url,
-              name: titleMatch[1],
-              description: descMatch[2],
+              name: titleText,
+              description: descText,
               learningResourceType: 'lesson',
               educationalLevel: 'intermediate',
               teaches: [puzzle.algorithm, puzzle.heuristic, puzzle.domain],
@@ -73,7 +79,7 @@ function seoChromePlugin() {
                 '@type': 'WebSite',
                 name: SITE_NAME,
                 url: SITE_HOST,
-                description: descMatch[2],
+                description: descText,
                 image: SOCIAL_CARD.url,
               }
             : null;
@@ -118,6 +124,17 @@ function escapeAttr(s) {
     .replace(/"/g, '&quot;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
+}
+
+// The five entities an entry's title or description can carry; &amp; last so
+// a literal "&amp;#39;" in the source stays the literal text it was.
+function unescapeHtml(s) {
+  return String(s)
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
 }
 
 // Multi-page build: one entry per pair plus the homepage. The input map is

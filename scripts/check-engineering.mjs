@@ -10,6 +10,7 @@ import { SCENARIOS, ENGINEERING_TRACKS, ENGINEERING_DIFFICULTIES, ENGINEERING_SE
 import { LIVE_PUZZLES } from '../src/data/puzzles.js';
 import { buildPuzzleNarrationPlan, stableJson } from './narration/puzzle-narration-pipeline.mjs';
 import { assertPublicManifest, receiptObjectsForManifest, publicationIdentity } from './narration/release-contract.mjs';
+import { escapeHtml, documentTitle } from './scaffold-engineering.mjs';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const digest = value => createHash('sha256').update(value).digest('hex');
@@ -20,6 +21,12 @@ const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const ROLES = new Set(['starter', 'fixture', 'test', 'reference']);
 const FILE_LANGUAGES = new Set(['python', 'json', 'toml', 'text']);
 const PACKAGE_EXTENSIONS = new Set(['.py', '.toml', '.json', '.jsonl', '.csv', '.txt', '.md', '.lock', '.npy', '.npz', '.png', '.jpg', '.wav']);
+// Search-facing lengths: results pages cut a document title past about sixty
+// characters and a description past about a hundred and fifty five. The page
+// title carries the ' | algonow' suffix, hence fifty for the authored part.
+export const PAGE_TITLE_MAX = 50;
+export const DESCRIPTION_MIN = 60;
+export const DESCRIPTION_MAX = 155;
 
 export function resolveScenarioFile(root, relative) {
   if (!text(relative) || relative.includes('\\') || path.posix.isAbsolute(relative)
@@ -254,6 +261,17 @@ export async function checkEngineering({root=ROOT,scenarios=SCENARIOS,tracks=ENG
     need(!seen.has(slug),'Duplicate scenario slug'); seen.add(slug);
     need(!legacy.has(slug) && !fs.existsSync(path.join(root,'src/content',`${slug}.jsx`)), 'Scenario slug collides with legacy content or its narration identity');
     for (const key of ['title','summary']) need(text(scenario[key]),`${key} is required`);
+    for (const key of ['pageTitle','description']) need(text(scenario[key]),`${key} is required (the short, search-facing form)`);
+    if (text(scenario.pageTitle)) {
+      need(scenario.pageTitle.trim().length <= PAGE_TITLE_MAX,`pageTitle must be at most ${PAGE_TITLE_MAX} characters (${scenario.pageTitle.trim().length})`);
+      need(scenario.pageTitle.trim() !== (scenario.title || '').trim(),'pageTitle must be the short task name, not the full title');
+    }
+    if (text(scenario.description)) {
+      const length = scenario.description.trim().length;
+      need(length >= DESCRIPTION_MIN && length <= DESCRIPTION_MAX,`description must run ${DESCRIPTION_MIN} to ${DESCRIPTION_MAX} characters (${length})`);
+      need(scenario.description.trim() !== (scenario.summary || '').trim(),'description must be the short form, not the summary');
+    }
+    for (const key of ['pageTitle','description']) if (text(scenario[key])) need(!/[\u2014\u2013]/.test(scenario[key]),`${key} must not contain an em or en dash`);
     need(trackIds.has(scenario.track),'An AI engineering track is required');
     need(scenario.language === 'python','New scenario implementation language must be python');
     need(!Object.hasOwn(scenario,'algorithm') && !Object.hasOwn(scenario,'heuristic'),'Scenarios must not use the legacy algorithm/heuristic pairing schema');
@@ -284,6 +302,8 @@ export async function checkEngineering({root=ROOT,scenarios=SCENARIOS,tracks=ENG
           need(!/\b(?:speechSynthesis|SpeechSynthesisUtterance)\b|from\s+['"][^'"]*\/ListenPlayer\.jsx/.test(entry),'Scenario narration must never fall back to browser speech');
           const html = fs.readFileSync(path.join(root,paths.html),'utf8');
           need(html.includes(`https://algonow.net${paths.href}`) && html.includes('name="description"') && html.includes('type="module"'), 'Entry HTML needs its canonical URL, description, and module entry');
+          need(html.includes(`<title>${escapeHtml(documentTitle(scenario))}</title>`), 'Entry HTML title must be the registry pageTitle plus the site name');
+          need(html.includes(`<meta name="description" content="${escapeHtml(scenario.description)}" />`), 'Entry HTML description must be the registry description');
           const narrationPath = path.join(root,paths.narration);
           const {narration} = await import(`${pathToFileURL(narrationPath).href}?audit=${digest(fs.readFileSync(narrationPath))}`);
           need(Array.isArray(narration) && narration.every(n => ENGINEERING_SECTIONS.includes(n.section) && text(n.text)), 'Canonical narration must contain only nonempty scenario sections');

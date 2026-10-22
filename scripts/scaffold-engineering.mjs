@@ -5,16 +5,25 @@ import { fileURLToPath } from 'node:url';
 import { SCENARIOS, scenarioPaths } from '../src/data/engineering.js';
 
 const ROOT = fileURLToPath(new URL('..',import.meta.url));
-const escapeHtml = value => String(value).replace(/[&<>"']/g,character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
+// Text nodes and double-quoted attributes need only these four. Escaping the
+// apostrophe as &#39; as well made the build's Open Graph pass (vite.config.js)
+// emit &amp;#39; when it escaped the captured text a second time.
+export const escapeHtml = value => String(value).replace(/[&<>"]/g,character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[character]));
+export const SITE_TITLE_SUFFIX = ' | algonow';
+// The document title and the meta description are the short, search-facing
+// forms (registry pageTitle and description). The full title and summary stay
+// on the page and on the Home card; scripts/check-engineering.mjs keeps the
+// entry HTML equal to the registry.
+export const documentTitle = scenario => `${scenario.pageTitle}${SITE_TITLE_SUFFIX}`;
 
 export function scenarioEntrySources(scenario) {
   const paths = scenarioPaths(scenario.slug);
-  if (!scenario.title || !scenario.summary) throw new Error('Registry title and summary are required before scaffolding');
+  for (const key of ['title','summary','pageTitle','description']) if (!scenario[key]) throw new Error(`Registry ${key} is required before scaffolding`);
   return {
     [paths.html]: `<!doctype html>
 <html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>${escapeHtml(scenario.title)} | algonow</title>
-<meta name="description" content="${escapeHtml(scenario.summary)}" />
+<title>${escapeHtml(documentTitle(scenario))}</title>
+<meta name="description" content="${escapeHtml(scenario.description)}" />
 <link rel="canonical" href="https://algonow.net${paths.href}" />
 </head><body><div id="root"></div><script type="module" src="./main.jsx"></script></body></html>
 `,

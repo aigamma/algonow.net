@@ -37,6 +37,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'rag-chunk-boundary-recall',
     title: 'Repair a RAG chunker that splits answers across chunks',
+    pageTitle: 'RAG chunking that keeps procedures whole',
+    description: 'A runbook assistant lost multi-step procedures to fixed-size chunking. A worked Python example packs parsed blocks under a budget without cutting one.',
     summary: 'A support assistant stopped finding multi-step runbook procedures after ingest switched to fixed-size character windows. A worked Python example packs already-parsed blocks into chunks under a budget without cutting a procedure: five inline blocks, one short function over a list of dictionaries, its exact output, a line-by-line walkthrough, and one practice variation.',
     track: 'rag',
     language: 'python',
@@ -49,6 +51,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'rank-fusion-keyword-vector',
     title: 'Fuse keyword and vector rankings with reciprocal rank fusion',
+    pageTitle: 'Reciprocal rank fusion of two retrievers',
+    description: 'Vector-first retrieval buried exact error-code matches. A worked Python example fuses keyword and vector rankings with reciprocal rank fusion.',
     summary: 'A support assistant retrieves runbook chunks from a keyword index and a vector index, and taking the vector list first buried exact matches for error codes. A worked Python example fuses two ranked lists with reciprocal rank fusion: two inline lists, a dictionary that accumulates scores, a sort with a key function, its exact output, a trace of every contribution, and one practice variation that weights the lists.',
     track: 'rag',
     language: 'python',
@@ -61,6 +65,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'paired-prompt-comparison',
     title: 'Compare two prompt versions ticket by ticket, not by accuracy alone',
+    pageTitle: 'Paired comparison of two prompts',
+    description: 'A prompt that scored higher overall misrouted the outage tickets the old one got right. A worked Python example compares the two prompts ticket by ticket.',
     summary: 'A rewritten classification prompt scored higher on the evaluation set and shipped, then misrouted the outage tickets the old prompt got right. A worked Python example pairs the two prompts item by item: nine inline tickets, zip with strict length checking, a four-way count keyed by tuples, the regressions and gains by id, its exact output, and one practice variation that normalizes answers before comparing.',
     track: 'evaluation',
     language: 'python',
@@ -73,6 +79,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'retry-with-backoff',
     title: 'Retry a flaky model call with exponential backoff and a cap',
+    pageTitle: 'Retry with exponential backoff',
+    description: 'A tight retry loop hammered a rate-limited model endpoint. A worked Python example retries with exponential backoff, a cap, and no retry on bad input.',
     summary: 'An assistant retried a hosted model in a tight loop, hammering a rate-limited endpoint and retrying invalid requests forever. A worked Python example wraps one call in a retry loop with exponential backoff: a scripted fake endpoint, functions passed as values, try and except on retryable errors only, a cap that gives up loudly, its exact output, and one practice variation that adds a total time budget.',
     track: 'serving',
     language: 'python',
@@ -85,6 +93,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'stable-split-by-hash',
     title: 'Split a fine-tuning set by hashing ids so the split never moves',
+    pageTitle: 'Stable train and validation split by hash',
+    description: 'A weekly fine-tune reshuffled its validation split each run. A worked Python example assigns records by SHA-256 of their ids, so the split never moves.',
     summary: 'A weekly fine-tuning job reshuffled its train and validation split each run, so examples drifted between sides and validation scores jumped. A worked Python example assigns each record by hashing its id with SHA-256 into a hundred buckets: six inline transcripts, hashlib and integer conversion, a dictionary of lists, proof that new records never move old ones, a seeded shuffle for comparison, its exact output, and one practice variation that adds a test split.',
     track: 'fine-tuning',
     language: 'python',
@@ -97,6 +107,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'validate-jsonl-records',
     title: 'Validate a JSONL training file line by line and count what you reject',
+    pageTitle: 'Validate JSONL training records',
+    description: 'One malformed JSONL line crashed an overnight fine-tune. A worked Python example validates the file with a generator and counts rejections by reason.',
     summary: 'An overnight fine-tuning job crashed on one malformed line of a JSONL export, and after a manual fix it trained on records with empty answers. A worked Python example streams the file with a generator: nine inline lines (eight records and a blank), json.loads inside try and except, checks for missing and empty fields, kept records yielded one at a time, rejections counted by reason with their line numbers, its exact output, and one practice variation that drops duplicate prompts.',
     track: 'data-pipelines',
     language: 'python',
@@ -109,6 +121,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'calibrate-confidence-by-gradient-descent',
     title: 'Calibrate model confidence with a hand-written training loop',
+    pageTitle: 'Calibrate confidence with a training loop',
+    description: 'Answers at 0.9 confidence were right seven times in ten. A worked Python example fits a two-parameter calibration with a hand-written training loop.',
     summary: 'An assistant escalates to a human below a confidence of 0.6, but its 0.9 answers were right only seven times in ten. A worked Python example fits a two-parameter calibration to eight scored answers with the loop PyTorch runs for you, forward, loss, gradient, update, written in plain Python: math.exp and the sigmoid, a function that returns two gradients, an epoch loop with running totals, its exact output, a trace of the weights, and one practice variation that stops early when the loss stops improving.',
     track: 'fine-tuning',
     language: 'python',
@@ -121,6 +135,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'warmup-cosine-learning-rate',
     title: 'Shape a learning-rate schedule: linear warmup, then cosine decay',
+    pageTitle: 'Warmup then cosine learning-rate schedule',
+    description: 'Training at the full learning rate from step one diverged. A worked Python example computes a warmup then cosine learning-rate schedule, step by step.',
     summary: 'A fine-tune diverged in its first twenty steps because training began at the full learning rate. A worked Python example computes the rate for every step of a warmup-then-cosine schedule and prints the table a trainer would follow: a piecewise function with early returns, math.cos and math.pi, a loop over range, a list of step and rate pairs, its exact output, a trace of the phases, and one practice variation that holds the peak for a while before the decay.',
     track: 'fine-tuning',
     language: 'python',
@@ -133,6 +149,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'distill-soft-targets',
     title: 'Build distillation targets from a teacher with temperature softmax',
+    pageTitle: 'Distillation targets from a teacher',
+    description: 'A small router trained on hard labels stalled. A worked Python example softens teacher logits with a temperature and scores a student against them.',
     summary: 'A small router model trained on hard labels alone stalled, while the large assistant it replaces knows which wrong answers are nearly right. A worked Python example turns the teacher logits into soft targets with a temperature and scores a student against them: three inline examples with four classes, a softmax with the max trick, cross-entropy against a distribution, lists of lists, its exact output, a trace of every probability, and one practice variation that blends the soft loss with the hard-label loss.',
     track: 'distillation',
     language: 'python',
@@ -145,6 +163,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'benchmark-bootstrap-interval',
     title: 'Decide whether a benchmark gain is real with a bootstrap interval',
+    pageTitle: 'Bootstrap interval for a benchmark gain',
+    description: 'A four-point gain on a twenty-five item benchmark looked like a win. A worked Python example bootstraps the paired results into a confidence interval.',
     summary: 'A new model scored four points higher than the old one on a twenty-five item benchmark, and the team wanted to ship on that. A worked Python example resamples the paired per-item results with a seeded random generator and reports a confidence interval for the difference: two inline result lists, random.Random, a resampling loop, sorting and percentile positions, its exact output, a trace of the resamples, and one practice variation that reports the probability that the new model is better.',
     track: 'evaluation',
     language: 'python',
@@ -157,6 +177,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'dedupe-training-records',
     title: 'Deduplicate a training set with normalized keys and a set',
+    pageTitle: 'Deduplicate training records',
+    description: 'A fine-tuning set repeated questions in varied spacing and casing. A worked Python example normalizes each prompt to a key and keeps one record per key.',
     summary: 'A fine-tuning set carried the same question dozens of times with different spacing and casing, and three evaluation questions verbatim. A worked Python example normalizes each prompt into a key and keeps the first record per key: eight inline records, string methods, a set of seen keys, a dictionary from key to the kept id, its exact output, a trace of every decision, and one practice variation that also drops records that overlap the evaluation set.',
     track: 'data-pipelines',
     language: 'python',
@@ -169,6 +191,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'cosine-top-k-retrieval',
     title: 'Rank chunks by cosine similarity and keep the top k',
+    pageTitle: 'Cosine similarity top-k retrieval',
+    description: 'Raw dot products let long chunks win every query. A worked Python example scores chunks by hand-written cosine similarity and keeps the top three.',
     summary: 'Orbit\'s assistant ranked runbook chunks by the raw dot product of each chunk\'s embedding with the question, so long chunks with large vectors won every time and a billing overview outranked the one paragraph about key rotation. A worked Python example scores five inline chunks against a query vector with cosine similarity written by hand: a dot product and a norm as loops over zip, math.sqrt, a sort with a key function and a tie-break, the top three cut with a slice, its exact output, a trace of every score, and one practice variation that drops chunks below a minimum similarity.',
     track: 'rag',
     language: 'python',
@@ -181,6 +205,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'exact-match-and-token-f1',
     title: 'Score short answers with exact match and token F1',
+    pageTitle: 'Exact match and token F1 scoring',
+    description: 'String comparison failed a right answer over punctuation. A worked Python example scores answers with SQuAD-style exact match and token F1.',
     summary: 'Orbit\'s question answering evaluation compared answers as strings, so "The read scope." counted as wrong against the gold answer "read scope" and a mostly right answer earned nothing. A worked Python example scores five inline answer pairs the way the SQuAD benchmark does: a normalizer that lowercases, strips punctuation, and drops articles, exact match on the normalized tokens, token overlap counted with Counter intersection, precision, recall, and F1 with their zero guards, its exact output, a trace of every overlap, and one practice variation that scores against several acceptable gold answers and keeps the best.',
     track: 'evaluation',
     language: 'python',
@@ -193,6 +219,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'token-bucket-rate-limiter',
     title: 'Smooth request bursts to a model endpoint with a token bucket',
+    pageTitle: 'Token bucket rate limiter',
+    description: 'A burst of twenty requests tripped the provider\'s rate limit, and retries made it worse. A worked Python example meters requests with a token bucket.',
     summary: 'Orbit\'s gateway forwarded every request to the hosted model the instant it arrived, so a burst of twenty tripped the provider\'s rate limit, all twenty failed, and the retries made it worse. A worked Python example admits or rejects eight scripted requests with a token bucket: state variables carried across loop iterations, a refill computed from the elapsed time and capped with min, one token per admitted request, out-of-order timestamps rejected, its exact output, a trace of the bucket level at every arrival, and one practice variation that keeps a separate bucket per tenant in a dictionary.',
     track: 'serving',
     language: 'python',
@@ -205,6 +233,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'inverted-index-and-query',
     title: 'Build an inverted index and answer AND queries with set intersection',
+    pageTitle: 'Inverted index with AND queries',
+    description: 'A keyword retriever scanned every runbook for every query. A worked Python example builds an inverted index and answers AND queries with set intersection.',
     summary: 'Orbit\'s keyword retriever scanned every runbook for every query, so each question cost a pass over the whole collection. A worked Python example builds an inverted index from five inline documents and answers queries with set intersection: a tokenizer that lowercases and strips punctuation, a dictionary from each term to the documents that contain it, set() to collapse repeated terms within a document, AND queries as intersections, its exact output, a trace of the postings, and one practice variation that answers OR queries ranked by how many terms matched.',
     track: 'rag',
     language: 'python',
@@ -217,6 +247,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'incremental-ingest-by-content-hash',
     title: 'Re-ingest only what changed by hashing each document\'s content',
+    pageTitle: 'Incremental ingest by content hash',
+    description: 'A nightly job re-embedded every document, though most never change. A worked Python example plans only the changed work from a content-hash manifest.',
     summary: 'Orbit re-embedded its whole knowledge base every night, hours of compute and provider spend, although most documents never change. A worked Python example compares a previous run\'s manifest of content hashes with the current documents and plans the work: hashlib SHA-256 of the text, a dictionary built in a loop, membership tests against the previous manifest, set difference for deletions, sorted ids for a stable report, its exact output, a trace of every classification, and one practice variation that recognizes a moved document by its unchanged hash.',
     track: 'data-pipelines',
     language: 'python',
@@ -229,6 +261,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'batch-examples-with-seeded-shuffle',
     title: 'Batch training examples with a seeded shuffle and a generator',
+    pageTitle: 'Batches from a seeded shuffle',
+    description: 'File-order batches each held one label, and a ragged last batch crashed. A worked Python example yields batches from a seeded shuffle with a generator.',
     summary: 'Orbit\'s fine-tuning script fed examples in file order, so every early batch held a single label, and the ragged last batch crashed a shape check. A worked Python example yields batches from a seeded shuffle with a generator: a copy of the list so the input is never reordered, random.Random with a seed and shuffle, range with a step and list slicing, yield instead of return, a different seed per epoch that is still reproducible, its exact output, a trace of every batch, and one practice variation that drops the ragged last batch.',
     track: 'fine-tuning',
     language: 'python',
@@ -241,6 +275,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'retrieval-precision-recall-mrr',
     title: 'Measure a retriever with precision at k, recall at k, and MRR',
+    pageTitle: 'Precision, recall, and MRR for a retriever',
+    description: 'A retriever was swapped on feel, with no number to show for it. A worked Python example scores rankings by precision at k, recall at k, and MRR.',
     summary: 'Orbit swapped its embedding model because the new results felt better, with no number to show for it. A worked Python example scores four inline queries, each with the old ranking, the new ranking, and the set of relevant chunk ids: precision and recall at three from a slice and set membership, reciprocal rank from enumerate with an early return, means across queries, its exact output, a trace of every hit, and one practice variation that adds nDCG at three with math.log2.',
     track: 'evaluation',
     language: 'python',
@@ -253,6 +289,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'lru-cache-for-model-responses',
     title: 'Cache model responses by prompt with a small least-recently-used cache',
+    pageTitle: 'LRU cache for model responses',
+    description: 'The same ten questions paid for a model call each time. A worked Python example caches responses in a dictionary with least-recently-used eviction.',
     summary: 'Orbit\'s assistant answered the same ten questions all day and paid for a model call every time. A worked Python example caches responses by normalized prompt in a plain dictionary with least-recently-used eviction: dictionaries remember insertion order, deleting and reinserting a key moves it to the end, the first key is the oldest, a capacity of three, a scripted fake model that counts its calls, its exact output, a trace of every hit, miss, and eviction, and one practice variation that expires entries after a time to live.',
     track: 'serving',
     language: 'python',
@@ -265,6 +303,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'kl-divergence-per-example',
     title: 'Find where a student disagrees with its teacher using KL divergence',
+    pageTitle: 'KL divergence per example',
+    description: 'A student matched its teacher\'s top choice on every example, yet some routes misbehaved. A worked Python example ranks the examples by KL divergence.',
     summary: 'Orbit distilled a small router from its assistant, and the student agreed with the teacher\'s top choice on every checked example, yet some routes behaved badly in production. A worked Python example computes the KL divergence from the teacher to the student for four inline examples over three routes: a loop over zip accumulating p times the log of p over q, a guard that clips a zero student probability, a check that each distribution sums to one, the examples ranked worst first, its exact output, a trace of every term, and one practice variation that computes the symmetric Jensen-Shannon divergence instead.',
     track: 'distillation',
     language: 'python',
@@ -277,6 +317,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'convert-csv-rows-to-jsonl',
     title: 'Convert a CSV support export into JSONL training examples with the csv module',
+    pageTitle: 'CSV rows to JSONL examples',
+    description: 'Splitting on commas shredded two of every five support rows. A worked Python example converts the CSV to JSONL with csv.DictReader and counts rejections.',
     summary: 'Orbit\'s support export is a CSV whose agent replies contain commas and line breaks, and a hand-written split on commas shredded two of every five rows. A worked Python example turns five inline CSV rows into JSONL examples: csv.DictReader over io.StringIO, quoted fields with commas and newlines handled by the module, a status filter and an empty-reply filter counted by reason, json.dumps per line, a missing column rejected by name, its exact output, a trace of every row, and one practice variation that drops examples over a character budget.',
     track: 'data-pipelines',
     language: 'python',
@@ -289,6 +331,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'clip-gradients-by-global-norm',
     title: 'Clip gradients by their global norm before the update',
+    pageTitle: 'Gradient clipping by global norm',
+    description: 'One bad batch produced huge gradients and a NaN at step three hundred. A worked Python example clips gradients by their global norm before the update.',
     summary: 'Orbit\'s fine-tune hit NaN at step three hundred after one bad batch produced enormous gradients. A worked Python example clips gradients by their global norm, the operation a framework\'s clip-grad-norm performs: three parameter groups as nested lists, a sum of squares over every element with nested loops and math.sqrt, one scale factor from min, new lists built without mutating the input, the update applied with the clipped gradients, its exact output, a trace of the norms, and one practice variation that clips each group separately.',
     track: 'fine-tuning',
     language: 'python',
@@ -301,6 +345,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'pass-at-k-estimator',
     title: 'Estimate pass at k for a code model from n samples per problem',
+    pageTitle: 'Unbiased pass at k estimator',
+    description: 'Counting a problem as passed if any sample passed gave no honest pass at one. A worked Python example computes unbiased pass at k with math.comb.',
     summary: 'Orbit sampled five solutions per problem, reported the share of problems where any sample passed as the model\'s score, and had no honest pass at one. A worked Python example computes the unbiased pass at k estimator for six inline problems: math.comb, the identity one minus C(n minus c, k) over C(n, k), an early return when every subset must contain a passing sample, a table for k of one, three, and five, means, its exact output, a trace of the ten subsets for one problem, and one practice variation that estimates the chance that all k samples pass.',
     track: 'evaluation',
     language: 'python',
@@ -313,6 +359,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'mmr-diversify-results',
     title: 'Diversify retrieved chunks with maximal marginal relevance',
+    pageTitle: 'Maximal marginal relevance reranking',
+    description: 'The top three results were near-copies of one paragraph, so an answer missed a step. A worked Python example reranks them by maximal marginal relevance.',
     summary: 'Orbit\'s top three for "rotate key" came back as three near-copies of one paragraph from different runbook versions, so the answer never saw the revocation step. A worked Python example reranks six inline candidates with maximal marginal relevance: a relevance list and a similarity matrix as lists of lists, a greedy while loop that scores every remaining candidate as lambda times relevance minus one minus lambda times its highest similarity to anything already picked, a best-so-far variable, list.remove, its exact output, a trace of every pick, and one practice variation that caps picks per source.',
     track: 'rag',
     language: 'python',
@@ -325,6 +373,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'extract-json-from-model-output',
     title: 'Extract and validate the JSON object inside a model\'s reply',
+    pageTitle: 'Extract JSON from a model reply',
+    description: 'Prose, code fences, and truncated objects around the JSON crashed a service. A worked Python example extracts the first balanced object and validates it.',
     summary: 'Orbit asked the model for JSON and got prose, code fences, trailing commentary, and sometimes a truncated object; one unparseable reply crashed the whole service. A worked Python example finds the first balanced object in six inline replies and validates it: a character walk with a depth counter that ignores braces inside strings, a slice for the span, json.loads inside try and except JSONDecodeError, required keys and types checked with in and isinstance, a reason returned for every rejection, its exact output, a trace of every reply, and one practice variation that repairs a trailing comma before parsing.',
     track: 'serving',
     language: 'python',
@@ -337,6 +387,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'truncate-teacher-top-k',
     title: 'Store only a teacher\'s top-k probabilities and renormalize',
+    pageTitle: 'Truncate teacher distributions to top-k',
+    description: 'Storing a teacher\'s full distribution per position would take terabytes. A worked Python example keeps the top three probabilities and renormalizes them.',
     summary: 'Orbit\'s teacher model has a vocabulary of thirty two thousand tokens, and storing its full distribution for every training position would take terabytes. A worked Python example keeps the top three probabilities per position and renormalizes: enumerate to pair each index with its probability, a sort key of negative probability then index, a slice, a renormalizing division, the dropped mass measured, its exact output, a trace of three positions, and one practice variation that keeps the smallest set reaching ninety percent of the mass instead.',
     track: 'distillation',
     language: 'python',
@@ -349,6 +401,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'grounding-check-by-sentence-overlap',
     title: 'Flag answer sentences that no retrieved chunk supports',
+    pageTitle: 'Grounding check by sentence overlap',
+    description: 'An assistant invented a step found in none of its cited chunks. A worked Python example checks each answer sentence against the chunks by word overlap.',
     summary: 'Orbit\'s assistant cited runbook chunks and still invented a step, restart the gateway, that appeared in none of them, and the citation check passed because every sentence carried a bracket. A worked Python example splits a four-sentence inline answer and finds, for each sentence, the retrieved chunk with the largest share of its content words: a sentence splitter written as a character loop, word sets with a small stopword list, set intersection divided by the sentence\'s own size, a best-so-far search over three chunks, a threshold that flags the unsupported sentence, its exact output, a trace of every score, and one practice variation that also requires the best chunk to be the one the sentence cites.',
     track: 'rag',
     language: 'python',
@@ -361,6 +415,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'balance-classes-by-downsampling',
     title: 'Balance a skewed label set by capping each class with a seeded sample',
+    pageTitle: 'Balance classes by downsampling',
+    description: 'A training set seven tenths billing taught a classifier to answer billing to everything. A worked Python example caps each label with a seeded sample.',
     summary: 'Orbit\'s intent training set was seven tenths billing, and the fine-tuned classifier answered billing to everything. A worked Python example caps every label at three records with a seeded sample: Counter for the label counts, a dictionary of lists grouped by label, random.Random with a seed and sample for the classes over the cap, smaller classes kept whole, the kept records restored to input order with a position dictionary, its exact output, a trace of every decision, and one practice variation that lifts small classes to a floor by repeating records.',
     track: 'data-pipelines',
     language: 'python',
@@ -373,6 +429,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'format-transcripts-into-sft-examples',
     title: 'Turn chat transcripts into supervised fine-tuning examples',
+    pageTitle: 'Chat transcripts into fine-tuning examples',
+    description: 'Support chats arrive as flat rows, and fine-tuning wants one example per assistant turn. A worked Python example groups, orders, and windows the turns.',
     summary: 'Orbit exports support chats as flat rows of conversation id, turn index, role, and text, while fine-tuning wants one example per assistant turn with the preceding turns as context. A worked Python example groups nine inline rows into two conversations, walks each in turn order, and emits an example at every non-empty assistant turn with at most the last four turns as context: a dictionary of lists, sorting by a key, slicing with max for the window, nested dictionaries for messages, a skipped counter, a duplicate turn index rejected, its exact output, a trace of every window, and one practice variation that prepends a system message and skips targets shorter than three words.',
     track: 'fine-tuning',
     language: 'python',

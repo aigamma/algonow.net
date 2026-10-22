@@ -161,7 +161,9 @@ Each authored registry record has these fields:
 | Field | Contract |
 | --- | --- |
 | `slug` | Unique lowercase words separated by single hyphens; no collision with a legacy lesson or its narration identity |
-| `title`, `summary` | Actual scenario title and concise engineering request |
+| `title`, `summary` | Actual scenario title and concise engineering request: the page headline, the lead paragraph, and the Home card |
+| `pageTitle` | The task's short name, at most 50 characters. The entry's document title and social title read `<pageTitle> \| algonow` |
+| `description` | The search-facing summary, 60 to 155 characters: the entry's meta description and social description. Fable authors it; it is not a truncation of `summary` |
 | `track` | One of the six track IDs |
 | `language` | Exactly `python` |
 | `status` | `draft` or `published` |
@@ -171,6 +173,11 @@ Each authored registry record has these fields:
 | `authoringModel` | `Claude Fable 5`; record actual provenance, never claim it for content written elsewhere |
 | `listenMinutes` | Required when published: estimate for the complete recorded narration, separate from the task duration |
 | `added` | Required when published: actual publication date in `YYYY-MM-DD` form |
+
+`scripts/check-engineering.mjs` requires the entry HTML's `<title>` and meta
+description to equal `pageTitle` plus the site name and `description`, so a
+change to either is made in the registry and in `scenarios/<slug>/index.html`
+together (the scaffold writes both from the registry).
 
 Do not set published status to make an unfinished card appear on Home.
 No draft counts as a completed scenario. Derived routes are not authored links

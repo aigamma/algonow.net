@@ -16,7 +16,7 @@ const hash = input => createHash('sha256').update(input).digest('hex');
 function fixture(t) {
   const root = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(),'algonow-engineering-')));
   t.after(() => fs.rmSync(root,{recursive:true,force:true}));
-  const scenario = {slug:'contract-probe',title:'Validation fixture',summary:'Structural test data.',track:'rag',language:'python',status:'draft',difficulty:'foundation',durationMinutes:20,skills:['Protocol validation'],authoringModel:'Claude Fable 5'};
+  const scenario = {slug:'contract-probe',title:'Validation fixture',summary:'Structural test data.',pageTitle:'Validation fixture page',description:'Structural test data for the engineering checker, long enough to pass the search-facing description gate.',track:'rag',language:'python',status:'draft',difficulty:'foundation',durationMinutes:20,skills:['Protocol validation'],authoringModel:'Claude Fable 5'};
   const paths = scenarioPaths(scenario.slug);
   const directory = path.join(root,paths.directory);
   const write = (file,value) => { fs.mkdirSync(path.dirname(path.join(root,file)),{recursive:true}); fs.writeFileSync(path.join(root,file),value); };
@@ -264,6 +264,24 @@ test('scenario narration sections preserve order while legacy hashes remain curr
   assert.deepEqual(segments.slice(1).map(s=>s.id.split('-').at(-1)),ENGINEERING_SECTIONS);
   const manifest=JSON.parse(fs.readFileSync(new URL('../src/data/narration/kalman-covariance-correction.json',import.meta.url),'utf8'));
   assert.equal((await buildPlanForSlug('kalman-covariance-correction')).sourceHash,manifest.source_sha256);
+});
+
+test('search-facing page title and description are length-gated and must match the entry HTML', async t => {
+  const f = fixture(t);
+  const run = scenario => checkEngineering({root:f.root,scenarios:[scenario],includeDrafts:true});
+  assert.deepEqual((await run(f.scenario)).errors,[]);
+  assert.match((await run({...f.scenario,pageTitle:undefined})).errors.join('\n'),/pageTitle is required/);
+  assert.match((await run({...f.scenario,pageTitle:'x'.repeat(51)})).errors.join('\n'),/pageTitle must be at most 50 characters \(51\)/);
+  assert.match((await run({...f.scenario,pageTitle:f.scenario.title})).errors.join('\n'),/short task name/);
+  assert.match((await run({...f.scenario,description:'Too short.'})).errors.join('\n'),/description must run 60 to 155 characters \(10\)/);
+  assert.match((await run({...f.scenario,description:'d'.repeat(156)})).errors.join('\n'),/description must run 60 to 155 characters \(156\)/);
+  assert.match((await run({...f.scenario,description:f.scenario.summary.padEnd(70,'.')})).errors.join('\n'),/not the summary|registry description/);
+  assert.match((await run({...f.scenario,description:f.scenario.description.replace('long','very long')})).errors.join('\n'),/Entry HTML description must be the registry description/);
+  assert.match((await run({...f.scenario,pageTitle:'Another fixture page'})).errors.join('\n'),/Entry HTML title must be the registry pageTitle/);
+  assert.match((await run({...f.scenario,pageTitle:'Dash \u2014 fixture'})).errors.join('\n'),/em or en dash/);
+  const html = scenarioEntrySources({...f.scenario,pageTitle:'Fixture\'s "quoted" <page>'})[f.paths.html];
+  assert.match(html,/<title>Fixture's &quot;quoted&quot; &lt;page&gt; \| algonow<\/title>/);
+  assert.doesNotMatch(html,/&#39;/);
 });
 
 test('entry scaffold includes real page/audio wiring and never overwrites authored files', t => {

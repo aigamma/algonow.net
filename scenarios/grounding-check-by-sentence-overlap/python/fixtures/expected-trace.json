@@ -1,0 +1,266 @@
+{
+ "threshold": 0.6,
+ "chunks": [
+  {
+   "id": "c1",
+   "words": [
+    "api",
+    "create",
+    "deploy",
+    "every",
+    "key",
+    "old",
+    "replacement",
+    "rotate",
+    "same",
+    "scopes",
+    "service",
+    "uses"
+   ]
+  },
+  {
+   "id": "c2",
+   "words": [
+    "deployed",
+    "effect",
+    "everywhere",
+    "key",
+    "minute",
+    "old",
+    "replacement",
+    "revocation",
+    "revoke",
+    "takes",
+    "within"
+   ]
+  },
+  {
+   "id": "c3",
+   "words": [
+    "cannot",
+    "create",
+    "key",
+    "lost",
+    "one",
+    "possible",
+    "recovered",
+    "replacement",
+    "revoke",
+    "soon"
+   ]
+  }
+ ],
+ "sentences": [
+  {
+   "number": 1,
+   "sentence": "Create a replacement key with the same scopes and deploy it to each service [c1].",
+   "text": "Create a replacement key with the same scopes and deploy it to each service.",
+   "cited": [
+    "c1"
+   ],
+   "words": [
+    "create",
+    "deploy",
+    "each",
+    "key",
+    "replacement",
+    "same",
+    "scopes",
+    "service"
+   ],
+   "scores": [
+    {
+     "id": "c1",
+     "shared": [
+      "create",
+      "deploy",
+      "key",
+      "replacement",
+      "same",
+      "scopes",
+      "service"
+     ],
+     "score": 0.875
+    },
+    {
+     "id": "c2",
+     "shared": [
+      "key",
+      "replacement"
+     ],
+     "score": 0.25
+    },
+    {
+     "id": "c3",
+     "shared": [
+      "create",
+      "key",
+      "replacement"
+     ],
+     "score": 0.375
+    }
+   ],
+   "best": "c1",
+   "score": 0.875,
+   "verdict": "supported"
+  },
+  {
+   "number": 2,
+   "sentence": "Revoke the old key only once the replacement is deployed everywhere [c3].",
+   "text": "Revoke the old key only once the replacement is deployed everywhere.",
+   "cited": [
+    "c3"
+   ],
+   "words": [
+    "deployed",
+    "everywhere",
+    "key",
+    "old",
+    "once",
+    "replacement",
+    "revoke"
+   ],
+   "scores": [
+    {
+     "id": "c1",
+     "shared": [
+      "key",
+      "old",
+      "replacement"
+     ],
+     "score": 0.428571
+    },
+    {
+     "id": "c2",
+     "shared": [
+      "deployed",
+      "everywhere",
+      "key",
+      "old",
+      "replacement",
+      "revoke"
+     ],
+     "score": 0.857143
+    },
+    {
+     "id": "c3",
+     "shared": [
+      "key",
+      "replacement",
+      "revoke"
+     ],
+     "score": 0.428571
+    }
+   ],
+   "best": "c2",
+   "score": 0.857143,
+   "verdict": "supported"
+  },
+  {
+   "number": 3,
+   "sentence": "Then restart the gateway so the new key is picked up [c1].",
+   "text": "Then restart the gateway so the new key is picked up.",
+   "cited": [
+    "c1"
+   ],
+   "words": [
+    "gateway",
+    "key",
+    "new",
+    "picked",
+    "restart",
+    "up"
+   ],
+   "scores": [
+    {
+     "id": "c1",
+     "shared": [
+      "key"
+     ],
+     "score": 0.166667
+    },
+    {
+     "id": "c2",
+     "shared": [
+      "key"
+     ],
+     "score": 0.166667
+    },
+    {
+     "id": "c3",
+     "shared": [
+      "key"
+     ],
+     "score": 0.166667
+    }
+   ],
+   "best": "c1",
+   "score": 0.166667,
+   "verdict": "unsupported"
+  },
+  {
+   "number": 4,
+   "sentence": "Revocation takes effect within a minute [c2].",
+   "text": "Revocation takes effect within a minute.",
+   "cited": [
+    "c2"
+   ],
+   "words": [
+    "effect",
+    "minute",
+    "revocation",
+    "takes",
+    "within"
+   ],
+   "scores": [
+    {
+     "id": "c1",
+     "shared": [],
+     "score": 0.0
+    },
+    {
+     "id": "c2",
+     "shared": [
+      "effect",
+      "minute",
+      "revocation",
+      "takes",
+      "within"
+     ],
+     "score": 1.0
+    },
+    {
+     "id": "c3",
+     "shared": [],
+     "score": 0.0
+    }
+   ],
+   "best": "c2",
+   "score": 1.0,
+   "verdict": "supported"
+  }
+ ],
+ "summary": {
+  "supported": 3,
+  "flagged": [
+   3
+  ]
+ },
+ "shipped": {
+  "with_citation": 4,
+  "total": 4
+ },
+ "practice": {
+  "verdicts": [
+   "supported",
+   "miscited",
+   "unsupported",
+   "supported"
+  ],
+  "supported": 2,
+  "flagged": [
+   2,
+   3
+  ]
+ }
+}

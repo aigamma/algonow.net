@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "slug": "grounding-check-by-sentence-overlap",
+  "track": "rag",
+  "language": "python",
+  "system": {
+    "context": "Orbit's assistant answers support questions from retrieved runbook chunks and cites them. A reviewed answer about rotating an API key invented a step, restart the gateway, that appears in none of the runbooks, and the citation check passed because every sentence carried a bracket: a bracket proves that the model wrote a citation, not that the chunk says what the sentence says.",
+    "request": "A worked Python example of one action: check_grounding(answer, chunks, threshold), a grounding check by word overlap over three inline chunks and a four-sentence inline answer. split_sentences cuts the answer at periods, question marks, and exclamation marks with a character loop and a buffer; split_citation sets aside the [c1] style citation with find and slicing and returns the text and the cited ids as a tuple; content_words builds a set of lowercase words with punctuation removed and a small stopword set dropped; support_score divides the shared words by the sentence's own content words; check_grounding keeps the best chunk with a best-so-far search (first chunk wins a tie), compares the best score with the threshold, and returns one row per sentence. The lesson leads with the complete solution and its exact output (scores 0.875, 0.857, 0.167, 1.000; three of four supported; sentence three flagged), explains the Python construct by construct, traces every score, and offers one practice variation: with require_citation, a supported sentence must cite its best chunk or it is miscited.",
+    "inputs": [
+      "Three retrieved chunks written inline in solution.py as dictionaries with an id and a text: c1 on creating and deploying a replacement key, c2 on revoking the old key after deployment and the minute revocation takes, c3 on a lost key that cannot be recovered",
+      "A four-sentence answer, each sentence ending in a citation in square brackets: sentence one cites c1, sentence two cites c3, sentence three (the invented restart step) cites c1, sentence four cites c2",
+      "A support threshold of 0.6 and a stopword set of nineteen short words",
+      "For the practice variation, a require_citation flag"
+    ],
+    "outputs": [
+      "check_grounding returns one dictionary per sentence with the number, the text without its citation, the cited ids, the best chunk id, the score, and a verdict; the worked example yields c1 at 0.875 supported, c2 at 0.857 supported, c1 at 0.167 unsupported, c2 at 1.0 supported",
+      "python solution.py prints the four rows, the summary (3 of 4 sentences supported; flagged: sentence 3), the rejected empty answer, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change sentence two becomes miscited, 2 of 4 are supported, and the file prints OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, or network",
+      "A sentence ends at a period, question mark, or exclamation mark (abbreviations are out of scope); the citation is set aside, not scored; content words are a set, so repeats count once; the score divides by the sentence's size, never the chunk's; a tie goes to the first chunk; the threshold comparison is inclusive",
+      "An empty or whitespace-only answer raises ValueError; a sentence whose words are all stopwords scores 0.0 and is reported as no content rather than unsupported",
+      "Ordinary Python only: a character loop with a buffer, str.find and slicing, a set built with add and tested with in, set intersection with &, a ratio with a zero guard, a best-so-far search with a sentinel, enumerate with start=1, an if-elif-else chain, dictionaries in a list, f-strings with format specs, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: best chunks c1, c2, c1, c2 with scores 0.875, 0.857, 0.167, 1.000, verdicts supported, supported, unsupported, supported, the summary line, the rejected line, and OK",
+      "The helpers are exact at their edges: the splitter handles question marks, exclamation marks, and a trailing fragment; the citation split handles no bracket, one id, and two ids; the word set drops punctuation, case, and stopwords; a score of exactly 0.6 is supported and reversing the chunk order moves a tie to the other end",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt with verdicts supported, miscited, unsupported, supported; with the flag off it reproduces the worked rows",
+      "The citation-presence check that shipped is measured on the same answer: 4 of 4 sentences carry a bracket, so it passed the invented step, while the overlap check scores that sentence 0.167 against every chunk (the only shared word is key) and flags it"
+    ]
+  },
+  "python": {
+    "package": "grounding_check",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "6463f7efacfd34e61d2a8821bcaec4238eace18f915f80c6aad434338ccee955"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "5ce7df7e21890216eaf0e0b976348114e16fa29a39457c608af597695cb806f6"
+    },
+    {
+      "path": "python/fixtures/answer.json",
+      "description": "The three chunks, the answer, the threshold, and the stopwords exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "92beae288624a2a9cef39a8e09b81a46ffeaef95e13b96dafa577b21d56ca69f"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every chunk's word set, every sentence's content words, its shared words and score against each chunk (six decimals), its best chunk and verdict, the summary, the shipped citation count, and the practice verdicts, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "b618a1050e732a31ececb23d1295586d813fbde0241eb31220eafb523fb98606"
+    }
+  ],
+  "checks": [
+    { "id": "solution-exact-output", "kind": "correctness", "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.", "file": "python/tests/test_lesson.py", "function": "test_solution_prints_exactly_the_expected_output_when_run_alone" },
+    { "id": "sentence-splitter", "kind": "correctness", "description": "The splitter cuts at periods, question marks, and exclamation marks, keeps a trailing fragment, returns nothing for whitespace, and finds four sentences in the answer.", "file": "python/tests/test_lesson.py", "function": "test_split_sentences_cuts_at_terminal_punctuation" },
+    { "id": "citation-split", "kind": "correctness", "description": "split_citation returns the sentence unchanged with no ids when there is no bracket, one id for [c1], and two ids for [c2, c3], with the space before the bracket dropped.", "file": "python/tests/test_lesson.py", "function": "test_split_citation_handles_none_one_and_two_ids" },
+    { "id": "content-words", "kind": "correctness", "description": "content_words lowercases, drops punctuation and stopwords, and returns an empty set for a sentence made only of stopwords.", "file": "python/tests/test_lesson.py", "function": "test_content_words_drops_punctuation_case_and_stopwords" },
+    { "id": "support-score-edges", "kind": "correctness", "description": "support_score is 0.0 for an empty sentence set, 1.0 when every sentence word is in the chunk, and 0.0 with no overlap.", "file": "python/tests/test_lesson.py", "function": "test_support_score_edges" },
+    { "id": "rows-match-page", "kind": "correctness", "description": "The four rows carry best chunks c1, c2, c1, c2, scores rounding to 0.875, 0.857, 0.167, 1.0, the page's verdicts, and the cited ids c1, c3, c1, c2.", "file": "python/tests/test_lesson.py", "function": "test_rows_match_the_page" },
+    { "id": "threshold-inclusive", "kind": "correctness", "description": "A sentence sharing three of five words scores exactly 0.6: supported at a threshold of 0.6 and unsupported at 0.61.", "file": "python/tests/test_lesson.py", "function": "test_threshold_boundary_is_inclusive" },
+    { "id": "tie-first-chunk", "kind": "correctness", "description": "The restart sentence ties at 0.167 against every chunk, so c1 is named best, and reversing the chunk order names c3.", "file": "python/tests/test_lesson.py", "function": "test_ties_go_to_the_first_chunk" },
+    { "id": "empty-answer-rejected", "kind": "failure", "description": "An empty or whitespace-only answer raises ValueError.", "file": "python/tests/test_lesson.py", "function": "test_empty_answer_is_rejected" },
+    { "id": "no-content-verdict", "kind": "failure", "description": "A sentence whose words are all stopwords gets the verdict no content with a score of 0.0 instead of being flagged as unsupported.", "file": "python/tests/test_lesson.py", "function": "test_a_sentence_without_content_words_gets_no_content" },
+    { "id": "starter-not-ok", "kind": "failure", "description": "starter.py run alone exits 1, starts with the NOT OK line about sentence 2, and writes no traceback.", "file": "python/tests/test_lesson.py", "function": "test_starter_reports_not_ok_as_shipped" },
+    { "id": "answer-exact-output", "kind": "correctness", "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.", "file": "python/tests/test_lesson.py", "function": "test_answer_prints_exactly_the_expected_output_when_run_alone" },
+    { "id": "answer-miscited", "kind": "correctness", "description": "With require_citation the verdicts are supported, miscited, unsupported, supported, and sentence 2's best chunk c2 is not among its cited ids.", "file": "python/tests/test_lesson.py", "function": "test_answer_marks_the_miscited_sentence" },
+    { "id": "answer-flag-off", "kind": "correctness", "description": "With the flag off the practice answer reproduces the worked rows exactly.", "file": "python/tests/test_lesson.py", "function": "test_answer_without_the_flag_reproduces_the_worked_rows" },
+    { "id": "answer-region", "kind": "correctness", "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.", "file": "python/tests/test_lesson.py", "function": "test_answer_and_starter_differ_only_inside_the_marked_region" },
+    { "id": "answer-fixture", "kind": "correctness", "description": "answer.json equals the chunks, the answer, the threshold, and the sorted stopwords that the lesson files define.", "file": "python/tests/test_lesson.py", "function": "test_answer_fixture_is_the_lesson_input" },
+    { "id": "trace-fixture", "kind": "correctness", "description": "expected-trace.json equals the trace derived from the real functions: scores 0.875, 0.857143, 0.166667, 1.0, the summary of three supported with sentence three flagged, and the practice verdicts.", "file": "python/tests/test_lesson.py", "function": "test_expected_trace_is_what_the_solution_does" },
+    { "id": "citation-presence-passed", "kind": "evaluation", "description": "On the same answer the citation-presence check that shipped passes 4 of 4 sentences, because every sentence carries a bracket.", "file": "python/tests/test_lesson.py", "function": "test_citation_presence_passes_every_sentence" },
+    { "id": "overlap-flags-invented-step", "kind": "evaluation", "description": "The overlap check flags exactly sentence 3, whose only word shared with any chunk is key.", "file": "python/tests/test_lesson.py", "function": "test_overlap_flags_the_invented_step" }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/GroundingViz.jsx",
+      "description": "A short animation of the worked example, about three and a half seconds per sentence and under half a minute in all: the three chunks on the left, the four answer sentences on the right, and a score panel at the bottom. Each sentence in turn collects its content words, grows a score bar against every chunk with the 0.6 threshold marked, draws a link to its best chunk (green supported, red unsupported) while the shared words light up in both texts, and is stamped with its verdict; the outro states three of four supported with sentence three flagged against the shipped check's four of four; the practice variation recolors sentence two amber as miscited and restates the counts. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/groundingModel.js, a JavaScript port of split_sentences, split_citation, content_words, support_score, and check_grounding that runs on python/fixtures/answer.json; tests/grounding-check-by-sentence-overlap-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json exactly, which the cited Python check derives from the real solution, that every sentence beat ends with that sentence's verdict stamped and its link drawn to the trace's best chunk with the trace's scores in the panel, that the outro and the end scene hold the worked and the practice verdicts and counts, that captions carry the measured scores, and that alphas and the checked count stay consistent at every sampled moment. Rendered frames inspected at 900 pixels at several moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

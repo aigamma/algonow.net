@@ -1,0 +1,10 @@
+[project]
+name = "grounding-check-by-sentence-overlap"
+version = "0.1.0"
+description = "Flag answer sentences that no retrieved chunk supports, by content-word overlap: a worked Python example, standard library only"
+requires-python = ">=3.11"
+dependencies = []
+
+# The lesson needs none of this: copy solution.py (or starter.py) anywhere and
+# run it with python. The behind-the-scenes checks run from this directory:
+#   PYTHONPATH=src python -m unittest discover -s tests -p "test_*.py"

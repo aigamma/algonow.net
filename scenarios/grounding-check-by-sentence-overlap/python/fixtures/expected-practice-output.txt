@@ -1,0 +1,12 @@
+4 sentences, 3 retrieved chunks, support threshold 0.6, citations required
+#  cites  best  score  verdict      sentence
+1  c1     c1    0.875  supported    Create a replacement key with the same scopes and deploy it to each service.
+2  c3     c2    0.857  miscited     Revoke the old key only once the replacement is deployed everywhere.
+3  c1     c1    0.167  unsupported  Then restart the gateway so the new key is picked up.
+4  c2     c2    1.000  supported    Revocation takes effect within a minute.
+
+2 of 4 sentences supported; flagged: sentence 2 (miscited), 3 (unsupported)
+
+rejected: the answer has no sentences
+
+OK

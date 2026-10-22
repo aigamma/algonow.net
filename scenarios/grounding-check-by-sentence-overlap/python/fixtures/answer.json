@@ -1,0 +1,39 @@
+{
+ "chunks": [
+  {
+   "id": "c1",
+   "text": "To rotate an API key, create a replacement key with the same scopes and deploy it to every service that uses the old key."
+  },
+  {
+   "id": "c2",
+   "text": "Revoke the old key only after the replacement has been deployed everywhere; revocation takes effect within a minute."
+  },
+  {
+   "id": "c3",
+   "text": "A lost key cannot be recovered. Create a replacement key and revoke the lost one as soon as possible."
+  }
+ ],
+ "answer": "Create a replacement key with the same scopes and deploy it to each service [c1]. Revoke the old key only once the replacement is deployed everywhere [c3]. Then restart the gateway so the new key is picked up [c1]. Revocation takes effect within a minute [c2].",
+ "threshold": 0.6,
+ "stopwords": [
+  "a",
+  "after",
+  "an",
+  "and",
+  "as",
+  "be",
+  "been",
+  "by",
+  "has",
+  "is",
+  "it",
+  "of",
+  "only",
+  "so",
+  "that",
+  "the",
+  "then",
+  "to",
+  "with"
+ ]
+}

@@ -39,6 +39,10 @@ grep -rl $'\xe2\x80\x94' "scenarios/$SLUG" "src/content/$SLUG.narration.js" "tes
 grep -rli "heartbeat" "scenarios/$SLUG" "src/content/$SLUG.narration.js" "tests/$SLUG-viz.test.mjs" 2>/dev/null | grep -v __pycache__ && fail "forbidden word present"
 
 git add "scenarios/$SLUG" "src/content/$SLUG.narration.js" "tests/$SLUG-viz.test.mjs" || fail "git add"
+if git diff --cached --quiet; then
+  echo "INTEGRATED $SLUG (already committed, nothing new to stage) HEAD $(git rev-parse --short HEAD)"
+  exit 0
+fi
 git commit -q -F - <<EOF || fail "git commit"
 $TITLE
 

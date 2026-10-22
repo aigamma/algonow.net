@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net truncate-teacher-top-k preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T02:35:08.950Z",
+  "publication_sha256": "924445da6abefadf5662084381781f8dd421d910bf586cc687637e78e7f91ae3",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 8209432,
+  "objects": [
+    {
+      "stable_id": "puzzle:truncate-teacher-top-k",
+      "slug": "truncate-teacher-top-k",
+      "track_id": "algieba",
+      "source_sha256": "7ac23f6a2a5e8d694f910952c1c3b90ea9032c452515091d9dd7be7df22a9538",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "c1514b302077c1e7e7470e49db0f095ee6f9736203cf1968598bb313fd7a48d0",
+      "object_key": "narration/v1/puzzles/truncate-teacher-top-k/c1514b302077c1e7e747/algieba-44ebc355e3966c27.mp3",
+      "bytes": 4239788,
+      "sha256": "44ebc355e3966c27393547420fa5d903a6fb9f6d45691f991e9f2c92bc4919f9",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:truncate-teacher-top-k",
+      "slug": "truncate-teacher-top-k",
+      "track_id": "aoede",
+      "source_sha256": "7ac23f6a2a5e8d694f910952c1c3b90ea9032c452515091d9dd7be7df22a9538",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "c1514b302077c1e7e7470e49db0f095ee6f9736203cf1968598bb313fd7a48d0",
+      "object_key": "narration/v1/puzzles/truncate-teacher-top-k/c1514b302077c1e7e747/aoede-f61b7746d2bcc026.mp3",
+      "bytes": 3969644,
+      "sha256": "f61b7746d2bcc02646ee8ccfd3a1b9f0ebd34c83a32b65f9ccf549f2638c80a8",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

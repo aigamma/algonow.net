@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net grounding-check-by-sentence-overlap preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T02:36:15.682Z",
+  "publication_sha256": "047f76b0869322e92aa6f8806358579de38ee920e93b37bc623f9aeed7b3e81a",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 8729464,
+  "objects": [
+    {
+      "stable_id": "puzzle:grounding-check-by-sentence-overlap",
+      "slug": "grounding-check-by-sentence-overlap",
+      "track_id": "algieba",
+      "source_sha256": "6916f9c64e5457146659ac3ed9046297c79b8803ec39cb602aff4dc53a2359f5",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "6843bed4fcbd9f659f827dff473b1e3891c490e21b4cf5a779f9d241670270cb",
+      "object_key": "narration/v1/puzzles/grounding-check-by-sentence-overlap/6843bed4fcbd9f659f82/algieba-be3893f6a584a77b.mp3",
+      "bytes": 4443212,
+      "sha256": "be3893f6a584a77bba2f2c5170176f336a4029911698c5e4d742ab70537c14f3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:grounding-check-by-sentence-overlap",
+      "slug": "grounding-check-by-sentence-overlap",
+      "track_id": "aoede",
+      "source_sha256": "6916f9c64e5457146659ac3ed9046297c79b8803ec39cb602aff4dc53a2359f5",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "6843bed4fcbd9f659f827dff473b1e3891c490e21b4cf5a779f9d241670270cb",
+      "object_key": "narration/v1/puzzles/grounding-check-by-sentence-overlap/6843bed4fcbd9f659f82/aoede-e68a56f29d6e10be.mp3",
+      "bytes": 4286252,
+      "sha256": "e68a56f29d6e10befe206485a092bce0a44031476681550d599471b428ce177b",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

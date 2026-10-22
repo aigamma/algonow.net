@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net format-transcripts-into-sft-examples preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T02:38:26.317Z",
+  "publication_sha256": "65468c08ce4b5877a2b4ee88359285cc100d8641bd26ad238f2e6ff703c6031b",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 7981528,
+  "objects": [
+    {
+      "stable_id": "puzzle:format-transcripts-into-sft-examples",
+      "slug": "format-transcripts-into-sft-examples",
+      "track_id": "algieba",
+      "source_sha256": "62c2322c40d16bcc0bb90d845e8cb860fe6a261c3797d396cc046054ed2651a4",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "b79f1886020a147f20c97d5b1bf1dfb7a75dcc7e7b6043765052c9f0f47cd466",
+      "object_key": "narration/v1/puzzles/format-transcripts-into-sft-examples/b79f1886020a147f20c9/algieba-730fc9264298cb43.mp3",
+      "bytes": 4086188,
+      "sha256": "730fc9264298cb434afce71d0730ba1b927767598773c9172c34a66e2f6b84d0",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:format-transcripts-into-sft-examples",
+      "slug": "format-transcripts-into-sft-examples",
+      "track_id": "aoede",
+      "source_sha256": "62c2322c40d16bcc0bb90d845e8cb860fe6a261c3797d396cc046054ed2651a4",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "b79f1886020a147f20c97d5b1bf1dfb7a75dcc7e7b6043765052c9f0f47cd466",
+      "object_key": "narration/v1/puzzles/format-transcripts-into-sft-examples/b79f1886020a147f20c9/aoede-a323ba2fd78243fa.mp3",
+      "bytes": 3895340,
+      "sha256": "a323ba2fd78243fa8bbf546374813090bf4658dce93c7e7f78c82f95b0aaba85",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

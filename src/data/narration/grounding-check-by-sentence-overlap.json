@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:grounding-check-by-sentence-overlap",
+  "source_path": "src/content/grounding-check-by-sentence-overlap.narration.js",
+  "source_sha256": "6916f9c64e5457146659ac3ed9046297c79b8803ec39cb602aff4dc53a2359f5",
+  "source_characters": 15984,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "6843bed4fcbd9f659f827dff473b1e3891c490e21b4cf5a779f9d241670270cb",
+  "generated_at": "2026-10-22T02:23:28.984Z",
+  "generated_characters": 31968,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 3175,
+      "utf8_bytes": 3183,
+      "sha256": "0a700c3d4a561005bf7d88877bc3df872aaf8826a7f854625e78ca7a870b51fa"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3559,
+      "utf8_bytes": 3561,
+      "sha256": "147112b17ddcaf08d0bf95679ca255ea9c1d15206575631965705813691e4345"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 4428,
+      "utf8_bytes": 4432,
+      "sha256": "45d2e2aed18a24ca1ac2d2de762a033c5944ca4effdb87695d38bfd237d7fa01"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 4822,
+      "utf8_bytes": 4826,
+      "sha256": "00dd81fdcdef392c638e166f06cb5013d55e15fd641fac503308af2946dfef5a"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "grounding-check-by-sentence-overlap.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "grounding-check-by-sentence-overlap.01-brief",
+      "label": "Engineering Brief",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 3056,
+      "sha256": "e02d52880c12078fb354406932072918dfc94b551cf855c8b41a4320252a0bdb"
+    },
+    {
+      "id": "grounding-check-by-sentence-overlap.02-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 3559,
+      "sha256": "4d1f94d075233928324950fcccc0988a531d83d8bf7ff3ea6a0b5473f123fdff"
+    },
+    {
+      "id": "grounding-check-by-sentence-overlap.03-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2729,
+      "sha256": "7adae4962243b01d61c48e4353949984a5907fd9ba1d220038fe80d3d4ef7ee9"
+    },
+    {
+      "id": "grounding-check-by-sentence-overlap.04-visual",
+      "label": "System Diagram",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1699,
+      "sha256": "9808785e66dfac8bef6aac8ad2037663a2642545283ea06ee9a5629f04ace547"
+    },
+    {
+      "id": "grounding-check-by-sentence-overlap.05-evidence",
+      "label": "Validation Evidence",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1538,
+      "sha256": "5d26a4cf3f8b1785a257363dc7d2a0f62ca6887c7b28a4ca6fde51f960fccd39"
+    },
+    {
+      "id": "grounding-check-by-sentence-overlap.06-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1292,
+      "sha256": "2df568be5a5b5f0b8eb504b95884e368209ab56692a0cf4d3e7c35792c3cca78"
+    },
+    {
+      "id": "grounding-check-by-sentence-overlap.07-starter",
+      "label": "Starting Point",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1466,
+      "sha256": "8d96d2c64e06e93e84d0813cb7aa04c34fed0ef5778504dd75ca9e4e9c5bc748"
+    },
+    {
+      "id": "grounding-check-by-sentence-overlap.08-files",
+      "label": "Working Files",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 524,
+      "sha256": "c931f9be6beb40ed9a702dfa9647702fc8098e484e6fa1a052bcacb5a07a7038"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/grounding-check-by-sentence-overlap/6843bed4fcbd9f659f82/aoede-e68a56f29d6e10be.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4286252,
+      "sha256": "e68a56f29d6e10befe206485a092bce0a44031476681550d599471b428ce177b",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "0a700c3d4a561005bf7d88877bc3df872aaf8826a7f854625e78ca7a870b51fa",
+          "bytes": 894144,
+          "sha256": "0db4db531cdbd4d71353a2b5696e720a54d61a76c3d2411c2f2cbda9eba3fe87"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "147112b17ddcaf08d0bf95679ca255ea9c1d15206575631965705813691e4345",
+          "bytes": 870912,
+          "sha256": "fd6bbb1059f2c5d807ef128010f173edbf8c7cd366616cfe64cf1d0f07993ac6"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "45d2e2aed18a24ca1ac2d2de762a033c5944ca4effdb87695d38bfd237d7fa01",
+          "bytes": 1301664,
+          "sha256": "17281dcb15b8d7b043db69dd140aced7160e2c1d90ccccadce2cce4f220694e2"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "00dd81fdcdef392c638e166f06cb5013d55e15fd641fac503308af2946dfef5a",
+          "bytes": 1219296,
+          "sha256": "b62b414c7547f39282f295884cae7032ba918482a954182eab3d6746ad2357de"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/grounding-check-by-sentence-overlap/6843bed4fcbd9f659f82/algieba-be3893f6a584a77b.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4443212,
+      "sha256": "be3893f6a584a77bba2f2c5170176f336a4029911698c5e4d742ab70537c14f3",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "0a700c3d4a561005bf7d88877bc3df872aaf8826a7f854625e78ca7a870b51fa",
+          "bytes": 904992,
+          "sha256": "23bb2989aff814d303d2efea3b73ff26ae37e08773606f86c90c6dce0c2ca5f7"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "147112b17ddcaf08d0bf95679ca255ea9c1d15206575631965705813691e4345",
+          "bytes": 971136,
+          "sha256": "df5f4b1a7af2097394d6c48371e449506222734979ee3cf674fc27bddc105648"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "45d2e2aed18a24ca1ac2d2de762a033c5944ca4effdb87695d38bfd237d7fa01",
+          "bytes": 1265856,
+          "sha256": "3d0368ff6551de54a836323e28861df0c387afc0433fd539dfc30d2cdf9faf3c"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "00dd81fdcdef392c638e166f06cb5013d55e15fd641fac503308af2946dfef5a",
+          "bytes": 1300992,
+          "sha256": "fffb940e5c0c01b969c3bca7d00eaded35bdcbd61062c40c8dd089efae114f7e"
+        }
+      ]
+    }
+  }
+}

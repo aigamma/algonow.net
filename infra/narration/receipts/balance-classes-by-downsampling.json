@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net balance-classes-by-downsampling preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T02:37:21.808Z",
+  "publication_sha256": "dcd5b6990d6ce1ba102a5658345f8e4908bba46f8b11747ba5ca4fac46fc8bbb",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 7595416,
+  "objects": [
+    {
+      "stable_id": "puzzle:balance-classes-by-downsampling",
+      "slug": "balance-classes-by-downsampling",
+      "track_id": "algieba",
+      "source_sha256": "687e615df55e8f1945a59e547c2c578e89eb271f381cc302edae7ff0a4f14377",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "01c848a78357f566b95f3717f9116554c31419b815588d1e2da71953b20b1bc7",
+      "object_key": "narration/v1/puzzles/balance-classes-by-downsampling/01c848a78357f566b95f/algieba-8baf36086b81b537.mp3",
+      "bytes": 3918380,
+      "sha256": "8baf36086b81b5373a7a01a3e5daa4971c6193a803e051aacfda769b4aa2e40c",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:balance-classes-by-downsampling",
+      "slug": "balance-classes-by-downsampling",
+      "track_id": "aoede",
+      "source_sha256": "687e615df55e8f1945a59e547c2c578e89eb271f381cc302edae7ff0a4f14377",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "01c848a78357f566b95f3717f9116554c31419b815588d1e2da71953b20b1bc7",
+      "object_key": "narration/v1/puzzles/balance-classes-by-downsampling/01c848a78357f566b95f/aoede-cd9deeab76f32db7.mp3",
+      "bytes": 3677036,
+      "sha256": "cd9deeab76f32db758b9b19e4f155f96df437de009100f015c5b66b6f05b8a4f",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

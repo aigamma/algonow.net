@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:truncate-teacher-top-k",
+  "source_path": "src/content/truncate-teacher-top-k.narration.js",
+  "source_sha256": "7ac23f6a2a5e8d694f910952c1c3b90ea9032c452515091d9dd7be7df22a9538",
+  "source_characters": 15631,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "c1514b302077c1e7e7470e49db0f095ee6f9736203cf1968598bb313fd7a48d0",
+  "generated_at": "2026-10-22T02:18:16.517Z",
+  "generated_characters": 31262,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 2773,
+      "utf8_bytes": 2781,
+      "sha256": "0752b37c7e72fd4aa67369b661dfbf3b9ddfaf84a1e6e5175f1b1075d91b1ef5"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 2960,
+      "utf8_bytes": 2962,
+      "sha256": "3a34b92511eeaba7b76d640080463d41e57d5ec0ad9d6a0da26be75981a53cc7"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 4646,
+      "utf8_bytes": 4656,
+      "sha256": "9b09f04afcdfbb4ad669ce00ae1bc873eecbc5c493166c3388695d6c92184af0"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 4648,
+      "utf8_bytes": 4652,
+      "sha256": "b577bfff0e655c8d0304b8f77cf4f1d37a44609440c733e9d1808f65472625ac"
+    },
+    {
+      "id": "request-005",
+      "index": 5,
+      "characters": 604,
+      "utf8_bytes": 606,
+      "sha256": "f41a471e8f07b5f6353779a1d97579e7b057e769ffc5c3635176a549251948f6"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "truncate-teacher-top-k.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "truncate-teacher-top-k.01-brief",
+      "label": "Engineering Brief",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2654,
+      "sha256": "a80cd455c88111be496837c852b653f017df20c46039b5646ed1f5d3106b0b52"
+    },
+    {
+      "id": "truncate-teacher-top-k.02-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2960,
+      "sha256": "ec7a41fd9d11a83d4c8b13555e28f74221f79411ee93cd915e29d75db97e6fa7"
+    },
+    {
+      "id": "truncate-teacher-top-k.03-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2769,
+      "sha256": "696a13069ea9f4722b20ae63685f9ac8fb76b32f212b0874ac72a9a26a18638a"
+    },
+    {
+      "id": "truncate-teacher-top-k.04-visual",
+      "label": "System Diagram",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1883,
+      "sha256": "e31cc452d910c265909d0c9b60b6d83f1c090170a4897d1986c2125f5976a88b"
+    },
+    {
+      "id": "truncate-teacher-top-k.05-evidence",
+      "label": "Validation Evidence",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1598,
+      "sha256": "6a39e77fd4f813ac2c9a9902b5d84229047c322dfedb858b8a12b9889a6f2ced"
+    },
+    {
+      "id": "truncate-teacher-top-k.06-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1450,
+      "sha256": "98b1842980240b6fdd99d2818051f78c7550e01308e0ff34546d854bfff34396"
+    },
+    {
+      "id": "truncate-teacher-top-k.07-starter",
+      "label": "Starting Point",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1598,
+      "sha256": "35b6f0d246014697cb31f8d66a9eea911196f179a552a452a84895404572639b"
+    },
+    {
+      "id": "truncate-teacher-top-k.08-files",
+      "label": "Working Files",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 606,
+      "sha256": "f41a471e8f07b5f6353779a1d97579e7b057e769ffc5c3635176a549251948f6"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/truncate-teacher-top-k/c1514b302077c1e7e747/aoede-f61b7746d2bcc026.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3969644,
+      "sha256": "f61b7746d2bcc02646ee8ccfd3a1b9f0ebd34c83a32b65f9ccf549f2638c80a8",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "0752b37c7e72fd4aa67369b661dfbf3b9ddfaf84a1e6e5175f1b1075d91b1ef5",
+          "bytes": 803904,
+          "sha256": "8160920c9181c3720b1f3621ff65fddf2d5ff9d4a5bf3abb897afbe7da06f519"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "3a34b92511eeaba7b76d640080463d41e57d5ec0ad9d6a0da26be75981a53cc7",
+          "bytes": 733824,
+          "sha256": "6e952993faf521cb1cbc7acbc318183d56ac4a016f5a369a5de10e369390f0e0"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "9b09f04afcdfbb4ad669ce00ae1bc873eecbc5c493166c3388695d6c92184af0",
+          "bytes": 1092384,
+          "sha256": "25d06ade00319f589afeea960da4cf7538f24100af591a15d93e3127820180b9"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "b577bfff0e655c8d0304b8f77cf4f1d37a44609440c733e9d1808f65472625ac",
+          "bytes": 1192032,
+          "sha256": "c7ca5b413888c999baa952b3c5e33166268b59bf6b80e8d760f1388ff19e35d7"
+        },
+        {
+          "request_index": 5,
+          "request_sha256": "f41a471e8f07b5f6353779a1d97579e7b057e769ffc5c3635176a549251948f6",
+          "bytes": 147264,
+          "sha256": "780bce982804bdca5924ca52356525ebba2dc18781c1a03975de9c93e61b1b2a"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/truncate-teacher-top-k/c1514b302077c1e7e747/algieba-44ebc355e3966c27.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4239788,
+      "sha256": "44ebc355e3966c27393547420fa5d903a6fb9f6d45691f991e9f2c92bc4919f9",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "0752b37c7e72fd4aa67369b661dfbf3b9ddfaf84a1e6e5175f1b1075d91b1ef5",
+          "bytes": 835392,
+          "sha256": "73c3505cc5ff0e9539465b1ea6c3f8a0a011b61d40be05ddd93b6d7ef1ea689f"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "3a34b92511eeaba7b76d640080463d41e57d5ec0ad9d6a0da26be75981a53cc7",
+          "bytes": 773376,
+          "sha256": "9a02463ad837b9c8e6e7e0c052dbabc319c4863b583bc1e837c1462fe567e612"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "9b09f04afcdfbb4ad669ce00ae1bc873eecbc5c493166c3388695d6c92184af0",
+          "bytes": 1234944,
+          "sha256": "9b3b62b578c3d2400eae7000e1b58c7ce06798f05beb8ae276b569c3856cf69f"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "b577bfff0e655c8d0304b8f77cf4f1d37a44609440c733e9d1808f65472625ac",
+          "bytes": 1239264,
+          "sha256": "87d67e16d6ef0188c80c4b11d4d69908c60b8520a510ad1a8ae2cbe867d43b44"
+        },
+        {
+          "request_index": 5,
+          "request_sha256": "f41a471e8f07b5f6353779a1d97579e7b057e769ffc5c3635176a549251948f6",
+          "bytes": 156576,
+          "sha256": "553f23c660510cbd171128f5c09f0fa5046933e009aac13ec3cd37fb8517f24a"
+        }
+      ]
+    }
+  }
+}

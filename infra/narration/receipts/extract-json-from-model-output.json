@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net extract-json-from-model-output preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T02:33:56.819Z",
+  "publication_sha256": "c158603245e28d4a13f26fd6f28a0f1132469c04ad9fde7444d015c084e7e617",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 8382232,
+  "objects": [
+    {
+      "stable_id": "puzzle:extract-json-from-model-output",
+      "slug": "extract-json-from-model-output",
+      "track_id": "algieba",
+      "source_sha256": "59c78fe4d7974f1b855c3ec7a598e77e9c76b32b63ec40127b1f139a5a3f6e84",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "8a7bb65d918776b56964e569604d9148898e923e9c0ddb1d8728178cec1d39e7",
+      "object_key": "narration/v1/puzzles/extract-json-from-model-output/8a7bb65d918776b56964/algieba-43c463bba5953b2a.mp3",
+      "bytes": 4290956,
+      "sha256": "43c463bba5953b2a1ebf20f57a0ae4977e4b94382ea9b1fb99ebf1e7c8a8c43c",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:extract-json-from-model-output",
+      "slug": "extract-json-from-model-output",
+      "track_id": "aoede",
+      "source_sha256": "59c78fe4d7974f1b855c3ec7a598e77e9c76b32b63ec40127b1f139a5a3f6e84",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "8a7bb65d918776b56964e569604d9148898e923e9c0ddb1d8728178cec1d39e7",
+      "object_key": "narration/v1/puzzles/extract-json-from-model-output/8a7bb65d918776b56964/aoede-3585d5850ee4a8e8.mp3",
+      "bytes": 4091276,
+      "sha256": "3585d5850ee4a8e84368c856e0c5e91af197549371abdf4e215bd1ecf5b54dcc",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

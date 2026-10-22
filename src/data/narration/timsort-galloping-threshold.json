@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:timsort-galloping-threshold",
+  "source_path": "src/content/timsort-galloping-threshold.narration.js",
+  "source_sha256": "9d90b72cc568e3142701effc9089f70488e02c41b0d91683cccb9fad8c26410a",
+  "source_characters": 10032,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "318edcf87bd89ce53ce1ac87d544c1d489583bbcab87e8d74e4aac02963589fb",
+  "generated_at": "2026-10-22T09:07:54.444Z",
+  "generated_characters": 20064,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4100,
+      "utf8_bytes": 4106,
+      "sha256": "60d7d8036eab58bdd6684c6e348d7a718e873b68bd8257c18eb7c4352be4ab99"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4891,
+      "utf8_bytes": 4905,
+      "sha256": "2a86a3af11a47b7cd97477b065da2c3a0777c6c11980b729389c50d35380b7bc"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 1041,
+      "utf8_bytes": 1041,
+      "sha256": "f2f315d49510220a1ef668b0c08aa3bc6a2ac0ba3db5e7c804388794106c2281"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "timsort-galloping-threshold.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "timsort-galloping-threshold.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 977,
+      "sha256": "a0323597e62afea569d937b8561fe26614f4c1d8f867f5c289767fd5d8ba1745"
+    },
+    {
+      "id": "timsort-galloping-threshold.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 968,
+      "sha256": "2b7143a4a8b30f8284f220b55ad62b9fefc4ffd1f6a3620c9eded9057e26d9cc"
+    },
+    {
+      "id": "timsort-galloping-threshold.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1041,
+      "sha256": "1c7127bb7d0aa72d094a20735c0a3efa766506cc8b436b389bfead6e75de3796"
+    },
+    {
+      "id": "timsort-galloping-threshold.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 987,
+      "sha256": "10b5a420f5b02dd7acd52b1b0b15d62b56c59ab646cc0692ec955faa1bb3b887"
+    },
+    {
+      "id": "timsort-galloping-threshold.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1044,
+      "sha256": "25a294fb258acf3c581a6599883b4af1b0f6bf5c80c7be3b64e15721c7a459b7"
+    },
+    {
+      "id": "timsort-galloping-threshold.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 922,
+      "sha256": "9e7bb509e610ed2591d48636fb75c77813081d6ea5532452a7a80523c9d22a44"
+    },
+    {
+      "id": "timsort-galloping-threshold.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 963,
+      "sha256": "49f3d54c9a60c5e5ec8afb202f6f141eb6aef7ec4b3959c6aa2c2c9db1a610ca"
+    },
+    {
+      "id": "timsort-galloping-threshold.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 928,
+      "sha256": "bf058af89e7587f1fa65a8036bda6c1a867249d172e9c0503b9e3688131c128a"
+    },
+    {
+      "id": "timsort-galloping-threshold.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1038,
+      "sha256": "27c1d808dd0dd5a387e7b0708b39aacb7216788e0420624604ebd73b333bc61f"
+    },
+    {
+      "id": "timsort-galloping-threshold.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1041,
+      "sha256": "f2f315d49510220a1ef668b0c08aa3bc6a2ac0ba3db5e7c804388794106c2281"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/timsort-galloping-threshold/318edcf87bd89ce53ce1/aoede-c3c9e853354e47fe.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2656268,
+      "sha256": "c3c9e853354e47fe15ab6ace84fc89ed0f8c635d244e0b93c58ae8b38b29aed1",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "60d7d8036eab58bdd6684c6e348d7a718e873b68bd8257c18eb7c4352be4ab99",
+          "bytes": 1118592,
+          "sha256": "d7284ac438a063474debe6edd5644bf12a01501e30df673b62ec86b1d65cb2ee"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "2a86a3af11a47b7cd97477b065da2c3a0777c6c11980b729389c50d35380b7bc",
+          "bytes": 1261536,
+          "sha256": "682392a0bea5b5f8cbbaaf1856e84b64ac08d8160104fee453611c972e030c6f"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "f2f315d49510220a1ef668b0c08aa3bc6a2ac0ba3db5e7c804388794106c2281",
+          "bytes": 275904,
+          "sha256": "5068ce930c8a85bb6847e5ad446fe9401920347d8a5e743491d5fcb50796d997"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/timsort-galloping-threshold/318edcf87bd89ce53ce1/algieba-c4138bb108922343.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2778764,
+      "sha256": "c4138bb108922343080507ceb8dc61b311eb3b20a6e86deba5f136183fe0ab0b",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "60d7d8036eab58bdd6684c6e348d7a718e873b68bd8257c18eb7c4352be4ab99",
+          "bytes": 1166496,
+          "sha256": "636201e6036d533d327b887d79b2054f6ad825f45889cbb6340c5efa300c78ff"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "2a86a3af11a47b7cd97477b065da2c3a0777c6c11980b729389c50d35380b7bc",
+          "bytes": 1354176,
+          "sha256": "85019e782876d2dcc8d9881755caa4634f21c29d4b6b0ef58113f85594ee4dc3"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "f2f315d49510220a1ef668b0c08aa3bc6a2ac0ba3db5e7c804388794106c2281",
+          "bytes": 257856,
+          "sha256": "b351ac064f3e0391a36d20d7f4b3b7cc011ad9716e4775b6464555b60fe861f1"
+        }
+      ]
+    }
+  }
+}

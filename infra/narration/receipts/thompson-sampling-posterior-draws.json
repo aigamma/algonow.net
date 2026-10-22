@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net thompson-sampling-posterior-draws preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T10:20:28.608Z",
+  "publication_sha256": "996de7af6f74f516e0cd7c2056fb387bab41864a2c69f0fe5a786c5c3865e2c5",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 6193336,
+  "objects": [
+    {
+      "stable_id": "puzzle:thompson-sampling-posterior-draws",
+      "slug": "thompson-sampling-posterior-draws",
+      "track_id": "algieba",
+      "source_sha256": "1d24b414db05ad8d41ce5f7128acd1284ed75fd011160e9e0f7aa79d305dff3e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "412414cb476214b56585c28f38a36224fb4eaf5ddaf20c63950ebba317e2a172",
+      "object_key": "narration/v1/puzzles/thompson-sampling-posterior-draws/412414cb476214b56585/algieba-8fe759f1acc6e400.mp3",
+      "bytes": 3201548,
+      "sha256": "8fe759f1acc6e400f4a26589280a97196a8e64354366ab4ad3d8ef88a3fab24a",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:thompson-sampling-posterior-draws",
+      "slug": "thompson-sampling-posterior-draws",
+      "track_id": "aoede",
+      "source_sha256": "1d24b414db05ad8d41ce5f7128acd1284ed75fd011160e9e0f7aa79d305dff3e",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "412414cb476214b56585c28f38a36224fb4eaf5ddaf20c63950ebba317e2a172",
+      "object_key": "narration/v1/puzzles/thompson-sampling-posterior-draws/412414cb476214b56585/aoede-de296a23c2631ed7.mp3",
+      "bytes": 2991788,
+      "sha256": "de296a23c2631ed7a7e57cc47058200424ee8bac6b68e8c8570477e55336afdb",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

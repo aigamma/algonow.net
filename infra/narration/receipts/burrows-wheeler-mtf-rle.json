@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net burrows-wheeler-mtf-rle preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-10-22T10:18:35.973Z",
+  "publication_sha256": "fbc3b6b11f69544a59c426e26e1566fb97e39b736e9a1aa326d45074c3e5584f",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 4874680,
+  "objects": [
+    {
+      "stable_id": "puzzle:burrows-wheeler-mtf-rle",
+      "slug": "burrows-wheeler-mtf-rle",
+      "track_id": "algieba",
+      "source_sha256": "833c7c5b5849aadc51a96677e116402f0f5f96c1179890260d37522a531b6279",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "4e1ba047758bb172c480aa074dd13dbe2fa40e65edeb3ac671f4d84adb36cbac",
+      "object_key": "narration/v1/puzzles/burrows-wheeler-mtf-rle/4e1ba047758bb172c480/algieba-00922a472c84a589.mp3",
+      "bytes": 2538860,
+      "sha256": "00922a472c84a589612458b1b54037da02be42036584f49c39607cc8658a254d",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:burrows-wheeler-mtf-rle",
+      "slug": "burrows-wheeler-mtf-rle",
+      "track_id": "aoede",
+      "source_sha256": "833c7c5b5849aadc51a96677e116402f0f5f96c1179890260d37522a531b6279",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "4e1ba047758bb172c480aa074dd13dbe2fa40e65edeb3ac671f4d84adb36cbac",
+      "object_key": "narration/v1/puzzles/burrows-wheeler-mtf-rle/4e1ba047758bb172c480/aoede-1e7b993693400b20.mp3",
+      "bytes": 2335820,
+      "sha256": "1e7b993693400b2053d321347582e4e540bd8f0600a7dd220760a823cf400fc4",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

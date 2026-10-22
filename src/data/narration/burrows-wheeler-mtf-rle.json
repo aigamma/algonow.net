@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:burrows-wheeler-mtf-rle",
+  "source_path": "src/content/burrows-wheeler-mtf-rle.narration.js",
+  "source_sha256": "833c7c5b5849aadc51a96677e116402f0f5f96c1179890260d37522a531b6279",
+  "source_characters": 8738,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "4e1ba047758bb172c480aa074dd13dbe2fa40e65edeb3ac671f4d84adb36cbac",
+  "generated_at": "2026-10-22T09:04:37.691Z",
+  "generated_characters": 17476,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4912,
+      "utf8_bytes": 4932,
+      "sha256": "96cfbd0974169613bfd13b15ce1d55ec6f9049b19c1b5cfeb36ffb768d2da935"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3826,
+      "utf8_bytes": 3838,
+      "sha256": "80ec1c83ac6526e98a6a663126e4ce53d9d8bf04483999a5c7b8a7a243e80c9e"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "burrows-wheeler-mtf-rle.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "burrows-wheeler-mtf-rle.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 787,
+      "sha256": "240ea4795b548fc9a814e629ee87734b7c5a2c59e755c7a50da62d5bbf0f3c99"
+    },
+    {
+      "id": "burrows-wheeler-mtf-rle.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 736,
+      "sha256": "158db0a4a1e285e560b011eb26261e96a71f22fb4e9a71baf1b4931a45d8b585"
+    },
+    {
+      "id": "burrows-wheeler-mtf-rle.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1100,
+      "sha256": "4dabb173c3e0903e1b78cbc3e2c8dce9527e4775787aba5565ada8677f9dc23a"
+    },
+    {
+      "id": "burrows-wheeler-mtf-rle.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 721,
+      "sha256": "5cc6e8bb6f1e5dadd10615de8c8edb0d5e7bb3ab02ec3a2334380b53fc3d6432"
+    },
+    {
+      "id": "burrows-wheeler-mtf-rle.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 795,
+      "sha256": "7f5b34f8f4374558ebae5bcf31a1a82d0d5a6dd4a661c03e0f77341e1ba6c111"
+    },
+    {
+      "id": "burrows-wheeler-mtf-rle.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 656,
+      "sha256": "570eb2cf67bd6cc960c94bff73ee21164d847222e19510a51a367a4ffd59a52f"
+    },
+    {
+      "id": "burrows-wheeler-mtf-rle.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1076,
+      "sha256": "5a6d0a055bd1638d6fb07097706a39b8eeb6a13edfc2c9042df73e79fd109020"
+    },
+    {
+      "id": "burrows-wheeler-mtf-rle.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 856,
+      "sha256": "71fc26c3a67f167940c3b844ad92a6586c17b4a9b58c24b3331df9323aaabd44"
+    },
+    {
+      "id": "burrows-wheeler-mtf-rle.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 911,
+      "sha256": "47ceaf1854fd19a01c95d7386731e8dde28f4833f58fa1e3a6a3b71829028f0c"
+    },
+    {
+      "id": "burrows-wheeler-mtf-rle.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 989,
+      "sha256": "e0858ab2acf2f25355bcb64e527be6f754a8daf3a9345f86ae86639b359523a1"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/burrows-wheeler-mtf-rle/4e1ba047758bb172c480/aoede-1e7b993693400b20.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2335820,
+      "sha256": "1e7b993693400b2053d321347582e4e540bd8f0600a7dd220760a823cf400fc4",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "96cfbd0974169613bfd13b15ce1d55ec6f9049b19c1b5cfeb36ffb768d2da935",
+          "bytes": 1296192,
+          "sha256": "2ca18d8d46a7d16788468df5f8fdaf66c1b2a77085438288be23460f0ef3a76a"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "80ec1c83ac6526e98a6a663126e4ce53d9d8bf04483999a5c7b8a7a243e80c9e",
+          "bytes": 1039392,
+          "sha256": "ff55357e9d7d424b4561ccc813f125b81ca970ff7f4a839a9ba6ee1c79cc9612"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/burrows-wheeler-mtf-rle/4e1ba047758bb172c480/algieba-00922a472c84a589.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2538860,
+      "sha256": "00922a472c84a589612458b1b54037da02be42036584f49c39607cc8658a254d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "96cfbd0974169613bfd13b15ce1d55ec6f9049b19c1b5cfeb36ffb768d2da935",
+          "bytes": 1408032,
+          "sha256": "21eb23783067e4386e79d8e6ae301940c50db403783b4311d5c20ad28fc5b895"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "80ec1c83ac6526e98a6a663126e4ce53d9d8bf04483999a5c7b8a7a243e80c9e",
+          "bytes": 1130592,
+          "sha256": "5b865735da6dbd40f8d3000fcab6c7abee2bfd3eeab0e2ab0208587c581db023"
+        }
+      ]
+    }
+  }
+}

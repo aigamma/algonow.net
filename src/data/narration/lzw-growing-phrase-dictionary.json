@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:lzw-growing-phrase-dictionary",
+  "source_path": "src/content/lzw-growing-phrase-dictionary.narration.js",
+  "source_sha256": "083eec8351844acddf9a0bd0917d895037330620d990708bf20eda61b9c14bd0",
+  "source_characters": 7665,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "af205e59ec87dc2fa8446cc94a03c375435ea0acf5e2f89e6e025f4132d71e04",
+  "generated_at": "2026-10-22T09:01:45.297Z",
+  "generated_characters": 15330,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4403,
+      "utf8_bytes": 4411,
+      "sha256": "6dfc2264bcf36f06875fa67a6849b1d8d9a9a0ec5ead4412407dc6267a0fa2f2"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3262,
+      "utf8_bytes": 3266,
+      "sha256": "c8f15f424af0076ea9373f516c9157a4a5ae152fae594b3b89bf90ce540339c6"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "lzw-growing-phrase-dictionary.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "lzw-growing-phrase-dictionary.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 734,
+      "sha256": "85700bd659725509b7d4fcdcc4d9bbd00f48d25f4638ba81cd81ee7db0b8e014"
+    },
+    {
+      "id": "lzw-growing-phrase-dictionary.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 634,
+      "sha256": "b59e10f0a8898637c11248926938eab0e408720f68b4d2bc82f1e0c31946fc18"
+    },
+    {
+      "id": "lzw-growing-phrase-dictionary.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 860,
+      "sha256": "662c1017ad65eeed83f2522cd468c0aad451efb026671b3379346cdec476ea08"
+    },
+    {
+      "id": "lzw-growing-phrase-dictionary.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 803,
+      "sha256": "dc49e37aa33f19b815ad29d67459daa82b077ec164c57dd25b9b52b3df327e83"
+    },
+    {
+      "id": "lzw-growing-phrase-dictionary.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 651,
+      "sha256": "006936ff9557340e355e332ab9847d3cc6be7d37a7fc420a103a2fda16639f58"
+    },
+    {
+      "id": "lzw-growing-phrase-dictionary.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 592,
+      "sha256": "c61a7bc32a5c575ae77ae7156f10d93504ed68ad4589a8f5479396b6143c01c3"
+    },
+    {
+      "id": "lzw-growing-phrase-dictionary.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 683,
+      "sha256": "23099d66e8dd35d12fc38cb8fe654b48c8ec897b53a6ee297ef46aab212303b2"
+    },
+    {
+      "id": "lzw-growing-phrase-dictionary.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 915,
+      "sha256": "9dfe43ae41e91f77bdbe873d9949c62f10a849081b5e8949c1aef46276aba806"
+    },
+    {
+      "id": "lzw-growing-phrase-dictionary.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 772,
+      "sha256": "4d903e6da1a66ce4b659d2226343a2eb5f4daf3632fbcac427469af5bcafe5a6"
+    },
+    {
+      "id": "lzw-growing-phrase-dictionary.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 890,
+      "sha256": "9145bb23cf531fe70b60798c02285272b3275ea2a0cc3bdb2ceb22d049031e83"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/lzw-growing-phrase-dictionary/af205e59ec87dc2fa844/aoede-5f4273d0ee3ed883.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 1998572,
+      "sha256": "5f4273d0ee3ed883c47e19f7271617a0aa441f00a8a1b93642fb54cd1f26642d",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "6dfc2264bcf36f06875fa67a6849b1d8d9a9a0ec5ead4412407dc6267a0fa2f2",
+          "bytes": 1119744,
+          "sha256": "b731f11ce6083adc1328df7d2d453c199f042d0fd184d750b0b01c65526c1001"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "c8f15f424af0076ea9373f516c9157a4a5ae152fae594b3b89bf90ce540339c6",
+          "bytes": 878592,
+          "sha256": "ff6f3553addfea66d1e596b15c448de548b7cbfc4f8988ea52849b8ab4ec7263"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/lzw-growing-phrase-dictionary/af205e59ec87dc2fa844/algieba-a0364afa0e56ea48.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2220812,
+      "sha256": "a0364afa0e56ea48a4045acbb3dfeb107b529170b6a4434455ebe48126772ad9",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "6dfc2264bcf36f06875fa67a6849b1d8d9a9a0ec5ead4412407dc6267a0fa2f2",
+          "bytes": 1257792,
+          "sha256": "01cc6be5564b3da6754f2cdd0c81527d266502c4ef17d2bb0627069783960a9b"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "c8f15f424af0076ea9373f516c9157a4a5ae152fae594b3b89bf90ce540339c6",
+          "bytes": 962784,
+          "sha256": "60709ab6ae9a322187e27843c9681d2e761b7d9cd719c851a06e9741b9babc19"
+        }
+      ]
+    }
+  }
+}

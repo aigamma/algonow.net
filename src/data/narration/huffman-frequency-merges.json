@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:huffman-frequency-merges",
+  "source_path": "src/content/huffman-frequency-merges.narration.js",
+  "source_sha256": "593b9ce7c93bcb5f0ccf3347bc551bf114aef77b9ff29cb6f3683488910644cb",
+  "source_characters": 9457,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "3b7d906cf343053af39b9e3fd4593630b5a869a4d2fe61f6aefb4225843419ec",
+  "generated_at": "2026-10-22T08:59:13.998Z",
+  "generated_characters": 18914,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4981,
+      "utf8_bytes": 4993,
+      "sha256": "b912d5d4032c49983f7d147657f1fbeb3d59c33987007ae4910106fc4e11cd33"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 4476,
+      "utf8_bytes": 4488,
+      "sha256": "12545984956963fdcb82f6ab72ab0a2a8cb5d9ecd915a67d1cf797a026745d94"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "huffman-frequency-merges.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "huffman-frequency-merges.01-puzzle",
+      "label": "The Puzzle",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 661,
+      "sha256": "a51cea1c81c49f0240752df78c8fc9cd1ba952a280094d2321fd2127c53f3a62"
+    },
+    {
+      "id": "huffman-frequency-merges.02-origins",
+      "label": "Origins",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 911,
+      "sha256": "033e5892019617af7db0c6b626bc5c686dcddf656c133be39e6c945cf344f599"
+    },
+    {
+      "id": "huffman-frequency-merges.03-pair",
+      "label": "The Pair",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1212,
+      "sha256": "be9bd8ef79f466e2a9ab4fbee6f00573227b5b054253d4daf11cff980b23d2bb"
+    },
+    {
+      "id": "huffman-frequency-merges.04-picture",
+      "label": "Picture It",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 624,
+      "sha256": "cdd0bd9a06d1664433ddd2d87ca91d600bb3075316cac3b03e951552334b68c2"
+    },
+    {
+      "id": "huffman-frequency-merges.05-run",
+      "label": "Run It",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 821,
+      "sha256": "b1934da0234c8fb2fb64e40a7ca12eb129d39dfb42edf153269953c65c249afd"
+    },
+    {
+      "id": "huffman-frequency-merges.06-signals",
+      "label": "Signals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 627,
+      "sha256": "79dc0a15164677a8a21d11ba9ad4937409150c8d2672d6cbe0d8243ad15410bc"
+    },
+    {
+      "id": "huffman-frequency-merges.07-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 746,
+      "sha256": "fc6d1d557e964fc62bb393dd14eeb64653798da977f74f0db9ab9f6ea4eacb4d"
+    },
+    {
+      "id": "huffman-frequency-merges.08-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1308,
+      "sha256": "082891634333e6b2ead347f0bf4f410996f41037de7f32e189760402855b6f82"
+    },
+    {
+      "id": "huffman-frequency-merges.09-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[8].section",
+        "narration[8].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1226,
+      "sha256": "ebdf232d98998b0543a8fa436b90e7df6c711e74801276e35ba281181a295a39"
+    },
+    {
+      "id": "huffman-frequency-merges.10-code",
+      "label": "Code Walkthrough",
+      "source_fields": [
+        "narration[9].section",
+        "narration[9].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1202,
+      "sha256": "6d0ae6a93ad769d48d44563869eeca04ac4c82d7ab54fcddebec7b3bbc10dae7"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/huffman-frequency-merges/3b7d906cf343053af39b/aoede-66c8518024df23a9.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2475212,
+      "sha256": "66c8518024df23a9c290e15ae9224ac8822407ec42d89325ef08183a68425f6e",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b912d5d4032c49983f7d147657f1fbeb3d59c33987007ae4910106fc4e11cd33",
+          "bytes": 1333632,
+          "sha256": "ef22880393469f4ba499e056813aed76d6a5c138fb635edf1e908aaad8ae1d2b"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "12545984956963fdcb82f6ab72ab0a2a8cb5d9ecd915a67d1cf797a026745d94",
+          "bytes": 1141344,
+          "sha256": "f237ec38618261db097222ec09b3ce2f53e2dcc58c9377cfc3bef6a627027603"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/huffman-frequency-merges/3b7d906cf343053af39b/algieba-8e8504d3c1998b2a.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 2652620,
+      "sha256": "8e8504d3c1998b2a590e04d61d75207f310cd0a26a36db953f09dec8d6604189",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b912d5d4032c49983f7d147657f1fbeb3d59c33987007ae4910106fc4e11cd33",
+          "bytes": 1402272,
+          "sha256": "4d2029805d93d6373074a012a10a35efb1718592415882a64c1da0d619520059"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "12545984956963fdcb82f6ab72ab0a2a8cb5d9ecd915a67d1cf797a026745d94",
+          "bytes": 1250112,
+          "sha256": "1fb88541e595930191d6767cb63f15bbebe0261747ac02757b734f19e56dee45"
+        }
+      ]
+    }
+  }
+}

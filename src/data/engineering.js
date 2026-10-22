@@ -166,6 +166,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['Deduplication by a normalized key', 'String normalization with lower, split, join, and isalnum', 'Sets: add, membership, intersection', 'A dictionary from key to the first id kept', 'Removing evaluation overlap (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'cosine-top-k-retrieval',
+    title: 'Rank chunks by cosine similarity and keep the top k',
+    summary: 'Orbit\'s assistant ranked runbook chunks by the raw dot product of each chunk\'s embedding with the question, so long chunks with large vectors won every time and a billing overview outranked the one paragraph about key rotation. A worked Python example scores five inline chunks against a query vector with cosine similarity written by hand: a dot product and a norm as loops over zip, math.sqrt, a sort with a key function and a tie-break, the top three cut with a slice, its exact output, a trace of every score, and one practice variation that drops chunks below a minimum similarity.',
+    track: 'rag',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'foundation',
+    durationMinutes: 25,
+    skills: ['Cosine similarity from a dot product and two norms', 'Loops over zip with running totals and strict length checking', 'math.sqrt and a zero-vector guard', 'Sorting records with a key function and a tie-break, then slicing the top k', 'A minimum similarity threshold (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

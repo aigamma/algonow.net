@@ -346,6 +346,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['enumerate to carry indices through a sort', 'A tuple sort key for descending value with an index tie-break', 'Slicing the top k', 'Renormalizing a kept subset', 'Top-p truncation (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'grounding-check-by-sentence-overlap',
+    title: 'Flag answer sentences that no retrieved chunk supports',
+    summary: 'Orbit\'s assistant cited runbook chunks and still invented a step, restart the gateway, that appeared in none of them, and the citation check passed because every sentence carried a bracket. A worked Python example splits a four-sentence inline answer and finds, for each sentence, the retrieved chunk with the largest share of its content words: a sentence splitter written as a character loop, word sets with a small stopword list, set intersection divided by the sentence\'s own size, a best-so-far search over three chunks, a threshold that flags the unsupported sentence, its exact output, a trace of every score, and one practice variation that also requires the best chunk to be the one the sentence cites.',
+    track: 'rag',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'intermediate',
+    durationMinutes: 30,
+    skills: ['Splitting sentences with a character loop and a buffer', 'Word sets with a stopword filter', 'Overlap as intersection over the sentence\'s size', 'A best-so-far search over chunks', 'Checking citations against the supporting chunk (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

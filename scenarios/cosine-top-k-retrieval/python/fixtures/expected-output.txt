@@ -1,0 +1,16 @@
+5 chunks scored against the query (length 0.99), top 3 kept
+id  title                dot   len  cosine  by dot  by cos
+c1  Rotate an API key   0.94  0.97   0.979       3       1
+c2  Billing overview    1.85  4.87   0.383       1       4
+c3  List call scopes    1.20  2.92   0.415       2       3
+c4  Revoke a lost key   0.86  1.00   0.864       4       2
+c5  Invoice downloads   0.18  0.93   0.195       5       5
+
+top 3 by cosine:
+  1  c1  0.979
+  2  c4  0.864
+  3  c3  0.415
+
+rejected: zip() argument 2 is shorter than argument 1
+
+OK

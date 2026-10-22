@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "slug": "cosine-top-k-retrieval",
+  "track": "rag",
+  "language": "python",
+  "system": {
+    "context": "Orbit's assistant embeds every runbook chunk and the question as vectors and picks the chunks to read by score. The first version scored by the raw dot product, so long chunks with large vectors won every time: for the question about rotating an API key, the billing overview came first and the one paragraph about key rotation came third. The dot product rewards length as much as direction.",
+    "request": "A worked Python example of one action: rank_chunks(query, chunks, k), which scores every chunk against the query by cosine similarity written by hand (dot as a loop over strict zip, norm as the square root of a vector's dot product with itself, cosine as the dot product divided by both lengths with a zero-vector guard), sorts the (id, score) pairs with a named key function returning (-score, id), and returns the first k by slicing, over five inline chunks with four-number vectors. The lesson leads with the complete solution and its exact output (every chunk's dot product, length, cosine, rank by dot, and rank by cosine, then the top three), explains the Python construct by construct (import math, loops over zip with running totals, a function built from a function, an or-guard that raises, a key function returning a tuple, in-place sort and slicing, dict items with enumerate from one, format specs), traces every score through both rankings, and offers one practice variation: also drop every chunk whose cosine is below a minimum.",
+    "inputs": [
+      "A query vector [0.9, 0.1, 0.0, 0.4] written inline in solution.py: the embedded question about rotating an API key",
+      "Five chunks as dictionaries with an id, a title, and a four-number vector: c1 Rotate an API key [0.8, 0.2, 0.1, 0.5], c2 Billing overview [1.5, 3.0, 3.5, 0.5], c3 List call scopes [0.9, 2.7, 0.6, 0.3], c4 Revoke a lost key [0.6, 0.0, 0.1, 0.8], c5 Invoice downloads [0.1, 0.1, 0.9, 0.2]",
+      "k = 3, and for the practice variation a minimum cosine of 0.5"
+    ],
+    "outputs": [
+      "rank_chunks returns the top k (id, score) pairs by cosine, highest first, ties by id: c1 0.979, c4 0.864, c3 0.415; the dot products are 0.94, 1.85, 1.20, 0.86, 0.18, the lengths 0.97, 4.87, 2.92, 1.00, 0.93 against a query length of 0.99, and the ranking by dot product is c2, c3, c1, c4, c5",
+      "python solution.py prints the score table with both ranks, the top three, the rejected three-number vector, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change only c1 (0.979) and c4 (0.864) clear the minimum of 0.5 and it prints OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no numpy, fixtures, credentials, or network",
+      "The cosine is computed exactly as the dot product divided by the product of the two norms; scaling a vector leaves its cosine unchanged within 1e-12; the input lists are never modified",
+      "A length mismatch raises ValueError through zip with strict=True; a zero vector raises ValueError naming the problem; the demonstration prints the rejected chunk instead of crashing",
+      "Ordinary Python only: import math, for loops over zip, augmented assignment, small functions calling functions, a key function returning a tuple, list.sort with key, slicing, dictionaries, dict.items with sorted and enumerate, f-strings with format specs, try and except, and assert; no classes, regular expressions, lambdas, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: cosines 0.979, 0.383, 0.415, 0.864, 0.195, ranks by dot 3, 1, 2, 4, 5, ranks by cosine 1, 4, 3, 2, 5, the top three c1, c4, c3, the rejected line, and OK",
+      "The arithmetic is exact: dot and norm equal the hand-computed values, the cosine of a vector with itself is 1.0 and of perpendicular vectors 0.0, scaling c2 by ten leaves its cosine unchanged while its dot product grows tenfold, k of 0 returns nothing, k past the end returns all five, and equal scores are ordered by id",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt; a minimum of 0.0 reproduces the worked run exactly and a minimum of 0.99 returns nothing",
+      "The dot product is measured on the same chunks: its top three were c2, c3, c1 with lengths 4.87, 2.92, 0.97, and cosine puts c1 first and c2 fourth at 0.383"
+    ]
+  },
+  "python": {
+    "package": "cosine_retrieval",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "1f90586ff07e9cc647e54ebdb02cc1ce0deb51cae17522185ec62a9fc8f084ac"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "7ddd059093dd1058166f7dfc3f0cdd0166299a4cda28addfc8221708138e8c91"
+    },
+    {
+      "path": "python/fixtures/chunks.json",
+      "description": "The query, the five chunks, k, and the practice minimum exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "4811f0d8db37ee5f4583b947fe0496048adab8fcc9e6fe0d3db6622576da76ec"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every chunk's dot product, length, and cosine (six decimals), both rankings, the top three, and the practice result, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "de13d43a62b7dcb40e0f40a12cba7b0a44506a8cde93ff5a7e55982ca22d1445"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "dot-and-norm",
+      "kind": "correctness",
+      "description": "The dot product of the query with c1 equals the hand-computed 0.94, the norm of [3, 4] is exactly 5, the query's norm is the square root of 0.98, and an empty dot product is 0.0.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_dot_product_and_norm_are_the_hand_computed_values"
+    },
+    {
+      "id": "cosine-bounds",
+      "kind": "correctness",
+      "description": "The cosine of a vector with itself is 1.0, of two vectors in the same direction 1.0, and of two perpendicular vectors exactly 0.0; cosine equals dot divided by both norms.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_cosine_is_one_for_the_same_direction_and_zero_across"
+    },
+    {
+      "id": "scale-invariance",
+      "kind": "correctness",
+      "description": "Scaling c2's vector by ten leaves its cosine unchanged within 1e-12 while its dot product grows tenfold.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_cosine_ignores_length_and_the_dot_product_does_not"
+    },
+    {
+      "id": "two-rankings",
+      "kind": "correctness",
+      "description": "By dot product the order is c2, c3, c1, c4, c5; by cosine it is c1, c4, c3, c2, c5; the cosines round to 0.979, 0.383, 0.415, 0.864, 0.195 with no ties.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_two_rankings_are_the_ones_on_the_page"
+    },
+    {
+      "id": "top-k-and-ties",
+      "kind": "correctness",
+      "description": "rank_chunks returns the first k of the cosine order, k of 0 returns nothing, k past the end returns all five, and two chunks with equal cosines come back in id order.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_top_k_keeps_the_first_k_in_order_and_breaks_ties_by_id"
+    },
+    {
+      "id": "bad-input-rejected",
+      "kind": "failure",
+      "description": "A zero vector raises ValueError naming it, a three-number vector against the four-number query raises ValueError through strict zip, and so does a bare dot product of mismatched lists.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_zero_vectors_and_mismatched_lengths_are_rejected"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The query and the chunk list are unchanged after ranking.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_lists_are_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about expecting two chunks, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-minimum",
+      "kind": "correctness",
+      "description": "With the minimum of 0.5 the practice answer keeps c1 and c4 only, a minimum of 0.9 keeps c1 alone, and a minimum of 0.99 keeps nothing.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_drops_every_chunk_below_the_minimum"
+    },
+    {
+      "id": "answer-minimum-zero",
+      "kind": "correctness",
+      "description": "A minimum of 0.0, or no minimum at all, reproduces the worked run exactly.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_with_minimum_zero_reproduces_the_worked_run"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data and helpers above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "chunks-fixture",
+      "kind": "correctness",
+      "description": "chunks.json equals the query, the chunks, k, and the practice minimum that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_chunks_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: five rows of dot, norm, and cosine to six decimals (0.979379, 0.383466, 0.414558, 0.86442, 0.194939), both rankings, the top three, and the practice result with c3, c2, c5 dropped.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "dot-product-buries-the-runbook",
+      "kind": "evaluation",
+      "description": "On the same chunks the dot product's top three were c2, c3, c1: the runbook the user needed sat third behind two longer vectors (lengths 4.87 and 2.92 against 0.97).",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_dot_product_ranking_buries_the_runbook_the_user_needed"
+    },
+    {
+      "id": "cosine-puts-the-runbook-first",
+      "kind": "evaluation",
+      "description": "Cosine puts c1 first and the billing overview fourth at under 0.4; the top three scores round to 0.979, 0.864, 0.415.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_cosine_ranking_puts_the_runbook_first_and_the_overview_fourth"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/CosineRankViz.jsx",
+      "description": "A short animation of the worked example, about two and a half seconds per chunk and about twenty six seconds in all: five rows with an amber dot-product bar (scaled to the largest, 1.85) and a blue cosine bar (0 to 1), a readout that shows the dot product, the two lengths, and the cosine as each chunk is scored, the rows moving one at a time into cosine order (c1, c4, c3, c2, c5), a ranking box comparing the order by dot product (c2, c3, c1, c4, c5) with the order by cosine, a dashed cut after the top three, and the practice variation's minimum of 0.5 dropping c3, c2, and c5. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/cosineRankModel.js, a JavaScript port of dot, norm, cosine, by_score_then_id, and rank_chunks that runs on python/fixtures/chunks.json; tests/cosine-top-k-retrieval-viz.test.mjs (tests/ once integrated) asserts that its trace equals python/fixtures/expected-trace.json (six decimals), which the cited Python check derives from the real solution, that each chunk beat ends with that chunk's bars complete and the readout showing its cosine, that the rows end in cosine order with c1 and c4 kept and c3, c2, c5 dropped, that captions carry the measured numbers, that bars and positions stay within range at every sampled moment, and that drawScene runs against a bare context.",
+      "check": "trace-fixture"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+5 chunks scored against the query, top 3 kept, minimum cosine 0.5
+  1  c1  Rotate an API key  0.979
+  2  c4  Revoke a lost key  0.864
+2 chunks at or above 0.5; the rest were dropped
+
+OK

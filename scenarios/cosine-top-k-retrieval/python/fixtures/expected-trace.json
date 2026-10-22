@@ -1,0 +1,87 @@
+{
+ "k": 3,
+ "query_norm": 0.989949,
+ "rows": [
+  {
+   "id": "c1",
+   "title": "Rotate an API key",
+   "dot": 0.94,
+   "norm": 0.969536,
+   "cosine": 0.979379
+  },
+  {
+   "id": "c2",
+   "title": "Billing overview",
+   "dot": 1.85,
+   "norm": 4.873397,
+   "cosine": 0.383466
+  },
+  {
+   "id": "c3",
+   "title": "List call scopes",
+   "dot": 1.2,
+   "norm": 2.924038,
+   "cosine": 0.414558
+  },
+  {
+   "id": "c4",
+   "title": "Revoke a lost key",
+   "dot": 0.86,
+   "norm": 1.004988,
+   "cosine": 0.86442
+  },
+  {
+   "id": "c5",
+   "title": "Invoice downloads",
+   "dot": 0.18,
+   "norm": 0.932738,
+   "cosine": 0.194939
+  }
+ ],
+ "by_dot": [
+  "c2",
+  "c3",
+  "c1",
+  "c4",
+  "c5"
+ ],
+ "by_cosine": [
+  "c1",
+  "c4",
+  "c3",
+  "c2",
+  "c5"
+ ],
+ "top": [
+  {
+   "id": "c1",
+   "score": 0.979379
+  },
+  {
+   "id": "c4",
+   "score": 0.86442
+  },
+  {
+   "id": "c3",
+   "score": 0.414558
+  }
+ ],
+ "practice": {
+  "minimum": 0.5,
+  "kept": [
+   {
+    "id": "c1",
+    "score": 0.979379
+   },
+   {
+    "id": "c4",
+    "score": 0.86442
+   }
+  ],
+  "dropped": [
+   "c3",
+   "c2",
+   "c5"
+  ]
+ }
+}

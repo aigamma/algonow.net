@@ -1,0 +1,10 @@
+[project]
+name = "pass-at-k-estimator"
+version = "0.1.0"
+description = "Estimate pass at k for a code model from n samples per problem: a worked Python example, standard library only"
+requires-python = ">=3.11"
+dependencies = []
+
+# The lesson needs none of this: copy solution.py (or starter.py) anywhere and
+# run it with python. The behind-the-scenes checks run from this directory:
+#   PYTHONPATH=src python -m unittest discover -s tests -p "test_*.py"

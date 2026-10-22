@@ -1,0 +1,353 @@
+{
+ "ks": [
+  1,
+  3,
+  5
+ ],
+ "rows": [
+  {
+   "id": "p1",
+   "name": "date parsing",
+   "n": 5,
+   "c": 5,
+   "scores": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "p2",
+   "name": "interval merge",
+   "n": 5,
+   "c": 3,
+   "scores": [
+    0.6,
+    1.0,
+    1.0
+   ]
+  },
+  {
+   "id": "p3",
+   "name": "LRU cache",
+   "n": 5,
+   "c": 1,
+   "scores": [
+    0.2,
+    0.6,
+    1.0
+   ]
+  },
+  {
+   "id": "p4",
+   "name": "email check",
+   "n": 5,
+   "c": 0,
+   "scores": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  {
+   "id": "p5",
+   "name": "topological sort",
+   "n": 5,
+   "c": 2,
+   "scores": [
+    0.4,
+    0.9,
+    1.0
+   ]
+  },
+  {
+   "id": "p6",
+   "name": "binary search",
+   "n": 5,
+   "c": 4,
+   "scores": [
+    0.8,
+    1.0,
+    1.0
+   ]
+  }
+ ],
+ "means": [
+  0.5,
+  0.75,
+  0.833333
+ ],
+ "any_correct": 5,
+ "any_rate": 0.833333,
+ "subsets": {
+  "problem": "p5",
+  "n": 5,
+  "c": 2,
+  "k": 3,
+  "samples": [
+   true,
+   true,
+   false,
+   false,
+   false
+  ],
+  "subsets": [
+   {
+    "indexes": [
+     0,
+     1,
+     2
+    ],
+    "counts": true
+   },
+   {
+    "indexes": [
+     0,
+     1,
+     3
+    ],
+    "counts": true
+   },
+   {
+    "indexes": [
+     0,
+     1,
+     4
+    ],
+    "counts": true
+   },
+   {
+    "indexes": [
+     0,
+     2,
+     3
+    ],
+    "counts": true
+   },
+   {
+    "indexes": [
+     0,
+     2,
+     4
+    ],
+    "counts": true
+   },
+   {
+    "indexes": [
+     0,
+     3,
+     4
+    ],
+    "counts": true
+   },
+   {
+    "indexes": [
+     1,
+     2,
+     3
+    ],
+    "counts": true
+   },
+   {
+    "indexes": [
+     1,
+     2,
+     4
+    ],
+    "counts": true
+   },
+   {
+    "indexes": [
+     1,
+     3,
+     4
+    ],
+    "counts": true
+   },
+   {
+    "indexes": [
+     2,
+     3,
+     4
+    ],
+    "counts": false
+   }
+  ],
+  "counting": 9,
+  "total": 10,
+  "estimate": 0.9
+ },
+ "all_k": {
+  "rows": [
+   {
+    "id": "p1",
+    "name": "date parsing",
+    "n": 5,
+    "c": 5,
+    "scores": [
+     1.0,
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "id": "p2",
+    "name": "interval merge",
+    "n": 5,
+    "c": 3,
+    "scores": [
+     0.6,
+     0.1,
+     0.0
+    ]
+   },
+   {
+    "id": "p3",
+    "name": "LRU cache",
+    "n": 5,
+    "c": 1,
+    "scores": [
+     0.2,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "id": "p4",
+    "name": "email check",
+    "n": 5,
+    "c": 0,
+    "scores": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "id": "p5",
+    "name": "topological sort",
+    "n": 5,
+    "c": 2,
+    "scores": [
+     0.4,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "id": "p6",
+    "name": "binary search",
+    "n": 5,
+    "c": 4,
+    "scores": [
+     0.8,
+     0.4,
+     0.0
+    ]
+   }
+  ],
+  "means": [
+   0.5,
+   0.25,
+   0.166667
+  ],
+  "subsets": {
+   "problem": "p6",
+   "n": 5,
+   "c": 4,
+   "k": 3,
+   "samples": [
+    true,
+    true,
+    true,
+    true,
+    false
+   ],
+   "subsets": [
+    {
+     "indexes": [
+      0,
+      1,
+      2
+     ],
+     "counts": true
+    },
+    {
+     "indexes": [
+      0,
+      1,
+      3
+     ],
+     "counts": true
+    },
+    {
+     "indexes": [
+      0,
+      1,
+      4
+     ],
+     "counts": false
+    },
+    {
+     "indexes": [
+      0,
+      2,
+      3
+     ],
+     "counts": true
+    },
+    {
+     "indexes": [
+      0,
+      2,
+      4
+     ],
+     "counts": false
+    },
+    {
+     "indexes": [
+      0,
+      3,
+      4
+     ],
+     "counts": false
+    },
+    {
+     "indexes": [
+      1,
+      2,
+      3
+     ],
+     "counts": true
+    },
+    {
+     "indexes": [
+      1,
+      2,
+      4
+     ],
+     "counts": false
+    },
+    {
+     "indexes": [
+      1,
+      3,
+      4
+     ],
+     "counts": false
+    },
+    {
+     "indexes": [
+      2,
+      3,
+      4
+     ],
+     "counts": false
+    }
+   ],
+   "counting": 4,
+   "total": 10,
+   "estimate": 0.4
+  }
+ }
+}

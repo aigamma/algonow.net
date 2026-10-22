@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "slug": "pass-at-k-estimator",
+  "track": "evaluation",
+  "language": "python",
+  "system": {
+    "context": "Orbit evaluates its code model by sampling five candidate solutions per benchmark problem and running the tests on each. The team reported the share of problems where any of the five passed as the model's score. That number is pass at five, what a user sees after trying all five samples; a user who takes one sample sees something much lower, and nobody had computed it.",
+    "request": "A worked Python example of one action: pass_at_k(n, c, k), the unbiased estimate of the chance that at least one of k samples drawn from the n passes given that c passed, computed as (comb(n, k) - comb(n - c, k)) / comb(n, k) with two guards and an early return when the failures cannot fill a subset of k, plus estimate(problems, ks, score) that tabulates any scoring function over several k and reports the means, over six inline problems with five samples each. The lesson leads with the complete solution and its exact output (the table for k of 1, 3, and 5, the means 0.500, 0.750, 0.833, and the any-correct rate that equals the pass at five mean), explains the Python construct by construct (importing one name, guards with or, an early return, integer counting before one division, a function as a default parameter, nested loops building a table, print with end, format specs), traces the subset counts into every estimate, and offers one practice variation: pass_all_k, the chance that every one of the k samples passes.",
+    "inputs": [
+      "Six problems written inline in solution.py as a list of dictionaries with an id, a name, n = 5 samples, and the passes c: 5, 3, 1, 0, 2, 4 (p1 date parsing through p6 binary search)",
+      "The k values to report, KS = [1, 3, 5]",
+      "For the practice variation, the same six problems scored by pass_all_k through the same estimate function"
+    ],
+    "outputs": [
+      "pass_at_k returns the exact share of k-subsets that hold a passing sample: for p5 with 2 passes of 5 and k = 3, nine of the ten subsets, 0.9; estimate returns one row per problem with a score per k and the mean per k: 0.5, 0.75, 0.833333",
+      "python solution.py prints the table, the means, the any-correct line (5 of 6 problems, 0.833, the same number as the pass@5 mean), the single-sample line (0.500), the rejected call for k 6, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it prints the worked table and a second table for every-sample-passes with means 0.500, 0.250, 0.167 and OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, or network",
+      "The estimate is exact: integer subset counts from math.comb are subtracted before one division, so pass at 1 equals c over n exactly and pass at n equals the any-correct indicator; the input list is never modified",
+      "k outside 1 to n, c above n, or a negative c raise ValueError naming the values; the demonstration prints the rejected call instead of crashing",
+      "Ordinary Python only: from math import comb, guards with or, an early return, nested for loops, lists of dictionaries, a function passed as a default parameter, range over positions, running totals, print with end and format specs, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the six rows, the means 0.500, 0.750, 0.833, the any-correct line, the single-sample line, the rejected line, and OK",
+      "Every estimate for every problem and every k from 1 to 5 equals the share of subsets holding a pass enumerated by brute force with itertools.combinations, to twelve decimals; pass at 1 equals c over n and pass at n equals the any-correct indicator exactly; pass at k never falls as k grows",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt; pass_all_k equals the share of subsets made only of passes for every problem and k, with means 0.500, 0.250, 0.167 and a first column equal to pass at 1",
+      "The shipped number is measured on the same samples: any sample passed is 5 of 6 (0.8333), equal to the pass at five mean, and it overstates pass at three by 0.0833 and pass at one by 0.3333"
+    ]
+  },
+  "python": {
+    "package": "pass_at_k",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "6218e857e8f2a385ac976c6270e2a8da4d0cd8b447821ee2434dd549d2da4696"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "9bd09637207e2dc5fd7aa1fc211b56b10d9fb2c9f8fa4ce18fb8b505c889b2a3"
+    },
+    {
+      "path": "python/fixtures/problems.json",
+      "description": "The six problems and the k values exactly as the lesson files define them, plus the problem and k the figure enumerates and the problem the practice beat uses; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "e6499b32c223da2c2b73f5d2e937b17abec1198f5cbc4a1e5a810abc5a541f9f"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "The table and means (six decimals), the any-correct count and rate, the ten subsets of three for p5 with which ones hold a pass, and the practice table and p6 subsets made only of passes, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "4b613d2462e074ec5b1771287a9d85a187086da7a89e30c07bcd411a12917513"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "identities-at-one-and-n",
+      "kind": "correctness",
+      "description": "For every problem pass at 1 equals c over n exactly and pass at n equals 1.0 when any sample passed and 0.0 otherwise.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_pass_at_one_is_the_pass_rate_and_pass_at_n_is_any_correct"
+    },
+    {
+      "id": "estimate-equals-subset-share",
+      "kind": "correctness",
+      "description": "For every problem and every k from 1 to 5 the estimate equals the share of k-subsets holding a passing sample, enumerated by brute force, to twelve decimals; p5 at k 3 is exactly 0.9.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_every_estimate_equals_the_share_of_subsets_holding_a_pass"
+    },
+    {
+      "id": "monotonic-in-k",
+      "kind": "correctness",
+      "description": "pass at k never falls as k grows for any problem.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_pass_at_k_never_falls_as_k_grows"
+    },
+    {
+      "id": "table-and-means",
+      "kind": "correctness",
+      "description": "The table rows round to the values the page shows and the means round to 0.5, 0.75, 0.833.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_table_and_the_means_are_what_the_page_shows"
+    },
+    {
+      "id": "bad-arguments-rejected",
+      "kind": "failure",
+      "description": "k of 0, k above n, c above n, and a negative c raise ValueError, and the k 6 message names both values.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_bad_arguments_are_rejected"
+    },
+    {
+      "id": "early-return-exact",
+      "kind": "correctness",
+      "description": "The early return is the exact 1.0 when the failures cannot fill a subset, and the formula handles the boundary where they fill exactly one.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_early_return_is_exact_not_rounded"
+    },
+    {
+      "id": "scoring-function-parameter",
+      "kind": "correctness",
+      "description": "estimate tabulates whatever scoring function it is given and leaves the input list unchanged.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_estimate_takes_another_scoring_function_and_keeps_the_input"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about pass_all_k, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "all-k-equals-subset-share",
+      "kind": "correctness",
+      "description": "pass_all_k equals the share of k-subsets made only of passes for every problem and k, is 0.4 for p6 at k 3, is 0.0 when c is below k, and keeps the guards.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_all_k_equals_the_share_of_subsets_made_only_of_passes"
+    },
+    {
+      "id": "all-k-means",
+      "kind": "correctness",
+      "description": "The practice means round to 0.5, 0.25, 0.167, the first column equals pass at 1 exactly, and every all-k value is at most the matching pass at k.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_all_k_means_and_the_shared_first_column"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the table code and demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "problems-fixture",
+      "kind": "correctness",
+      "description": "problems.json equals the problems, the k values, and the figure's problem choices that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_problems_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the table, the means 0.5, 0.75, 0.833333, the any-correct rate, the ten subsets of three for p5 with nine counting and the estimate 0.9, and the practice subsets for p6 with four counting and the estimate 0.4.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "any-correct-overstates",
+      "kind": "evaluation",
+      "description": "On the same samples the shipped any-correct rate is 0.8333, equal to the pass at five mean, and it overstates pass at three by 0.0833 and pass at one by 0.3333.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_any_correct_is_pass_at_five_and_overstates_fewer_samples"
+    },
+    {
+      "id": "indicator-hides-pass-rate",
+      "kind": "evaluation",
+      "description": "Per problem the shipped indicator equals pass at five and is 1 for every problem with a single pass, while pass at one for those problems reads 1.0, 0.6, 0.2, 0.4, 0.8.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_per_problem_the_shipped_indicator_hides_the_pass_rate"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/PassAtKViz.jsx",
+      "description": "A short animation of the worked example, about two and a half seconds per table row and about thirty five seconds in all: the five samples of p5 (two green passes, three red failures), its ten subsets of three laid out one by one with the nine that hold a pass marked, the ratio nine of ten reading 0.900 with the one-line formula, then the table on the right filling one row per problem with the three estimates and bars (p1 through p6), the mean row 0.500, 0.750, 0.833 with the shipped any-correct rate named as the pass at five mean, and the practice variation switching to the subsets made only of passes for p6, four of ten, 0.400, with the practice means 0.500, 0.250, 0.167. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/passAtKModel.js, a JavaScript port of comb, pass_at_k, pass_all_k, and estimate that runs on python/fixtures/problems.json and enumerates the same subsets; tests/pass-at-k-estimator-viz.test.mjs asserts that trace equals python/fixtures/expected-trace.json (six decimals), which the cited Python check derives from the real solution, that the subset grid holds ten subsets with nine counting at the ratio beat and four at the practice end, that the table rows reveal in order with the fixture's scores, that captions carry the measured numbers and formulas, and that drawScene runs at sampled moments. Six rendered frames (samples, subsets, ratio, a table row, the means, the practice end) were inspected at 900 pixels.",
+      "check": "trace-fixture"
+    }
+  ]
+}

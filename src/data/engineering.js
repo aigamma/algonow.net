@@ -202,6 +202,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['A token bucket: capacity, refill rate, one token per request', 'State variables updated across loop iterations', 'min to cap a value and float arithmetic with elapsed time', 'Rejecting out-of-order timestamps with a ValueError', 'Per-tenant buckets in a dictionary (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'inverted-index-and-query',
+    title: 'Build an inverted index and answer AND queries with set intersection',
+    summary: 'Orbit\'s keyword retriever scanned every runbook for every query, so each question cost a pass over the whole collection. A worked Python example builds an inverted index from five inline documents and answers queries with set intersection: a tokenizer that lowercases and strips punctuation, a dictionary from each term to the documents that contain it, set() to collapse repeated terms within a document, AND queries as intersections, its exact output, a trace of the postings, and one practice variation that answers OR queries ranked by how many terms matched.',
+    track: 'rag',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'foundation',
+    durationMinutes: 25,
+    skills: ['A dictionary of lists as an inverted index', 'Tokenizing with lower, a character filter, and split', 'set() to deduplicate terms within a document', 'Set intersection with & for AND queries', 'OR queries ranked by match count (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

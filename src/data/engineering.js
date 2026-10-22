@@ -334,6 +334,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['A character walk with a depth counter and a string flag', 'Slicing the balanced span', 'json.loads with try and except JSONDecodeError', 'Validating required keys and types with in and isinstance', 'Repairing a trailing comma before parsing (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'truncate-teacher-top-k',
+    title: 'Store only a teacher\'s top-k probabilities and renormalize',
+    summary: 'Orbit\'s teacher model has a vocabulary of thirty two thousand tokens, and storing its full distribution for every training position would take terabytes. A worked Python example keeps the top three probabilities per position and renormalizes: enumerate to pair each index with its probability, a sort key of negative probability then index, a slice, a renormalizing division, the dropped mass measured, its exact output, a trace of three positions, and one practice variation that keeps the smallest set reaching ninety percent of the mass instead.',
+    track: 'distillation',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'foundation',
+    durationMinutes: 25,
+    skills: ['enumerate to carry indices through a sort', 'A tuple sort key for descending value with an index tie-break', 'Slicing the top k', 'Renormalizing a kept subset', 'Top-p truncation (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

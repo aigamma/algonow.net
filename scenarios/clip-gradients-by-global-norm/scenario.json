@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "slug": "clip-gradients-by-global-norm",
+  "track": "fine-tuning",
+  "language": "python",
+  "system": {
+    "context": "Orbit's fine-tune printed NaN for the loss at step three hundred and never recovered. One batch of unusually long tickets produced gradients about ten times larger than any batch before it, the optimizer stepped ten times as far as usual, and the weights landed where the loss could not recover. Nothing was wrong with the model or the learning rate on an ordinary batch.",
+    "request": "A worked Python example of one action: clip_by_global_norm(grads, max_norm), the operation a framework's clip-grad-norm performs, written out over three inline parameter groups [[3.0, 4.0], [0.0, 12.0], [1.0]] with a maximum norm of 5.0 and a learning rate of 0.1. The lesson leads with the complete solution and its exact output (the global norm 13.0384, the scale 0.3835, the clipped values 1.1504, 1.5339, 0.0000, 4.6018, 0.3835, the norm after clipping 5.0000, the parameter step 1.3038 without clipping against 0.5000 with it, and an ordinary batch of norm 1.3038 passing through with a scale of 1.0), explains the Python construct by construct (nested loops with a running total, math.sqrt, min, new lists built with append instead of mutating the input, a function returning a tuple, enumerate over zip with tuple unpacking, ValueError guards, a distance helper that reuses the norm, format specs), traces the running total and every clipped value, and offers one practice variation: clip each parameter group on its own.",
+    "inputs": [
+      "The gradients of one training step, inline in solution.py as three parameter groups: [3.0, 4.0], [0.0, 12.0], and [1.0], whose squares sum to 170",
+      "The parameters in the same shape, [0.5, -0.2], [1.0, 0.3], [0.1], a maximum norm of 5.0, and a learning rate of 0.1",
+      "An ordinary batch for comparison, the same groups divided by ten: [0.3, 0.4], [0.0, 1.2], [0.1], with a global norm of 1.3038"
+    ],
+    "outputs": [
+      "clip_by_global_norm returns new lists scaled by one factor, the norm before clipping, and the scale: for the bad batch the norm is 13.0384 (the square root of 170), the scale 0.3835, the clipped values 1.1504, 1.5339, 0.0000, 4.6018, 0.3835, and the clipped norm 5.0000; for the ordinary batch the scale is exactly 1.0 and the lists come back equal",
+      "python solution.py prints both batches, the parameter step of 1.3038 without clipping against 0.5000 with it, the ordinary step of 0.1304, the rejected shape mismatch, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change each group is clipped on its own (group 2 scaled by 0.4167 to [0.0, 5.0], groups 1 and 3 untouched), the global norm of the result is 7.1414 and the step 0.7141, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no torch, numpy, fixtures, credentials, or network",
+      "The input lists are never modified: clipping and the update build new lists; the direction is preserved exactly (every value times the same factor); a batch at or under the maximum is multiplied by exactly 1.0; all-zero gradients do not divide by zero",
+      "A maximum norm of zero or less raises ValueError; a gradient group whose length differs from its parameter group raises ValueError naming the group; the demonstration prints the rejected update instead of crashing",
+      "Ordinary Python only: nested lists and nested for loops, a running total, math.sqrt, min, append, a function returning a tuple, enumerate over zip with tuple unpacking, f-strings with format specs, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: norm 13.0384, scale 0.3835, the five clipped values, norm after 5.0000, steps 1.3038 and 0.5000, the ordinary batch unchanged with step 0.1304, the rejected line, and OK",
+      "The arithmetic is exact: the global norm of [[3.0, 4.0]] is 5.0 and of the bad batch is the square root of 170; every clipped value equals the original times the scale; the clipped norm is within one hundred thousandth of 5.0; ratios between clipped values equal ratios between the originals",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt, with per-group norms 5.0, 12.0, 1.0, scales rounding to 1.0, 0.4167, 1.0, and a combined norm of 7.1414",
+      "The unclipped step is measured on the same batch: 1.3038, exactly ten times the ordinary step of 0.1304, while the clipped step is 0.5000 along the same direction (each parameter's change is the scale times the unclipped change)"
+    ]
+  },
+  "python": {
+    "package": "grad_clip",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "360e89c0d73778cdd5c8ab60adca5e6bfe7b97f5e943c252bbbd636ba257f262"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "5800eb1c589b30247d97cb4aa36fd4f18ac37b7e5017a436543313587c0f9667"
+    },
+    {
+      "path": "python/fixtures/gradients.json",
+      "description": "The gradients, the parameters, the ordinary batch, the maximum norm, and the learning rate exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "e2ee42ac4f38d573855d3704b1adfdc313cd2e31a3770ba6cee57e92d42de4e5"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Both batches through the real functions (squares, sums, norm, scale, clipped values, norm after, the steps with and without clipping) and the per-group variation, six decimals, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "032a9bfaeec1b05d5a7c703b527596b2da9000d6cf18591345190e1b16a936c5"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "global-norm-arithmetic",
+      "kind": "correctness",
+      "description": "The global norm of [[3.0, 4.0]] is 5.0, of the bad batch the square root of 170 (13.0384), and of empty groups 0.0.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_global_norm_is_the_square_root_of_the_sum_of_squares"
+    },
+    {
+      "id": "one-scale-onto-the-max",
+      "kind": "correctness",
+      "description": "Every clipped value equals the original times the one scale (0.3835), the clipped norm is within one hundred thousandth of 5.0, and the values round to 1.1504, 1.5339, 0.0, 4.6018, 0.3835.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_clipping_scales_every_value_by_one_factor_onto_the_max"
+    },
+    {
+      "id": "direction-unchanged",
+      "kind": "correctness",
+      "description": "Ratios between clipped values equal ratios between the originals (4.6018 is four times 1.1504) and a zero gradient stays zero.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_direction_is_unchanged"
+    },
+    {
+      "id": "small-batch-passes-through",
+      "kind": "correctness",
+      "description": "A batch under the maximum gets a scale of exactly 1.0 and comes back equal to its input as a new list.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_small_batch_passes_through_unchanged"
+    },
+    {
+      "id": "zero-gradients-safe",
+      "kind": "failure",
+      "description": "All-zero gradients give a norm of 0.0 and a scale of 1.0 without dividing by zero.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_all_zero_gradients_do_not_divide_by_zero"
+    },
+    {
+      "id": "update-and-inputs",
+      "kind": "correctness",
+      "description": "The update moves each parameter against its gradient by the learning rate (0.5 to 0.47 on the ordinary batch), the inputs are unchanged afterwards, and the ordinary step rounds to 0.1304.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_update_moves_against_the_gradient_and_leaves_the_inputs_alone"
+    },
+    {
+      "id": "bad-input-rejected",
+      "kind": "failure",
+      "description": "A maximum norm of 0 or -1 raises ValueError; a gradient group of the wrong length raises ValueError naming parameter group 2; a different number of groups raises ValueError.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_bad_max_norm_and_shape_mismatches_are_rejected"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about group 2, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-clips-each-group",
+      "kind": "correctness",
+      "description": "The practice answer reports group norms 5.0, 12.0, 1.0 and scales 1.0, 0.4167, 1.0, bounds every group by the maximum, leaves the whole at 7.1414, and rejects a maximum of 0.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_clips_each_group_on_its_own"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the functions and demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "gradients-fixture",
+      "kind": "correctness",
+      "description": "gradients.json equals the gradients, parameters, ordinary batch, maximum norm, and learning rate that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_gradients_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: total 170, norm 13.038405, scale 0.383482, norm after 5.0, steps 1.30384 and 0.5, the ordinary batch unchanged at scale 1.0, and the per-group norm 7.141427.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "unclipped-step-ten-times",
+      "kind": "evaluation",
+      "description": "On the same batch the unclipped step is 1.3038, exactly ten times the ordinary step of 0.1304, which is the step that shipped.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_unclipped_step_is_ten_times_an_ordinary_step"
+    },
+    {
+      "id": "clipped-step-same-direction",
+      "kind": "evaluation",
+      "description": "With clipping the step is 0.5 within one millionth, and every parameter's change is the scale times its unclipped change: the same direction, shortened.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_clipped_step_is_half_a_unit_in_the_same_direction"
+    },
+    {
+      "id": "per-group-not-global",
+      "kind": "evaluation",
+      "description": "Per-group clipping leaves the whole over the maximum (7.1414) with a step of 0.7141, longer than the global-norm step of 0.5.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_per_group_clipping_bounds_the_groups_but_not_the_whole"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/GradClipViz.jsx",
+      "description": "A short animation of the worked example, about three seconds per decision and under half a minute in all: the five gradient values as bars grouped by parameter group, the global norm bar growing as the squares are added (9 + 16 + 0 + 144 + 1 = 170, norm 13.0384), the amber maximum line at 5.0, the scale 0.3835, every bar shrinking by that one scale to the clipped values with the norm landing on 5.0000, the parameter step bars (1.3038 without clipping, 0.5000 with), the ordinary batch of norm 1.3038 passing under the line with a scale of 1.0 and a step of 0.1304, and the practice variation clipping each group on its own with the whole at 7.1414. A readout panel follows every quantity. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/gradClipModel.js, a JavaScript port of global_norm, clip_by_global_norm, apply_update, distance, and clip_by_group_norm that runs on python/fixtures/gradients.json; tests/clip-gradients-by-global-norm-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json (six decimals), which the cited Python check derives from the real functions, that at the end of the clip beat every bar shows its clipped value and the norm bar its clipped length, that the step bars equal the measured steps, that the ordinary beat shows the unchanged batch at scale 1.0, that captions carry the measured numbers, that every sampled moment keeps bars between their original and clipped values, and that the final scene holds the per-group result (5.0, 5.0, 1.0 and the combined 7.141427). Rendered frames inspected at 900 pixels at several moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

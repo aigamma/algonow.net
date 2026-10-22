@@ -1,0 +1,27 @@
+3 parameter groups, 5 gradient values, max norm 5.0, learning rate 0.1
+
+batch 1 (the bad batch)
+global norm 13.0384, over the max: scale 0.3835
+group  gradient            clipped
+    1  [3.0, 4.0]          [1.1504, 1.5339]
+    2  [0.0, 12.0]         [0.0000, 4.6018]
+    3  [1.0]               [0.3835]
+norm after clipping 5.0000
+parameter step: 1.3038 without clipping, 0.5000 with clipping
+
+per-group clipping, max norm 5.0 for each group on its own
+group     norm   scale  clipped
+    1   5.0000  1.0000  [3.0000, 4.0000]
+    2  12.0000  0.4167  [0.0000, 5.0000]
+    3   1.0000  1.0000  [1.0000]
+global norm after per-group clipping 7.1414, over the max of 5.0
+parameter step: 0.7141 with per-group clipping
+
+batch 2 (an ordinary batch)
+global norm 1.3038, under the max: scale 1.0000
+gradients unchanged: True
+parameter step: 0.1304 (the same either way)
+
+rejected: parameter group 2 has 2 values but 1 gradients
+
+OK

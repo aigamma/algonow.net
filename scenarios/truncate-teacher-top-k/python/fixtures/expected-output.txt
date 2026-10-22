@@ -1,0 +1,29 @@
+3 positions, vocabulary of 6 tokens, k = 3
+
+position p1 (after 'revoke the old'): teacher [0.5, 0.2, 0.15, 0.1, 0.03, 0.02]
+  index  token   teacher  renormalized
+      0  key       0.500         0.588
+      1  scope     0.200         0.235
+      2  token     0.150         0.176
+  kept mass 0.850, dropped mass 0.150
+
+position p2 (after 'calls need the read'): teacher [0.3, 0.3, 0.2, 0.1, 0.05, 0.05]
+  index  token   teacher  renormalized
+      0  key       0.300         0.375
+      1  scope     0.300         0.375
+      2  token     0.200         0.250
+  kept mass 0.800, dropped mass 0.200
+
+position p3 (after 'rotate the API'): teacher [0.9, 0.04, 0.03, 0.02, 0.005, 0.005]
+  index  token   teacher  renormalized
+      0  key       0.900         0.928
+      1  scope     0.040         0.041
+      2  token     0.030         0.031
+  kept mass 0.970, dropped mass 0.030
+
+mean dropped mass 0.127
+storage: 3 (index, probability) pairs per position instead of 6 probabilities
+
+rejected: k must be between 1 and 6, got 7
+
+OK

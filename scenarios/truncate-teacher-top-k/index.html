@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Store only a teacher&#39;s top-k probabilities and renormalize | algonow</title>
+<meta name="description" content="Orbit&#39;s teacher model has a vocabulary of thirty two thousand tokens, and storing its full distribution for every training position would take terabytes. A worked Python example keeps the top three probabilities per position and renormalizes: enumerate to pair each index with its probability, a sort key of negative probability then index, a slice, a renormalizing division, the dropped mass measured, its exact output, a trace of three positions, and one practice variation that keeps the smallest set reaching ninety percent of the mass instead." />
+<link rel="canonical" href="https://algonow.net/scenarios/truncate-teacher-top-k/" />
+</head><body><div id="root"></div><script type="module" src="./main.jsx"></script></body></html>

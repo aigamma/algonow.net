@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "slug": "truncate-teacher-top-k",
+  "track": "distillation",
+  "language": "python",
+  "system": {
+    "context": "Orbit is distilling a small router from its large assistant. The training target at every position is the teacher's probability distribution over a vocabulary of thirty two thousand tokens, and storing all of it for two million positions would take terabytes, although at a typical position the teacher puts nearly everything on a handful of tokens.",
+    "request": "A worked Python example of one action: top_k_sparse(probs, k), which keeps the k largest probabilities of a position as (index, probability) pairs sorted by the tuple key (negative probability, index), with renormalize(sparse) scaling the kept probabilities by their sum, dropped_mass(probs, sparse) measuring the mass of the tokens not kept, and truncate_all(positions, k) producing one record per position, over three inline positions of a six-token vocabulary with k = 3. The lesson leads with the complete solution and its exact output (per position the kept pairs, the renormalized values, the kept and dropped mass; the mean dropped mass; the storage ratio; the rejected k of 7), explains the Python construct by construct (enumerate, a tuple sort key with a negated value and an index tie-break, in-place sort, slicing, tuple unpacking in loop headers, a set for membership, a dictionary per record, zip with strict length checking, format specs), traces the three positions, and offers one practice variation: top_p_sparse, which keeps the smallest prefix of the sorted pairs whose running mass reaches p = 0.9.",
+    "inputs": [
+      "A six-token vocabulary written inline in solution.py: key, scope, token, secret, api, old at indices 0 to 5",
+      "Three positions, each with a context and the teacher's probabilities: p1 [0.5, 0.2, 0.15, 0.1, 0.03, 0.02], p2 [0.3, 0.3, 0.2, 0.1, 0.05, 0.05] (a tie at the top), p3 [0.9, 0.04, 0.03, 0.02, 0.005, 0.005]",
+      "k = 3 for the worked example; for the practice variation, p = 0.9"
+    ],
+    "outputs": [
+      "top_k_sparse returns the kept pairs largest first with ties to the lower index: p1 [(0, 0.5), (1, 0.2), (2, 0.15)], p2 [(0, 0.3), (1, 0.3), (2, 0.2)], p3 [(0, 0.9), (1, 0.04), (2, 0.03)]; renormalize gives 0.588, 0.235, 0.176 at p1, 0.375, 0.375, 0.250 at p2, and 0.928, 0.041, 0.031 at p3; dropped_mass gives 0.150, 0.200, 0.030",
+      "python solution.py prints the three position tables, the mean dropped mass 0.127, the storage line (3 pairs instead of 6 probabilities), the rejected k of 7, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it keeps 4, 4, 1 tokens with p = 0.9 (kept mass 0.950, 0.900, 0.900) and prints OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no numpy, torch, fixtures, credentials, or network",
+      "The kept pairs are sorted largest probability first with ties broken by the lower index, so the output is deterministic; the renormalized values of a position sum to one within a billionth; the dropped mass is measured from the tokens not kept, never assumed from a sum of one",
+      "A k below 1 or above the vocabulary size raises ValueError naming the allowed range; the input rows are never modified; the demonstration prints the rejected request instead of crashing",
+      "Ordinary Python only: enumerate, tuples, a key function returning a tuple, list.sort with key, slicing, tuple unpacking in for loops, augmented assignment, a set with add and membership, dictionaries, zip with strict=True, f-strings with format specs, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the kept pairs, renormalized values 0.588/0.235/0.176, 0.375/0.375/0.250, 0.928/0.041/0.031, dropped masses 0.150, 0.200, 0.030, mean 0.127, the storage line, the rejected line, and OK",
+      "The arithmetic is exact: the sort key orders the largest first and resolves the p2 tie to index 0; every renormalized triple sums to one within 1e-12; kept plus dropped equals the whole mass of the row; k of 0 and 7 raise ValueError",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt, keeping 4, 4, 1 tokens; p of 1 keeps everything and a tiny p keeps one",
+      "The cost of the truncation is measured on the same positions: the KL divergence from the stored (renormalized) targets to the teacher equals minus the log of the kept mass, 0.1625, 0.2231, 0.0305, smallest at p3 and largest at p2, and the opposite direction has no finite value because dropped tokens receive zero"
+    ]
+  },
+  "python": {
+    "package": "sparse_targets",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "836fb4fa82b1e43227367cd6471cb57e6c5a5f1622bae827c3a3d2b09b7417d3"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "c531b4363f383853554d7e41274914e99f83f5fe0b72ae287c2146c57d5bf7f0"
+    },
+    {
+      "path": "python/fixtures/positions.json",
+      "description": "The vocabulary, the three positions, k, and p exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "afee8b182dc30fa5e746f19321d370875e838956d057263d49799e1aa626a1ae"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Per position the kept pairs, the renormalized pairs, the kept and dropped mass, the KL from the stored targets, and the top-p result (six decimals), plus the mean dropped mass and the storage ratio, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "e84b3d8ad2a0b0eb14a38f1c75bb6fff9ebf0223cf6363894062859c7e272f7b"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "sort-key-order",
+      "kind": "correctness",
+      "description": "The key function orders the largest probability first and resolves equal probabilities by the lower index, on the p2 row and on scrambled rows.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_sort_key_orders_largest_first_and_breaks_ties_by_index"
+    },
+    {
+      "id": "top-k-pairs",
+      "kind": "correctness",
+      "description": "top_k_sparse keeps exactly the documented (index, probability) pairs at the three positions, carries indices through a scrambled row, and keeps everything when k equals the vocabulary size.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_top_k_keeps_the_documented_pairs"
+    },
+    {
+      "id": "renormalized-sums",
+      "kind": "correctness",
+      "description": "The renormalized values of each position sum to one within 1e-12 and round to 0.588/0.235/0.176, 0.375/0.375/0.250, 0.928/0.041/0.031.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_renormalized_values_sum_to_one_and_match_the_page"
+    },
+    {
+      "id": "dropped-mass",
+      "kind": "correctness",
+      "description": "The dropped mass is the mass of the tokens not kept (0.15, 0.2, 0.03), kept plus dropped equals the whole row, and a row kept in full drops nothing.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_dropped_mass_is_the_mass_of_the_tokens_not_kept"
+    },
+    {
+      "id": "k-rejected",
+      "kind": "failure",
+      "description": "A k above the vocabulary size (7) and a k of 0 raise ValueError naming the allowed range.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_k_outside_the_vocabulary_is_rejected"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The positions and their probability rows are unchanged after truncate_all.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_inputs_are_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about keeping 4, 4, 1 tokens, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-smallest-prefix",
+      "kind": "correctness",
+      "description": "With p = 0.9 the answer keeps 4, 4, 1 tokens, one fewer token would fall short of p at every position, p of 1 keeps all six, and a tiny p keeps one.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_keeps_the_smallest_prefix_that_reaches_p"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data and functions above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "positions-fixture",
+      "kind": "correctness",
+      "description": "positions.json equals the vocabulary, positions, k, and p that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_positions_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the kept and renormalized pairs, the masses, the KL from the stored targets, the top-p results (counts 4, 4, 1), and the mean dropped mass 0.126667.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "kl-from-stored",
+      "kind": "evaluation",
+      "description": "The KL divergence from the stored targets to the teacher, summed term by term, equals minus the log of the kept mass at every position: 0.1625, 0.2231, 0.0305, smallest at the confident p3 and largest at the flat p2.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_divergence_from_the_stored_targets_is_minus_the_log_of_the_kept_mass"
+    },
+    {
+      "id": "other-direction-infinite",
+      "kind": "evaluation",
+      "description": "The teacher gives mass to a token the stored targets set to zero, so the divergence from the teacher to the stored targets has no finite value, and the storage falls from six probabilities to three pairs per position.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_other_direction_has_no_finite_value_and_storage_halves"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/TopKTruncateViz.jsx",
+      "description": "A short animation of the worked example, about three seconds per step and about half a minute in all: one panel per position with a bar per token at the teacher's probability; the three largest turn green in rank order while the rest fade to red and the dropped mass is counted (0.150, 0.200, 0.030), then the kept bars grow to their renormalized values (0.588/0.235/0.176, 0.375/0.375/0.250, 0.928/0.041/0.031) with the teacher's value marked inside each bar; the outro states the storage (3 pairs instead of 6 probabilities), the mean dropped mass 0.127, and the KL from the stored targets (0.1625, 0.2231, 0.0305); the practice variation replays the three positions with a running mass line crossing the 0.9 threshold at the fourth, fourth, and first token. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/topKTruncateModel.js, a JavaScript port of sort_key, top_k_sparse, renormalize, dropped_mass, and top_p_sparse that runs on python/fixtures/positions.json; tests/truncate-teacher-top-k-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json (six decimals), which the cited Python check derives from the real functions, that the sorted order equals the index order at these positions (so the running mass reads left to right), that at the end of each renormalize beat the kept bars sit at that position's renormalized values with the rest faded, that the final scene holds the top-p counts 4, 4, 1, that captions carry the measured numbers, that every sampled moment keeps heights and alphas bounded with at most k kept bars in the worked part, and that drawScene runs against a bare context. Nine moments were rendered with headless Edge from the inlined model and inspected at 900 pixels; bar labels were lifted clear of the running-mass dots after the first render.",
+      "check": "trace-fixture"
+    }
+  ]
+}

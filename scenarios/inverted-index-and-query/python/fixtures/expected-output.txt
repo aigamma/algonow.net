@@ -1,0 +1,17 @@
+5 documents, 31 distinct terms
+
+terms in two or more documents:
+  create  d3, d4
+  key     d1, d3
+  scope   d2, d4
+  the     d1, d2, d4
+
+key AND revoke     -> d1     postings read: 3
+scope AND create   -> d4     postings read: 4
+key AND scope      -> none   postings read: 4
+
+11 posting entries read for 3 queries; a scan reads 15 documents
+
+rejected: query has no terms
+
+OK

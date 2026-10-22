@@ -1,0 +1,43 @@
+{
+ "docs": [
+  {
+   "id": "d1",
+   "text": "Rotate the API key, then revoke the old key."
+  },
+  {
+   "id": "d2",
+   "text": "List calls need the read scope."
+  },
+  {
+   "id": "d3",
+   "text": "A lost key cannot be recovered; create a new key."
+  },
+  {
+   "id": "d4",
+   "text": "The write scope adds create and delete."
+  },
+  {
+   "id": "d5",
+   "text": "Invoices are under Billing, one PDF per month."
+  }
+ ],
+ "queries": [
+  [
+   "key",
+   "revoke"
+  ],
+  [
+   "scope",
+   "create"
+  ],
+  [
+   "key",
+   "scope"
+  ]
+ ],
+ "or_query": [
+  "key",
+  "scope",
+  "create"
+ ]
+}

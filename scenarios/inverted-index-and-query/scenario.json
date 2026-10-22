@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "slug": "inverted-index-and-query",
+  "track": "rag",
+  "language": "python",
+  "system": {
+    "context": "Orbit's keyword retriever scanned every runbook for every question, so each query cost a pass over the whole collection and the retriever slowed as documents were added. An inverted index maps each term, once, to the documents that contain it, so a query reads only the posting lists of its own terms.",
+    "request": "A worked Python example of one action: build_index(docs) returning a dictionary from each normalized term to the ids of the documents that contain it (input order, a term repeated inside one document listed once), and and_query(index, terms) returning the sorted intersection of the terms' posting lists, over five inline documents and three queries. The lesson leads with the complete solution and its exact output (31 distinct terms, the four shared terms with their postings, each query's answer and the posting entries it read, 11 entries against a 15-document scan), explains the Python construct by construct (lower and a character filter and split, set and sorted, the membership-insert idiom on a dictionary of lists, get with a default, set intersection with &, indexing and slicing, sorted, a ValueError guard, join and format specs), traces the index through the five documents and the three intersections, and offers one practice variation: an OR query ranked by how many of the query terms each document contains.",
+    "inputs": [
+      "Five documents written inline in solution.py as a list of dictionaries with an id and a text: d1 'Rotate the API key, then revoke the old key.', d2 'List calls need the read scope.', d3 'A lost key cannot be recovered; create a new key.', d4 'The write scope adds create and delete.', d5 'Invoices are under Billing, one PDF per month.'",
+      "Three AND queries as lists of terms: key and revoke, scope and create, key and scope",
+      "For the practice variation, the OR query key, scope, create"
+    ],
+    "outputs": [
+      "build_index yields 31 distinct terms; the shared ones are create (d3, d4), key (d1, d3), scope (d2, d4), and the (d1, d2, d4)",
+      "and_query finds d1 for key AND revoke (3 posting entries read), d4 for scope AND create (4), and nothing for key AND scope (4): 11 entries for three queries against 15 document reads for a scan",
+      "python solution.py prints the counts, the shared terms, the three queries, the summary, the rejected empty query, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change or_query ranks d3 (2 of 3), d4 (2 of 3), d1 (1 of 3), d2 (1 of 3) and prints OK, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, or network",
+      "Tokens are lowercase letters and digits split on whitespace; posting lists keep input order and list each document once per term; the input list is never modified",
+      "An empty query raises ValueError; a term the index has never seen contributes an empty posting list; the result of a query is sorted",
+      "Ordinary Python only: string methods, a character loop, set and sorted, a dictionary of lists, the in operator, get with a default, set intersection, indexing and slicing, join, f-strings with format specs, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: 31 distinct terms, the four shared terms, d1 / d4 / none for the three queries with 3, 4, and 4 entries read, the 11 against 15 summary, the rejected line, and OK",
+      "The functions are exact: tokenize strips punctuation and capitals and keeps digits, the posting list for key is d1 and d3, a one-term query returns its own posting list, an unseen term matches nothing, term order in a query does not matter, and an empty query raises ValueError",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt, ranking d3, d4, d1, d2 and rejecting an empty query",
+      "The linear scan that shipped is measured on the same documents: it gives identical answers on eight queries while the index reads 11 posting entries against 15 document reads for the lesson's three queries"
+    ]
+  },
+  "python": {
+    "package": "inverted_index",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "27c0fc0a1e79e0dfde3f353a8f21fdb36534b0cd9aceb376392cc0c25be1f247"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "ba1a65e63fde337a6aaa7cd6f38b8237ec3edf506728f67965652c370b10375a"
+    },
+    {
+      "path": "python/fixtures/docs.json",
+      "description": "The five documents, the three AND queries, and the practice OR query exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "33d9581de2344df3fbb723758033e5a34be4379ed2c4758186b1543b7ee15192"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "The index, the insertion order of its 31 terms, one step per document (tokens, distinct terms, repeated terms, new terms), the shared terms, each query's postings, result, and entries read, the practice ranking, and the scan and index read totals, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "90c5ab258bd10a1c6a18c5861b7f0eea77eed2bec33a437f424fe2d8c2be3e70"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "tokenize-edges",
+      "kind": "correctness",
+      "description": "tokenize lowercases, drops punctuation, keeps digits, splits on tabs and repeated spaces, returns nothing for punctuation only, and reproduces d1's nine tokens.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_tokenize_lowercases_strips_punctuation_and_splits"
+    },
+    {
+      "id": "postings-order",
+      "kind": "correctness",
+      "description": "The index holds 31 terms; key lists d1 and d3 once each although it repeats inside both documents; the lists keep input order and never repeat an id.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_postings_follow_input_order_and_list_a_repeated_term_once"
+    },
+    {
+      "id": "and-query-results",
+      "kind": "correctness",
+      "description": "The three lesson queries return d1, d4, and nothing.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_and_queries_find_exactly_the_documented_documents"
+    },
+    {
+      "id": "and-query-identities",
+      "kind": "correctness",
+      "description": "A one-term query returns its own posting list, an unseen term matches nothing (alone or with another term), term order does not matter, and a repeated term changes nothing.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_and_query_identities"
+    },
+    {
+      "id": "empty-query-rejected",
+      "kind": "failure",
+      "description": "A query with no terms raises ValueError naming the problem.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_empty_query_is_rejected"
+    },
+    {
+      "id": "postings-read",
+      "kind": "correctness",
+      "description": "postings_read counts 3, 4, and 4 entries for the three queries, 0 for an unseen term, and 3 for the shared term the.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_postings_read_counts_the_work"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The document list is unchanged after building the index and running a query.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_is_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about the ranked documents, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-ranking",
+      "kind": "correctness",
+      "description": "or_query ranks d3 (2), d4 (2), d1 (1), d2 (1) for the practice query, lists a single term's documents with a count of 1, matches nothing for an unseen term, ranks an AND match first with the full count, and rejects an empty query.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_ranks_by_match_count_then_id"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "docs-fixture",
+      "kind": "correctness",
+      "description": "docs.json equals the documents, queries, and practice query that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_docs_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: 31 terms in insertion order, per-document steps with 7, 5, 7, 4, 8 new terms and the repeated terms key and the in d1, the four shared terms, the three query results, and 11 index reads against 15 scan reads.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "scan-agrees",
+      "kind": "evaluation",
+      "description": "A linear scan that reads every document and keeps those containing every term returns exactly the index's answers on the three lesson queries and five more.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_scan_and_index_agree_on_every_query"
+    },
+    {
+      "id": "index-reads-fewer",
+      "kind": "evaluation",
+      "description": "On the same documents the three lesson queries read 11 posting entries through the index against 15 document reads for the scan, and no query reads more entries than there are documents.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_index_reads_fewer_entries_than_the_scan"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/InvertedIndexViz.jsx",
+      "description": "A short animation of the worked example, about three seconds per document and per query and about half a minute in all: the five documents as cards on the left, the index as a grid of term chips on the right that fills one document at a time as each document's distinct terms glide into place (a new term lands as a new chip, a known term appends the document's id, repeated terms collapse on the way), then the three AND queries light their terms, list their postings in the panel below the cards, and show the intersection (d1, d4, none) while a status strip counts the 11 posting entries read against the 15 documents a scan reads; the practice variation ranks the OR query d3, d4, d1, d2. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/invertedIndexModel.js, a JavaScript port of tokenize, build_index, and_query, postings_read, and or_query that runs on python/fixtures/docs.json; tests/inverted-index-and-query-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that at the end of each document beat the visible chips equal the index built from the documents so far, that each query beat ends with the right cards marked as hits and the right chips highlighted, that chips and postings only accumulate across every sampled moment, that every chip and glide stays inside the canvas, that captions carry the measured numbers, and that the final scene holds all 31 chips with their full posting lists and the ranked practice result.",
+      "check": "trace-fixture"
+    }
+  ]
+}

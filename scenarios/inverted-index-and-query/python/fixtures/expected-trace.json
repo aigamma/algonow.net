@@ -1,0 +1,398 @@
+{
+ "index": {
+  "api": [
+   "d1"
+  ],
+  "key": [
+   "d1",
+   "d3"
+  ],
+  "old": [
+   "d1"
+  ],
+  "revoke": [
+   "d1"
+  ],
+  "rotate": [
+   "d1"
+  ],
+  "the": [
+   "d1",
+   "d2",
+   "d4"
+  ],
+  "then": [
+   "d1"
+  ],
+  "calls": [
+   "d2"
+  ],
+  "list": [
+   "d2"
+  ],
+  "need": [
+   "d2"
+  ],
+  "read": [
+   "d2"
+  ],
+  "scope": [
+   "d2",
+   "d4"
+  ],
+  "a": [
+   "d3"
+  ],
+  "be": [
+   "d3"
+  ],
+  "cannot": [
+   "d3"
+  ],
+  "create": [
+   "d3",
+   "d4"
+  ],
+  "lost": [
+   "d3"
+  ],
+  "new": [
+   "d3"
+  ],
+  "recovered": [
+   "d3"
+  ],
+  "adds": [
+   "d4"
+  ],
+  "and": [
+   "d4"
+  ],
+  "delete": [
+   "d4"
+  ],
+  "write": [
+   "d4"
+  ],
+  "are": [
+   "d5"
+  ],
+  "billing": [
+   "d5"
+  ],
+  "invoices": [
+   "d5"
+  ],
+  "month": [
+   "d5"
+  ],
+  "one": [
+   "d5"
+  ],
+  "pdf": [
+   "d5"
+  ],
+  "per": [
+   "d5"
+  ],
+  "under": [
+   "d5"
+  ]
+ },
+ "order": [
+  "api",
+  "key",
+  "old",
+  "revoke",
+  "rotate",
+  "the",
+  "then",
+  "calls",
+  "list",
+  "need",
+  "read",
+  "scope",
+  "a",
+  "be",
+  "cannot",
+  "create",
+  "lost",
+  "new",
+  "recovered",
+  "adds",
+  "and",
+  "delete",
+  "write",
+  "are",
+  "billing",
+  "invoices",
+  "month",
+  "one",
+  "pdf",
+  "per",
+  "under"
+ ],
+ "steps": [
+  {
+   "doc": "d1",
+   "tokens": [
+    "rotate",
+    "the",
+    "api",
+    "key",
+    "then",
+    "revoke",
+    "the",
+    "old",
+    "key"
+   ],
+   "distinct": [
+    "api",
+    "key",
+    "old",
+    "revoke",
+    "rotate",
+    "the",
+    "then"
+   ],
+   "repeated": [
+    "key",
+    "the"
+   ],
+   "new_terms": [
+    "api",
+    "key",
+    "old",
+    "revoke",
+    "rotate",
+    "the",
+    "then"
+   ]
+  },
+  {
+   "doc": "d2",
+   "tokens": [
+    "list",
+    "calls",
+    "need",
+    "the",
+    "read",
+    "scope"
+   ],
+   "distinct": [
+    "calls",
+    "list",
+    "need",
+    "read",
+    "scope",
+    "the"
+   ],
+   "repeated": [],
+   "new_terms": [
+    "calls",
+    "list",
+    "need",
+    "read",
+    "scope"
+   ]
+  },
+  {
+   "doc": "d3",
+   "tokens": [
+    "a",
+    "lost",
+    "key",
+    "cannot",
+    "be",
+    "recovered",
+    "create",
+    "a",
+    "new",
+    "key"
+   ],
+   "distinct": [
+    "a",
+    "be",
+    "cannot",
+    "create",
+    "key",
+    "lost",
+    "new",
+    "recovered"
+   ],
+   "repeated": [
+    "a",
+    "key"
+   ],
+   "new_terms": [
+    "a",
+    "be",
+    "cannot",
+    "create",
+    "lost",
+    "new",
+    "recovered"
+   ]
+  },
+  {
+   "doc": "d4",
+   "tokens": [
+    "the",
+    "write",
+    "scope",
+    "adds",
+    "create",
+    "and",
+    "delete"
+   ],
+   "distinct": [
+    "adds",
+    "and",
+    "create",
+    "delete",
+    "scope",
+    "the",
+    "write"
+   ],
+   "repeated": [],
+   "new_terms": [
+    "adds",
+    "and",
+    "delete",
+    "write"
+   ]
+  },
+  {
+   "doc": "d5",
+   "tokens": [
+    "invoices",
+    "are",
+    "under",
+    "billing",
+    "one",
+    "pdf",
+    "per",
+    "month"
+   ],
+   "distinct": [
+    "are",
+    "billing",
+    "invoices",
+    "month",
+    "one",
+    "pdf",
+    "per",
+    "under"
+   ],
+   "repeated": [],
+   "new_terms": [
+    "are",
+    "billing",
+    "invoices",
+    "month",
+    "one",
+    "pdf",
+    "per",
+    "under"
+   ]
+  }
+ ],
+ "shared_terms": [
+  "create",
+  "key",
+  "scope",
+  "the"
+ ],
+ "queries": [
+  {
+   "terms": [
+    "key",
+    "revoke"
+   ],
+   "postings": {
+    "key": [
+     "d1",
+     "d3"
+    ],
+    "revoke": [
+     "d1"
+    ]
+   },
+   "result": [
+    "d1"
+   ],
+   "postings_read": 3
+  },
+  {
+   "terms": [
+    "scope",
+    "create"
+   ],
+   "postings": {
+    "scope": [
+     "d2",
+     "d4"
+    ],
+    "create": [
+     "d3",
+     "d4"
+    ]
+   },
+   "result": [
+    "d4"
+   ],
+   "postings_read": 4
+  },
+  {
+   "terms": [
+    "key",
+    "scope"
+   ],
+   "postings": {
+    "key": [
+     "d1",
+     "d3"
+    ],
+    "scope": [
+     "d2",
+     "d4"
+    ]
+   },
+   "result": [],
+   "postings_read": 4
+  }
+ ],
+ "or_query": {
+  "terms": [
+   "key",
+   "scope",
+   "create"
+  ],
+  "counts": {
+   "d3": 2,
+   "d4": 2,
+   "d1": 1,
+   "d2": 1
+  },
+  "ranked": [
+   [
+    "d3",
+    2
+   ],
+   [
+    "d4",
+    2
+   ],
+   [
+    "d1",
+    1
+   ],
+   [
+    "d2",
+    1
+   ]
+  ]
+ },
+ "scan_reads": 15,
+ "index_reads": 11
+}

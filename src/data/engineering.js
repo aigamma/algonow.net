@@ -178,6 +178,18 @@ export const SCENARIOS = Object.freeze([
     skills: ['Cosine similarity from a dot product and two norms', 'Loops over zip with running totals and strict length checking', 'math.sqrt and a zero-vector guard', 'Sorting records with a key function and a tie-break, then slicing the top k', 'A minimum similarity threshold (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'exact-match-and-token-f1',
+    title: 'Score short answers with exact match and token F1',
+    summary: 'Orbit\'s question answering evaluation compared answers as strings, so "The read scope." counted as wrong against the gold answer "read scope" and a mostly right answer earned nothing. A worked Python example scores five inline answer pairs the way the SQuAD benchmark does: a normalizer that lowercases, strips punctuation, and drops articles, exact match on the normalized tokens, token overlap counted with Counter intersection, precision, recall, and F1 with their zero guards, its exact output, a trace of every overlap, and one practice variation that scores against several acceptable gold answers and keeps the best.',
+    track: 'evaluation',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'intermediate',
+    durationMinutes: 30,
+    skills: ['Exact match after normalization', 'Token F1 from precision and recall', 'Counter intersection as a multiset overlap', 'Zero guards in a ratio', 'Several gold answers, take the maximum (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

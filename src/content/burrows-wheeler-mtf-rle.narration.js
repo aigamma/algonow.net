@@ -9,7 +9,7 @@ export const narration = [
   {
     section: 'origins',
     text:
-      'Michael Burrows and David Wheeler, at Digital’s Systems Research Center, nineteen ninety four: a technical report so strange the field took years to digest it. Sort every rotation of the text. Keep only the last column. And: the miracle: that column alone reconstructs everything. Julian Seward built bzip2 on it, and for a stretch of the late nineties it beat gzip on ratio wherever text was text. Giovanni Manzini’s two thousand one analysis in the Journal of the ACM proved why: the pipeline’s output tracks the k th order entropy of the input. And then the strangest turn: the same transform became the FM index: the structure inside every modern DNA aligner: a compressor that turned out to be a search engine in disguise.',
+      'Michael Burrows and David Wheeler, at Digital’s Systems Research Center, nineteen ninety four: a technical report so strange the field took years to digest it. Sort every rotation of the text. Keep only the last column. And: the miracle: that column alone reconstructs everything. Julian Seward built bzip two on it, and for a stretch of the late nineties it beat gzip on ratio wherever text was text. Giovanni Manzini’s two thousand one analysis in the Journal of the ACM proved why: the pipeline’s output tracks the k th order entropy of the input. And then the strangest turn: the same transform became the FM index: the structure inside every modern DNA aligner: a compressor that turned out to be a search engine in disguise.',
   },
   {
     section: 'pair',
@@ -24,12 +24,12 @@ export const narration = [
   {
     section: 'run',
     text:
-      'Here is the run. Terminate: append the sentinel: it makes rotations into suffixes and pins the inverse. Transform: suffix sort by prefix doubling, then read off the last column: the character before each suffix. Move to front: keep an alphabet list; each symbol is encoded as its current position, then moved to the front: locality becomes numerical skew. Run length encode the zeros: measured folding three and a half to one here: and real bzip2 hands the result to Huffman, the live unit one shelf over. Invert by LF: counts and ranks over the last column alone, walk backward from the sentinel row, reverse: byte exact on everything this page touched. And note what the pipeline is: four dumb stages and one profound permutation: remove the permutation and the dumb stages measurably fail.',
+      'Here is the run. Terminate: append the sentinel: it makes rotations into suffixes and pins the inverse. Transform: suffix sort by prefix doubling, then read off the last column: the character before each suffix. Move to front: keep an alphabet list; each symbol is encoded as its current position, then moved to the front: locality becomes numerical skew. Run length encode the zeros: measured folding three and a half to one here: and real bzip two hands the result to Huffman, the live unit one shelf over. Invert by LF: counts and ranks over the last column alone, walk backward from the sentinel row, reverse: byte exact on everything this page touched. And note what the pipeline is: four dumb stages and one profound permutation: remove the permutation and the dumb stages measurably fail.',
   },
   {
     section: 'signals',
     text:
-      'Three signals tell you this is the right pair. First, the redundancy is context shaped: natural language, genomes, structured logs: what follows what is the structure: per symbol coders are blind to it, and dictionary coders see only literal repeats. Second, block processing is acceptable: the sort needs the whole block in hand: bzip2 works in blocks up to nine hundred kilobytes: when data must stream, the LZ shelf is home. Third, you might want search later: the transform plus a little bookkeeping is the FM index: compress today, and tomorrow run substring queries directly on the compressed form: the reason genomics never let this transform go.',
+      'Three signals tell you this is the right pair. First, the redundancy is context shaped: natural language, genomes, structured logs: what follows what is the structure: per symbol coders are blind to it, and dictionary coders see only literal repeats. Second, block processing is acceptable: the sort needs the whole block in hand: bzip two works in blocks up to nine hundred kilobytes: when data must stream, the LZ shelf is home. Third, you might want search later: the transform plus a little bookkeeping is the FM index: compress today, and tomorrow run substring queries directly on the compressed form: the reason genomics never let this transform go.',
   },
   {
     section: 'tradeoffs',
@@ -39,7 +39,7 @@ export const narration = [
   {
     section: 'tradeoffs',
     text:
-      'The rivals, honestly placed, three live. LZ seventy seven, the sliding window: repeats by back reference, streaming, no block boundaries: it exploits literal repetition where this transform exploits statistical context: different redundancy, which is why DEFLATE composes LZ with Huffman rather than choosing. Huffman coding, live: the pipeline’s true back end: optimal per symbol bits for exactly the skew that move to front manufactures: bzip2 is this page plus that unit, in series. And the suffix array, live: the constructor itself: b w t at i is the text at s a of i, minus one: and with the transform it becomes the FM index: search inside compression. One more shelf note: the LZW unit measured DEFLATE beating it everywhere: this transform is the other road that once beat DEFLATE on text ratio: the two stories bracket the compression shelf.',
+      'The rivals, honestly placed, three live. LZ seventy seven, the sliding window: repeats by back reference, streaming, no block boundaries: it exploits literal repetition where this transform exploits statistical context: different redundancy, which is why DEFLATE composes LZ with Huffman rather than choosing. Huffman coding, live: the pipeline’s true back end: optimal per symbol bits for exactly the skew that move to front manufactures: bzip two is this page plus that unit, in series. And the suffix array, live: the constructor itself: b w t at i is the text at s a of i, minus one: and with the transform it becomes the FM index: search inside compression. One more shelf note: the LZW unit measured DEFLATE beating it everywhere: this transform is the other road that once beat DEFLATE on text ratio: the two stories bracket the compression shelf.',
   },
   {
     section: 'tradeoffs',

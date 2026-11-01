@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net near-duplicates-by-shingle-jaccard preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-11-01T03:44:53.689Z",
+  "publication_sha256": "90229fe84301f77b5c9a50ce3ad17d2c28468d93920415ee4ec2214f21053e84",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 8312920,
+  "objects": [
+    {
+      "stable_id": "puzzle:near-duplicates-by-shingle-jaccard",
+      "slug": "near-duplicates-by-shingle-jaccard",
+      "track_id": "algieba",
+      "source_sha256": "83dd1018a4aec3dea2b3060b896546a4a5fe8ca7b87b077d5c69059404a36b7b",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "8f682273475e91f4804af80df76f8056a6911fefa77b5af7747cb2559a307d7a",
+      "object_key": "narration/v1/puzzles/near-duplicates-by-shingle-jaccard/8f682273475e91f4804a/algieba-987df25917e1c09a.mp3",
+      "bytes": 4254860,
+      "sha256": "987df25917e1c09a6ce6e5274e7a2c2f5d601575a96e5b29180abc120da7f35e",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:near-duplicates-by-shingle-jaccard",
+      "slug": "near-duplicates-by-shingle-jaccard",
+      "track_id": "aoede",
+      "source_sha256": "83dd1018a4aec3dea2b3060b896546a4a5fe8ca7b87b077d5c69059404a36b7b",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "8f682273475e91f4804af80df76f8056a6911fefa77b5af7747cb2559a307d7a",
+      "object_key": "narration/v1/puzzles/near-duplicates-by-shingle-jaccard/8f682273475e91f4804a/aoede-453b45c7f52f80b1.mp3",
+      "bytes": 4058060,
+      "sha256": "453b45c7f52f80b1b882c017520b73b15ec073896ae13ec7c9eef4e87b7a173b",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

@@ -518,7 +518,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'Orbit\'s fine-tuning set had been deduplicated by exact normalized text, and the model still memorized an answer that appeared three times with one word changed or added. A worked Python example compares five inline records by their word shingles, every run of three consecutive words as a tuple in a set, scores each pair with Jaccard similarity, shared shingles over the union, and walks the records keeping the first of each near-duplicate group: nested loops that build normalized words, range with an arithmetic bound, set intersection and union, a best-so-far search over the kept records, its exact output, a trace of every pair and decision, and one practice variation that slides character windows instead of word windows.',
     track: 'data-pipelines',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-31', listenMinutes: 13,
     difficulty: 'intermediate',
     durationMinutes: 30,
     skills: ['Word shingles as tuples in a set', 'Jaccard similarity with & and |', 'A best-so-far search over the records kept so far', 'Every pair once with a nested range starting at i + 1', 'Character shingles with string slices (practice)'],

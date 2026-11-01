@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:near-duplicates-by-shingle-jaccard",
+  "source_path": "src/content/near-duplicates-by-shingle-jaccard.narration.js",
+  "source_sha256": "83dd1018a4aec3dea2b3060b896546a4a5fe8ca7b87b077d5c69059404a36b7b",
+  "source_characters": 15551,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "8f682273475e91f4804af80df76f8056a6911fefa77b5af7747cb2559a307d7a",
+  "generated_at": "2026-11-01T03:43:40.501Z",
+  "generated_characters": 31102,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 2740,
+      "utf8_bytes": 2744,
+      "sha256": "875fa992b29a78c3f0f7cd4d642feb9a88ba905a3cc42458450eb83557649114"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 2673,
+      "utf8_bytes": 2673,
+      "sha256": "62fd7f7f80c5933cc412a97326a2676e22664e2d49f661efa9a5f24197c6f219"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 4439,
+      "utf8_bytes": 4445,
+      "sha256": "2dd63de8c409042107af8065a51a86791d000f955d7a294f936d4bba085890d9"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 3251,
+      "utf8_bytes": 3251,
+      "sha256": "838c2e2e435c94e0d12ceeabcc5cbfc6b60eeac79aab845ee4dbac91ccf1f9c8"
+    },
+    {
+      "id": "request-005",
+      "index": 5,
+      "characters": 2448,
+      "utf8_bytes": 2454,
+      "sha256": "4ad951ba00415cb9c00b9f6d34f55d538f310f5809a409131d47cb181c277958"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "near-duplicates-by-shingle-jaccard.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "near-duplicates-by-shingle-jaccard.01-brief",
+      "label": "Engineering Brief",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2617,
+      "sha256": "89f9adb181e44109b4e742b653464bc6679894582c6b5d413e67ae9cfafce598"
+    },
+    {
+      "id": "near-duplicates-by-shingle-jaccard.02-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2671,
+      "sha256": "8804f62ca38e6f34fa418aca0eb73b8846be8cd5b2f52443235b4595df522dfe"
+    },
+    {
+      "id": "near-duplicates-by-shingle-jaccard.03-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2735,
+      "sha256": "54bb3d3eea9448bdd552e2c1b588778dd3a89090899fb63fac9cb9fc8922b3e7"
+    },
+    {
+      "id": "near-duplicates-by-shingle-jaccard.04-visual",
+      "label": "System Diagram",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1706,
+      "sha256": "5fe3ac6c1f90b8a7dffd8d081dc9a69a466bb27279232dd19e6db27926f41196"
+    },
+    {
+      "id": "near-duplicates-by-shingle-jaccard.05-evidence",
+      "label": "Validation Evidence",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1728,
+      "sha256": "0a800c1aa7ef85041f406b267befe7daf8a195559f11fcf9fd9f9bf1c52c1d85"
+    },
+    {
+      "id": "near-duplicates-by-shingle-jaccard.06-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1519,
+      "sha256": "649712b09f248b098ca41d0bcb612155adb9dcc0d8ff3bf0aa2443e7c99573cb"
+    },
+    {
+      "id": "near-duplicates-by-shingle-jaccard.07-starter",
+      "label": "Starting Point",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1846,
+      "sha256": "13ca28652dc78c6250206c9f52738e21f3ea7457c6105a5a26940502634a90f4"
+    },
+    {
+      "id": "near-duplicates-by-shingle-jaccard.08-files",
+      "label": "Working Files",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 606,
+      "sha256": "31be436297768c8cfe696cd669981988a43e98e974e06d4ba8b0725aaabe6418"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/near-duplicates-by-shingle-jaccard/8f682273475e91f4804a/aoede-453b45c7f52f80b1.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4058060,
+      "sha256": "453b45c7f52f80b1b882c017520b73b15ec073896ae13ec7c9eef4e87b7a173b",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "875fa992b29a78c3f0f7cd4d642feb9a88ba905a3cc42458450eb83557649114",
+          "bytes": 719616,
+          "sha256": "71068502c57233bec03a24fe0c22268c472084a340a0afeed7f28c7a4e7b935b"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "62fd7f7f80c5933cc412a97326a2676e22664e2d49f661efa9a5f24197c6f219",
+          "bytes": 709536,
+          "sha256": "bc887ed9b683e1224e118c2d3de45723209eaabe264b015da0914551a5606847"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "2dd63de8c409042107af8065a51a86791d000f955d7a294f936d4bba085890d9",
+          "bytes": 1150752,
+          "sha256": "f341a8123698dd40560dc921e512605526a0bd8f4eeb3087aba4bf90efa7866e"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "838c2e2e435c94e0d12ceeabcc5cbfc6b60eeac79aab845ee4dbac91ccf1f9c8",
+          "bytes": 857184,
+          "sha256": "dd26f16eb1cd6bc9388ec0837481f4c3df12ebe7349bc3aa602137fb4f56e7be"
+        },
+        {
+          "request_index": 5,
+          "request_sha256": "4ad951ba00415cb9c00b9f6d34f55d538f310f5809a409131d47cb181c277958",
+          "bytes": 620736,
+          "sha256": "bd42f94b9e9356c281a3be45f7f4072f551c95a267abd1c25ad52acd2fc76902"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/near-duplicates-by-shingle-jaccard/8f682273475e91f4804a/algieba-987df25917e1c09a.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4254860,
+      "sha256": "987df25917e1c09a6ce6e5274e7a2c2f5d601575a96e5b29180abc120da7f35e",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "875fa992b29a78c3f0f7cd4d642feb9a88ba905a3cc42458450eb83557649114",
+          "bytes": 794784,
+          "sha256": "a89e14f9cb65f467d5f6c350e237548333125e4b4e0a0a71c405d2674255e057"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "62fd7f7f80c5933cc412a97326a2676e22664e2d49f661efa9a5f24197c6f219",
+          "bytes": 725664,
+          "sha256": "d58b97fc83098a15b63bcbf051188f3f1328ef3a2019b21375e6928b92f757fb"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "2dd63de8c409042107af8065a51a86791d000f955d7a294f936d4bba085890d9",
+          "bytes": 1215456,
+          "sha256": "a7cd29d743a66ced8124de9c802c831c0a024a4f1766f454ca66a8e3c8955f6d"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "838c2e2e435c94e0d12ceeabcc5cbfc6b60eeac79aab845ee4dbac91ccf1f9c8",
+          "bytes": 879456,
+          "sha256": "17cd3d72b20f5338d237403a00aa446db56b49fee27120be506f7743204ddede"
+        },
+        {
+          "request_index": 5,
+          "request_sha256": "4ad951ba00415cb9c00b9f6d34f55d538f310f5809a409131d47cb181c277958",
+          "bytes": 639264,
+          "sha256": "907355b3aff958ec0ad07c0d066b1ad324a7171e09a6eb801f2f4552d7fc15f3"
+        }
+      ]
+    }
+  }
+}

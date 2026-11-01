@@ -546,7 +546,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'Orbit distills a small router from its large assistant, and every teacher label costs a call; the script that shipped sent the first three prompts in arrival order, one of them a prompt the student already routes with ninety-two percent confidence. A worked Python example ranks eight inline prompts by the student\'s margin, the gap between its top two route probabilities: sorted over zipped pairs with reverse, a function that returns three values, a key function with a tuple that breaks ties by id, a slice for the budget, guards with a floating-point tolerance, its exact output, a trace of the ranking, and one practice variation that ranks by entropy instead.',
     track: 'distillation',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-31', listenMinutes: 12,
     difficulty: 'foundation',
     durationMinutes: 25,
     skills: ['Uncertainty sampling by the top-two margin', 'sorted over zipped pairs with reverse', 'A key function returning a tuple for a deterministic tie-break', 'A function that returns three values', 'Entropy as the uncertainty score (practice)'],

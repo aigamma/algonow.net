@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net select-examples-by-student-margin preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-11-01T04:07:02.972Z",
+  "publication_sha256": "d87b5726d43377d349bf2a4cc3091076311af404a09603dc14f9be1ab6923f33",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 7231864,
+  "objects": [
+    {
+      "stable_id": "puzzle:select-examples-by-student-margin",
+      "slug": "select-examples-by-student-margin",
+      "track_id": "algieba",
+      "source_sha256": "a8e6498556ae792a12e8e68acc0868d3b2440588cf6f87a62519222d09c01c36",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "28db34e19809e3ce62b4a9a24d4a2bcdeb755951a77523c780ddbe4e47bbf830",
+      "object_key": "narration/v1/puzzles/select-examples-by-student-margin/28db34e19809e3ce62b4/algieba-8fbb870a60dfbb0c.mp3",
+      "bytes": 3726572,
+      "sha256": "8fbb870a60dfbb0c7386580659ce216110be0f8caa5484a222a004fadccb5068",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:select-examples-by-student-margin",
+      "slug": "select-examples-by-student-margin",
+      "track_id": "aoede",
+      "source_sha256": "a8e6498556ae792a12e8e68acc0868d3b2440588cf6f87a62519222d09c01c36",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "28db34e19809e3ce62b4a9a24d4a2bcdeb755951a77523c780ddbe4e47bbf830",
+      "object_key": "narration/v1/puzzles/select-examples-by-student-margin/28db34e19809e3ce62b4/aoede-944cae2e8fbb0950.mp3",
+      "bytes": 3505292,
+      "sha256": "944cae2e8fbb0950efb832d2a1538dd5ff3979ccc20b27491f97686cffb19e67",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

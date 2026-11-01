@@ -1,0 +1,172 @@
+{
+ "routes": [
+  "billing",
+  "access",
+  "outage"
+ ],
+ "budget": 3,
+ "rows": [
+  {
+   "id": "u1",
+   "probs": [
+    0.92,
+    0.05,
+    0.03
+   ],
+   "top": "billing",
+   "second": "access",
+   "margin": 0.87
+  },
+  {
+   "id": "u2",
+   "probs": [
+    0.07,
+    0.48,
+    0.45
+   ],
+   "top": "access",
+   "second": "outage",
+   "margin": 0.03
+  },
+  {
+   "id": "u3",
+   "probs": [
+    0.15,
+    0.6,
+    0.25
+   ],
+   "top": "access",
+   "second": "outage",
+   "margin": 0.35
+  },
+  {
+   "id": "u4",
+   "probs": [
+    0.34,
+    0.33,
+    0.33
+   ],
+   "top": "billing",
+   "second": "outage",
+   "margin": 0.01
+  },
+  {
+   "id": "u5",
+   "probs": [
+    0.05,
+    0.15,
+    0.8
+   ],
+   "top": "outage",
+   "second": "access",
+   "margin": 0.65
+  },
+  {
+   "id": "u6",
+   "probs": [
+    0.39,
+    0.21,
+    0.4
+   ],
+   "top": "outage",
+   "second": "billing",
+   "margin": 0.01
+  },
+  {
+   "id": "u7",
+   "probs": [
+    0.4,
+    0.05,
+    0.55
+   ],
+   "top": "outage",
+   "second": "billing",
+   "margin": 0.15
+  },
+  {
+   "id": "u8",
+   "probs": [
+    0.2,
+    0.7,
+    0.1
+   ],
+   "top": "access",
+   "second": "billing",
+   "margin": 0.5
+  }
+ ],
+ "ranking": [
+  "u4",
+  "u6",
+  "u2",
+  "u7",
+  "u3",
+  "u8",
+  "u5",
+  "u1"
+ ],
+ "picked": [
+  "u4",
+  "u6",
+  "u2"
+ ],
+ "picked_mean_margin": 0.016667,
+ "shipped": {
+  "picked": [
+   "u1",
+   "u2",
+   "u3"
+  ],
+  "mean_margin": 0.416667
+ },
+ "practice": {
+  "rows": [
+   {
+    "id": "u1",
+    "top": "billing",
+    "entropy": 0.331694
+   },
+   {
+    "id": "u2",
+    "top": "access",
+    "entropy": 0.897782
+   },
+   {
+    "id": "u3",
+    "top": "access",
+    "entropy": 0.937637
+   },
+   {
+    "id": "u4",
+    "top": "billing",
+    "entropy": 1.098513
+   },
+   {
+    "id": "u5",
+    "top": "outage",
+    "entropy": 0.612869
+   },
+   {
+    "id": "u6",
+    "top": "outage",
+    "entropy": 1.06148
+   },
+   {
+    "id": "u7",
+    "top": "outage",
+    "entropy": 0.845113
+   },
+   {
+    "id": "u8",
+    "top": "access",
+    "entropy": 0.801819
+   }
+  ],
+  "picked": [
+   "u4",
+   "u6",
+   "u3"
+  ],
+  "even_split": 1.098612
+ }
+}

@@ -1,0 +1,17 @@
+8 unlabeled prompts, routes billing, access, outage, teacher budget 3, ranked by entropy
+id  probabilities    top      entropy
+u1  0.92 0.05 0.03   billing    0.332
+u2  0.07 0.48 0.45   access     0.898
+u3  0.15 0.60 0.25   access     0.938
+u4  0.34 0.33 0.33   billing    1.099
+u5  0.05 0.15 0.80   outage     0.613
+u6  0.39 0.21 0.40   outage     1.061
+u7  0.40 0.05 0.55   outage     0.845
+u8  0.20 0.70 0.10   access     0.802
+
+send to the teacher (largest entropy): u4, u6, u3
+even split over 3 routes would score 1.099; a certain answer scores 0.000
+
+rejected: probabilities must sum to 1, got 1.30
+
+OK

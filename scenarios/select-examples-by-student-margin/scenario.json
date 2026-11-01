@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "slug": "select-examples-by-student-margin",
+  "track": "distillation",
+  "language": "python",
+  "system": {
+    "context": "Orbit distills a small router, the student, from its large assistant, the teacher. Every teacher label costs a call, and this round's budget covers three of the eight unlabeled prompts. Sending the first three in arrival order wasted calls on prompts the student already handles with confidence.",
+    "request": "A worked Python example of one action: select(candidates, routes, budget), which scores every unlabeled prompt with score(probs, routes), sorting (probability, route) pairs largest first to name the student's top route, its runner-up, and the margin between them, after checking that the probabilities match the routes and sum to one; sorts the scored rows by (margin, id) so ties break the same way every run; and takes the `budget` smallest margins for the teacher, raising ValueError for a budget outside 0 to the candidate count. The lesson leads with the complete solution and its exact output over eight inline prompts (every row's top two routes and margin, the picks and the waiting prompts, what the first three cost), explains the Python construct by construct, traces the ranking, and offers one practice variation: ranking by the entropy of the whole distribution instead of the margin.",
+    "inputs": [
+      "Eight unlabeled prompts written inline in solution.py as dictionaries with an id and the student's probabilities over ROUTES billing, access, outage; BUDGET 3",
+      "For the practice variation, the same prompts scored by entropy, minus the sum of p times the natural log of p"
+    ],
+    "outputs": [
+      "Margins 0.87, 0.03, 0.35, 0.01, 0.65, 0.01, 0.15, 0.50 with top and second routes per prompt; the ranking u4, u6, u2, u7, u3, u8, u5, u1; picks u4, u6, u2 with mean margin 0.02 against 0.42 for the first three in arrival order",
+      "python solution.py prints the table, the picks, the waiting prompts, the two mean margins, two rejected inputs, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change the entropy ranking picks u4, u6, u3 and prints every entropy, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, model calls, or network",
+      "Sorting copies: the candidates and their probability lists are never modified; ties in margin are broken by id so the picks are the same every run and in any arrival order",
+      "A probability list of the wrong length or one that does not sum to one within one millionth raises ValueError, as does a budget outside 0 to the candidate count",
+      "Ordinary Python only: sorted with reverse and with a key function, zip, tuples compared element by element, tuple unpacking, a function returning three values, abs with a tolerance, slicing, membership tests, a dictionary built in a loop; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the eight rows, the picks u4, u6, u2, the waiting prompts, mean margins 0.42 and 0.02, the two rejected lines, and OK",
+      "Every margin equals the largest minus the second largest probability found without sorting, the ranking and the picks are exact with ties by id, and reversing the arrival order leaves the picks unchanged",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt, with every entropy equal to an independent computation",
+      "What shipped is measured on the same prompts: the first three spend a call on u1 at margin 0.87 and average 0.42, every pick has a smaller margin than every waiting prompt, and margin and entropy agree on the two most torn prompts and differ on the third"
+    ]
+  },
+  "python": {
+    "package": "margin_selection",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "e5cbb87395c86f4a34e4f7a738bd2146174b454ba41e2d7cade2be81451bee27"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "d5013da5855b8d666876d64ddccacc1e0fe344496b80bc1260a2e80aeec99447"
+    },
+    {
+      "path": "python/fixtures/candidates.json",
+      "description": "The eight prompts with their probabilities, the routes, and the budget exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "9223b5c31769782504cc23fb8e3f5f15d570ccd6c7488e7cc27a96d5c39ef94d"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every prompt's top two routes and margin to six decimals, the ranking, the picks and their mean margin, what the first three cost, and the practice entropies and picks, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "e597c4566cd28531301f877dc7d0e89e5b09bf149513a93549c635ebbccd5b78"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "scores-top-second-margin",
+      "kind": "correctness",
+      "description": "Every row names the right top and second routes and its margin equals the largest minus the second largest probability found without sorting.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_scores_name_the_top_two_routes_and_the_margin"
+    },
+    {
+      "id": "ranking-and-picks",
+      "kind": "correctness",
+      "description": "The ranking is u4, u6, u2, u7, u3, u8, u5, u1 with the two ties by id, the picks are u4, u6, u2, a budget of 0 picks nothing, the full budget picks all, and reversing the arrival order leaves the picks unchanged.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_smallest_margins_are_picked_with_ties_broken_by_id"
+    },
+    {
+      "id": "invalid-input-rejected",
+      "kind": "failure",
+      "description": "Probabilities that do not sum to one, a list of the wrong length, and a budget of 9 or -1 raise ValueError; the candidates are unchanged after selection.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_invalid_input_is_rejected_and_input_unchanged"
+    },
+    {
+      "id": "margin-edges",
+      "kind": "correctness",
+      "description": "A certain distribution has margin 1.0, an exact two-way tie has margin 0.0, and an even three-way split has margin 0.0.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_margin_edges"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about the entropy picks, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-entropy-ranking",
+      "kind": "correctness",
+      "description": "Every entropy equals an independent computation, u4 and u6 lead, u3 outranks u2, the picks become u4, u6, u3, a certain answer scores 0 and an even split scores log 3.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_ranks_by_entropy_and_changes_the_third_pick"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the code below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "candidates-fixture",
+      "kind": "correctness",
+      "description": "candidates.json equals the eight prompts, the routes, and the budget that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_candidates_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the picks u4, u6, u2, the full ranking, mean margins 0.016667 and 0.416667, and the entropy picks u4, u6, u3.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "shipped-first-three",
+      "kind": "evaluation",
+      "description": "The first three prompts in arrival order spend a teacher call on u1 at margin 0.87 and average 0.42 against 0.02 for the margin picks.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_first_three_spend_a_teacher_call_on_a_sure_prompt"
+    },
+    {
+      "id": "picks-dominate-waiting",
+      "kind": "evaluation",
+      "description": "Every picked prompt has a margin no larger than every waiting prompt's.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_every_pick_has_a_smaller_margin_than_every_waiting_prompt"
+    },
+    {
+      "id": "margin-versus-entropy",
+      "kind": "evaluation",
+      "description": "Margin and entropy agree on the two most torn prompts and disagree on the third, where u3's three-way spread outranks u2's two-way doubt under entropy.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_margin_and_entropy_agree_on_the_two_most_torn_prompts"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/MarginViz.jsx",
+      "description": "A short animation of the worked example, under two seconds per prompt and about thirty seconds in all: eight rows, each a probability line with one dot per route, an amber bracket drawn between the two rightmost dots as each margin is scored, the rows gliding into margin order, the three smallest tinted green and tagged for the teacher while the rest wait, the first three in arrival order outlined red with their mean margin, and the practice variation swapping the column to entropy and re-sorting so u3 rises above u2. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/marginModel.js, a JavaScript port of score, select, and the practice's entropy that runs on python/fixtures/candidates.json; tests/select-examples-by-student-margin-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that each prompt beat ends with its bracket complete and the rows still in arrival order, that the rank beat ends in the fixture's ranking, that the pick beat tags exactly u4, u6, u2 and the shipped beat outlines exactly u1, u2, u3, that the final scene is in entropy order, that scored rows only accumulate and slots stay inside the list at every sampled moment, that captions carry the measured probabilities, margins, means, and entropies, and that drawScene runs against a bare context at sampled moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+8 unlabeled prompts, routes billing, access, outage, teacher budget 3
+id  probabilities    top      second   margin
+u1  0.92 0.05 0.03   billing  access     0.87
+u2  0.07 0.48 0.45   access   outage     0.03
+u3  0.15 0.60 0.25   access   outage     0.35
+u4  0.34 0.33 0.33   billing  outage     0.01
+u5  0.05 0.15 0.80   outage   access     0.65
+u6  0.39 0.21 0.40   outage   billing    0.01
+u7  0.40 0.05 0.55   outage   billing    0.15
+u8  0.20 0.70 0.10   access   billing    0.50
+
+send to the teacher (smallest margins): u4, u6, u2
+wait for a later round: u1, u3, u5, u7, u8
+
+what shipped, the first 3 in arrival order: u1, u2, u3, mean margin 0.42
+this lesson's picks: mean margin 0.02
+rejected: probabilities must sum to 1, got 1.30
+rejected: 2 probabilities for 3 routes
+
+OK

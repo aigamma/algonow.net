@@ -1,3 +1,8 @@
 # Scenario fixtures are hash-bound in scenario.json (SHA-256 over exact bytes).
 # Keep them LF on every checkout so the binding survives core.autocrlf=true.
 scenarios/*/python/fixtures/** text eol=lf
+
+# Scenario sources are embedded into page chunks byte for byte (?raw imports),
+# and the practice-answer marker split expects line feeds: keep every scenario
+# text file LF on every checkout, not only the hash-bound fixtures.
+scenarios/** text eol=lf

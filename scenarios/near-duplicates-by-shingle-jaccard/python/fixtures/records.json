@@ -1,0 +1,27 @@
+{
+ "records": [
+  {
+   "id": "r1",
+   "text": "Restart the worker, then set the timeout to thirty seconds and confirm the alert clears."
+  },
+  {
+   "id": "r2",
+   "text": "Restart the worker, then set the timeout to thirty seconds and check the alert clears."
+  },
+  {
+   "id": "r3",
+   "text": "Rotate the API key from the billing page and update the gateway secret."
+  },
+  {
+   "id": "r4",
+   "text": "Please restart the worker, then set the timeout to thirty seconds and confirm the alert clears."
+  },
+  {
+   "id": "r5",
+   "text": "Set the timeout to thirty seconds."
+  }
+ ],
+ "size": 3,
+ "threshold": 0.5,
+ "practice_size": 5
+}

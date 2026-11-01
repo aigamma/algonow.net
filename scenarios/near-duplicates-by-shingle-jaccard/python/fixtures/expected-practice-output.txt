@@ -1,0 +1,23 @@
+5 records, character shingles of 5, threshold 0.50
+pair    shared union  jaccard
+r1 r2       69    87     0.79  near-duplicate
+r1 r3        5   135     0.04
+r1 r4       79    86     0.92  near-duplicate
+r1 r5       29    79     0.37
+r2 r3        4   134     0.03
+r2 r4       69    94     0.73  near-duplicate
+r2 r5       29    77     0.38
+r3 r4        5   142     0.04
+r3 r5        2    88     0.02
+r4 r5       29    86     0.34
+
+r1  kept
+r2  dropped: 0.79 of r1
+r3  kept
+r4  dropped: 0.92 of r1
+r5  kept
+kept 3 of 5
+
+rejected: r9 is too short for shingles of 5
+
+OK

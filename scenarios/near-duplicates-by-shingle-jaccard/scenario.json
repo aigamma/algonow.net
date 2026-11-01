@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "slug": "near-duplicates-by-shingle-jaccard",
+  "track": "data-pipelines",
+  "language": "python",
+  "system": {
+    "context": "Orbit's fine-tuning set had already been deduplicated by exact normalized text, and the model still memorized: the same support answer appeared again and again with one word changed, a word added at the front, or a sentence dropped. Exact matching sees five different strings; the training loop saw one answer three times.",
+    "request": "A worked Python example of one action: near_duplicates(records, size, threshold), which normalizes each text into lowercase words with punctuation stripped, builds the set of every run of `size` consecutive words as tuples (shingles), scores pairs with Jaccard similarity (shared shingles over the union), and walks the records in order keeping each one unless its best match among the records already kept reaches the threshold, in which case it is dropped as a near-duplicate of that match; a record too short for a shingle raises ValueError. The lesson leads with the complete solution and its exact output over five inline records (every pair's shared and union counts and similarity, the five decisions, the rejected short record), explains the Python construct by construct, traces the walk, and offers one practice variation: character shingles over the normalized text instead of word shingles.",
+    "inputs": [
+      "Five records written inline in solution.py as dictionaries with an id and a text: r1 a fifteen-word support answer, r2 the same with one word changed, r3 an unrelated answer, r4 r1 with 'Please' in front, r5 a fragment of r1; SHINGLE 3 and THRESHOLD 0.5",
+      "For the practice variation, SHINGLE 5 read as characters over the normalized text"
+    ],
+    "outputs": [
+      "Pair similarities r1/r2 10 of 16 (0.62), r1/r3 0 of 24, r1/r4 13 of 14 (0.93), r1/r5 4 of 13 (0.31), r2/r4 10 of 17 (0.59), the rest at or below 0.31; decisions r1 kept, r2 dropped (0.62 of r1), r3 kept, r4 dropped (0.93 of r1), r5 kept; kept 3 of 5",
+      "python solution.py prints the pair table, the decisions, the rejected short record, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change r1 has 79 character shingles, r1/r2 scores 0.79, and the same three records are kept, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, or network",
+      "Shingles are tuples in a set so repeats count once; Jaccard is symmetric and exactly shared over union; the walk compares only against kept records and keeps the first copy seen; the input list is never modified",
+      "A record with no shingle raises ValueError naming it; an empty record list gives no decisions",
+      "Ordinary Python only: nested loops, string building with isalnum, sets with add, & and |, tuples from slices, range with an arithmetic bound, a best-so-far search with two variables, tuple unpacking, a conditional expression, f-string alignment; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: ten pair rows with three flagged, the five decisions, kept 3 of 5, the rejected line, and OK",
+      "Every similarity equals its exact fraction within one part in a trillion, the union equals the two set sizes minus the shared count, and the shingle sets have sizes 13, 13, 11, 14, and 4 with r4's set containing r1's",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt, with character windows that cross word boundaries",
+      "What shipped is measured on the same records: exact matching after normalization keeps all five while shingle Jaccard drops the two near-copies of r1 and keeps the fragment and the unrelated record"
+    ]
+  },
+  "python": {
+    "package": "shingle_dedupe",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "0a8ef9222c957211aba239c516f1a6e1d7b809fa3842e39c3cc960d94810a0fc"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "bc0ee75034ce22f53ab0bbfaf536d915fdef0812205e8d6c00d6cd54da64d9fd"
+    },
+    {
+      "path": "python/fixtures/records.json",
+      "description": "The five records, the shingle size, the threshold, and the practice size exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "d009802f1dcae9f58f386af4649fb596e01662dfa90c4d2c48b3f49517c36827"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every record's word and shingle counts, every pair's shared and union counts and similarity to six decimals, the five decisions with their best scores, and the same for the practice's character shingles, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "346fc7811282276dbca2fc5d2c5780982c215ce2696d18adda3a2fcdc98ea265"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "word-normalization",
+      "kind": "correctness",
+      "description": "Words are lowercased and stripped of punctuation, all-punctuation tokens vanish, and r1 has fifteen words.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_words_are_lowercased_and_stripped_of_punctuation"
+    },
+    {
+      "id": "shingle-sets",
+      "kind": "correctness",
+      "description": "The shingle sets have sizes 13, 13, 11, 14, and 4, r4's set contains r1's plus one shingle, the three shingles r1 loses against r2 are the ones around the changed word, and a text shorter than the shingle size has none.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_shingle_sets_have_the_expected_sizes_and_members"
+    },
+    {
+      "id": "jaccard-exact",
+      "kind": "correctness",
+      "description": "Every pair's similarity equals its exact fraction, the union equals the two sizes minus the shared count, Jaccard is symmetric, a set against itself scores 1.0, and disjoint sets score 0.0.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_jaccard_matches_exact_fractions_and_inclusion_exclusion"
+    },
+    {
+      "id": "decisions",
+      "kind": "correctness",
+      "description": "The walk keeps r1, drops r2 (5/8 of r1), keeps r3, drops r4 (13/14 of r1), and keeps r5 whose best match is r1 at 4/13.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_decisions_keep_the_first_of_each_group"
+    },
+    {
+      "id": "threshold-and-order",
+      "kind": "evaluation",
+      "description": "A threshold of 0.95 keeps every record, a threshold of 0.3 also drops the fragment, and walking the records in reverse keeps r4 and drops r1: order decides which copy survives.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_threshold_and_order_change_the_groups"
+    },
+    {
+      "id": "invalid-input-rejected",
+      "kind": "failure",
+      "description": "A two-word record raises ValueError naming it, an empty list gives no decisions, and the input list is unchanged after the walk.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_invalid_input_is_rejected_and_input_unchanged"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about 79 character shingles, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-character-windows",
+      "kind": "correctness",
+      "description": "Character shingles give sets of 79, 77, 61, 86, and 29, windows cross word boundaries over single spaces, r1/r2 scores 69/87 and r1/r4 79/86, and the same three records are kept.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_uses_character_windows_over_the_normalized_text"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the code below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "records-fixture",
+      "kind": "correctness",
+      "description": "records.json equals the five records, the shingle size, the threshold, and the practice size that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_records_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the first four similarities 0.625, 0.0, 0.928571, 0.307692, the five decisions, r1/r2 at 0.793103 with character shingles, and 79 character shingles for r1.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "shipped-exact-match",
+      "kind": "evaluation",
+      "description": "Exact matching after normalization keeps all five records, because no two texts are identical.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_exact_match_after_normalization_keeps_every_record"
+    },
+    {
+      "id": "near-copies-found",
+      "kind": "evaluation",
+      "description": "Shingle Jaccard drops exactly r2 and r4, the two near-copies of r1, and keeps three records.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_shingle_jaccard_finds_the_two_near_copies"
+    },
+    {
+      "id": "fragment-and-unrelated-stay",
+      "kind": "evaluation",
+      "description": "The fragment r5 stays below the threshold against r1, the unrelated r3 scores 0.0, and exactly three pairs are flagged.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_fragment_and_an_unrelated_record_stay_below_the_threshold"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/ShingleViz.jsx",
+      "description": "A short animation of the worked example, under two seconds per pair and about thirty-five seconds in all: the five records with their word and shingle counts on the left, a four-by-four upper-triangle pair matrix in the middle whose cells fill one beat at a time with the similarity (red at or above 0.50, blue below), a panel on the right drawing the two shingle counts, the shared count, and the division for the current pair, then five short beats that tag each record kept or dropped with the record it traces to, and the practice variation switching the counts and the matrix to character shingles (r1 at 79 shingles, r1/r2 at 0.79). Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/shingleModel.js, a JavaScript port of words_of, shingles (word and character), jaccard, and near_duplicates that runs on python/fixtures/records.json; tests/near-duplicates-by-shingle-jaccard-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that each pair beat ends with its cell filled with the fixture's similarity and both records highlighted early in the beat, that each decision beat ends with the fixture's decision placed, that cells and decisions only accumulate at every sampled moment, that the final scene shows the character-shingle values, that captions carry the measured counts, similarities, and decisions with Python's two-decimal rounding, and that drawScene runs against a bare context at sampled moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

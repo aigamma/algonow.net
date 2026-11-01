@@ -1,0 +1,291 @@
+{
+ "records": [
+  {
+   "id": "r1",
+   "text": "Restart the worker, then set the timeout to thirty seconds and confirm the alert clears.",
+   "words": 15,
+   "shingles": 13
+  },
+  {
+   "id": "r2",
+   "text": "Restart the worker, then set the timeout to thirty seconds and check the alert clears.",
+   "words": 15,
+   "shingles": 13
+  },
+  {
+   "id": "r3",
+   "text": "Rotate the API key from the billing page and update the gateway secret.",
+   "words": 13,
+   "shingles": 11
+  },
+  {
+   "id": "r4",
+   "text": "Please restart the worker, then set the timeout to thirty seconds and confirm the alert clears.",
+   "words": 16,
+   "shingles": 14
+  },
+  {
+   "id": "r5",
+   "text": "Set the timeout to thirty seconds.",
+   "words": 6,
+   "shingles": 4
+  }
+ ],
+ "size": 3,
+ "threshold": 0.5,
+ "pairs": [
+  {
+   "a": "r1",
+   "b": "r2",
+   "shared": 10,
+   "union": 16,
+   "jaccard": 0.625,
+   "flagged": true
+  },
+  {
+   "a": "r1",
+   "b": "r3",
+   "shared": 0,
+   "union": 24,
+   "jaccard": 0.0,
+   "flagged": false
+  },
+  {
+   "a": "r1",
+   "b": "r4",
+   "shared": 13,
+   "union": 14,
+   "jaccard": 0.928571,
+   "flagged": true
+  },
+  {
+   "a": "r1",
+   "b": "r5",
+   "shared": 4,
+   "union": 13,
+   "jaccard": 0.307692,
+   "flagged": false
+  },
+  {
+   "a": "r2",
+   "b": "r3",
+   "shared": 0,
+   "union": 24,
+   "jaccard": 0.0,
+   "flagged": false
+  },
+  {
+   "a": "r2",
+   "b": "r4",
+   "shared": 10,
+   "union": 17,
+   "jaccard": 0.588235,
+   "flagged": true
+  },
+  {
+   "a": "r2",
+   "b": "r5",
+   "shared": 4,
+   "union": 13,
+   "jaccard": 0.307692,
+   "flagged": false
+  },
+  {
+   "a": "r3",
+   "b": "r4",
+   "shared": 0,
+   "union": 25,
+   "jaccard": 0.0,
+   "flagged": false
+  },
+  {
+   "a": "r3",
+   "b": "r5",
+   "shared": 0,
+   "union": 15,
+   "jaccard": 0.0,
+   "flagged": false
+  },
+  {
+   "a": "r4",
+   "b": "r5",
+   "shared": 4,
+   "union": 14,
+   "jaccard": 0.285714,
+   "flagged": false
+  }
+ ],
+ "decisions": [
+  {
+   "id": "r1",
+   "action": "kept",
+   "match": null,
+   "score": 0.0
+  },
+  {
+   "id": "r2",
+   "action": "dropped",
+   "match": "r1",
+   "score": 0.625
+  },
+  {
+   "id": "r3",
+   "action": "kept",
+   "match": null,
+   "score": 0.0
+  },
+  {
+   "id": "r4",
+   "action": "dropped",
+   "match": "r1",
+   "score": 0.928571
+  },
+  {
+   "id": "r5",
+   "action": "kept",
+   "match": null,
+   "score": 0.307692
+  }
+ ],
+ "kept": 3,
+ "practice": {
+  "size": 5,
+  "records": [
+   {
+    "id": "r1",
+    "shingles": 79
+   },
+   {
+    "id": "r2",
+    "shingles": 77
+   },
+   {
+    "id": "r3",
+    "shingles": 61
+   },
+   {
+    "id": "r4",
+    "shingles": 86
+   },
+   {
+    "id": "r5",
+    "shingles": 29
+   }
+  ],
+  "pairs": [
+   {
+    "a": "r1",
+    "b": "r2",
+    "shared": 69,
+    "union": 87,
+    "jaccard": 0.793103,
+    "flagged": true
+   },
+   {
+    "a": "r1",
+    "b": "r3",
+    "shared": 5,
+    "union": 135,
+    "jaccard": 0.037037,
+    "flagged": false
+   },
+   {
+    "a": "r1",
+    "b": "r4",
+    "shared": 79,
+    "union": 86,
+    "jaccard": 0.918605,
+    "flagged": true
+   },
+   {
+    "a": "r1",
+    "b": "r5",
+    "shared": 29,
+    "union": 79,
+    "jaccard": 0.367089,
+    "flagged": false
+   },
+   {
+    "a": "r2",
+    "b": "r3",
+    "shared": 4,
+    "union": 134,
+    "jaccard": 0.029851,
+    "flagged": false
+   },
+   {
+    "a": "r2",
+    "b": "r4",
+    "shared": 69,
+    "union": 94,
+    "jaccard": 0.734043,
+    "flagged": true
+   },
+   {
+    "a": "r2",
+    "b": "r5",
+    "shared": 29,
+    "union": 77,
+    "jaccard": 0.376623,
+    "flagged": false
+   },
+   {
+    "a": "r3",
+    "b": "r4",
+    "shared": 5,
+    "union": 142,
+    "jaccard": 0.035211,
+    "flagged": false
+   },
+   {
+    "a": "r3",
+    "b": "r5",
+    "shared": 2,
+    "union": 88,
+    "jaccard": 0.022727,
+    "flagged": false
+   },
+   {
+    "a": "r4",
+    "b": "r5",
+    "shared": 29,
+    "union": 86,
+    "jaccard": 0.337209,
+    "flagged": false
+   }
+  ],
+  "decisions": [
+   {
+    "id": "r1",
+    "action": "kept",
+    "match": null,
+    "score": 0.0
+   },
+   {
+    "id": "r2",
+    "action": "dropped",
+    "match": "r1",
+    "score": 0.793103
+   },
+   {
+    "id": "r3",
+    "action": "kept",
+    "match": null,
+    "score": 0.037037
+   },
+   {
+    "id": "r4",
+    "action": "dropped",
+    "match": "r1",
+    "score": 0.918605
+   },
+   {
+    "id": "r5",
+    "action": "kept",
+    "match": null,
+    "score": 0.367089
+   }
+  ],
+  "kept": 3
+ }
+}

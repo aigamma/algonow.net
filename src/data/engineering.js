@@ -566,6 +566,20 @@ export const SCENARIOS = Object.freeze([
     skills: ['Self-consistency filtering by majority vote', 'collections.Counter and most_common', 'Normalizing answers before counting', 'A tie test before a threshold test', 'Grading tiers with an if, elif chain (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'parse-streamed-model-events',
+    title: 'Assemble a streamed model reply from network chunks with a line buffer',
+    pageTitle: 'Parse a streamed model reply',
+    description: 'A gateway parsed each network chunk as one event and the streamed reply died mid-word. A worked Python example reads the stream through a line buffer.',
+    summary: 'Orbit\'s gateway streamed the model\'s reply to the browser and parsed each network chunk as one complete event; a chunk can carry two events or half of one, so the parser crashed and the reply died at a random word. A worked Python example reads six inline chunks through a line buffer: the chunk appended to a string, a while loop that splits off every complete line at the first line break and keeps the rest, comment and blank lines skipped with continue, json.loads inside try and except, an end marker that stops reading, a stream that is independent of where the network cut it, its exact output, a trace of the buffer at every chunk, and one practice variation that captures the usage event.',
+    track: 'serving',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'intermediate',
+    durationMinutes: 30,
+    skills: ['A line buffer: append, split at the first line break, keep the rest', 'while with a substring membership test and split with a maximum of one', 'startswith, removeprefix, and continue for lines to skip', 'json.loads inside try and except with a named failure', 'Capturing the usage event with a membership test (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

@@ -1,0 +1,373 @@
+{
+ "pad": 0,
+ "eos": 1,
+ "ignore": -100,
+ "vocabulary": 22,
+ "examples": [
+  {
+   "prompt": "how do i reset my password",
+   "completion": "use the forgot password link",
+   "prompt_tokens": 6,
+   "completion_tokens": 5,
+   "ids": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    7,
+    11,
+    1
+   ],
+   "labels": [
+    -100,
+    -100,
+    -100,
+    -100,
+    -100,
+    -100,
+    8,
+    9,
+    10,
+    7,
+    11,
+    1
+   ],
+   "words": [
+    "how",
+    "do",
+    "i",
+    "reset",
+    "my",
+    "password",
+    "use",
+    "the",
+    "forgot",
+    "password",
+    "link",
+    "<eos>"
+   ]
+  },
+  {
+   "prompt": "where is my invoice",
+   "completion": "open billing and choose invoices",
+   "prompt_tokens": 4,
+   "completion_tokens": 5,
+   "ids": [
+    12,
+    13,
+    6,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    1
+   ],
+   "labels": [
+    -100,
+    -100,
+    -100,
+    -100,
+    15,
+    16,
+    17,
+    18,
+    19,
+    1
+   ],
+   "words": [
+    "where",
+    "is",
+    "my",
+    "invoice",
+    "open",
+    "billing",
+    "and",
+    "choose",
+    "invoices",
+    "<eos>"
+   ]
+  },
+  {
+   "prompt": "cancel my plan",
+   "completion": "go to billing and choose cancel plan",
+   "prompt_tokens": 3,
+   "completion_tokens": 7,
+   "ids": [
+    20,
+    6,
+    21,
+    22,
+    23,
+    16,
+    17,
+    18,
+    20,
+    21,
+    1
+   ],
+   "labels": [
+    -100,
+    -100,
+    -100,
+    22,
+    23,
+    16,
+    17,
+    18,
+    20,
+    21,
+    1
+   ],
+   "words": [
+    "cancel",
+    "my",
+    "plan",
+    "go",
+    "to",
+    "billing",
+    "and",
+    "choose",
+    "cancel",
+    "plan",
+    "<eos>"
+   ]
+  }
+ ],
+ "longest": 12,
+ "batch": [
+  {
+   "ids": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    7,
+    11,
+    1
+   ],
+   "labels": [
+    -100,
+    -100,
+    -100,
+    -100,
+    -100,
+    -100,
+    8,
+    9,
+    10,
+    7,
+    11,
+    1
+   ],
+   "mask": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "ids": [
+    12,
+    13,
+    6,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    1,
+    0,
+    0
+   ],
+   "labels": [
+    -100,
+    -100,
+    -100,
+    -100,
+    15,
+    16,
+    17,
+    18,
+    19,
+    1,
+    -100,
+    -100
+   ],
+   "mask": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ]
+  },
+  {
+   "ids": [
+    20,
+    6,
+    21,
+    22,
+    23,
+    16,
+    17,
+    18,
+    20,
+    21,
+    1,
+    0
+   ],
+   "labels": [
+    -100,
+    -100,
+    -100,
+    22,
+    23,
+    16,
+    17,
+    18,
+    20,
+    21,
+    1,
+    -100
+   ],
+   "mask": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0
+   ]
+  }
+ ],
+ "trained": 20,
+ "real": 33,
+ "shipped": {
+  "trained": 33,
+  "prompt_tokens": 13
+ },
+ "practice": {
+  "max_len": 10,
+  "rows": [
+   {
+    "ids": [
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     7,
+     11,
+     1
+    ],
+    "labels": [
+     -100,
+     -100,
+     -100,
+     -100,
+     8,
+     9,
+     10,
+     7,
+     11,
+     1
+    ],
+    "dropped": 2
+   },
+   {
+    "ids": [
+     12,
+     13,
+     6,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     1
+    ],
+    "labels": [
+     -100,
+     -100,
+     -100,
+     -100,
+     15,
+     16,
+     17,
+     18,
+     19,
+     1
+    ],
+    "dropped": 0
+   },
+   {
+    "ids": [
+     6,
+     21,
+     22,
+     23,
+     16,
+     17,
+     18,
+     20,
+     21,
+     1
+    ],
+    "labels": [
+     -100,
+     -100,
+     22,
+     23,
+     16,
+     17,
+     18,
+     20,
+     21,
+     1
+    ],
+    "dropped": 1
+   }
+  ],
+  "longest": 10,
+  "trained": 20,
+  "real": 30
+ }
+}

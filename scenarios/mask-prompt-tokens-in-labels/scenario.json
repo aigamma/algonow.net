@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "slug": "mask-prompt-tokens-in-labels",
+  "track": "fine-tuning",
+  "language": "python",
+  "system": {
+    "context": "Orbit fine-tuned its assistant on support chats; the training loss fell and the model learned to repeat the customer's question before answering. The trainer computed the loss on every token of every row, prompt included, so a third of what the model was rewarded for predicting was the customer's side of the conversation.",
+    "request": "A worked Python example of one action: build_labels(example, vocab) and pad_batch(rows). The first encodes the prompt and the completion with a stand-in tokenizer that gives each new word the next id (0 and 1 reserved for pad and eos), builds the input ids as prompt plus completion plus eos, and builds labels of the same length with -100 over every prompt position and the completion ids and eos over the rest, raising ValueError for an empty completion. The second pads every row on the right to the longest with the pad id, -100 labels, and an attention mask. The lesson leads with the complete solution and its exact output over three inline examples (each row's ids and labels, the padded batch with masks, the trained count of 20 of 33, the rejected empty completion), explains the Python construct by construct, traces every row, and offers one practice variation: fitting rows into a maximum length by dropping prompt tokens from the left.",
+    "inputs": [
+      "Three examples written inline in solution.py as dictionaries with a prompt and a completion: 'how do i reset my password' / 'use the forgot password link', 'where is my invoice' / 'open billing and choose invoices', 'cancel my plan' / 'go to billing and choose cancel plan'; PAD 0, EOS 1, IGNORE -100",
+      "For the practice variation, MAX_LEN 10"
+    ],
+    "outputs": [
+      "Rows of 12, 10, and 11 positions whose labels are -100 over 6, 4, and 3 prompt positions and the completion ids plus eos over the rest; a batch padded to 12 with masks; 20 trained tokens of 33 real tokens (61 percent)",
+      "python solution.py prints the vocabulary size, every row's ids and labels, the padded batch with ids, labels, and masks, the trained count, the rejected empty completion, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change example one drops two prompt tokens and example three one, the batch pads to 10, 20 of 30 real tokens train, and an eleven-token completion is rejected, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, tokenizer libraries, or network",
+      "ids and labels always have the same length; every prompt position and every pad carries -100; the completion and eos carry their own ids; the attention mask is 1 exactly on real tokens; the input examples are never modified",
+      "An empty completion raises ValueError naming the prompt; the practice rejects a completion that cannot fit the maximum length",
+      "Ordinary Python only: a dictionary as a growing vocabulary, list concatenation and repetition, slicing, max in a loop, tuples of parallel lists, sum over a mask, enumerate with zip, a percentage format; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: 22 vocabulary words, the three rows, the batch padded to 12 positions, trained tokens 20 of 33, the rejected line, and OK",
+      "Position by position, the labels ignore exactly the prompt and train exactly the completion and eos, pads never train, and the vocabulary assigns ids in order of first appearance with repeated words keeping theirs",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt, with the trained positions of every row preserved and the over-long completion rejected",
+      "What shipped is measured on the same batch: labels equal to the ids train 33 of 33 real tokens, 13 of them prompt, against 20 with the mask"
+    ]
+  },
+  "python": {
+    "package": "label_masking",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "c1e8bc862b9e801c8572f96d9e0e3814bed7969a6e0d8f0b17ce55812f82636d"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "8693065303dc544ef2b6359dec517947fa0cf49f69f2eb13efd00fa6b6c850b7"
+    },
+    {
+      "path": "python/fixtures/examples.json",
+      "description": "The three examples and the pad, eos, ignore, and maximum-length settings exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "e1aabfdad6eeaf4fd619c067ea2ea13afe2799fe67a1b14fb4475f2277794339"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every row's ids, labels, and words, the padded batch with masks, the trained and real counts, what training on every token counts, and the practice truncation, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "bfb81ed378729770fa380706a0339cf52e0af7570fa7d9a60dd72f30b44be06d"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "vocabulary-order",
+      "kind": "correctness",
+      "description": "The vocabulary has 22 words with ids assigned in order of first appearance from 2, never 0 or 1, and a repeated word keeps its id.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_vocabulary_assigns_ids_in_order_of_first_appearance"
+    },
+    {
+      "id": "labels-position-by-position",
+      "kind": "correctness",
+      "description": "For every example the labels ignore exactly the prompt positions and equal the ids over the completion and eos, ids and labels have the same length, and password keeps one id across prompt and completion.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_labels_ignore_exactly_the_prompt_and_train_the_completion_and_eos"
+    },
+    {
+      "id": "padding-and-masks",
+      "kind": "correctness",
+      "description": "Every row pads to 12 with pad ids, ignore labels, and a mask of ones then zeros; no pad position trains; 20 of 33 real tokens train.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_padding_aligns_ids_labels_and_mask"
+    },
+    {
+      "id": "empty-completion-rejected",
+      "kind": "failure",
+      "description": "An empty completion raises ValueError naming the problem, an empty batch pads to an empty list, and the examples and rows are unchanged by padding.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_an_empty_completion_is_rejected_and_inputs_are_unchanged"
+    },
+    {
+      "id": "single-row-batch",
+      "kind": "correctness",
+      "description": "A batch of one row pads nothing and masks every position with 1.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_single_row_batch_needs_no_padding"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about ten positions, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-left-truncation",
+      "kind": "correctness",
+      "description": "fit keeps the last ten positions of ids and labels alike, returns a fitting row unchanged, preserves every trained position, and keeps 20 trained tokens.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_drops_prompt_tokens_from_the_left_and_keeps_every_completion"
+    },
+    {
+      "id": "answer-rejects-long-completion",
+      "kind": "failure",
+      "description": "A completion that cannot fit the maximum length raises ValueError, while one that exactly fills it is kept with no prompt left.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_rejects_a_completion_that_cannot_fit"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the code below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "examples-fixture",
+      "kind": "correctness",
+      "description": "examples.json equals the three examples and the pad, eos, ignore, and maximum-length settings that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_examples_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: 20 trained of 33 real, longest 12, the words of row one, 33 trained when every token trains, and the practice drops of 2, 0, and 1 with 20 of 30.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "shipped-trains-the-prompt",
+      "kind": "evaluation",
+      "description": "Labels equal to the ids train 33 of 33 real tokens against 20 with the mask; the difference is exactly the 13 prompt tokens.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_training_on_every_token_trains_the_thirteen_prompt_tokens_too"
+    },
+    {
+      "id": "prompt-only-words-never-labels",
+      "kind": "evaluation",
+      "description": "A word that occurs only in prompts never appears as a label once the mask is in place.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_prompt_words_never_appear_as_labels"
+    },
+    {
+      "id": "pads-never-train",
+      "kind": "evaluation",
+      "description": "However the batch grows, no padded position carries a trainable label.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_pads_never_train_however_long_the_batch"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/LabelMaskViz.jsx",
+      "description": "A short animation of the worked example, three seconds per example and under half a minute in all: three rows of token boxes with the word above, the id inside, and the label below, grey where the label is -100, blue where the completion id is trained, green for eos; the pads appear hatched with ignore labels and a mask line of ones and zeros; the count totals 20 trained of 33 real tokens; a beat shows what shipped by turning every prompt label red and counting 33; the practice variation fades the dropped prompt boxes and slides the rows left to ten positions. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/labelMaskModel.js, a JavaScript port of encode, build_labels, pad_batch, and fit that runs on python/fixtures/examples.json; tests/mask-prompt-tokens-in-labels-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that each example beat ends with its ids and labels shown and the running count including it, that the pads and masks appear in the pad beat, that the shipped beat shows every prompt label trained and then reverts, that the practice drops exactly the fixture's counts, that counts only accumulate at every sampled moment, that captions carry the measured counts, and that drawScene runs against a bare context at sampled moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

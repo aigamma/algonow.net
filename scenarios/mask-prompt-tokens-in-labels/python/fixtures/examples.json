@@ -1,0 +1,20 @@
+{
+ "examples": [
+  {
+   "prompt": "how do i reset my password",
+   "completion": "use the forgot password link"
+  },
+  {
+   "prompt": "where is my invoice",
+   "completion": "open billing and choose invoices"
+  },
+  {
+   "prompt": "cancel my plan",
+   "completion": "go to billing and choose cancel plan"
+  }
+ ],
+ "pad": 0,
+ "eos": 1,
+ "ignore": -100,
+ "max_len": 10
+}

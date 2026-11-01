@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net judge-agreement-cohens-kappa preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-11-01T03:04:09.638Z",
+  "publication_sha256": "d3bdfa983ca4baba496389c1d738dbf7443c7d418a76e428e0217293b9e3e4aa",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 8361112,
+  "objects": [
+    {
+      "stable_id": "puzzle:judge-agreement-cohens-kappa",
+      "slug": "judge-agreement-cohens-kappa",
+      "track_id": "algieba",
+      "source_sha256": "5ac3f3ac04e39948ad547ca44cdbf30b3fb8d6e3178fe7fc22506d50fd53254f",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "c6f8500c57432997799e0d466051546253c51cc08f20a342d33470948efd38d9",
+      "object_key": "narration/v1/puzzles/judge-agreement-cohens-kappa/c6f8500c57432997799e/algieba-e358aef412514a4c.mp3",
+      "bytes": 4286060,
+      "sha256": "e358aef412514a4c35536cd66ff4cb8f5837dc2dca2c0f55f436729f7a855110",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:judge-agreement-cohens-kappa",
+      "slug": "judge-agreement-cohens-kappa",
+      "track_id": "aoede",
+      "source_sha256": "5ac3f3ac04e39948ad547ca44cdbf30b3fb8d6e3178fe7fc22506d50fd53254f",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "c6f8500c57432997799e0d466051546253c51cc08f20a342d33470948efd38d9",
+      "object_key": "narration/v1/puzzles/judge-agreement-cohens-kappa/c6f8500c57432997799e/aoede-156cfd4a6462abf4.mp3",
+      "bytes": 4075052,
+      "sha256": "156cfd4a6462abf46a30d85e4dd42c89546ec94b728af56006308ff33b2040f7",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

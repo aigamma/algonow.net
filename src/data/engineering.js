@@ -490,7 +490,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'Orbit replaced human review of assistant answers with a model judge that grades each one pass or fail, and the report said the judge agrees with the reviewer on 80 percent of answers. Seven answers in ten pass anyway, so two graders who pass most answers agree often by luck. A worked Python example computes Cohen\'s kappa, the agreement beyond chance, for ten inline graded answers: pair counts in a dictionary keyed by tuples, marginal totals summed from the pairs, observed and chance agreement, the kappa formula with its undefined case rejected, an if, elif chain that names the band, a judge that passes everything scoring 70 percent agreement and a kappa of zero, its exact output, a trace of every pair, and one practice variation that collapses a third label with a mapping before comparing.',
     track: 'evaluation',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-31', listenMinutes: 14,
     difficulty: 'foundation',
     durationMinutes: 25,
     skills: ['Cohen\'s kappa: observed minus chance agreement, rescaled', 'Pair counts in a dictionary keyed by tuples', 'Marginal totals summed from pair counts', 'An if, elif chain that names a band', 'Collapsing labels with dict.get and a mapping (practice)'],

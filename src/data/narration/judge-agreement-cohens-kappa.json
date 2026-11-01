@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:judge-agreement-cohens-kappa",
+  "source_path": "src/content/judge-agreement-cohens-kappa.narration.js",
+  "source_sha256": "5ac3f3ac04e39948ad547ca44cdbf30b3fb8d6e3178fe7fc22506d50fd53254f",
+  "source_characters": 15973,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "c6f8500c57432997799e0d466051546253c51cc08f20a342d33470948efd38d9",
+  "generated_at": "2026-11-01T03:03:04.876Z",
+  "generated_characters": 31946,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 2508,
+      "utf8_bytes": 2518,
+      "sha256": "b51f3382aa14a7e7ae7edbc76c39ded4991168ab7bad4f7acbda96eee8093ad2"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3003,
+      "utf8_bytes": 3019,
+      "sha256": "dfe269e1cc153a5176babaccf7e88882c9b850ed0409c8a4eb73a471e79e0eae"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 4653,
+      "utf8_bytes": 4667,
+      "sha256": "3e2961c302e6932bc084456dc1d3aaf36f4a353f8665ec52310021ca22844cb8"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 3556,
+      "utf8_bytes": 3564,
+      "sha256": "1c4c7051f09625dc3717c4b164aec2cdfdb26b40228ca3ef457008cc6135ec60"
+    },
+    {
+      "id": "request-005",
+      "index": 5,
+      "characters": 2253,
+      "utf8_bytes": 2257,
+      "sha256": "a398717509a2b5381b3526668d70b56a124e44941465b52a7ed6a95c0cfcc305"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "judge-agreement-cohens-kappa.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "judge-agreement-cohens-kappa.01-brief",
+      "label": "Engineering Brief",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2391,
+      "sha256": "fda03d1e3e3c72c5794d62a300e52592354d3faeacd06c851b49be17f0752edb"
+    },
+    {
+      "id": "judge-agreement-cohens-kappa.02-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 3017,
+      "sha256": "5d95ae28dab330ef5c2aae46b11e937848248d42d6b3837732f2a2b7758ec560"
+    },
+    {
+      "id": "judge-agreement-cohens-kappa.03-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2594,
+      "sha256": "1460fcd67c17e185364aa2c662fdbb22d698de4a0f41d6b699ac45fefdb49f6b"
+    },
+    {
+      "id": "judge-agreement-cohens-kappa.04-visual",
+      "label": "System Diagram",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2069,
+      "sha256": "35b7bb72efe1d7f410a08dfb36975c95eccc1ce646aaad78a3aed5992d69e1d5"
+    },
+    {
+      "id": "judge-agreement-cohens-kappa.05-evidence",
+      "label": "Validation Evidence",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1719,
+      "sha256": "8cc134a1f66ca3d86554a6c51e8327b87b99e4d74c05d26ed0e92405fae63be6"
+    },
+    {
+      "id": "judge-agreement-cohens-kappa.06-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1841,
+      "sha256": "90828174ec7e7d6131ff50f4e4117bb4084eed2fb7a2a6152ea3fa67860909aa"
+    },
+    {
+      "id": "judge-agreement-cohens-kappa.07-starter",
+      "label": "Starting Point",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1681,
+      "sha256": "3f227abf79aba13e91b1a6234e40bac2bfb72a7d3e077c0f97fd7bb79c42740e"
+    },
+    {
+      "id": "judge-agreement-cohens-kappa.08-files",
+      "label": "Working Files",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 574,
+      "sha256": "29f80fe8336b59dc3a7cf92fbfcd3ebac444622b3b88dab15773d1b78cdf56e4"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/judge-agreement-cohens-kappa/c6f8500c57432997799e/aoede-156cfd4a6462abf4.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4075052,
+      "sha256": "156cfd4a6462abf46a30d85e4dd42c89546ec94b728af56006308ff33b2040f7",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b51f3382aa14a7e7ae7edbc76c39ded4991168ab7bad4f7acbda96eee8093ad2",
+          "bytes": 642432,
+          "sha256": "3950d1457b072e3b4f8401fea6a99aa1c82bd0749415e0e8b3c042fb46ae3cde"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "dfe269e1cc153a5176babaccf7e88882c9b850ed0409c8a4eb73a471e79e0eae",
+          "bytes": 761856,
+          "sha256": "669c0ac105eaff5c594835a4427a8fc3b4410bb89dfa4f4e5862b9b3468c4936"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "3e2961c302e6932bc084456dc1d3aaf36f4a353f8665ec52310021ca22844cb8",
+          "bytes": 1196064,
+          "sha256": "79dad890b01d817d70fd0c221c31feb09a6a5d7e07c9ab8079607f4449404b45"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "1c4c7051f09625dc3717c4b164aec2cdfdb26b40228ca3ef457008cc6135ec60",
+          "bytes": 894432,
+          "sha256": "fcebf0fcd6478971a551c8384726ff2e34e02da6b0b8989a413ea94acce24482"
+        },
+        {
+          "request_index": 5,
+          "request_sha256": "a398717509a2b5381b3526668d70b56a124e44941465b52a7ed6a95c0cfcc305",
+          "bytes": 580032,
+          "sha256": "1ef9b5b2b8f018cacf419f0a42abc2a0f02a4bc91eec87786e9b5fa594612567"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/judge-agreement-cohens-kappa/c6f8500c57432997799e/algieba-e358aef412514a4c.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4286060,
+      "sha256": "e358aef412514a4c35536cd66ff4cb8f5837dc2dca2c0f55f436729f7a855110",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "b51f3382aa14a7e7ae7edbc76c39ded4991168ab7bad4f7acbda96eee8093ad2",
+          "bytes": 674784,
+          "sha256": "e64cbfedc519430ef8c6b101ac5f2b90a815e706f3e904e991ae67b0d2d4db0f"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "dfe269e1cc153a5176babaccf7e88882c9b850ed0409c8a4eb73a471e79e0eae",
+          "bytes": 797952,
+          "sha256": "d4d94b6642dde0f804bd69d62e1ee6ef2b6f0499806cb519fc609ef91623d138"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "3e2961c302e6932bc084456dc1d3aaf36f4a353f8665ec52310021ca22844cb8",
+          "bytes": 1275456,
+          "sha256": "6f4870457ee2a4c332475170514dc73a3762dc6944ccbce8f06f07dc4807c7b2"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "1c4c7051f09625dc3717c4b164aec2cdfdb26b40228ca3ef457008cc6135ec60",
+          "bytes": 938016,
+          "sha256": "9d24f9008f25aa1f8622e01277f597412213a593d07e00a108c6ad83a4ebf692"
+        },
+        {
+          "request_index": 5,
+          "request_sha256": "a398717509a2b5381b3526668d70b56a124e44941465b52a7ed6a95c0cfcc305",
+          "bytes": 599616,
+          "sha256": "507ca601aca50ac32bd238fea3c4631b26744721864f53ae01c9fe0e17caf21f"
+        }
+      ]
+    }
+  }
+}

@@ -364,7 +364,7 @@ export function drawScene(ctx, scene, trace) {
   };
   const n = trace.n;
   line(84, `agreed      ${scene.agreedSoFar} of ${scene.placed}`, 1, DIM);
-  line(112, `observed    ${f2(trace.observed)}   (${trace.agreed} of ${n} on the diagonal)`, scene.observedAlpha);
+  line(112, `observed    ${f2(trace.observed)}   (${trace.agreed} of ${n} agree)`, scene.observedAlpha);
   line(140, `chance      ${f2(trace.chance)}`, scene.chanceAlpha);
   labels.forEach((label, index) => line(158 + index * 16, `  ${label} ${f2(trace.human_totals[label] / n)} x ${f2(trace.judge_totals[label] / n)} = ${f2((trace.human_totals[label] / n) * (trace.judge_totals[label] / n))}`, scene.chanceAlpha, DIM));
   line(206, `kappa       ${f2(trace.kappa)}   ${trace.band}`, scene.kappaAlpha, BLUE);
@@ -396,7 +396,8 @@ export function drawScene(ctx, scene, trace) {
     ctx.beginPath(); ctx.moveTo(gx(value), GY - 8); ctx.lineTo(gx(value), GY + 8); ctx.stroke();
     ctx.fillText(label, gx(value), GY + 22);
   });
-  [['slight', 0.1], ['fair', 0.3], ['moderate', 0.5], ['substantial', 0.7], ['almost perfect', 0.9]].forEach(([label, value]) => ctx.fillText(label, gx(value), GY - 14));
+  // Band names on two staggered rows so the longer ones never touch.
+  [['slight', 0.1, 18], ['fair', 0.3, 30], ['moderate', 0.5, 18], ['substantial', 0.7, 30], ['almost perfect', 0.9, 18]].forEach(([label, value, lift]) => ctx.fillText(label, gx(value), GY - lift));
   ctx.fillText('kappa', (GX0 + GX1) / 2, GY + 40);
   if (scene.marker) {
     const x = gx(scene.marker.value);

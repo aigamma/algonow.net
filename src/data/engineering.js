@@ -532,7 +532,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'Orbit fine-tuned its assistant on support chats, the loss fell, and the model learned to repeat the customer\'s question before answering, because the trainer computed the loss on every token. A worked Python example builds the labels a causal language model trainer expects for three inline examples: a stand-in tokenizer as a growing dictionary, list concatenation and repetition that put minus one hundred over every prompt position and the completion ids and end-of-sequence token over the rest, a batch padded to its longest row with an attention mask, the trained count of twenty of thirty-three tokens, its exact output, a trace of every row, and one practice variation that fits rows into a maximum length by dropping prompt tokens from the left.',
     track: 'fine-tuning',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-31', listenMinutes: 12,
     difficulty: 'foundation',
     durationMinutes: 25,
     skills: ['Labels aligned with ids: -100 where the loss must skip', 'A vocabulary as a growing dictionary', 'List concatenation and repetition', 'Padding a batch with an attention mask', 'Left truncation with a negative slice (practice)'],

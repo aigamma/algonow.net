@@ -1,0 +1,224 @@
+{
+ "threshold": 0.6,
+ "prompts": [
+  {
+   "id": "p1",
+   "votes": [
+    "billing",
+    "billing",
+    "billing",
+    "billing",
+    "billing"
+   ],
+   "normalized": [
+    "billing",
+    "billing",
+    "billing",
+    "billing",
+    "billing"
+   ],
+   "counts": [
+    [
+     "billing",
+     5
+    ]
+   ],
+   "action": "kept",
+   "label": "billing",
+   "agreement": 1.0,
+   "reason": null
+  },
+  {
+   "id": "p2",
+   "votes": [
+    "access",
+    "outage",
+    "access",
+    "access",
+    "outage"
+   ],
+   "normalized": [
+    "access",
+    "outage",
+    "access",
+    "access",
+    "outage"
+   ],
+   "counts": [
+    [
+     "access",
+     3
+    ],
+    [
+     "outage",
+     2
+    ]
+   ],
+   "action": "kept",
+   "label": "access",
+   "agreement": 0.6,
+   "reason": null
+  },
+  {
+   "id": "p3",
+   "votes": [
+    "access",
+    "billing",
+    "outage",
+    "billing",
+    "access"
+   ],
+   "normalized": [
+    "access",
+    "billing",
+    "outage",
+    "billing",
+    "access"
+   ],
+   "counts": [
+    [
+     "access",
+     2
+    ],
+    [
+     "billing",
+     2
+    ],
+    [
+     "outage",
+     1
+    ]
+   ],
+   "action": "dropped",
+   "label": null,
+   "agreement": null,
+   "reason": "tie at 2"
+  },
+  {
+   "id": "p4",
+   "votes": [
+    "outage",
+    "outage",
+    "billing",
+    "outage",
+    "outage"
+   ],
+   "normalized": [
+    "outage",
+    "outage",
+    "billing",
+    "outage",
+    "outage"
+   ],
+   "counts": [
+    [
+     "outage",
+     4
+    ],
+    [
+     "billing",
+     1
+    ]
+   ],
+   "action": "kept",
+   "label": "outage",
+   "agreement": 0.8,
+   "reason": null
+  },
+  {
+   "id": "p5",
+   "votes": [
+    "outage",
+    "billing",
+    "Billing",
+    "access",
+    "billing "
+   ],
+   "normalized": [
+    "outage",
+    "billing",
+    "billing",
+    "access",
+    "billing"
+   ],
+   "counts": [
+    [
+     "billing",
+     3
+    ],
+    [
+     "outage",
+     1
+    ],
+    [
+     "access",
+     1
+    ]
+   ],
+   "action": "kept",
+   "label": "billing",
+   "agreement": 0.6,
+   "reason": null
+  }
+ ],
+ "kept": 4,
+ "shipped": {
+  "labels": [
+   {
+    "id": "p1",
+    "first": "billing",
+    "status": "same"
+   },
+   {
+    "id": "p2",
+    "first": "access",
+    "status": "same"
+   },
+   {
+    "id": "p3",
+    "first": "access",
+    "status": "unsettled"
+   },
+   {
+    "id": "p4",
+    "first": "outage",
+    "status": "same"
+   },
+   {
+    "id": "p5",
+    "first": "outage",
+    "status": "minority"
+   }
+  ],
+  "wrong": 2
+ },
+ "practice": {
+  "tiers": [
+   {
+    "id": "p1",
+    "tier": "gold"
+   },
+   {
+    "id": "p2",
+    "tier": "silver"
+   },
+   {
+    "id": "p3",
+    "tier": "dropped"
+   },
+   {
+    "id": "p4",
+    "tier": "silver"
+   },
+   {
+    "id": "p5",
+    "tier": "silver"
+   }
+  ],
+  "counts": {
+   "gold": 1,
+   "silver": 3,
+   "dropped": 1
+  }
+ }
+}

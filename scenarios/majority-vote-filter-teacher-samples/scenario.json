@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "slug": "majority-vote-filter-teacher-samples",
+  "track": "distillation",
+  "language": "python",
+  "system": {
+    "context": "Orbit builds the distillation set for its small router by sampling the large assistant, the teacher, five times per prompt at a temperature above zero. The script that shipped took the first sample as the label, so prompts the teacher could not settle, and minority answers, went into the training set as labels.",
+    "request": "A worked Python example of one action: filter_samples(samples, threshold), which for each prompt normalizes the sampled answers (strip, lowercase), counts them with a Counter, reads the most common answer and its share of the samples, drops the prompt on a tie for the top count or when the share is below the threshold, and otherwise keeps it with the majority answer as its label and the agreement recorded; a prompt with no samples raises ValueError, as does a threshold at or below one half or above one. The lesson leads with the complete solution and its exact output over five inline prompts (every tally and decision, kept 4 of 5, what the first-sample labels got wrong, two rejected thresholds), explains the Python construct by construct, traces every tally, and offers one practice variation: grading kept prompts gold when unanimous and silver when a majority agreed.",
+    "inputs": [
+      "Five prompts written inline in solution.py as dictionaries with an id and five sampled route labels: p1 unanimous billing, p2 access 3 to outage 2, p3 a 2-2-1 split, p4 outage 4 to billing 1, p5 three spellings of billing plus outage and access; THRESHOLD 0.6",
+      "For the practice variation, the same samples graded into gold, silver, and dropped tiers"
+    ],
+    "outputs": [
+      "Decisions kept billing (1.00), kept access (0.60), dropped tie at 2, kept outage (0.80), kept billing (0.60); kept 4 of 5; two of the five first-sample labels wrong or unsettled",
+      "python solution.py prints every prompt's tally and decision, the kept count, the first-sample labels with their status, the two rejected thresholds, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change p1 is gold, p2, p4, and p5 are silver, p3 stays dropped, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, model calls, or network",
+      "Answers are normalized before counting so spellings merge; a tie for the top count is dropped even above the threshold; the samples are never modified; decisions keep the prompt order",
+      "A prompt with no samples raises ValueError naming it; a threshold at or below 0.5 or above 1.0 raises ValueError",
+      "Ordinary Python only: collections.Counter with += on a missing key and most_common, tuple unpacking, a dictionary per decision, an if, elif chain in the practice; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the five tallies and decisions, kept 4 of 5, the five first-sample labels with 2 wrong or unsettled, the two rejected lines, and OK",
+      "Every tally equals an independent plain-dictionary count, the most-common order is largest first with ties in first-seen order, a prompt exactly at the threshold is kept, and a tie is dropped",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt, with gold tested before the threshold",
+      "What shipped is measured on the same samples: the first sample labels p3 although the teacher never settled and labels p5 with a minority answer, and without normalization p5 would have been dropped"
+    ]
+  },
+  "python": {
+    "package": "teacher_votes",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "e1be2bab9a73081c8a9920dee2d4d35cbfd1ecf206d3bbb8b6da0bd7d8898a82"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "fcfc5ec3cd4b3993da0df1e9c3e47494a1954663490ece45acc9ce8d10f9b16a"
+    },
+    {
+      "path": "python/fixtures/samples.json",
+      "description": "The five prompts with their sampled answers and the threshold exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "64428f0176a17fe83d643b62bdfc334d96b1624580b7f574ffaa492fb588c832"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every prompt's normalized answers, tally in most-common order, decision, label, agreement, or reason, the kept count, the first-sample labels with their status, and the practice tiers, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "40ed2a32975fe23003f2546bffd4162b4153a82aad52e3b613d3afe042689ad1"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "normalization",
+      "kind": "correctness",
+      "description": "Surrounding space and casing are removed so Billing, billing with a trailing space, and billing count as one answer.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_normalization_merges_spellings"
+    },
+    {
+      "id": "tallies",
+      "kind": "correctness",
+      "description": "Every tally equals an independent plain-dictionary count summing to five, in largest-first order with ties in first-seen order.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_counts_match_an_independent_tally_and_keep_most_common_order"
+    },
+    {
+      "id": "decisions",
+      "kind": "correctness",
+      "description": "The decisions are kept, kept, dropped, kept, kept with labels billing, access, outage, billing, agreements 1.0, 0.6, 0.8, 0.6, and the reason tie at 2 for p3.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_decisions_labels_and_agreements"
+    },
+    {
+      "id": "threshold-edges",
+      "kind": "correctness",
+      "description": "Two of five is dropped with its agreement named, three of five is kept exactly at 0.6 and dropped at 0.8 and 1.0, a unanimous prompt is kept at 1.0, and a single sample counts as unanimous.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_threshold_edges_and_a_low_agreement_drop"
+    },
+    {
+      "id": "invalid-input-rejected",
+      "kind": "failure",
+      "description": "A prompt with no samples raises ValueError naming it, thresholds of 0.5, 0.0, 1.5, and -0.1 raise ValueError, an empty list gives no decisions, and the samples are unchanged.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_invalid_input_is_rejected_and_input_unchanged"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about the tier counts, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-tiers",
+      "kind": "correctness",
+      "description": "tier_of grades 1.0 gold even at a threshold of 1.0, 0.8 and 0.6 silver, 0.4 dropped; the tiers are gold, silver, dropped, silver, silver and the same prompts are kept as in the worked example.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_grades_tiers"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the code below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "samples-fixture",
+      "kind": "correctness",
+      "description": "samples.json equals the five prompts and the threshold that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_samples_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the five decisions, p5's tally billing 3, outage 1, access 1, two shipped labels wrong or unsettled, and the tier counts gold 1, silver 3, dropped 1.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "shipped-first-sample",
+      "kind": "evaluation",
+      "description": "The first sample as the label matches the majority for p1, p2, and p4, labels p3 although the teacher never settled, and labels p5 with the minority answer outage.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_first_sample_labels_two_prompts_wrongly_or_prematurely"
+    },
+    {
+      "id": "normalization-decides-p5",
+      "kind": "evaluation",
+      "description": "Without normalization every raw spelling of p5's answers counts once and the prompt would be dropped; with it the prompt is kept as billing.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_without_normalization_p5_would_be_dropped"
+    },
+    {
+      "id": "tie-dropped",
+      "kind": "evaluation",
+      "description": "The 2-2-1 split is dropped as a tie; its top share of two fifths is below the threshold as well.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_tie_is_dropped_even_though_its_top_share_is_no_lower_than_a_kept_prompt_might_allow"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/VotesViz.jsx",
+      "description": "A short animation of the worked example, under three seconds per prompt and under half a minute in all: five rows, each with its five sample chips, a tally of bars in most-common order, and a decision tag. Each beat snaps the chips to their normalized spelling (the respelled ones outlined in amber), feeds them one by one into the tally as the bars grow, and then shows the decision, green kept with the label and agreement or red dropped with the reason. A summary beat counts the kept prompts, a beat outlines in red the first chips that shipped as wrong or unsettled labels, and the practice variation turns the tags into gold and silver tiers. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/votesModel.js, a JavaScript port of normalize, the Counter tally in most-common order, decide, filter_samples, and tier_of that runs on python/fixtures/samples.json; tests/majority-vote-filter-teacher-samples-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that each prompt beat ends with every chip counted, the tally at its final counts, and the decision shown, that chips are counted in order with the running tally never exceeding the final counts, that the shipped beat marks exactly p3 and p5, that the practice shows the fixture's tiers, that decided rows only accumulate at every sampled moment, that captions carry the measured tallies, agreements, and tier counts, and that drawScene runs against a bare context at sampled moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

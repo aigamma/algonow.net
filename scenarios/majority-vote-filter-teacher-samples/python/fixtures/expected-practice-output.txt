@@ -1,0 +1,11 @@
+5 prompts, 5 teacher samples each, agreement threshold 0.60, graded in tiers
+p1  billing 5                          gold: billing (1.00)
+p2  access 3, outage 2                 silver: access (0.60)
+p3  access 2, billing 2, outage 1      dropped: tie at 2
+p4  outage 4, billing 1                silver: outage (0.80)
+p5  billing 3, outage 1, access 1      silver: billing (0.60)
+gold 1, silver 3, dropped 1
+
+rejected: p9 has no samples
+
+OK

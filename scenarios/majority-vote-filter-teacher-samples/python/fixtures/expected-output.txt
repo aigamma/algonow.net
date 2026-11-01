@@ -1,0 +1,19 @@
+5 prompts, 5 teacher samples each, agreement threshold 0.60
+p1  billing 5                          kept as billing (1.00)
+p2  access 3, outage 2                 kept as access (0.60)
+p3  access 2, billing 2, outage 1      dropped: tie at 2
+p4  outage 4, billing 1                kept as outage (0.80)
+p5  billing 3, outage 1, access 1      kept as billing (0.60)
+kept 4 of 5
+
+what shipped, the first sample as the label:
+  p1  billing  same label
+  p2  access   same label
+  p3  access   a label for a prompt the teacher could not settle
+  p4  outage   same label
+  p5  outage   minority answer; the majority said billing
+2 of 5 shipped labels were wrong or unsettled
+rejected: threshold must be above 0.5 (a majority) and at most 1.0, got 0.5
+rejected: threshold must be above 0.5 (a majority) and at most 1.0, got 1.5
+
+OK

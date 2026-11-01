@@ -1,0 +1,55 @@
+{
+ "samples": [
+  {
+   "id": "p1",
+   "votes": [
+    "billing",
+    "billing",
+    "billing",
+    "billing",
+    "billing"
+   ]
+  },
+  {
+   "id": "p2",
+   "votes": [
+    "access",
+    "outage",
+    "access",
+    "access",
+    "outage"
+   ]
+  },
+  {
+   "id": "p3",
+   "votes": [
+    "access",
+    "billing",
+    "outage",
+    "billing",
+    "access"
+   ]
+  },
+  {
+   "id": "p4",
+   "votes": [
+    "outage",
+    "outage",
+    "billing",
+    "outage",
+    "outage"
+   ]
+  },
+  {
+   "id": "p5",
+   "votes": [
+    "outage",
+    "billing",
+    "Billing",
+    "access",
+    "billing "
+   ]
+  }
+ ],
+ "threshold": 0.6
+}

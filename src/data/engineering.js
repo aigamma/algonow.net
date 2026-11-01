@@ -476,7 +476,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'Orbit\'s new gateway deployment reported a lower mean time to first token, and the complaints about slow answers grew: the mean hid a longer tail. A worked Python example computes p50, p95, and p99 for two deployments of twenty inline latency samples each with the nearest-rank method: a sorted copy, a rank from math.ceil, zero-based index arithmetic, a function that returns a dictionary, a loop over a dictionary of deployments, an empty list and an out-of-range percentile rejected, its exact output, a trace of every rank, and one practice variation that interpolates linearly between ranks.',
     track: 'evaluation',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-31', listenMinutes: 14,
     difficulty: 'foundation',
     durationMinutes: 25,
     skills: ['Percentiles by nearest rank from a sorted list', 'sorted, math.ceil, and zero-based index arithmetic', 'A function that returns a dictionary of results', 'Comparing two deployments with a loop over a dictionary', 'Linear interpolation between ranks (practice)'],

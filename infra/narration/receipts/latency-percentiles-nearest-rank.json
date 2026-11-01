@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net latency-percentiles-nearest-rank preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-11-01T04:33:29.899Z",
+  "publication_sha256": "da6bf9f90737dbfd2b8c8a959e8c40d0d72d5de420e6cbac4ab2826233aeefde",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 8054776,
+  "objects": [
+    {
+      "stable_id": "puzzle:latency-percentiles-nearest-rank",
+      "slug": "latency-percentiles-nearest-rank",
+      "track_id": "algieba",
+      "source_sha256": "7b0981e7539c72cb19f64b38394a8679eb64023f36d7f56183c2e95b12661c05",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "7fe699d907d9ac244bd7e6800c6b917ec69ffd442cf32156c41dc1c62b1da88f",
+      "object_key": "narration/v1/puzzles/latency-percentiles-nearest-rank/7fe699d907d9ac244bd7/algieba-48c7aab80b269d69.mp3",
+      "bytes": 4132076,
+      "sha256": "48c7aab80b269d69abeeb2ebeaec192cb61a92105020bc77d0f9cd4fe3816f6d",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:latency-percentiles-nearest-rank",
+      "slug": "latency-percentiles-nearest-rank",
+      "track_id": "aoede",
+      "source_sha256": "7b0981e7539c72cb19f64b38394a8679eb64023f36d7f56183c2e95b12661c05",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "7fe699d907d9ac244bd7e6800c6b917ec69ffd442cf32156c41dc1c62b1da88f",
+      "object_key": "narration/v1/puzzles/latency-percentiles-nearest-rank/7fe699d907d9ac244bd7/aoede-d739727937f4422e.mp3",
+      "bytes": 3922700,
+      "sha256": "d739727937f4422ec2b9720f4c91eef271fbbac77bc821e93429f0dd97a75f78",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

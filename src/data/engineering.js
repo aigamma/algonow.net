@@ -443,6 +443,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'circuit-breaker-for-model-calls',
     title: 'Stop hammering a failing model provider with a circuit breaker',
+    pageTitle: 'Circuit breaker for model calls',
+    description: 'A degraded provider made every gateway call time out and fail. A worked Python example protects the calls with a three-state circuit breaker.',
     summary: 'When Orbit\'s hosted model provider degraded, every request to the gateway waited out the full timeout and failed, and the retries kept the provider saturated. A worked Python example protects the calls with a three-state circuit breaker: ten scripted calls inline, a state kept in a string variable, a failure counter that opens the breaker at a threshold, a cooldown measured from the moment it opened, a half-open trial call that closes it or opens it again, calls skipped with continue while it is open, its exact output, a trace of the state at every call, and one practice variation that requires two trial successes before closing.',
     track: 'serving',
     language: 'python',
@@ -455,6 +457,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'dynamic-batching-by-size-or-deadline',
     title: 'Batch single requests to a model by size or deadline, whichever comes first',
+    pageTitle: 'Dynamic batching by size or deadline',
+    description: 'An embedding service called the model once per request and fell behind. A worked Python example batches arrivals by a size cap or a wait deadline.',
     summary: 'Orbit\'s embedding service called the model once per request, so every call paid the fixed overhead and the busy hours fell behind. A worked Python example collects nine scripted arrivals into batches with a dynamic batcher: a pending list that fills, a flush when the list reaches the size cap, a flush at the deadline of the oldest pending request checked lazily at each arrival, a final flush after the loop, one small helper function called from three places, its exact output with every wait, a trace of the pending list, and one practice variation that adds a token budget per batch and rejects an oversized request loudly.',
     track: 'serving',
     language: 'python',
@@ -467,6 +471,8 @@ export const SCENARIOS = Object.freeze([
   {
     slug: 'latency-percentiles-nearest-rank',
     title: 'Report p50, p95, and p99 latency with the nearest-rank method, not the mean',
+    pageTitle: 'Latency percentiles by nearest rank',
+    description: 'A lower mean hid a longer tail after a gateway deployment. A worked Python example reports p50, p95, and p99 with the nearest-rank method.',
     summary: 'Orbit\'s new gateway deployment reported a lower mean time to first token, and the complaints about slow answers grew: the mean hid a longer tail. A worked Python example computes p50, p95, and p99 for two deployments of twenty inline latency samples each with the nearest-rank method: a sorted copy, a rank from math.ceil, zero-based index arithmetic, a function that returns a dictionary, a loop over a dictionary of deployments, an empty list and an out-of-range percentile rejected, its exact output, a trace of every rank, and one practice variation that interpolates linearly between ranks.',
     track: 'evaluation',
     language: 'python',

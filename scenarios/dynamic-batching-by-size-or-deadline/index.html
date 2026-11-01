@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Batch single requests to a model by size or deadline, whichever comes first | algonow</title>
-<meta name="description" content="Orbit&#39;s embedding service called the model once per request, so every call paid the fixed overhead and the busy hours fell behind. A worked Python example collects nine scripted arrivals into batches with a dynamic batcher: a pending list that fills, a flush when the list reaches the size cap, a flush at the deadline of the oldest pending request checked lazily at each arrival, a final flush after the loop, one small helper function called from three places, its exact output with every wait, a trace of the pending list, and one practice variation that adds a token budget per batch and rejects an oversized request loudly." />
+<title>Dynamic batching by size or deadline | algonow</title>
+<meta name="description" content="An embedding service called the model once per request and fell behind. A worked Python example batches arrivals by a size cap or a wait deadline." />
 <link rel="canonical" href="https://algonow.net/scenarios/dynamic-batching-by-size-or-deadline/" />
 </head><body><div id="root"></div><script type="module" src="./main.jsx"></script></body></html>

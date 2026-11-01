@@ -194,7 +194,7 @@ export function drawScene(ctx, scene, trace) {
   ctx.textBaseline = 'alphabetic';
   ctx.textAlign = 'left';
   ctx.fillStyle = INK;
-  ctx.fillText(`which prompts earn a teacher label: the ${trace.budget} smallest ${scene.measure === 'margin' ? 'margins' : 'entropies first'} of ${trace.rows.length}`, 28, 36);
+  ctx.fillText(`which prompts earn a teacher label: the ${trace.budget} ${scene.measure === 'margin' ? 'smallest margins' : 'largest entropies'} of ${trace.rows.length}`, 28, 36);
   // Legend for the routes.
   ctx.font = `10px ${MONO}`;
   trace.routes.forEach((route, index) => {
@@ -297,7 +297,10 @@ export function drawScene(ctx, scene, trace) {
   if (scene.pickAlpha > 0) {
     ctx.globalAlpha = scene.pickAlpha;
     ctx.fillStyle = GREEN;
-    ctx.fillText(`picked ${trace.picked.join(', ')}: mean margin ${f2(trace.picked_mean_margin)}`, 28, fy);
+    const picksLine = scene.practiceAlpha >= 0.5
+      ? `picked by entropy ${trace.practice.picked.join(', ')} (by margin it was ${trace.picked.join(', ')})`
+      : `picked ${trace.picked.join(', ')}: mean margin ${f2(trace.picked_mean_margin)}`;
+    ctx.fillText(picksLine, 28, fy);
     ctx.globalAlpha = 1;
   }
   if (scene.shippedAlpha > 0) {

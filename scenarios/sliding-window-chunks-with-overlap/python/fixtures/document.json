@@ -1,0 +1,14 @@
+{
+ "document": "The gateway returns a timeout when the model takes longer than the limit. Check the queue depth and the logs. To recover, set the timeout to thirty seconds, then restart the worker. Confirm the alert clears within five minutes.",
+ "window": 12,
+ "overlap": 4,
+ "span": [
+  22,
+  28
+ ],
+ "sentence": [
+  20,
+  32
+ ],
+ "hit": "c3"
+}

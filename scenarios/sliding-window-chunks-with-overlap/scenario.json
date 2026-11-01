@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "slug": "sliding-window-chunks-with-overlap",
+  "track": "rag",
+  "language": "python",
+  "system": {
+    "context": "Orbit's older runbooks are long paragraphs with no headings, so the block packer has nothing to pack and ingest fell back to fixed windows of twelve words with no overlap. The recovery instruction 'set the timeout to thirty seconds' was cut in two at a window boundary: the retriever returned one chunk ending 'set the' and another beginning 'timeout to thirty seconds'.",
+    "request": "A worked Python example of one action: chunk_words(text, window, overlap), which splits a document into windows of `window` words that start every `window - overlap` words, so the last `overlap` words of each chunk open the next one. The function splits on whitespace, walks range(0, n, stride), caps each window end with min, records each chunk as a dictionary with an id, its start and end positions, and its text, and breaks after the window that reaches the end so no redundant tail window is emitted; it raises ValueError for a window below 1 or an overlap outside 0 to window - 1 and returns no chunks for an empty document. A helper whole_in reports the chunks that contain a span whole. The lesson leads with the complete solution and its exact output over one inline paragraph of thirty-nine words (the five chunks, the storage cost, the instruction span whole in c3 and cut without overlap, the two rejected settings), explains the Python construct by construct, traces every window, and offers one practice variation: expanding a retrieval hit to its neighbouring chunks.",
+    "inputs": [
+      "One document written inline in solution.py: a thirty-nine word runbook paragraph of four sentences, with WINDOW 12, OVERLAP 4, and SPAN (22, 28) for the instruction 'set the timeout to thirty seconds,'",
+      "For the practice variation, SENTENCE (20, 32) for the twelve-word recovery sentence and HIT 'c3', the chunk a retriever returned"
+    ],
+    "outputs": [
+      "chunk_words returns five chunks at word positions 0-12, 8-20, 16-28, 24-36, and 32-39 with ids c1 to c5 and their texts; 55 words are stored for 39 (1.41x); whole_in finds the instruction whole in c3 and in no chunk when the overlap is 0",
+      "python solution.py prints the five chunks, the storage line, the span checks with overlap 4 and 0, the two rejected settings, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change a hit on c3 expands to c2, c3, c4 (words 8 to 35), which contains the whole sentence, and c1 and c5 expand to two chunks each, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, or network",
+      "Windows advance by exactly window - overlap words; every chunk has at most window words; neighbouring chunks share exactly overlap words; every word is in at least one chunk; no chunk lies inside another; the input string is never modified",
+      "A window below 1 or an overlap outside 0 to window - 1 raises ValueError with a message naming the setting; an empty or blank document returns an empty list",
+      "Ordinary Python only: str.split, range with a step, min, slicing, join, f-strings, a list of dictionaries, break, star-unpacking of a tuple argument, and the `or` default for an empty join; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the five chunk rows, 55 words stored for 39 (1.41x), the instruction whole in c3, whole in none with overlap 0 and the boundary at word 24, the two rejected lines, and OK",
+      "The window arithmetic holds under a brute-force check: every span of up to overlap + 1 words is whole in some chunk at every position, for several window and overlap settings, and no longer length has that guarantee",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt, with the expansion clamped at both ends of the chunk list and an unknown id rejected",
+      "What shipped is measured on the same document: overlap 0 ends one chunk with 'set the' and starts the next with 'timeout to thirty seconds,', stores 39 words against 55, and guarantees only single words a home"
+    ]
+  },
+  "python": {
+    "package": "window_chunks",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "c441076453868e0bfcfe25252974d2a4456da2ea1b416e6d4a76ff7296a96744"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "9f494f6e873903a05d9f8b0f631d259cddf5acbe60f6be427b0537c9a5af3848"
+    },
+    {
+      "path": "python/fixtures/document.json",
+      "description": "The paragraph, the window and overlap, the instruction span, the practice sentence, and the hit exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "45c92a080163e0a24976e7b4e89c2068ad683e5a18a9110e72befa8927d33fe5"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every chunk with its positions and text, the storage cost, the span checks with and without overlap, the overlap guarantee, and the practice expansion with its edge cases, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "bdeeaeb291d912a8a1badf407959e019aa05af0d092d76b3d12cfacc0335a6e9"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "chunk-positions-and-texts",
+      "kind": "correctness",
+      "description": "The five chunks sit at 0-12, 8-20, 16-28, 24-36, and 32-39 with ids c1 to c5, and each text is the join of its word slice.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_chunks_positions_ids_and_texts"
+    },
+    {
+      "id": "window-and-overlap-arithmetic",
+      "kind": "correctness",
+      "description": "Every chunk has at most twelve words, and neighbouring chunks start eight words apart and share exactly four words.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_every_chunk_fits_the_window_and_neighbours_share_exactly_the_overlap"
+    },
+    {
+      "id": "coverage-and-no-redundant-tail",
+      "kind": "correctness",
+      "description": "Every word position is covered, no chunk lies inside another, and the loop stops at five chunks instead of emitting a sixth that would only repeat words.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_every_word_is_covered_and_no_chunk_is_redundant"
+    },
+    {
+      "id": "overlap-guarantee",
+      "kind": "correctness",
+      "description": "By brute force over every position and length, the longest span length that is always whole in some chunk is overlap + 1, for the lesson's settings and for several others; the six-word instruction fits by position and the twelve-word sentence fits nowhere.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_spans_up_to_overlap_plus_one_are_always_whole"
+    },
+    {
+      "id": "invalid-settings-and-empty-document",
+      "kind": "failure",
+      "description": "A window of 0, an overlap equal to the window, and a negative overlap raise ValueError naming the setting; an empty or blank document returns no chunks; a short document is one chunk; window 2 with overlap 1 steps one word at a time.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_invalid_settings_are_rejected_and_an_empty_document_gives_no_chunks"
+    },
+    {
+      "id": "split-join-roundtrip",
+      "kind": "correctness",
+      "description": "Splitting the document on whitespace and joining with single spaces gives the document back, with thirty-nine words and the instruction at positions 22 to 27.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_split_and_join_preserve_the_document"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about the expansion of c3, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-expands-to-neighbours",
+      "kind": "correctness",
+      "description": "expand on c3 returns c2, c3, c4 at words 8 to 35 containing the whole recovery sentence; c1 and c5 expand to two chunks; an unknown id raises ValueError.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_expands_a_hit_to_its_neighbours_and_clamps_the_ends"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "document-fixture",
+      "kind": "correctness",
+      "description": "document.json equals the paragraph, window, overlap, span, sentence, and hit that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_document_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the five chunks, 55 words stored (1.410256x), the span whole in c3 and in no flat chunk with the boundary at 24, and the expansion c2, c3, c4 at words 8 to 36.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "shipped-boundary-cut",
+      "kind": "evaluation",
+      "description": "With overlap 0 the windows sit at 0-12, 12-24, 24-36, 36-39, the instruction is whole in none, one chunk ends 'set the' and the next begins 'timeout to thirty seconds,'; with overlap 4 it is whole in c3.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_no_overlap_cuts_the_instruction_at_the_boundary"
+    },
+    {
+      "id": "storage-cost",
+      "kind": "evaluation",
+      "description": "Overlap 4 stores 55 words in five chunks against 39 words in four chunks without overlap: 1.41 times the text to embed and store.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_overlap_costs_forty_one_percent_more_storage"
+    },
+    {
+      "id": "guarantee-versus-flat",
+      "kind": "evaluation",
+      "description": "Overlap 4 keeps every span of up to five words whole somewhere; overlap 0 guarantees only single words.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_overlap_guarantee_versus_no_overlap"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/WindowChunksViz.jsx",
+      "description": "A short animation of the worked example, about two seconds per window and under half a minute in all: a ruler of the thirty-nine word positions with the four sentences marked above it and the instruction span under it, five chunk rows whose blue bars grow to their windows one beat at a time with the four-word overlap hatched in amber, the span turning green when c3 is shown to hold it whole, a storage line (55 words for 39, 1.41x), red dashed lines at the no-overlap boundaries 12, 24, 36 with the cut at 24 named, and the practice variation outlining the twelve-word sentence, the hit c3, and the green expansion across c2 to c4. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/windowChunksModel.js, a JavaScript port of chunk_words, whole_in, and expand that runs on python/fixtures/document.json; tests/sliding-window-chunks-with-overlap-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that each window beat ends with its bar complete and the stored-word count including it, that the overlap hatch appears only on completed bars after the first, that the span is marked whole from the span beat on, that the no-overlap boundaries and the practice expansion appear in their beats, that bars only accumulate at every sampled moment, that captions carry the measured positions, texts, and counts, and that drawScene runs against a bare context at sampled moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

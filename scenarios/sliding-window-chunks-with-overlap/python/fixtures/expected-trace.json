@@ -1,0 +1,115 @@
+{
+ "words": 39,
+ "window": 12,
+ "overlap": 4,
+ "stride": 8,
+ "chunks": [
+  {
+   "id": "c1",
+   "start": 0,
+   "end": 12,
+   "text": "The gateway returns a timeout when the model takes longer than the"
+  },
+  {
+   "id": "c2",
+   "start": 8,
+   "end": 20,
+   "text": "takes longer than the limit. Check the queue depth and the logs."
+  },
+  {
+   "id": "c3",
+   "start": 16,
+   "end": 28,
+   "text": "depth and the logs. To recover, set the timeout to thirty seconds,"
+  },
+  {
+   "id": "c4",
+   "start": 24,
+   "end": 36,
+   "text": "timeout to thirty seconds, then restart the worker. Confirm the alert clears"
+  },
+  {
+   "id": "c5",
+   "start": 32,
+   "end": 39,
+   "text": "Confirm the alert clears within five minutes."
+  }
+ ],
+ "stored_words": 55,
+ "factor": 1.410256,
+ "span": {
+  "start": 22,
+  "end": 28,
+  "text": "set the timeout to thirty seconds,",
+  "whole_in": [
+   "c3"
+  ]
+ },
+ "no_overlap": {
+  "chunks": [
+   {
+    "id": "c1",
+    "start": 0,
+    "end": 12
+   },
+   {
+    "id": "c2",
+    "start": 12,
+    "end": 24
+   },
+   {
+    "id": "c3",
+    "start": 24,
+    "end": 36
+   },
+   {
+    "id": "c4",
+    "start": 36,
+    "end": 39
+   }
+  ],
+  "whole_in": [],
+  "boundary": 24
+ },
+ "guarantee": 5,
+ "practice": {
+  "hit": "c3",
+  "alone": {
+   "start": 16,
+   "end": 28
+  },
+  "expanded": {
+   "ids": [
+    "c2",
+    "c3",
+    "c4"
+   ],
+   "start": 8,
+   "end": 36
+  },
+  "sentence": {
+   "start": 20,
+   "end": 32,
+   "text": "To recover, set the timeout to thirty seconds, then restart the worker.",
+   "whole_in": []
+  },
+  "edges": {
+   "c1": {
+    "ids": [
+     "c1",
+     "c2"
+    ],
+    "start": 0,
+    "end": 20
+   },
+   "c5": {
+    "ids": [
+     "c4",
+     "c5"
+    ],
+    "start": 24,
+    "end": 39
+   }
+  }
+ }
+}

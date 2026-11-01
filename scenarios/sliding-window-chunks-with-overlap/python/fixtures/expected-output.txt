@@ -1,0 +1,15 @@
+39 words, window 12, overlap 4 (stride 8)
+id  start  end  words
+c1      0   12  The gateway returns a timeout when the model takes longer than the
+c2      8   20  takes longer than the limit. Check the queue depth and the logs.
+c3     16   28  depth and the logs. To recover, set the timeout to thirty seconds,
+c4     24   36  timeout to thirty seconds, then restart the worker. Confirm the alert clears
+c5     32   39  Confirm the alert clears within five minutes.
+
+5 chunks, 55 words stored for 39 (1.41x)
+span "set the timeout to thirty seconds," (words 22 to 27): whole in c3
+with overlap 0: whole in none (a window boundary falls at word 24)
+rejected: overlap must be between 0 and window - 1: window 12, overlap 12
+rejected: window must be at least 1, got 0
+
+OK

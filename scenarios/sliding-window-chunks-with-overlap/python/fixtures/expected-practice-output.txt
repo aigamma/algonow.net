@@ -1,0 +1,10 @@
+39 words, window 12, overlap 4 (stride 8): 5 chunks
+hit c3 alone: words 16 to 27
+  depth and the logs. To recover, set the timeout to thirty seconds,
+hit c3 expanded to c2, c3, c4: words 8 to 35
+  takes longer than the limit. Check the queue depth and the logs. To recover, set the timeout to thirty seconds, then restart the worker. Confirm the alert clears
+sentence "To recover, set the timeout to thirty seconds, then restart the worker." (words 20 to 31): whole in no single chunk, whole in the expansion
+hit c1 expanded to c1, c2: words 0 to 19
+hit c5 expanded to c4, c5: words 24 to 38
+
+OK

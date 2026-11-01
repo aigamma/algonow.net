@@ -1,0 +1,15 @@
+6 network chunks
+chunk chars events waiting  text so far
+1        29      1       0  'Restart '
+2        52      2       0  'Restart the worker'
+3        11      0      11  'Restart the worker'
+4        30      1       0  'Restart the worker, then '
+5        37      1       0  'Restart the worker, then set the timeout.'
+6        92      1      40  'Restart the worker, then set the timeout.'
+
+6 events parsed; reply: 'Restart the worker, then set the timeout.'
+usage: 9 output tokens, reported by the stream itself
+
+rejected: stream ended without [DONE]; 0 characters still waiting
+
+OK

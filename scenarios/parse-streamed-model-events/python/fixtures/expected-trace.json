@@ -1,0 +1,181 @@
+{
+ "chunks": [
+  {
+   "number": 1,
+   "text": "data: {\"delta\": \"Restart \"}\n\n",
+   "length": 29
+  },
+  {
+   "number": 2,
+   "text": "data: {\"delta\": \"the \"}\n\ndata: {\"delta\": \"worker\"}\n\n",
+   "length": 52
+  },
+  {
+   "number": 3,
+   "text": "data: {\"del",
+   "length": 11
+  },
+  {
+   "number": 4,
+   "text": "ta\": \", then \"}\n\n: keepalive\n\n",
+   "length": 30
+  },
+  {
+   "number": 5,
+   "text": "data: {\"delta\": \"set the timeout.\"}\n\n",
+   "length": 37
+  },
+  {
+   "number": 6,
+   "text": "data: {\"usage\": {\"output_tokens\": 9}}\n\ndata: [DONE]\n\ndata: {\"delta\": \"ignored after done\"}\n\n",
+   "length": 92
+  }
+ ],
+ "steps": [
+  {
+   "chunk": 1,
+   "appended": "data: {\"delta\": \"Restart \"}\n\n",
+   "lines": [
+    {
+     "line": "data: {\"delta\": \"Restart \"}",
+     "kind": "event",
+     "delta": "Restart "
+    },
+    {
+     "line": "",
+     "kind": "blank",
+     "delta": null
+    }
+   ],
+   "remaining": "",
+   "events_here": 1,
+   "waiting": 0,
+   "text": "Restart "
+  },
+  {
+   "chunk": 2,
+   "appended": "data: {\"delta\": \"the \"}\n\ndata: {\"delta\": \"worker\"}\n\n",
+   "lines": [
+    {
+     "line": "data: {\"delta\": \"the \"}",
+     "kind": "event",
+     "delta": "the "
+    },
+    {
+     "line": "",
+     "kind": "blank",
+     "delta": null
+    },
+    {
+     "line": "data: {\"delta\": \"worker\"}",
+     "kind": "event",
+     "delta": "worker"
+    },
+    {
+     "line": "",
+     "kind": "blank",
+     "delta": null
+    }
+   ],
+   "remaining": "",
+   "events_here": 2,
+   "waiting": 0,
+   "text": "Restart the worker"
+  },
+  {
+   "chunk": 3,
+   "appended": "data: {\"del",
+   "lines": [],
+   "remaining": "data: {\"del",
+   "events_here": 0,
+   "waiting": 11,
+   "text": "Restart the worker"
+  },
+  {
+   "chunk": 4,
+   "appended": "data: {\"delta\": \", then \"}\n\n: keepalive\n\n",
+   "lines": [
+    {
+     "line": "data: {\"delta\": \", then \"}",
+     "kind": "event",
+     "delta": ", then "
+    },
+    {
+     "line": "",
+     "kind": "blank",
+     "delta": null
+    },
+    {
+     "line": ": keepalive",
+     "kind": "comment",
+     "delta": null
+    },
+    {
+     "line": "",
+     "kind": "blank",
+     "delta": null
+    }
+   ],
+   "remaining": "",
+   "events_here": 1,
+   "waiting": 0,
+   "text": "Restart the worker, then "
+  },
+  {
+   "chunk": 5,
+   "appended": "data: {\"delta\": \"set the timeout.\"}\n\n",
+   "lines": [
+    {
+     "line": "data: {\"delta\": \"set the timeout.\"}",
+     "kind": "event",
+     "delta": "set the timeout."
+    },
+    {
+     "line": "",
+     "kind": "blank",
+     "delta": null
+    }
+   ],
+   "remaining": "",
+   "events_here": 1,
+   "waiting": 0,
+   "text": "Restart the worker, then set the timeout."
+  },
+  {
+   "chunk": 6,
+   "appended": "data: {\"usage\": {\"output_tokens\": 9}}\n\ndata: [DONE]\n\ndata: {\"delta\": \"ignored after done\"}\n\n",
+   "lines": [
+    {
+     "line": "data: {\"usage\": {\"output_tokens\": 9}}",
+     "kind": "usage",
+     "delta": null
+    },
+    {
+     "line": "",
+     "kind": "blank",
+     "delta": null
+    },
+    {
+     "line": "data: [DONE]",
+     "kind": "done",
+     "delta": null
+    }
+   ],
+   "remaining": "\ndata: {\"delta\": \"ignored after done\"}\n\n",
+   "events_here": 1,
+   "waiting": 40,
+   "text": "Restart the worker, then set the timeout."
+  }
+ ],
+ "text": "Restart the worker, then set the timeout.",
+ "events": 6,
+ "shipped": {
+  "crashed_at": 2,
+  "delivered": "Restart "
+ },
+ "practice": {
+  "usage": {
+   "output_tokens": 9
+  }
+ }
+}

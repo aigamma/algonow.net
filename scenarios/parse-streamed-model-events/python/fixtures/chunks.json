@@ -1,0 +1,10 @@
+{
+ "chunks": [
+  "data: {\"delta\": \"Restart \"}\n\n",
+  "data: {\"delta\": \"the \"}\n\ndata: {\"delta\": \"worker\"}\n\n",
+  "data: {\"del",
+  "ta\": \", then \"}\n\n: keepalive\n\n",
+  "data: {\"delta\": \"set the timeout.\"}\n\n",
+  "data: {\"usage\": {\"output_tokens\": 9}}\n\ndata: [DONE]\n\ndata: {\"delta\": \"ignored after done\"}\n\n"
+ ]
+}

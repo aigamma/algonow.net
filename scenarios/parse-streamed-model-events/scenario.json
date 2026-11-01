@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "slug": "parse-streamed-model-events",
+  "track": "serving",
+  "language": "python",
+  "system": {
+    "context": "Orbit's gateway streams the model's reply to the browser. It read the provider's stream in network chunks and treated each chunk as one complete event; a chunk can carry two events or half of one, so the JSON parser crashed and the reply died at a random word.",
+    "request": "A worked Python example of one action: read_stream(chunks), which appends each network chunk to a string buffer, splits off every complete line while a line break is present, skips blank separators and comment lines, parses each data line as JSON, appends the text delta, counts the event, stops at the [DONE] marker without reading further, and leaves an incomplete line waiting for the next chunk; a malformed event or a stream that ends without the marker raises ValueError. The lesson leads with the complete solution and its exact output over six inline chunks (per chunk: its length, the events parsed from it, the characters waiting, and the text so far; the assembled reply; what parsing whole chunks delivered; two rejected streams), explains the Python construct by construct, traces the buffer through every chunk, and offers one practice variation: capturing the usage event the provider sends before the end marker.",
+    "inputs": [
+      "Six network chunks written inline in solution.py: one event, two events in one chunk, half an event, the other half followed by a keepalive comment, one event, and a usage event followed by the end marker and data that is never read",
+      "For the practice variation, the same chunks with the usage object to be captured"
+    ],
+    "outputs": [
+      "The reply 'Restart the worker, then set the timeout.' from six events, a per-chunk log with events 1, 2, 0, 1, 1, 1 and waiting characters 0, 0, 11, 0, 0, 40, what shipped crashing at chunk 2 with 'Restart ' delivered",
+      "python solution.py prints the per-chunk table, the event count and reply, the shipped comparison, two rejected streams, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change the usage object with 9 output tokens is returned and printed, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, sockets, or network",
+      "The assembled reply does not depend on where the network cut the stream: the same bytes in one chunk, in two chunks cut at any position, or one character at a time give the same text and event count; the chunks are never modified",
+      "A data line that is not valid JSON raises ValueError naming the chunk; a stream that ends without the end marker raises ValueError naming the characters still waiting; nothing after the marker is read",
+      "Ordinary Python only: string concatenation, the in operator on strings, split with a maximum of one, strip, startswith, removeprefix, json.loads inside try and except, a done flag, continue and break, enumerate with a start; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: six rows, 6 events and the reply, the crash at chunk 2 with 'Restart ' delivered, the two rejected lines, and OK",
+      "The buffer holds exactly 11 characters after chunk 3 and 40 after the end marker, the log matches at every chunk boundary, and the stream cut at every one of its positions assembles the same reply",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt, with the last usage event winning and None when there is none",
+      "What shipped is measured on the same chunks: parsing whole chunks crashes at chunk 2, and would crash on the split chunk as well, while the buffer reader delivers all 41 characters"
+    ]
+  },
+  "python": {
+    "package": "stream_reader",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "310bef69002bc51b474b783ad90c69d82d381ea0e342de0f19db057b782df520"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "5162b4398093492de1dd50832045318d15a5b6892812f9d43f9f1d61a08ceb21"
+    },
+    {
+      "path": "python/fixtures/chunks.json",
+      "description": "The six network chunks exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "8998d5b48dae88beebcdf410505ed6681319d75b3a6caf9e8bf12a914301ef9d"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every chunk, the buffer after each append, every line the buffer releases with its kind and delta, the characters left waiting, the text so far, what parsing whole chunks delivered, and the practice usage, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "54d7b8b541a11ed15d57d3d7b6099eb777b783b8fb0619b05523c6a9a669d131"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "reply-and-events",
+      "kind": "correctness",
+      "description": "The assembled reply is the forty-one character sentence and six events are counted: five deltas and one usage event, never the comment or the end marker.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_reply_and_the_event_count"
+    },
+    {
+      "id": "buffer-at-every-boundary",
+      "kind": "correctness",
+      "description": "The log records the chunk lengths, events 1, 2, 0, 1, 1, 1, waiting characters 0, 0, 11, 0, 0, 40, and the text after each chunk.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_log_shows_the_buffer_at_every_chunk_boundary"
+    },
+    {
+      "id": "independent-of-chunking",
+      "kind": "correctness",
+      "description": "The same stream cut at every one of its positions, delivered one character at a time, or in a single chunk assembles the same reply with six events.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_result_does_not_depend_on_where_the_chunks_are_cut"
+    },
+    {
+      "id": "comments-blanks-and-done",
+      "kind": "correctness",
+      "description": "Comment and blank lines are skipped, a chunk after the end marker is not read, and an event without a delta counts but adds no text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_comments_blank_lines_and_the_end_marker"
+    },
+    {
+      "id": "malformed-and-truncated-rejected",
+      "kind": "failure",
+      "description": "A malformed event raises ValueError naming its chunk, a stream without the end marker raises ValueError naming the waiting characters, an empty list raises, and the chunks are unchanged.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_malformed_and_truncated_streams_are_rejected"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about the usage event, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-captures-usage",
+      "kind": "correctness",
+      "description": "The practice returns the usage object with 9 output tokens, leaves the text, events, and log unchanged, returns None when no usage event arrives, and keeps the last of several.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_captures_usage_and_changes_nothing_else"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "chunks-fixture",
+      "kind": "correctness",
+      "description": "chunks.json equals the six chunks that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_chunks_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the reply, waiting characters 0, 0, 11, 0, 0, 40, lines released 2, 4, 0, 4, 2, 3, the crash at chunk 2 with 'Restart ' delivered, and the usage of 9 output tokens.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "shipped-crashes-at-two",
+      "kind": "evaluation",
+      "description": "Parsing each chunk as one event crashes at chunk 2, which holds two events, after delivering 'Restart '.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_parsing_whole_chunks_crashes_at_the_second_chunk"
+    },
+    {
+      "id": "shipped-crashes-on-split",
+      "kind": "evaluation",
+      "description": "Parsing whole chunks would also crash on the split event, half of which is not JSON.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_split_event_would_also_crash_whole_chunk_parsing"
+    },
+    {
+      "id": "buffer-delivers-whole-reply",
+      "kind": "evaluation",
+      "description": "The buffer reader delivers all forty-one characters of the reply on the same chunks.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_buffer_reader_delivers_the_whole_reply"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/StreamViz.jsx",
+      "description": "A short animation of the worked example, under two and a half seconds per chunk and under half a minute in all: the six chunks in an arrival strip, a buffer panel showing its waiting characters with visible line breaks, a log of the lines released with their kind and delta, and the reply assembling below. Each beat lifts a chunk into the buffer, releases its complete lines one at a time into the log, and grows the reply; chunk 3 leaves eleven characters waiting, chunk 6 stops at the end marker with forty characters never read. A beat shows what shipped as a red bubble cut off at 'Restart ', and the practice variation adds the captured usage. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/streamModel.js, a JavaScript port of read_stream with the practice's usage capture and of the whole-chunk parser that shipped, run on python/fixtures/chunks.json; tests/parse-streamed-model-events-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that the port assembles the same reply under other cuts of the stream, that each chunk beat shows the appended buffer before any release and ends with the fixture's remaining buffer and text, that lines release one at a time, that released lines only accumulate and the text is always a prefix of the reply at every sampled moment, that captions carry the measured lengths, deltas, and waits, and that drawScene runs against a bare context at sampled moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

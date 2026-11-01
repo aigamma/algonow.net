@@ -510,6 +510,20 @@ export const SCENARIOS = Object.freeze([
     skills: ['Sliding windows with range and a step', 'Capping a slice end with min and reading end-exclusive positions', 'Breaking out of a loop once the end is reached', 'The overlap guarantee and its storage cost', 'Expanding a hit to its neighbours with index, max, and min (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'near-duplicates-by-shingle-jaccard',
+    title: 'Find near-duplicate training records with word shingles and Jaccard similarity',
+    pageTitle: 'Near-duplicates by shingle Jaccard',
+    description: 'Exact-match dedupe left three near-copies of one answer in a training set. A worked Python example scores record pairs by Jaccard over word shingles.',
+    summary: 'Orbit\'s fine-tuning set had been deduplicated by exact normalized text, and the model still memorized an answer that appeared three times with one word changed or added. A worked Python example compares five inline records by their word shingles, every run of three consecutive words as a tuple in a set, scores each pair with Jaccard similarity, shared shingles over the union, and walks the records keeping the first of each near-duplicate group: nested loops that build normalized words, range with an arithmetic bound, set intersection and union, a best-so-far search over the kept records, its exact output, a trace of every pair and decision, and one practice variation that slides character windows instead of word windows.',
+    track: 'data-pipelines',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'intermediate',
+    durationMinutes: 30,
+    skills: ['Word shingles as tuples in a set', 'Jaccard similarity with & and |', 'A best-so-far search over the records kept so far', 'Every pair once with a nested range starting at i + 1', 'Character shingles with string slices (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

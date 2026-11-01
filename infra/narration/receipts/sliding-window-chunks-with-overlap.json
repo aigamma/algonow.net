@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net sliding-window-chunks-with-overlap preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-11-01T03:19:19.535Z",
+  "publication_sha256": "910f21cc8a5efa0c0fe7d507c67d380ad9234c907ed5c6306647c2c99c7a0654",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 8211640,
+  "objects": [
+    {
+      "stable_id": "puzzle:sliding-window-chunks-with-overlap",
+      "slug": "sliding-window-chunks-with-overlap",
+      "track_id": "algieba",
+      "source_sha256": "27031a10b25efb5b5f2eae1a73d926e3b04422e6f16b80b902764010aaa61bcb",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "5cdabe2c80c449d5047d64921a8747fd2be37584d74a1eb335d6d488a7cf22c8",
+      "object_key": "narration/v1/puzzles/sliding-window-chunks-with-overlap/5cdabe2c80c449d5047d/algieba-bba5435e4539df55.mp3",
+      "bytes": 4201580,
+      "sha256": "bba5435e4539df553431afa0acae247d9ac2ffcf827f5cc3be0a91dc5da5ff36",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:sliding-window-chunks-with-overlap",
+      "slug": "sliding-window-chunks-with-overlap",
+      "track_id": "aoede",
+      "source_sha256": "27031a10b25efb5b5f2eae1a73d926e3b04422e6f16b80b902764010aaa61bcb",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "5cdabe2c80c449d5047d64921a8747fd2be37584d74a1eb335d6d488a7cf22c8",
+      "object_key": "narration/v1/puzzles/sliding-window-chunks-with-overlap/5cdabe2c80c449d5047d/aoede-578a6f1450bc6abe.mp3",
+      "bytes": 4010060,
+      "sha256": "578a6f1450bc6abe301a462a57db0b39f62f38cc9c84676bc33e9d73fa47b74b",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

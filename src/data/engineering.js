@@ -538,6 +538,20 @@ export const SCENARIOS = Object.freeze([
     skills: ['Labels aligned with ids: -100 where the loss must skip', 'A vocabulary as a growing dictionary', 'List concatenation and repetition', 'Padding a batch with an attention mask', 'Left truncation with a negative slice (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'select-examples-by-student-margin',
+    title: 'Spend the teacher\'s label budget where the student is least sure',
+    pageTitle: 'Select examples by student margin',
+    description: 'Three of eight prompts can go to the teacher this round. A worked Python example ranks them by the student\'s margin and spends the budget on the smallest.',
+    summary: 'Orbit distills a small router from its large assistant, and every teacher label costs a call; the script that shipped sent the first three prompts in arrival order, one of them a prompt the student already routes with ninety-two percent confidence. A worked Python example ranks eight inline prompts by the student\'s margin, the gap between its top two route probabilities: sorted over zipped pairs with reverse, a function that returns three values, a key function with a tuple that breaks ties by id, a slice for the budget, guards with a floating-point tolerance, its exact output, a trace of the ranking, and one practice variation that ranks by entropy instead.',
+    track: 'distillation',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'foundation',
+    durationMinutes: 25,
+    skills: ['Uncertainty sampling by the top-two margin', 'sorted over zipped pairs with reverse', 'A key function returning a tuple for a deterministic tie-break', 'A function that returns three values', 'Entropy as the uncertainty score (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

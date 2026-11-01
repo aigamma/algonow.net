@@ -160,12 +160,18 @@ export function sceneAt(timeline, trace, elapsed) {
     } else if (stage > 1) { idsAlpha = 1; maskAlpha = 1; }
     const padded = trace.batch[index];
     const practiceRow = trace.practice.rows[index];
+    // In the practice the batch pads to its own longest row, so a pad survives
+    // only while the fitted row is still shorter than that.
+    const practicePads = trace.practice.longest - practiceRow.ids.length;
+    let padIndex = 0;
     const cells = padded.ids.map((id, position) => {
       const real = padded.mask[position] === 1;
       const label = padded.labels[position];
       const kind = !real ? 'pad' : (id === trace.eos ? 'eos' : (label === trace.ignore ? 'prompt' : 'completion'));
       const word = real ? example.words[position] : '<pad>';
-      return { position, id, label, word, kind, dropped: real && position < practiceRow.dropped };
+      const practiceVisible = real || padIndex < practicePads;
+      if (!real) padIndex += 1;
+      return { position, id, label, word, kind, dropped: real && position < practiceRow.dropped, practiceVisible };
     });
     return { index, example, cells, idsAlpha, maskAlpha, current: beat.kind === 'example' && beat.index === index, dropped: practiceRow.dropped };
   });
@@ -221,7 +227,7 @@ export function drawScene(ctx, scene, trace) {
       if (visibleAlpha <= 0) continue;
       const slide = cell.dropped ? 0 : row.dropped * shift;      // cells slide left by the dropped count
       const x = X0 + (cell.position - slide) * CELL_W;
-      const dropAlpha = cell.dropped ? 1 - shift : 1;
+      const dropAlpha = cell.dropped || !cell.practiceVisible ? 1 - shift : 1;
       const alpha = visibleAlpha * dropAlpha;
       if (alpha <= 0.01) continue;
       ctx.globalAlpha = alpha;
@@ -270,7 +276,7 @@ export function drawScene(ctx, scene, trace) {
       ctx.textAlign = 'center';
       for (const cell of row.cells) {
         const slide = cell.dropped ? 0 : row.dropped * shift;
-        const dropAlpha = cell.dropped ? 1 - shift : 1;
+        const dropAlpha = cell.dropped || !cell.practiceVisible ? 1 - shift : 1;
         if (dropAlpha <= 0.01) continue;
         ctx.globalAlpha = scene.padAlpha * dropAlpha;
         ctx.fillStyle = cell.kind === 'pad' ? DIM : AMBER;

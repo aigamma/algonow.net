@@ -14,3 +14,8 @@ Older session tooling from the 2026-10-10 run (some paths inside still point at 
 - apply_registry.py, merge_wave3.py, vizcheck.mjs, coverage.mjs: registry application, pending-queue merge, viz invariant driver, atlas coverage map.
 - ssr_smoke.mjs [--from N]: server-render every live puzzle page from N on through the real PuzzlePage with its content, registry record, and manifest (run it from inside the project so React resolves, e.g. copy to build/). The build never executes page code, so this is the render oracle short of a browser.
 - review_units.mjs [--from N] [--live] [--skip-solutions]: regression pass over live units (solution OK line, viz invariants, static scans, rival and problem pages, plan row, description, manifest currency against the present narration text via the credential-free plan, and with --live the deployed page, chunk, and CDN objects).
+
+Main-thread helpers added 2026-10-31 (used for the seven lessons of that run):
+- `python scripts/unit-tooling/add_record.py <record.json>`: insert one draft registry record into src/data/engineering.js from a JSON file (escapes apostrophes, checks the pageTitle and description lengths), then run `node scripts/scaffold-engineering.mjs --slug <slug>`.
+- `python scripts/unit-tooling/serve_and_capture.py <slug> <seconds...>`: serve dist/ on 127.0.0.1:4180 and capture the lesson figure at the given seconds into build/shots/<slug>/ (run after measure_chunk_for.py or integrate_lesson.sh built that page into dist/).
+- Write a new figure test as `tests/<slug>-viz.pending.mjs` while a ship is running (its `npm test` would pick up a failing `.test.mjs`), and rename it to `.test.mjs` only when the pipeline is idle, right before integrate_lesson.sh.

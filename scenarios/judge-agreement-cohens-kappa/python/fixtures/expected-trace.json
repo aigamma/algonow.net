@@ -1,0 +1,130 @@
+{
+ "items": [
+  {
+   "id": "a01",
+   "human": "pass",
+   "judge": "pass",
+   "agree": true
+  },
+  {
+   "id": "a02",
+   "human": "pass",
+   "judge": "pass",
+   "agree": true
+  },
+  {
+   "id": "a03",
+   "human": "pass",
+   "judge": "pass",
+   "agree": true
+  },
+  {
+   "id": "a04",
+   "human": "pass",
+   "judge": "pass",
+   "agree": true
+  },
+  {
+   "id": "a05",
+   "human": "pass",
+   "judge": "pass",
+   "agree": true
+  },
+  {
+   "id": "a06",
+   "human": "pass",
+   "judge": "pass",
+   "agree": true
+  },
+  {
+   "id": "a07",
+   "human": "pass",
+   "judge": "fail",
+   "agree": false
+  },
+  {
+   "id": "a08",
+   "human": "fail",
+   "judge": "pass",
+   "agree": false
+  },
+  {
+   "id": "a09",
+   "human": "fail",
+   "judge": "fail",
+   "agree": true
+  },
+  {
+   "id": "a10",
+   "human": "fail",
+   "judge": "fail",
+   "agree": true
+  }
+ ],
+ "counts": {
+  "fail|fail": 2,
+  "fail|pass": 1,
+  "pass|fail": 1,
+  "pass|pass": 6
+ },
+ "human_totals": {
+  "fail": 3,
+  "pass": 7
+ },
+ "judge_totals": {
+  "fail": 3,
+  "pass": 7
+ },
+ "labels": [
+  "fail",
+  "pass"
+ ],
+ "agreed": 8,
+ "n": 10,
+ "observed": 0.8,
+ "chance": 0.58,
+ "kappa": 0.52381,
+ "band": "moderate",
+ "always_pass": {
+  "labels": [
+   "fail",
+   "pass"
+  ],
+  "agreed": 7,
+  "n": 10,
+  "observed": 0.7,
+  "chance": 0.7,
+  "kappa": 0.0,
+  "band": "no better than chance"
+ },
+ "practice": {
+  "mapping": {
+   "partial": "fail"
+  },
+  "three_labels": {
+   "labels": [
+    "fail",
+    "partial",
+    "pass"
+   ],
+   "agreed": 8,
+   "n": 12,
+   "observed": 0.666667,
+   "chance": 0.395833,
+   "kappa": 0.448276,
+   "band": "moderate"
+  },
+  "collapsed": {
+   "labels": [
+    "fail",
+    "pass"
+   ],
+   "agreed": 9,
+   "n": 12,
+   "observed": 0.75,
+   "chance": 0.5,
+   "kappa": 0.5,
+   "band": "moderate"
+  }
+ }
+}

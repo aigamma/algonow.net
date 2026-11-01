@@ -1,0 +1,24 @@
+10 answers graded by the human reviewer and the model judge
+id    human  judge  agree
+a01   pass   pass   yes
+a02   pass   pass   yes
+a03   pass   pass   yes
+a04   pass   pass   yes
+a05   pass   pass   yes
+a06   pass   pass   yes
+a07   pass   fail   no
+a08   fail   pass   no
+a09   fail   fail   yes
+a10   fail   fail   yes
+
+pair counts (human/judge): fail/fail 2  fail/pass 1  pass/fail 1  pass/pass 6
+totals (human/judge): fail 3/3  pass 7/7
+observed agreement  0.80  (8 of 10 agree)
+chance agreement    0.58  (fail 0.30 x 0.30 + pass 0.70 x 0.70)
+Cohen's kappa       0.52  moderate
+
+a judge that passes everything: agreement 0.70, kappa 0.00, no better than chance
+rejected: a03 has no judge grade
+rejected: every grade is pass, so chance agreement is certain and kappa is undefined
+
+OK

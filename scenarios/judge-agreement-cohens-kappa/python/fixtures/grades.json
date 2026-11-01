@@ -1,0 +1,119 @@
+{
+ "grades": [
+  {
+   "id": "a01",
+   "human": "pass",
+   "judge": "pass"
+  },
+  {
+   "id": "a02",
+   "human": "pass",
+   "judge": "pass"
+  },
+  {
+   "id": "a03",
+   "human": "pass",
+   "judge": "pass"
+  },
+  {
+   "id": "a04",
+   "human": "pass",
+   "judge": "pass"
+  },
+  {
+   "id": "a05",
+   "human": "pass",
+   "judge": "pass"
+  },
+  {
+   "id": "a06",
+   "human": "pass",
+   "judge": "pass"
+  },
+  {
+   "id": "a07",
+   "human": "pass",
+   "judge": "fail"
+  },
+  {
+   "id": "a08",
+   "human": "fail",
+   "judge": "pass"
+  },
+  {
+   "id": "a09",
+   "human": "fail",
+   "judge": "fail"
+  },
+  {
+   "id": "a10",
+   "human": "fail",
+   "judge": "fail"
+  }
+ ],
+ "practice_grades": [
+  {
+   "id": "b01",
+   "human": "pass",
+   "judge": "pass"
+  },
+  {
+   "id": "b02",
+   "human": "pass",
+   "judge": "pass"
+  },
+  {
+   "id": "b03",
+   "human": "pass",
+   "judge": "pass"
+  },
+  {
+   "id": "b04",
+   "human": "pass",
+   "judge": "pass"
+  },
+  {
+   "id": "b05",
+   "human": "pass",
+   "judge": "pass"
+  },
+  {
+   "id": "b06",
+   "human": "pass",
+   "judge": "partial"
+  },
+  {
+   "id": "b07",
+   "human": "partial",
+   "judge": "pass"
+  },
+  {
+   "id": "b08",
+   "human": "partial",
+   "judge": "fail"
+  },
+  {
+   "id": "b09",
+   "human": "partial",
+   "judge": "partial"
+  },
+  {
+   "id": "b10",
+   "human": "fail",
+   "judge": "fail"
+  },
+  {
+   "id": "b11",
+   "human": "fail",
+   "judge": "fail"
+  },
+  {
+   "id": "b12",
+   "human": "fail",
+   "judge": "pass"
+  }
+ ],
+ "collapse": {
+  "partial": "fail"
+ }
+}

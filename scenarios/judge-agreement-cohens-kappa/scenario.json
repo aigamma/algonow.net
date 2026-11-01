@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "slug": "judge-agreement-cohens-kappa",
+  "track": "evaluation",
+  "language": "python",
+  "system": {
+    "context": "Orbit replaced its human review of assistant answers with a model judge that grades each answer pass or fail. The report said the judge agrees with the human reviewer on 80 percent of answers and the team was ready to retire the human review. Seven answers in ten pass anyway, so two graders who both pass most answers agree most of the time by luck alone.",
+    "request": "A worked Python example of one action: kappa(records), Cohen's kappa for two graders over the same answers. The function counts each (human, judge) pair in a dictionary keyed by tuples, collects the labels in a set and sorts them, sums the totals per grader from the pair counts, computes the observed agreement as the diagonal share, the chance agreement as the sum over labels of the human share times the judge share, and kappa as observed minus chance over one minus chance, returning a dictionary; it raises ValueError for an empty batch, a missing grade, and a batch where chance agreement is certain. A band function reads the value with an if, elif chain. The lesson leads with the complete solution and its exact output over ten inline graded answers (the rows, the pair counts, the totals, the three statistics, a judge that passes everything, the two rejected inputs), explains the Python construct by construct, traces every pair into its cell, and offers one practice variation: collapsing a third label through a mapping before the same computation.",
+    "inputs": [
+      "Ten graded answers written inline in solution.py as dictionaries with an id, the human's grade, and the judge's grade: a01 to a06 pass/pass, a07 pass/fail, a08 fail/pass, a09 and a10 fail/fail",
+      "For the practice variation, twelve answers graded with three labels (pass, partial, fail) and the mapping COLLAPSE = {partial: fail}"
+    ],
+    "outputs": [
+      "kappa returns a dictionary with counts {(pass, pass): 6, (pass, fail): 1, (fail, pass): 1, (fail, fail): 2}, human and judge totals of 7 pass and 3 fail, labels [fail, pass], observed 0.80, chance 0.58, and kappa 0.5238 (11/21)",
+      "python solution.py prints the ten rows, the pair counts, the totals, observed 0.80 (8 of 10), chance 0.58 (fail 0.30 x 0.30 + pass 0.70 x 0.70), kappa 0.52 moderate, the lazy judge at agreement 0.70 and kappa 0.00, the two rejected inputs, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it prints the twelve rows, observed 0.67, chance 0.40, kappa 0.45 for three labels and observed 0.75, chance 0.50, kappa 0.50 with partial counted as fail, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, or network",
+      "The pair counts live in a dictionary keyed by (human, judge) tuples so any label set works; labels are sorted so the output order is stable; the input records are never modified",
+      "An empty batch, an empty grade, and a batch whose chance agreement is 1.0 raise ValueError with messages naming the problem; the demonstration prints the rejected runs instead of crashing",
+      "Ordinary Python only: dictionaries with get and a default, tuples as keys, a set then sorted, nested tuple unpacking in a loop header, a running decimal total, a dictionary return value, an if, elif chain, a conditional expression, join, try and except, and assert with tolerances; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the ten rows, the four pair counts, the totals, observed 0.80, chance 0.58, kappa 0.52 moderate, the lazy judge line, the two rejected lines, and OK",
+      "The statistics are the exact fractions 8/10, 29/50, and 11/21 within one part in a trillion, three labels are handled with the labels sorted, the band changes at 0.2, 0.4, 0.6, and 0.8, and invalid inputs raise ValueError",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt, with collapse returning new records and the input unchanged",
+      "What shipped is measured on the same grades: raw agreement 0.80 against kappa 0.52, a judge that passes everything at agreement 0.70 and kappa 0.00, and the chance formula equal to the mean observed agreement over all 120 arrangements of the judge's grades"
+    ]
+  },
+  "python": {
+    "package": "judge_kappa",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "59cf0a2a89fe92e6c033f928fb275695c3b39039c78640e405ad150ff640be70"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "7b08da3c854b064c5bb2848d0dcd8db7603a9799fd80b49841d8119b41d340d0"
+    },
+    {
+      "path": "python/fixtures/grades.json",
+      "description": "The ten graded answers, the twelve practice records, and the collapse mapping exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "e2cedcf289fe875dc75664fed75e6ea6bcba82938137d54668c8b72ee4e7a5ae"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every pair, the cell counts, the totals, the three statistics to six decimals with their band, the lazy judge, and the practice replay with three labels and after the collapse, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "dfaac4e485e35663708f92208a55bc976e104a243616982f29d94edaad466d36"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "pair-counts-and-totals",
+      "kind": "correctness",
+      "description": "The ten answers count as six pass/pass, one pass/fail, one fail/pass, and two fail/fail, with totals of seven pass and three fail for each grader and the labels sorted.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_pair_counts_and_totals_for_the_ten_answers"
+    },
+    {
+      "id": "statistics-exact-fractions",
+      "kind": "correctness",
+      "description": "Observed agreement is 8/10, chance agreement 29/50, and kappa 11/21 within one part in a trillion, also by the integer form of the statistic; the band is moderate.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_observed_chance_and_kappa_are_the_exact_fractions"
+    },
+    {
+      "id": "three-labels",
+      "kind": "correctness",
+      "description": "Twelve answers with pass, partial, and fail give sorted labels, the right totals, observed 8/12, chance 57/144, and kappa 13/29.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_three_labels_are_handled_and_sorted"
+    },
+    {
+      "id": "band-thresholds",
+      "kind": "correctness",
+      "description": "The band changes exactly at 0.2, 0.4, 0.6, and 0.8, and zero or less reads as no better than chance.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_band_thresholds"
+    },
+    {
+      "id": "invalid-input-rejected",
+      "kind": "failure",
+      "description": "An empty batch, an empty judge grade, an empty human grade, and a batch where both graders passed everything raise ValueError with messages naming the problem.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_invalid_input_is_rejected"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The record list and its dictionaries are unchanged after kappa runs.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_is_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about two labels and kappa 0.50, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-collapses-into-new-records",
+      "kind": "correctness",
+      "description": "collapse maps partial to fail in new records, leaves the input unchanged, and the collapsed batch gives observed 0.75, chance 0.50, and kappa 0.50.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_collapses_into_new_records_and_leaves_the_input_alone"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "grades-fixture",
+      "kind": "correctness",
+      "description": "grades.json equals the ten graded answers, the twelve practice records, and the collapse mapping that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_grades_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: every pair and cell count, the totals, observed 0.8, chance 0.58, kappa 0.52381 moderate, the lazy judge at kappa 0.0, and the practice values 0.448276 and 0.5.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "shipped-raw-agreement",
+      "kind": "evaluation",
+      "description": "The percentage that shipped is 0.80 while kappa is below 0.60: the raw number overstates the judge by more than a quarter.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_raw_agreement_overstates_the_judge"
+    },
+    {
+      "id": "lazy-judge",
+      "kind": "evaluation",
+      "description": "A judge that passes everything agrees with the human on 0.70 of the answers, its chance agreement is also 0.70, and its kappa is 0.0: raw agreement rewards the base rate and kappa does not.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_judge_that_passes_everything_earns_the_base_rate_and_no_kappa"
+    },
+    {
+      "id": "chance-arrangement-oracle",
+      "kind": "evaluation",
+      "description": "Over all 120 arrangements of the judge's three fails among the ten answers, the mean observed agreement is exactly 29/50, the chance agreement, so the mean kappa by luck is zero; this checks the chance formula independently of the implementation.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_chance_agreement_is_the_mean_agreement_over_every_arrangement_of_the_judge_grades"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/KappaViz.jsx",
+      "description": "A short animation of the worked example, under two seconds per answer and about forty seconds in all: the ten graded answers listed with their pass and fail chips, each gliding in turn into its cell of a two-by-two agreement table (diagonal cells green, off-diagonal red) while the cell count and the agreed count update; then the totals appear beside the rows and under the columns, a panel builds observed 0.80, chance 0.58 with its two products, and kappa 0.52 moderate, a marker rises on a kappa gauge with its bands, the judge that passes everything drops it to 0.00, and the practice variation plays its three-label value 0.45 and its collapsed value 0.50. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/kappaModel.js, a JavaScript port of kappa, band, and collapse that runs on python/fixtures/grades.json; tests/judge-agreement-cohens-kappa-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that each answer beat ends with its chip landed and the cell and agreed counts including it, that a chip is in flight early in each beat, that the gauge marker reaches kappa and then zero for the lazy judge and ends on the collapsed practice value, that cell counts only accumulate and every alpha stays in range at every sampled moment, that captions carry the measured pairs and statistics, and that drawScene runs against a bare context at sampled moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

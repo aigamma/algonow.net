@@ -574,7 +574,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'Orbit\'s gateway streamed the model\'s reply to the browser and parsed each network chunk as one complete event; a chunk can carry two events or half of one, so the parser crashed and the reply died at a random word. A worked Python example reads six inline chunks through a line buffer: the chunk appended to a string, a while loop that splits off every complete line at the first line break and keeps the rest, comment and blank lines skipped with continue, json.loads inside try and except, an end marker that stops reading, a stream that is independent of where the network cut it, its exact output, a trace of the buffer at every chunk, and one practice variation that captures the usage event.',
     track: 'serving',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-31', listenMinutes: 11,
     difficulty: 'intermediate',
     durationMinutes: 30,
     skills: ['A line buffer: append, split at the first line break, keep the rest', 'while with a substring membership test and split with a maximum of one', 'startswith, removeprefix, and continue for lines to skip', 'json.loads inside try and except with a named failure', 'Capturing the usage event with a membership test (practice)'],

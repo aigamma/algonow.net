@@ -552,6 +552,20 @@ export const SCENARIOS = Object.freeze([
     skills: ['Uncertainty sampling by the top-two margin', 'sorted over zipped pairs with reverse', 'A key function returning a tuple for a deterministic tie-break', 'A function that returns three values', 'Entropy as the uncertainty score (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'majority-vote-filter-teacher-samples',
+    title: 'Keep a teacher label only when the teacher\'s samples agree',
+    pageTitle: 'Majority vote over teacher samples',
+    description: 'Taking the first of five teacher samples as the label put coin tosses into a distillation set. A worked Python example keeps only majority answers.',
+    summary: 'Orbit samples its large assistant five times per prompt to build the distillation set for a small router, and the script that shipped took the first sample as the label, so prompts the teacher never settled, and minority answers, went in as labels. A worked Python example normalizes the sampled answers, counts them with a Counter, reads the most common answer and its share, drops ties and weak majorities, and keeps the rest with the majority answer as the label: five inline prompts, most_common and tuple unpacking, an agreement compared with a threshold, its exact output, a trace of every tally, what the first-sample labels got wrong, and one practice variation that grades kept prompts gold or silver.',
+    track: 'distillation',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'foundation',
+    durationMinutes: 25,
+    skills: ['Self-consistency filtering by majority vote', 'collections.Counter and most_common', 'Normalizing answers before counting', 'A tie test before a threshold test', 'Grading tiers with an if, elif chain (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

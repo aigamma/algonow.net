@@ -267,10 +267,17 @@ export function drawScene(ctx, scene, trace) {
       ctx.lineWidth = 1;
     }
     if (bar.progress >= 1) {
-      ctx.fillStyle = DIM;
       ctx.font = `10px ${MONO}`;
-      ctx.textAlign = 'left';
-      ctx.fillText(`${bar.start} to ${bar.end - 1}`, xOf(bar.end) + 8, y + BAR_H / 2 + 4);
+      // The last window ends at the canvas edge: its label sits inside the bar.
+      if (xOf(bar.end) + 70 > W) {
+        ctx.fillStyle = BG;
+        ctx.textAlign = 'right';
+        ctx.fillText(`${bar.start} to ${bar.end - 1}`, xOf(bar.end) - 8, y + BAR_H / 2 + 4);
+      } else {
+        ctx.fillStyle = DIM;
+        ctx.textAlign = 'left';
+        ctx.fillText(`${bar.start} to ${bar.end - 1}`, xOf(bar.end) + 8, y + BAR_H / 2 + 4);
+      }
     }
   });
   // The practice: the hit, the sentence, and the expansion across three rows.

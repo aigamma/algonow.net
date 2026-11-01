@@ -168,7 +168,7 @@ export function sceneAt(timeline, trace, elapsed) {
 const INK = '#e9edf6', DIM = '#9aa5bd', PANEL = '#1e2740', LINE = '#232c40', BG = '#0d1119';
 const BLUE = '#5da2ff', GREEN = '#62d98a', AMBER = '#f0b94b', RED = '#e06767';
 const MONO = 'ui-monospace, Menlo, Consolas, monospace';
-const ROW0 = 96, ROW_H = 70, CHIP_X = 72, CHIP_W = 72, CHIP_GAP = 6, TALLY_X = 480, TALLY_W = 130, TAG_X = 672;
+const ROW0 = 96, ROW_H = 70, CHIP_X = 72, CHIP_W = 72, CHIP_GAP = 6, TALLY_X = 480, TALLY_W = 96, TAG_X = 684;
 const ANSWER_COLOURS = { billing: '#5da2ff', access: '#9fc4ff', outage: '#2f5f9e' };
 
 function rounded(ctx, x, y, w, h, r) {
@@ -242,7 +242,7 @@ export function drawScene(ctx, scene, trace) {
     // The decision tag, or the tier in the practice.
     if (row.decided > 0) {
       ctx.globalAlpha = row.alpha * row.decided;
-      ctx.font = `11px ${MONO}`;
+      ctx.font = `10.5px ${MONO}`;
       if (scene.practiceAlpha > 0.5 && row.action === 'kept') {
         ctx.fillStyle = row.tier === 'gold' ? AMBER : DIM;
         ctx.fillText(`${row.tier}: ${row.label} (${f2(row.agreement)})`, TAG_X, y + 4);

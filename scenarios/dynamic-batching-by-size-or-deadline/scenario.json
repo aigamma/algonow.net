@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "slug": "dynamic-batching-by-size-or-deadline",
+  "track": "serving",
+  "language": "python",
+  "system": {
+    "context": "Orbit's embedding service forwarded each request to the model as its own call. Every call pays the model's fixed per-call overhead, so at busy hours the service fell behind while the accelerator sat mostly idle between tiny calls. Requests that arrive within the same fraction of a second could have shared one call.",
+    "request": "A worked Python example of one action: batch(requests, max_batch, max_wait), a dynamic batcher written as a pending list that fills and is sent. A request joins the pending batch when it arrives; the batch is sent at once when it holds max_batch requests (reason full); when the oldest pending request has waited max_wait seconds the batch is sent at that moment whatever its size (reason deadline), settled lazily at the next arrival and once more after the loop; a request earlier than the previous one raises ValueError, as do a cap below 1 and a wait that is not positive. A small helper, flush, is called from three places and returns a fresh empty list. The lesson leads with the complete solution and its exact output over nine inline arrivals (the batch table, every wait, the counts, the rejected out-of-order run), explains the Python construct by construct (a helper function, rebinding a list versus clearing it, short-circuit evaluation, the lazy deadline, enumerate, a dictionary built from the input, a tolerance on a floating sum), traces the pending list through every arrival, and offers one practice variation: a token budget per batch with an oversized request rejected loudly.",
+    "inputs": [
+      "Nine requests written inline in solution.py as dictionaries with an id and an arrival time in seconds: r1 at 0.0, r2 at 0.1, r3 at 0.3, r4 at 0.4, r5 at 0.5, r6 at 0.9, r7 at 1.7, r8 at 2.0, r9 at 2.2",
+      "A cap of 4 requests per batch and a wait of 1.0 second for the oldest pending request",
+      "For the practice variation, a tokens count on every request (r1 120, r2 80, r3 300, r4 100, r5 200, r6 150, r7 90, r8 400, r9 60) and a budget of 500 tokens per batch"
+    ],
+    "outputs": [
+      "batch returns one record per batch with its member ids, the time it was sent, and the reason; the worked example sends r1, r2, r3, r4 at 0.40 (full), r5, r6 at 1.50 (deadline), and r7, r8, r9 at 2.70 (deadline), with waits 0.40, 0.30, 0.10, 0.00, 1.00, 0.60, 1.00, 0.70, 0.50",
+      "python solution.py prints the batch table, the wait table, the summary (3 model calls instead of 9, longest wait 1.00 s, average wait 0.51 s), the rejected out-of-order run, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it sends r1, r2, r3 at 0.40 (tokens), r4, r5, r6 at 1.40 (deadline), r7, r8 at 2.20 (tokens), and r9 at 3.20 (deadline), rejects a 600-token request, and prints what python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, threads, timers, or network",
+      "A batch never holds more than max_batch requests, no request waits more than max_wait, a deadline batch is recorded at the deadline time rather than the arrival that settled it, and the request list is never modified",
+      "A cap below 1, a wait that is not positive, or an arrival earlier than the previous one raises ValueError; in the practice a request larger than the token budget raises ValueError; the demonstrations print the rejected runs instead of crashing",
+      "Ordinary Python only: a second small function, guard clauses with raise, lists created before a loop and rebound inside it, short-circuit and, len, append, enumerate, a dictionary built with a loop, max and sum, f-strings with format specs, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: three batches with reasons full, deadline, deadline, nine waits, the summary line, the rejected line naming the out-of-order request, and OK",
+      "The batching rules hold at their edges: a request arriving exactly at the deadline finds the batch already sent while one a thousandth of a second earlier joins it, a single request is sent at its own deadline, a cap of 1 sends every request the instant it arrives, and a deadline batch is sent at exactly the oldest arrival plus max_wait",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt, with no batch above 500 tokens and the longest wait still 1.00 s",
+      "What shipped is measured on the same arrivals: one call per request makes 9 model calls with 6 inside the busiest second, while the batcher makes 3 with 1 inside any second and the practice variation makes 4, every wait inside the cap"
+    ]
+  },
+  "python": {
+    "package": "dynamic_batcher",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "fd2887e953d40593db1bae8e6e730df76cb04ce2d8254626893396a8d5084656"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "7f205e86a51f5606e4e1dcb05393185cbf3ecb0122b7db3181b4bf1cb41e2522"
+    },
+    {
+      "path": "python/fixtures/arrivals.json",
+      "description": "The nine arrivals with their tokens, the cap, the wait, the token budget, and the evaluation window exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "dee855afdb99f1af43f6bda73876ca7369b029cebe979252c4e59ccea56246de"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every batch and wait of the worked run and of the practice run (times to six decimals), the longest and average waits, the busiest one-second window of calls, and the shipped measurement, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "4c31411f73dc3e19864f0f5f257956a122efd4ec3ad1cd2b1d39bd1a4824bdab"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "batches-members-times-reasons",
+      "kind": "correctness",
+      "description": "The nine requests are sent as r1, r2, r3, r4 at 0.40 (full), r5, r6 at 1.50 (deadline), and r7, r8, r9 at 2.70 (deadline).",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_batches_members_times_and_reasons"
+    },
+    {
+      "id": "waits-and-bounds",
+      "kind": "correctness",
+      "description": "The waits are 0.40, 0.30, 0.10, 0.00, 1.00, 0.60, 1.00, 0.70, 0.50 in sending order, none negative, none above max_wait, no batch above max_batch, and the average is 4.6 ninths.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_every_wait_and_the_two_bounds"
+    },
+    {
+      "id": "deadline-time",
+      "kind": "correctness",
+      "description": "A deadline batch is recorded at exactly the oldest arrival plus max_wait, both when the next arrival settles it and when the loop ends.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_deadline_flush_happens_exactly_at_the_oldest_arrival_plus_max_wait"
+    },
+    {
+      "id": "deadline-boundary",
+      "kind": "correctness",
+      "description": "A request arriving exactly at the deadline finds the batch already sent and starts its own, while one arriving a thousandth of a second earlier joins the batch.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_an_arrival_exactly_at_the_deadline_finds_the_batch_already_sent"
+    },
+    {
+      "id": "single-request",
+      "kind": "correctness",
+      "description": "A single request is sent alone at its own deadline.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_single_request_is_sent_at_its_own_deadline"
+    },
+    {
+      "id": "cap-of-one",
+      "kind": "correctness",
+      "description": "A cap of 1 sends every request the instant it arrives, each as its own full batch.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_cap_of_one_sends_every_request_at_once"
+    },
+    {
+      "id": "bad-settings-and-order-rejected",
+      "kind": "failure",
+      "description": "A cap of 0, a wait of 0 or below, and an arrival earlier than the previous one raise ValueError with messages naming the problem; an empty request list returns no batches.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_invalid_settings_and_out_of_order_arrivals_are_rejected"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The request list and its dictionaries are unchanged after batch runs.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_is_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about the four expected batches, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-token-budget",
+      "kind": "correctness",
+      "description": "With the budget the batches are r1, r2, r3 (500 tokens, tokens), r4, r5, r6 (450, deadline), r7, r8 (490, tokens), r9 (60, deadline) at 0.40, 1.40, 2.20, 3.20, with waits 0.40, 0.30, 0.10, 1.00, 0.90, 0.50, 0.50, 0.20, 1.00, none above max_wait.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_respects_the_token_budget"
+    },
+    {
+      "id": "answer-oversized-rejected",
+      "kind": "failure",
+      "description": "A request of 600 tokens against a budget of 500 raises ValueError naming the request and its size, while a request of exactly 500 is sent.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_rejects_an_oversized_request"
+    },
+    {
+      "id": "answer-additive",
+      "kind": "correctness",
+      "description": "With a budget far above any batch the practice answer produces exactly the worked run's batches: the token rule only adds flushes.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_with_a_large_budget_matches_the_worked_run"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "arrivals-fixture",
+      "kind": "correctness",
+      "description": "arrivals.json equals the requests, tokens, cap, wait, budget, and evaluation window that the lesson files define.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_arrivals_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the three batches, the nine waits with r7 waiting exactly 1.0, the longest wait 1.0, the average 0.511111, and the practice replay with reasons tokens, deadline, tokens, deadline and token totals 500, 450, 490, 60.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "shipped-calls",
+      "kind": "evaluation",
+      "description": "One call per request makes 9 model calls on the nine arrivals, 6 of them inside the busiest one-second window.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_what_shipped_makes_nine_calls_and_six_inside_one_second"
+    },
+    {
+      "id": "batched-calls",
+      "kind": "evaluation",
+      "description": "With the batcher, 3 model calls carry the nine requests, no one-second window holds more than 1 call, and the longest wait equals the cap of 1.0.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_batching_makes_three_calls_and_bounds_every_wait"
+    },
+    {
+      "id": "budget-adds-one-call",
+      "kind": "evaluation",
+      "description": "On the same arrivals the token budget makes 4 model calls instead of 3 while keeping every wait inside the cap, with an average wait of 4.9 ninths.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_token_budget_adds_one_call_and_keeps_the_wait_bound"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/DynamicBatcherViz.jsx",
+      "description": "A short animation of the worked example, about two and a half seconds per arrival and about half a minute in all: the nine arrivals as ticks on a time axis with an amber clock marker, a tray for the pending list with a bar that fills as its oldest request waits toward the deadline, and a column of model calls at right. Each beat advances the clock to the arrival, slides out a batch whose deadline already passed (labeled deadline in amber), adds the request to the tray, and slides out a batch that reached the cap (labeled full in blue); a final beat sends the last batch at its deadline; the waits appear below as batches go out; the outro gives 3 calls instead of 9, the longest wait 1.00 s and the average 0.51 s; the practice variation redraws the column with box widths proportional to tokens, the budget line at 500, and four batches. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/dynamicBatcherModel.js, a JavaScript port of batch (with and without the token budget) and of the window count that runs on python/fixtures/arrivals.json; tests/dynamic-batching-by-size-or-deadline-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real solution, that each arrival beat ends with the tray holding exactly the pending count after that arrival and the column holding exactly the batches sent so far with the clock at the arrival, that the deadline bar reaches the cap before a deadline batch slides out and the clock never runs backwards, that at every sampled moment the tray never exceeds the cap, batches only accumulate, and every id is in exactly one place, that captions carry the measured joins, flushes, waits, and counts, and that the final scene holds the four practice batches with their token totals. drawScene is exercised against a bare context at sampled moments, and frames were rendered in headless Chromium and inspected.",
+      "check": "trace-fixture"
+    }
+  ]
+}

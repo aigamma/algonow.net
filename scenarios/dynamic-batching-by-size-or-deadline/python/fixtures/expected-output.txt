@@ -1,0 +1,22 @@
+9 requests, at most 4 per batch, at most 1.0 s of waiting
+batch  sent at  reason    members
+1         0.40  full      r1, r2, r3, r4
+2         1.50  deadline  r5, r6
+3         2.70  deadline  r7, r8, r9
+
+id    arrived  sent at   wait
+r1       0.00     0.40   0.40
+r2       0.10     0.40   0.30
+r3       0.30     0.40   0.10
+r4       0.40     0.40   0.00
+r5       0.50     1.50   1.00
+r6       0.90     1.50   0.60
+r7       1.70     2.70   1.00
+r8       2.00     2.70   0.70
+r9       2.20     2.70   0.50
+
+3 model calls instead of 9; longest wait 1.00 s (the cap), average wait 0.51 s
+
+rejected: requests must arrive in time order: r2 at 0.5 after 1.0
+
+OK

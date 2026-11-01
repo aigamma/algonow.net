@@ -1,0 +1,53 @@
+{
+ "max_batch": 4,
+ "max_wait": 1.0,
+ "max_tokens": 500,
+ "window_seconds": 1.0,
+ "requests": [
+  {
+   "id": "r1",
+   "t": 0.0,
+   "tokens": 120
+  },
+  {
+   "id": "r2",
+   "t": 0.1,
+   "tokens": 80
+  },
+  {
+   "id": "r3",
+   "t": 0.3,
+   "tokens": 300
+  },
+  {
+   "id": "r4",
+   "t": 0.4,
+   "tokens": 100
+  },
+  {
+   "id": "r5",
+   "t": 0.5,
+   "tokens": 200
+  },
+  {
+   "id": "r6",
+   "t": 0.9,
+   "tokens": 150
+  },
+  {
+   "id": "r7",
+   "t": 1.7,
+   "tokens": 90
+  },
+  {
+   "id": "r8",
+   "t": 2.0,
+   "tokens": 400
+  },
+  {
+   "id": "r9",
+   "t": 2.2,
+   "tokens": 60
+  }
+ ]
+}

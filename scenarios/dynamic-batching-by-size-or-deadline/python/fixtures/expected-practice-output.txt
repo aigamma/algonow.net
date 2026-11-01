@@ -1,0 +1,24 @@
+9 requests, at most 4 per batch, at most 500 tokens per batch, at most 1.0 s of waiting
+batch  sent at  reason    tokens  members
+1         0.40  tokens       500  r1, r2, r3
+2         1.40  deadline     450  r4, r5, r6
+3         2.20  tokens       490  r7, r8
+4         3.20  deadline      60  r9
+
+id    arrived  sent at   wait
+r1       0.00     0.40   0.40
+r2       0.10     0.40   0.30
+r3       0.30     0.40   0.10
+r4       0.40     1.40   1.00
+r5       0.50     1.40   0.90
+r6       0.90     1.40   0.50
+r7       1.70     2.20   0.50
+r8       2.00     2.20   0.20
+r9       2.20     3.20   1.00
+
+4 model calls instead of 9; longest wait 1.00 s (the cap), average wait 0.54 s
+
+rejected: requests must arrive in time order: r2 at 0.5 after 1.0
+rejected: big needs 600 tokens, more than the budget of 500
+
+OK

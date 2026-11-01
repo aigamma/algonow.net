@@ -1,0 +1,198 @@
+{
+ "max_batch": 4,
+ "max_wait": 1.0,
+ "max_tokens": 500,
+ "window_seconds": 1.0,
+ "batches": [
+  {
+   "ids": [
+    "r1",
+    "r2",
+    "r3",
+    "r4"
+   ],
+   "at": 0.4,
+   "reason": "full"
+  },
+  {
+   "ids": [
+    "r5",
+    "r6"
+   ],
+   "at": 1.5,
+   "reason": "deadline"
+  },
+  {
+   "ids": [
+    "r7",
+    "r8",
+    "r9"
+   ],
+   "at": 2.7,
+   "reason": "deadline"
+  }
+ ],
+ "waits": [
+  {
+   "id": "r1",
+   "t": 0.0,
+   "at": 0.4,
+   "wait": 0.4
+  },
+  {
+   "id": "r2",
+   "t": 0.1,
+   "at": 0.4,
+   "wait": 0.3
+  },
+  {
+   "id": "r3",
+   "t": 0.3,
+   "at": 0.4,
+   "wait": 0.1
+  },
+  {
+   "id": "r4",
+   "t": 0.4,
+   "at": 0.4,
+   "wait": 0.0
+  },
+  {
+   "id": "r5",
+   "t": 0.5,
+   "at": 1.5,
+   "wait": 1.0
+  },
+  {
+   "id": "r6",
+   "t": 0.9,
+   "at": 1.5,
+   "wait": 0.6
+  },
+  {
+   "id": "r7",
+   "t": 1.7,
+   "at": 2.7,
+   "wait": 1.0
+  },
+  {
+   "id": "r8",
+   "t": 2.0,
+   "at": 2.7,
+   "wait": 0.7
+  },
+  {
+   "id": "r9",
+   "t": 2.2,
+   "at": 2.7,
+   "wait": 0.5
+  }
+ ],
+ "longest_wait": 1.0,
+ "average_wait": 0.511111,
+ "busiest_window": 1,
+ "shipped": {
+  "model_calls": 9,
+  "busiest_window": 6
+ },
+ "practice": {
+  "batches": [
+   {
+    "ids": [
+     "r1",
+     "r2",
+     "r3"
+    ],
+    "at": 0.4,
+    "reason": "tokens",
+    "tokens": 500
+   },
+   {
+    "ids": [
+     "r4",
+     "r5",
+     "r6"
+    ],
+    "at": 1.4,
+    "reason": "deadline",
+    "tokens": 450
+   },
+   {
+    "ids": [
+     "r7",
+     "r8"
+    ],
+    "at": 2.2,
+    "reason": "tokens",
+    "tokens": 490
+   },
+   {
+    "ids": [
+     "r9"
+    ],
+    "at": 3.2,
+    "reason": "deadline",
+    "tokens": 60
+   }
+  ],
+  "waits": [
+   {
+    "id": "r1",
+    "t": 0.0,
+    "at": 0.4,
+    "wait": 0.4
+   },
+   {
+    "id": "r2",
+    "t": 0.1,
+    "at": 0.4,
+    "wait": 0.3
+   },
+   {
+    "id": "r3",
+    "t": 0.3,
+    "at": 0.4,
+    "wait": 0.1
+   },
+   {
+    "id": "r4",
+    "t": 0.4,
+    "at": 1.4,
+    "wait": 1.0
+   },
+   {
+    "id": "r5",
+    "t": 0.5,
+    "at": 1.4,
+    "wait": 0.9
+   },
+   {
+    "id": "r6",
+    "t": 0.9,
+    "at": 1.4,
+    "wait": 0.5
+   },
+   {
+    "id": "r7",
+    "t": 1.7,
+    "at": 2.2,
+    "wait": 0.5
+   },
+   {
+    "id": "r8",
+    "t": 2.0,
+    "at": 2.2,
+    "wait": 0.2
+   },
+   {
+    "id": "r9",
+    "t": 2.2,
+    "at": 3.2,
+    "wait": 1.0
+   }
+  ],
+  "longest_wait": 1.0,
+  "average_wait": 0.544444,
+  "busiest_window": 2
+ }
+}

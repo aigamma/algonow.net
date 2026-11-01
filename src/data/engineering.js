@@ -462,7 +462,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'Orbit\'s embedding service called the model once per request, so every call paid the fixed overhead and the busy hours fell behind. A worked Python example collects nine scripted arrivals into batches with a dynamic batcher: a pending list that fills, a flush when the list reaches the size cap, a flush at the deadline of the oldest pending request checked lazily at each arrival, a final flush after the loop, one small helper function called from three places, its exact output with every wait, a trace of the pending list, and one practice variation that adds a token budget per batch and rejects an oversized request loudly.',
     track: 'serving',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-31', listenMinutes: 15,
     difficulty: 'intermediate',
     durationMinutes: 30,
     skills: ['Dynamic batching with a size cap and a wait deadline', 'A pending list that fills and is flushed', 'A small helper function called from several places', 'Checking a deadline lazily at each arrival', 'A token budget per batch (practice)'],

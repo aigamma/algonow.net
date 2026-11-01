@@ -496,6 +496,20 @@ export const SCENARIOS = Object.freeze([
     skills: ['Cohen\'s kappa: observed minus chance agreement, rescaled', 'Pair counts in a dictionary keyed by tuples', 'Marginal totals summed from pair counts', 'An if, elif chain that names a band', 'Collapsing labels with dict.get and a mapping (practice)'],
     authoringModel: 'Claude Fable 5',
   },
+  {
+    slug: 'sliding-window-chunks-with-overlap',
+    title: 'Chunk a flat document into sliding word windows with overlap',
+    pageTitle: 'Sliding window chunks with overlap',
+    description: 'Fixed windows cut a runbook instruction in two at a boundary. A worked Python example slides overlapping word windows so short spans stay whole.',
+    summary: 'Orbit\'s older runbooks are flat paragraphs with no headings, so ingest fell back to fixed windows of twelve words with no overlap, and the recovery instruction was cut in two at a window boundary. A worked Python example slides a twelve-word window forward eight words at a time over one inline paragraph of thirty-nine words, so every chunk shares its first four words with the one before: range with a step, a window end capped with min, slicing and join, a break after the window that reaches the end, the guarantee that an overlap of four keeps every span of up to five words whole, the storage cost measured, its exact output, a trace of every window, and one practice variation that expands a retrieval hit to its neighbouring chunks.',
+    track: 'rag',
+    language: 'python',
+    status: 'draft',
+    difficulty: 'foundation',
+    durationMinutes: 25,
+    skills: ['Sliding windows with range and a step', 'Capping a slice end with min and reading end-exclusive positions', 'Breaking out of a loop once the end is reached', 'The overlap guarantee and its storage cost', 'Expanding a hit to its neighbours with index, max, and min (practice)'],
+    authoringModel: 'Claude Fable 5',
+  },
 ].map(Object.freeze));
 
 export function publishedScenarios(scenarios) {

@@ -1,0 +1,10 @@
+[project]
+name = "latency-percentiles-nearest-rank"
+version = "0.1.0"
+description = "Report p50, p95, and p99 latency with the nearest-rank method and compare two deployments: a worked Python example, standard library only"
+requires-python = ">=3.11"
+dependencies = []
+
+# The lesson needs none of this: copy solution.py (or starter.py) anywhere and
+# run it with python. The behind-the-scenes checks run from this directory:
+#   PYTHONPATH=src python -m unittest discover -s tests -p "test_*.py"

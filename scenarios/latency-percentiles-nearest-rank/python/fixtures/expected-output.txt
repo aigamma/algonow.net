@@ -1,0 +1,14 @@
+20 samples per deployment, time to first token in ms
+deployment     mean    p50    p95    p99
+old          332.25    330    365    370
+new          292.00    180   1200   1400
+
+mean: new is 40.25 ms faster
+p50: new is 150 ms faster
+p95: new is 835 ms slower
+p99: new is 1030 ms slower
+
+rejected: latencies must not be empty
+rejected: percentile must be above 0 and at most 100, got 0
+
+OK

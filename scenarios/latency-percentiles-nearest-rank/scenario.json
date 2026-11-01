@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "slug": "latency-percentiles-nearest-rank",
+  "track": "evaluation",
+  "language": "python",
+  "system": {
+    "context": "Orbit's gateway team shipped a new deployment of the model gateway and reported that the mean time to first token had dropped from 332.25 ms to 292.00 ms. The on-call engineer kept receiving complaints about slow answers. Both were right: the mean had improved while the slow requests became much slower, because a mean is one number for the whole distribution and a handful of very slow requests barely moves it.",
+    "request": "A worked Python example of one action: percentile(latencies, p), the nearest-rank percentile of a list of latency samples, plus summarize(latencies), which returns the mean, p50, p95, and p99 in a dictionary. percentile sorts a copy, computes rank = ceil(p * n / 100) with the multiplication first so whole ranks stay whole, returns the sample at index rank - 1, and raises ValueError for an empty list or a percentile at or below 0 or above 100. The lesson leads with the complete solution and its exact output over two inline deployments of twenty samples each (a table of mean, p50, p95, p99; four comparison lines whose direction is computed; the two rejected calls), explains the Python construct by construct (import math and ceil, guard clauses, sorted versus sort, the rank arithmetic and its operation order, zero-based indexing, a dictionary literal returned from a function, items on a dictionary, format specs, a sign-deciding comparison), traces every rank, and offers one practice variation: linear interpolation between the two nearest ranks, the default of most numeric and plotting libraries.",
+    "inputs": [
+      "Two deployments written inline in solution.py as a dictionary of lists of twenty time-to-first-token samples in milliseconds, in logged order: old = 310, 295, 330, 350, 300, 345, 320, 365, 305, 340, 325, 355, 315, 335, 360, 300, 345, 330, 370, 350 and new = 175, 190, 160, 1200, 185, 170, 200, 180, 165, 195, 1400, 175, 185, 160, 190, 170, 205, 180, 165, 190",
+      "The percentiles 50, 95, and 99, called explicitly in summarize",
+      "For the practice variation, the same two lists; the interpolated check expects old p95 365.25, new p95 1210.00, and new p99 1362.00 after rounding to two decimals"
+    ],
+    "outputs": [
+      "summarize returns {mean, p50, p95, p99}: old 332.25, 330, 365, 370 and new 292.0, 180, 1200, 1400; the comparison lines read mean: new is 40.25 ms faster, p50: new is 150 ms faster, p95: new is 835 ms slower, p99: new is 1030 ms slower",
+      "python solution.py prints the header, the table, the four comparison lines, the two rejected calls (an empty list and a percentile of 0), and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change it prints interpolated values with two decimals (old 332.50, 365.25, 369.05; new 182.50, 1210.00, 1362.00) and the differences (p95: new is 844.75 ms slower, p99: new is 992.95 ms slower), as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, or network",
+      "percentile never modifies its input: sorted makes a copy; the answer is always one of the samples; the rank is computed as ceil(p * n / 100) with the multiplication first",
+      "An empty list, or a percentile at or below 0 or above 100, raises ValueError with a message naming the problem; the demonstration prints the rejected calls instead of crashing",
+      "Ordinary Python only: import math, guard clauses with raise, sorted, math.ceil and math.floor, integer indexing, a dictionary literal returned from a function, a loop over dictionary items, f-strings with format specs, try and except, round, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the table (old 332.25, 330, 365, 370; new 292.00, 180, 1200, 1400), the four comparison lines, the two rejected lines, and OK",
+      "The nearest rank equals the brute-force definition (the smallest sample that at least p percent of the samples are at or below) on both lists and on two hundred seeded random lists; p = 100 returns the maximum, p = 0.1 the minimum, a one-sample list returns that sample for every p, and 35 * 20 / 100 rounds to exactly 7 samples",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0, matches expected-practice-output.txt, and agrees with statistics.quantiles (n=100, method inclusive) to nine decimal places on both lists",
+      "What shipped is measured on the same samples: the mean ranks new as better by 40.25 ms while p95 and p99 rank old as better by 835 and 1030 ms; p99 from twenty samples is the maximum and stays the maximum up to ninety-nine samples; the interpolated method differs by exactly 10 ms at new p95 and tells the same story"
+    ]
+  },
+  "python": {
+    "package": "latency_percentiles",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "1da0ba84e771e4933ca3883745004cb7b487c4a9e3c06b687934185c2d385576"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "585b10779cb5eba54aa49462a1e6f8ced35b4771f3dc6451ca05f03584b3a429"
+    },
+    {
+      "path": "python/fixtures/latencies.json",
+      "description": "The two deployments' samples and the three percentiles exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "e1dfdc9b6c090fa090cbef5ec8860c3f8668c89acf1188588f0a76106d45cb02"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every deployment's samples, sorted copy, and mean; the rank, index, and value of every nearest-rank percentile; the position, lower index, fraction, and value of every interpolated one; and the differences under both methods (six decimals), all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "d504bd1632f4a1c158ac2ad092aaed210ab084fba708ab67e1abfa61399d76a1"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "percentiles-and-means",
+      "kind": "correctness",
+      "description": "summarize returns exactly {mean 332.25, p50 330, p95 365, p99 370} for old and {mean 292.0, p50 180, p95 1200, p99 1400} for new.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_percentiles_and_means_for_both_deployments"
+    },
+    {
+      "id": "nearest-rank-definition",
+      "kind": "correctness",
+      "description": "percentile equals the brute-force definition (the smallest sample that at least p percent of the samples are at or below) for nine percentiles on both lists and on two hundred seeded random lists of one to forty samples.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_nearest_rank_matches_the_brute_force_definition"
+    },
+    {
+      "id": "rank-arithmetic",
+      "kind": "correctness",
+      "description": "For twenty samples p50, p95, and p99 use ranks 10, 19, and 20 (indexes 9, 18, 19), and multiplying before dividing keeps 35 percent of 20 samples at exactly 7.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_rank_arithmetic_for_twenty_samples"
+    },
+    {
+      "id": "boundaries",
+      "kind": "correctness",
+      "description": "p = 100 returns the maximum, p = 0.1 returns the minimum, and a one-sample list returns that sample for every percentile.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_boundaries"
+    },
+    {
+      "id": "invalid-inputs-rejected",
+      "kind": "failure",
+      "description": "An empty list raises ValueError naming the empty input; percentiles 0, 101, and -5 raise ValueError naming the percentile.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_invalid_inputs_are_rejected"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The deployment lists are unchanged after summarize runs, and the logged order is not sorted order.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_is_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line naming the expected interpolated values, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-matches-statistics-quantiles",
+      "kind": "correctness",
+      "description": "The interpolated percentile agrees with statistics.quantiles (n=100, method inclusive) to nine decimal places for p50, p95, and p99 on both lists, returns the maximum for p = 100, and returns the only sample of a one-sample list.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_interpolates_like_statistics_quantiles"
+    },
+    {
+      "id": "answer-guards",
+      "kind": "failure",
+      "description": "The interpolated version still raises ValueError for an empty list and for percentiles 0 and 101.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_keeps_the_guards"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and summarize plus the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "latencies-fixture",
+      "kind": "correctness",
+      "description": "latencies.json equals the two deployments and the three percentiles that the lesson files define, and both deployments hold twenty samples.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_latencies_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: sorted copies, means, every nearest rank (rank, index, value), every interpolated position (position, lower, fraction, value), and the differences under both methods.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "mean-versus-tail",
+      "kind": "evaluation",
+      "description": "On the same samples the mean ranks new as better by 40.25 ms and p50 by 150 ms, while p95 ranks old as better by 835 ms and p99 by 1030 ms; two of the twenty new samples are above a second and none of the old.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_mean_ranks_new_as_better_while_the_tail_ranks_old_as_better"
+    },
+    {
+      "id": "p99-is-the-maximum",
+      "kind": "evaluation",
+      "description": "p99 of twenty samples is the maximum for both deployments; with ninety-nine samples it is still the maximum and a hundred samples is the first count where it is not.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_p99_of_twenty_samples_is_the_maximum"
+    },
+    {
+      "id": "interpolation-same-story",
+      "kind": "evaluation",
+      "description": "The interpolated method gives differences of -40.25, -150.0, 844.75, and 992.95 ms, ranks the deployments the same way, and differs from the nearest rank by exactly 10 ms at new p95.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_interpolation_tells_the_same_story"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/PercentileViz.jsx",
+      "description": "A short animation of the worked example, about half a minute in all: two panels of twenty bars on a shared 0 to 1500 ms scale, one per deployment. The bars appear in logged order while the caption states what shipped (means 332.25 against 292.00); each panel sorts; then six picks of about two and a half seconds alternate between the deployments: an amber cursor slides to the rank ceil(p * 20 / 100), the bar there lights blue with its value, and the caption spells out the arithmetic (p95, new: 95 * 20 / 100 = 19.0, ceil 19, the 19th smallest is 1200 ms at index 18). Dashed amber lines draw the means, the outro states the four comparisons and that two of the twenty new samples are above a second, and the practice variation marks position 18.05 between the 19th and 20th bars of new with a green dot at 1210.00 ms while the results lines switch to interpolated values. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/percentileModel.js, a JavaScript port of percentile (nearest rank) and of the practice's interpolation that runs on python/fixtures/latencies.json; tests/latency-percentiles-nearest-rank-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that each pick beat ends with its rank lit at the record's value after the cursor has travelled there and the lit slot holds the sample the function returns, that bars always hold exactly the samples with slots in range and the sorted slots equal a stable sort, that lit picks only accumulate at every sampled moment, that captions carry the measured ranks, values, and comparisons, and that the final scene holds the interpolated p95 of 1210 at position 18.05 with both means drawn. drawScene is exercised against a bare context at sampled moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

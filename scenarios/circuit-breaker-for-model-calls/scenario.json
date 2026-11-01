@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "slug": "circuit-breaker-for-model-calls",
+  "track": "serving",
+  "language": "python",
+  "system": {
+    "context": "Orbit's gateway calls a hosted model provider. When the provider degraded, every request waited the full timeout and then failed, and the retries behind each failure kept the provider saturated and the gateway's workers busy doing nothing. Nothing in the gateway noticed that the last fifty calls had all failed.",
+    "request": "A worked Python example of one action: protect(calls, threshold, cooldown), a three-state circuit breaker written as state carried through a loop. The state is a string (closed, open, half-open); a counter of consecutive failures opens the breaker when it reaches the threshold and records the time; while open, calls are skipped with continue until the cooldown has passed; the first call after the cooldown is a trial that closes the breaker on success or reopens it with a fresh cooldown on failure; a threshold below 1, a cooldown that is not positive, or an arrival earlier than the previous one raises ValueError. The lesson leads with the complete solution and its exact output over ten inline calls whose provider answers are scripted (a table of time, state before, action, state after; the counts; the rejected out-of-order run), explains the Python construct by construct (guard clauses, a string as a state, if and elif chains, a counter that resets, continue, tuples and tuple unpacking, format specs, or in a condition), traces the state through every call, and offers one practice variation: closing requires two consecutive trial successes.",
+    "inputs": [
+      "Ten calls written inline in solution.py as dictionaries with an id, an arrival time in seconds, and the answer the provider would give if the call reached it: c1 at 0.0 ok, c2 at 0.4 fail, c3 at 0.8 fail, c4 at 1.2 fail, c5 at 1.5 fail, c6 at 2.0 fail, c7 at 3.3 fail, c8 at 4.0 fail, c9 at 5.4 ok, c10 at 5.8 ok; the provider field is a scripted stand-in so the file runs alone",
+      "A threshold of 3 consecutive failures and a cooldown of 2.0 seconds",
+      "For the practice variation, a recovery count of 2 consecutive trial successes"
+    ],
+    "outputs": [
+      "protect returns one (id, t, before, action, after) record per call; the worked example gives states before of closed, closed, closed, closed, open, open, half-open, open, half-open, closed, actions ok, failed, failed, failed, skipped, skipped, trial failed, skipped, trial ok, ok, and states after of closed, closed, closed, open, open, open, open, open, closed, closed",
+      "python solution.py prints the state table, the counts (provider calls 7 of 10, failures returned 4, skipped 3: c5, c6, c8), the rejected out-of-order run, and OK; python/fixtures/expected-output.txt holds that output byte for byte",
+      "python starter.py prints NOT OK and exits 1 as shipped; after the practice change c9 is the first trial success and leaves the breaker half-open, c10 is the second and closes it, as python/fixtures/expected-practice-output.txt records for practice_answer.py"
+    ],
+    "constraints": [
+      "Standard library only; each lesson file runs alone in an empty directory with python -I -S; no fixtures, credentials, threads, timers, or network",
+      "The breaker is updated lazily on arrival: the cooldown is measured between the recorded opening time and the arrival time, a skipped call never reaches the provider, and the call list is never modified",
+      "A threshold below 1, a cooldown that is not positive, or an arrival earlier than the previous one raises ValueError; the demonstration prints the rejected run instead of crashing",
+      "Ordinary Python only: guard clauses with raise, variables created before a loop and rewritten inside it, a string compared with == as the state, if and elif and else chains, continue, augmented assignment, tuples and tuple unpacking, f-strings with format specs, or in a condition, try and except, and assert; no classes, regular expressions, or comprehensions in the lesson files"
+    ],
+    "successCriteria": [
+      "solution.py run alone exits 0 and its output equals expected-output.txt byte for byte: the ten rows, provider calls 7 of 10, failures returned 4, skipped 3 (c5, c6, c8), the rejected line naming the out-of-order call, and OK",
+      "The breaker is exact at its edges: two failures, a success, and two more failures never open it; the third consecutive failure opens it and not the second; a call arriving exactly when the cooldown ends is the trial while one a thousandth of a second earlier is skipped; a failed trial starts a fresh cooldown from its own timestamp",
+      "starter.py run alone exits 1 with NOT OK and no traceback; practice_answer.py run alone exits 0 and matches expected-practice-output.txt, with c9 leaving the breaker half-open and c10 closing it, and with a recovery of 1 it reproduces the worked solution exactly",
+      "What shipped is measured on the same script: forwarding everything makes 10 provider calls and eats 7 failures, while the breaker makes 7 provider calls, sees 4 failures, and skips 3 calls that would all have failed; a second script shows a skipped call the provider would have answered, the honest cost"
+    ]
+  },
+  "python": {
+    "package": "circuit_breaker",
+    "dependencies": "stdlib",
+    "starterExitCode": 1
+  },
+  "fixtures": [
+    {
+      "path": "python/fixtures/expected-output.txt",
+      "description": "The exact standard output of solution.py run alone; the lesson page displays this file and the test compares the real run against it byte for byte.",
+      "sha256": "6e51f65cf34db5a7561c9782f5a3133652e47a5aca79af23988f1123a9949ce6"
+    },
+    {
+      "path": "python/fixtures/expected-practice-output.txt",
+      "description": "The exact standard output of practice_answer.py run alone: the practice variation's expected result.",
+      "sha256": "e0b8c75c13a06a85a97ba45d64f6fc110158de055161a4f5b7adb0bdc7d1f976"
+    },
+    {
+      "path": "python/fixtures/calls.json",
+      "description": "The ten calls with their scripted provider answers, the threshold, the cooldown, and the recovery count exactly as the lesson files define them; the animation runs on this copy and a test pins it to the files.",
+      "sha256": "e19739945547f4ae2d522c3b454613d3dd2efa8bb332ebd09ba0eabe9b8e5f56"
+    },
+    {
+      "path": "python/fixtures/expected-trace.json",
+      "description": "Every record of the worked run and of the two-trial practice run, the reached, failed, and skipped ids, the shipped measurement, and the trial ids, all derived from the Python files; the animation must replay it exactly.",
+      "sha256": "39729ae092a42a82832024f92975ec9d0fa84998972e83bd8f0af5b065552c7c"
+    }
+  ],
+  "checks": [
+    {
+      "id": "solution-exact-output",
+      "kind": "correctness",
+      "description": "solution.py copied alone into an empty directory and run with python -I -S exits 0 with empty stderr and prints expected-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_solution_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "states-and-actions",
+      "kind": "correctness",
+      "description": "The ten calls are decided ok, failed, failed, failed, skipped, skipped, trial failed, skipped, trial ok, ok with the states before and after listed in the contract.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_states_and_actions_for_the_ten_calls"
+    },
+    {
+      "id": "threshold-boundary",
+      "kind": "correctness",
+      "description": "A success between failures resets the run so two, one success, two never open the breaker; exactly the third consecutive failure opens it; a threshold of four needs a fourth.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_exactly_threshold_consecutive_failures_open_the_breaker_and_a_success_resets_the_count"
+    },
+    {
+      "id": "cooldown-boundary",
+      "kind": "correctness",
+      "description": "A call arriving exactly when the cooldown ends is the trial and closes the breaker on success; one a thousandth of a second earlier is skipped.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_call_exactly_at_the_end_of_the_cooldown_is_the_trial"
+    },
+    {
+      "id": "failed-trial-reopens",
+      "kind": "correctness",
+      "description": "A failed trial reopens the breaker and the new cooldown is counted from the failed trial's timestamp, not from the first opening.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_failed_trial_reopens_and_starts_a_new_cooldown"
+    },
+    {
+      "id": "bad-settings-and-order-rejected",
+      "kind": "failure",
+      "description": "A threshold of 0, a cooldown of 0 or below, and an arrival earlier than the previous one raise ValueError with messages naming the problem; an empty call list returns no records.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_invalid_settings_and_out_of_order_arrivals_are_rejected"
+    },
+    {
+      "id": "input-not-modified",
+      "kind": "correctness",
+      "description": "The call list and its dictionaries are unchanged after protect runs.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_input_is_not_modified"
+    },
+    {
+      "id": "starter-not-ok",
+      "kind": "failure",
+      "description": "starter.py run alone exits 1, starts with the NOT OK line about c10 being the second trial, and writes no traceback.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_starter_reports_not_ok_as_shipped"
+    },
+    {
+      "id": "answer-exact-output",
+      "kind": "correctness",
+      "description": "practice_answer.py run alone exits 0 and prints expected-practice-output.txt byte for byte.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_prints_exactly_the_expected_output_when_run_alone"
+    },
+    {
+      "id": "answer-two-trials",
+      "kind": "correctness",
+      "description": "With a recovery of 2 the first eight records are unchanged, c9 leaves the breaker half-open, c10 closes it, and with a recovery of 1 the answer reproduces the worked solution exactly.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_needs_two_trial_successes_to_close"
+    },
+    {
+      "id": "answer-reset-on-failed-trial",
+      "kind": "failure",
+      "description": "A failed trial after one good trial resets the success count so two fresh good trials are needed, and a recovery of 0 raises ValueError.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_resets_the_count_when_a_trial_fails"
+    },
+    {
+      "id": "answer-region",
+      "kind": "correctness",
+      "description": "The practice answer differs from the starter only inside its marked answer region: the data above and the demonstration below are identical text.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_answer_and_starter_differ_only_inside_the_marked_region"
+    },
+    {
+      "id": "calls-fixture",
+      "kind": "correctness",
+      "description": "calls.json equals the calls, threshold, cooldown, and recovery count that the lesson files define, and the practice file carries the same calls.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_calls_fixture_is_the_lesson_input"
+    },
+    {
+      "id": "trace-fixture",
+      "kind": "correctness",
+      "description": "expected-trace.json equals the trace derived from the real functions: the ten records, reached c1, c2, c3, c4, c7, c9, c10, failures returned c2, c3, c4, c7, skipped c5, c6, c8, the shipped measurement, and the practice records with trials c9 and c10.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_expected_trace_is_what_the_solution_does"
+    },
+    {
+      "id": "shipped-every-call",
+      "kind": "evaluation",
+      "description": "Forwarding everything sends all ten calls to the provider and seven of them fail after waiting out the timeout.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_what_shipped_sends_every_call_and_eats_seven_failures"
+    },
+    {
+      "id": "breaker-spares-three",
+      "kind": "evaluation",
+      "description": "With the breaker, seven calls reach the provider, four fail, and the three skipped calls (c5, c6, c8) would all have failed on this script.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_the_breaker_spares_three_calls_that_would_have_failed"
+    },
+    {
+      "id": "skipped-but-would-have-answered",
+      "kind": "evaluation",
+      "description": "On a script where the provider recovers during the cooldown, the call arriving then is skipped although it would have succeeded: the honest cost of failing fast.",
+      "file": "python/tests/test_lesson.py",
+      "function": "test_a_skipped_call_can_be_one_the_provider_would_have_answered"
+    }
+  ],
+  "visuals": [
+    {
+      "kind": "canvas",
+      "path": "visuals/CircuitBreakerViz.jsx",
+      "description": "A short animation of the worked example, about two and a half seconds per call and about half a minute in all: the ten calls as ticks on a time axis, a badge between a gateway box and a provider box colored by the breaker's state (closed green, open red, half-open amber) with the failure counter as three boxes and the cooldown as a draining bar, and a log of states. Each beat sends the call along the wire and colors its chip with the provider's answer, or turns it back at the breaker with a hollow red chip; the badge recolors on a transition. The intro states what shipped (10 provider calls, 7 failures); the outro gives 7 provider calls, 4 failures returned, 3 skipped that would all have failed; the practice replay shows c9 leaving the breaker half-open and c10 closing it under the two-trial rule. Step buttons, pause, restart; the site's motion preference sets the pace and the two-minute rest between repeats; the still setting paints the finished state once.",
+      "correctness": "The animation is driven by visuals/circuitBreakerModel.js, a JavaScript port of protect (one trial and two trials) that runs on python/fixtures/calls.json; tests/circuit-breaker-for-model-calls-viz.test.mjs asserts that its trace equals python/fixtures/expected-trace.json, which the cited Python check derives from the real functions, that each call beat ends with the badge in that record's after state, its chip placed, and the counter updated, that mid-beat the badge shows the before state and the cooldown bar the measured elapsed time, that at every sampled moment the state is one of the three, the counter stays inside the threshold, and chips only accumulate, that captions carry the measured states, counts, and cooldowns, and that the final scene holds the practice result (closed after two trials). drawScene is exercised against a bare context at sampled moments.",
+      "check": "trace-fixture"
+    }
+  ]
+}

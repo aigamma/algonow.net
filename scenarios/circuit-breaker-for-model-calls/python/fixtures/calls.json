@@ -1,0 +1,57 @@
+{
+ "threshold": 3,
+ "cooldown": 2.0,
+ "recovery": 2,
+ "calls": [
+  {
+   "id": "c1",
+   "t": 0.0,
+   "provider": "ok"
+  },
+  {
+   "id": "c2",
+   "t": 0.4,
+   "provider": "fail"
+  },
+  {
+   "id": "c3",
+   "t": 0.8,
+   "provider": "fail"
+  },
+  {
+   "id": "c4",
+   "t": 1.2,
+   "provider": "fail"
+  },
+  {
+   "id": "c5",
+   "t": 1.5,
+   "provider": "fail"
+  },
+  {
+   "id": "c6",
+   "t": 2.0,
+   "provider": "fail"
+  },
+  {
+   "id": "c7",
+   "t": 3.3,
+   "provider": "fail"
+  },
+  {
+   "id": "c8",
+   "t": 4.0,
+   "provider": "fail"
+  },
+  {
+   "id": "c9",
+   "t": 5.4,
+   "provider": "ok"
+  },
+  {
+   "id": "c10",
+   "t": 5.8,
+   "provider": "ok"
+  }
+ ]
+}

@@ -1,0 +1,181 @@
+{
+ "threshold": 3,
+ "cooldown": 2.0,
+ "records": [
+  {
+   "id": "c1",
+   "t": 0.0,
+   "before": "closed",
+   "action": "ok",
+   "after": "closed"
+  },
+  {
+   "id": "c2",
+   "t": 0.4,
+   "before": "closed",
+   "action": "failed",
+   "after": "closed"
+  },
+  {
+   "id": "c3",
+   "t": 0.8,
+   "before": "closed",
+   "action": "failed",
+   "after": "closed"
+  },
+  {
+   "id": "c4",
+   "t": 1.2,
+   "before": "closed",
+   "action": "failed",
+   "after": "open"
+  },
+  {
+   "id": "c5",
+   "t": 1.5,
+   "before": "open",
+   "action": "skipped",
+   "after": "open"
+  },
+  {
+   "id": "c6",
+   "t": 2.0,
+   "before": "open",
+   "action": "skipped",
+   "after": "open"
+  },
+  {
+   "id": "c7",
+   "t": 3.3,
+   "before": "half-open",
+   "action": "trial failed",
+   "after": "open"
+  },
+  {
+   "id": "c8",
+   "t": 4.0,
+   "before": "open",
+   "action": "skipped",
+   "after": "open"
+  },
+  {
+   "id": "c9",
+   "t": 5.4,
+   "before": "half-open",
+   "action": "trial ok",
+   "after": "closed"
+  },
+  {
+   "id": "c10",
+   "t": 5.8,
+   "before": "closed",
+   "action": "ok",
+   "after": "closed"
+  }
+ ],
+ "reached": [
+  "c1",
+  "c2",
+  "c3",
+  "c4",
+  "c7",
+  "c9",
+  "c10"
+ ],
+ "returned_failure": [
+  "c2",
+  "c3",
+  "c4",
+  "c7"
+ ],
+ "skipped": [
+  "c5",
+  "c6",
+  "c8"
+ ],
+ "shipped": {
+  "provider_calls": 10,
+  "failures": 7,
+  "skipped_would_have_failed": 3,
+  "skipped_would_have_succeeded": 0
+ },
+ "practice": {
+  "recovery": 2,
+  "records": [
+   {
+    "id": "c1",
+    "t": 0.0,
+    "before": "closed",
+    "action": "ok",
+    "after": "closed"
+   },
+   {
+    "id": "c2",
+    "t": 0.4,
+    "before": "closed",
+    "action": "failed",
+    "after": "closed"
+   },
+   {
+    "id": "c3",
+    "t": 0.8,
+    "before": "closed",
+    "action": "failed",
+    "after": "closed"
+   },
+   {
+    "id": "c4",
+    "t": 1.2,
+    "before": "closed",
+    "action": "failed",
+    "after": "open"
+   },
+   {
+    "id": "c5",
+    "t": 1.5,
+    "before": "open",
+    "action": "skipped",
+    "after": "open"
+   },
+   {
+    "id": "c6",
+    "t": 2.0,
+    "before": "open",
+    "action": "skipped",
+    "after": "open"
+   },
+   {
+    "id": "c7",
+    "t": 3.3,
+    "before": "half-open",
+    "action": "trial failed",
+    "after": "open"
+   },
+   {
+    "id": "c8",
+    "t": 4.0,
+    "before": "open",
+    "action": "skipped",
+    "after": "open"
+   },
+   {
+    "id": "c9",
+    "t": 5.4,
+    "before": "half-open",
+    "action": "trial ok",
+    "after": "half-open"
+   },
+   {
+    "id": "c10",
+    "t": 5.8,
+    "before": "half-open",
+    "action": "trial ok",
+    "after": "closed"
+   }
+  ],
+  "trials": [
+   "c9",
+   "c10"
+  ]
+ }
+}

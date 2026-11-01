@@ -1,0 +1,18 @@
+10 calls, breaker opens after 3 consecutive failures, cooldown 2.0 seconds
+id    time  before     action        after
+c1    0.00  closed     ok            closed
+c2    0.40  closed     failed        closed
+c3    0.80  closed     failed        closed
+c4    1.20  closed     failed        open
+c5    1.50  open       skipped       open
+c6    2.00  open       skipped       open
+c7    3.30  half-open  trial failed  open
+c8    4.00  open       skipped       open
+c9    5.40  half-open  trial ok      closed
+c10   5.80  closed     ok            closed
+
+provider calls 7 of 10, failures returned 4, skipped 3 (c5, c6, c8)
+
+rejected: calls must arrive in time order: c2 at 0.5 after 1.0
+
+OK

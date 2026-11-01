@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:majority-vote-filter-teacher-samples",
+  "source_path": "src/content/majority-vote-filter-teacher-samples.narration.js",
+  "source_sha256": "c6e109a11a35937122111f3489296966929e0be377cf42f51d0ed7f0ca750b03",
+  "source_characters": 13517,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "8e83d61381585edff3664b17ef803e09f60c405bad830ab5c1513ca0d615138f",
+  "generated_at": "2026-11-01T04:12:09.115Z",
+  "generated_characters": 27034,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 4599,
+      "utf8_bytes": 4611,
+      "sha256": "38c222e7aa10faad3192b3565546a36c3ff7175a5d2138d84cda8dfe717d1490"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3780,
+      "utf8_bytes": 3786,
+      "sha256": "cabc4ec4d42f507e5e665ac3f1c939109f0bdf41e4dcb520840c8619724a1144"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 4582,
+      "utf8_bytes": 4590,
+      "sha256": "4e79cbf9843196391ba625b4a78a07fb4f52379d5ce0db75dd85ce8d44fa2694"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 556,
+      "utf8_bytes": 558,
+      "sha256": "bbbb83bca71d8000f3baa74b8a47eb6caac4c441d42fc7291593989dfd2fc9b0"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "majority-vote-filter-teacher-samples.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "majority-vote-filter-teacher-samples.01-brief",
+      "label": "Engineering Brief",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2248,
+      "sha256": "35ecbc7e9ef2b812ad8e64a1c0e7962f23873df6ed06fa6b6bb21aa6895c51c0"
+    },
+    {
+      "id": "majority-vote-filter-teacher-samples.02-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2234,
+      "sha256": "2b0e92834ea42d5da23a5641e7d0012bd5bf23435cc9a463786e2dc0a1cbbb4a"
+    },
+    {
+      "id": "majority-vote-filter-teacher-samples.03-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2088,
+      "sha256": "6756a0e1f942dcd116a39e1dda895b65731f12351ee910cf3e67f6badb58db29"
+    },
+    {
+      "id": "majority-vote-filter-teacher-samples.04-visual",
+      "label": "System Diagram",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1694,
+      "sha256": "d4b38c476d7fdd8502f0fdd80b13156cd4f4aefd89b80ce675e259482eaa183a"
+    },
+    {
+      "id": "majority-vote-filter-teacher-samples.05-evidence",
+      "label": "Validation Evidence",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1509,
+      "sha256": "3f74d5549aefff77c0cc148236801fce177ed350d8524cf79ab9b57f6fe83b34"
+    },
+    {
+      "id": "majority-vote-filter-teacher-samples.06-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1665,
+      "sha256": "30a842682161094c83fef3c0942cb7148e3abc9bf8150b35207275230e460f80"
+    },
+    {
+      "id": "majority-vote-filter-teacher-samples.07-starter",
+      "label": "Starting Point",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1410,
+      "sha256": "7a6b235c88ff2deb56c8f031a5f43c5160bf02a6bcad5da4f91df32ec7a02bc9"
+    },
+    {
+      "id": "majority-vote-filter-teacher-samples.08-files",
+      "label": "Working Files",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 558,
+      "sha256": "bbbb83bca71d8000f3baa74b8a47eb6caac4c441d42fc7291593989dfd2fc9b0"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/majority-vote-filter-teacher-samples/8e83d61381585edff366/aoede-fa236d1290f957e4.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3454604,
+      "sha256": "fa236d1290f957e413c285ee600542bfbd1fb35aedbd0e1dfa1a18de66e83e20",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "38c222e7aa10faad3192b3565546a36c3ff7175a5d2138d84cda8dfe717d1490",
+          "bytes": 1148736,
+          "sha256": "6728366e9b23eb63fb5b993312f18f0aee33ff0d9f2a8d3834d08617939c0ed9"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "cabc4ec4d42f507e5e665ac3f1c939109f0bdf41e4dcb520840c8619724a1144",
+          "bytes": 979296,
+          "sha256": "7416a265f2a85fe23188a29c56eeb7393ecf064c4808be167e98f0c924ac42c0"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "4e79cbf9843196391ba625b4a78a07fb4f52379d5ce0db75dd85ce8d44fa2694",
+          "bytes": 1196064,
+          "sha256": "f1e76db4bd6beef4d3c4d2cfd0a054e462c667897d70cf9b33c430dcd9ffc334"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "bbbb83bca71d8000f3baa74b8a47eb6caac4c441d42fc7291593989dfd2fc9b0",
+          "bytes": 130272,
+          "sha256": "a690a045538e0c3aeed9ed0dcba0a22902866c81d6f646012021c7d7227fc36a"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/majority-vote-filter-teacher-samples/8e83d61381585edff366/algieba-e3285ea8a4e6e087.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 3565772,
+      "sha256": "e3285ea8a4e6e087d68327ac3221cd2c17629be44bd1fcf94a4c3aafbbfd13de",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "38c222e7aa10faad3192b3565546a36c3ff7175a5d2138d84cda8dfe717d1490",
+          "bytes": 1216032,
+          "sha256": "51cfe591767c1180a91c26a291213597dbab5ab10f12eb904119b6dfe78b1436"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "cabc4ec4d42f507e5e665ac3f1c939109f0bdf41e4dcb520840c8619724a1144",
+          "bytes": 1006656,
+          "sha256": "382b74b16689abefc3470ae775ea59aee4badd921be5a68c9c4e7c80f810c46e"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "4e79cbf9843196391ba625b4a78a07fb4f52379d5ce0db75dd85ce8d44fa2694",
+          "bytes": 1207776,
+          "sha256": "45d90305adbc1ba89ed5b3815fba0b1d7efa6ccf33aa8382e9ccf7b496982cca"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "bbbb83bca71d8000f3baa74b8a47eb6caac4c441d42fc7291593989dfd2fc9b0",
+          "bytes": 135072,
+          "sha256": "ab53e0a6e4693789e342d7c14336f37482a54267b9c76b897b7fce6e3d639cd7"
+        }
+      ]
+    }
+  }
+}

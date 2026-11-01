@@ -560,7 +560,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'Orbit samples its large assistant five times per prompt to build the distillation set for a small router, and the script that shipped took the first sample as the label, so prompts the teacher never settled, and minority answers, went in as labels. A worked Python example normalizes the sampled answers, counts them with a Counter, reads the most common answer and its share, drops ties and weak majorities, and keeps the rest with the majority answer as the label: five inline prompts, most_common and tuple unpacking, an agreement compared with a threshold, its exact output, a trace of every tally, what the first-sample labels got wrong, and one practice variation that grades kept prompts gold or silver.',
     track: 'distillation',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-31', listenMinutes: 11,
     difficulty: 'foundation',
     durationMinutes: 25,
     skills: ['Self-consistency filtering by majority vote', 'collections.Counter and most_common', 'Normalizing answers before counting', 'A tie test before a threshold test', 'Grading tiers with an if, elif chain (practice)'],

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "scope": "algonow.net circuit-breaker-for-model-calls preserved narration release",
+  "cloudformation_stack": "algonow-media-prod",
+  "aws_region": "us-east-2",
+  "cloudfront_distribution_id": "E1BJWNL5BP3R8E",
+  "cloudfront_distribution_domain": "d1odatz89tx6pl.cloudfront.net",
+  "private_origin_binding_sha256": "33eb92bbea56e998affbe2a159395fbb483979ec0e50b10f2ff2d8601a9fb25a",
+  "published_at": "2026-11-01T03:34:47.089Z",
+  "publication_sha256": "e7dd67e13b8b6707a7eda4524cd2490598a382467ba323af29d429bdc1379d04",
+  "page_count": 1,
+  "release_count": 1,
+  "preexisting_manifest_count": 0,
+  "object_count": 2,
+  "uploaded_count": 2,
+  "verified_existing_count": 0,
+  "total_bytes": 8719768,
+  "objects": [
+    {
+      "stable_id": "puzzle:circuit-breaker-for-model-calls",
+      "slug": "circuit-breaker-for-model-calls",
+      "track_id": "algieba",
+      "source_sha256": "ce10ee47b9f4c86dec36135da688736e62524da5ffd6841bd9a8a3f796cef218",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "f540586c83dec626889c7a90ec1418c309212702b332baf4e73a4b8b638dca9e",
+      "object_key": "narration/v1/puzzles/circuit-breaker-for-model-calls/f540586c83dec626889c/algieba-72e3bd921c25ffac.mp3",
+      "bytes": 4459244,
+      "sha256": "72e3bd921c25ffacb3be8703930117b6cc131abf54fa90eafd42b1144b7bdb19",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    },
+    {
+      "stable_id": "puzzle:circuit-breaker-for-model-calls",
+      "slug": "circuit-breaker-for-model-calls",
+      "track_id": "aoede",
+      "source_sha256": "ce10ee47b9f4c86dec36135da688736e62524da5ffd6841bd9a8a3f796cef218",
+      "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+      "release_sha256": "f540586c83dec626889c7a90ec1418c309212702b332baf4e73a4b8b638dca9e",
+      "object_key": "narration/v1/puzzles/circuit-breaker-for-model-calls/f540586c83dec626889c/aoede-18e71cd4a8a45163.mp3",
+      "bytes": 4260524,
+      "sha256": "18e71cd4a8a4516327da0cebbe3f5c7c916ac5f327eb2e38bfc74afb78e46f52",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "result": "uploaded"
+    }
+  ]
+}

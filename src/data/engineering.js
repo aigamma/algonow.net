@@ -448,7 +448,7 @@ export const SCENARIOS = Object.freeze([
     summary: 'When Orbit\'s hosted model provider degraded, every request to the gateway waited out the full timeout and failed, and the retries kept the provider saturated. A worked Python example protects the calls with a three-state circuit breaker: ten scripted calls inline, a state kept in a string variable, a failure counter that opens the breaker at a threshold, a cooldown measured from the moment it opened, a half-open trial call that closes it or opens it again, calls skipped with continue while it is open, its exact output, a trace of the state at every call, and one practice variation that requires two trial successes before closing.',
     track: 'serving',
     language: 'python',
-    status: 'draft',
+    status: 'published', added: '2026-10-31', listenMinutes: 14,
     difficulty: 'intermediate',
     durationMinutes: 30,
     skills: ['A three-state circuit breaker over scripted calls', 'A state machine as a string variable and an if, elif chain', 'A failure counter that resets and a timestamp for the cooldown', 'Skipping work with continue', 'Two trial successes to close (practice)'],

@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "content_id": "puzzle:circuit-breaker-for-model-calls",
+  "source_path": "src/content/circuit-breaker-for-model-calls.narration.js",
+  "source_sha256": "ce10ee47b9f4c86dec36135da688736e62524da5ffd6841bd9a8a3f796cef218",
+  "source_characters": 16769,
+  "recipe": {
+    "schema_version": 1,
+    "provider": "Google Cloud Text-to-Speech",
+    "model": "Chirp 3 HD",
+    "language_code": "en-US",
+    "input_type": "text",
+    "audio_encoding": "MP3",
+    "speaking_rate": 1,
+    "pitch": "provider-default",
+    "adapter": "canonical-authored-narration-array-v1",
+    "normalizer": "puzzle-narration-v1",
+    "tracks": {
+      "aoede": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Aoede"
+      },
+      "algieba": {
+        "language_code": "en-US",
+        "voice_id": "en-US-Chirp3-HD-Algieba"
+      }
+    },
+    "request_segmentation": {
+      "mode": "utf8-soft-boundary-v1",
+      "maximum_utf8_bytes": 5000,
+      "preferred_boundaries": [
+        "paragraph",
+        "sentence",
+        "whitespace",
+        "code-point"
+      ]
+    },
+    "multipart_assembly": {
+      "mode": "ffmpeg-concat-remux-v1",
+      "audio_codec": "copy",
+      "container": "mp3"
+    }
+  },
+  "recipe_sha256": "251cfe29107da7c189a431aff1f9f436b511686ca37508ab09c8df62bcc412f3",
+  "release_sha256": "f540586c83dec626889c7a90ec1418c309212702b332baf4e73a4b8b638dca9e",
+  "generated_at": "2026-11-01T03:33:31.473Z",
+  "generated_characters": 33538,
+  "default_voice": "aoede",
+  "default_rate": 1.25,
+  "rate_options": [
+    {
+      "value": 1,
+      "label": "1.00x"
+    },
+    {
+      "value": 1.25,
+      "label": "1.25x"
+    },
+    {
+      "value": 1.5,
+      "label": "1.50x"
+    },
+    {
+      "value": 1.75,
+      "label": "1.75x"
+    }
+  ],
+  "request_chunks": [
+    {
+      "id": "request-001",
+      "index": 1,
+      "characters": 2788,
+      "utf8_bytes": 2794,
+      "sha256": "7ad513f0b5bcb2ffe79748a8db49752297d178d6ea64171b47606a76bdfa95cc"
+    },
+    {
+      "id": "request-002",
+      "index": 2,
+      "characters": 3327,
+      "utf8_bytes": 3327,
+      "sha256": "59aad0907d148fb8d1028e0aa27366df4cfb83a07f912ef7553954be5faacbf1"
+    },
+    {
+      "id": "request-003",
+      "index": 3,
+      "characters": 4990,
+      "utf8_bytes": 4992,
+      "sha256": "afd713835333086f24e9b9de9a5e4162f79f08294573c8378f8c193a10e0a85c"
+    },
+    {
+      "id": "request-004",
+      "index": 4,
+      "characters": 3301,
+      "utf8_bytes": 3301,
+      "sha256": "74f4ec5ce1af6a5ce49883f1b25d94ca0a231a536181dd79fbeb9a60ee0bd748"
+    },
+    {
+      "id": "request-005",
+      "index": 5,
+      "characters": 2363,
+      "utf8_bytes": 2365,
+      "sha256": "d403f0912aa76c2ab892f279e5642653eaad807d68fec8b93089a61cc4d9c3f5"
+    }
+  ],
+  "assembly": {
+    "mode": "ffmpeg-concat-remux-v1",
+    "audio_codec": "copy",
+    "container": "mp3"
+  },
+  "segments": [
+    {
+      "id": "circuit-breaker-for-model-calls.00-disclosure",
+      "label": "AI Narration Disclosure",
+      "source_fields": [],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 123,
+      "sha256": "7a5b217b58d4d657416aa84774488061de4941318ad7220fde1903a65930d7d9"
+    },
+    {
+      "id": "circuit-breaker-for-model-calls.01-brief",
+      "label": "Engineering Brief",
+      "source_fields": [
+        "narration[0].section",
+        "narration[0].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2667,
+      "sha256": "944aae28a03dac60ecfd5ee891562a8fcbee214f7c31d52cee994d8a7d2324a7"
+    },
+    {
+      "id": "circuit-breaker-for-model-calls.02-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[1].section",
+        "narration[1].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 3325,
+      "sha256": "f28d183df542dd5f4392cdaef88731de3a9dbdc620f037f21dd21603eb675a1c"
+    },
+    {
+      "id": "circuit-breaker-for-model-calls.03-solution",
+      "label": "Reference Approach",
+      "source_fields": [
+        "narration[2].section",
+        "narration[2].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2595,
+      "sha256": "f4b937b9d52fe09b21d52fe57483c460003fd1226446140785af21f91d83b834"
+    },
+    {
+      "id": "circuit-breaker-for-model-calls.04-visual",
+      "label": "System Diagram",
+      "source_fields": [
+        "narration[3].section",
+        "narration[3].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 2393,
+      "sha256": "225065394c8ababbc6cee3768d222f1b27a15fe0839ca44e8bf8885623f5b8d7"
+    },
+    {
+      "id": "circuit-breaker-for-model-calls.05-evidence",
+      "label": "Validation Evidence",
+      "source_fields": [
+        "narration[4].section",
+        "narration[4].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1732,
+      "sha256": "9e0c3bee1c7a400bdb017a53e5c798431a0553fba06deb032bcc6a7e1d8cf396"
+    },
+    {
+      "id": "circuit-breaker-for-model-calls.06-tradeoffs",
+      "label": "Tradeoffs and Rivals",
+      "source_fields": [
+        "narration[5].section",
+        "narration[5].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1565,
+      "sha256": "bde8e6b5b10e8b7f3da7e26b8d3e1b91fe0f93ab2ef9c731c5cd85a3c27be5ec"
+    },
+    {
+      "id": "circuit-breaker-for-model-calls.07-starter",
+      "label": "Starting Point",
+      "source_fields": [
+        "narration[6].section",
+        "narration[6].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 1842,
+      "sha256": "850b39490d7f189082bbcf24de1be27995ab89c5763936b0b33455e33aa52283"
+    },
+    {
+      "id": "circuit-breaker-for-model-calls.08-files",
+      "label": "Working Files",
+      "source_fields": [
+        "narration[7].section",
+        "narration[7].text"
+      ],
+      "excluded_fields": [
+        "content.code",
+        "solution source",
+        "inline literal code tokens",
+        "rendered code editor payloads",
+        "copy controls",
+        "language badges",
+        "line numbers",
+        "output consoles",
+        "syntax highlighting labels",
+        "navigation",
+        "player controls"
+      ],
+      "utf8_bytes": 521,
+      "sha256": "15e9be7a1bfbbc86d1a6e6cec4d814d308126370bc2a62bb59d515d606ded695"
+    }
+  ],
+  "tracks": {
+    "aoede": {
+      "label": "Aoede",
+      "gender": "female",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Aoede",
+      "object_key": "narration/v1/puzzles/circuit-breaker-for-model-calls/f540586c83dec626889c/aoede-18e71cd4a8a45163.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4260524,
+      "sha256": "18e71cd4a8a4516327da0cebbe3f5c7c916ac5f327eb2e38bfc74afb78e46f52",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "7ad513f0b5bcb2ffe79748a8db49752297d178d6ea64171b47606a76bdfa95cc",
+          "bytes": 772512,
+          "sha256": "245760d603df589e3d70f3b7537ae60940a843e6ddf1e989c73ffaeec03b337e"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "59aad0907d148fb8d1028e0aa27366df4cfb83a07f912ef7553954be5faacbf1",
+          "bytes": 816864,
+          "sha256": "d2ea53eff90e86923f74924b4329a79cabfa995c815c7dd00000e8ea2ae38189"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "afd713835333086f24e9b9de9a5e4162f79f08294573c8378f8c193a10e0a85c",
+          "bytes": 1248672,
+          "sha256": "c89d9f3bb6db1824476133e88072705201d2fcde9a300c69ef233bb51a5d66ea"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "74f4ec5ce1af6a5ce49883f1b25d94ca0a231a536181dd79fbeb9a60ee0bd748",
+          "bytes": 824064,
+          "sha256": "9c631cb824317bf0eab9884b2492c60cbaa36446912bb04f6a1ec7be6359fe08"
+        },
+        {
+          "request_index": 5,
+          "request_sha256": "d403f0912aa76c2ab892f279e5642653eaad807d68fec8b93089a61cc4d9c3f5",
+          "bytes": 598176,
+          "sha256": "f46e38b2e4fe82688706f54e6139e51aa6c27f6315c947ff55d613ece34ccc8b"
+        }
+      ]
+    },
+    "algieba": {
+      "label": "Algieba",
+      "gender": "male",
+      "language_code": "en-US",
+      "voice_id": "en-US-Chirp3-HD-Algieba",
+      "object_key": "narration/v1/puzzles/circuit-breaker-for-model-calls/f540586c83dec626889c/algieba-72e3bd921c25ffac.mp3",
+      "content_type": "audio/mpeg",
+      "cache_control": "public,max-age=31536000,immutable",
+      "bytes": 4459244,
+      "sha256": "72e3bd921c25ffacb3be8703930117b6cc131abf54fa90eafd42b1144b7bdb19",
+      "request_parts": [
+        {
+          "request_index": 1,
+          "request_sha256": "7ad513f0b5bcb2ffe79748a8db49752297d178d6ea64171b47606a76bdfa95cc",
+          "bytes": 801984,
+          "sha256": "75b8f5d1bd78f1609ab7e26f902de5ac88a103455754dfb9a25199625f8c229a"
+        },
+        {
+          "request_index": 2,
+          "request_sha256": "59aad0907d148fb8d1028e0aa27366df4cfb83a07f912ef7553954be5faacbf1",
+          "bytes": 887712,
+          "sha256": "2783f8b3d39309f849c26f6602a189ebd2009c8bfa3596a1fafc7f6b4325de43"
+        },
+        {
+          "request_index": 3,
+          "request_sha256": "afd713835333086f24e9b9de9a5e4162f79f08294573c8378f8c193a10e0a85c",
+          "bytes": 1313184,
+          "sha256": "608a1b2a55c2020931603c3c2b43f4fd15d76212c455c17953581624514f6dd8"
+        },
+        {
+          "request_index": 4,
+          "request_sha256": "74f4ec5ce1af6a5ce49883f1b25d94ca0a231a536181dd79fbeb9a60ee0bd748",
+          "bytes": 857184,
+          "sha256": "334cb6462b8bee4bef9241e8e801889081be8903c63a2962d22ce140d6690db4"
+        },
+        {
+          "request_index": 5,
+          "request_sha256": "d403f0912aa76c2ab892f279e5642653eaad807d68fec8b93089a61cc4d9c3f5",
+          "bytes": 598944,
+          "sha256": "2c55344b5a9e2f217bc387a9912c0de044cc6e31ce40ebee0304740c8c444c77"
+        }
+      ]
+    }
+  }
+}
